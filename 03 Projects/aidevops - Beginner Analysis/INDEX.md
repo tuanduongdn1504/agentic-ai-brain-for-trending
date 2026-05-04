@@ -1,0 +1,104 @@
+# INDEX — aidevops - Beginner Analysis (v47 wiki)
+
+**Subject:** `marcusquinn/aidevops` (AI DevOps Framework)
+**Wiki version:** v47 (47th in Storm Bear corpus)
+**Date shipped:** 2026-04-25
+**Tier:** T1 Agent-as-assistant (14th entrant)
+**Sub-archetype:** OpenCode-first cross-domain multi-agent AI-DevOps platform (CORPUS-FIRST)
+**Author:** Marcus Quinn (Jersey UK)
+**License:** MIT
+**Version:** v3.11.0
+**Stars:** 212 (cold-start at 5.5 months)
+**Primitive count:** ~2,665+ (EXTREME tier — NEW CORPUS-RECORD)
+
+---
+
+## Files
+
+### Project root
+- `CLAUDE.md` — 12-axis classification + Phase 0.5 pattern pre-check + Phase 0.9 primitive-count probe + scope-compression decisions
+- `INDEX.md` (this file)
+- `LOG.md` — chronological progress log
+- `OPEN-QUESTIONS.md` — outstanding questions + future watches
+
+### Source
+- `00 Source/aidevops/` — git clone of subject repo
+
+### Cluster summaries
+- `01 Cluster Summaries/(C) Cluster A — README + 13-domain coverage + autonomous supervisor.md`
+- `01 Cluster Summaries/(C) Cluster B — AGENTS.md-authoritative + 3-layer governance + ~2665 primitives.md`
+- `01 Cluster Summaries/(C) Cluster C — Marcus Quinn ecosystem + OpenCode-first + commercial positioning.md`
+
+### Entity pages (4)
+- `02 Entity Pages/(C) aidevops core product.md`
+- `02 Entity Pages/(C) Marcus Quinn solo-individual ecosystem.md`
+- `02 Entity Pages/(C) T1 14-way + OpenCode-first sub-archetype + Pattern implications.md`
+- `02 Entity Pages/(C) Storm Bear meta-entity v47 — 36th consecutive.md`
+
+### Beginner guide
+- `03 Beginner Guide/(C) Beginner guide bilingual VN+EN.md` (~14 sections)
+
+### Phase 4b primary deliverable
+- `04 Phase 4b Deliverable/(C) v47 Phase 4b — T1 14-way + OpenCode-first + AGENTS.md inversion + cross-provider-verification + EXTREME tier.md` (11 parts)
+
+### Iteration log
+- `05 Iteration Log/(C) v47 iteration log.md` (13 sections)
+
+---
+
+## Pattern Library impact summary
+
+| Pattern | Action |
+|---|---|
+| #18 Agent Runtime Standardization | Strengthening + sub-observation NEW (OpenCode-as-primary T1 plugin CORPUS-FIRST) |
+| #19 Intellectual Lineage archetype 2 | Strengthening (Lance Martin 4th individual-influence-node) |
+| #22 AGENTS.md Industry Standard | Formulation extension proposal (3-layer governance hierarchy + sub-variant 22c CORPUS-FIRST) |
+| #28 Multi-Provider AI Support | Formulation extension proposal (verification-not-routing as 3rd sub-axis CORPUS-FIRST) |
+| #57 Recursive Corpus Reference | 4th data point (CREDITS.md cites VoltAgent v25 + Google Stitch v25) |
+| #17 Ecosystem-Layer variant 1 | Strengthening (18th data point) |
+| #20 Solo-Scale Ceiling | NEW T1 row (cold-start-with-mature-framework-surface) |
+| #29 MIT | Strengthening (39th MIT observation) |
+| #12 Governance-Depth refined v42 3-factor | Strengthening (4th counter-evidence wiki) |
+| #51 Vibe-Coding Spectrum | Confirmed strengthening (anti-vibe-pole) |
+| #2 Distribution Evolution | Strengthening (5-surface distribution) |
+| #27 Community-Viral Scale Path | Counter-evidence observational (cold-start-mature-surface NOT viral) |
+
+**0 new active candidates registered. 0 new OBSERVATION-TRACKs. 11-streak zero-registration extended (CORPUS-RECORD; v37-v47).**
+
+---
+
+## Key corpus-firsts at v47 (top 10)
+
+1. **OpenCode-first T1 framework** (CLAUDE.md as redirect-shim secondary)
+2. **AGENTS.md-authoritative-with-CLAUDE.md+AGENT.md-redirect-shims** (3-file inversion)
+3. **3-layer governance hierarchy** (Layer 0 shims / Layer 1 dev-guide / Layer 2 user-guide deployed)
+4. **Cross-provider verification (verification-not-routing)** as Pattern #28 NEW sub-axis
+5. **EXTREME primitive-count corpus-record** (~2,665+ primitives; 5× ruflo v42)
+6. **Lance Martin (LangChain) explicit citation** (Pattern #19 4th individual-influence-node)
+7. **2-min cron pulse supervisor as LLM** (corpus-first explicit "pulse is LLM not script")
+8. **8-tool external quality platform stack** (Codacy + CodeFactor + CodeRabbit + Sonar + Qlty + Bandit + secretlint + ShellCheck)
+9. **Cold-start-with-mature-framework-surface** (212 stars / 5.5 months / ~2,665 primitives)
+10. **TOON format originator** (aidevops-originated token-efficient serialization)
+
+(20 corpus-firsts documented in `02 Entity Pages/(C) Storm Bear meta-entity v47 — 36th consecutive.md` + `05 Iteration Log/(C) v47 iteration log.md` Section 6)
+
+---
+
+## Storm Bear pilot ranking (post-v47)
+
+| # | Wiki | Storm Bear pilot value |
+|---|---|---|
+| 1 | claude-hud v35 | Display utility direct adopt |
+| 2 | spec-kit v17 | Methodology corporate stable |
+| 3 | claude-howto v32 | Tutorial / 4-week self-onboarding |
+| 4 | OMC v27 | Multi-runtime orchestration |
+| 5 | pi-mono v36 | Claude Code alternative |
+| 6 | claude-code-best-practice v34 | 82-tip aggregator |
+| **7** | **aidevops v47** **NEW** | **Pattern templates only (NOT framework adoption)** |
+| 8 | rowboat v43 | Personal-productivity peer |
+| 9 | claude-context v40 | Code-indexing pilot |
+| 10 | graphify v16 | Code-indexing pilot |
+
+---
+
+*(C) Generated by Claude — INDEX for v47 aidevops*

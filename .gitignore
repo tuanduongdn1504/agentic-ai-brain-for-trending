@@ -1,0 +1,101 @@
+# Storm Bear vault — public-release .gitignore
+# Drafted 2026-04-29 session 68 per Q3=A (cloned source excluded) + Q5=C (journals private; Chess Moves public per Q4=D)
+# Goal: drop vault from 4.7GB → ~50-150MB for clean GitHub publish
+
+# === OS ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# === Claude Code local state ===
+.claude/
+.claudian/
+.claude-output/
+.claude_output/
+
+# === Obsidian local state (NOT vault content; just plugin caches + workspace) ===
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json.bak
+
+# Obsidian plugins with massive node_modules — never commit
+**/.obsidian/plugins/claudian/
+**/.obsidian/plugins/*/node_modules/
+
+# Obsidian plugin bundle code (main.js etc — large; install fresh from community plugin browser)
+# Keep manifest.json so others know which plugins to install
+**/.obsidian/plugins/*/main.js
+**/.obsidian/plugins/*/styles.css
+**/.obsidian/plugins/*/data.json
+**/.obsidian/plugins/*/brat-migrations.json
+
+# === Cloned external repos (Q3=A; 2.6GB; license conflicts; redundant) ===
+# Both singular "00 Source/" and plural "00 Sources/" used across 03 Projects/* wikis
+03 Projects/*/00 Source/
+03 Projects/*/00 Sources/
+
+# NOTE: n8n v56 wiki uses "01 Sources/" (operator-authored cluster summary content) — NOT excluded
+
+# === Nested .git directories (from cloned 00 Source/Sources subprojects) ===
+**/.git/
+# Re-allow root .git via Git's default behavior — only nested .git dirs in subdirs are gitignored
+
+# === Node modules everywhere ===
+**/node_modules/
+
+# === Python caches ===
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# === Build/binary artifacts ===
+*.pack
+*.dylib
+*.so
+*.dll
+*.exe
+*.o
+*.obj
+dist/
+build/
+
+# === Environment + secrets ===
+.env
+.env.*
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.iml
+
+# === Q5=C: 01 Journals/ private (Chess Moves stays public per Q4=D) ===
+01 Journals/
+
+# === Other product/template clones ===
+03 Projects/product/
+03 Projects/(PROJECT TEMPLATE)/.obsidian/plugins/claudian/
+
+# === Logs ===
+*.log
+logs/
+
+# === Temp ===
+*.tmp
+*.temp
+tmp/
+temp/
+
+# === Backup state ===
+_state/_root-*.tmp
+_goals/_root-*.tmp
+_patterns/_root-*.tmp

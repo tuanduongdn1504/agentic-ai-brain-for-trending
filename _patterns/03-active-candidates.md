@@ -1,0 +1,562 @@
+## Active Candidates (17 — post-v53 mini-audit: -1 from prior 18 baseline via Pattern #38 promotion to CONFIRMED via NEW sister-archive-structural-N=2 criterion; FIRST sub-0.45:1 ratio in corpus history achieved at this audit close at 17:39 = 0.436:1)
+
+#### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
+**Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
+**Evidence:** paperclip v14 only — direct Nick Bostrom paperclip-maximizer reference + MAXIMIZER MODE roadmap.
+**Required for promotion:** 2+ more frameworks with explicit alignment-theory framing.
+**Re-evaluation:** at v25 or if 2nd alignment-framed framework appears.
+**Rationale for stale-flag:** rare-but-distinctive pattern; not retired (may re-emerge) but lower priority for observation.
+
+#### 🟡 #16 Skill Dependency Locking ⏳ STALE-CANDIDATE at v21 audit
+**Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 6 wikis since v15 with no additional evidence.
+**Evidence:** multica v15 `skills-lock.json` with SHA-256 integrity hashes.
+**Required for promotion:** 2+ more frameworks adopting lock-file pattern for external skill dependencies.
+**Re-evaluation:** at v25 or if 2nd framework ships skills-lock.json-equivalent.
+**Rationale for stale-flag:** novel at v15 (package-lock.json parallel); ecosystem hasn't followed at 6-wiki window. May be ahead-of-curve or genuinely niche. Keep observing.
+
+#### ⏳ #21 SDD Methodology Emergence — STALE-CANDIDATE (flagged v25 audit)
+**Status at v25 audit:** Flagged STALE-CANDIDATE — N=2 single-tier (both T1) after 8 wikis since v17 spec-kit. Mini-audit v22 flagged approaching stale; full audit v25 confirms.
+**Evidence:** GSD v5 (feature-level) + spec-kit v17 (whole methodology).
+**Required for promotion:** 1+ more framework centering Spec-Driven Development, ideally at different tier.
+**Re-evaluation:** at v30 OR if spec-driven framework emerges at T2-T5.
+**Rationale:** v18-v25 corpus additions (8 wikis) had zero new SDD-centered frameworks. May be T1-specific or zeitgeist-timed phenomenon past peak.
+
+#### ⏳ #23 AI-Disclosure Policy Emergence — STALE-CANDIDATE (flagged v25 audit)
+**Status at v25 audit:** Flagged STALE-CANDIDATE — N=1 after 8 wikis since v17 spec-kit. Mini-audit v22 flagged approaching stale; full audit v25 confirms.
+**Evidence:** spec-kit v17 only — formal AI-disclosure policy in CONTRIBUTING.
+**Required for promotion:** 2+ more frameworks with formal AI-assistance-disclosure policy.
+**Re-evaluation:** at v30 OR if corporate-backed framework adds AI-disclosure policy.
+**Rationale:** Corporate-backed frameworks since v17 (gws earlier) haven't added explicit AI-disclosure. spec-kit may be ahead-of-curve OR niche phenomenon.
+
+#### ⏳ #25 Personality-Driven Agent Design — STALE-CANDIDATE (flagged v25 audit)
+**Status at v25 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v18 agency-agents. Mini-audit v22 flagged approaching stale; full audit v25 confirms.
+**Evidence:** agency-agents v18 (Whimsy Injector, Reality Checker, Reddit Community Builder). BMAD v11 has named agents (Amelia/Barry/Quinn/Bob) but less personality emphasis.
+**Required for promotion:** 2+ more frameworks with first-class personality design.
+**Re-evaluation:** at v30 OR if personality-driven agent framework emerges.
+**Rationale:** Agent-count frameworks since v18 (codymaster / spec-kit / Unsloth agents implicit) lack personality-design emphasis. May be agency-agents-specific rather than emerging trend.
+
+#### 🟡 #26 Shell-first T1
+**Status:** 2 data points (N=2) — minority pattern.
+**Evidence:** gstack v3 + agency-agents v18.
+**Required for promotion:** 1+ more shell-first T1 framework.
+**Prediction:** May remain minority pattern. Modern Python/Node tooling dominant.
+
+#### ✅ #27 Community-Viral Scale Path → PROMOTED at v21 audit
+**Status:** PROMOTED to CONFIRMED at v21 audit. See Confirmed section for full entry.
+
+#### ✅ #28 Multi-Provider AI Support → PROMOTED at v25 audit (REFINED)
+**Status:** PROMOTED to CONFIRMED at v25 audit with refined formulation (was "Multi-Provider AI Abstraction" N=1 at v19 → "Multi-Provider AI Support" N=3 after v25 refinement covering both abstraction-library and native-BYO variants). See Confirmed section for full entry.
+
+#### ✅ #29 License-Category Diversity → PROMOTED at v21 audit
+**Status:** PROMOTED to CONFIRMED at v21 audit (REFINED — was GPL-3.0 in Agent-Space at v19; license-diversity refined v20; promoted v21). See Confirmed section for full entry.
+
+#### 🟡 #30 3-Layer Agent Ecosystem Stratification (NEW v19)
+**Status:** Single framework exemplifies fully.
+**Evidence:** TrendRadar v19 adopts L1 (MCP) + L2 (LiteLLM) + skips L3 (no OpenClaw/Hermes).
+**Formal statement:**
+> As agent ecosystem matures, 3 distinct standardization layers emerge with different dynamics:
+> 
+> 1. **Transport layer (MCP)** — universal standard emerging across frameworks
+> 2. **Provider abstraction (LiteLLM, OneAPI)** — emerging standard for multi-provider decoupling
+> 3. **Runtime identifiers (OpenClaw, Hermes)** — community-platform + regional-specific (Pattern #18)
+> 
+> Frameworks adopt layers independently. Layers 1+2 favor cross-regional interoperability; Layer 3 favors regional-community alignment.
+
+**Required for promotion:** 2+ frameworks exemplifying layered adoption pattern.
+**Prediction:** Strong — likely promotes v20-v21 as more frameworks probed.
+
+#### ✅ #31 Open-Core Commercial Entity → PROMOTED at v24
+**Status:** PROMOTED to CONFIRMED at v24 (N=2 across 2 scope categories, structurally unambiguous). See Confirmed section below for full entry.
+
+#### ✅ #32 Research-Paper-Chain Lineage → PROMOTED at v22
+**Status:** PROMOTED to CONFIRMED at v22 (N=2 across 2 outside-scope sub-types, structurally unambiguous). See Confirmed section for full entry.
+
+#### 🟡 #33 Non-OSI Custom License (NEW v20)
+**Status:** Single observation.
+**Evidence:** fish-speech v20 — Fish Audio Research License (research-only; commercial requires separate paid license).
+**Formal statement:**
+> Custom non-OSI-approved licenses emerge in high-value foundation-model space, typically with research-only clauses creating commercial-tier funnel. Signals productization boundary when model IP has substantial commercial value.
+**Required for promotion:** 2+ similar custom non-OSI licenses.
+**Prediction:** Strong — Meta Llama-3 community license, Stable Diffusion CreativeML OpenRAIL, Mistral non-commercial all comparable.
+
+#### 🟡 #34 Anti-Distillation License Clause (NEW v20)
+**Status:** Single observation.
+**Evidence:** fish-speech v20 LICENSE explicit: *"You may not use the Materials or Derivative Works to create or improve any foundational generative AI model."*
+**Formal statement:**
+> As foundation models commodify, licenses add anti-distillation clauses prohibiting use of model outputs to train competing foundation models. Responds to prevalence of distillation-based training in foundation-model space.
+**Required for promotion:** 2+ similar clauses in other licenses.
+**Prediction:** Strong — will likely become standard in foundation-model licenses (Meta Llama-3 has analogous).
+
+#### 🟡 #35 Foundation-Model-as-Product Scope Category (NEW v20)
+**Status:** Single observation.
+**Evidence:** fish-speech v20 — first foundation-model-as-product in corpus (2nd outside-scope wiki after v8 build-your-own-x).
+**Formal statement:**
+> Foundation-model-as-product warrants distinct scope category from agent-framework (T1) / agent-service (T2) / agent-education (T3) / agent-bridge (T4) / agent-application (T5). Sub-type of outside-scope alongside education-aggregator sub-type (build-your-own-x v8).
+**Required for promotion:** 2+ foundation-model outside-scope wikis.
+**Prediction:** Medium — depends on Storm Bear corpus diversification into foundation-model space.
+
+#### 🟡 #36 Pseudonymous Researcher Archetype (NEW v21)
+**Status:** Single observation.
+**Evidence:** system-prompts-leaks v21 — x1xhlol (GitHub) = lucknitelol (Patreon/Ko-fi) = NotLucknite (X). 3 handles, same person, intentional anonymity.
+**Formal statement:**
+> Pseudonymous-researcher archetype: intentionally anonymous authorship with consistent pseudonym across platforms. Distinct from (a) solo-known (Karpathy / Jesse Vincent / Tody Le / sansan0 / msitarzewski) — real name; (b) corporate (Google / GitHub / ByteDance / 39 AI INC) — legal entity; (c) formalized-LLC (BMAD) — legal entity with community face; (d) community-viral (agency-agents / TrendRadar) — real author, community-viral origin.
+> 
+> Motivations: legal-risk mitigation, employment concerns, geographic/political concerns, harassment avoidance, security-research community norm.
+> 
+> Particularly common in: security research, leak-archive genres, controversial-content aggregators.
+
+**Required for promotion:** 2+ pseudonymous framework authors.
+**Prediction:** May emerge more as controversial-content aggregators multiply.
+
+#### 🟡 #37 Crypto-Donation-Funded Scale Path (NEW v21)
+**Status:** Single observation.
+**Evidence:** system-prompts-leaks v21 — 6-channel monetization (Patreon + Ko-fi + BTC + LTC + ETH + Solana token) funds 135.5K-star project without VC/corporate/LLC/open-core.
+**Formal statement:**
+> Crypto-donation-funded scale-path: content-aggregator OSS projects at scale funded via multi-channel donations (Patreon + Ko-fi + BTC/ETH + project token) without institutional funding. Works at 100K+ scale when community-amplification + content-genre zeitgeist align. First crypto-token in corpus (Solana).
+
+**Required for promotion:** 2+ similar monetization structures at scale.
+**Prediction:** Alternative scale-path increasingly visible as AI OSS projects experiment with tokens.
+
+#### ✅ #38 Prompt-Leak-Archive Genre / AI-tool-disclosure-archive → PROMOTED at v53 mini-audit (CANDIDATE → CONFIRMED via NEW 6th structural-promotion criterion: sister-archive-structural-N=2)
+**See Confirmed patterns section (Promoted at v53 mini-audit) for full entry.**
+**Status:** STRUCTURAL N=2 with 2 sub-variants — PROMOTED at v53 mini-audit (session 64) under NEW 6th structural-promotion criterion sister-archive-structural-N=2 (extends library's promotion-criteria vocabulary from 5 to 6).
+**Evidence:**
+- **38a multi-tool-prompt-archive** — system-prompts-leaks v21 (`x1xhlol/system-prompts-and-models-of-ai-tools`) — 31 AI tool system prompts extracted; pseudonymous author; 6-channel monetization; opaque extraction methods
+- **38b single-tool-internals-deep-dive NEW v53** — learn-coding-agent v53 (`sanbuphy/learn-coding-agent`) — Claude Code v2.1.88 internals (telemetry/codenames/undercover/killswitches/roadmap); named-low-identity author Sanbu (CN); zero monetization; documented "publicly available online references and discussions" extraction
+
+**Formal statement (v53 broadened):**
+> AI-tool-disclosure-archive genre (formerly "prompt-leak-archive"): repositories aggregating extracts of closed-source commercial AI tool internals. Two sub-variants identified: **38a multi-tool-prompt-archive** (broad subject scope; system prompts as primary content; pseudonymous author; commercial-derivative-funded) + **38b single-tool-internals-deep-dive** (single tool subject scope; architecture/telemetry/codenames/killswitches/roadmap as primary content; named-low-identity author; zero-monetization). Both share: (a) content = extracts not originals; (b) sources = closed-source commercial; (c) legal position = gray zone; (d) low-accountability author archetype; (e) extraction methods typically community-amalgam.
+
+**Required for promotion:** ✅ Met at v53 (structural-N=2 sub-variant criterion). Mini-audit options: (a) PROMOTE to CONFIRMED with both sub-variants formalized; (b) GENERALIZE formal statement to broader "AI-tool-disclosure-archive genre" wrapping both; (c) STAY CANDIDATE if sub-variant divergences (authorship + monetization + extraction-method) deemed too large.
+**Prediction:** May extend to v53+1 with N=3+ as more closed-source AI tool internals are reverse-engineered. Related genres (leaked training data, leaked benchmark data, leaked deployment configs) may emerge.
+
+#### 🟡 #39 Controversial-License-Use (NEW v21)
+**Status:** Single observation.
+**Evidence:** system-prompts-leaks v21 — GPL-3.0 applied to content arguably-uncopyrightable (facts/instructions) or not-owned-by-licensor (original tool authors own extracted prompts, not extractor).
+**Formal statement:**
+> Controversial-license-use: OSS licenses (especially copyleft GPL-3.0) applied to content that is arguably-uncopyrightable or not-owned-by-licensor. Functions as community-openness social signal rather than enforceable legal claim. Increasingly visible as aggregator/archive genres multiply.
+
+**Required for promotion:** 2+ similar applications.
+**Prediction:** Will appear more as content-aggregator genres emerge.
+
+#### 🟡 #40 Derivative-Security-Service Perverse-Incentive (NEW v21)
+**Status:** Single observation.
+**Evidence:** system-prompts-leaks v21 — x1xhlol operates both the OSS repo (135K stars, publishes extracted prompts) AND ZeroLeaks commercial security service (mitigates prompt-exposure concerns the repo creates).
+**Formal statement:**
+> Derivative-security-service perverse-incentive pattern: repo author operates commercial security product that mitigates risks the OSS repo helps publicize. Monetization structure creates incentive against coordinated disclosure (which would reduce service demand). Distinct from responsible-security-research norms (disclose-first, publish-after-patch).
+
+**Required for promotion:** 2+ similar structures.
+**Prediction:** May remain rare but structurally significant when present.
+
+#### ✅ #41 Training-Infrastructure Framework → PROMOTED at v23
+**Status:** PROMOTED to CONFIRMED at v23 (N=2 structurally unambiguous). See Confirmed section below for full entry.
+
+#### 🟡 #42 Academic-Published Peer-Reviewed Framework (NEW v22, SCOPE-REFINED v23)
+**Status:** Stays candidate N=1. Scope refined at v23.
+**Evidence:** LlamaFactory v22 — ACL 2024 peer-reviewed publication (arXiv 2403.13372). Unsloth v23 has NO academic publication → scope refines.
+**v23 scope refinement:** Pattern does NOT universally apply to training-infrastructure frameworks. Subset-pattern correlates with Pattern #44 (Academic-Lab Affiliation).
+**Formal statement (refined):**
+> Subset of training-infrastructure frameworks (those with academic-lab affiliation) publish peer-reviewed research alongside framework release. Not universal — performance-first frameworks (duo-founder / commercial) may skip publication. Correlates with Pattern #44 (Academic-Lab Affiliation).
+**Required for promotion:** 2+ academic-lab-published frameworks (not just any training-infra).
+**Prediction:** Medium — most major training-infra frameworks are corporate, not academic-lab. Pattern may stay rare. Candidates: any university-lab-affiliated training framework.
+
+#### ✅ #43 Optimizer-Research Integration Velocity → PROMOTED at v23
+**Status:** PROMOTED to CONFIRMED at v23 (N=2). See Confirmed section below for full entry.
+
+#### 🟡 #44 Academic-Lab Affiliation Archetype (NEW v22, SCOPE-REFINED v23)
+**Status:** Stays candidate N=1. Scope refined at v23.
+**Evidence:** LlamaFactory v22 — hiyouga + Lab4AI academic affiliation. Unsloth v23 is duo-founder + team (not academic) → pattern is genuine archetype, not universal training-infra.
+**v23 scope refinement:** Pattern does NOT describe all research-heavy frameworks. Specifically describes genuine academic-lab archetype.
+**Formal statement (refined):**
+> Distinct organizational archetype for training-infrastructure frameworks affiliated with academic research labs. Contrasts with duo-founder / LLC / corporate archetypes. Correlates with Pattern #42 (peer-reviewed publication) and Pattern #32 (extensive research-paper-chain lineage). 9th organizational archetype in corpus.
+**Required for promotion:** 2+ genuine academic-lab-affiliated frameworks.
+**Prediction:** Strong but specific — will likely validate when 2nd academic-lab training-infra framework analyzed. Most commercial/duo-founder training frameworks will NOT match.
+
+#### ⏳ #45 Dual-Licensing Strategy — STALE-CANDIDATE (flagged v29 audit, retroactively from v28)
+**Cross-reference (v25 audit):** Distinct from Pattern #31 Open-Core (confirmed v24) and Pattern #50 Commercial-Funnel Companion (candidate v25). #45 = multiple OSS licenses within single product (all OSS); #31 = OSS + proprietary on same product; #50 = OSS + separate commercial platform. 3 distinct commercial-model patterns.
+**Status at v29 audit:** Flagged STALE-CANDIDATE — N=1 after 6 wikis since v23 (was due at v28 check; stale-flag applied retroactively at v29 audit).
+**Re-evaluation:** at v33 retirement check if still N=1 without evidence.
+**Evidence:** Unsloth v23 — Apache-2.0 (core library) + AGPL-3.0 (Studio WebUI). First dual-license in corpus.
+**Formal statement:**
+> Projects use different licenses for different components within single product family — typically permissive (Apache/MIT) for core library enabling commercial reuse, combined with copyleft (AGPL/GPL) for UI/SaaS layer protecting against cloud-vendor appropriation. Strategic license engineering as competitive positioning. Distinct from single-license norm and open-core commercial-tier split (Pattern #31).
+**Required for promotion:** 2+ similar dual-license projects.
+**Prediction:** Medium — projects facing cloud-vendor appropriation concerns may adopt. Candidates: Elastic (SSPL), Redis (RSAL), TimescaleDB, emerging frameworks with UI layers.
+
+#### ✅ #46 Duo-Founder Archetype — PROMOTED v42-deferred mini-audit
+**See Confirmed patterns section (Promoted at v42-deferred mini-audit) for full entry.**
+**Prior status path:** v23 registration (N=1 Unsloth Han brothers) → v29 audit STALE-CANDIDATE retroactive from v28 → v41 UN-STALE at N=2 (Magnus/Gregor browser-use joins) → v42-deferred mini-audit PROMOTED under structural-N=2 criterion with sub-variants 46a family-duo + 46b professional-duo.
+
+#### ❌ #47 Vision-Based Browser Automation — RETIRED v46 conditional-retirement mini-audit (2026-04-25, session 55)
+**Status at v46 conditional-retirement mini-audit (session 55):** RETIRED via pre-registered conditional retirement trigger. Registered at session 52 v42-deferred mini-audit with explicit retirement condition: "If no 2nd vision-primary data point by v46, retire Pattern #47 + replace with OBSERVATION-TRACK." Trigger window v42-v46 scope-reviewed; ZERO vision-primary data points arrived (ruflo / rowboat / magika / shannon DOM-based / ollama non-browser). Trigger fires deterministically at v46. Replaced with **OBSERVATION-TRACK "Browser-Agent Architectural-Approach 3-point spectrum"** preserving architectural-diversity vocabulary. **FIRST pre-registered conditional retirement to FIRE in corpus history; 4th retirement mechanism type introduced; first retirement-to-OBSERVATION-TRACK pathway.** See Retired section for full entry. See new OBSERVATION-TRACK entry for preserved architectural-diversity observation.
+
+**Prior status path:** v24 registration (Skyvern N=1 vision-primary) → v29 audit REFINED (scope narrowed via crawl4ai counter-evidence) → v41 direct-update REFINED (3-point architectural spectrum informally from browser-use counter-evidence) → session 52 v42-deferred mini-audit REFINED (formal 3-point spectrum codified + pre-registered conditional retirement trigger at v46) → **session 55 v46 mini-audit RETIRED via conditional trigger firing**.
+
+#### ✅ #48 Proprietary Anti-Bot Commercial Moat — PROMOTED v42-deferred mini-audit
+**See Confirmed patterns section (Promoted at v42-deferred mini-audit) for full entry.**
+**Prior status path:** v24 registration (N=1 Skyvern) → v29 audit REFINED via crawl4ai counter-evidence (scope narrowed to "proprietary-commercial-gated specifically") → v41 N=2 structurally-unambiguous (browser-use MIT + Skyvern AGPL-3.0; 9/9 structural dimensions across maximally-divergent licenses) → v42-deferred mini-audit PROMOTED under structural-N=2 criterion.
+
+#### ❌ #49 Design-Template-Aggregator-for-AI-Agents Sub-Type — RETIRED v31 mini-audit (absorbed into #68)
+**Rationale:** Absorbed into Pattern #68 Awesome-List-Genre Meta-Pattern as audience sub-type (b) "AI-agent-directed content input." See Retired section for full entry. See Confirmed patterns section #68 for the consolidating meta-pattern.
+
+#### ✅ #50 Commercial-Funnel Companion Platform — PROMOTED v31 mini-audit
+**See Confirmed patterns section (Promoted at v31 mini-audit) for full entry.**
+
+#### 🟡 #51 Vibe-Coding/Vibe-Design Philosophy Spectrum (NEW v25)
+**Status:** N=2 observations, both explicit.
+**Evidence:**
+- **spec-kit v17 (anti-vibe)** — *"focus on product scenarios and predictable outcomes instead of vibe coding every piece from scratch"* + 9-article constitution + compile-time gates + SDD methodology
+- **awesome-design-md v25 (pro-vibe)** — *"warm terracotta / void-black canvas / cinematic dark UI"* aesthetic-first descriptive language + agent-prompt section for interpretive latitude + vibe-design/vibe-coding topic tags
+
+**Formal statement:**
+> Frameworks + content aggregators explicitly position on vibe-coding / vibe-design philosophy spectrum. Anti-vibe pole: predictability + formal specification + compile-time gates + deterministic outcomes. Pro-vibe pole: aesthetic-first + descriptive language + creative AI interpretation + "good taste" primacy. Hybrid positions possible (awesome-design-md is 87% spec / 13% vibe per 9-section DESIGN.md structure). Observable corpus trend as "vibe-coding" becomes cultural meme in 2025-2026 AI development.
+
+**Relation to Pattern #13 Autonomy-Framing Spectrum (v25 audit decision):** Both are framing-axis positioning patterns. v25 audit decided to keep separate (different axes: autonomy vs vibe; each at N=2-4 insufficient to establish meta-pattern). May generalize as meta-pattern if 3rd framing-axis emerges at higher combined N.
+
+**Required for promotion:** 3+ frameworks with explicit vibe-spectrum positioning.
+**Prediction:** Strong — vibe-coding cultural meme likely to generate more explicit positioning. Monitor.
+
+#### 🟡 #53 Multi-Framework BYO Curriculum (NEW v26)
+**Status:** N=2 within single tier T3 (doesn't meet ≥3 across 2+ tiers).
+**Evidence:**
+- **Microsoft v6 ai-agents-for-beginners:** single-platform curriculum (Microsoft Agent Framework + Azure + Semantic Kernel)
+- **HuggingFace v26 agents-course:** multi-framework BYO curriculum (smolagents + LangGraph + LlamaIndex)
+**Formal statement:**
+> T3 Agent-as-education frameworks take divergent curriculum philosophies — single-platform focused (teaches one framework's tools) vs multi-framework BYO (teaches ecosystem diversity including competitors). Philosophical choice between "teach the one true way" and "empower ecosystem navigation." Correlates with organizational incentive structure: platform-owner teaches own platform; ecosystem-platform teaches ecosystem diversity.
+**Cross-reference (v26):** Related to Pattern #28 Multi-Provider AI Support (confirmed v25 audit) — Pattern #28 = framework-level multi-provider; Pattern #53 = curriculum-level analog. May generalize to "multi-vendor coverage" meta-pattern at higher combined N.
+**Required for promotion:** 1+ additional T3 framework OR cross-tier observation.
+**Prediction:** Medium — depends on T3 growth (T3 at N=2 currently).
+
+#### 🟡 #54 Named-Instructor Team vs Anonymous Course Contribution (NEW v26)
+**Status:** N=2 within single tier T3 (doesn't meet ≥3 across 2+ tiers).
+**Evidence:**
+- **Microsoft v6 ai-agents-for-beginners:** anonymous institutional team (no instructor names)
+- **HuggingFace v26 agents-course:** 4 named instructors (Burtenshaw / Thomas / Simonini / Paniego)
+**Formal statement:**
+> T3 Agent-as-education frameworks take divergent authorship-credit models. Named-instructor-team model (individual credit, community engagement, expert recognition) vs anonymous institutional-team model (corporate voice, no individual credit). Correlates with organizational type: commercial-ecosystem platforms (HF) name instructors; corporate big-tech (Microsoft) publish anonymously.
+**Cross-reference (v26):** Parallels Pattern #19 archetype 1 (individual-author lineage at T1: Karpathy, Jesse Vincent, John Lam). Named-instructor at T3 = individual-author at T1. Cross-tier individual-centric publishing pattern.
+**Required for promotion:** 1+ additional T3 framework OR cross-tier observation of individual-vs-anonymous credit.
+**Prediction:** Medium — depends on T3 growth + cross-tier generalization.
+
+#### ⏳ #52 Extreme-Viral-Velocity Sub-Pattern — STALE-CANDIDATE (flagged v31 mini-audit, retroactive from v30 threshold)
+**Status at v31 mini-audit:** Flagged STALE-CANDIDATE — N=1 after 6 wikis since v25 (past +5-stale-check threshold due at v30 without stale-flag applied). Corpus additions v26-v31 include no new extreme-velocity observations (all below ~300 stars/day).
+**Re-evaluation:** at v36 retirement check if still N=1.
+**Rationale for stale-flag (not retirement):** v25 observation is structurally real; extreme-viral is rare but possible. Historical benchmark: AutoGPT ~10K/day in 2023 (outside corpus). Monitor for future observations.
+
+**Original registration:**
+
+**Status:** Single observation.
+**Evidence:** awesome-design-md v25 — 60,585 stars in 20 days = ~3,029 stars/day = 9× system-prompts-leaks v21 (previous fastest, ~335 stars/day). Fastest viral velocity in Storm Bear corpus.
+**Formal statement:**
+> Sub-pattern of Pattern #27 Community-Viral Scale Path. Community-viral OSS content-aggregator projects can reach extreme velocity (≥1,000 stars/day) when content-genre has immediate broad utility. Distinguishing factors from typical viral (~200-500 stars/day): (a) immediate utility, (b) low-friction consumption (no install), (c) broadcast-amplifiable concept (share-by-link), (d) visual payoff, (e) established genre virality (awesome-list / aggregator). Example: awesome-design-md v25 at ~3,029 stars/day.
+**Required for promotion:** 2+ projects at ≥1,000 stars/day velocity in corpus.
+**Historical reference:** AutoGPT peaked at ~10K stars/day in 2023 (outside corpus). Pattern may apply to other awesome-list-genre + vibe-coding-era projects.
+**Prediction:** Medium — extreme velocity is rare (most viral doesn't sustain ≥1K/day). Monitor awesome-list-genre + content-aggregator projects.
+
+#### ❌ #55 Korean Regional Archetype T1 — RETIRED v36 mini-audit (absorbed into Pattern #73 as 73a)
+**Status at v36 mini-audit:** RETIRED via absorption into Pattern #73 Regional-Archetype-Registry T1 Meta-Pattern as sub-variant 73a Korean. **First stale-to-retired-via-absorption pathway in corpus.** See Retired section for full entry. See Confirmed #73 entry for consolidating meta-pattern.
+
+**Prior status path:** v27 candidate registration → v32 mini-audit stale-flag → v36 mini-audit retirement-via-absorption.
+
+**Original registration (v27):**
+
+**Status:** Single observation.
+**Evidence:** oh-my-claudecode v27 — Yeachan Heo (Korean solo creator) + 5 top collaborators Korean-inferred (JunghwanNA / riftzen-bit / Seunggwan Song / BLUE / Junho Yeo) + ambassador Sigrid Jin (Korean) + README.ko.md comprehensive + 6 of 11 featured contributor accounts Korean-inferred.
+**Formal statement:**
+> Korean-authored T1 framework with Korean-primary governance. Distinct from US-authored (ECC, SP, gstack, GSD, spec-kit corporate, BMAD LLC, agency-agents unattributed) and VN-authored (codymaster). Adds 5th regional archetype to T1 at N=9.
+**Required for promotion:** 2+ Korean-authored T1 framework in corpus.
+**Prediction:** Medium — Korean OSS tradition active (oh-my-opencode is prior Korean OSS OMC cites); additional Korean T1 plausible within 5-10 wikis.
+
+#### 🟡 #56 Multi-Runtime Orchestration Meta-Framework (NEW v27)
+**Status:** Single observation.
+**Evidence:** oh-my-claudecode v27 — orchestrates 4 first-class AI CLI runtimes as tmux workers (Claude Code + Codex CLI + Gemini CLI + Cursor-agent CLI v4.13.1). Runtime-level orchestration via real process spawning, not provider abstraction.
+**Formal statement:**
+> Framework orchestrates multiple AI CLI tools as first-class runtime workers via tmux panes. Runtime-level coordination (real processes) rather than provider abstraction (LiteLLM-style API calls). Distinct from Pattern #28 Multi-Provider AI Support.
+**Cross-reference:** Pattern #28 Multi-Provider AI Support (CONFIRMED v25) is abstraction-layer (provider API routing). Pattern #56 is runtime-level (CLI process orchestration). Boundary clarification required at next audit.
+**Required for promotion:** 2+ framework with 3+ first-class AI CLI runtimes as tmux-style workers.
+**Prediction:** Low-Medium — runtime-level orchestration is specialized; may remain single-observation.
+
+#### ✅ #57 Recursive Corpus Reference → PROMOTED at v50 mini-audit (CANDIDATE → CONFIRMED via default ≥3-observations-across-2+-tiers criterion)
+**Status:** PROMOTED to CONFIRMED at v50 mini-audit (session 60). 5 data points × 3 tiers (outside-scope + T1 + T5). 2 sub-variants formalized at promotion (57a direct citation N=4 + 57b aggregator-mediated multi-citation N=1 NEW v50). 2nd default-criterion promotion in corpus history (1st was #50 at v40). FIRST default-criterion promotion within v42-v50 mini-audit cluster. **First sub-0.50:1 ratio in corpus history achieved at this audit close (18:38 = 0.474:1).**
+**See Confirmed patterns section "Promoted at v50 mini-audit (#57)"** for full entry with formal statement + 2-sub-variant taxonomy + cross-references.
+**Resolution at v50 mini-audit:** A Corpus-reflex resolved positive (5 data points across 23-wiki observation period v27 → v50 = corpus-reflex confirmed; cross-citation accumulated as predicted at registration). B OMC-exception resolved negative (Yeachan was N=1 originator but 4 subsequent direct-citation cases observed). C Selection-bias resolved positive (Storm Bear selection-on-influence amplifies Pattern #57 frequency; aggregator-genre Pattern #68 sub-types amplify further).
+
+#### ✅ #58 Branding vs Package-Name Divergence → PROMOTED at v42 mini-audit
+**Status:** PROMOTED to CONFIRMED at v42 mini-audit (structural-N=2). See Confirmed section "Promoted at v42 mini-audit (#58)" for full entry.
+
+#### ❌ #60 AutoGen-Extension Ecosystem Archetype — RETIRED v29 audit (absorbed into Pattern #17 variant 5)
+**Rationale:** Absorbed into Pattern #17 variant 5 (ecosystem-scale commercial platform) formal statement at v29 audit. Nested sub-ecosystem structure (Microsoft > AutoGen-Team > markitdown) is subsumed as a sub-observation of variant 5's "ecosystem-scale commercial platform" archetype, now promoted within-pattern at N=2 (HuggingFace + Microsoft). Retaining #60 as separate candidate would fragment a unified pattern.
+**Historical evidence:** markitdown v28 — Microsoft AutoGen Team publishes markitdown as official AutoGen extension.
+**See:** Pattern #17 variant 5 in Confirmed patterns section for the consolidated formulation.
+
+#### 🟡 #61 LLM-Client DI Pattern (NEW v28)
+**Status:** Single observation.
+**Evidence:** markitdown v28 — `MarkItDown(llm_client=OpenAI(), llm_model="gpt-4o")`. Library accepts duck-typed OpenAI-compatible client as DI parameter for optional LLM features. Core works without client; LLM features silently skip.
+**Formal statement:**
+> Library accepts `llm_client` as dependency-injected parameter for optional LLM features. Duck-typed OpenAI-compatible interface. No hard-coded SDK dependency. LLM features gracefully degrade to no-op when client absent. Distinct from Pattern #28 Multi-Provider AI Support which is framework-level routing; Pattern #61 is library-level DI contract.
+**Cross-reference:** Pattern #28 Multi-Provider AI Support (CONFIRMED v25) — both enable multi-provider-ness but at different layers (routing vs DI).
+**Required for promotion:** 2+ libraries with `llm_client`-style DI + duck-typed contract + graceful fallback.
+**Prediction:** Medium — may emerge in future library-archetype corpus entries as LLM-feature-as-plugin-not-dependency design spreads.
+
+#### 🟡 #62 Hashtag-Based Plugin Discovery (NEW v28)
+**Status:** Single observation.
+**Evidence:** markitdown v28 — `#markitdown-plugin` GitHub hashtag for plugin discovery. Zero infrastructure. Zero curation. `markitdown --list-plugins` shows installed.
+**Formal statement:**
+> Framework enables plugin discovery via public-social-media hashtag (e.g., GitHub repo topics) rather than centralized marketplace. Contrasts with spec-kit 80+ marketplace, OMC Claude Code plugin marketplace, BMAD community modules. Lightweight alternative for narrow-extension libraries where plugin-quality-risk is low.
+**Cross-reference:** Pattern #7 Marketplace Emergence (CONFIRMED v11) — opposite approach to plugin discovery.
+**Required for promotion:** 2+ framework with hashtag-based plugin discovery.
+**Prediction:** Low — hashtag discovery unusual; most frameworks converge on marketplace or curated-list.
+
+#### 🟡 #64 Open-Source Anti-Bot Detection (NEW v29)
+**Status:** Single observation.
+**Evidence:** crawl4ai v29 — v0.8.5 3-tier anti-bot detection + proxy escalation + Shadow DOM flattening + consent popup removal + stealth mode. All Apache-2.0 open-source (no commercial gating).
+**Formal statement:**
+> Framework implements comprehensive anti-bot detection + evasion capabilities open-source (not commercial-gated). Features typically include: tiered detection, proxy escalation, browser fingerprinting evasion, stealth mode, anti-captcha workarounds, Shadow DOM handling. Distinct from Pattern #48 Proprietary Anti-Bot Commercial Moat (commercial-gated); #64 is OSS counterpart.
+**Cross-reference:** Pattern #48 (refined v29) is proprietary-commercial-gated anti-bot. Pattern #64 is OSS-full-featured anti-bot. Both exist in corpus; different archetypes.
+**Required for promotion:** 2+ frameworks with comprehensive OSS anti-bot (≥3 features: tier detection + proxy escalation + Shadow DOM/fingerprinting).
+**Prediction:** Medium — Playwright-based OSS scrapers may adopt similar; anti-bot arms race continues.
+
+#### 🟡 #65 4-Tier Sponsorship Monetization (NEW v29)
+**Status:** Single observation.
+**Evidence:** crawl4ai v29 — 4 explicit sponsorship tiers ($5 Believer / $50 Builder / $500 Growing Team / $2000 Data Infrastructure Partner) with tier-specific benefits (support level / syncs / partnership). "Founding Sponsors" scarcity mechanism (first 50 permanent recognition).
+**Formal statement:**
+> Solo-project monetization via explicitly tiered sponsorship with per-tier benefits. Tiers target user segments (believers/builders/teams/enterprises). Distinct from: OMC v27 unstructured GitHub Sponsors; BMAD v11 LLC formalization; fish-speech v20 / Skyvern v24 open-core; awesome-design-md v25 commercial-funnel companion.
+**Cross-reference:** Pattern #31 Open-Core Commercial Entity (confirmed v24) — crawl4ai planned Cloud API would transition to open-core; #65 is bridge monetization until commercial tier launches.
+**Required for promotion:** 2+ solo project with ≥4 structured sponsorship tiers + tier-specific benefits.
+**Prediction:** Medium — as solo-enterprise-scale projects seek sustainable revenue, structured sponsorship may emerge.
+
+#### 🔍 #66 Supply-Chain Security Incident Response — OBSERVATION-TRACK (reclassified v29 audit)
+**Status at v29 audit:** Reclassified as OBSERVATION-TRACK — event-based observation rather than architectural pattern. Retain for monitoring but not tracked for architectural promotion.
+**Evidence:** crawl4ai v0.8.6 — replaced upstream `litellm` with `unclecode-litellm` fork due to PyPI supply-chain compromise; prominent README disclosure with user upgrade guidance.
+**Rationale for OBSERVATION-TRACK:** Event-based (specific incident response) rather than repeatable architectural choice. Response patterns (fork-and-rename / README callout) are reactive to external events, not structural framework-design decisions. v29 audit formalized OBSERVATION-TRACK as new sub-category for episodic observations.
+**Observation value:** Supply-chain incidents will recur; documentation practices vary. Monitor for cross-incident patterns (fork-rename convention spreading? README-callout becoming norm?).
+**Cross-reference:** Pattern #24 SECURITY.md as T1 Standard (confirmed) — #24 is proactive security policy; #66 is reactive incident response (distinct categories).
+**Re-evaluation:** at v34 — if 2+ additional incident responses documented with architectural choice patterns observable, reconsider for architectural-pattern promotion.
+
+#### 🔍 #67 Academic-Commercial Fusion Archetype — OBSERVATION-TRACK (NEW v30)
+**Status at v30:** Registered as OBSERVATION-TRACK (not active candidate) to avoid candidate-count inflation + manage overlap with Patterns #31 + #42 + #44.
+**Evidence at N=1:** All Hands AI (v30 OpenHands) — founder team spans academic institution(s) + commercial entity simultaneously at founding. 3 co-founders: Xingyao Wang (UIUC PhD candidate + SWE-bench research) + Graham Neubig (CMU tenured faculty) + Robert Brennan (industry software engineer). $18.8M funding. ICLR 2025 paper (23+ authors) + Nov 2025 SDK paper (11 authors) + commercial enterprise tier.
+**Rationale for OBSERVATION-TRACK (not candidate):**
+- Overlaps significantly with Pattern #31 Open-Core Commercial Entity (at N=3)
+- Overlaps with Pattern #42 Academic-Published Peer-Reviewed (at N=2 un-staled)
+- Overlaps with Pattern #44 Academic-Lab Affiliation (at N=2 un-staled)
+- Risk of double-counting if registered as full candidate
+- Better to monitor for structural distinctness vs meta-pattern-of-3-existing before candidate classification
+**Observation statement:**
+> Founder team spans academic institution(s) + commercial entity simultaneously at founding time — not sequential academic-to-industry transition. Typically co-occurs with Pattern #31 Open-Core + Pattern #42 Peer-Reviewed + Pattern #44 Academic-Lab. Distinct from pure-academic (Karpathy autoresearch v10) and pure-commercial (Skyvern-AI v24). N=1 at v30.
+**Cross-reference:** #31 + #42 + #44 — #67 may emerge as meta-pattern if 2+ future data points show consistent fusion structure.
+**Re-evaluation:** at v35 — if 2nd data point emerges, reclassify as candidate with clarified distinctness from #31 + #42 + #44; if no 2nd data point, retire as subsumed by fusion-of-existing.
+
+#### 🔍 #74 Business-OS-as-Product Outside-Scope Sub-Type — OBSERVATION-TRACK (NEW v37, N=1 stale-risk-flagged at registration)
+**Status at v37:** Registered as OBSERVATION-TRACK (not active candidate) per consolidation-forward discipline + N=1 cold-start + overlap-pre-check distinction from T5 Agent-as-application.
+**Evidence at N=1:** bizos-company-os v37 (Alex Le / Titan Labs VN) — Next.js 16 + Supabase business-application built with AI-coding-assistant (inferred from `.claude/launch.json` + AGENTS.md framework-warning + 800-line bilingual /guide + CLAUDE.md `@AGENTS.md` pointer). 19 screens + 64 DB tables + 7-role RBAC + KPI cascade + compensation rule engine + P&L/BS/CF + OKR + Audit. At 18 stars / 25 forks / 2 days old (cold-start).
+**Formal statement:**
+> Production business-domain application (HRIS / compensation / finance / OKR / recruiting / knowledge) shipped as OSS with AI-coding-assistant as inferred primary builder. Distinct from T5 Agent-as-application because ZERO agent primitives (no agents, skills, orchestration modes, MCP integrations, LLM routing). Distinct from framework/platform scope — IS a business-domain application itself. 7th outside-scope sub-type candidate following education-aggregator (v8) / foundation-model (v20) / prompt-leak-archive (v21) / training-infrastructure (v22+v23) / design-template-aggregator (v25) / MCP-server-aggregator (v31).
+**Rationale for OBSERVATION-TRACK (not candidate):**
+- N=1 cold-start — single data point at 2-day-old 18-star scale; pattern stability unobservable
+- Distinction from T5 Agent-as-application requires N=2+ to establish reliably (structurally distinct axis: "AI-built-product vs AI-built-framework")
+- Overlap risk with potential future meta-pattern "AI-built-commercial-product" absorbing #74 + T5 variants
+**Promotion threshold:** N=2 (2nd business-OS-as-product observation) → promote OT → CANDIDATE under structurally-unambiguous-at-N=2 criterion. N=3 across 2+ business domains → promote CANDIDATE → CONFIRMED under default criterion.
+**Observation statement monitoring:** Watch for other AI-built business-domain applications (HRIS / CRM / ERP / retail / healthcare / finance) at outside-scope in corpus pipeline.
+**Cross-reference:** T5 Agent-as-application (deer-flow v9 / autoresearch v10 / paperclip v14 / Skyvern v24 / OpenHands v30) — #74 is structurally distinct (no agent primitives).
+**Re-evaluation:** at v42 (+5 wikis stale-risk check) — if still N=1, maintain as OT; at v47 (+10 wikis) — retire if still N=1.
+
+#### 🔍 #75 Template-Use Fork-Star Anomaly at Cold-Start — OBSERVATION-TRACK (NEW v37, N=1 episodic + stale-risk-flagged at registration)
+**Status at v37:** Registered as OBSERVATION-TRACK (not active candidate) per event-based / episodic observation criteria. Observed as counter-evidence to Pattern #27 Community-Viral Scale Path at cold-start scale.
+**Evidence at N=1:** bizos-company-os v37 — **18 stars / 25 forks at 2 days old** = 138% fork-to-star ratio (INVERTED from typical OSS 5-15% fork-to-star pattern).
+**Formal statement:**
+> At cold-start scale (<100 stars + <1 month old), some projects exhibit inverted fork-to-star ratio (forks > stars). Interpretation: template-use adoption posture (forkers clone-to-customize for their own use) rather than viral-discovery posture (star then later fork). Resolves as project grows (stars accumulate faster than new forks; ratio normalizes toward <20% at >1K-star scale). Episodic growth-phase phenomenon; not repeatable architectural choice.
+**Rationale for OBSERVATION-TRACK:**
+- Event-based / episodic (resolves with growth; observable only at cold-start scale)
+- Counter-evidence to Pattern #27 Community-Viral Scale Path (scope narrowing observation, not invalidation — #27 applies to viral-discovery scale paths; #75 is template-use-first scale path)
+- Not an architectural pattern (no repeatable structural framework-design choice)
+- Would require cross-incident observations to formalize template-use dynamics
+**Promotion threshold:** N=3 episodic observations of same dynamic → promote OT → CANDIDATE with clarified distinctness from #27. Alternative: absorbed by future cold-start-dynamics meta-pattern.
+**Cross-reference:** Pattern #27 Community-Viral Scale Path (confirmed v21) — #75 is cold-start-scope counter-evidence (narrows #27 to viral-discovery path specifically).
+**Re-evaluation:** at v42 (+5 wikis) — if 1 more cold-start template-use observation, maintain as OT; at v47 (+10 wikis) — retire if still N=1.
+
+#### 🔍 "Browser-Agent Architectural-Approach 3-point spectrum" — OBSERVATION-TRACK (NEW v46 conditional-retirement mini-audit, 2026-04-25; session 55; N=1-per-point across 3 points, stale-risk-flagged at registration)
+**Origin:** Replacement OBSERVATION-TRACK created at v46 conditional-retirement mini-audit when Pattern #47 Vision-Based Browser Automation retired via pre-registered conditional retirement trigger. Preserves architectural-diversity vocabulary from Pattern #47's 3-point spectrum formulation (registered at session 52 v42-deferred mini-audit) without continuing candidate-tracking obligation. **First retirement-to-OBSERVATION-TRACK pathway in corpus.**
+
+**Scope:** Browser-agent tier T5 automation primitive architecture — DOM-vs-vision dependence axis.
+
+**3-point spectrum enumeration (N=1-per-point):**
+
+| Architectural approach | Exemplar | Data point N | Structural characterization |
+|------------------------|----------|--------------|------------------------------|
+| **Vision-primary** | Skyvern v24 | N=1 | DOM-free; pure LLM vision reasoning on screenshots; 4 AI page commands (act/extract/validate/prompt) novel primitive layer above Playwright/Selenium |
+| **Hybrid DOM+vision** | browser-use v41 | N=1 | DOM as primary extraction signal + vision as fallback/verification; practical multi-modal reasoning |
+| **DOM-only** | crawl4ai v29 | N=1 | Traditional DOM parsing + structured extraction; no vision dependence; production-scale scraping-focused |
+
+**Observational formal statement:**
+> Browser-agent tier T5 corpus exhibits a **3-point architectural spectrum** for DOM-vs-vision dependence in automation primitive design. Three distinct architectural approaches observed (N=1 each at v46):
+>
+> **Vision-primary** — DOM-free; pure vision reasoning on screenshots. LLM interprets visual layout directly. Trade-offs: resilience to UI changes; latency + LLM cost overhead. Example: Skyvern v24.
+>
+> **Hybrid DOM+vision** — DOM as primary extraction signal + vision as fallback/verification. Balanced multi-modal reasoning. Trade-offs: balanced latency + resilience; higher implementation complexity. Example: browser-use v41.
+>
+> **DOM-only** — Traditional DOM parsing without vision dependence. Trade-offs: high speed + low cost; brittleness to DOM structural changes. Example: crawl4ai v29.
+>
+> **This is an OBSERVATIONAL TRACK — descriptive, not predictive.** Documents corpus-observable architectural diversity without attempting to predict future browser-agent architectural choices. Does NOT claim any approach is emerging-as-archetype. Per-point N-tracking preserved for future corpus observations.
+
+**Rationale for OBSERVATION-TRACK (not candidate):**
+- Pattern #47 retired via conditional trigger; architectural-vocabulary value preserved via OT replacement
+- Each point at N=1 only — below single-pattern promotion threshold
+- Descriptive framing (architectural-diversity observation) distinct from predictive framing (pattern-hypothesis)
+- Corpus can track per-point N accumulation without pattern-promotion obligation
+
+**Re-evaluation conditions:**
+- At any-point N=2 (any of 3 approaches reaches 2nd data point) → reconsider promotion to candidate with axis-specific pattern statement
+- At observational-N=5+ (5+ browser-agent wikis across 3 approaches combined) → consider promotion to architectural-diversity-observation pattern (descriptive corpus-archetype-dictionary at T5)
+- At no additional browser-agent data points by v56 (+10 wikis from v46 baseline) → retire OT as insufficient browser-agent corpus for tracking
+
+**Cross-references:**
+- **Pattern #47 Vision-Based Browser Automation (RETIRED v46 conditional-retirement mini-audit):** Direct predecessor — #47's 3-point architectural spectrum formulation preserved as this OT. #47 was the pattern-hypothesis form; this OT is the observational-vocabulary form.
+- **Pattern #48 Proprietary Anti-Bot Commercial Moat (CONFIRMED v42-deferred):** Orthogonal axis — #48 is commercial; this OT is architectural. Browser-agent frameworks position independently on both axes.
+- **Pattern #64 Open-Source Anti-Bot Detection (CANDIDATE):** Unrelated axis — anti-bot capability vs automation primitive architecture.
+
+**Stale-risk tracking:** N=1-per-point across 3 architectural approaches. Per v2.1 N=1 stale-risk-flagging discipline: +5-wiki check at **v51** / +10-wiki retirement review at **v56**.
+
+#### 🟡 #63 Format-Scoped Optional Dependencies (NEW v28)
+**Status:** Single observation.
+**Evidence:** markitdown v28 — `pip install 'markitdown[pdf,docx,pptx]'` per-format extras. 10+ format-specific extras available. `[all]` installs everything.
+**Formal statement:**
+> Python library uses pip extras (`[format]`) to scope install size per-feature. Reduces baseline install size; enables deployment environment flexibility (Lambda size limits, Docker image size, airgapped environments). May be Python-ecosystem-specific pattern.
+**Required for promotion:** 2+ Python corpus libraries with per-format (or per-feature-category) optional deps.
+**Prediction:** Medium — Python-ecosystem pattern may appear in other Python corpus libraries (training-infra Unsloth, LlamaFactory).
+
+#### ✅ #59 Claude Code Plugin Marketplace Native — PROMOTED v36 mini-audit
+**See Confirmed patterns section (Promoted at v36 mini-audit) for full entry.**
+
+**Status:** **N=2 structurally-unambiguous** at v35. Promoted at v36 mini-audit.
+**Evidence (N=2 post-v35):**
+1. **oh-my-claudecode v27** (Yeachan Heo, Korean T1) — `/plugin marketplace add github.com/Yeachan-Heo/oh-my-claudecode` primary; sibling npm package `oh-my-claude-sisyphus@latest` for programmatic install. **Sub-variant 59a marketplace-with-npm-companion.**
+2. **claude-hud v35** (Jarrod Watts, Australian T1) — `/plugin marketplace add jarrodwatts/claude-hud` is the ONLY install path. No npm publish despite TypeScript+package.json. First corpus instance of marketplace-only distribution surface. **Sub-variant 59b marketplace-only.**
+**Formal statement (proposed post-promotion):**
+> T1 Claude Code plugin frameworks may distribute via Claude Code's native `/plugin marketplace add` mechanism as primary or sole install surface. Marketplace manifest (`.claude-plugin/marketplace.json`) becomes the canonical distribution anchor. Two sub-variants observed at N=2:
+>
+> **59a Marketplace-with-npm-companion** — marketplace primary, npm package secondary for discoverability or programmatic install outside Claude Code. Example: oh-my-claudecode v27.
+>
+> **59b Marketplace-only** — marketplace sole surface, no npm publish (even if TypeScript build tooling present). Example: claude-hud v35.
+>
+> Distinct from npm install (BMAD v11, codymaster v12), `uv tool install` (spec-kit v17), shell script install (agency-agents v18), git clone (ECC v1, Superpowers v2), or pip install (markitdown v28, crawl4ai v29). Reflects Claude Code ecosystem maturation — marketplace as emerging distribution surface.
+**Timing:** v27 registration → v35 N=2 = 8 wikis between first and second observation (slightly slower than v27 "3-5 wikis" prediction but fits "likely promotes quickly" intent).
+**Cross-reference:** Pattern #18 Agent Runtime Standardization (CONFIRMED v15) — #59 is the claude-code-plugin-marketplace sub-layer. On promotion, may become sub-pattern of #18 if cross-runtime marketplace mechanisms emerge (e.g., Cursor marketplace). Currently Claude-Code-scoped.
+**Predicted promotion:** Next mini-audit (trigger at 0.95:1 ratio; buffer 0.16 currently).
+
+#### ✅ #70 VN-Regional-Archetype T1 — PROMOTED v32 mini-audit
+**See Confirmed patterns section (Promoted at v32 mini-audit) for full entry.**
+
+Original registration content (v32, preserved for history):
+
+**Status at registration:** N=2 at registration. Promotion-candidate under routine v2.1 criterion 2 (structurally-unambiguous-at-N=2) at next audit.
+**Evidence (N=2):**
+1. **codymaster v12** (Tody Le, Ho Chi Minh City VN) — 38 stars, VN-in-VN sub-variant 70a. "Code Đi" VN tagline. VN-primary README. 79-skill product. Self-described non-coder built via 6-month AI-assisted work.
+2. **claude-howto v32** (Luong Nguyen, Paris France) — 28,186 stars, VN-diaspora sub-variant 70b. "Master Claude Code in a Weekend" EN tagline. EN-primary README + VN/CN/Ukrainian ports. 10-module tutorial + 45 copy-paste templates. Montimage cybersecurity engineer with 116 public repos.
+
+**Formal statement:**
+> VN-authored T1 framework with VN-language presence in governance (README port, tagline, or primary audience framing). Distinct from US-authored T1 (ECC, Superpowers, gstack, GSD, BMAD, spec-kit, agency-agents), Korean-authored (OMC v27 — Pattern #55 N=1), and corporate-backed T1. Two sub-variants emerge at N=2:
+>
+> **Sub-variant 70a: VN-in-VN** — Author resident in Vietnam, VN-primary audience, VN-first or VN-only README, VN-language tagline. Example: codymaster v12.
+>
+> **Sub-variant 70b: VN-diaspora** — Author resident in diaspora location (France / other), global audience, EN-primary README with VN as courtesy port (<10% length of EN), English tagline. Example: claude-howto v32.
+
+**Cross-reference:** Analog to Pattern #55 Korean Regional Archetype T1 (N=1 OMC v27). If Korean reaches N=2 AND 3rd region emerges, consider meta-pattern **#73 Regional-Archetype-Registry T1** (consolidation-forward, requires 3 regions; deferred until 3rd region observed).
+
+**Cross-reference:** Pattern #20 Solo-Scale Ceiling dictionary — each VN sub-variant has distinct scale ceiling hypothesis (70a ~38 stars limited by VN-only audience; 70b ~28K via global-audience + multi-channel distribution).
+
+**Sibling sub-variant scale divergence:** 742× scale difference between 70a (38) and 70b (28,186). Demonstrates audience-reach + language-strategy + multi-channel impact within same regional-archetype family.
+
+**Promotion path:** Structurally-unambiguous at N=2 per routine v2.1 criterion 2. Promotion proposed for next audit.
+
+**Prediction:** High-medium — VN developer ecosystem active; 3rd VN T1 plausible within 5-10 wikis. If emerges, would establish sub-variant frequency distribution + potentially validate meta-pattern Regional-Archetype-Registry.
+
+#### 🟡 #71 Interactive Self-Assessment Mechanism (NEW v32, N=1 stale-risk-flagged at registration)
+**Status:** Single observation. **N=1 stale-risk-flagged per routine v2.1 discipline.**
+**Evidence:** claude-howto v32 — `/self-assessment` + `/lesson-quiz [topic]` slash commands shipped WITH the tutorial product. User installs claude-howto once, then uses it as both reference (static `.md` files) AND runtime assessment engine (dynamic slash commands). Quiz-as-slash-command embeds educational-assessment mechanism inside the tool.
+
+**Formal statement:**
+> Framework ships interactive self-assessment mechanism as runtime slash commands embedded in the product. User invokes `/self-assessment` or `/lesson-quiz [topic]` inside Claude Code to receive guided proficiency quiz generating personalized learning path. Distinct from Pattern #8 Research-Benchmark Integration sub-variants (static research-benchmarks like val_bpb, productivity-claims like spec-kit 48×, course-leaderboards like HF agents-course Unit 4 automated eval) — #71 is runtime interactive per-user assessment.
+
+**Cross-reference:** Pattern #8 Research-Benchmark Integration (confirmed). #71 may merge with #8 as 5th sub-variant (educational-assessment-quiz) at next audit if #8 formulation can subsume, OR remain distinct if interactive-runtime-per-user aspect is structurally criterial.
+
+**Required for promotion:** 2nd framework with runtime interactive self-assessment embedded as slash command (or equivalent product-embedded quiz mechanism).
+
+**Stale-risk-flagging rationale:** Educational-tech is niche at T1 (most T1 frameworks are tools/methodologies, not tutorials). Self-assessment quiz mechanism may remain claude-howto-specific. Flagging at registration per routine v2.1 discipline for novel single-observation candidates.
+
+**Stale-check:** v37 (+5 wikis from v32). Retire-check: v42 (+10 wikis).
+
+**Prediction:** Low-medium — niche but ecosystem-relevant if more Claude Code tutorials emerge.
+
+---
+
+#### 🟡 #72 PolyForm Noncommercial Commercial-Gate License (NEW v33, N=1 stale-risk-flagged at registration)
+**Status:** Single observation. **N=1 stale-risk-flagged per routine v2.1 discipline.**
+**Evidence:** GitNexus v33 — `LICENSE` file contains PolyForm Noncommercial 1.0.0 (polyformproject.org standard license family). Commercial use requires separate agreement via `founders@akonlabs.com`. Enterprise tier (PR Review + auto-updating wiki + auto-reindexing + OCaml + priority features) delivered through akonlabs.com SaaS + Self-hosted.
+
+**Formal statement:**
+> PolyForm Noncommercial 1.0.0 is a STANDARDIZED non-OSI license family (polyformproject.org) specifically designed to gate commercial use while enabling noncommercial research, personal use, and qualifying organizations (charities / educational institutions / government bodies). Used as OSS-tier license with commercial-tier delivered via separate agreement through the commercial entity. Distinct from custom-written research licenses (fish-speech Fish Audio Research License), network-copyleft (AGPL-3.0), and permissive-plus-enterprise (MIT + in-repo enterprise directory).
+
+**Cross-references:**
+- **Pattern #29 License-Category Diversity (CONFIRMED v21)** — descriptive observation of license-category diversity; PolyForm Noncommercial extends range (strengthening #29, NOT overlap)
+- **Pattern #33 Non-OSI Custom License (candidate)** — custom-WRITTEN non-OSI license; PolyForm is STANDARDIZED (distinct mechanism; does NOT strengthen #33)
+- **Pattern #31 Open-Core Commercial Entity (CONFIRMED v24, N=4 at v33)** — parent pattern; #72 is specific license-strategy sub-variant; Pattern #31 strengthens regardless
+- **Pattern #45 Dual-Licensing Strategy (STALE v29)** — dual SIMULTANEOUS licenses (Apache + AGPL at Unsloth); GitNexus single-license + separate commercial agreement (distinct mechanism)
+
+**Required for promotion:** 2nd standardized non-OSI commercial-gate license family observation — any PolyForm variant (Shield / Small Business / Strict / Internal Use / Free Trial) OR similar standardized non-OSI family (Business Source License, Common Clause, etc.).
+
+**Stale-risk-flagging rationale:** GitNexus is 1st corpus observation of PolyForm family. Non-OSI commercial-gate license adoption may remain niche or accelerate. Flagging at registration per routine v2.1 discipline for novel single-observation candidates.
+
+**Stale-check:** v38 (+5 wikis from v33). Retire-check: v43 (+10 wikis).
+
+**Prediction:** Medium — OSS ecosystem maturing toward explicit commercial-gating; PolyForm family gaining visibility; 2nd observation plausible within 5-10 wikis.
+
+---
+
+#### ✅ #73 Regional-Archetype-Registry T1 Meta-Pattern — PROMOTED v36 mini-audit
+**See Confirmed patterns section (Promoted at v36 mini-audit) for full entry.**
+
+**Status at v36 mini-audit:** PROMOTED to CONFIRMED under meta-pattern-at-N=3-consolidation criterion. 2nd meta-pattern promotion in corpus. Absorbs #55 Korean + #70 VN as sub-classifications.
+
+**Prior status:** Meta-pattern wrapping 3 structurally-distinct regional sub-variants at N=3. Registered consolidation-forward at v34 per routine v2.1 discipline (prevents fragmentation).
+
+**Sub-variants:**
+- **73a Korean T1** — N=1 — OMC v27 (Yeachan Heo, Seoul). [Standalone #55 STALE; absorption-retirement candidate at #73 promotion.]
+- **73b VN T1** — N=2 sub-variants — codymaster v12 (Tody Le, VN-in-VN) + claude-howto v32 (Luong NGUYEN, VN-diaspora France). [Standalone #70 CONFIRMED v32 mini-audit; relationship with #73 requires audit decision — sibling-confirmed OR absorbed-as-sub-variant.]
+- **73c Pakistani T1** — N=1 (NEW v34) — claude-code-best-practice v34 (Shayan Rais, Karachi).
+
+**Formal statement:**
+> T1 Agent-as-assistant framework authors emerge in distinct regional-cultural clusters beyond the US/Western-Europe dominance observed in corpus v1-v31. Meta-pattern wraps sub-variants identifiable by (a) geographic author location, (b) cultural-linguistic context, (c) regional-specific publishing patterns (language priority + channel selection + community alignment). Distinct from Pattern #17 Ecosystem-Layer Organizations (archetype of publisher structure) and Pattern #27 Community-Viral Scale Path (scale trajectory axis).
+
+**Meta-pattern-at-N=3-consolidation criterion check:**
+- (a) Criterially clean sub-type axis: ✅ — geographic + cultural-linguistic distinctions unambiguous across Korean / VN / Pakistani
+- (b) Each sub-type ≥1 observation: ✅ — Korean 1 + VN 2 + Pakistani 1
+- (c) Saves fragmentation: ✅ — avoids 3+ standalone regional-archetype candidates; absorbs #55 Korean stale on promotion; clarifies #70 VN relationship
+
+**Cross-references:**
+- **Pattern #17 Ecosystem-Layer Organizations (CONFIRMED v15)** — all 73a/b/c authors also are variant-1 solo-individual-multi-publishers; structural overlap but different axis (organizational archetype vs regional archetype)
+- **Pattern #27 Community-Viral Scale Path (CONFIRMED v21)** — all 73a/b/c authors achieve community-viral scale; different axis (scale path vs regional origin)
+- **Pattern #55 Korean Regional Archetype T1 (STALE)** — absorption-retirement candidate at #73 promotion
+- **Pattern #70 VN-Regional-Archetype T1 (CONFIRMED v32 mini-audit)** — relationship with #73 requires audit decision (sibling-confirmed OR sub-variant-absorbed)
+
+**What would NOT be #73:**
+- v33 GitNexus Indian T4 = cross-tier; #73 is T1-only. Indian observation remains narrative-only at T4 until/unless Indian T1 framework emerges (would become 73d).
+- Future cross-tier regional pattern = separate Pattern #74 South-Asian-Regional (or similar) could register later if cross-tier emerges.
+
+**Required for promotion:** Promotion-ready NOW under meta-pattern-at-N=3-consolidation criterion. Trigger = next mini-audit OR operator request.
+
+**Common characteristics across 73a/73b/73c (cohesion signal):**
+- Solo-ecosystem-individual-publisher archetype
+- Multi-channel content distribution (varies in breadth)
+- Pedagogical framing (teaching Claude Code, not alternative methodology)
+- Non-Anglo regional origin (corpus-first-at-tier for each)
+- Solo-scale ceiling validation (Pattern #20 dictionary rows)
+
+**Divergences:**
+- Language priority (VN-diaspora 4-language widest; Pakistani EN-only narrowest)
+- Velocity (Pakistani ~260/day fastest; codymaster N/A-low-scale slowest)
+- Methodology style (multi-runtime / memory-tier / tutorial-with-CI / best-practice-aggregation)
+
+**Prediction:** Strong promotion trajectory. Meta-pattern cleanly consolidates corpus regional-archetype observations. 4th region emergence (Indian T1, Brazilian T1, etc.) would register as 73d sub-variant under established meta-pattern structure.
+
+---
+
