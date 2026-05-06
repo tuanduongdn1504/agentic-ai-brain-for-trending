@@ -1,5 +1,7 @@
 # Skill: Weekly Update
 
+📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+
 Interview the user to update all context files across the vault — the root CLAUDE.md, GOALS.md, and each project's CLAUDE.md. Keeps everything current so Claude always has accurate context.
 
 ## When to Use

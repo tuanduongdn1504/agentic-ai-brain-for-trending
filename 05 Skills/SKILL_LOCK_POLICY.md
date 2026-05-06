@@ -10,7 +10,7 @@
 
 Vault `05 Skills/` directory contains skill definitions at varying maturity levels. This policy classifies each skill as **PUBLIC-ARCHIVED (locked)** or **IN-FLUX (continues evolving)** to set operator expectations and external-user trust signals.
 
-## Skill classification (post-v56 / 2026-04-29)
+## Skill classification (post-v57 / 2026-05-06)
 
 | Skill File | Status | Rationale |
 |---|---|---|
@@ -19,6 +19,9 @@ Vault `05 Skills/` directory contains skill definitions at varying maturity leve
 | `llm-wiki-routine-v2.1.md` (current) | 🟢 **IN-FLUX** | Production-stable across 14+ executions; tightened session 66 STRICT amendment; v2.2 candidate refactor pending; continues evolving |
 | `brain-setup.md` | 🟢 **IN-FLUX** | Operator-interview skill; may evolve as new operator-onboarding patterns emerge |
 | `new-project.md` | 🟢 **IN-FLUX** | Project scaffolding skill; may evolve as new project archetypes emerge |
+| `weekly-update.md` | 🟢 **IN-FLUX** | Operator-interview skill for vault-state refresh; may evolve as vault-state architecture changes |
+| `llm-wiki-ingest.md` | 🟢 **IN-FLUX** | Wiki-ingestion skill (Karpathy pattern); may evolve in parallel with routine v2.1 |
+| `(C) project-code-analysis-harness.md` | 🟢 **IN-FLUX** | Code-analysis harness skill (paperclip-inspired); client-target redacted 2026-05-06; may evolve |
 | `SKILL_LOCK_POLICY.md` (this file) | 📋 **POLICY** | Governance file; not a skill itself |
 
 ## Public-archived (locked) skill conventions

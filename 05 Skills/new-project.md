@@ -1,5 +1,7 @@
 # Skill: New Project
 
+📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+
 Create a new project inside `03 Projects/` by interviewing the user, then scaffolding the folder structure, CLAUDE.md, and COMMANDS.md.
 
 ## How It Works

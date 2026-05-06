@@ -1,5 +1,7 @@
 # Skill: LLM Wiki Routine v2.1
 
+📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+
 > **Type:** Orchestration meta-skill (Routine pattern)
 > **Version:** v2.1 — consolidated from ~205 cumulative action items across v3-v31 (29 wikis + 2 full audits + 1 mini-audit of learning)
 > **Codified:** 2026-04-22 (post-v31 mini-audit consolidation session)

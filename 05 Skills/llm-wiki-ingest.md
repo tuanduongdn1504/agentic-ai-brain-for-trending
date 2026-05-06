@@ -1,5 +1,7 @@
 # Skill: LLM Wiki Ingest
 
+📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+
 Build a persistent, compounding knowledge wiki about a complex topic, following Karpathy's LLM Wiki pattern. Codified from successful application trong project `Everything Claude Code - Beginner Analysis` (2026-04-17).
 
 > **Principle:** Instead of re-deriving knowledge từ RAG mỗi query, LLM incrementally builds maintained wiki — summaries, entity pages, cross-references, evolving synthesis. Obsidian là IDE, LLM là programmer, wiki là codebase.

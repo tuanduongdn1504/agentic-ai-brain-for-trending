@@ -3,8 +3,8 @@
 > **Type:** Orchestration skill (harness pattern, paperclip-inspired)
 > **Version:** v1 — initial codification
 > **Created:** 2026-04-23
-> **Target project:** `/Users/Cvtot/monorepo/anspace-space-manager` (read-only)
-> **Report destination:** `03 Projects/product/anspace-harness/reports/` (write-only inside vault)
+> **Target project:** `/Users/Cvtot/monorepo/<client-monorepo>` (read-only)
+> **Report destination:** `03 Projects/product/<client>-harness/reports/` (write-only inside vault)
 > **Trigger:** Manual via `/loop run project harness` or direct skill invocation
 > **Sibling refs:** `llm-wiki-routine-v2.1.md` (phase structure template), `PATTERN_LIBRARY.md` (Phase 3 audit target)
 
@@ -12,12 +12,12 @@
 
 ## Purpose
 
-Lightweight code-analysis harness that runs 3 recurring diagnostic tasks against the `anspace-space-manager` monorepo and writes a dated report to the Storm Bear vault. Inspired by the paperclip framework's constitutional governance model — explicit invariants, always-produces-artifact, read-only target.
+Lightweight code-analysis harness that runs 3 recurring diagnostic tasks against the `<client-monorepo>` monorepo and writes a dated report to the Storm Bear vault. Inspired by the paperclip framework's constitutional governance model — explicit invariants, always-produces-artifact, read-only target.
 
 **Scope boundaries:**
-- READS the anspace project codebase and config
+- READS the <client> project codebase and config
 - READS the Storm Bear vault's `PATTERN_LIBRARY.md`
-- WRITES only to `03 Projects/product/anspace-harness/reports/`
+- WRITES only to `03 Projects/product/<client>-harness/reports/`
 - Never commits, never edits the target project, never pushes
 
 ---
@@ -26,7 +26,7 @@ Lightweight code-analysis harness that runs 3 recurring diagnostic tasks against
 
 These are non-negotiable. A harness run that violates any of these is invalid.
 
-1. **READ-ONLY target** — NEVER write to `/Users/Cvtot/monorepo/anspace-space-manager`. No file creation, modification, deletion, or `git` mutation.
+1. **READ-ONLY target** — NEVER write to `/Users/Cvtot/monorepo/<client-monorepo>`. No file creation, modification, deletion, or `git` mutation.
 2. **ALWAYS write a dated report** — even if phases fail partially, a report is always produced. Partial data is labeled as such.
 3. **ALWAYS end with suggested next actions** — per Storm Bear CLAUDE.md prime directive. One actionable next step per task area.
 4. **NEVER fabricate lint, parity, or audit results** — if a command fails, report the error. Do not estimate. Do not infer counts from descriptions.
@@ -39,7 +39,7 @@ These are non-negotiable. A harness run that violates any of these is invalid.
 User says one of:
 - `/loop run project harness`
 - `run project code analysis harness`
-- `run anspace harness`
+- `run <client> harness`
 
 → Invoke immediately. Execute all 4 phases in sequence within a single session. No check-ins between phases unless a constitutional invariant is about to be violated.
 
@@ -51,13 +51,13 @@ User says one of:
 
 1. Check target project reachable:
    ```bash
-   test -d /Users/Cvtot/monorepo/anspace-space-manager && echo OK
+   test -d /Users/Cvtot/monorepo/<client-monorepo> && echo OK
    ```
 2. Check required scripts present:
    ```bash
-   grep -E '"lint:all"|"lint"' /Users/Cvtot/monorepo/anspace-space-manager/package.json
+   grep -E '"lint:all"|"lint"' /Users/Cvtot/monorepo/<client-monorepo>/package.json
    ```
-3. Scaffold report file at `03 Projects/product/anspace-harness/reports/(C) YYYY-MM-DD-code-analysis-harness-report.md` with a stub containing: run timestamp, target project path, harness version.
+3. Scaffold report file at `03 Projects/product/<client>-harness/reports/(C) YYYY-MM-DD-code-analysis-harness-report.md` with a stub containing: run timestamp, target project path, harness version.
 4. If target project unreachable → abort with clear error message written to report, exit.
 
 **Success criteria:** Report file scaffold exists; all preconditions logged.
@@ -71,7 +71,7 @@ User says one of:
 Run these commands (read-only, capture stdout+stderr):
 
 ```bash
-cd /Users/Cvtot/monorepo/anspace-space-manager
+cd /Users/Cvtot/monorepo/<client-monorepo>
 
 # Root lint across workspaces (via Turbo)
 pnpm lint:all 2>&1
@@ -151,7 +151,7 @@ cd apps/mobile && pnpm exec tsc --noEmit 2>&1
 
 **Goal:** Compile findings into a single dated artifact.
 
-Write to `03 Projects/product/anspace-harness/reports/(C) YYYY-MM-DD-code-analysis-harness-report.md`.
+Write to `03 Projects/product/<client>-harness/reports/(C) YYYY-MM-DD-code-analysis-harness-report.md`.
 
 **Required sections:**
 

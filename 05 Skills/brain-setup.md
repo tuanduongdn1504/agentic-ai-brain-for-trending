@@ -1,5 +1,7 @@
 # Skill: Brain Setup
 
+📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+
 Generate a personalized CLAUDE.md by scanning the vault structure and interviewing the user. The result is a fully populated context file that makes Claude an effective thinking partner for this vault.
 
 ## When to Use
