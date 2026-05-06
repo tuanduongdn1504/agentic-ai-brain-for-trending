@@ -2,27 +2,28 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v56-mini-audit, preserved 6 cycles)
+## Current state (post-v57 direct updates, preserved 7 cycles)
 
-- **Confirmed:** 39 (UNCHANGED post-mini-audit; 2nd CONSERVATIVE-DISCIPLINE audit in corpus history; ZERO top-level state transitions)
-- **Active candidates:** 17
-- **Stale candidates:** 3 (#45 Dual-Licensing / #52 Extreme-Viral-Velocity / #72 PolyForm-Noncommercial)
+- **Confirmed:** 39 (UNCHANGED post-v57; 21-streak ZERO-NEW-ACTIVE-CANDIDATES extends)
+- **Active candidates:** 17 (UNCHANGED)
+- **Stale candidates:** 3 (#45 Dual-Licensing / #52 Extreme-Viral-Velocity / #72 PolyForm-Noncommercial; #52 OBSERVATIONAL FLAG at v57 for v60 time-axis verification)
 - **Retired:** 9
 - **Observation-tracks:** 6
 - **Total:** 74 full / 56 active
-- **Ratio:** 17:39 = **0.436:1** — first sub-0.45:1 ratio in corpus history (achieved at v53 mini-audit; preserved through v54 + v55 + v56 + v56-mini-audit)
-- **Buffer:** 0.514 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history maintained 6 cycles
+- **Ratio:** 17:39 = **0.436:1** — first sub-0.45:1 ratio in corpus history (achieved at v53 mini-audit; preserved through v54 + v55 + v56 + v56-mini-audit + v57 direct = **7 consecutive cycles**)
+- **Buffer:** 0.514 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history maintained 7 cycles
 - **Streaks:**
-  - **20-consecutive-wiki ZERO-NEW-ACTIVE-CANDIDATES (v37-v56) — NEW LONGEST in corpus history**
-  - **39-consecutive Storm Bear meta-entity (v10-v56)** — v56 is **1st under STRICT amendment session 66** with **2 criteria PASSED (b + d)** post-audit Q1-resolution (criterion-d via Skyvern v24→n8n v56 32-wiki gap)
-  - **2 consecutive CONSERVATIVE-DISCIPLINE mini-audits** (post-v54 session 65 + post-v56 session 67)
+  - **21-consecutive-wiki ZERO-NEW-ACTIVE-CANDIDATES (v37-v57) — NEW LONGEST in corpus history (extends v56 20-streak)**
+  - **40-consecutive Storm Bear meta-entity (v10-v57)** — v57 is **2nd under STRICT amendment session 66** with **3 criteria PASSED (b + c + d)** = STRONGEST STRICT-amendment instance to date (v56 was 2-of-4); 2 consecutive STRICT-instances satisfied validates amendment is regularly satisfiable not over-tight
+  - **2 consecutive CONSERVATIVE-DISCIPLINE mini-audits** (post-v54 session 65 + post-v56 session 67); no mini-audit at v57
 - **Library-vocabulary:** 13 distinct pattern-statement structural forms (UNCHANGED)
 - **Promotion criteria:** 6 structural-promotion criteria (UNCHANGED)
-- **Pattern #18 reaches 10th refinement** (extends from 9 baseline at v53 mini-audit; most-refined pattern in library; NEW = Layer 0 0b horizontal-aggregation N=2 promotion at v56-mini-audit)
+- **Pattern #18 reaches 10th refinement** (extends from 9 baseline at v53 mini-audit; most-refined pattern in library; NEW = Layer 0 0b horizontal-aggregation N=2 promotion at v56-mini-audit; v57 adds 0b skills-collection-curation-mechanism sub-axis N=3 at T1-only observational)
 - **Pattern #29 sub-context taxonomy now has 6 sub-contexts** (5 absent-LICENSE + 1 NEW non-commercial-restriction-custom-license; license-axis is corpus's most-richly-categorized pattern axis)
-- **Audit triggers RESET. Next triggers:** active candidate count ≥30 (currently 17 — 13-candidate runway) / ratio >0.95:1 mini / v60 wiki natural cadence
+- **Pattern #57 STRONGEST 57c evidence at v57:** 57c forward-citation-then-wiki grows N=3 → N=7 conservative-attribution post-v57 direct (mattpocock/skills cites BMAD v11 + GSD v5 + gsd-2 v54 + spec-kit v17 in single sentence); NEW 57c-multi-frontend sub-variant candidate N=1 stale-flagged v62/v67
+- **Audit triggers RESET. Next triggers:** active candidate count ≥30 (currently 17 — 13-candidate runway) / ratio >0.95:1 mini / v60 wiki natural cadence (3-wiki runway from v57)
 
-**Audit document:** `04 Reviews/(C) 2026-04-27 Pattern Library mini-audit post-v56 (5 candidates, ZERO state transitions, 2nd conservative-discipline audit).md`
+**Audit document:** `04 Reviews/(C) 2026-04-27 Pattern Library mini-audit post-v56 (5 candidates, ZERO state transitions, 2nd conservative-discipline audit).md` (most-recent audit; no audit at v57)
 
 ## Vault State Architecture
 
@@ -116,12 +117,14 @@
 
 ## Next audit trigger
 
-**Current state:** 17 active candidates / 39 confirmed = 0.436:1 ratio (NEW LARGEST buffer 0.514 below 0.95:1 mini-audit trigger; preserved 6 cycles post-v53 mini-audit through post-v56 mini-audit; 2nd consecutive CONSERVATIVE-DISCIPLINE mini-audit at session 67).
+**Current state (post-v57 direct):** 17 active candidates / 39 confirmed = 0.436:1 ratio (NEW LARGEST buffer 0.514 below 0.95:1 mini-audit trigger; preserved **7 consecutive cycles** post-v53 mini-audit through post-v57 direct).
 
 **Audit triggers RESET at v53 mini-audit. Next triggers:**
 - Active candidate count ≥30 (currently 17 — 13-candidate runway)
-- v60 wiki natural cadence (+5-wiki natural cadence from v55)
+- v60 wiki natural cadence (3-wiki runway from v57)
 - Ratio >0.95:1 mini-audit / >1.05:1 full audit
+
+**Pending v60 mini-audit candidates:** 7 promotion candidates accumulated post-v57 (Pattern #57 57c N=7 + multi-frontend sub-variant + Pattern #19 archetype 4 book-citation-lineage sub-variant + Pattern #18 0b skills-collection-curation-mechanism sub-axis observational + Pattern #51 anti-vibe-pole strengthening + Pattern #52 OBSERVATIONAL flag for time-axis verification + Pattern #50 50a strengthening + process-owning-meta-frameworks observation-track candidate deferred).
 
 
 ## References

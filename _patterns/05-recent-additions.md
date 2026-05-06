@@ -312,3 +312,41 @@ Candidate count ≥28 (currently 17; **11-candidate runway preserved**) OR v59 w
 - v60 wiki natural cadence (+4-wiki natural cadence from v56)
 
 **Operator-facing-backlog ROI focus continues to be highest-priority work** (v27 HIGH items #2-5 = 20 force-continuation ROI overhang).
+
+
+## Post-v57 strengthening notes (mattpocock/skills wiki, 2026-05-06 session 69)
+
+✅ **mattpocock/skills direct updates — 0 new active candidates (21ST CONSECUTIVE WIKI zero-registration streak v37-v57 — NEW LONGEST in corpus history extends v56 20-streak) + 0 new top-level OBSERVATION-TRACKs + 7+ strengthening data points + 7 PROMOTION-CANDIDATES accumulated for v60 mini-audit:**
+
+(1) **Pattern #57 57c forward-citation-then-wiki STRONGEST EVIDENCE TO DATE — N=3 confirmed → N=7 conservative-attribution** — mattpocock/skills v57 README cites in single sentence: BMAD-METHOD v11 (46-gap T1→T1) + get-shit-done v5 (52-gap T1→T1) + gsd-2 v54 (3-gap T1→T1; conservative-discipline counts both v5 + v54 as author doesn't disambiguate "GSD") + spec-kit v17 (40-gap T1→T1). Tier-pair distribution post-v57: 5 T1→T1 (or 4 if conservative GSD count) + 2 cross-tier + 1 outside-scope. Mean gap (v57 4 new instances): 35.25 wikis. Range 3-52 wikis. **CORPUS-FIRST MULTI-FRONTEND IN-CORPUS REFERENCE** — single citing-subject cites N≥3 prior corpus subjects in single artifact. Promotion-candidate for v60 mini-audit:
+   - **Option A**: 57c formal-statement extension to "N=7 across T1+T2+outside-scope tier-pairs"
+   - **Option B**: NEW 57c-multi-frontend sub-variant N=1 stale-flagged v62/v67
+   - **Option C** (recommended): BOTH — formal-statement extension + multi-frontend sub-variant registration
+
+(2) **Pattern #19 archetype 4 NEW sub-variant candidate book-citation-lineage** N=1 stale-flagged v62/v67 — distinct from individual-name lineage (Karpathy/Lam/Cherny precedents) and from no-explicit-lineage (v18 agency-agents) and from personal-authority-claim-no-citation (v55 automate-faceless-content "OG AI Wizard"). Mattpocock/skills cites 4 software-engineering-classical books (Pragmatic Programmer Hunt+Thomas cited 2× / Domain-Driven Design Eric Evans / Extreme Programming Explained Kent Beck / Philosophy Of Software Design Ousterhout) + corpus-foils. Mean book publication year ~2008; cumulative 22-year span = "decades of engineering experience" claim citation-supported. v57 inverts v55 cautionary contrast: same archetype (commercial-educator solo-individual) with opposite authority-construction (citation-supported authority vs personal-authority-claim).
+
+(3) **Pattern #18 Layer 0 0b skills-collection-curation-mechanism sub-axis N=3 at T1-only observational (does NOT meet promotion criteria)** — 3 skills-collections at T1: v50 awesome-claude-skills aggregator-curated + v51 agent-skills-of-vercel plugin-manifest-aggregation + v57 mattpocock/skills opinionated-curated-by-author. N=3 single-tier; default ≥3-cross-tier requires ≥2 tiers (FAIL); structural-N=2 within sub-variant requires N=2 each (FAIL each sub-variant N=1). Stale-flag for v62 awaiting cross-tier observation (skills-collection at T2/T4/T5 hypothetical).
+
+(4) **Pattern #51 Vibe-Coding Spectrum anti-vibe pole STRENGTHENED at most-explicit position** — mattpocock/skills tagline "real engineering — not vibe coding" is STRONGEST EXPLICIT ANTI-VIBE positioning data point in corpus to date; spectrum poles getting more sharply defined with each strong-positioning entrant. Cross-corpus observation: anti-vibe-pole subjects cite each other (Pragmatic-Programmer + Beck + Ousterhout = anti-vibe canon); pro-vibe-pole subjects cite social-media (Facebook + YouTube + affiliate-funnel mechanics).
+
+(5) **Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG for v60 mini-audit** — 62K stars / 66 commits ≈ 939 stars/commit extreme-density commit-to-star ratio; structurally extreme-velocity but time-axis unknown at probe (when first commit?); conservative-discipline default does NOT trigger un-stale at v57; flag for v60 mini-audit re-evaluation with `git log --reverse` first-commit-timestamp probe. If <90 days from first commit → un-stale candidate. If >12 months → sustained-organic (does NOT un-stale).
+
+(6) **Pattern #50 Commercial-Funnel Companion Platform 50a Standard sub-variant strengthening** — mattpocock/skills has newsletter funnel (~60K subscribers aihero.dev) + Total TypeScript paid course commercial brand backing + sandcastle sister-repo (3.7K stars). 5+ distribution surfaces; 50a Standard sub-variant continues strengthening across multi-tier observations.
+
+(7) **Process-owning-meta-frameworks observation-track candidate DEFERRED** until 2nd external author convergence — mattpocock/skills groups GSD + BMAD + spec-kit as "approaches that own the process" anti-pattern class. Storm Bear corpus had not previously grouped these subjects; mattpocock introduces this classification. Defer formal observation-track until 2nd external author converges on similar grouping.
+
+**Counter-evidence (no narrowing):**
+- Pattern #57 STRENGTHENS strongly (multi-frontend citation extends scope, no narrowing)
+- Pattern #19 STRENGTHENS via NEW book-citation-lineage sub-variant (NOT narrowing of archetype 4)
+- Pattern #18 STRENGTHENS Layer 0 0b but 3-sub-variant axis is candidate-only (single-tier observational; not promotion-eligible)
+- Pattern #51 STRENGTHENS anti-vibe pole at most-explicit position (no narrowing of spectrum)
+
+**Patterns NOT un-staled:** #45 Dual-Licensing (single MIT) / #52 Extreme-Viral-Velocity (OBSERVATIONAL FLAG only, conservative default; v60 time-axis verification needed) / #72 PolyForm-Noncommercial (MIT not PolyForm).
+
+**No new patterns + no new top-level OTs + 12-of-12 candidate observations routed to within-pattern strengthening per consolidation-forward discipline.** **Storm Bear meta-entity 40TH consecutive (v10-v57) with 3-of-4 STRICT criteria PASS (b + c + d) — 2nd under STRICT amendment session 66 — STRONGEST STRICT-amendment instance to date** (v56 was 2-of-4 PASS; v57 = 3-of-4 PASS strengthening trend; 3rd STRICT instance at v58+ would establish N=3 STRICT-routinely-satisfiable pattern). 2 consecutive STRICT-instances satisfied validates Phase 0.9 amendment is regularly satisfiable not over-tight (Goodhart's-law correction held). **Velocity ~45 min main-loop direct-write build mode** (v56 lesson applied successfully: avoid agent-thrash for high-primitive-count repos; compressed-scope to 9 files vs typical 14). **Post-v57 direct updates (0 status transitions):** 39 confirmed + 17 active + 3 stale + 9 retired + 6 OT = 74 full / 56 active. Ratio **17:39 = 0.436:1 PRESERVED 7TH CONSECUTIVE CYCLE** (largest buffer 0.514 below 0.95:1 mini-audit trigger preserved 7 cycles — NEW LARGEST in corpus history maintained 7 cycles). **7 promotion candidates accumulated post-v57 for v60 mini-audit (above).**
+
+**v27 diagnostic HIGH bundle 100% COMPLETE** as of session 68 (per root CLAUDE.md); no outstanding operator-facing-backlog escalation at v57; routine v2.1 STRICT Phase 0.9 amendment continues to apply.
+
+### Next natural-cadence trigger (post-v57)
+
+Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v60 wiki (+3-wiki natural cadence from v57) OR ratio >0.95:1 (mini) / >1.05:1 (full).
