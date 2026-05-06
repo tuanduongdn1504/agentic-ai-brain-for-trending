@@ -116,7 +116,7 @@
 
 ## Next audit trigger
 
-**Current state:** 17 active candidates / 39 confirmed = 0.436:1 ratio (NEW LARGEST buffer 0.514 below 0.95:1 mini-audit trigger; preserved 4 cycles post-v53 mini-audit).
+**Current state:** 17 active candidates / 39 confirmed = 0.436:1 ratio (NEW LARGEST buffer 0.514 below 0.95:1 mini-audit trigger; preserved 6 cycles post-v53 mini-audit through post-v56 mini-audit; 2nd consecutive CONSERVATIVE-DISCIPLINE mini-audit at session 67).
 
 **Audit triggers RESET at v53 mini-audit. Next triggers:**
 - Active candidate count ≥30 (currently 17 — 13-candidate runway)
