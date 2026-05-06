@@ -130,12 +130,12 @@ _Not provided. To be filled in when ready._
 
 ## Weekly Update
 
-> **Last updated:** _2026-05-06 session 69 — v57 mattpocock/skills shipped; 21-streak NEW LONGEST; 3-of-4 STRICT-amendment validates Phase 0.9 satisfiable_
+> **Last updated:** _2026-05-06 session 69 — v57 mattpocock/skills shipped + brain-setup-v2 codified (1st pilot deployment from v57 lessons)_
 
-- What's working: routine v2.1 + Pattern Library compounds; **21-streak zero-new-active-candidates** NEW LONGEST; ratio 0.436:1 preserved **7 cycles**; **2 consecutive STRICT-instances satisfied** (v56 2-of-4 + v57 3-of-4 = strengthening trend) validates Phase 0.9 amendment is regularly satisfiable; main-loop direct-write build mode (v56 lesson applied) shipping ~45 min velocity at v57; vault public at github.com/tuanduongdn1504/agentic-ai-brain-for-trending (MIT)
+- What's working: routine v2.1 + Pattern Library compounds; **21-streak zero-new-active-candidates** NEW LONGEST; ratio 0.436:1 preserved **7 cycles**; **2 consecutive STRICT-instances satisfied** (v56 2-of-4 + v57 3-of-4 = strengthening trend) validates Phase 0.9 amendment is regularly satisfiable; main-loop direct-write build mode (v56 lesson applied) shipping ~45 min velocity at v57; **v57 → pilot deployment same-session** (`brain-setup-v2.md` codified from `/grill-with-docs` cross-pollination — 1st cross-corpus skill port in vault history); vault public at github.com/tuanduongdn1504/agentic-ai-brain-for-trending (MIT)
 - What's not working: filename `_state/03a-projects-v48-v55.md` semantically out-of-date post-v57 (now covers v48-v57+); state-architecture rename deferred to next refactor cycle
-- What I'm sitting on / need to decide: pilot deployment selection — v57 introduces `/grill-with-docs` adaptation as Top-3 candidate alongside claude-hud + claude-howto; specific Phase 4+ deployment sequence (`/grill-with-docs` for vault `brain-setup-v2.md` + `/diagnose` port to `05 Skills/` + `/caveman` formalization)
-- What I'm feeling pulled toward: capture mattpocock/skills lessons — interview-as-skill convergence + book-citation-lineage methodology + multi-platform-by-design
+- What I'm sitting on / need to decide: dogfood Phase 2 of `brain-setup-v2.md` on current root CLAUDE.md (per skill's "Next action" — calibrates incremental-update flow before broader use); remaining v57 pilot candidates (`/diagnose` port + `/caveman` formalization)
+- What I'm feeling pulled toward: validate `brain-setup-v2.md` Phase 2-4 by dogfooding — proves the cross-pollination wasn't theoretical
 - Any deadlines or time-sensitive things: v60 mini-audit natural cadence (3-wiki runway from v57) with 7 promotion candidates accumulated; Pattern #57 57c potential N=7 + multi-frontend sub-variant promotion; Pattern #52 time-axis verification needed
 
 

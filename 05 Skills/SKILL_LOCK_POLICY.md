@@ -10,14 +10,15 @@
 
 Vault `05 Skills/` directory contains skill definitions at varying maturity levels. This policy classifies each skill as **PUBLIC-ARCHIVED (locked)** or **IN-FLUX (continues evolving)** to set operator expectations and external-user trust signals.
 
-## Skill classification (post-v57 / 2026-05-06)
+## Skill classification (post-v57 + brain-setup-v2 / 2026-05-06)
 
 | Skill File | Status | Rationale |
 |---|---|---|
 | `llm-wiki-routine.md` (v1) | 🔒 **PUBLIC-ARCHIVED** | Superseded 2026-04-19 by v2; v1 frozen as historical record |
 | `llm-wiki-routine-v2.md` (v2) | 🔒 **PUBLIC-ARCHIVED** | Superseded 2026-04-22 by v2.1; v2 frozen as historical record |
 | `llm-wiki-routine-v2.1.md` (current) | 🟢 **IN-FLUX** | Production-stable across 14+ executions; tightened session 66 STRICT amendment; v2.2 candidate refactor pending; continues evolving |
-| `brain-setup.md` | 🟢 **IN-FLUX** | Operator-interview skill; may evolve as new operator-onboarding patterns emerge |
+| `brain-setup.md` (v1) | 🔒 **PUBLIC-ARCHIVED** | Superseded 2026-05-06 by v2 (cross-pollinated with mattpocock `/grill-with-docs`); v1 frozen as historical record |
+| `brain-setup-v2.md` (current) | 🟢 **IN-FLUX** | 4-phase skill: initial setup + incremental update + lazy ADR + glossary discipline; v57 mattpocock/skills lessons applied |
 | `new-project.md` | 🟢 **IN-FLUX** | Project scaffolding skill; may evolve as new project archetypes emerge |
 | `weekly-update.md` | 🟢 **IN-FLUX** | Operator-interview skill for vault-state refresh; may evolve as vault-state architecture changes |
 | `llm-wiki-ingest.md` | 🟢 **IN-FLUX** | Wiki-ingestion skill (Karpathy pattern); may evolve in parallel with routine v2.1 |

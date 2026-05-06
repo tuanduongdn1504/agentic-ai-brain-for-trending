@@ -1,6 +1,11 @@
-# Skill: Brain Setup
+# Skill: Brain Setup — PUBLIC-ARCHIVED (2026-05-06)
 
-📍 **Status:** IN-FLUX (continues evolving — current version as of 2026-05-06)
+⚠️ **THIS SKILL IS SUPERSEDED.** Use the current version instead:
+→ `brain-setup-v2.md`
+
+This file is preserved as a historical record of skill evolution. DO NOT modify. DO NOT use in production. For current skill, see `brain-setup-v2.md` (adds Phase 2 incremental update + Phase 3 lazy ADR + Phase 4 glossary discipline, borrowed from mattpocock/skills `/grill-with-docs`).
+
+---
 
 Generate a personalized CLAUDE.md by scanning the vault structure and interviewing the user. The result is a fully populated context file that makes Claude an effective thinking partner for this vault.
 
