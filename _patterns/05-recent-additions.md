@@ -350,3 +350,62 @@ Candidate count ≥28 (currently 17; **11-candidate runway preserved**) OR v59 w
 ### Next natural-cadence trigger (post-v57)
 
 Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v60 wiki (+3-wiki natural cadence from v57) OR ratio >0.95:1 (mini) / >1.05:1 (full).
+
+
+## Post-v60 EXTENDED MINI-AUDIT (session 70, 2026-05-07 — LARGEST mini-audit in corpus history; 1st STRENGTHENING-DOMINANT class; 1st EXTENDED-MINI classification)
+
+**Audit results doc:** `_state/v60-mini-audit-results-2026-05-07.md` (primary record)
+**Pre-registration baseline:** `_state/v60-mini-audit-pre-registration.md` (LOCKED 11 items + 3 OPEN items resolved with v60 evidence + 4 pre-step probes)
+
+### Net audit outcome
+
+- **2 promotions to Confirmed:** Pattern #45 Dual-Licensing (criterion 2 structural-N=2 / Unsloth v23 + AutoGPT v59) + Pattern #72 PolyForm-Family-License (criterion 4 variant-within-pattern-at-N=2 / GitNexus v33 + AutoGPT v59 — **1st pattern RENAME-on-promotion in corpus** from PolyForm-Noncommercial → PolyForm-Family-License with sub-variants 72a + 72b)
+- **2 sub-variant promotions within already-Confirmed:** Pattern #57 57c-anti-pattern-foil sub-variant (criterion 4 / mattpocock v57 + OpenSpec v58 → v17 spec-kit) + Pattern #19 archetype 4 founder-personal→org-stewardship sub-variant (criterion 2 / n8n v56 + AutoGPT v59)
+- **1 sub-sub-axis formalization:** Pattern #29 standardized-non-OSI vs bespoke-non-OSI under criterion 4 (each sub-sub-axis N=2)
+- **1 NEW sub-variant registration:** Pattern #57 57c-positive-comparison-parallel N=1 stale-flagged v65/v70 (free-claude-code v60 → OpenClaw)
+- **5 formal-statement extensions:** Pattern #18 Layer 1 (corpus-broadest 30+ at T1 + 24-cell at T4) — **Pattern #18 reaches 11th refinement** / Pattern #29 sub-context N=4 / Pattern #69 EXTREME-tier N=7 / Pattern #57 57c parent N=9 / Pattern #51 anti-vibe-pole narrowed to archetype-conditional
+- **3 stale-flag confirmations:** Pattern #18 cross-tool-skill-format-translator + Pattern #19 first-mover-authority-without-lineage (now N=2 internal sub-types: utility-tool + paradigm-foundational) + Pattern #19 org-level-pseudonymity-with-active-commercial-product
+- **1 audit-layer fact-verification correction (3RD IN CORPUS HISTORY; LARGEST FALSIFICATION):** Pattern #57 BIDIRECTIONAL-ABSENCE OT REJECTED — corpus-grep pre-step found 53 files / 17+ wikis citing AutoGPT (most prominently Skyvern v24 explicit "Skyvern was inspired by the Task-Driven autonomous agent design popularized by BabyAGI and AutoGPT"); v59 wiki bidirectional-absence claim falsified; downgraded to FORWARD-ABSENCE-only documentation (AutoGPT does not cite predecessors in own README — that part valid)
+- **1 routine v2.2 candidate codification:** Phase 0.9 STRICT-triad pattern (5-instance 80%-INCLUDE rate validates regularly satisfiable)
+
+### State changes
+
+- 39 → **41 confirmed**; 17 active UNCHANGED; 3 stale → **1 stale** (#52 preserved per Item 12); 6 OT UNCHANGED (BIDIRECTIONAL-ABSENCE OT rejected); 9 retired UNCHANGED
+- Total: 72 full / 56 active → **74 full / 58 active**
+- Ratio: 17:39 = 0.436:1 → **17:41 = 0.415:1 NEW LARGEST in corpus history; buffer 0.535 below 0.95:1 trigger**
+- Pattern #18 refinements: 10 → **11**
+- Pattern #29 sub-classifications: 6 → **7**
+- Pattern #57 polarity classes formalized: 4 (anti-pattern-foil PROMOTED + positive-comparison-parallel REGISTERED + inspirational-predecessor + temporal-gap-coincidental)
+
+### Pre-step results (4 probes executed before audit)
+
+1. **Corpus-grep "AutoGPT":** 53 files / 17+ wikis cite — falsifies v59 BIDIRECTIONAL-ABSENCE claim (3rd audit-layer fact-verification in corpus history)
+2. **mattpocock/skills git-log:** Repo created 2026-02-03 → ~3 months old at v57 + v60 probes; falls in 90d<x<12mo "preserve flag" band per pre-registered Item 12 decision-criteria
+3. **Pattern #29 sub-sub-axis license-text divergence:** Verified 2-vs-2 distribution structurally clean (PolyForm-family standardized text differs from omo+n8n bespoke text)
+4. **AutoGPT MIT+PolyForm-Shield dual-license:** Verified — MIT covers Classic/Forge/Benchmark/Frontend; PolyForm-Shield covers `autogpt_platform/`; noncompete clause confirmed
+
+### Structural firsts at v60 mini-audit (10)
+
+1. LARGEST mini-audit in corpus history (14 items vs prior max ~6 at v31)
+2. 1st EXTENDED MINI-AUDIT classification (between mini-audit norm and full-audit; ~110 min actual vs ~130 min projected)
+3. 1st pre-registered mini-audit (LOCKED-vs-OPEN decision-state tracking validated)
+4. 3rd audit-layer fact-verification correction in corpus history; LARGEST falsification scope (entire OT registration rejected)
+5. 1st double promotion in single mini-audit since v31 (#45 + #72)
+6. 1st pattern RENAME-on-promotion in corpus history (#72)
+7. NEW LARGEST buffer 0.535 (post-audit ratio 0.415:1)
+8. Pattern #18 reaches 11th refinement
+9. Pattern #29 reaches 7 sub-classifications (most-richly-categorized axis extends)
+10. 1st STRENGTHENING-DOMINANT mini-audit class (distinguishable from CONSERVATIVE-DISCIPLINE — high formal-statement-extension count + low retirement count)
+
+### Carry-forward to v63 mini-audit
+
+- Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG (mattpocock/skills will be ~6mo at v63; preserve if still <12mo)
+- Pattern #18 cross-tool-skill-format-translator stale-check
+- Pattern #19 first-mover-no-lineage internal N=2 (utility-tool + paradigm-foundational sub-types)
+- Pattern #19 org-level-pseudonymity stale-check
+- Pattern #57 57c-positive-comparison-parallel sister sub-variant stale-check
+- Process-owning-meta-frameworks OT candidate (await 2nd external-author convergence)
+
+### Next natural-cadence trigger (post-v60 audit)
+
+Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v63 wiki (+3-wiki natural cadence from v60) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.415:1 with NEW LARGEST 0.535 buffer — ratio-trigger unlikely soon).
