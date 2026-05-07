@@ -12,33 +12,21 @@
 
 ---
 
-## Claude Code SDK — headless / programmatic automation
-
-- **Query:** `Claude Code SDK programmatic headless CLI automation tutorial`
-- **Query (alt):** `claude code -p flag scripting agent SDK`
-- **Notes:** Foundation layer for any remote-trigger pattern. Look for: SDK install + auth, programmatic invocation (not interactive), session reuse vs one-shot, output capture (JSON / streamed), system prompt overrides, working-directory control, hook/permission interception. Output should feed the Telegram bot topic above (the bot calls SDK).
-- **Queued:** 2026-05-07
-- **Status:** pending
-
-## MCP servers for messaging platforms — Telegram, WhatsApp, Discord
-
-- **Query:** `Telegram MCP server bot Claude integration tutorial setup`
-- **Notes:** Telegram-specific (WhatsApp/Discord deferred — too diffuse for one topic). Look for: bot-API pattern, polling vs webhook, file/voice support, rate-limit behavior, self-host vs hosted, security model (token storage). Pairs with `Telegram bot — remote control` topic above.
-- **Queued:** 2026-05-07
-- **Status:** pending
-
-## Remote agent control — tunneling, SSH, ngrok, tailscale
-
-- **Query:** `tailscale ngrok cloudflare tunnel home server self-hosted 2026`
-- **Notes:** Networking layer — Telegram bot needs to reach machine at home. Look for: ngrok vs cloudflare tunnel vs tailscale tradeoffs, persistence across reboots, security (auth on tunnel endpoint), latency for interactive commands, free vs paid tiers. Pairs with the Telegram bot topic — tunnel choice affects bot architecture (webhook vs poll).
-- **Queued:** 2026-05-07
-- **Status:** pending
-
----
-
 ## Completed
 
 
+### Remote agent control — tunneling, SSH, ngrok, tailscale ✅
+- **Drained:** 2026-05-07 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-07-remote-agent-control-tunneling-ssh-ngrok-tailscale.md`
+- **NotebookLM:** `46ee01f8-81e3-47d6-b617-4c322359b6b9`
+### MCP servers for messaging platforms — Telegram, WhatsApp, Discord ✅
+- **Drained:** 2026-05-07 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-07-mcp-servers-for-messaging-platforms-telegram-whats.md`
+- **NotebookLM:** `183e3635-ea8c-4c52-9c16-11aa32e19c78`
+### Claude Code SDK — headless / programmatic automation ✅
+- **Drained:** 2026-05-07 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-07-claude-code-sdk-headless-programmatic-automation.md`
+- **NotebookLM:** `dafc8c4f-840b-41a1-b125-bfe973c919f0`
 ### Telegram bot — remote control Claude Code/Desktop from phone ✅
 - **Drained:** 2026-05-07 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-07-telegram-bot-remote-control-claude-codedesktop-fro.md`
