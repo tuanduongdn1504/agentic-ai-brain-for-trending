@@ -60,33 +60,34 @@ cd "<your-worktree>/03 Projects/autopilot-research"
 #   cd "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"   # main vault
 #   cd "/Users/Cvtot/KJ-OS-autopilot/03 Projects/autopilot-research"  # autopilot worktree
 
-# 3. Create project Python venv (PER WORKTREE — each worktree has own .venv)
-python3 -m venv .venv
+# 3. Create project Python venv with explicit Python 3.12 (PER WORKTREE)
+#    NOTE: this user's `python3` shim was broken — use the absolute path to brew Python 3.12
+/usr/local/opt/python@3.12/bin/python3.12 -m venv .venv
 
-# 4. Source env shim — self-locates AUTOPILOT_ROOT, activates venv, overrides Playwright path
+# 4. Source env shim — self-locates AUTOPILOT_ROOT, activates venv
 source bin/autopilot-env.sh
 
-# 5. Install notebooklm-py + Playwright browser into project-local cache
+# 5. Install notebooklm-py (~50 MB; httpx-based, NO Playwright in v0.3.4)
 pip install notebooklm-py
-python -m playwright install chromium      # ~280 MB → .venv/playwright-browsers/
 
 # 6. Authenticate to Google NotebookLM (interactive — opens browser)
-notebooklm auth login
-notebooklm auth status                     # verify: "logged in"
+notebooklm login          # opens browser, log in to Google, press ENTER in terminal
+notebooklm auth check     # verify SID cookies present
 ```
 
 **Verify install (1 command, run from the project root in your worktree):**
 
 ```bash
-source bin/autopilot-env.sh && which yt-dlp && pip show notebooklm-py | head -2 && notebooklm auth status
+source bin/autopilot-env.sh && which yt-dlp && pip show notebooklm-py | head -2 && notebooklm auth check
 ```
 
 Expected: 3 OK lines.
 
-**Disk footprint after setup:**
-- `.venv/` ≈ 50-80 MB (Python deps)
-- `.venv/playwright-browsers/` ≈ 280 MB (Chromium for OAuth)
-- `~/.local/bin/yt-dlp` (or brew Cellar) ≈ 10 MB (system-wide, only non-project location)
+**Disk footprint after setup (v0.3.4 — drops Playwright):**
+- `.venv/` ≈ 50-80 MB (Python deps: notebooklm-py + httpx + click + rich)
+- yt-dlp via brew ≈ 10 MB (system-wide, only non-project location)
+- `~/.notebooklm/storage_state.json` ≈ <1 KB (Google auth cookies; redirectable via `--storage`)
+- **Total: ~70 MB** (was projected ~330 MB; Playwright is no longer a dep)
 
 **Cleanup options:**
 

@@ -83,63 +83,78 @@ Pick top `<video-count>` (default 6). Always at least 5; never more than 8.
 
 ## Step 3: Bundle into NotebookLM
 
-Invoke `(C) notebooklm.md` with `bundle_to_markdown` operation:
+Invoke `(C) notebooklm.md` Operation 2 (`bundle_to_markdown`). Concretely:
 
+```bash
+NB_ID=$(notebooklm create "autopilot-<topic-slug>-<YYYY-MM-DD>" --json | jq -r .id)
+notebooklm use "$NB_ID"
+for url in "${urls[@]}"; do
+  notebooklm source add "$url"
+done
+notebooklm source wait --timeout 600   # block up to 10 min until all processed
 ```
-notebooklm bundle --topic "<topic>" --urls "url1,url2,...,urlN"
-```
-
-This:
-- Creates one notebook `autopilot-<topic-slug>-<YYYY-MM-DD>`
-- Adds all N videos as sources (sequential)
-- Waits up to 10 min for all sources to process
-- Returns notebook ID
 
 **Failure handling:**
-- Source processing timeout → keep notebook intact, abort with "manual inspection required: <notebook URL>"
-- One source fails (e.g., age-restricted, removed) → continue with remaining; report skip count
+- Source processing timeout → keep notebook intact, abort with "manual inspection required: notebook ID $NB_ID"
+- One source fails (age-restricted, removed) → `source list --json` shows status; continue; report skip count
 - Notebook creation fails → abort, surface error
 
 ---
 
 ## Step 4: Generate analysis
 
-Pass a structured prompt to NotebookLM's report generator:
+v0.3.4 has no single "report generation" command. Compose summary + targeted Q&A:
 
+```bash
+{
+  echo "# ${topic} — autopilot bundle"
+  echo ""
+  echo "## Summary (NotebookLM auto)"
+  notebooklm summary
+  echo ""
+  echo "## Trends"
+  notebooklm ask "What patterns appear across multiple sources? What approach/framework/concept is most-mentioned? Cite sources inline."
+  echo ""
+  echo "## Outliers"
+  notebooklm ask "Which source disagrees with the others? Where do experts conflict? What's the contrarian take?"
+  echo ""
+  echo "## Gaps"
+  notebooklm ask "What did the sources NOT cover? What questions remain unanswered? What deserves a follow-up search?"
+  echo ""
+  echo "## Key Takeaways"
+  notebooklm ask "Give 5-7 bullets distilling the most actionable insights from this research set. Each bullet must cite the source by title."
+} > "$raw_path"
 ```
-notebooklm generate report --notebook <id> --prompt "
-Analyze these <N> videos as a coherent research set on topic '<topic>'.
 
-Produce four sections:
-
-## Trends
-What patterns appear across multiple videos? What approach/framework/concept is most-mentioned?
-
-## Outliers
-Which video disagrees with the others? Where do experts conflict? What's the contrarian take?
-
-## Gaps
-What did the videos NOT cover? What questions remain unanswered? What deserves a follow-up search?
-
-## Key Takeaways
-5-7 bullet points distilling the most actionable insights, each citing the source video by title.
-
-Cite all sources inline using [Source 1], [Source 2], etc.
-"
+If `--deliverable podcast` was passed, also:
+```bash
+notebooklm generate audio -n "$NB_ID"
+notebooklm generate audio wait -n "$NB_ID"
+notebooklm download audio -n "$NB_ID" -o "output/${topic-slug}-podcast.mp3"
 ```
 
-If `--deliverable podcast` or `--deliverable slides` was passed, also generate that artifact:
-```
-notebooklm generate <audio|slides> --notebook <id>
-```
+For `--deliverable slides`: NotebookLM v0.3.4 has no slide generator. Use mind-map as alternative or fall back to report-only.
 
 ---
 
-## Step 5: Download + write to raw/
+## Step 5: Write metadata header
 
-```
-notebooklm download artifact --notebook <id> --format md \
-  --output "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/raw/<YYYY-MM-DD>-<topic-slug>.md"
+The script in step 4 already wrote markdown to `raw/<YYYY-MM-DD>-<topic-slug>.md`. Now prepend a YAML metadata header:
+
+```bash
+raw_path="raw/<YYYY-MM-DD>-<topic-slug>.md"
+{
+  echo "---"
+  echo "source: yt-pipeline"
+  echo "topic: <topic>"
+  echo "generated: $(date -Iseconds)"
+  echo "videos_count: $N"
+  echo "notebook_id: $NB_ID"
+  echo "deliverable: ${deliverable:-report}"
+  echo "---"
+  echo ""
+  cat "$raw_path"
+} > "$raw_path.tmp" && mv "$raw_path.tmp" "$raw_path"
 ```
 
 Append metadata header to the file:

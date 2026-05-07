@@ -2,7 +2,8 @@
 
 > **Type:** Worker skill (project-local to autopilot-research)
 > **Created:** 2026-04-29
-> **Backend:** [`teng-lin/notebooklm-py`](https://github.com/teng-lin/notebooklm-py) (external Python CLI)
+> **Updated:** 2026-05-07 — calibrated to notebooklm-py v0.3.4 actual CLI
+> **Backend:** [`teng-lin/notebooklm-py`](https://github.com/teng-lin/notebooklm-py) v0.3.4 (external Python CLI)
 > **Reused by:** `(C) yt-pipeline.md`, `(C) autopilot-research-routine.md`
 > **Storm Bear ref:** v7 wiki at `../../notebooklm-py - Beginner Analysis/`
 
@@ -16,15 +17,16 @@ Bridge from any URL / PDF / YouTube video / Drive file → markdown summary in `
 
 ---
 
-## Caveats (per Storm Bear v7 wiki)
+## Caveats (per Storm Bear v7 wiki + v0.3.4 CLI verification)
 
 ⚠️ **Read these before invoking:**
 
-1. **Paid plan required** — NotebookLM has a free tier but the artifacts (mind maps, audio overviews, reports) require a paid Google plan
+1. **Paid plan required** — NotebookLM has a free tier but artifacts (mind maps, audio overviews) may require a paid Google plan
 2. **Undocumented APIs** — notebooklm-py wraps internal Google endpoints; subject to breaking changes when Google updates the web UI. Storm Bear v7 wiki documents stability practices but breakage risk is real
 3. **Bus factor = 1** — solo maintainer (`teng-lin`); a stalled PR or stale Google API can block usage
 4. **Rate limits propagate** — no built-in retry; if Google rate-limits, this skill surfaces the error
-5. **OAuth via Playwright** — first-time auth opens a browser window; CI/CD requires `NOTEBOOKLM_AUTH_JSON` env var
+5. **Browser-based login** — `notebooklm login` opens browser for Google login; after login, press ENTER in the terminal. CI/CD alternative via `NOTEBOOKLM_AUTH_JSON` env var. **No Playwright dependency in v0.3.4** — uses `httpx` for HTTP, opens browser via `webbrowser` module
+6. **Auth storage** — by default saved to `~/.notebooklm/storage_state.json`. Override with `--storage <path>` to keep project-local
 
 ---
 
@@ -36,22 +38,23 @@ Before invoking, source the project env (activates venv + Playwright override) a
 # Worktree-agnostic source: cd to the autopilot-research project root in your worktree first.
 [ -z "${AUTOPILOT_ROOT:-}" ] && source ./bin/autopilot-env.sh
 
-# Verify notebooklm installed inside the venv
-pip show notebooklm-py 2>/dev/null && notebooklm auth status 2>/dev/null
+# Verify notebooklm installed inside the venv + auth state valid
+pip show notebooklm-py 2>/dev/null && notebooklm auth check 2>/dev/null
 ```
 
 If either fails, abort with this message:
 
 > **notebooklm-py setup required (Option A — project venv).** From your worktree's project folder:
 > ```bash
-> cd "<your-worktree>/03 Projects/autopilot-research"   # any worktree path works
-> python3 -m venv .venv                                 # if .venv missing
-> source bin/autopilot-env.sh                           # activate + override Playwright path
-> pip install notebooklm-py                             # ~50 MB Python deps
-> python -m playwright install chromium                 # ~280 MB → .venv/playwright-browsers/
-> notebooklm auth login                                 # interactive Google OAuth
-> notebooklm auth status                                # verify "logged in"
+> cd "<your-worktree>/03 Projects/autopilot-research"
+> /usr/local/opt/python@3.12/bin/python3.12 -m venv .venv   # use Python 3.12 explicitly
+> source bin/autopilot-env.sh                                # activate venv
+> pip install notebooklm-py                                  # ~50 MB Python deps
+> notebooklm login                                           # opens browser for Google login
+> notebooklm auth check                                      # verify SID cookies present
 > ```
+>
+> No Playwright install needed — notebooklm-py v0.3.4 doesn't use Playwright.
 >
 > All deps land inside `.venv/` → `rm -rf .venv` to nuke 350 MB cleanly.
 >
@@ -61,35 +64,30 @@ If either fails, abort with this message:
 
 ## Operation 1: `ingest_to_markdown(url)`
 
-**Single URL → markdown file in `raw/`.**
-
-Invocation:
-```
-notebooklm ingest "<url>" [--topic-slug <slug>]
-```
+**Single URL → markdown file in `raw/`.** v0.3.4 doesn't have a one-shot "report to markdown" — we compose 3 commands.
 
 Procedure:
 1. Verify URL reachable (`curl -sI` or follow redirects)
-2. Create a NotebookLM notebook named `autopilot-<topic-slug>-<YYYY-MM-DD>` (or auto-generated if no slug)
+2. Create notebook (returns ID):
    ```bash
-   notebooklm notebook create --name "autopilot-<slug>-<date>"
+   NB_ID=$(notebooklm create "autopilot-<slug>-<date>" --json | jq -r .id)
    ```
-3. Capture the returned notebook ID
-4. Add the URL as a source:
+3. Add the URL as a source (auto-detects URL/YouTube/text):
    ```bash
-   notebooklm source add "<url>" --notebook <id>
+   notebooklm source add "<url>" -n "$NB_ID"
+   notebooklm source wait -n "$NB_ID" --timeout 300   # block until processed
    ```
-5. Wait for source processing (poll status; max 5 min)
-6. Generate the report artifact:
+4. Get AI summary (markdown by default):
    ```bash
-   notebooklm generate report --notebook <id>
+   notebooklm summary -n "$NB_ID" > "raw/<YYYY-MM-DD>-<slug>.md"
    ```
-7. Download as markdown:
+5. (Optional) Add structured Q&A for analysis sections:
    ```bash
-   notebooklm download artifact --notebook <id> --format md --output "<vault>/03 Projects/autopilot-research/raw/<YYYY-MM-DD>-<slug>.md"
+   notebooklm use "$NB_ID"
+   notebooklm ask "What are the key takeaways?" >> "raw/<YYYY-MM-DD>-<slug>.md"
    ```
-8. Return the markdown file path
-9. (Optional) Persist notebook ID in `raw/.notebook-ids.json` for later querying
+6. Append metadata header to the file (notebook_id, source URL, timestamp)
+7. Persist notebook ID in `raw/.notebook-ids.json` for later querying
 
 ---
 
@@ -97,21 +95,37 @@ Procedure:
 
 **Multiple URLs → single notebook → consolidated markdown.** Used by `yt-pipeline` to bundle 5-8 videos.
 
-Invocation:
-```
-notebooklm bundle --topic "<topic>" --urls "url1,url2,url3,..."
-```
-
 Procedure:
-1. Create one notebook named `autopilot-<topic-slug>-<date>`
-2. For each URL: `notebooklm source add "<url>" --notebook <id>` (sequential; parallel may rate-limit)
-3. Wait for all sources to finish processing (poll until all show `ready` status, max 10 min total)
-4. Generate report:
+1. Create one notebook:
    ```bash
-   notebooklm generate report --notebook <id> --prompt "Summarize trends, outliers, and gaps across all sources. Cite each source by title."
+   NB_ID=$(notebooklm create "autopilot-<topic-slug>-<date>" --json | jq -r .id)
+   notebooklm use "$NB_ID"
    ```
-5. Download markdown report → `raw/<YYYY-MM-DD>-<topic-slug>.md`
-6. Return the markdown path + the notebook ID (so downstream tools can query the bundle later)
+2. For each URL (sequential — parallel may rate-limit):
+   ```bash
+   notebooklm source add "<url>"
+   ```
+3. Wait for all sources to finish:
+   ```bash
+   notebooklm source wait --timeout 600
+   ```
+4. Get summary + targeted analysis via `ask`:
+   ```bash
+   {
+     echo "# <topic> — autopilot bundle"
+     echo ""
+     notebooklm summary
+     echo ""
+     echo "## Trends"
+     notebooklm ask "What patterns appear across multiple sources?"
+     echo "## Outliers"
+     notebooklm ask "Which source disagrees? What's the contrarian take?"
+     echo "## Gaps"
+     notebooklm ask "What did the sources NOT cover? What deserves follow-up?"
+   } > "raw/<YYYY-MM-DD>-<topic-slug>.md"
+   ```
+5. Append metadata header (topic, notebook_id, sources count, timestamp)
+6. Return the markdown path + the notebook ID
 
 ---
 
@@ -119,16 +133,16 @@ Procedure:
 
 **Chat against an existing notebook.** Used for follow-up questions without re-ingesting sources.
 
-Invocation:
-```
-notebooklm query --notebook <id> --question "<question>"
-```
-
 Procedure:
-1. Verify notebook ID exists: `notebooklm notebook list | grep <id>`
-2. Send chat message:
+1. Verify notebook ID exists:
    ```bash
-   notebooklm chat send "<question>" --notebook <id>
+   notebooklm list --json | jq -r '.[].id' | grep -q "<notebook_id>"
+   ```
+2. Set context + ask:
+   ```bash
+   notebooklm use "<notebook_id>"
+   notebooklm ask "<question>"        # plain text
+   notebooklm ask "<question>" --json # structured w/ source IDs
    ```
 3. Capture response, return as text (no file write — caller decides where it goes)
 
