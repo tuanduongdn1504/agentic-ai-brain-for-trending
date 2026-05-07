@@ -67,10 +67,16 @@ cd "<your-worktree>/03 Projects/autopilot-research"
 # 4. Source env shim — self-locates AUTOPILOT_ROOT, activates venv
 source bin/autopilot-env.sh
 
-# 5. Install notebooklm-py (~50 MB; httpx-based, NO Playwright in v0.3.4)
+# 5. Install notebooklm-py (~170 MB Python deps in .venv/)
 pip install notebooklm-py
 
-# 6. Authenticate to Google NotebookLM (interactive — opens browser)
+# 6. Install Playwright + Chromium for the browser-based login flow.
+#    Playwright is NOT a transitive dep of notebooklm-py 0.3.4 — must install separately.
+#    PLAYWRIGHT_BROWSERS_PATH was set in step 4, so chromium lands inside .venv/.
+pip install playwright
+playwright install chromium    # ~530 MB → .venv/playwright-browsers/
+
+# 7. Authenticate to Google NotebookLM (interactive — opens browser)
 notebooklm login          # opens browser, log in to Google, press ENTER in terminal
 notebooklm auth check     # verify SID cookies present
 ```
@@ -83,11 +89,12 @@ source bin/autopilot-env.sh && which yt-dlp && pip show notebooklm-py | head -2 
 
 Expected: 3 OK lines.
 
-**Disk footprint after setup (v0.3.4 — drops Playwright):**
-- `.venv/` ≈ 50-80 MB (Python deps: notebooklm-py + httpx + click + rich)
+**Disk footprint after setup (v0.3.4 measured):**
+- `.venv/` Python deps ≈ 170 MB (notebooklm-py + httpx + Playwright + click + rich + pyee + greenlet)
+- `.venv/playwright-browsers/` ≈ 528 MB (Chromium + headless-shell + ffmpeg)
 - yt-dlp via brew ≈ 10 MB (system-wide, only non-project location)
 - `~/.notebooklm/storage_state.json` ≈ <1 KB (Google auth cookies; redirectable via `--storage`)
-- **Total: ~70 MB** (was projected ~330 MB; Playwright is no longer a dep)
+- **Total: ~700 MB project-local + ~10 MB system** (Playwright IS required by `notebooklm login`)
 
 **Cleanup options:**
 

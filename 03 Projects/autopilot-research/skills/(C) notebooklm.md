@@ -25,7 +25,7 @@ Bridge from any URL / PDF / YouTube video / Drive file → markdown summary in `
 2. **Undocumented APIs** — notebooklm-py wraps internal Google endpoints; subject to breaking changes when Google updates the web UI. Storm Bear v7 wiki documents stability practices but breakage risk is real
 3. **Bus factor = 1** — solo maintainer (`teng-lin`); a stalled PR or stale Google API can block usage
 4. **Rate limits propagate** — no built-in retry; if Google rate-limits, this skill surfaces the error
-5. **Browser-based login** — `notebooklm login` opens browser for Google login; after login, press ENTER in the terminal. CI/CD alternative via `NOTEBOOKLM_AUTH_JSON` env var. **No Playwright dependency in v0.3.4** — uses `httpx` for HTTP, opens browser via `webbrowser` module
+5. **Browser-based login REQUIRES Playwright** — `notebooklm login` uses Playwright + Chromium to drive the Google login flow. Playwright is NOT a transitive dep of notebooklm-py 0.3.4 (despite the v7 wiki summary suggesting otherwise) — must `pip install playwright && playwright install chromium` separately. Installs land in `.venv/playwright-browsers/` because the env shim sets `PLAYWRIGHT_BROWSERS_PATH`. CI/CD alternative via `NOTEBOOKLM_AUTH_JSON` env var
 6. **Auth storage** — by default saved to `~/.notebooklm/storage_state.json`. Override with `--storage <path>` to keep project-local
 
 ---
@@ -48,13 +48,15 @@ If either fails, abort with this message:
 > ```bash
 > cd "<your-worktree>/03 Projects/autopilot-research"
 > /usr/local/opt/python@3.12/bin/python3.12 -m venv .venv   # use Python 3.12 explicitly
-> source bin/autopilot-env.sh                                # activate venv
-> pip install notebooklm-py                                  # ~50 MB Python deps
+> source bin/autopilot-env.sh                                # activate venv + set PLAYWRIGHT_BROWSERS_PATH
+> pip install notebooklm-py                                  # ~170 MB Python deps
+> pip install playwright                                     # additional ~50 MB
+> playwright install chromium                                # ~530 MB → .venv/playwright-browsers/
 > notebooklm login                                           # opens browser for Google login
 > notebooklm auth check                                      # verify SID cookies present
 > ```
 >
-> No Playwright install needed — notebooklm-py v0.3.4 doesn't use Playwright.
+> Playwright is required by `notebooklm login` but NOT installed automatically by `pip install notebooklm-py`. Install it explicitly in step 4.
 >
 > All deps land inside `.venv/` → `rm -rf .venv` to nuke 350 MB cleanly.
 >
