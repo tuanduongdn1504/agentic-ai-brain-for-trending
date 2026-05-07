@@ -114,6 +114,13 @@ Storm Bear/
 ```
 
 
+## Project-local skills registry
+
+Some projects bundle their own skills at `<project>/skills/` instead of placing them in vault-root `05 Skills/`. This registry lets vault-level triggers (`/loop`, `/schedule`) discover them.
+
+- **autopilot-research** — see `03 Projects/autopilot-research/skills/` for `(C) autopilot-research-routine.md`, `(C) yt-pipeline.md`, `(C) yt-search.md`, `(C) notebooklm.md`. Invoked via `/loop autopilot research <topic>` or `/schedule autopilot nightly`.
+
+
 ## My Strengths & Weaknesses
 
 _Not provided. To be filled in when ready._
