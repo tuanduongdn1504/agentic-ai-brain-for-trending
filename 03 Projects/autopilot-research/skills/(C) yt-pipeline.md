@@ -23,6 +23,20 @@ End-to-end YouTube research pipeline. Given a topic, autonomously: search → se
 
 ---
 
+## Setup gate
+
+yt-pipeline inherits dep checks from `(C) yt-search.md` and `(C) notebooklm.md` — both auto-source the env shim. Pipeline itself adds one pre-flight step:
+
+```bash
+# Source project venv (idempotent — no-op if already active)
+[ -z "${AUTOPILOT_ROOT:-}" ] && \
+  source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+```
+
+If either dep is missing, the failure surfaces from the called skill — yt-pipeline does NOT install anything.
+
+---
+
 ## Pipeline (5 steps, fully autonomous)
 
 ```

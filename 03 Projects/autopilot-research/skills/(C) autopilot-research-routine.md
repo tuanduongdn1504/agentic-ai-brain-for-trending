@@ -64,15 +64,21 @@ Default budget settings (can be overridden via flags):
 ### Phase 0 — Pre-flight + config check (<2 min)
 
 1. Verify scope: target = `/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/`. If any other path is requested, abort.
-2. Verify dependencies:
-   - `which yt-dlp` (required by yt-pipeline)
-   - `pip show notebooklm-py` + `notebooklm auth status` (required by notebooklm)
-   - If missing → write loop log noting the gate failure, abort.
-3. Determine trigger:
+2. **Source project env** (Option A install plan):
+   ```bash
+   source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+   ```
+   This activates `.venv/` and exports `PLAYWRIGHT_BROWSERS_PATH`. All sub-skills inherit. If venv is missing, the shim warns; the routine surfaces the missing-venv state in the loop log and aborts (per invariant #4 — never fabricate).
+3. Verify dependencies:
+   - `which yt-dlp` (system-wide via brew)
+   - `pip show notebooklm-py` (must be installed inside the just-sourced venv)
+   - `notebooklm auth status` (Google OAuth completed)
+   - If any missing → write loop log noting the gate failure with exact missing dep + setup commands, abort.
+4. Determine trigger:
    - Manual `/loop`: use the topic from invocation args
    - Cron `/schedule`: read `raw/topics-queue.md` line-by-line; pick the next unprocessed topic; mark it `IN-PROGRESS` (in-place edit OK because it's inside scope)
-4. Scaffold loop log: `loop-log/(C) YYYY-MM-DD-HH-autopilot-loop.md` with metadata stub.
-5. Record `start_time` + initial budget state.
+5. Scaffold loop log: `loop-log/(C) YYYY-MM-DD-HH-autopilot-loop.md` with metadata stub.
+6. Record `start_time` + initial budget state.
 
 **Abort conditions:** scope violation, dep missing, no topic available.
 

@@ -39,17 +39,25 @@ Search YouTube and return structured video results with engagement metadata. Fil
 
 ## Setup gate
 
-Before invoking, verify dependency:
+Before invoking, source the project env (idempotent — no-op if already active) and verify dependency:
 
 ```bash
+# Source project venv + Playwright override (idempotent)
+[ -z "${AUTOPILOT_ROOT:-}" ] && \
+  source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+
+# Verify yt-dlp on PATH
 which yt-dlp
 ```
 
-If not found, abort with this message:
+If `which yt-dlp` returns nothing, abort with this message:
 
-> **yt-dlp not installed.** Install via either:
-> - macOS: `brew install yt-dlp`
-> - Python: `pip install yt-dlp`
+> **yt-dlp not installed.** Per project Option A install plan:
+> ```bash
+> brew install yt-dlp   # system-wide; small footprint (~10 MB)
+> ```
+> yt-dlp is the only system-wide dep — everything else is in `.venv/`.
+> See `03 Projects/autopilot-research/CLAUDE.md` § Setup for full instructions.
 >
 > After install, retry. yt-search will not estimate or fake results.
 

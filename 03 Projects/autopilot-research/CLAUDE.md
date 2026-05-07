@@ -23,17 +23,78 @@ Inspired by:
 ```
 03 Projects/autopilot-research/
 ├── CLAUDE.md          ← You are here. Librarian rules + skills registry.
+├── .gitignore         ← Excludes .venv/, .cache/, .config/ from git.
+├── bin/
+│   └── autopilot-env.sh  ← Sourceable: activates .venv + Playwright override.
 ├── raw/               ← INBOX. Web Clipper / NotebookLM exports / yt-pipeline outputs.
 ├── wiki/              ← LLM-MAINTAINED knowledge base.
 │   └── _master-index.md  ← Entry point. Topic listing + 1-line descriptions.
 ├── output/            ← Query results, audit reports, generated deliverables.
 ├── loop-log/          ← Autopilot iteration logs (one per /loop or /schedule run).
-└── skills/            ← Project-local skills (4 files).
-    ├── (C) yt-search.md                    — search YouTube via yt-dlp
-    ├── (C) notebooklm.md                   — ingest URL/PDF → markdown
-    ├── (C) yt-pipeline.md                  — topic → 5-8 videos → NotebookLM → raw/
-    └── (C) autopilot-research-routine.md   — meta-orchestrator (8 phases)
+├── skills/            ← Project-local skills (4 files).
+│   ├── (C) yt-search.md                    — search YouTube via yt-dlp
+│   ├── (C) notebooklm.md                   — ingest URL/PDF → markdown
+│   ├── (C) yt-pipeline.md                  — topic → 5-8 videos → NotebookLM → raw/
+│   └── (C) autopilot-research-routine.md   — meta-orchestrator (8 phases)
+└── .venv/             ← (Created by setup) Python venv + Playwright browsers (~350 MB).
+                          Excluded from git. `rm -rf .venv` cleans everything project-local.
 ```
+
+---
+
+## Setup (Option A — project venv install)
+
+All Python deps land inside `.venv/` for clean cleanup. Only `yt-dlp` is system-wide (~10 MB via brew, justified for its size).
+
+**One-time setup (5 commands):**
+
+```bash
+# 1. yt-dlp (system-wide, small)
+brew install yt-dlp
+
+# 2. Create project Python venv
+cd "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"
+python3 -m venv .venv
+
+# 3. Source env shim — activates venv + sets PLAYWRIGHT_BROWSERS_PATH
+source bin/autopilot-env.sh
+
+# 4. Install notebooklm-py + Playwright browser into project-local cache
+pip install notebooklm-py
+python -m playwright install chromium     # ~280 MB → .venv/playwright-browsers/
+
+# 5. Authenticate to Google NotebookLM (interactive — opens browser)
+notebooklm auth login
+notebooklm auth status                    # verify: "logged in"
+```
+
+**Verify install (1 command):**
+
+```bash
+source bin/autopilot-env.sh && which yt-dlp && pip show notebooklm-py | head -2 && notebooklm auth status
+```
+
+Expected: 3 OK lines.
+
+**Disk footprint after setup:**
+- `.venv/` ≈ 50-80 MB (Python deps)
+- `.venv/playwright-browsers/` ≈ 280 MB (Chromium for OAuth)
+- `~/.local/bin/yt-dlp` (or brew Cellar) ≈ 10 MB (system-wide, only non-project location)
+
+**Cleanup options:**
+
+```bash
+# Free Playwright + Python deps (~350 MB), keep wiki + auth state
+rm -rf .venv
+
+# Free everything project-installed including auth
+rm -rf .venv .cache .config
+
+# Nuke project entirely (also removes your knowledge base!)
+cd .. && rm -rf autopilot-research
+```
+
+**Re-install after cleanup:** repeat steps 2-5 above.
 
 ---
 

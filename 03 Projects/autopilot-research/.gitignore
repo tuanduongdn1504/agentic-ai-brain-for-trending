@@ -1,0 +1,21 @@
+# Project-local Python venv + caches (Option A install plan)
+# All ~350 MB of installed deps lives here — not committed to git.
+.venv/
+
+# Optional XDG cache/config dirs (only created if autopilot-env.sh opt-in is enabled)
+.cache/
+.config/
+
+# notebooklm-py runtime state files (auth tokens, notebook ID registry)
+.notebook-ids.json
+.notebooklm-state.json
+
+# Python bytecode (in case any .py files land here)
+__pycache__/
+*.pyc
+
+# Editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
