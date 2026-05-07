@@ -12,20 +12,6 @@
 
 ---
 
-## Workflow for AI Coding — champions roundup
-
-- **Query:** `Workflow for AI Coding Matt Pocock Karpathy AI engineer`
-- **Notes:** Source video appears to be a "Full Walkthrough" featuring Matt Pocock, Andrej Karpathy and other top AI engineers describing their personal AI-coding workflows. Look for: model choice (Claude/GPT/local), tool stack (Cursor/Claude Code/Aider), context-management strategies, agent vs pair-programming preferences, debugging loops, when-to-trust-AI heuristics.
-- **Queued:** 2026-05-07
-- **Status:** pending
-
-## How to 10x Claude Code — tips & tricks roundtable
-
-- **Query:** `10x Claude Code tips tricks nateherk EricWTech iamseankochel Boris Chase`
-- **Notes:** Roundtable / panel format — @nateherk, @EricWTech, @iamseankochel, Boris (likely Boris from Anthropic / Claude Code team), @Chase-H-AI. Look for: speed multipliers, custom commands, hook patterns, plugin / MCP usage, project-CLAUDE.md tactics, hidden flags, common pitfalls. Cross-reference with existing `wiki/claude-code-hooks/` topic — should produce complementary not duplicate content.
-- **Queued:** 2026-05-07
-- **Status:** pending
-
 ## Telegram bot — remote control Claude Code/Desktop from phone
 
 - **Query:** `Telegram bot Claude Code remote control MCP agent`
@@ -58,4 +44,12 @@
 
 ## Completed
 
-_(none yet)_
+### Workflow for AI Coding — champions roundup ✅
+- **Drained:** 2026-05-07 by autopilot loop `(C) 2026-05-07-15-autopilot-loop.md`
+- **Wiki output:** [[../wiki/workflow-ai-coding/_index]] — 5 articles + index
+- **NotebookLM:** `ec93ea09-b589-4103-95a9-3fb2c13d5a2e`
+
+### How to 10x Claude Code — tips & tricks roundtable ✅
+- **Drained:** 2026-05-07 by autopilot loop `(C) 2026-05-07-15-autopilot-loop.md`
+- **Wiki output:** [[../wiki/10x-claude-code/_index]] — 5 articles + index
+- **NotebookLM:** `d1d18b0b-ab85-4773-a999-98f36fb39cf5`

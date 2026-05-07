@@ -10,3 +10,11 @@
 ## claude-code-hooks
 
 Claude Code's deterministic event-driven shell command system — 9 lifecycle events (session start/end, pre/post tool use, stop, etc.), command-vs-prompt-hook split, common patterns (notifications, CLI enforcement, code quality, destructive-command blocking). 5 articles, compiled 2026-05-07 from a 5-video YouTube bundle. → [[claude-code-hooks/_index]]
+
+## workflow-ai-coding
+
+How senior practitioners (Matt Pocock, Ryan Lopopolo @ OpenAI, Anthropic Skills team, Boris from Claude Code, Greg Isenberg) actually steer AI agents through software development. Covers the Ralph Wiggum loop, planning-first workflow, persistent memory (`claude.md`), skills-over-agents architecture, harness engineering, and 6 axes of expert disagreement (code-is-free vs code-is-expensive, plan-mode vs grill-me, etc.). 5 articles, compiled 2026-05-07 from a 6-video YouTube bundle. → [[workflow-ai-coding/_index]]
+
+## 10x-claude-code
+
+Tactical tips/tricks roundup from 6 creators (Sean Kochel, Nate Herk, Eric Tech, Boris Cherny via YC, Chase AI, AI LABS) — concrete configurations to 10x Claude Code workflows. Covers status lines, git worktrees, custom skills, hooks with Exit Code 2, MCP CLI mode, the Karpathy LLM-wiki pattern, adversarial fact-checking agents, and 5 axes of creator disagreement (Opus-everything vs model-switching, plan-mode lifespan, claude.md minimalism, browser strategy, terminal vs GUI). 5 articles, compiled 2026-05-07 from a 6-video YouTube bundle. → [[10x-claude-code/_index]]
