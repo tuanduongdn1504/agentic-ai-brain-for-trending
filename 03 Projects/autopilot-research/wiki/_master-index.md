@@ -7,6 +7,6 @@
 
 ---
 
-## (No topics yet)
+## claude-code-hooks
 
-Topics will appear below this line as the librarian compiles raw material from `../raw/`.
+Claude Code's deterministic event-driven shell command system — 9 lifecycle events (session start/end, pre/post tool use, stop, etc.), command-vs-prompt-hook split, common patterns (notifications, CLI enforcement, code quality, destructive-command blocking). 5 articles, compiled 2026-05-07 from a 5-video YouTube bundle. → [[claude-code-hooks/_index]]
