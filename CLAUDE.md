@@ -63,17 +63,14 @@ The prime directive: don't repeat the same mistake twice.
 
 See `_state/01-skill-references.md` for full descriptions of:
 - **Pattern 1:** LLM Wiki pattern (Karpathy) — proven 2026-04-17
-- **Pattern 2:** Brain-setup interview (5 rounds) — proven 2026-04-17
-- **Pattern 3:** New project scaffolding — proven 2026-04-17
+- **Pattern 2:** Brain-setup — proven 2026-04-17, v1 (5-round interview) superseded 2026-05-06 by v2 (4-phase incl. continuous-update + lazy-ADR; cross-port from mattpocock /grill-with-docs v57)
+- **Pattern 3:** New project scaffolding (template-duplication + 6-question interview) — proven 2026-04-17
 - **Pattern 4:** LLM Wiki Routine v2.1 (autonomous orchestration) — proven 2026-04-18, v2.1 codified 2026-04-22, session-66 Phase 0.9 STRICT-tightening 2026-04-26
 - **Pattern 5:** Pattern Library (cross-wiki synthesis) — codified 2026-04-19, current state in PATTERN_LIBRARY.md + history in `_state/02-pattern-library-state-history.md`
 
-**Skill files at `05 Skills/`:**
-- `llm-wiki-routine-v2.1.md` (current; tightened session 66)
-- `llm-wiki-routine-v2.md` (superseded 2026-04-22)
-- `llm-wiki-routine.md` (v1; superseded 2026-04-19)
-- `brain-setup.md`
-- `new-project.md`
+**Skill files at `05 Skills/`:** 9 skills total — see `05 Skills/SKILL_LOCK_POLICY.md` table for status + rationale.
+- 6 IN-FLUX active
+- 3 PUBLIC-ARCHIVED historical
 
 
 ## Current Pattern Library state (post-v57 direct, preserved 7 cycles)
