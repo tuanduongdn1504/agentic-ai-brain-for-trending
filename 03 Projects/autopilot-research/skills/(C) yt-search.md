@@ -42,13 +42,16 @@ Search YouTube and return structured video results with engagement metadata. Fil
 Before invoking, source the project env (idempotent — no-op if already active) and verify dependency:
 
 ```bash
-# Source project venv + Playwright override (idempotent)
-[ -z "${AUTOPILOT_ROOT:-}" ] && \
-  source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+# Worktree-agnostic source: cd to the autopilot-research project root in your worktree first.
+# The env shim self-locates from ${BASH_SOURCE[0]} so the same script works in any worktree.
+[ -z "${AUTOPILOT_ROOT:-}" ] && source ./bin/autopilot-env.sh
 
 # Verify yt-dlp on PATH
 which yt-dlp
 ```
+
+> If `source ./bin/autopilot-env.sh` fails with "no such file", you're not in the project root.
+> Run `cd "<your-worktree>/03 Projects/autopilot-research"` and retry.
 
 If `which yt-dlp` returns nothing, abort with this message:
 

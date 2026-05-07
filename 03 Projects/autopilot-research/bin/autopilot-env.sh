@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # autopilot-env.sh — activate project-local venv + override Playwright cache.
+# Worktree-agnostic: self-locates from ${BASH_SOURCE[0]} so the SAME script works
+# regardless of which git worktree (or moved location) it lives in.
 #
-# Usage:
-#   source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+# Usage: cd to the autopilot-research project root in your worktree, then:
+#   source bin/autopilot-env.sh
 #
 # What this does:
+#   0. Resolves AUTOPILOT_ROOT to this script's parent dir (i.e., project root)
 #   1. Activates Python venv at .venv/ (so `python`, `pip`, `notebooklm` resolve to project-local installs)
 #   2. Overrides PLAYWRIGHT_BROWSERS_PATH so notebooklm-py's browser cache (~280 MB) lands inside the project
 #   3. Optionally redirects XDG cache/config — opt-in (commented below)
@@ -12,8 +15,13 @@
 # Cleanup: `rm -rf .venv` removes ~350 MB.
 # Full nuke: `rm -rf .venv .cache .config` removes everything project-local-installed.
 
-AUTOPILOT_ROOT="/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"
+# 0. Self-locate. AUTOPILOT_ROOT = parent dir of this script's directory (bin/).
+#    ${BASH_SOURCE[0]} works when sourced; falls back to $0 in plain shells.
+__src="${BASH_SOURCE[0]:-$0}"
+__script_dir="$( cd -- "$( dirname -- "$__src" )" >/dev/null 2>&1 && pwd )"
+AUTOPILOT_ROOT="$( cd -- "$__script_dir/.." >/dev/null 2>&1 && pwd )"
 export AUTOPILOT_ROOT
+unset __src __script_dir
 
 # 1. Activate venv (created via: python3 -m venv .venv)
 if [ -f "$AUTOPILOT_ROOT/.venv/bin/activate" ]; then

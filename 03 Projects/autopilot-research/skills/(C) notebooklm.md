@@ -33,9 +33,8 @@ Bridge from any URL / PDF / YouTube video / Drive file → markdown summary in `
 Before invoking, source the project env (activates venv + Playwright override) and verify dependency + auth:
 
 ```bash
-# Source project venv (idempotent)
-[ -z "${AUTOPILOT_ROOT:-}" ] && \
-  source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+# Worktree-agnostic source: cd to the autopilot-research project root in your worktree first.
+[ -z "${AUTOPILOT_ROOT:-}" ] && source ./bin/autopilot-env.sh
 
 # Verify notebooklm installed inside the venv
 pip show notebooklm-py 2>/dev/null && notebooklm auth status 2>/dev/null
@@ -43,15 +42,15 @@ pip show notebooklm-py 2>/dev/null && notebooklm auth status 2>/dev/null
 
 If either fails, abort with this message:
 
-> **notebooklm-py setup required (Option A — project venv).** From the project folder:
+> **notebooklm-py setup required (Option A — project venv).** From your worktree's project folder:
 > ```bash
-> cd "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"
-> python3 -m venv .venv                                        # if .venv missing
-> source bin/autopilot-env.sh                                  # activate + override Playwright path
-> pip install notebooklm-py                                    # ~50 MB Python deps
-> python -m playwright install chromium                        # ~280 MB → .venv/playwright-browsers/
-> notebooklm auth login                                        # interactive Google OAuth
-> notebooklm auth status                                       # verify "logged in"
+> cd "<your-worktree>/03 Projects/autopilot-research"   # any worktree path works
+> python3 -m venv .venv                                 # if .venv missing
+> source bin/autopilot-env.sh                           # activate + override Playwright path
+> pip install notebooklm-py                             # ~50 MB Python deps
+> python -m playwright install chromium                 # ~280 MB → .venv/playwright-browsers/
+> notebooklm auth login                                 # interactive Google OAuth
+> notebooklm auth status                                # verify "logged in"
 > ```
 >
 > All deps land inside `.venv/` → `rm -rf .venv` to nuke 350 MB cleanly.

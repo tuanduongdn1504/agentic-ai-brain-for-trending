@@ -42,33 +42,40 @@ Inspired by:
 
 ---
 
-## Setup (Option A — project venv install)
+## Setup (Option A — project venv install, worktree-aware)
 
 All Python deps land inside `.venv/` for clean cleanup. Only `yt-dlp` is system-wide (~10 MB via brew, justified for its size).
 
-**One-time setup (5 commands):**
+**Worktree note:** this branch may be checked out in multiple git worktrees. The env shim (`bin/autopilot-env.sh`) self-locates via `${BASH_SOURCE[0]}`, so the SAME script works in every worktree without modification. Each worktree gets its own independent `.venv/` and `.cache/` — no cross-contamination.
+
+**Per-worktree setup (run once per worktree):**
 
 ```bash
-# 1. yt-dlp (system-wide, small)
+# 1. yt-dlp (system-wide, small) — done ONCE across all worktrees
 brew install yt-dlp
 
-# 2. Create project Python venv
-cd "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"
+# 2. cd to the autopilot-research project root in YOUR worktree
+cd "<your-worktree>/03 Projects/autopilot-research"
+# Examples:
+#   cd "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research"   # main vault
+#   cd "/Users/Cvtot/KJ-OS-autopilot/03 Projects/autopilot-research"  # autopilot worktree
+
+# 3. Create project Python venv (PER WORKTREE — each worktree has own .venv)
 python3 -m venv .venv
 
-# 3. Source env shim — activates venv + sets PLAYWRIGHT_BROWSERS_PATH
+# 4. Source env shim — self-locates AUTOPILOT_ROOT, activates venv, overrides Playwright path
 source bin/autopilot-env.sh
 
-# 4. Install notebooklm-py + Playwright browser into project-local cache
+# 5. Install notebooklm-py + Playwright browser into project-local cache
 pip install notebooklm-py
-python -m playwright install chromium     # ~280 MB → .venv/playwright-browsers/
+python -m playwright install chromium      # ~280 MB → .venv/playwright-browsers/
 
-# 5. Authenticate to Google NotebookLM (interactive — opens browser)
+# 6. Authenticate to Google NotebookLM (interactive — opens browser)
 notebooklm auth login
-notebooklm auth status                    # verify: "logged in"
+notebooklm auth status                     # verify: "logged in"
 ```
 
-**Verify install (1 command):**
+**Verify install (1 command, run from the project root in your worktree):**
 
 ```bash
 source bin/autopilot-env.sh && which yt-dlp && pip show notebooklm-py | head -2 && notebooklm auth status

@@ -64,11 +64,16 @@ Default budget settings (can be overridden via flags):
 ### Phase 0 — Pre-flight + config check (<2 min)
 
 1. Verify scope: target = `/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/`. If any other path is requested, abort.
-2. **Source project env** (Option A install plan):
+2. **Source project env** (Option A install plan, worktree-agnostic):
    ```bash
-   source "/Users/Cvtot/KJ OS Template/03 Projects/autopilot-research/bin/autopilot-env.sh"
+   # cd to the autopilot-research project root in the active worktree first.
+   # The env shim self-locates via ${BASH_SOURCE[0]} so it resolves AUTOPILOT_ROOT correctly
+   # regardless of which worktree this branch is checked out in.
+   source ./bin/autopilot-env.sh
    ```
-   This activates `.venv/` and exports `PLAYWRIGHT_BROWSERS_PATH`. All sub-skills inherit. If venv is missing, the shim warns; the routine surfaces the missing-venv state in the loop log and aborts (per invariant #4 — never fabricate).
+   This activates `.venv/` and exports `PLAYWRIGHT_BROWSERS_PATH` (project-local). All sub-skills inherit `AUTOPILOT_ROOT`. If venv is missing, the shim warns; the routine surfaces the missing-venv state in the loop log and aborts (per invariant #4 — never fabricate).
+
+   **Scope invariant:** the routine derives writable paths from `$AUTOPILOT_ROOT`. This means writes are bounded to whichever worktree is currently active — multiple worktrees of the autopilot-research branch are safe to use independently.
 3. Verify dependencies:
    - `which yt-dlp` (system-wide via brew)
    - `pip show notebooklm-py` (must be installed inside the just-sourced venv)
