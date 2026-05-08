@@ -6,34 +6,37 @@ How a message from your phone reaches Claude Code. Three competing options, plus
 
 Anthropic's official plugin for Telegram. Released 2026 Q1. The dominant pattern across 4 of 6 creators in the bundle.
 
-### Setup ritual (4 steps, ~5 min)
+### Setup ritual (verified 2026-05-08 — see [[setup-recipe-a]] for full deviations)
 
 ```bash
-# 1. Install the plugin
-claude --install-plugin claude-code-telegram-plugin-official
+# Prereq: Bun runtime (the plugin's MCP server is server.ts, requires Bun)
+command brew install oven-sh/bun/bun
 
-# 2. Configure with BotFather token
-#    (BotFather is the @BotFather on Telegram — DM /newbot)
-/telegram:configure
-# paste your bot's API token
+# 1. Add the marketplace + install plugin
+command claude plugin marketplace add anthropics/claude-plugins-official
+command claude plugin install telegram@claude-plugins-official
 
-# 3. Launch with --channels flag (the listener)
-claude --channels
+# 2. Configure with BotFather token (DM @BotFather → /newbot to get one)
+command claude     # interactive REPL
+> /telegram:configure 8123456789:AAH-Abcdef...
 
-# 4. Pair the device
-#    Send any message to your bot on Telegram
-#    Receive a pairing code → paste into terminal
+# 3. Launch with --channels + plugin spec
+command claude --channels plugin:telegram@claude-plugins-official
+
+# 4. Pair from your phone
+#    DM your bot → receive 6-char code → in terminal:
+> /telegram:access pair 76a7e5
 ```
 
-Same ritual structure across Chris Verzwyvelt / Mervin Praison / Kumo Explains / Developers Digest. The 4-step pattern is unique enough that the bundle independently converged on it.
+> ⚠️ **The ritual in pre-2026-05 tutorials uses out-of-date commands.** Many bundle creators (Chris Verzwyvelt / Mervin Praison / Kumo Explains / Developers Digest) reference `claude --install-plugin claude-code-telegram-plugin-official` and `/telegram:access-policy allow-list` — these don't work with the current 2.1.x CLI + plugin v0.0.6. The verified pilot caught **5 deviations**; full debug story in [[setup-recipe-a]].
 
 ### Lock down immediately
 
 ```bash
-/telegram:access-policy allow-list
+> /telegram:access policy allowlist
 ```
 
-This is the **most-cited security command** across the bundle. Without it, anyone who discovers your bot's username can DM it and execute commands on your machine.
+This is the **most-cited security command** across the bundle. Without it, anyone who discovers your bot's username can DM it and execute commands on your machine. Note: command syntax is `policy allowlist` (no hyphen), not `access-policy allow-list` as older docs say.
 
 ### Pros
 - Official + supported (no third-party MCP server to maintain)

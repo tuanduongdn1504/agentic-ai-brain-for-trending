@@ -3,17 +3,20 @@
 > Unified synthesis of 4 autopilot drains (2026-05-07) covering the 4-layer stack to **control Claude Code/Desktop from a phone via Telegram**: interface (Telegram/Discord/Native Remote Control) → engine (headless Claude Code SDK + Ralph loop) → integration (MCP servers / Channels) → network (tunneling: tailscale, Cloudflare Tunnel, Twingate, VPS).
 >
 > Compiled from 23 distinct YouTube creator bundles + Claude Code's creator interview. Heavy bias toward **operationally-deployable solo/team setups**; production-scale gaps called out separately in [[gaps-production]].
+>
+> **🔧 Pilot-verified 2026-05-08:** Recipe A end-to-end deployment caught 5 deviations from the bundle's published commands. The corrected ritual is in [[setup-recipe-a]] — read this BEFORE following any of the layer-1 setup blocks. Older tutorial commands fail silently on current Claude Code 2.1.x + plugin v0.0.6.
 
 ## Articles
 
 | File | What it covers |
 |---|---|
 | [[overview]] | Operator goal, 4-layer stack diagram, decision matrix (pick-your-own-path by team size / privacy / availability) |
-| [[layer-1-interface-telegram]] | Telegram BotFather + Claude Code Channels + Discord alternative + native Remote Control + access-policy allow-list |
+| **[[setup-recipe-a]]** ⭐ | **Verified pilot ritual (2026-05-08)** — the 7-step recipe that actually works, with the 5 deviations from internet tutorials called out explicitly. Read this before anything else if you want to deploy today. |
+| [[layer-1-interface-telegram]] | Telegram BotFather + Claude Code Channels + Discord alternative + native Remote Control + access policy. Setup commands updated to match pilot. |
 | [[layer-2-engine-headless-claude-code]] | Claude Code SDK headless mode + Ralph loop with Stop Hooks + warm vs cold sessions + agents.md persistent memory |
 | [[layer-3-mcp-integration]] | MCP "USB-C for AI" architecture + official plugins vs custom Python `fastmcp` + token-cost warning + when to convert MCP → Skill |
 | [[layer-4-network-tunneling]] | Tailscale + Cloudflare Tunnel + Twingate (Zero Trust) + tmux + VPS hardening (Fail2Ban / UFW / SSH keys) + Wolfgang's local-first contrarian view |
-| [[operator-recipes]] | 4 concrete end-to-end recipes: solo+local, solo+VPS, team+private-cloud, observation-only |
+| [[operator-recipes]] | 4 concrete end-to-end recipes: solo+local, solo+VPS, team+private-cloud, observation-only. Recipe A patched with pilot-verified commands. |
 | [[gaps-production]] | What's NOT covered: secrets vaults, IAM/RBAC, observability/audit logs, FinOps token caps, HA/failover, IaC reproducibility |
 
 ## Sources (23 unique videos across 4 drains)

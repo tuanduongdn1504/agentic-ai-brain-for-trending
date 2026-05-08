@@ -14,35 +14,65 @@ Skip the layer-by-layer theory. These are 4 complete recipes you can adopt today
 | 3. Integration | Native Channels plugin (no separate MCP) |
 | 4. Network | None needed — Channels uses outbound polling |
 
-### Steps
+### Steps (verified pilot 2026-05-08 — see [[setup-recipe-a]] for full deviations)
 
 ```bash
-# Prereq: Claude Code installed and authenticated
-claude --version
+# Prereqs (verify ALL before starting):
+command claude --version       # must NOT show "native binary not installed"
+command bun --version          # REQUIRED — plugin's MCP server is server.ts
+command brew --version         # for installing Bun cleanly
+
+# If bun missing:
+command brew install oven-sh/bun/bun
 
 # 1. Open Telegram, DM @BotFather, send /newbot, follow prompts
-#    Save the API token (looks like: 12345:ABCDef-G_HIJ-kLmNo...)
+#    Save the API token (looks like: 8123456789:AAH-Abcdef...)
 
-# 2. Install plugin
-claude --install-plugin claude-code-telegram-plugin-official
+# 2. Add the marketplace (REQUIRED — not implicit)
+command claude plugin marketplace add anthropics/claude-plugins-official
 
-# 3. Configure (paste your bot token when prompted)
-claude
-> /telegram:configure
+# 3. Install plugin
+command claude plugin install telegram@claude-plugins-official
+command claude plugin list   # verify enabled
 
-# 4. Launch Channels listener (warm session)
-claude --channels
+# 4. Configure with bot token
+command claude     # opens REPL
+# inside REPL:
+> /telegram:configure 8123456789:AAH-Abcdef...
+# exit REPL: /quit
 
-# 5. From Telegram, message your bot (anything)
-#    Receive a pairing code in Telegram
-#    Paste the code into your terminal where Claude is running
+# 5. Launch Channels listener (warm session)
+command claude --channels plugin:telegram@claude-plugins-official
 
-# 6. LOCK DOWN IMMEDIATELY
-> /telegram:access-policy allow-list
+# 6. Verify Bun MCP server actually started (in a 2nd terminal)
+command ps aux | command grep -E "(bun|server\.ts)" | command grep -v grep
+# expect: 1 line for `bun server.ts` AND 1 for `bun run --cwd ... start`
+
+# 7. From Telegram, find @your_bot, send any message
+#    Receive a 6-character pairing code (e.g., 76a7e5)
+#    Back in Claude REPL:
+> /telegram:access pair 76a7e5
+
+# 8. LOCK DOWN IMMEDIATELY
+> /telegram:access policy allowlist
+> /telegram:access show     # verify dmPolicy: allowlist
 ```
 
 ### Test
-From Telegram, message: `pwd && ls` — bot should reply with terminal output.
+From Telegram, message: `pwd` — bot should reply with the working dir of your `claude --channels` process within ~5-10 sec.
+
+### ⚠️ The 5 deviations from internet tutorials
+
+Older tutorials (Chris Verzwyvelt, Kumo Explains, even some 2026 Q1 blog posts) reference commands that **don't work** with the current 2.1.x Claude Code + plugin v0.0.6. See [[setup-recipe-a]] § Deviations for the full list. Quick summary:
+
+1. Plugin name is `telegram@claude-plugins-official`, not `claude-code-telegram-plugin-official`
+2. Marketplace must be added explicitly: `claude plugin marketplace add anthropics/claude-plugins-official`
+3. **Bun runtime is a hard prereq** — without it, banner shows "Listening" but server never starts (silent failure)
+4. Native Claude binary postinstall sometimes fails — fix with `npm install -g @anthropic-ai/claude-code --include=optional`
+5. Pair syntax is `/telegram:access pair <code>` (single command), not `/telegram:access pair` then prompt
+6. Lock-down is `/telegram:access policy allowlist` (no hyphen, no spaces), not `/telegram:access-policy allow-list`
+
+The pilot caught all of these — see [[setup-recipe-a]] for the full debug story.
 
 ### Use cases this fits
 - Hobby projects, personal experiments
