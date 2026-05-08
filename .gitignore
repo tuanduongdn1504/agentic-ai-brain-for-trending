@@ -12,10 +12,11 @@ Thumbs.db
 # === Claude Code local state ===
 # ignore everything in .claude/ EXCEPT shared settings (settings.json + agents/)
 # .claude/settings.local.json stays ignored; it holds local-only perms + secrets
-.claude/*
-!.claude/settings.json
-!.claude/agents/
-.claude/settings.local.json
+# Patterns are recursive so they match nested project .claude/ folders too.
+**/.claude/*
+!**/.claude/settings.json
+!**/.claude/agents/
+**/.claude/settings.local.json
 .claudian/
 .claude-output/
 .claude_output/
