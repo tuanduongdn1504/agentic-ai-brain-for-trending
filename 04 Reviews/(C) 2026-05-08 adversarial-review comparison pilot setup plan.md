@@ -1,10 +1,81 @@
-# Adversarial-review comparison pilot — setup plan
+# Adversarial-review comparison pilot — setup plan (v2)
 
 > **Purpose:** Self-contained execution plan for piloting cc-sdd v61 + codex-plugin-cc v62 as comparison-bundle. Apple-to-apple Pattern #76 architectural-role-separation (Stratum A) vs prompt-framing variant (Stratum B) empirical evaluation.
 > **Status:** PLANNED (not yet executed)
 > **Prepared:** 2026-05-08 session 72 (post-v62 codex-plugin-cc ship)
+> **Updated:** 2026-05-08 session 72 — **execution architecture chosen: Hybrid Option 3 + Option 5 with `_pilots/` namespace convention**
 > **Target execution:** Next fresh session (operator-time)
 > **Estimated effort:** ~60-90 min setup + 1 week background measurement + ~60-90 min write-up = ~3-4h total spread over 1 week
+
+---
+
+## Execution architecture (Hybrid Option 3 + Option 5)
+
+**Decision:** Pilot artifacts live INSIDE vault as sub-folder; phase-specific Claude Code sessions for Setup+Measurement vs Findings+Vault-Sync.
+
+### Architectural choices
+
+**Choice 1 — Location: Vault-internal sub-folder (Option 5)**
+
+Pilot sub-folder path: `03 Projects/_pilots/2026-05-08 adversarial-review/`
+
+`_pilots/` is NEW namespace within `03 Projects/` — distinct from `<subject> - Beginner Analysis/` observation-genre folders. Convention establishes vault-as-applied-platform philosophy.
+
+**Choice 2 — Sessions: Phase-specific Claude Code sessions (Option 3)**
+
+| Session | CWD | Purpose | Phase |
+|---|---|---|---|
+| **Session A** | `03 Projects/_pilots/2026-05-08 adversarial-review/` | Setup tools + build feature + run reviews + capture pilot-log | Setup phase + Day 1-7 measurement |
+| **Session B** | `/Users/Cvtot/KJ OS Template/` (vault root) | Synthesize findings + update vault state files + commit | Day 7 write-up + Pattern Library updates |
+
+**Why this hybrid works:**
+- Claude Code traverses up from CWD to find project context — Session A at sub-folder still loads vault root `CLAUDE.md` (Storm Bear rules active throughout)
+- Slash commands (`/codex:review`, `/kiro-impl`) operate on Session A's CWD = sub-folder = correct review target (NOT entire vault diff)
+- cc-sdd `.claude/skills/` install into sub-folder's `.claude/` directory = isolated from vault root's skills (no conflict)
+- Findings + Pattern Library updates happen in Session B at vault root = vault rules + git context correct
+- Pilot artifacts versioned with vault repo = git history preserved; reversible if pilot abandoned
+
+### `_pilots/` namespace convention (NEW)
+
+```
+03 Projects/
+├── (PROJECT TEMPLATE)/                         ← existing scaffolding template
+├── cc-sdd - Beginner Analysis/                 ← observation-genre wiki (existing)
+├── codex-plugin-cc - Beginner Analysis/        ← observation-genre wiki (existing)
+├── _pilots/                                     ← NEW namespace: applied-work pilots
+│   ├── 2026-05-08 adversarial-review/           ← THIS PILOT
+│   │   ├── README.md                            ← Links to pilot plan + status
+│   │   ├── PILOT-PLAN-LINK.md                   ← Reference back to setup plan
+│   │   ├── extractor.py                         ← Real feature implementation
+│   │   ├── test_extractor.py
+│   │   ├── .claude/skills/kiro-*/               ← cc-sdd installed here (sub-folder scope)
+│   │   ├── .kiro/                               ← cc-sdd config + specs
+│   │   ├── pilot-log/
+│   │   │   ├── day1-adhoc-review.md
+│   │   │   ├── day2-kiro-review.md
+│   │   │   ├── day3-codex-neutral-review.md
+│   │   │   ├── day4-codex-adversarial-review.md
+│   │   │   └── comparison-table.md
+│   │   └── findings.md                          ← Consolidated findings (also copied to 04 Reviews/)
+│   ├── 2026-05-XX free-claude-code-cost-test/   ← FUTURE pilot (placeholder)
+│   ├── 2026-06-XX n8n-storm-bear-mcp/           ← FUTURE pilot (placeholder)
+│   └── README.md                                ← Namespace-level index
+└── ...
+```
+
+**Rules for `_pilots/` namespace:**
+1. Naming pattern: `YYYY-MM-DD <kebab-case-pilot-topic>/`
+2. Each pilot self-contained (no cross-pilot dependencies)
+3. `.claude/` and `.kiro/` directories scoped to pilot sub-folder (don't pollute vault root)
+4. Pilot-log artifacts stay in sub-folder
+5. Final `findings.md` duplicated to `04 Reviews/(C) YYYY-MM-DD <pilot-topic> findings.md` for vault-routine consistency
+6. Commit pattern: pilot work committed to vault main branch with descriptive prefix `Pilot v62-v66:` or similar
+
+### Vault philosophy commitment
+
+Choosing this architecture commits Storm Bear vault to evolution: **pure-observation knowledge-base → applied-platform with observation + execution coexisting**.
+
+This aligns with GOALS.md Goal #2 explicit user statement (2026-05-08): *"Tôi muốn build software with these tools"*. Operator-deployment imbalance (8 pilots accumulated / 0 deployed flagged in GOALS reflections) resolved via vault adopting applied-platform identity rather than spawning external sandbox.
 
 ---
 
@@ -67,41 +138,79 @@ These intentional weak spots let adversarial review demonstrate what it catches.
 
 ## Setup phase (~60-90 min on operator machine)
 
-### Step A — Sandbox project initialization (~10 min)
+**Session A starts here.** Open Claude Code at vault root, then `cd` into pilot sub-folder via Bash. Vault `CLAUDE.md` rules remain active (Claude Code traverses up to find project context).
 
+### Step 0 — Open Session A at pilot sub-folder
+
+**Two equivalent approaches:**
+
+**Approach 0a (recommended):** Open new Claude Code session, cd into pilot path before first prompt:
 ```bash
-# Create sandbox outside vault to avoid pollution
-mkdir -p ~/sandbox/adversarial-review-pilot
-cd ~/sandbox/adversarial-review-pilot
-
-# Initialize git
-git init -b main
-echo "# Adversarial Review Pilot — Vault link extractor" > README.md
-echo "" >> README.md
-echo "Sandbox for cc-sdd v61 + codex-plugin-cc v62 comparison pilot." >> README.md
-echo "Storm Bear vault corpus reference: 04 Reviews/(C) 2026-05-08 adversarial-review comparison pilot setup plan.md" >> README.md
-git add README.md
-git commit -m "Initial commit: pilot sandbox"
-
-# Verify clean state
-git log --oneline
+cd "/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review"
+# Then start Claude Code session in this directory
 ```
 
-**Verification:** `git log --oneline` shows 1 commit "Initial commit: pilot sandbox".
+**Approach 0b:** Open Claude Code at vault root, immediately cd via Bash tool:
+```bash
+cd "/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review"
+pwd  # Verify CWD
+```
+
+**Note for Session A:** All subsequent slash commands (`/codex:*`, `/kiro-*`) and Bash operations operate on pilot sub-folder CWD. Vault rules (Storm Bear `(C)` prefix, blunt-direct style, etc.) still apply via vault root `CLAUDE.md` traversal.
+
+### Step A — Pilot sub-folder initialization (~10 min)
+
+```bash
+# Create _pilots namespace if first pilot
+mkdir -p "/Users/Cvtot/KJ OS Template/03 Projects/_pilots"
+
+# Create this pilot's sub-folder
+mkdir -p "/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review"
+cd "/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review"
+
+# Pilot README + reference back to setup plan
+cat > README.md << 'EOF'
+# Pilot: Adversarial-review comparison (cc-sdd v61 + codex-plugin-cc v62)
+
+**Started:** 2026-05-XX (insert actual date)
+**Status:** in-progress / complete (update as pilot progresses)
+**Setup plan:** `04 Reviews/(C) 2026-05-08 adversarial-review comparison pilot setup plan.md`
+**Findings (when complete):** `findings.md` + duplicated to `04 Reviews/(C) YYYY-MM-DD adversarial-review comparison pilot findings.md`
+
+## Quick links
+- cc-sdd entity wiki: `03 Projects/cc-sdd - Beginner Analysis/02 Wiki/(C) cc-sdd entity.md`
+- codex-plugin-cc entity wiki: `03 Projects/codex-plugin-cc - Beginner Analysis/02 Wiki/(C) codex-plugin-cc entity.md`
+- Pattern #76 N=1 baseline: `_patterns/03-active-candidates.md` Pattern #76 entry
+EOF
+
+# Pilot-log directory for measurement artifacts
+mkdir -p pilot-log
+
+# NO separate git init — pilot folder lives inside vault repo
+# Verify pilot folder is part of vault repo
+git -C "/Users/Cvtot/KJ OS Template" status --short | grep _pilots
+```
+
+**Verification:**
+- `pwd` shows pilot sub-folder path
+- README.md exists with reference to setup plan
+- `pilot-log/` directory created
+- vault `git status` shows pilot folder as untracked (will be committed at end of setup phase or after first measurement)
 
 ### Step B — Install cc-sdd v61 (Pilot #1 — Stratum A) (~10-15 min)
 
 ```bash
-cd ~/sandbox/adversarial-review-pilot
+# Already in pilot sub-folder from Step A
+pwd  # Should be: /Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review
 
-# Install cc-sdd Skills mode for Claude Code
+# Install cc-sdd Skills mode for Claude Code in pilot sub-folder
 npx cc-sdd@latest --claude-skills
 
-# Verify install
+# Verify install (skills should be in pilot sub-folder, NOT vault root)
 ls -la .claude/skills/
 ls -la .kiro/
 
-# Expected directory structure:
+# Expected directory structure (relative to pilot sub-folder):
 # .claude/skills/kiro-discovery/
 # .claude/skills/kiro-spec-init/
 # .claude/skills/kiro-spec-requirements/
@@ -117,14 +226,15 @@ ls -la .kiro/
 
 **Troubleshooting:**
 - If `npx cc-sdd@latest` fails with version error → check Node.js >= 18.18 (`node --version`)
-- If skills not visible after install → run `/reload-plugins` in Claude Code
+- If skills not visible after install → run `/reload-plugins` in Claude Code Session A
 - If `.claude/` directory not created → cc-sdd may need explicit `--target=claude` flag (check cc-sdd docs)
+- **CRITICAL:** Verify install happened in pilot sub-folder `.claude/skills/`, NOT vault root `.claude/skills/`. If vault root accidentally got installation, `rm -rf` from vault root and re-install.
 
-**Verification:** All 9 kiro-* skill directories exist under `.claude/skills/`.
+**Verification:** All 9 kiro-* skill directories exist under pilot sub-folder's `.claude/skills/`. Vault root's `.claude/skills/` (if exists) UNCHANGED.
 
 ### Step C — Install codex-plugin-cc v62 (Pilot #1.5 — Stratum B) (~15-20 min)
 
-In **Claude Code session** (cd-ed into `~/sandbox/adversarial-review-pilot`):
+In **Claude Code Session A** (CWD = pilot sub-folder):
 
 ```
 /plugin marketplace add openai/codex-plugin-cc
@@ -132,6 +242,8 @@ In **Claude Code session** (cd-ed into `~/sandbox/adversarial-review-pilot`):
 /reload-plugins
 /codex:setup
 ```
+
+**Note:** Plugin marketplace install is GLOBAL (affects Claude Code installation, not per-folder). This is correct — codex-plugin-cc is a plugin, not folder-scoped skill set.
 
 `/codex:setup` will prompt for:
 - ChatGPT subscription credentials OR OpenAI API key
@@ -142,13 +254,13 @@ In **Claude Code session** (cd-ed into `~/sandbox/adversarial-review-pilot`):
 **Troubleshooting:**
 - If marketplace add fails → check Claude Code version supports plugin marketplace
 - If auth fails → verify ChatGPT subscription active OR `OPENAI_API_KEY` env var set
-- If `/reload-plugins` doesn't expose `/codex:*` commands → restart Claude Code session
+- If `/reload-plugins` doesn't expose `/codex:*` commands → restart Claude Code Session A
 
-**Verification:** Type `/codex:` in Claude Code; autocomplete should show 7 commands (review, adversarial-review, rescue, status, result, cancel, setup).
+**Verification:** Type `/codex:` in Claude Code Session A; autocomplete should show 7 commands (review, adversarial-review, rescue, status, result, cancel, setup).
 
-### Step D — Implement feature (~30-45 min, with Claude Code main-session help, NO review tools)
+### Step D — Implement feature (~30-45 min, with Claude Code Session A help, NO review tools)
 
-In Claude Code main session (no `/kiro-*` or `/codex:*` invocations yet):
+In Claude Code Session A main conversation (no `/kiro-*` or `/codex:*` invocations yet):
 
 ```
 "Build a Python CLI tool that extracts all markdown links from .md files
@@ -158,18 +270,27 @@ No caching. Skip links inside code blocks. Include pytest tests with
 sample fixtures."
 ```
 
-Claude Code will implement. Operator commits when complete:
+Claude Code Session A will implement in pilot sub-folder. Operator commits to vault repo (NOT separate pilot git):
 
 ```bash
-git add -A
-git commit -m "Feature: markdown link extractor CLI (regex-based, no caching)"
+# Still in pilot sub-folder
+git -C "/Users/Cvtot/KJ OS Template" add "03 Projects/_pilots/2026-05-08 adversarial-review/"
+git -C "/Users/Cvtot/KJ OS Template" commit -m "Pilot v62-v66: feature implementation (markdown link extractor; regex-based, no caching)"
 ```
 
-**Verification:** `git log --oneline` shows 2 commits. Tests pass: `pytest`. Example invocation works: `python extractor.py path/to/sample.md`.
+**Verification:** `git -C "/Users/Cvtot/KJ OS Template" log --oneline -5` shows pilot commit. Tests pass: `pytest test_extractor.py`. Example invocation works: `python extractor.py path/to/sample.md`.
 
 ---
 
 ## Measurement phase (1 week background, ~30-45 min/day active)
+
+**Session A continues for entire measurement phase.** All Days 1-6 use Session A at pilot sub-folder CWD. Pilot-log artifacts written to pilot sub-folder's `pilot-log/` directory.
+
+**Each day end:** commit pilot-log entry to vault repo:
+```bash
+git -C "/Users/Cvtot/KJ OS Template" add "03 Projects/_pilots/2026-05-08 adversarial-review/pilot-log/"
+git -C "/Users/Cvtot/KJ OS Template" commit -m "Pilot v62-v66: Day N <review-mode> log captured"
+```
 
 ### Day 1 (Setup day) — Baseline ad-hoc Claude Code review
 
@@ -265,9 +386,19 @@ Build comparison spreadsheet `pilot-log/comparison-table.md`:
 
 ### Day 7 — Write-up
 
+**Session B starts here.** Open new Claude Code session at vault root (CWD = `/Users/Cvtot/KJ OS Template/`). Vault rules + git context active for state updates.
+
+```bash
+# Open Session B at vault root
+cd "/Users/Cvtot/KJ OS Template"
+# Start Claude Code session here
+# Read pilot-log artifacts via relative path: 03 Projects/_pilots/2026-05-08 adversarial-review/pilot-log/*.md
+```
+
 Create comprehensive findings document:
 
-**Path:** `04 Reviews/(C) 2026-05-15 adversarial-review comparison pilot findings.md`
+**Primary path:** `03 Projects/_pilots/2026-05-08 adversarial-review/findings.md` (in pilot sub-folder, alongside pilot-log)
+**Duplicated to:** `04 Reviews/(C) YYYY-MM-DD adversarial-review comparison pilot findings.md` (for vault routine consistency with prior reviews)
 
 **Required sections:**
 
@@ -319,7 +450,33 @@ Create comprehensive findings document:
 
 ## Failure modes + troubleshooting
 
-### Setup phase failures
+### Hybrid architecture-specific failures (NEW — vault sub-folder considerations)
+
+**FAILURE:** cc-sdd installs into vault root `.claude/skills/` instead of pilot sub-folder
+- **Diagnostic:** `ls -la "/Users/Cvtot/KJ OS Template/.claude/skills/"` — should NOT show kiro-* skills
+- **Likely cause:** Claude Code session CWD was vault root, not pilot sub-folder, when `npx cc-sdd@latest` ran
+- **Fix:** `rm -rf "/Users/Cvtot/KJ OS Template/.claude/skills/kiro-*"` (only the kiro-* directories; preserve any pre-existing vault skills) + verify CWD before re-running cc-sdd install in pilot sub-folder
+
+**FAILURE:** Slash command `/codex:review` reviews vault root diff instead of pilot sub-folder
+- **Diagnostic:** Review output mentions vault wiki files instead of pilot feature
+- **Likely cause:** Claude Code Session A CWD = vault root, not pilot sub-folder
+- **Fix:** End session; restart Session A with explicit CWD = pilot sub-folder
+
+**FAILURE:** `/kiro-impl` or other cc-sdd skills not found in Session A
+- **Diagnostic:** Type `/kiro-` in Session A; autocomplete shows nothing
+- **Likely cause:** Skills installed in pilot sub-folder but Session A loaded different `.claude/` context
+- **Fix:** Verify Session A pwd matches pilot sub-folder; run `/reload-plugins` or restart session
+
+**FAILURE:** Vault git status pollution (pilot artifacts mixed with vault wiki commits)
+- **Diagnostic:** `git status` at vault root shows mixed pilot files + vault state files
+- **Likely cause:** Session A + Session B running simultaneously OR commit grouping unclear
+- **Fix:** Use commit message prefixes consistently: `Pilot v62-v66:` for pilot work; standard messages for vault wiki/audit work. Stage pilot artifacts separately: `git add "03 Projects/_pilots/..."` not `git add -A`.
+
+**FAILURE:** Pilot sub-folder accidentally committed to wiki-related git operation
+- **Diagnostic:** Pilot artifacts in commit titled "Ship vXX wiki..."
+- **Recovery:** No critical damage — pilot files preserved either way. Note in iteration log; cleaner separation next time.
+
+### Setup phase failures (unchanged from v1)
 
 **FAILURE:** `npx cc-sdd@latest` errors out
 - **Likely cause:** Node.js version mismatch
@@ -434,15 +591,24 @@ After write-up, vault operator decides per-pilot adoption:
 
 When operator returns to execute pilot:
 
-1. Read this document (`04 Reviews/(C) 2026-05-08 adversarial-review comparison pilot setup plan.md`)
-2. Verify pre-setup checklist
-3. Execute Step A → Step B → Step C → Step D in single setup-day sitting
-4. Schedule Day 1-7 measurement across calendar
-5. Write findings to `04 Reviews/(C) YYYY-MM-DD adversarial-review comparison pilot findings.md`
-6. Update vault state files (CLAUDE.md state-block + pilot-ranking + GOALS.md) with findings
-7. Inform v66 mini-audit deliberation
+### Session A pickup (Setup + Measurement)
 
-**Context preserved:** This document is self-contained; no Claude session memory required.
+1. Read this document (`04 Reviews/(C) 2026-05-08 adversarial-review comparison pilot setup plan.md`) for full context
+2. Verify pre-setup checklist
+3. Open Claude Code Session A at pilot sub-folder: `cd "/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-08 adversarial-review"` (create folder via Step A first if not exists)
+4. Execute Step A → Step B → Step C → Step D in single setup-day sitting
+5. Day 1-7 measurement: continue Session A (or new sessions at same CWD); commit pilot-log artifacts to vault repo end-of-day with `Pilot v62-v66:` prefix
+
+### Session B pickup (Findings + Vault sync)
+
+6. Open new Claude Code Session B at vault root: `cd "/Users/Cvtot/KJ OS Template"`
+7. Read pilot-log artifacts from Session A's pilot sub-folder
+8. Write findings to `03 Projects/_pilots/2026-05-08 adversarial-review/findings.md` (primary) + duplicate to `04 Reviews/(C) YYYY-MM-DD adversarial-review comparison pilot findings.md` (vault routine consistency)
+9. Update vault state files (root CLAUDE.md state-block + GOALS.md + `_state/pilot-ranking-2026-05-07.md`) with findings + adoption decisions
+10. Inform v66 mini-audit deliberation
+11. Commit Session B work with descriptive message: `Document adversarial-review comparison pilot findings + update vault state`
+
+**Context preserved:** This document is self-contained; no Claude session memory required across Session A ↔ Session B transition. Pilot-log artifacts + findings.md + vault state updates form complete record.
 
 ---
 
@@ -454,6 +620,9 @@ When operator returns to execute pilot:
 - `_patterns/03-active-candidates.md` — Pattern #76 entry (will be updated post-pilot)
 - `_patterns/05-recent-additions.md` — v63 EARLY mini-audit decisions
 - `04 Reviews/(C) 2026-05-07 Pattern Library mini-audit post-v61 ...md` — v63 audit document (Pattern #76 registration)
+- `03 Projects/_pilots/` — NEW namespace established at this pilot (convention for future applied-work pilots)
+- `03 Projects/_pilots/2026-05-08 adversarial-review/` — THIS pilot's sub-folder (created at Step A)
+- `03 Projects/_pilots/README.md` — namespace-level index (created when 2nd pilot establishes pattern; defer for now)
 
 ---
 
@@ -473,5 +642,6 @@ Update this table as pilot progresses.
 
 ---
 
-**Plan version:** 1.0 (initial draft 2026-05-08)
+**Plan version:** 2.0 (architecture updated to Hybrid Option 3 + Option 5 with `_pilots/` namespace convention; 2026-05-08 session 72)
+**Plan v1.0 history:** Initial draft with external sandbox approach (`~/sandbox/adversarial-review-pilot`) — superseded by v2 vault-sub-folder approach
 **Next update trigger:** Pilot setup attempt (any blockers/learnings update plan)
