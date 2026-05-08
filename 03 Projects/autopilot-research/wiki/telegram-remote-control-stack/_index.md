@@ -12,6 +12,7 @@
 |---|---|
 | [[overview]] | Operator goal, 4-layer stack diagram, decision matrix (pick-your-own-path by team size / privacy / availability) |
 | **[[setup-recipe-a]]** ⭐ | **Verified pilot ritual (2026-05-08)** — the 7-step recipe that actually works, with the 5 deviations from internet tutorials called out explicitly. Read this before anything else if you want to deploy today. |
+| **[[cost-risk-analysis]]** 💰 | Cost & risk inventory for Recipe A on Claude Max — 5 risk classes (rate-limit burn / runaway loop / prompt injection / hidden context / time cost), mitigations, and a Recipe-A-vs-B comparison snapshot for future reference. |
 | [[layer-1-interface-telegram]] | Telegram BotFather + Claude Code Channels + Discord alternative + native Remote Control + access policy. Setup commands updated to match pilot. |
 | [[layer-2-engine-headless-claude-code]] | Claude Code SDK headless mode + Ralph loop with Stop Hooks + warm vs cold sessions + agents.md persistent memory |
 | [[layer-3-mcp-integration]] | MCP "USB-C for AI" architecture + official plugins vs custom Python `fastmcp` + token-cost warning + when to convert MCP → Skill |
