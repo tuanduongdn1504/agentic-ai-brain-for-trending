@@ -42,6 +42,7 @@ These bind every autopilot run. Violation = run is invalid; abort, log, return c
 5. **NEVER skip librarian discipline** — every raw file → wiki article must update `_master-index.md` + topic `_index.md` + `[[wiki links]]`
 6. **NEVER recurse** — the autopilot does NOT call itself, does NOT call `/loop` from within, does NOT schedule wake-ups
 7. **BUDGET ENFORCED** — wall-clock + cost are hard caps. Exceeded → graceful stop + log
+8. **ALWAYS update `raw/_inventory.md`** — Phase 0 appends a row with `Status: raw` before ingest; Phase 7 updates that row to `Status: compiled` (or `partial`) with size + notebook-id + wiki link. This is the single source of truth for coverage. Failure to update = silent-gap incident (see autopilot-research/CLAUDE.md "Coverage discipline").
 
 ---
 
@@ -84,6 +85,11 @@ Default budget settings (can be overridden via flags):
    - Cron `/schedule`: read `raw/topics-queue.md` line-by-line; pick the next unprocessed topic; mark it `IN-PROGRESS` (in-place edit OK because it's inside scope)
 5. Scaffold loop log: `loop-log/(C) YYYY-MM-DD-HH-autopilot-loop.md` with metadata stub.
 6. Record `start_time` + initial budget state.
+7. **Append inventory row to `raw/_inventory.md`** (constitutional rule #8 — see Constitutional invariants). Initial `Status` = `raw`. Row format:
+   ```md
+   | YYYY-MM-DD | <slug> | 1 yt-pipeline | YouTube ×N | (size TBD) | (notebook-id TBD) | raw | — |
+   ```
+   `Path` column = `1 yt-pipeline` for `/loop`, `2 cron-overnight` for `/schedule`. Size + notebook-id + wiki link are filled in by Phase 7.
 
 **Abort conditions:** scope violation, dep missing, no topic available.
 
@@ -201,7 +207,8 @@ If any → proceed to Phase 7.
    ```
    Skip on vaults that aren't git repos. Constitutional rule #1 (READ-ONLY outside scope) still applies — git operates on vault root but only commits paths within scope.
 3. If cron mode: update `raw/topics-queue.md` — change `IN-PROGRESS` to `DONE` for this topic.
-4. Print the suggested next action to stdout for the user.
+4. **Update `raw/_inventory.md` row** (constitutional rule #8): set `Status` = `compiled` (or `partial` if budget cut compile short), fill in actual `Size`, `NotebookLM ID`, and `Wiki link` columns. Update the "Coverage summary" footer counters.
+5. Print the suggested next action to stdout for the user.
 
 **End of routine.** No `ScheduleWakeup` call (constitutional rule #6: NEVER recurse).
 

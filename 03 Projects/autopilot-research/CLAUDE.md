@@ -163,6 +163,31 @@ When the user says "audit" or "lint":
 - Suggest 3-5 new articles that would strengthen the knowledge base
 - Don't make changes yet — just give the report (write to `output/(C) YYYY-MM-DD-audit.md`)
 
+### Coverage discipline (CRITICAL — added 2026-05-08 after silent-gap incident)
+
+When the user asks anything about coverage — "what's done", "what topics exist", "what's been ingested", "status of X" — you MUST reconcile **all three** sources before answering:
+
+1. **`raw/_inventory.md`** — single source of truth for ingested artifacts (every path 1-8 lands a row here, except path 5 search and path 7 query which produce nothing in `raw/`)
+2. **`wiki/_master-index.md`** — single source of truth for compiled artifacts
+3. **`raw/topics-queue.md`** — declared intent only (paths 1+2)
+
+**NEVER answer coverage questions from `topics-queue.md` alone.** The queue only knows about path 1+2. Paths 3-8 land directly in `raw/` and are invisible to the queue. The Lark Claude course incident (2026-05-08) — 261 markdown pages sitting uncompiled and unreported — was caused by treating the queue as a coverage proxy. Read `_inventory.md` first; reconcile against `wiki/_master-index.md`; only then report.
+
+**The 8 ingestion surfaces** (each must be visible in `_inventory.md` if it produces output in `raw/`):
+
+| Path | Trigger | Writes to `_inventory.md`? |
+|---|---|---|
+| 1 | `/loop autopilot research <topic>` | YES — auto, by routine Phase 0 |
+| 2 | `/schedule autopilot nightly` | YES — auto, by routine Phase 0 |
+| 3 | `notebooklm source add <url>` | YES — manual append (skill reminder in `(C) notebooklm.md`) |
+| 4 | `notebooklm notebook create + source add ×N` | YES — manual append |
+| 5 | `yt-dlp ytsearch20:"<q>"` (search only) | NO — nothing lands in `raw/` |
+| 6 | Custom scraper (Lark/Notion/SPA) | YES — scraper script SHOULD print row to append |
+| 7 | `notebooklm ask <question>` (query mode) | NO — nothing lands in `raw/` |
+| 8 | Promotion → Storm Bear curated wiki | NO new row — UPDATE existing row's `Status` to `promoted` |
+
+When a coverage answer would be misleading without the inventory data, refuse to answer until the inventory is read. This rule exists to prevent the silent gap from recurring.
+
 ---
 
 ## Storm Bear–specific additions

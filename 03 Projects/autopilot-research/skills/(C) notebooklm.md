@@ -167,6 +167,12 @@ Procedure:
    }
    ```
 5. **ALWAYS surface rate-limit errors verbatim** — don't silently retry; let the caller decide
+6. **ALWAYS append a row to `raw/_inventory.md`** when invoked outside the autopilot routine — this skill bypasses Phase 0/7's auto-inventory hook. Direct CLI use of `notebooklm source add` (path 3) and `notebooklm notebook create + source add ×N` (path 4) MUST manually log:
+   ```md
+   | YYYY-MM-DD | <slug> | 3 single-url   | <url-or-source-desc>            | <size> | <notebook-id> | raw | — |
+   | YYYY-MM-DD | <slug> | 4 multi-bundle | <N URLs, 1-line desc>           | <size> | <notebook-id> | raw | — |
+   ```
+   Set `Status` = `raw` initially. When the file is later compiled into the wiki, update the row's `Status` → `compiled` and fill `Wiki link`. Skipping this step = silent-gap incident (see autopilot-research/CLAUDE.md "Coverage discipline" — Lark course 2026-05-08 was the first occurrence).
 
 ---
 
