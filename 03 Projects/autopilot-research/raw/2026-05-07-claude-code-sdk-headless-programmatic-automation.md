@@ -1,3 +1,4 @@
+<!-- compiled: 2026-05-08 → wiki/telegram-remote-control-stack/ (unified 4-layer topic; this drain became layer-2-engine-headless-claude-code.md) -->
 # Claude Code SDK — headless / programmatic automation
 
 **Notebook:** dafc8c4f-840b-41a1-b125-bfe973c919f0

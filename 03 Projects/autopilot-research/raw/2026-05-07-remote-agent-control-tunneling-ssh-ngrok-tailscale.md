@@ -1,3 +1,4 @@
+<!-- compiled: 2026-05-08 → wiki/telegram-remote-control-stack/ (unified 4-layer topic; this drain became layer-4-network-tunneling.md) -->
 # Remote agent control — tunneling, SSH, ngrok, tailscale
 
 **Notebook:** 46ee01f8-81e3-47d6-b617-4c322359b6b9

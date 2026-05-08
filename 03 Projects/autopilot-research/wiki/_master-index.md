@@ -18,3 +18,7 @@ How senior practitioners (Matt Pocock, Ryan Lopopolo @ OpenAI, Anthropic Skills 
 ## 10x-claude-code
 
 Tactical tips/tricks roundup from 6 creators (Sean Kochel, Nate Herk, Eric Tech, Boris Cherny via YC, Chase AI, AI LABS) — concrete configurations to 10x Claude Code workflows. Covers status lines, git worktrees, custom skills, hooks with Exit Code 2, MCP CLI mode, the Karpathy LLM-wiki pattern, adversarial fact-checking agents, and 5 axes of creator disagreement (Opus-everything vs model-switching, plan-mode lifespan, claude.md minimalism, browser strategy, terminal vs GUI). 5 articles, compiled 2026-05-07 from a 6-video YouTube bundle. → [[10x-claude-code/_index]]
+
+## telegram-remote-control-stack
+
+Unified 4-layer stack for controlling Claude Code/Desktop from a phone via Telegram: interface (Telegram/Discord/native Remote Control) → engine (headless Claude Code SDK + Ralph loop) → integration (MCP / Channels / fastmcp) → network (Tailscale / Cloudflare Tunnel / VPS). Includes 4 end-to-end recipes (solo+local-free, solo+VPS-99%, team+private-99.9%, observation-only) and production gaps (secrets vaults, RBAC, audit logs, FinOps, HA). 7 articles, compiled 2026-05-08 from 4 overnight-drained YouTube bundles (23 unique videos across the stack). → [[telegram-remote-control-stack/_index]]

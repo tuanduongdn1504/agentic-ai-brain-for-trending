@@ -1,3 +1,4 @@
+<!-- compiled: 2026-05-08 → wiki/telegram-remote-control-stack/ (unified 4-layer topic; this drain became layer-3-mcp-integration.md) -->
 # MCP servers for messaging platforms — Telegram, WhatsApp, Discord
 
 **Notebook:** 183e3635-ea8c-4c52-9c16-11aa32e19c78

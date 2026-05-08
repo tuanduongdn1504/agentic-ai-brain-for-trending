@@ -1,3 +1,4 @@
+<!-- compiled: 2026-05-08 → wiki/telegram-remote-control-stack/ (unified 4-layer topic with 7 articles + index, merging this drain with claude-code-sdk + mcp-messaging + remote-agent-control) -->
 # Telegram bot — remote control Claude Code/Desktop from phone
 
 **Notebook:** 5f514e9c-d8e4-42be-af1e-c456dfa1e4c7
