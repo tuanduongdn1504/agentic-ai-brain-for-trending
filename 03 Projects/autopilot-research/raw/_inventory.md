@@ -30,6 +30,9 @@
 | 2026-05-07 | telegram-bot-remote-control | 2 cron-overnight | YouTube ×N | 20K | `5f514e9c-d8e4-42be-af1e-c456dfa1e4c7` | merged-into-stack | [wiki/telegram-remote-control-stack/](../wiki/telegram-remote-control-stack/_index.md) |
 | 2026-05-07 | lark-claude-course | 6 custom-scraper | Lark wiki, 261 pages | 1.9M | `2a42eeff-a797-44cd-86d5-f8b8a4ee491b` ("Claude Couse 2026", 319 sources) | uncompiled | — |
 | 2026-05-08 | telegram-remote-control-stack | (compile-merge) | 4 raw bundles + live pilot | (synthesis) | (multiple, see merged rows) | compiled | [wiki/telegram-remote-control-stack/](../wiki/telegram-remote-control-stack/_index.md) |
+| 2026-05-09 | harness-engineering-anchor (VTT) | 5 yt-dlp-only | YouTube am_oeAoUhew (Lopopolo talk 46:20) | 394K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-09 | harness-engineering-anchor (transcript) | 5 yt-dlp-only | derived from VTT via vtt-to-md.py | 44K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-09 | harness-engineering-anchor (structured) | 4 multi-bundle | YouTube + Latent Space podcast (2 sources, 6-section synthesis) | 22K | `d772d58b-ff6c-41c5-aec1-7cd83637226e` | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
 
 ## Status legend
 
@@ -54,7 +57,8 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 9 rows
-- **Compiled (or merged):** 8
+- **Total ingestions logged:** 12 rows (3 added 2026-05-09 for harness-engineering anchor)
+- **Compiled (or merged):** 11
 - **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
 - **Promoted to Storm Bear:** 0
+- **New topic 2026-05-09:** harness-engineering (7 articles seeded — designed as ongoing research thread, not one-shot compile)
