@@ -12,11 +12,11 @@ Each candidate scored on:
 
 ## Tier 1 — same-author corroboration (run before any external work)
 
-### 1. OpenAI engineering blog "Harness Engineering"
+### 1. OpenAI engineering blog "Harness Engineering" — ✅ COMPLETED 2026-05-09
 - **URL:** https://openai.com/index/harness-engineering/
-- **Status:** 403 during 2026-05-09 ingest; needs custom-scraper retry
-- **Why:** canonical written form of the same content. Differences between speech and edited prose reveal which claims Lopopolo doubles down on vs softens. Highest-leverage same-author ingest.
-- **Method:** Path 6 (custom scraper, Playwright headed) — pattern from [[external|telegram-remote-control-stack/setup-recipe-a]]. Then `notebooklm source add` to existing notebook `d772d58b`.
+- **Status:** ✅ ingested via `(C) bypass-403-escalation.md` Tier 1 (Playwright vanilla); uploaded as text source to existing notebook `d772d58b`. Delta synthesis ran across all 3 sources.
+- **Outcome:** 6 position-hardenings + 10+ blog-exclusive details captured in [[blog-talk-evolution]]. Validated bypass skill end-to-end on first invocation. See `output/bypass-attempts.md` for audit.
+- **Surfaced new candidate:** open-source Symphony spec at https://openai.com/index/open-source-codex-orchestration-symphony/ (Apr 27, 2026) — same Cloudflare protection, same bypass tier likely; high-priority Tier 2 candidate.
 
 ### 2. Bret Taylor public statements on agentic engineering
 - **Why:** Lopopolo cites him as agreeing with claim #7 ("dependencies going away"). Independent corroboration if he's saying the same thing in his own words; medium-strength counter if he's saying something subtly different.

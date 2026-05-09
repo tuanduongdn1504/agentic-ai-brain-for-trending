@@ -163,6 +163,19 @@ When the user says "audit" or "lint":
 - Suggest 3-5 new articles that would strengthen the knowledge base
 - Don't make changes yet — just give the report (write to `output/(C) YYYY-MM-DD-audit.md`)
 
+### Block-handling discipline (CRITICAL — added 2026-05-09)
+
+When ANY fetch (WebFetch / curl / Playwright / NotebookLM ingest) returns 403 / 429 / Cloudflare challenge / DataDome challenge / "blocked by bot detection":
+
+1. **STOP.** Do NOT retry with the same approach. That is repeating the same mistake (Storm Bear prime directive violation).
+2. **Invoke `(C) bypass-403-escalation.md`** and follow the phase structure tier-by-tier.
+3. **NEVER skip a tier** — monotonic escalation only. No jumping straight to Camoufox.
+4. **ALWAYS log** every attempt to `output/bypass-attempts.md` (URL + tier + outcome).
+5. **Tier 4 (Camoufox) install MUST be temporary** unless audit log shows ≥3 uses in past 7 days. Compose with vault-level `install-snapshot` skill for snapshot-then-uninstall discipline.
+6. **Document fetch method** in `raw/_inventory.md` (audit trail across project).
+
+This rule exists because re-trying same approach after block = repeating the same mistake. The escalation skill ensures monotonic progress through tiers + minimal-install discipline. See [(C) bypass-403-escalation.md](skills/(C)%20bypass-403-escalation.md) for full phase structure.
+
 ### Coverage discipline (CRITICAL — added 2026-05-08 after silent-gap incident)
 
 When the user asks anything about coverage — "what's done", "what topics exist", "what's been ingested", "status of X" — you MUST reconcile **all three** sources before answering:
@@ -232,6 +245,7 @@ autopilot-research-routine ──┬── yt-pipeline ──┬── yt-search
 | `(C) yt-search.md` | network (yt-dlp) | stdout (structured list) |
 | `(C) notebooklm.md` | network (notebooklm-py) | `raw/` (markdown exports) |
 | `(C) yt-pipeline.md` | network | `raw/` (markdown summaries) |
+| `(C) bypass-403-escalation.md` | network (curl/Playwright/Obscura/Camoufox) | `raw/`, `output/bypass-attempts.md` |
 | `(C) autopilot-research-routine.md` | `raw/`, `wiki/`, `wiki/_master-index.md` | `wiki/`, `wiki/_master-index.md`, `output/`, `loop-log/` |
 
 ---

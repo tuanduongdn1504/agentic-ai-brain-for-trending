@@ -8,12 +8,13 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 
 ## Articles
 
-- [[anchor-bundle-overview]] — what the anchor is, what it covers, how to navigate
+- [[anchor-bundle-overview]] — what the anchor is, what it covers, how to navigate (3 sources after 2026-05-09 blog ingest)
 - [[core-claims]] — 8 falsifiable claims with timestamp citations (the testable core of harness engineering)
 - [[terminology]] — Harness Engineering, Token Billionaire, Symphony, Frontier, Ghost Libraries, Agent-Legibility, Dark Factory, Ralph Loop, Skills, Isomorphic
 - [[cited-references]] — 35+ external references (tools, people, papers, companies) — the downstream research surface
 - [[open-questions]] — 10 explicit hedges and gaps (where Lopopolo says "I don't know yet")
 - [[contrarian-stances]] — 10 positions Lopopolo argues against (manual coding, pre-merge review, MCP, plan mode, etc.)
+- [[blog-talk-evolution]] — Feb blog vs Apr talk+podcast: 6 position-hardenings + 10+ blog-exclusive technical details (Layers / Map-Not-Manual / Doc-Gardening / Aardvark / Friday-Slop / etc.)
 - [[research-roadmap]] — prioritized next 5-10 ingests to expand this thread
 
 ## Cross-links to existing autopilot topics

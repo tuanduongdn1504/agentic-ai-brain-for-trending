@@ -33,6 +33,9 @@
 | 2026-05-09 | harness-engineering-anchor (VTT) | 5 yt-dlp-only | YouTube am_oeAoUhew (Lopopolo talk 46:20) | 394K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
 | 2026-05-09 | harness-engineering-anchor (transcript) | 5 yt-dlp-only | derived from VTT via vtt-to-md.py | 44K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
 | 2026-05-09 | harness-engineering-anchor (structured) | 4 multi-bundle | YouTube + Latent Space podcast (2 sources, 6-section synthesis) | 22K | `d772d58b-ff6c-41c5-aec1-7cd83637226e` | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-09 | openai-blog-harness-engineering (HTML) | bypass-403-tier-1 | Playwright vanilla after curl Tier 0 failed | 478K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-09 | openai-blog-harness-engineering (clean MD) | bypass-403-tier-1 | derived from HTML via html-to-clean-md.py (readability-lxml + pandoc) | 21K | `d772d58b-…26e` (uploaded as 3rd source) | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-09 | openai-blog-delta-synthesis | 4 multi-bundle | NotebookLM 3-source delta-analysis (blog vs talk vs podcast) | 8K | `d772d58b-…26e` | compiled | [wiki/harness-engineering/blog-talk-evolution](../wiki/harness-engineering/blog-talk-evolution.md) |
 
 ## Status legend
 
@@ -57,8 +60,8 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 12 rows (3 added 2026-05-09 for harness-engineering anchor)
-- **Compiled (or merged):** 11
+- **Total ingestions logged:** 16 rows (3 added 2026-05-09 morning for harness-engineering anchor; 4 added 2026-05-09 afternoon for OpenAI blog bypass + delta synthesis)
+- **Compiled (or merged):** 15
 - **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
 - **Promoted to Storm Bear:** 0
-- **New topic 2026-05-09:** harness-engineering (7 articles seeded — designed as ongoing research thread, not one-shot compile)
+- **New topic 2026-05-09:** harness-engineering (now 8 articles — adds blog-talk-evolution after OpenAI blog bypass; first end-to-end use of `(C) bypass-403-escalation.md` skill)

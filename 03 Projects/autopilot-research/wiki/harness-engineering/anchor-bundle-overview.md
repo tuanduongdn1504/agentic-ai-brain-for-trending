@@ -7,15 +7,19 @@
 - **Podcast:** "Extreme Harness Engineering for Token Billionaires: 1M LOC, 1B toks/day, 0% human code, 0% human review" — Latent Space (swyx + Vibhu) with Ryan Lopopolo, 2026-04-07, 1h12m
   - Web: https://www.latent.space/p/harness-eng
   - Includes full transcript on the post
-- **Companion (NOT ingested):** OpenAI engineering blog https://openai.com/index/harness-engineering/ — blocked by 403 during ingest 2026-05-09; flag for manual download or scraper-based fetch
+- **Blog (ingested 2026-05-09 afternoon via bypass-403-tier-1):** "Harness engineering: leveraging Codex in an agent-first world" — Ryan Lopopolo, OpenAI Engineering Blog, **Feb 11, 2026** (3 weeks before the talk; 5 days before podcast)
+  - URL: https://openai.com/index/harness-engineering/
+  - Initial 403 (Cloudflare Client-Hints challenge); resolved via Playwright vanilla with `wait_until="domcontentloaded"` + 8s wait. See `output/bypass-attempts.md` for full audit. Uploaded to NotebookLM as text source (URL ingest got Cloudflare-blocked too).
+  - **Critical finding:** blog → talk evolution covers 6 position-hardenings + 10+ blog-exclusive details. See [[blog-talk-evolution]].
 
-## Why these 2 sources together
+## Why these 3 sources together
 
-Same speaker, same topic, 3 weeks apart, 2 mediums:
-- **Talk** = polished thesis, ~30-40 min of distilled core ideas
-- **Podcast** = extended Q&A with cohost pushback; covers technical specifics (Elixir/Beam choice, build-system retooling, GPT-5.3 regression anecdote) the talk omits
+Same speaker, same topic, **2-month time-axis** (Feb blog → Apr talk + podcast), 3 mediums:
+- **Blog (Feb 11)** = original written experiment report, concrete technical recipes (Layers, Map-Not-Manual, doc-gardening, Aardvark, Friday-Slop anecdote)
+- **Podcast (Apr 7)** = extended Q&A with cohost pushback; covers technical specifics (Elixir/Beam choice, build-system retooling, GPT-5.3 regression anecdote) the talk omits
+- **Talk (Apr 17)** = polished thesis, manifesto framing, Token Billionaire / Symphony / Dark Factory positioned center-stage
 
-NotebookLM cross-references both → catches what each medium emphasizes vs glosses, surfaces convergence (high-confidence claims) vs medium-exclusive content (deeper but less-pressure-tested).
+NotebookLM cross-references all 3 → surfaces convergence (high-confidence claims), medium-exclusive content (deeper but less-pressure-tested), AND **temporal evolution** (which claims hardened, which numbers escalated, what infrastructure emerged between Feb and Apr). The 2-month gap reveals Symphony was likely productionized between Feb and Apr; see [[blog-talk-evolution]].
 
 ## Speaker context
 
