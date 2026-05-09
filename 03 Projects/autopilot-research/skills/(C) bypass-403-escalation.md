@@ -174,6 +174,23 @@ CDP-compatible → Playwright Python client connects to existing browser. Reuse 
 
 ---
 
+### Phase 4.5 — Pivot heuristic (added 2026-05-09 from Symphony spec failure)
+
+**Before escalating from Tier 2 to Tier 3 (Obscura, 70 MB install)**, check whether the bypass target is **inherently reproducible elsewhere**:
+
+| URL pattern | Pivot target |
+|---|---|
+| "open-source spec" / "open-source release" / "we open-sourced X" page | Search GitHub for community implementations of X (often more numerous than the org's own repo, and usually provide better triangulation than the spec itself) |
+| "blog post about Y" where Y is a public technology / methodology | Search for: original paper if Y is research, official docs if Y is a tool, prior talk recordings if Y is a methodology |
+| "documentation for tool Z" where Z is open-source | Fetch from `github.com/<org>/<z>` README + `docs/` folder directly (no Cloudflare) |
+| Specific architecture / spec content | Reverse-engineer from existing implementations + dependencies |
+
+**Lesson learned (Symphony spec, 2026-05-09):** OpenAI's `open-source-codex-orchestration-symphony` page failed Tier 1 + Tier 2 bypass (`/backend/gate/...` endpoints have deeper Cloudflare protection than page navigation). However, 5+ community Symphony implementations exist on GitHub with no Cloudflare. Triangulating 3 of them produced richer architectural understanding than the single spec page would have AND surfaced a falsifier finding (community impls don't reproduce throughput claim) that the spec alone wouldn't have revealed.
+
+**Decision rule:** if pivot target has ≥2 viable alternative sources accessible without bypass, defer Tier 3+ and use pivot. Document deferral + pivot rationale in `bypass-attempts.md` so the URL doesn't get retried at higher tier without new information.
+
+---
+
 ### Phase 5 — Tier 4: Camoufox (TEMPORARY by default, ~300 MB)
 
 **STOP. Before installing**, invoke `install-snapshot` skill (vault-level):

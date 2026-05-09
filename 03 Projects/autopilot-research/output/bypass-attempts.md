@@ -4,6 +4,28 @@
 
 ---
 
+## 2026-05-09 15:05 — openai-symphony-spec — https://openai.com/index/open-source-codex-orchestration-symphony/
+
+- **Block type:** Cloudflare-class with **deeper backend gating**. Initial navigation succeeds (HTTP 200) but client-side `/backend/gate/...` calls return 403 → Next.js error component renders ("This page couldn't load"). Different failure mode from harness-engineering blog (which let backend gates through).
+- **Tier 0 (curl):** ATTEMPTED — 403 (same as harness-engineering blog).
+- **Tier 1 (Playwright vanilla, calibrated):** ATTEMPTED. HTTP 200 navigation but body contains only the Next.js 404 component (`h1='This page couldn't load'`, `articles=0`, `body_text_len=70`). Diagnostic: 21 of 106 responses are non-200; specifically `/backend/gate/...` endpoints return 403 even after navigation succeeds.
+- **Tier 2 (Playwright + playwright-stealth 2.0.3):** ATTEMPTED. Same outcome as Tier 1 — fingerprint stealth doesn't help because the backend gate check appears to be deeper than browser fingerprint.
+- **Wayback fallback:** archive.org/wayback/available returned `archived_snapshots: {}` — URL too new (12 days old, likely never crawled). Direct Wayback fetch 429 (rate-limited).
+- **Tier 3-4:** NOT attempted. Pivoted instead.
+
+### Outcome
+
+- **Tier reached:** 2 (failed)
+- **Outcome:** PIVOT — bypass deferred indefinitely. Pivoted to ingesting 3 community Symphony implementations on GitHub (no Cloudflare). 3 independent reproductions = stronger evidence than the single missing spec.
+- **Output:** `raw/2026-05-09-symphony-community-synthesis.md` + new wiki article [[../wiki/harness-engineering/symphony-architecture]]
+- **Method retained:** `playwright-stealth 2.0.3` installed in venv (~50KB) — kept; useful for any future Tier 2 attempt
+- **Notes:**
+  - **New failure-mode pattern detected:** OpenAI sometimes wraps article content with backend `/backend/gate/...` endpoints that have stricter Cloudflare protection than the page navigation. Tier 1+2 bypass the static page but not the dynamic content. **For OpenAI URLs that fail Tier 2 like this, suggest the article requires login OR the page was unpublished.**
+  - **Pivot strategy worth codifying:** when an "open-source spec" page is blocked, search GitHub for community implementations FIRST before escalating to Tier 3+ — community reproductions often provide better triangulation than the original artifact.
+  - **Skill calibration:** add a Phase 5.5 "Pivot heuristic" that says "if URL claims to point to open-source content but bypass fails ≥Tier 2, search GitHub for org-OR-community-named repos matching the topic before escalating to Tier 3."
+
+---
+
 ## 2026-05-09 14:25 — openai-blog-harness-engineering — https://openai.com/index/harness-engineering/
 
 - **Block type:** Cloudflare-class. `accept-ch` header in 403 response reveals OpenAI uses Client Hints challenge. Both crude and realistic Chrome UAs returned 403 + ~9KB challenge body.

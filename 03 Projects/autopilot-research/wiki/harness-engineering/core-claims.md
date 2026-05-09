@@ -28,7 +28,17 @@ The "inner loop" of the build system must complete in **<1 minute** or agents lo
 Symphony orchestration increases output from a baseline of **3.5 PRs/day/eng** to **5–10 PRs/day/eng**.
 - *talk [32:46]*
 - **Falsifier:** independent measurement showing Symphony adds <1.5x throughput, OR Symphony-equivalent open-source orchestrators failing to reproduce
-- **Note:** baseline 3.5 not contextualized — high or low for OpenAI standards?
+- **Note:** baseline 3.5 is the **pre-Symphony Feb 2026 blog measurement** ([[blog-talk-evolution#2]]); 5-10 is the post-Symphony Apr 2026 spoken claim
+
+### Update 2026-05-09 — Falsifier check ❌ NOT INDEPENDENTLY CORROBORATED
+
+After ingesting 3 community Symphony implementations (Elixir/Restate, Go, Rust — see [[symphony-architecture]]):
+- All 3 community impls reproduce the **architecture** but document NO throughput benchmarks comparable to 5-10 PRs/day/eng
+- Implementations are pre-alpha / smoke-check / test-coverage focused; no production velocity data
+- 5-10 PRs/day remains an **internal-OpenAI-only number**
+- Community focus is on architectural invariants (state durability, claim handling) NOT operational throughput
+
+**Status:** unverified externally. Mark in any synthesis that uses this number. Re-check in 3-6 months when community implementations mature.
 
 ## 5. Hyper-modular agent-legible architecture
 

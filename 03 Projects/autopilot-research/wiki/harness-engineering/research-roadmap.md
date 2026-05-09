@@ -16,7 +16,13 @@ Each candidate scored on:
 - **URL:** https://openai.com/index/harness-engineering/
 - **Status:** ✅ ingested via `(C) bypass-403-escalation.md` Tier 1 (Playwright vanilla); uploaded as text source to existing notebook `d772d58b`. Delta synthesis ran across all 3 sources.
 - **Outcome:** 6 position-hardenings + 10+ blog-exclusive details captured in [[blog-talk-evolution]]. Validated bypass skill end-to-end on first invocation. See `output/bypass-attempts.md` for audit.
-- **Surfaced new candidate:** open-source Symphony spec at https://openai.com/index/open-source-codex-orchestration-symphony/ (Apr 27, 2026) — same Cloudflare protection, same bypass tier likely; high-priority Tier 2 candidate.
+- **Surfaced new candidate:** open-source Symphony spec at https://openai.com/index/open-source-codex-orchestration-symphony/ (Apr 27, 2026) — pursued same session, Tier 2 failed → pivoted to community implementations.
+
+### 1b. Symphony architecture — ✅ COMPLETED 2026-05-09 via PIVOT
+- **Original target:** OpenAI's "open-source spec" blog post — Tier 1 + Tier 2 bypass failed (backend-gate Cloudflare). Wayback unhelpful (URL too new).
+- **Pivot:** ingested 3 community Symphony implementations (Elixir/Restate, Go, Rust) from GitHub (no Cloudflare).
+- **Outcome:** [[symphony-architecture]] triangulates architecture from 6 sources; reveals divergence patterns AND a falsifier finding — claim #4 (5-10 PRs/day Symphony throughput) is NOT independently corroborated by community implementations.
+- **Lesson codified:** new Phase 4.5 "Pivot heuristic" added to `(C) bypass-403-escalation.md` — for "open-source spec" pages that fail Tier 2, search GitHub for community implementations BEFORE escalating to Tier 3.
 
 ### 2. Bret Taylor public statements on agentic engineering
 - **Why:** Lopopolo cites him as agreeing with claim #7 ("dependencies going away"). Independent corroboration if he's saying the same thing in his own words; medium-strength counter if he's saying something subtly different.

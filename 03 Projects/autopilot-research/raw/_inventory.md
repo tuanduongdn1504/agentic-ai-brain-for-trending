@@ -36,6 +36,9 @@
 | 2026-05-09 | openai-blog-harness-engineering (HTML) | bypass-403-tier-1 | Playwright vanilla after curl Tier 0 failed | 478K | — | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
 | 2026-05-09 | openai-blog-harness-engineering (clean MD) | bypass-403-tier-1 | derived from HTML via html-to-clean-md.py (readability-lxml + pandoc) | 21K | `d772d58b-…26e` (uploaded as 3rd source) | compiled | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
 | 2026-05-09 | openai-blog-delta-synthesis | 4 multi-bundle | NotebookLM 3-source delta-analysis (blog vs talk vs podcast) | 8K | `d772d58b-…26e` | compiled | [wiki/harness-engineering/blog-talk-evolution](../wiki/harness-engineering/blog-talk-evolution.md) |
+| 2026-05-09 | openai-symphony-spec (FAILED) | bypass-403-tier-2 | Tier 1+2 failed (backend-gate Cloudflare); pivoted to community | 396K HTML (Next.js error page only) | — | dropped (pivot) | — |
+| 2026-05-09 | symphony-community-implementations | 4 multi-bundle | 3 GitHub repos: ACNoonan/symphony-restate (Elixir+Restate) + ryanjdillon/symphony (Go) + howardpen9/symphony-rs (Rust) | (NotebookLM-indexed) | `d772d58b-…26e` (added as sources 4-6) | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
+| 2026-05-09 | symphony-community-synthesis | 4 multi-bundle | NotebookLM 6-source triangulation (3 OpenAI + 3 community) | 9K | `d772d58b-…26e` | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
 
 ## Status legend
 
@@ -60,8 +63,9 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 16 rows (3 added 2026-05-09 morning for harness-engineering anchor; 4 added 2026-05-09 afternoon for OpenAI blog bypass + delta synthesis)
-- **Compiled (or merged):** 15
+- **Total ingestions logged:** 19 rows (3 added 2026-05-09 morning for anchor; 4 mid-afternoon for OpenAI blog bypass + delta; 3 late-afternoon for Symphony pivot)
+- **Compiled (or merged):** 17
+- **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
 - **Promoted to Storm Bear:** 0
-- **New topic 2026-05-09:** harness-engineering (now 8 articles — adds blog-talk-evolution after OpenAI blog bypass; first end-to-end use of `(C) bypass-403-escalation.md` skill)
+- **New topic 2026-05-09:** harness-engineering (now 9 articles — adds symphony-architecture after pivot; bypass skill calibrated with new Phase 4.5 "Pivot heuristic")
