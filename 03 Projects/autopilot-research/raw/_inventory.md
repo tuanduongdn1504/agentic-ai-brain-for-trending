@@ -39,6 +39,7 @@
 | 2026-05-09 | openai-symphony-spec (FAILED) | bypass-403-tier-2 | Tier 1+2 failed (backend-gate Cloudflare); pivoted to community | 396K HTML (Next.js error page only) | — | dropped (pivot) | — |
 | 2026-05-09 | symphony-community-implementations | 4 multi-bundle | 3 GitHub repos: ACNoonan/symphony-restate (Elixir+Restate) + ryanjdillon/symphony (Go) + howardpen9/symphony-rs (Rust) | (NotebookLM-indexed) | `d772d58b-…26e` (added as sources 4-6) | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
 | 2026-05-09 | symphony-community-synthesis | 4 multi-bundle | NotebookLM 6-source triangulation (3 OpenAI + 3 community) | 9K | `d772d58b-…26e` | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
+| 2026-05-11 | claude-md-12-rules-mnilax | 3 manual-paste | X.com tweet thread (auth-walled — mirrors dead) | 14K | — | compiled | [wiki/claude-md-12-rules/](../wiki/claude-md-12-rules/_index.md) |
 
 ## Status legend
 
@@ -63,9 +64,10 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 19 rows (3 added 2026-05-09 morning for anchor; 4 mid-afternoon for OpenAI blog bypass + delta; 3 late-afternoon for Symphony pivot)
-- **Compiled (or merged):** 17
+- **Total ingestions logged:** 20 rows (1 added 2026-05-11 for Mnilax 12 rules manual paste)
+- **Compiled (or merged):** 18
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
 - **Promoted to Storm Bear:** 0
-- **New topic 2026-05-09:** harness-engineering (now 9 articles — adds symphony-architecture after pivot; bypass skill calibrated with new Phase 4.5 "Pivot heuristic")
+- **New topic 2026-05-11:** claude-md-12-rules (3 articles — Mnilax 12-rule behavioral contract installed at vault-root + comparison with harness-engineering covering 8 agreement axes + 4 conflict axes)
+- **Path 9 emerged:** manual paste when source is auth-walled + mirrors dead (X.com 2026-05-11). Update CLAUDE.md "8 ingestion surfaces" table when this pattern occurs ≥3× total.
