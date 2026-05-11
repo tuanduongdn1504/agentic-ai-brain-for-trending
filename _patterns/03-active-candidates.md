@@ -1,4 +1,4 @@
-## Active Candidates (17 — post-v53 mini-audit: -1 from prior 18 baseline via Pattern #38 promotion to CONFIRMED via NEW sister-archive-structural-N=2 criterion; FIRST sub-0.45:1 ratio in corpus history achieved at this audit close at 17:39 = 0.436:1)
+## Active Candidates (19 — post-v63 mini-audit: -1 Pattern #21 promoted CONFIRMED via criterion #2 + 3 NEW top-level candidates registered (#74 EARS-Format Requirements + #75 External-IDE-Methodology Lineage Type + #76 Adversarial Subagent Review Architecture) = net +2 from 17 v60-baseline; ratio 19:42 = 0.452:1)
 
 #### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
 **Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
@@ -14,12 +14,13 @@
 **Re-evaluation:** at v25 or if 2nd framework ships skills-lock.json-equivalent.
 **Rationale for stale-flag:** novel at v15 (package-lock.json parallel); ecosystem hasn't followed at 6-wiki window. May be ahead-of-curve or genuinely niche. Keep observing.
 
-#### ⏳ #21 SDD Methodology Emergence — STALE-CANDIDATE (flagged v25 audit)
-**Status at v25 audit:** Flagged STALE-CANDIDATE — N=2 single-tier (both T1) after 8 wikis since v17 spec-kit. Mini-audit v22 flagged approaching stale; full audit v25 confirms.
-**Evidence:** GSD v5 (feature-level) + spec-kit v17 (whole methodology).
-**Required for promotion:** 1+ more framework centering Spec-Driven Development, ideally at different tier.
-**Re-evaluation:** at v30 OR if spec-driven framework emerges at T2-T5.
-**Rationale:** v18-v25 corpus additions (8 wikis) had zero new SDD-centered frameworks. May be T1-specific or zeitgeist-timed phenomenon past peak.
+#### ✅ #21 SDD Methodology Emergence → PROMOTED at v63 mini-audit (CANDIDATE/STALE → CONFIRMED via criterion #2 structural-unambiguity-at-N=2)
+**Status:** PROMOTED to CONFIRMED at v63 mini-audit (2026-05-07 session 71+). See Confirmed section in `_patterns/02b-confirmed-patterns-v42-plus.md` for full entry.
+**Status path:** v17 spec-kit candidate registration (N=2 with GSD v5 baseline) → v22 mini-audit approaching-stale → v25 audit STALE-CANDIDATE flag → v58 OpenSpec implicit N=3 (fact-verification gap; not added to evidence list at v58→v60 audit) → v60 mini-audit gsd-2 un-stale REJECTED via lineage-grounds → **v61 cc-sdd independent-4th-lineage evidence (independent org gotalab + independent author + independent intellectual lineage Kiro IDE — corpus-first external-IDE-methodology lineage)** → **v63 mini-audit UN-STALE + PROMOTE under criterion #2** with 4-archetype distribution.
+**Status duration: 36 wikis from v25 stale-flag to v63 promotion** — LONGEST stale-to-promotion arc in corpus history.
+**Resolves:** v60 mini-audit lineage-test rejection (gsd-2 same-lineage). v61 brings genuinely independent evidence.
+**See full entry:** `_patterns/02b-confirmed-patterns-v42-plus.md` § "Promoted at v63 mini-audit (#21)".
+**See Phase 4b deliverable:** `03 Projects/cc-sdd - Beginner Analysis/03 Published/(C) Pattern 21 un-stale - SDD methodology promotion case at v61.md`.
 
 #### ⏳ #23 AI-Disclosure Policy Emergence — STALE-CANDIDATE (flagged v25 audit)
 **Status at v25 audit:** Flagged STALE-CANDIDATE — N=1 after 8 wikis since v17 spec-kit. Mini-audit v22 flagged approaching stale; full audit v25 confirms.
@@ -557,6 +558,41 @@ Original registration content (v32, preserved for history):
 - Methodology style (multi-runtime / memory-tier / tutorial-with-CI / best-practice-aggregation)
 
 **Prediction:** Strong promotion trajectory. Meta-pattern cleanly consolidates corpus regional-archetype observations. 4th region emergence (Indian T1, Brazilian T1, etc.) would register as 73d sub-variant under established meta-pattern structure.
+
+**v63 mini-audit update:** Pattern #73 73d Japanese sub-variant ADDED (cc-sdd v61 gotalab solo-Japanese — Japanese README primary in `docs/guides/ja/` + Zenn-platform-active gotalab.zenn.dev + Japan-resident "Agentic AI Engineer / Data Analyst"). 4-region distribution now: 73a Korean / 73b VN (2 sub-sub-variants) / 73c Pakistani / **73d Japanese (NEW v61)**. Austrian observational from v36 pi-mono remains unformalized.
+
+---
+
+#### 🟡 #74 EARS-Format Requirements Adoption (NEW v63 mini-audit — registered N=1 stale-risk-flagged)
+**Status at v63 mini-audit:** Registered as candidate via cc-sdd v61 first explicit EARS reference. **N=1 stale-risk-flagged at registration** per routine v2.1 N=1 stale-risk-flagging discipline.
+**Evidence:** cc-sdd v61 only — `requirements.md` uses EARS-format (Easy Approach to Requirements Syntax — aerospace/systems-engineering origin predating AI agents).
+**Formal statement (candidate):**
+> AI coding agent frameworks adopt named industry-standard requirements formats (EARS / IEEE-830 / Volere / etc.) as alternative to free-form prose acceptance criteria. Reflects maturation toward testable + machine-parseable requirements at AI-agent ecosystem level. Distinct from generic "structured requirements" — explicit naming references existing systems-engineering tradition.
+**Required for promotion:** 2+ frameworks adopting EARS-format (or other named industry-standard requirements format) with explicit naming reference.
+**Re-evaluation:** v66 stale-check / v71 retire-check.
+**Rationale:** Industry-standard requirements formats predate AI agents; EARS adoption signals AI ecosystem absorbing systems-engineering rigor. Stale-risk: may stay cc-sdd-specific if Kiro IDE methodology lineage doesn't broadly transmit. Watch for: spec-kit v17 + OpenSpec v58 + GSD v5 retroactive EARS references at next ship of those subjects' updates; or new SDD framework explicitly adopting EARS.
+
+---
+
+#### 🟡 #75 External-IDE-Methodology Lineage Type (NEW v63 mini-audit — registered N=1 stale-risk-flagged)
+**Status at v63 mini-audit:** Registered as candidate via cc-sdd v61 first corpus encounter of methodology lineage from external (non-AI-ecosystem) IDE. **N=1 stale-risk-flagged at registration**.
+**Evidence:** cc-sdd v61 only — `.kiro/` directory convention + `kiro-*` skill naming + v3.0.2 CHANGELOG removed Amazon book reference; suggests Kiro IDE methodology heritage (Kiro IDE = AWS-affiliated coding IDE released ~2025; gotalab solo-Japanese ports Kiro methodology to multi-agent harness).
+**Formal statement (candidate):**
+> Lineage classification within Pattern #19 Intellectual-Lineage-Archetypes — distinct sub-type "External-IDE-methodology lineage" — methodology articulated for/by an external (non-AI-ecosystem) IDE/tool, then ported to AI-agent ecosystem by independent implementer. Distinct from prior Pattern #19 archetypes: corporate-strategic / pseudonymous-org / academic-paper-chain / community-viral / methodology-LLC / individual-author-lineage. Reflects AI-agent ecosystem absorbing methodology vocabulary from broader software-engineering tooling lineage rather than originating de-novo.
+**Required for promotion:** 2+ frameworks with external-non-AI-ecosystem IDE/tool methodology lineage explicitly documented.
+**Re-evaluation:** v66 stale-check / v71 retire-check.
+**Rationale:** Cursor IDE / VS Code / Windsurf IDE / Antigravity all have methodology surfaces that could be ported; multi-platform frameworks (cc-sdd at 8 platforms) reduce frictions for such ports. Stale-risk: may stay cc-sdd-Kiro-specific if other IDEs don't articulate distinct methodology vocabulary worth porting.
+
+---
+
+#### 🟡 #76 Adversarial Subagent Review Architecture at Framework Level (NEW v63 mini-audit — registered N=1 stale-risk-flagged)
+**Status at v63 mini-audit:** Registered as candidate via cc-sdd v61 first corpus framework-level explicit adversarial-by-design subagent role separation. **N=1 stale-risk-flagged at registration**.
+**Evidence:** cc-sdd v61 only — `/kiro-impl` autonomous mode dispatches Implementer subagent (TDD: RED→GREEN→REFACTOR) + Reviewer subagent (`kiro-review`: spec compliance / boundary fit / mechanical verification / RED-phase evidence) with auto-debug-on-rejection (`kiro-debug` returns ROOT_CAUSE/CATEGORY/FIX_PLAN/NEXT_ACTION) + fresh-evidence completion gate (`kiro-verify-completion` returns VERIFIED/NOT_VERIFIED/MANUAL_VERIFY_REQUIRED).
+**Formal statement (candidate):**
+> AI agent frameworks codify adversarial-by-design subagent role separation as architectural primitive — implementer subagent + reviewer subagent + auto-debug + fresh-evidence completion gate, with explicit role boundaries and rejection-loop mechanics. Distinct from cooperative subagent dispatch (BMAD v11 persona-system) and from less-structured subagent orchestration (OpenHands v30). Reflects LLM-as-judge research patterns absorbed into framework-level architectural primitive.
+**Required for promotion:** 2+ frameworks with adversarial-by-design subagent role separation as documented architectural primitive (explicit reviewer + implementer + rejection loop).
+**Re-evaluation:** v66 stale-check / v71 retire-check.
+**Rationale:** LLM-as-judge research is well-established (constitutional AI / red-teaming / autonomous evaluation); framework-level absorption is more recent. Stale-risk: may stay cc-sdd-specific if SDD methodology requires adversarial review but other agent frameworks remain cooperative. Watch for: any framework that ships explicit reviewer subagent as named role distinct from implementer.
 
 ---
 

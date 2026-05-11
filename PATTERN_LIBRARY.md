@@ -2,28 +2,39 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v57 direct updates, preserved 7 cycles)
+## Current state (post-v60 EXTENDED MINI-AUDIT 2026-05-07 session 70)
 
-- **Confirmed:** 39 (UNCHANGED post-v57; 21-streak ZERO-NEW-ACTIVE-CANDIDATES extends)
-- **Active candidates:** 17 (UNCHANGED)
-- **Stale candidates:** 3 (#45 Dual-Licensing / #52 Extreme-Viral-Velocity / #72 PolyForm-Noncommercial; #52 OBSERVATIONAL FLAG at v57 for v60 time-axis verification)
+- **Confirmed:** **41** (was 39; **+2 promotions:** Pattern #45 Dual-Licensing under criterion 2 + Pattern #72 PolyForm-Family-License RENAME + criterion 4 promotion)
+- **Active candidates:** 17 (UNCHANGED post-audit)
+- **Stale candidates:** **1** (only #52 Extreme-Viral-Velocity; OBSERVATIONAL FLAG preserved at v60 audit per pre-registered Item 12 decision-criteria — mattpocock/skills first-commit 2026-02-03 falls in 90d<x<12mo "preserve flag" band; re-evaluate v63)
 - **Retired:** 9
-- **Observation-tracks:** 6
-- **Total:** 74 full / 56 active
-- **Ratio:** 17:39 = **0.436:1** — first sub-0.45:1 ratio in corpus history (achieved at v53 mini-audit; preserved through v54 + v55 + v56 + v56-mini-audit + v57 direct = **7 consecutive cycles**)
-- **Buffer:** 0.514 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history maintained 7 cycles
+- **Observation-tracks:** 6 (Pattern #57 BIDIRECTIONAL-ABSENCE OT REJECTED via audit-layer fact-verification — corpus-grep falsified v59 absence claim with 53 files / 17+ wikis citing AutoGPT; downgraded to FORWARD-ABSENCE-only documentation; 3rd audit-layer fact-verification correction in corpus history)
+- **Total:** **74 full / 58 active**
+- **Ratio:** 17:41 = **0.415:1** — NEW LARGEST in corpus history (post-audit drop from 0.436:1)
+- **Buffer:** **0.535 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history**
 - **Streaks:**
-  - **21-consecutive-wiki ZERO-NEW-ACTIVE-CANDIDATES (v37-v57) — NEW LONGEST in corpus history (extends v56 20-streak)**
-  - **40-consecutive Storm Bear meta-entity (v10-v57)** — v57 is **2nd under STRICT amendment session 66** with **3 criteria PASSED (b + c + d)** = STRONGEST STRICT-amendment instance to date (v56 was 2-of-4); 2 consecutive STRICT-instances satisfied validates amendment is regularly satisfiable not over-tight
-  - **2 consecutive CONSERVATIVE-DISCIPLINE mini-audits** (post-v54 session 65 + post-v56 session 67); no mini-audit at v57
+  - **24-consecutive-wiki ZERO-NEW-ACTIVE-CANDIDATES (v37-v60) — NEW LONGEST in corpus history (extends v59 23-streak)**
+  - **Storm Bear meta-entity streak RESTART at 1** post-v59 41-streak break (v60 free-claude-code 2-of-4 PASS INCLUDE — Phase 0.9 STRICT criterion (b) operational-deployability + (d) in-corpus-citation via OpenClaw tagline reference); **5-instance Phase 0.9 post-amendment window** with both directions exercised: v56 PASS / v57 PASS / v58 PASS / v59 SKIP / v60 PASS = 4 INCLUDE + 1 SKIP = **80% INCLUDE rate** validates STRICT amendment is regularly satisfiable AND disciplined-skip works as designed
+  - **3 mini-audits in v54-v60 cycle** (post-v54 session 65 CONSERVATIVE-DISCIPLINE + post-v56 session 67 CONSERVATIVE-DISCIPLINE + **post-v60 session 70 STRENGTHENING-DOMINANT** — 1st STRENGTHENING-DOMINANT class in corpus history; LARGEST mini-audit ever at 14 items; 1st EXTENDED MINI-AUDIT classification)
 - **Library-vocabulary:** 13 distinct pattern-statement structural forms (UNCHANGED)
 - **Promotion criteria:** 6 structural-promotion criteria (UNCHANGED)
-- **Pattern #18 reaches 10th refinement** (extends from 9 baseline at v53 mini-audit; most-refined pattern in library; NEW = Layer 0 0b horizontal-aggregation N=2 promotion at v56-mini-audit; v57 adds 0b skills-collection-curation-mechanism sub-axis N=3 at T1-only observational)
-- **Pattern #29 sub-context taxonomy now has 6 sub-contexts** (5 absent-LICENSE + 1 NEW non-commercial-restriction-custom-license; license-axis is corpus's most-richly-categorized pattern axis)
-- **Pattern #57 STRONGEST 57c evidence at v57:** 57c forward-citation-then-wiki grows N=3 → N=7 conservative-attribution post-v57 direct (mattpocock/skills cites BMAD v11 + GSD v5 + gsd-2 v54 + spec-kit v17 in single sentence); NEW 57c-multi-frontend sub-variant candidate N=1 stale-flagged v62/v67
-- **Audit triggers RESET. Next triggers:** active candidate count ≥30 (currently 17 — 13-candidate runway) / ratio >0.95:1 mini / v60 wiki natural cadence (3-wiki runway from v57)
+- **Pattern #18 reaches 11th refinement** post-v60 audit (most-refined pattern in library extends; Item 4 Layer 1 STRONGEST extends with corpus-broadest-at-T4 24-cell support matrix at free-claude-code v60 + corpus-broadest-at-T1 30+ tools at OpenSpec v58 + Pattern #18 Layer 2 OpenClaw runtime corpus references reinforced by v60 free-claude-code tagline citation)
+- **Pattern #29 sub-context taxonomy reaches 7 sub-classifications post-v60 audit** (5 absent-LICENSE + 1 non-commercial-restriction-custom-license + **2 sub-sub-axes formalized at v60 audit Item 9: standardized-non-OSI [PolyForm-family: GitNexus + AutoGPT] vs bespoke-non-OSI [custom-license: omo + n8n]** under criterion 4 variant-within-pattern-at-N=2). License-axis IS corpus's most-richly-categorized pattern axis confirmed.
+- **Pattern #57 57c family post-v60 audit:** N=9 conservative-attribution preserved + **57c-anti-pattern-foil sub-variant PROMOTED** under criterion 4 variant-within-pattern-at-N=2 (mattpocock v57 + OpenSpec v58 → v17 spec-kit citing-subjects); **NEW 57c-positive-comparison-parallel sister sub-variant REGISTERED N=1 stale-flagged v65/v70** (free-claude-code v60); **polarity-axis taxonomy formalized at v60 audit:** 4 polarity classes — anti-pattern-foil (negative; promoted) / positive-comparison-parallel (positive; registered) / inspirational-predecessor (mixed; OMC + omo) / temporal-gap-coincidental (orthogonal; multica→vercel-labs etc.)
+- **Pattern #57 BIDIRECTIONAL-ABSENCE at AutoGPT v59 OT REJECTED at v60 audit Item 13** — corpus-grep pre-step found **53 files / 17+ wikis** explicitly cite AutoGPT (most prominently Skyvern v24 verbatim "Skyvern was inspired by the Task-Driven autonomous agent design popularized by BabyAGI and AutoGPT"); v59 wiki claim FALSIFIED. **3rd audit-layer fact-verification correction in corpus history** (1st v45 magika / 2nd v54 / 3rd v60 — LARGEST falsification: entire OT registration rejected). Downgraded to FORWARD-ABSENCE-only documentation (AutoGPT does not cite predecessors in own README; that part is valid).
+- **Pattern #45 Dual-Licensing PROMOTED to Confirmed at v60 audit Item 1** under criterion 2 structural-N=2 (Unsloth v23 Apache-2.0+commercial + AutoGPT v59 MIT+PolyForm-Shield); 35-wiki stale-then-un-stale latency = corpus-record validates stale-tracking protocol works as designed
+- **Pattern #72 PolyForm-Family-License PROMOTED + RENAMED at v60 audit Item 2** — `Pattern #72 PolyForm-Noncommercial` → `Pattern #72 PolyForm-Family-License` with sub-variants 72a (Noncommercial / GitNexus v33) + 72b (Shield / AutoGPT v59); promoted under criterion 4 variant-within-pattern-at-N=2; **1st pattern RENAME-on-promotion in corpus history**
+- **Pattern #19 archetype taxonomy at v60:** founder-personal→org-stewardship sub-variant N=2 (n8n + AutoGPT) unchanged; first-mover-authority-without-lineage sub-variant **strengthens at v60 N=2** with NEW utility-tool sub-type (free-claude-code "expert Software Architect" identity claim WITHOUT methodology citation, distinct from AutoGPT v59 paradigm-foundational sub-type) — within-pattern strengthening; org-level-pseudonymity sub-variant unchanged
+- **Pattern #27 community-viral** unchanged at v60 (free-claude-code 22.1K-star solo-community = sustained-community-viral data point at T4; not corpus-historical-foundational)
+- **Pattern #69 EXTREME-tier** unchanged at v60 (free-claude-code primitive-count YELLOW 5-6, NOT EXTREME; N=7 from v59 holds)
+- **Pattern #22 22c sub-variant NEW at v60:** AGENTS.md identical-to-CLAUDE-with-explicit-sync-comment-header; corpus-first variant ("This file is identical to CLAUDE.md. Keep them in sync.") at free-claude-code; observational within Pattern #22
+- **Pattern #51 anti-vibe pole streak BREAKS at v60** (was 2-consecutive at v57+v58; v59 NEUTRAL; v60 NEUTRAL = 2-consecutive-NEUTRAL counter-evidence narrows pole-confidence to commercial-educator T1 archetype-correlated; pole confirmed observational-only)
+- **Pattern #28 multi-provider per-Claude-tier-routing sub-variant NEW at v60** N=1 within-pattern (Opus/Sonnet/Haiku route to different providers; consolidation-forward; not standalone)
+- **NEW T4 9th archetype api-protocol-translation-proxy** (free-claude-code v60); distinct mechanism from prior 8 content-transformation T4 archetypes; **emergent T4 2-axis sub-taxonomy**: content-transformation (8 archetypes) vs protocol-translation (1 archetype); routine v2.2 candidate for T4 sub-taxonomy formalization
+- **NEW cross-pattern coupled-design observation at v60 N=4**: Pattern #57 polarity × Pattern #51 vibe × Pattern #19 archetype × tier; suggests polarity-axis is archetype + tier dependent; library-vocabulary item #9 candidate
+- **Audit triggers RESET post-v60 EXTENDED MINI-AUDIT. Next triggers:** active candidate count ≥30 (currently 17 — 13-candidate runway) / ratio >0.95:1 mini-trigger (currently 0.415:1; **0.535 buffer NEW LARGEST**) / v63 wiki natural cadence (+3 wikis from v60)
 
-**Audit document:** `04 Reviews/(C) 2026-04-27 Pattern Library mini-audit post-v56 (5 candidates, ZERO state transitions, 2nd conservative-discipline audit).md` (most-recent audit; no audit at v57)
+**Audit document (most-recent):** `_state/v60-mini-audit-results-2026-05-07.md` — 14-item EXTENDED MINI-AUDIT post-v60 session 70; 2 promotions (#45 + #72) + 1 RENAME (#72) + 1 OT rejection via fact-verification (#57 BIDIRECTIONAL-ABSENCE) + 2 sub-variant promotions + 1 sub-sub-axis formalization + 5 formal-statement extensions + 3 stale-flag confirmations
 
 ## Vault State Architecture
 
@@ -117,14 +128,22 @@
 
 ## Next audit trigger
 
-**Current state (post-v57 direct):** 17 active candidates / 39 confirmed = 0.436:1 ratio (NEW LARGEST buffer 0.514 below 0.95:1 mini-audit trigger; preserved **7 consecutive cycles** post-v53 mini-audit through post-v57 direct).
+**Current state (post-v60 EXTENDED MINI-AUDIT):** 17 active candidates / 41 confirmed = **0.415:1 ratio (NEW LARGEST in corpus history; buffer 0.535 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history).**
 
-**Audit triggers RESET at v53 mini-audit. Next triggers:**
+**Audit triggers RESET at v60 EXTENDED MINI-AUDIT (session 70 / 2026-05-07). Next triggers:**
 - Active candidate count ≥30 (currently 17 — 13-candidate runway)
-- v60 wiki natural cadence (3-wiki runway from v57)
-- Ratio >0.95:1 mini-audit / >1.05:1 full audit
+- v63 wiki natural cadence (+3 wikis from v60)
+- Ratio >0.95:1 mini-audit / >1.05:1 full audit (huge buffer; unlikely to trigger by ratio anytime soon)
 
-**Pending v60 mini-audit candidates:** 7 promotion candidates accumulated post-v57 (Pattern #57 57c N=7 + multi-frontend sub-variant + Pattern #19 archetype 4 book-citation-lineage sub-variant + Pattern #18 0b skills-collection-curation-mechanism sub-axis observational + Pattern #51 anti-vibe-pole strengthening + Pattern #52 OBSERVATIONAL flag for time-axis verification + Pattern #50 50a strengthening + process-owning-meta-frameworks observation-track candidate deferred).
+**v60 EXTENDED MINI-AUDIT EXECUTED 2026-05-07 session 70 (results: `_state/v60-mini-audit-results-2026-05-07.md`).** Outcome: ratio 0.436:1 → 0.415:1 (within projected 0.30-0.35 outer band — slightly smaller drop because retirements were 0 not 0-2 since #52 preserve-flag carries forward; #45 + #72 promotions executed cleanly).
+
+**Carry-forward to v63 mini-audit:**
+- Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG re-evaluation
+- Pattern #18 cross-tool-skill-format-translator stale-check
+- Pattern #19 first-mover-no-lineage N=2 stale-check (utility-tool + paradigm-foundational sub-types)
+- Pattern #19 org-level-pseudonymity stale-check
+- Pattern #57 57c-positive-comparison-parallel sister sub-variant stale-check (registered v60 audit)
+- Process-owning-meta-frameworks OT candidate (waiting 2nd external author convergence)
 
 
 ## References

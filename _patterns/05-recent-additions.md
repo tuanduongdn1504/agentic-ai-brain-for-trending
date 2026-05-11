@@ -350,3 +350,185 @@ Candidate count ≥28 (currently 17; **11-candidate runway preserved**) OR v59 w
 ### Next natural-cadence trigger (post-v57)
 
 Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v60 wiki (+3-wiki natural cadence from v57) OR ratio >0.95:1 (mini) / >1.05:1 (full).
+
+
+## Post-v60 EXTENDED MINI-AUDIT (session 70, 2026-05-07 — LARGEST mini-audit in corpus history; 1st STRENGTHENING-DOMINANT class; 1st EXTENDED-MINI classification)
+
+**Audit results doc:** `_state/v60-mini-audit-results-2026-05-07.md` (primary record)
+**Pre-registration baseline:** `_state/v60-mini-audit-pre-registration.md` (LOCKED 11 items + 3 OPEN items resolved with v60 evidence + 4 pre-step probes)
+
+### Net audit outcome
+
+- **2 promotions to Confirmed:** Pattern #45 Dual-Licensing (criterion 2 structural-N=2 / Unsloth v23 + AutoGPT v59) + Pattern #72 PolyForm-Family-License (criterion 4 variant-within-pattern-at-N=2 / GitNexus v33 + AutoGPT v59 — **1st pattern RENAME-on-promotion in corpus** from PolyForm-Noncommercial → PolyForm-Family-License with sub-variants 72a + 72b)
+- **2 sub-variant promotions within already-Confirmed:** Pattern #57 57c-anti-pattern-foil sub-variant (criterion 4 / mattpocock v57 + OpenSpec v58 → v17 spec-kit) + Pattern #19 archetype 4 founder-personal→org-stewardship sub-variant (criterion 2 / n8n v56 + AutoGPT v59)
+- **1 sub-sub-axis formalization:** Pattern #29 standardized-non-OSI vs bespoke-non-OSI under criterion 4 (each sub-sub-axis N=2)
+- **1 NEW sub-variant registration:** Pattern #57 57c-positive-comparison-parallel N=1 stale-flagged v65/v70 (free-claude-code v60 → OpenClaw)
+- **5 formal-statement extensions:** Pattern #18 Layer 1 (corpus-broadest 30+ at T1 + 24-cell at T4) — **Pattern #18 reaches 11th refinement** / Pattern #29 sub-context N=4 / Pattern #69 EXTREME-tier N=7 / Pattern #57 57c parent N=9 / Pattern #51 anti-vibe-pole narrowed to archetype-conditional
+- **3 stale-flag confirmations:** Pattern #18 cross-tool-skill-format-translator + Pattern #19 first-mover-authority-without-lineage (now N=2 internal sub-types: utility-tool + paradigm-foundational) + Pattern #19 org-level-pseudonymity-with-active-commercial-product
+- **1 audit-layer fact-verification correction (3RD IN CORPUS HISTORY; LARGEST FALSIFICATION):** Pattern #57 BIDIRECTIONAL-ABSENCE OT REJECTED — corpus-grep pre-step found 53 files / 17+ wikis citing AutoGPT (most prominently Skyvern v24 explicit "Skyvern was inspired by the Task-Driven autonomous agent design popularized by BabyAGI and AutoGPT"); v59 wiki bidirectional-absence claim falsified; downgraded to FORWARD-ABSENCE-only documentation (AutoGPT does not cite predecessors in own README — that part valid)
+- **1 routine v2.2 candidate codification:** Phase 0.9 STRICT-triad pattern (5-instance 80%-INCLUDE rate validates regularly satisfiable)
+
+### State changes
+
+- 39 → **41 confirmed**; 17 active UNCHANGED; 3 stale → **1 stale** (#52 preserved per Item 12); 6 OT UNCHANGED (BIDIRECTIONAL-ABSENCE OT rejected); 9 retired UNCHANGED
+- Total: 72 full / 56 active → **74 full / 58 active**
+- Ratio: 17:39 = 0.436:1 → **17:41 = 0.415:1 NEW LARGEST in corpus history; buffer 0.535 below 0.95:1 trigger**
+- Pattern #18 refinements: 10 → **11**
+- Pattern #29 sub-classifications: 6 → **7**
+- Pattern #57 polarity classes formalized: 4 (anti-pattern-foil PROMOTED + positive-comparison-parallel REGISTERED + inspirational-predecessor + temporal-gap-coincidental)
+
+### Pre-step results (4 probes executed before audit)
+
+1. **Corpus-grep "AutoGPT":** 53 files / 17+ wikis cite — falsifies v59 BIDIRECTIONAL-ABSENCE claim (3rd audit-layer fact-verification in corpus history)
+2. **mattpocock/skills git-log:** Repo created 2026-02-03 → ~3 months old at v57 + v60 probes; falls in 90d<x<12mo "preserve flag" band per pre-registered Item 12 decision-criteria
+3. **Pattern #29 sub-sub-axis license-text divergence:** Verified 2-vs-2 distribution structurally clean (PolyForm-family standardized text differs from omo+n8n bespoke text)
+4. **AutoGPT MIT+PolyForm-Shield dual-license:** Verified — MIT covers Classic/Forge/Benchmark/Frontend; PolyForm-Shield covers `autogpt_platform/`; noncompete clause confirmed
+
+### Structural firsts at v60 mini-audit (10)
+
+1. LARGEST mini-audit in corpus history (14 items vs prior max ~6 at v31)
+2. 1st EXTENDED MINI-AUDIT classification (between mini-audit norm and full-audit; ~110 min actual vs ~130 min projected)
+3. 1st pre-registered mini-audit (LOCKED-vs-OPEN decision-state tracking validated)
+4. 3rd audit-layer fact-verification correction in corpus history; LARGEST falsification scope (entire OT registration rejected)
+5. 1st double promotion in single mini-audit since v31 (#45 + #72)
+6. 1st pattern RENAME-on-promotion in corpus history (#72)
+7. NEW LARGEST buffer 0.535 (post-audit ratio 0.415:1)
+8. Pattern #18 reaches 11th refinement
+9. Pattern #29 reaches 7 sub-classifications (most-richly-categorized axis extends)
+10. 1st STRENGTHENING-DOMINANT mini-audit class (distinguishable from CONSERVATIVE-DISCIPLINE — high formal-statement-extension count + low retirement count)
+
+### Carry-forward to v63 mini-audit
+
+- Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG (mattpocock/skills will be ~6mo at v63; preserve if still <12mo)
+- Pattern #18 cross-tool-skill-format-translator stale-check
+- Pattern #19 first-mover-no-lineage internal N=2 (utility-tool + paradigm-foundational sub-types)
+- Pattern #19 org-level-pseudonymity stale-check
+- Pattern #57 57c-positive-comparison-parallel sister sub-variant stale-check
+- Process-owning-meta-frameworks OT candidate (await 2nd external-author convergence)
+
+### Next natural-cadence trigger (post-v60 audit)
+
+Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v63 wiki (+3-wiki natural cadence from v60) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.415:1 with NEW LARGEST 0.535 buffer — ratio-trigger unlikely soon).
+
+
+## Post-v61 strengthening notes (cc-sdd wiki, 2026-05-07 session 71+)
+
+✅ **cc-sdd v61 direct updates — 0 new active candidates (25TH CONSECUTIVE WIKI zero-registration streak v37-v61 — NEW LONGEST in corpus history extends v60 24-streak) + 0 new top-level OBSERVATION-TRACKs + 8 strengthening data points + 3 v63-mini-audit-action-items accumulated:**
+
+(1) **Pattern #21 SDD Methodology Emergence — UN-STALE EVIDENCE + PROMOTION RECOMMENDATION at v63 mini-audit (most-impactful potential audit decision)** — cc-sdd v61 (gotalab solo-Japanese; multi-platform Skills harness + Kiro IDE lineage + adversarial review architecture) is INDEPENDENT 4th lineage SDD-centered framework. Resolves v60 mini-audit lineage-rejection: independent organization (gotalab ≠ gsd-build / Microsoft / Fission-AI) + independent author + independent intellectual lineage (Kiro IDE — corpus-first external-IDE-methodology lineage). **Cross-archetype distribution post-v61: 4 distinct organizational archetypes** (solo-product-line + corporate + pseudonymous-org + solo-Japanese) all T1. **Fact-verification gap caught at v61:** Pattern #21 evidence list pre-v61 omitted OpenSpec v58 (v58→v60 audit gap); v61 update adds OpenSpec v58 + cc-sdd v61 = 5 wikis / 4 lineages total. **Promotion recommendation:** under criterion #2 structural-unambiguity-at-N=2 with formal-statement extension noting 4-archetype distribution + cross-tier promotion (criterion #1) reserved for future T2-T5 SDD framework emergence. **Rationale falsified:** v25 stale-rationale ("zeitgeist-timed phenomenon past peak") falsified by v58 OpenSpec + v61 cc-sdd evidence — independent SDD framework emergence continues at v60+ window. **Phase 4b deliverable:** `03 Projects/cc-sdd - Beginner Analysis/03 Published/(C) Pattern 21 un-stale - SDD methodology promotion case at v61.md`.
+
+(2) **Pattern #18 Layer 2 NEW sub-archetype CANDIDATE: agent-platform-format-translation-installer N=1 stale-flagged v66/v71** — install-time per-platform skill format translation distinct from runtime API protocol translation (free-claude-code v60 6-providers) and per-tool format translation (OpenSpec v58 30+ tools). cc-sdd v61 at 8 platforms with mixed-maturity-distribution (2 stable + 5 beta + 1 experimental). Overlap pre-check vs OpenSpec v58 mechanism: different timing (install vs ?) + different platform count (8 vs 30+) + different maturity-tier-distribution (mixed vs flat) = <70% overlap; can register as separate Layer 2 sub-archetype. **Pattern #18 refinement count:** 11 (post-v60) → consideration-only at v61; promotion to refinement requires structural-N=2 (i.e., 2nd install-time per-platform skill-format translator wiki).
+
+(3) **Pattern #51 Vibe-Coding Spectrum NUANCE: anti-vibe-with-pragmatic-acknowledgment sub-pole observation** — cc-sdd v61 anti-vibe BUT explicitly acknowledges vibe-coding's legitimate use cases ("/kiro-discovery can legitimately conclude that no specification is needed"; "If the discipline feels like overhead, your specs are probably too big"). Counter-evidence narrowing Pattern #51 anti-vibe pole formulation: pure-anti-vibe (spec-kit v17 9-article-constitution; mattpocock v57 "real engineering — not vibe coding") vs anti-vibe-with-pragmatic-acknowledgment (cc-sdd v61). **Refinement candidate at v63 mini-audit:** codify Pattern #51 spectrum to handle pragmatic-acknowledgment positions; current pole-binary may be over-tight. NEW v60-amendment continuity: v60 mini-audit narrowed anti-vibe-pole to "archetype-conditional"; v61 narrows further to "pragmatic-acknowledgment-distinguishable" within commercial-educator T1 archetype. 2 consecutive narrowings = pattern formulation evolving fast → consider at v63 audit whether spectrum needs reformulation vs continuing pole-by-pole narrowing.
+
+(4) **Pattern #55 solo-regional T1 archetype JAPAN EXTENSION (4th regional archetype)** — cc-sdd v61 gotalab adds Japan to existing solo-VN (codymaster v12 / Pattern #55 N=1 original VN focus) + solo-CN (TrendRadar v19 multi-tier) + solo-Korean (OMC v27 / Pattern #55 N=1 Korean). 4 regional archetypes now observed at solo-East-Asian-individual T1. **Strategic decision at v63 mini-audit:** (a) promote Pattern #55 to solo-East-Asian-individual meta-archetype (consolidation-forward) OR (b) keep per-region distinct with Japan as separate sub-pattern. Recommendation pending v63 deliberation.
+
+(5) **Pattern #19 first-mover-authority-without-lineage ECOSYSTEM-PORTFOLIO-BUILDER strengthening** — gotalab has 4-product ecosystem-portfolio (cc-sdd 3.3K + skillport 385 + uxaudit 36 + claude-code-marimo 24) all in Claude Code / Agent Skills space. Strengthens N=2 first-mover-authority-without-lineage observation from v60 audit (utility-tool sub-type at v60 → ecosystem-portfolio sub-type at v61). NEW potential sub-variant: **multi-product-ecosystem-portfolio-without-lineage** at N=1 stale-flagged v66/v71. Distinct from single-product first-mover (typical v19 archetype 4 observation).
+
+(6) **Pattern #22 22c sub-variant cc-sdd "natural-no-sync-comment" observation N=1** — cc-sdd ships AGENTS.md + CLAUDE.md (project root) with high content overlap BUT does NOT include explicit-sync-comment-header observed at v60 free-claude-code (corpus-first there). v61 = 1st observation on the absent-sync-comment side at N=1. Distinct sub-pattern observation; not promotion-candidate yet (single observation; explicit-sync-comment-header at v60 is separate corpus-first N=1).
+
+(7) **NEW corpus-first observation tracks (3 — N=1 stale-flagged at registration):**
+- **EARS-format requirements explicit naming** — cc-sdd v61 first corpus encounter; predates AI agents (aerospace/systems engineering origin); register as candidate at v63 mini-audit decision (vs continuing observation watch only)
+- **External-IDE-methodology lineage type** — cc-sdd v61 first corpus encounter (Kiro IDE → AI-agent ecosystem); structurally distinct from prior lineage types (corporate / pseudonymous-org / academic-paper / community-viral / methodology-LLC); track for 2nd observation
+- **Architecture-as-foundation explicit acknowledgment** in SDD framework — cc-sdd v61 first explicit acknowledgment that SDD downstream of architectural discipline ("writing more specs will not create independence" without architecture); other corpus SDD frameworks implicit-assume
+
+(8) **CORPUS-FIRST adversarial subagent review architecture at framework level** — cc-sdd v61 ships explicit reviewer subagent (kiro-review) + auto-debug-on-rejection (kiro-debug ROOT_CAUSE/CATEGORY/FIX_PLAN/NEXT_ACTION) + fresh-evidence completion gate (kiro-verify-completion VERIFIED/NOT_VERIFIED/MANUAL_VERIFY_REQUIRED). Distinct from prior corpus subagent dispatch patterns (cooperative-roles in BMAD v11; less-structured subagent in OpenHands v30). Could become Pattern Library candidate if 2nd framework adopts adversarial-by-design subagent architecture.
+
+**Counter-evidence (no narrowing on already-confirmed):**
+- Pattern #57 NO contribution at v61 — cc-sdd does NOT explicitly cite spec-kit/OpenSpec/GSD by name; conservative-attribution does NOT apply
+- Pattern #18 STRENGTHENS via Layer 2 NEW sub-archetype N=1 candidate (NOT narrowing of refinement count)
+- Pattern #51 NARROWS scope via pragmatic-acknowledgment sub-pole (counter-evidence-driven refinement at next audit)
+- Pattern #19 STRENGTHENS via NEW ecosystem-portfolio sub-type (NOT narrowing of archetype 4)
+- Pattern #55 STRENGTHENS via Japan extension (consolidation-forward question for v63 audit)
+- Pattern #22 STRENGTHENS via 22c sub-variant N=1 absent-side (NOT narrowing of explicit-sync-comment-header observation)
+
+**Patterns NOT un-staled at v61 wiki-ship:** All un-staling deferred to v63 mini-audit per audit-cadence-reform discipline. cc-sdd v61 evidence registered in Pattern #21 entry directly; un-stale + promotion decisions deferred to mini-audit deliberation.
+
+**v27 diagnostic HIGH bundle 100% COMPLETE** as of session 68 (per root CLAUDE.md); no outstanding operator-facing-backlog escalation at v61; routine v2.1 STRICT Phase 0.9 amendment continues to apply (6-instance window v56-v61: 5 PASS / 1 SKIP = 83% INCLUDE rate validates STRICT amendment regularly satisfiable).
+
+**Storm Bear meta-entity 2-CONSECUTIVE post-v60-RESTART (v60 PASS + v61 PASS) with 3-of-4 STRICT criteria PASS (a/b/c clean + d partial via structural-peer rather than explicit-textual-citation).** **Velocity ~110-125 min main-loop direct-write build mode** (above v60's ~60 min compressed-scope; v61 had heavier Pattern Library implications + 4-entity 13-section format + bilingual deliverable + 6-section routing-mode deliverable; still well-under 2h v6-v31 plateau). **Post-v61 direct updates (0 status transitions):** 41 confirmed + 17 active + 1 stale + 9 retired + 6 OT = 74 full / 58 active. Ratio **17:41 = 0.415:1 PRESERVED** (largest buffer 0.535 below 0.95:1 mini-audit trigger preserved 1 cycle). **3 v63-mini-audit-action-items accumulated** (Pattern #21 un-stale + promotion / Pattern #18 Layer 2 sub-archetype registration / Pattern #51 spectrum reformulation deliberation).
+
+### v63 mini-audit pre-registered agenda items (added at v61)
+
+1. **Pattern #21 evidence list update** (add OpenSpec v58 from v58→v60 fact-verification gap)
+2. **Pattern #21 UN-STALE + promote** under criterion #2 structural-unambiguity-at-N=2 with 4-archetype formal-statement extension (Phase 4b deliverable: detailed promotion case)
+3. **Pattern #18 Layer 2 sub-archetype "agent-platform-format-translation-installer"** registration N=1 stale-flagged v66/v71
+4. **Pattern #51 Vibe-Coding spectrum reformulation deliberation** — pole-binary vs pragmatic-acknowledgment distinguishable
+5. **Pattern #55 archetype consolidation deliberation** — promote to solo-East-Asian-individual meta-archetype OR keep per-region distinct with Japan added
+6. **Pattern #19 first-mover-no-lineage ecosystem-portfolio-builder sub-type** N=1 stale-flagged v66/v71
+7. **Routine v2.2 candidate codifications** — lineage-test vs independence-test ordering / cross-archetype N-counting / pre-Phase-6 fact-verification expanded / Phase 0.4 docs/ tree-listing / EARS-format-requirements observation watch / external-IDE-methodology lineage observation watch / anti-vibe-with-pragmatic-acknowledgment sub-pole codification (7 items)
+
+### Next natural-cadence trigger (post-v61)
+
+Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v63 wiki (+2-wiki natural cadence from v61) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.415:1 with LARGEST 0.535 buffer — ratio-trigger unlikely soon).
+
+
+## Post-v61 EARLY MINI-AUDIT executed (session 71+ continuation, 2026-05-07 — operator-elected early audit before v63 natural cadence; resolves Pattern #21 36-wiki stale arc)
+
+**Audit context:** Operator elected to execute mini-audit immediately post-v61 ship rather than wait for v63 natural cadence (+2 wikis). Rationale: Pattern #21 SDD Methodology Emergence stuck stale 36 wikis (v25→v61 = LONGEST stale arc in corpus history); cc-sdd v61 brings genuinely independent evidence resolving v60 audit lineage-test correctly held line; further deferral would compound stale-arc without benefit. **Audit type:** EARLY-MINI-AUDIT (operator-elected, ~75 min budget).
+
+**Audit results doc:** `04 Reviews/(C) 2026-05-07 Pattern Library mini-audit post-v61 (early-elected; 1 promotion + 3 NEW candidates + 6 within-pattern decisions).md`
+
+### Net audit outcome
+
+- **1 PROMOTION to CONFIRMED:** Pattern #21 SDD Methodology Emergence (criterion #2 structural-unambiguity-at-N=2; **LONGEST stale-to-promotion arc in corpus history at 36 wikis v25→v63**; 1st un-stale-via-independence-test promotion; resolves v60 lineage-test rejection via v61 independent evidence)
+- **3 NEW top-level pattern candidates registered N=1 stale-risk-flagged:** Pattern #74 EARS-Format Requirements / Pattern #75 External-IDE-Methodology Lineage Type / Pattern #76 Adversarial Subagent Review Architecture
+- **3 within-pattern strengthenings (no top-level count change):** Pattern #18 Layer 2 install-time-per-platform-skill-format-translator sub-archetype N=1 (cc-sdd v61) / Pattern #19 ecosystem-portfolio-builder sub-type N=1 (gotalab 4-product portfolio) / Pattern #73 73d Japanese sub-variant N=1 (gotalab solo-Japanese)
+- **1 fact-verification correction validated:** Pattern #21 evidence list updated (OpenSpec v58 added — was missing from v58→v60 audit gap)
+- **1 stale-flag preserved:** Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG (mattpocock/skills first-commit 2026-02-03 → ~3 months 4 days at v63 = preserve in 90d<x<12mo band per v60 pre-registered Item 12 decision-criteria; re-evaluate v66)
+- **2 stale-check decisions:**
+  - Pattern #18 cross-tool-skill-format-translator sub-archetype (OpenSpec v58 N=1 baseline) — STAYS STALE (free-claude-code v60 different mechanism runtime API protocol; cc-sdd v61 different mechanism install-time per-platform skill format; no within-mechanism N=2 yet)
+  - Pattern #57 57c-positive-comparison-parallel sister sub-variant (free-claude-code v60 N=1 stale-flagged v65/v70) — NO ACTION (stale-check is at v65/v70, not v63)
+- **2 deferrals:**
+  - Pattern #51 Vibe-Coding Spectrum reformulation deliberation — DEFER to v66 (2 narrowings v60+v61 is fast but reformulation needs more data; continue narrow-by-narrow at next 2-3 wikis observation)
+  - Process-owning-meta-frameworks OT candidate — DEFER per v60 audit decision (await 2nd external-author convergence)
+- **0 retirements / 0 demotions / 0 OBSERVATION-TRACK additions / 0 OT rejections**
+
+### State changes
+
+- **Confirmed:** 41 → **42** (+1 Pattern #21)
+- **Active candidates:** 17 → **19** (-1 Pattern #21 promoted + 3 NEW top-level = net +2)
+- **Stale candidates:** 1 → **1** (Pattern #52 preserved; Pattern #21 leaves stale via promotion)
+- **Retired:** 9 (UNCHANGED)
+- **Observation-tracks:** 6 (UNCHANGED)
+- **Total:** 74 full / 58 active → **75 full / 61 active**
+- **Ratio:** 17:41 = 0.415:1 → **19:42 = 0.452:1** (still LARGEST in corpus history sub-0.475 zone; buffer 0.498 below 0.95:1 mini-audit trigger — slight reduction from 0.535 buffer at v60 but still very healthy)
+- **Streaks:**
+  - 25-consecutive-wiki ZERO-NEW-ACTIVE-CANDIDATES STREAK: **BROKEN at v63 audit** (3 NEW top-level candidates registered) — was longest in corpus history; new streak counter resets
+  - Storm Bear meta-entity 2-consecutive post-v60-RESTART (UNCHANGED — mini-audit doesn't ship new wiki)
+- **Pattern #18 refinements:** 11 → 11 (Layer 2 install-time sub-archetype = within-Layer-2 sub-archetype, doesn't increment refinement count)
+
+### Structural firsts at v63 EARLY mini-audit
+
+1. **LONGEST stale-to-promotion arc in corpus history at 36 wikis** (Pattern #21: v25 stale-flag → v63 promotion)
+2. **1st un-stale-via-independence-test promotion** in corpus history (lineage-test failure at v60 + independence-test resolution at v61 + promotion at v63 = 3-step un-stale arc)
+3. **1st EARLY mini-audit (operator-elected before natural cadence)** — distinct from CONSERVATIVE-DISCIPLINE / STRENGTHENING-DOMINANT / EXTENDED-MINI-AUDIT classifications. Mini-audit class taxonomy now 4 types: CONSERVATIVE-DISCIPLINE (post-v54 + post-v56) / STRENGTHENING-DOMINANT (v60 EXTENDED) / EXTENDED-MINI-AUDIT (v60 first formal EXTENDED) / **EARLY-OPERATOR-ELECTED** (v63 first instance)
+4. **3 NEW top-level pattern candidates in single audit** = recent-most-prolific top-level registration since v25 audit (5 stale-flags in 1 audit) — distinct from within-pattern strengthening patterns of v54/v56/v60 mini-audits
+5. **25-consecutive ZERO-NEW-ACTIVE-CANDIDATES streak BROKEN** — was longest in corpus history (v37-v62 at v63 audit start); register-3-candidates-in-single-audit ends streak. **Strengthen-over-discover discipline yielding to genuinely-novel evidence** is healthy outcome — discipline preserved sub-pattern-level (3 within-pattern strengthenings) AND admitted top-level genuinely-novel observations (3 NEW patterns).
+6. **Fact-verification gap closure during audit** — Pattern #21 evidence list missing OpenSpec v58 caught at v61 ship + closed at v63 audit + preserved in audit deliberation rationale (validates pre-Phase-6 fact-verification expanded discipline as routine v2.2 candidate)
+
+### Routine v2.2 codification candidates (validated at v63 audit; +1 from process)
+
+1. **EARLY-OPERATOR-ELECTED mini-audit class** — operator may elect mini-audit before natural-cadence trigger when high-impact promotion (e.g., LONGEST stale arc) is ripe. Codify as 4th mini-audit class.
+2. **Lineage-test → independence-test → promotion 3-step un-stale arc** — when un-stale candidate fails lineage-test (same lineage as existing evidence), evaluate independence-test on subsequent wikis; if satisfied, promote. v60→v61→v63 demonstrates the arc working.
+3. **Cross-archetype N-counting as separate dimension from cross-tier** — Pattern #21 promotion via N=4 cross-archetype (4 distinct organizational archetypes) demonstrates this counting dimension distinct from N=4 cross-tier (criterion #1). Codify alongside criteria #1-#5.
+4. **Pre-Phase-6 fact-verification expanded** — verify Pattern Library evidence lists are current to last 3-5 wikis, not just numbered-pattern reference checking. v63 caught Pattern #21 evidence list missing OpenSpec v58 from v58→v60 gap.
+5. **Phase 0.4 docs/ tree-listing** — Phase 0 classification probe should explicitly list `docs/` directory tree before fetching individual files (avoids 404 silent-fail when filenames differ from common conventions; v61 lesson).
+6. **Anti-vibe-with-pragmatic-acknowledgment as Pattern #51 sub-pole codification** — counter-evidence narrowing scope; explicit handling of pragmatic-acknowledgment positions in spectrum patterns.
+7. **NEW: Strengthen-over-discover discipline streak metric** — track ZERO-NEW-ACTIVE-CANDIDATES streak as Pattern Library health metric; longer streaks signal mature corpus + consolidation-forward discipline; broken streaks at single-wiki points (e.g., 10 corpus-firsts at v61) signal genuinely-novel evidence admittance is healthy outcome.
+
+### Carry-forward to v66 mini-audit
+
+- Pattern #52 Extreme-Viral-Velocity stale-flag re-evaluation (~6mo mattpocock/skills age at v66; preserve if still <12mo OR un-stale if 90d-zone re-entered via new viral-velocity observation)
+- Pattern #74 EARS-Format Requirements stale-check (cc-sdd v61 N=1 baseline)
+- Pattern #75 External-IDE-Methodology Lineage Type stale-check (cc-sdd v61 N=1 baseline)
+- Pattern #76 Adversarial Subagent Review Architecture stale-check (cc-sdd v61 N=1 baseline)
+- Pattern #18 Layer 2 install-time-per-platform-skill-format-translator sub-archetype stale-check
+- Pattern #19 ecosystem-portfolio-builder sub-type stale-check (gotalab N=1 baseline)
+- Pattern #73 73d Japanese sub-variant stale-check
+- Pattern #57 57c-positive-comparison-parallel sister sub-variant stale-check (v65/v70 schedule preserved)
+- Pattern #51 Vibe-Coding Spectrum reformulation deliberation (continue narrow-by-narrow watch)
+
+### Next natural-cadence trigger (post-v63 EARLY mini-audit)
+
+Candidate count ≥30 (currently 19; **11-candidate runway**) OR v66 wiki natural cadence (+3 wikis from v63) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.452:1 with 0.498 buffer — still very healthy; ratio-trigger remains unlikely soon).

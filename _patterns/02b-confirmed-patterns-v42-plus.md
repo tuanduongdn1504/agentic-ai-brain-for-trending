@@ -823,3 +823,45 @@ Prior 5 structural-promotion criteria in library:
 
 ---
 
+### Promoted at v63 mini-audit (#21)
+
+#### ✅ #21 SDD Methodology Emergence (PROMOTED v63 mini-audit under criterion #2 structural-unambiguity-at-N=2)
+**Status at v63 mini-audit:** PROMOTED to CONFIRMED via criterion #2 (structural-unambiguity-at-N=2). **Longest stale-to-promotion arc in corpus history at 36 wikis** (v25 stale-flag → v63 promotion). **1st un-stale-via-independence-test promotion in corpus.**
+
+**Status history:**
+- v17 spec-kit candidate registration (N=2 baseline with GSD v5 SDD-feature-shaped predecessor)
+- v22 mini-audit flagged approaching-stale (4 wikis without 3rd SDD framework)
+- v25 audit STALE-CANDIDATE flag confirmed (8 wikis without 3rd SDD framework)
+- v54 gsd-2 mini-audit considered un-stale → REJECTED (gsd-2 = same lineage as GSD v5)
+- v58 OpenSpec ship → implicit N=3 evidence (fact-verification gap: not added to evidence list at v58→v60 audit transition)
+- v60 mini-audit re-considered un-stale via gsd-2 → REJECTED via lineage-grounds (correctly held line); re-evaluation criterion explicitly opened: "v60+ wiki OR if INDEPENDENT SDD-centered framework emerges at T2-T5"
+- **v61 cc-sdd ship → INDEPENDENT 4th-lineage evidence (gotalab solo-Japanese + Kiro IDE intellectual lineage — corpus-first external-IDE-methodology lineage)**
+- **v63 mini-audit (this entry) → fact-verification gap closed (OpenSpec v58 added to evidence list) + UN-STALE + PROMOTE under criterion #2**
+
+**Evidence at N=4 across 4 distinct organizational archetypes:**
+
+| # | Wiki | Tier | Org archetype | Methodology shape |
+|---|------|------|---------------|-------------------|
+| 21a | GSD v5 + gsd-2 v54 | T1 | Solo-product-line (gsd-build) | Feature-shaped SDD (single lineage; v5 + v54 = predecessor + successor) |
+| 21b | spec-kit v17 | T1 | Corporate (Microsoft / GitHub) | 9-article constitution + 80+ marketplace + AI-disclosure policy |
+| 21c | OpenSpec v58 | T1 | Pseudonymous-org (Fission-AI) | Per-tool format translation 30+ tools |
+| 21d | **cc-sdd v61** | T1 | **Solo-international Japanese (gotalab)** | **Multi-platform Skills harness + Kiro IDE methodology lineage + adversarial subagent review architecture** |
+
+**Formal statement (promoted):**
+> Spec-Driven Development emerges as recurring T1 methodology choice across structurally-distinct organizational archetypes — observed in solo-product-line (gsd-build), corporate-official (Microsoft GitHub), pseudonymous-org (Fission-AI), and solo-international-individual (gotalab Japanese) implementations. Each implementation centers specifications-as-contracts between system components with markdown specs expressing intent + boundaries while tests/builds/lint provide mechanical validation. Implementations vary in: (a) approval-gate granularity (informal feature-shape vs 3-explicit-phase-gates vs constitution-articles), (b) deployment mechanism (single-tool vs per-tool format translation vs multi-platform Skills format translation), (c) workflow primitive count (3-step vs 6-step), (d) review architecture (cooperative vs adversarial-subagent). Cross-archetype emergence falsifies "zeitgeist-timed phenomenon past peak" stale-rationale; SDD methodology continues to attract independent implementers at v17 → v54 → v58 → v61 cadence. **All 4 implementations T1 currently** — cross-tier promotion under criterion #1 default ≥3-cross-tier reserved for future T2-T5 SDD framework emergence.
+
+**Cross-references:**
+- Pattern #19 Intellectual Lineage Archetypes (CONFIRMED v20) — cc-sdd v61 introduces external-IDE-methodology lineage as new lineage type (registered separately as Pattern #75 candidate at v63)
+- Pattern #18 protocol-translation Layer 2 — OpenSpec v58 per-tool format translation + cc-sdd v61 install-time per-platform skill format translation are deployment-mechanism-axis observations (cc-sdd at 8 platforms install-time-per-platform-skill-format-translator registered as Pattern #18 sub-archetype within Layer 2 at v63)
+- Pattern #51 Vibe-Coding Spectrum — all 4 SDD frameworks are anti-vibe-pole observations (spec-kit v17 pure anti-vibe via 9-article constitution; cc-sdd v61 anti-vibe-with-pragmatic-acknowledgment sub-pole — counter-evidence narrowing v60+v61 window)
+- Pattern #57 57c-anti-pattern-foil — mattpocock v57 + OpenSpec v58 cite spec-kit as anti-pattern-foil; cc-sdd v61 does NOT cite spec-kit/OpenSpec/GSD by name (no 57c contribution)
+- Pattern #73 Regional-Archetype-Registry T1 — cc-sdd v61 introduces 73d Japanese sub-variant (added within Pattern #73 family at v63)
+- Pattern #74 EARS-Format Requirements (NEW candidate at v63) — cc-sdd v61 first corpus EARS reference; sibling within Pattern #21 family
+- Pattern #76 Adversarial Subagent Review Architecture (NEW candidate at v63) — cc-sdd v61 first corpus framework-level adversarial-review; orthogonal to SDD methodology
+
+**Confidence:** High. N=4 across 4 organizational archetypes. Formal statement structurally-coherent. All-T1 limitation acknowledged with clear cross-tier promotion path (criterion #1 if T2-T5 SDD framework emerges).
+
+**Stale-risk-flag (post-promotion observational watch):** None — promotion under structural-unambiguity criterion at N=4 is robust. If SDD framework emergence stops within next 10 wikis (v62-v71), reformulate as historical-trend pattern.
+
+---
+
