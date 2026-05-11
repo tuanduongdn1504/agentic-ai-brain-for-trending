@@ -2,10 +2,19 @@
 
 > **Source:** Mnilax tweet thread (https://x.com/Mnilax/status/2053116311132155938)
 > **Compiled:** 2026-05-11
-> **Status:** Active behavioral contract — applies vault-wide when writing/modifying CODE (Python, shell, JS, etc.), NOT to wiki/markdown work
+> **Status:** Active behavioral contract — **applies to every task in this vault unless explicitly overridden** (per Mnilax's verbatim scope: "These rules apply to every task in this project unless explicitly overridden")
 > **Lineage:** Karpathy (Jan 2026 thread on Claude failure modes) → Forrest Chang (4-rule CLAUDE.md template, 120K stars) → Mnilax (8 added rules from 6 weeks testing across 30 codebases)
 
-This topic captures the **12-rule CLAUDE.md** behavioral contract for Claude Code sessions. The rules are now installed at vault-root `/CLAUDE.md` and govern code-writing tasks across all Storm Bear projects.
+This topic captures the **12-rule CLAUDE.md** behavioral contract for Claude Code sessions. The rules are now installed at vault-root `/CLAUDE.md` and govern every task in this vault — code-writing AND wiki/markdown work — unless an explicit override is invoked.
+
+## Scope note (corrected 2026-05-11, second-pass)
+
+The **initial paste used an over-restrictive scope** ("ONLY when writing CODE") that I drafted. Audit revealed **11 of 12 rules are universally applicable** — only Rule 9 (Tests verify intent) is genuinely code-specific. Reverted to Mnilax's verbatim per-project scope. See "Open decisions" section for the audit table.
+
+**Override convention (when a rule genuinely doesn't fit):**
+- For wiki/markdown work: invoke Rule 9 override explicitly when applicable — "verify intent" semantic still holds (e.g., does this wiki article actually serve the research thread it claims to?) but literal test-writing doesn't apply
+- For trivial tasks (per Mnilax's "Bias" clause): use judgment; rules don't have to be ceremoniously invoked for one-line fixes
+- For overrides driven by stronger external context (e.g., Storm Bear librarian rules say "ask before editing existing notes" — that DOES still apply on top of Rule 3): both rule sets compose; the strictest wins
 
 ## Articles
 
@@ -38,6 +47,31 @@ When future ingests touch CLAUDE.md best-practices:
 - **Storm-Bear-specific adaptations:** if specific rules need conditional framing for Storm Bear's wiki-heavy work, document in [[../../CLAUDE.md|autopilot-research/CLAUDE.md]] not here — this article stays close to the source
 
 ## Open decisions (active, time-boxed)
+
+### Universal-vs-code-only scope audit — resolved 2026-05-11 (second-pass)
+
+- **Decision date:** 2026-05-11 (resolved same-day)
+- **Status:** RESOLVED — revert to Mnilax verbatim per-project scope
+- **Context:** Initial scope clause restricted rules to CODE-only. User caught this by quoting Mnilax's actual text: *"These rules apply to every task in this project unless explicitly overridden."* Audit revealed the restriction was over-engineering on my part.
+- **Audit table (rule × universal applicability):**
+
+| Rule | Code-specific? | Wiki/non-code interpretation |
+|---|---|---|
+| 1. Think Before Coding (state assumptions) | ❌ Universal | Apply directly to wiki research, sourcing, summarization |
+| 2. Simplicity First | ❌ Universal | Wiki articles benefit from minimum-content discipline |
+| 3. Surgical Changes | ❌ Universal | Maps directly to Storm Bear "ask before editing existing notes" |
+| 4. Goal-Driven Execution | ❌ Universal | Wiki compile cycle is exactly this pattern |
+| 5. Model for judgment only | ❌ Universal | Wiki indexing / cross-linking is often deterministic |
+| 6. Token budgets | ❌ Universal | Wiki sessions need budget too (Storm Bear refactored for this reason) |
+| 7. Surface conflicts | ❌ Universal | Wiki cross-references conflict regularly |
+| 8. Read before write | ❌ Universal | Librarian rules already require master-index read first |
+| **9. Tests verify intent** | ✅ **Code-only** | Override for wiki — literal test-writing not applicable; intent-verification semantic still holds |
+| 10. Checkpoint per step | ❌ Universal | Multi-step wiki compile needs checkpoint discipline |
+| 11. Convention conformance | ❌ Universal | Wiki style (file naming, article structure) needs conformance |
+| 12. Fail loud | ❌ Universal | Matches Storm Bear "NEVER fabricate information" |
+
+- **Resolution:** vault-root scope clause replaced with Mnilax verbatim "every task in this vault unless explicitly overridden". Rule 9 implicitly overridden for non-code tasks; other 11 apply universally.
+- **Why this resolution is durable:** Mnilax's framing was already universal-per-project. My over-restriction was unforced error; reverting to source removes ambiguity.
 
 ### Compliance-ceiling tradeoff — vault-root CLAUDE.md at 229 lines
 
