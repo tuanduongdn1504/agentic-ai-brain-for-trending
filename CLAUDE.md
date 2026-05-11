@@ -32,13 +32,15 @@ The prime directive: don't repeat the same mistake twice.
 - **NEVER fabricate information** — if you don't know, say so. No making things up.
 - **NEVER make silent assumptions** — if something is unclear, ask. Don't fill in the blanks and hope I won't notice.
 
-## Code-Writing Rules — 12-Rule CLAUDE.md (Mnilax extension of Karpathy/Forrest Chang)
+## 12-Rule CLAUDE.md (Mnilax extension of Karpathy/Forrest Chang)
 
-**Scope:** these rules apply ONLY when writing, modifying, or reviewing CODE (Python, shell, JavaScript, etc.) in this vault — typically inside `03 Projects/<project>/` directories that contain executable scripts. They do NOT apply to wiki/markdown content where Storm Bear librarian rules govern.
+**These rules apply to every task in this vault unless explicitly overridden.**
 
-**Source:** [@Mnilax X thread](https://x.com/Mnilax/status/2053116311132155938), builds on Karpathy Jan 2026 + Forrest Chang's 4-rule template (120K stars). Full commentary + harness-engineering comparison: `03 Projects/autopilot-research/wiki/claude-md-12-rules/_index.md`.
+**Source:** [@Mnilax X thread](https://x.com/Mnilax/status/2053116311132155938), builds on Karpathy Jan 2026 + Forrest Chang's 4-rule template (120K stars). Full commentary + harness-engineering comparison + per-rule universal-vs-code-only audit: `03 Projects/autopilot-research/wiki/claude-md-12-rules/_index.md`.
 
 **Bias:** caution over speed on non-trivial work. Use judgment on trivial tasks.
+
+**Override convention:** Rule 9 (Tests verify intent) is the only code-specific rule — for wiki/markdown tasks, override it OR interpret as "verify intent over verifying surface". Other 11 rules apply universally. When Storm Bear librarian rules conflict with these (e.g., Rule 3 "Surgical Changes" vs librarian "ask before editing existing notes"), strictest wins — both compose, don't replace.
 
 ### Rule 1 — Think Before Coding
 State assumptions explicitly. If uncertain, ask rather than guess.
