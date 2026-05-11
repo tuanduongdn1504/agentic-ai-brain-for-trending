@@ -24,6 +24,7 @@ This topic captures the **12-rule CLAUDE.md** behavioral contract for Claude Cod
 - [[external|harness-engineering/_index]] — Lopopolo's harness stance overlaps + conflicts with these rules. See [[comparison-harness-engineering]] for the axis-by-axis map.
 - [[external|harness-engineering/contrarian-stances]] — Lopopolo's MCP-bearish, plan-mode-skeptical positions contrast with Mnilax's emphasis on explicit imperatives (Rule 1)
 - [[external|harness-engineering/core-claims]] — Mnilax's empirical 41%→3% claim is testable in the same falsifier-check framework as Lopopolo's claim #4
+- [[external|claudekit/_index]] — ClaudeKit infrastructure-implements 7 of 12 rules; see [[external|claudekit/vs-harness-engineering-and-12-rules]] for 3-way comparison including this topic
 
 ## Source preservation
 

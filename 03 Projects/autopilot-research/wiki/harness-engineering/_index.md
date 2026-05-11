@@ -24,6 +24,7 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - [[external|10x-claude-code/_index]] — tactical overlap on tooling (CLI-first, status lines, hooks)
 - [[external|claude-code-hooks/_index]] — Lopopolo's "Skills" pattern is conceptually adjacent
 - [[external|claude-md-12-rules/_index]] — Mnilax's individual-scale rules vs Lopopolo's org-scale harness; see [[external|claude-md-12-rules/comparison-harness-engineering]] for 8 agreement + 4 conflict axes + compound-posture decision rules
+- [[external|claudekit/_index]] — vividkit's ClaudeKit framework, the "middle rung" between Mnilax (rules-only) and Lopopolo (org-scale infrastructure); see [[external|claudekit/vs-harness-engineering-and-12-rules]] for 3-way decision matrix
 
 ## Sources
 

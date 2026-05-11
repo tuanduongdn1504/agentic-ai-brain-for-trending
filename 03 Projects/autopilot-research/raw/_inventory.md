@@ -40,6 +40,9 @@
 | 2026-05-09 | symphony-community-implementations | 4 multi-bundle | 3 GitHub repos: ACNoonan/symphony-restate (Elixir+Restate) + ryanjdillon/symphony (Go) + howardpen9/symphony-rs (Rust) | (NotebookLM-indexed) | `d772d58b-…26e` (added as sources 4-6) | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
 | 2026-05-09 | symphony-community-synthesis | 4 multi-bundle | NotebookLM 6-source triangulation (3 OpenAI + 3 community) | 9K | `d772d58b-…26e` | compiled | [wiki/harness-engineering/symphony-architecture](../wiki/harness-engineering/symphony-architecture.md) |
 | 2026-05-11 | claude-md-12-rules-mnilax | 3 manual-paste | X.com tweet thread (auth-walled — mirrors dead) | 14K | — | compiled | [wiki/claude-md-12-rules/](../wiki/claude-md-12-rules/_index.md) |
+| 2026-05-11 | vividkit-claudekit-guides (HTML) | bypass-403-tier-0 | curl 21 guides from vividkit.dev | ~600K HTML total | — | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
+| 2026-05-11 | vividkit-claudekit-guides (clean MD) | bypass-403-tier-0 | html-to-clean-md.py with `main` selector | 250K MD total | — | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
+| 2026-05-11 | vividkit-claudekit-synthesis | 4 multi-bundle | NotebookLM 21-source synthesis (6 sections) | 24K | `d179ac0c-428b-47e6-b859-99a6b7e7bcb1` | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
 
 ## Status legend
 
@@ -64,10 +67,11 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 20 rows (1 added 2026-05-11 for Mnilax 12 rules manual paste)
-- **Compiled (or merged):** 18
+- **Total ingestions logged:** 23 rows (4 added 2026-05-11: 1 manual paste + 3 vividkit bulk fetch)
+- **Compiled (or merged):** 21
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
 - **Promoted to Storm Bear:** 0
-- **New topic 2026-05-11:** claude-md-12-rules (3 articles — Mnilax 12-rule behavioral contract installed at vault-root + comparison with harness-engineering covering 8 agreement axes + 4 conflict axes)
+- **New topics 2026-05-11:** 2 added — claude-md-12-rules (3 articles, Mnilax behavioral contract) + claudekit (7 articles, vividkit.dev framework comparison with harness-engineering + 12-rules)
 - **Path 9 emerged:** manual paste when source is auth-walled + mirrors dead (X.com 2026-05-11). Update CLAUDE.md "8 ingestion surfaces" table when this pattern occurs ≥3× total.
+- **Bulk fetch pattern emerged:** 21-URL fetch via `bin/bulk-fetch-vividkit.sh` (Path 6 custom scraper variant for sites without Cloudflare) — codify as reusable pattern when 2nd bulk-fetch occurs.
