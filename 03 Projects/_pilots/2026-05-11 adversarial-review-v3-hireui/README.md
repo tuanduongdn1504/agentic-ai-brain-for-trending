@@ -1,10 +1,11 @@
 # Pilot: Adversarial-Review Comparison v3 — hireui real monorepo
 
 > **Started:** 2026-05-12 (Step 0.E vault meta-folder creation; heavy run pending operator-scheduled block)
-> **Status:** in-progress (Step 0 prep partial; Steps 0.A-0.F + 1-5 pending heavy run in Session A)
+> **Status:** Day 0 + Step 6 ✅ DONE · Step 7 ⚠️ PARTIAL (Pass 1 + Pass 2 done, Pass 3 blocked on codex usage limit B-A18; auto-retry scheduled 2026-05-13T02:03+07:00) · Steps 8-10 pending
 > **Target monorepo:** `/Users/Cvtot/monorepo/hireui` (pnpm monorepo: Next.js 14 web + Expo SDK 55 mobile)
-> **Real feature scope:** Concept 6 deferred_count schema implementation (closes last 🔴 HIGH gap in v2 KJ OS integration plan)
-> **Pilot branch (when created):** `agent/pilot-2026-05-11-adversarial-review` from `agent-dev`
+> **Real feature scope:** Concept 6 deferred_count schema implementation (closes last 🔴 HIGH gap in v2 KJ OS integration plan) — ✅ landed Step 6
+> **Pilot branch:** `agent/pilot-2026-05-11-adversarial-review` (LOCAL-ONLY per 2026-05-12 branch policy amendment; 19 commits ahead of `agent-dev`)
+> **Current sync:** see `pilot-log/STATUS.md` for vault-side state as of 2026-05-12T07:35Z
 
 ---
 
