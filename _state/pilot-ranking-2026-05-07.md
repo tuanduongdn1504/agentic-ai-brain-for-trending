@@ -1,8 +1,78 @@
 # Storm Bear vault pilot ranking — 2026-05-07 (post-v63 mini-audit)
 
 > **Purpose:** Authoritative consolidated ranking of pilot candidates accumulated across 61 wikis. Replaces scattered pilot-ranking mentions in `_state/03a-projects-v48-v61.md` and project entity files.
-> **Last updated:** 2026-05-07 session 71+ continuation (post-v63 EARLY mini-audit)
+> **Last updated:** 2026-05-12 session — handoff §6(b) drift closure: pilot v3.2 in-flight status added at top (was: 2026-05-07 session 71+ continuation post-v63 EARLY mini-audit)
 > **Maintained by:** Storm Bear vault operator + Claude routine v2.1 Phase 6 vault sync
+
+---
+
+## Active in-flight pilot (2026-05-12 onwards)
+
+**Pilot v3.2 — Adversarial-review comparison on hireui real monorepo** is **IN-FLIGHT** (was candidate-ranked since 2026-05-07; transitioned to in-flight 2026-05-12 with Day 0 setup completion).
+
+### Status at 2026-05-12
+
+| Item | Value |
+|------|-------|
+| **Pilot branch** | `agent/pilot-2026-05-11-adversarial-review` at hireui repo |
+| **Branch tip** | `43e773e3` — 9 commits ahead of `agent-dev` base (`2f13a6ce`) |
+| **Day 0 setup** | ✅ COMPLETE (Steps 0.A–F + 1 + 3 + 4 + 5.A–J per pilot plan v3.2) |
+| **Step 6 feature work (Concept 6 deferred_count schema)** | PENDING — hireui Session A reopen required |
+| **Step 7-9 measurement (Stratum A vs B + overlay ablation + cross-comparison)** | PENDING |
+| **Step 10 adoption decisions** | PENDING |
+| **PR status** | Not yet opened (handoff §6(a) decision pending) |
+| **Expected completion** | 2026-05-18 (Day 7 findings + adoption) |
+
+### Pilot architecture deltas from candidate-stage ranking
+
+When this file was first written (2026-05-07), pilot v3.0 anticipated **cc-sdd v61 install as Stratum A baseline**. Architecture evolved through pilot plan revisions:
+
+| Pilot plan version | Stratum A representative | Notes |
+|--------------------|--------------------------|-------|
+| v3.0 (2026-05-11) | cc-sdd v61 (planned install) | Pre-conflict-analysis |
+| **v3.2 in-flight (2026-05-12)** | **BMAD `bmad-review-adversarial-general` (already deployed in hireui)** | cc-sdd v61 **DROPPED** — HIGH CONFLICT with existing BMAD methodology harness (6 of 11 criteria); BMAD already provides Stratum A-class architectural review |
+
+**Implication:** the **#1 cc-sdd v61** ranking below remains valid as a *vault sandbox pilot candidate* (clean monorepo deployment), but for **real hireui monorepo pilot v3.2, cc-sdd is NOT installed**. BMAD substitutes as the Stratum A comparison baseline. Pattern #76 architectural-primitive observability is achieved via BMAD instead.
+
+### What pilot v3.2 actually deployed in hireui (vs v3.0 plan)
+
+| Layer | Tool | Role |
+|-------|------|------|
+| Stratum A baseline | BMAD `bmad-review-adversarial-general` (pre-existing) | Architectural role-separation review |
+| Stratum B NEW | codex-plugin-cc `/codex:adversarial-review` | Prompt-framing variant review |
+| Behavioral overlay | andrej-karpathy-skills (4 principles) | Modifies HOW LLM thinks |
+| Skills collection | mattpocock/skills (full 19-skill install w/ §3.5/§3.6 management policy) | Orthogonal narrow-task capabilities |
+
+### Cross-references for pilot v3.2 audit trail
+
+- **Pilot plan v3.2 (authoritative):** `/Users/Cvtot/KJ OS Template/04 Reviews/(C) 2026-05-11 adversarial-review pilot v3 - hireui real monorepo.md` (1,761 lines; revision history v3.0→v3.1→v3.2)
+- **Vault meta-folder:** `/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-11 adversarial-review-v3-hireui/`
+- **hireui session log:** `/Users/Cvtot/monorepo/hireui/_bmad-output/sessions/(C) 2026-05-12 pilot-v3.2-day0-setup.md`
+- **Session A→B handoff:** `/Users/Cvtot/monorepo/hireui/_bmad-output/runbooks/session-a-to-b-handoff-2026-05-12.md`
+- **Legacy paths patch:** `/Users/Cvtot/monorepo/hireui/_bmad-output/runbooks/pilot-v3-legacy-paths-patch.md`
+- **hireui I-8 invariant (skill-precedence registry):** `/Users/Cvtot/monorepo/hireui/CONSTITUTION.md` (added 2026-05-12 per pilot plan v3.2 §3.6 E1)
+
+### Operator-deployment imbalance — status update
+
+Was at 2026-05-07: **9 ranked pilots accumulated / 0 deployed** (per v63 wiki ship +1 karpathy-skills #3.5).
+At 2026-05-12: **9 ranked / 1 in-flight (pilot v3.2; Day 0 setup complete) / 0 fully-completed.**
+
+Imbalance reducing — pilot v3.2 is the FIRST pilot to transition from ranked-candidate to in-flight execution. Goal #2 ("build software with these tools") starts compounding.
+
+### Active-pilot status terminology (NEW 2026-05-12)
+
+Going forward, pilot lifecycle vocabulary:
+- **Candidate** — ranked but no setup work begun
+- **In-flight** — Day 0 setup complete; measurement phase active OR pending
+- **Fully-completed** — Day 7 findings + adoption decisions documented
+- **Adopted** — promoted to team-shared / vault-shared after findings
+- **Abandoned** — pilot evidence proved insufficient value; uninstall
+
+---
+
+## Historical ranking (below; preserved as-of 2026-05-07 with terminology marked)
+
+> **Note:** rankings below were written at candidate-stage 2026-05-07. Pilot v3.2 evolved the actual deployment from cc-sdd-as-Stratum-A to BMAD-as-Stratum-A. The cc-sdd v61 #1 ranking remains valid as a **clean-monorepo / vault-sandbox pilot option** but does NOT reflect hireui pilot v3.2's actual install set.
 
 ---
 
