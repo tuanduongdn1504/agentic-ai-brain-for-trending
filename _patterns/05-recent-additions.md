@@ -532,3 +532,119 @@ Candidate count ≥30 (currently 17; **13-candidate runway preserved**) OR v63 w
 ### Next natural-cadence trigger (post-v63 EARLY mini-audit)
 
 Candidate count ≥30 (currently 19; **11-candidate runway**) OR v66 wiki natural cadence (+3 wikis from v63) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.452:1 with 0.498 buffer — still very healthy; ratio-trigger remains unlikely soon).
+
+---
+
+## Post-v63 strengthening notes (v63 andrej-karpathy-skills wiki ship 2026-05-09)
+
+### Pattern #52 EXTREME-VIRAL-VELOCITY — N=1 → N=3 retroactive cross-archetype strengthening
+
+**Was:** N=1 OBSERVATIONAL FLAG with mattpocock-skills v57 (~370 stars/day at v60-flag-time), stale-flag preserved at v60 audit Item 12 with ~6mo re-evaluation deferred to v66.
+
+**Becomes:** **N=3 cross-archetype strengthening (retroactive correction); stale-flag PRESERVED to v69 audit; sustained-velocity criterion deferred to ~6mo+ window.**
+
+**3 N=3 evidence subjects:**
+
+| # | Subject | Velocity source | Author archetype | Stars/day at observation |
+|---|---------|----------------|------------------|------------------------:|
+| 1 | mattpocock-skills v57 | author-celebrity | Solo-coach (~270K X followers) | ~370 |
+| 2 | codex-plugin-cc v62 | corporate-celebrity | OpenAI corporate org | ~847 |
+| 3 | **andrej-karpathy-skills v63** | **source-celebrity-derivative** | **Solo-engineer distilling Karpathy public X observations** | **~1,186** |
+
+**v62 audit gap correction:** codex-plugin-cc v62 (~847 stars/day, 17.8K stars / 21 days at v62 ship) qualified for Pattern #52 strengthening but v62 wiki did NOT register; retroactive N=3 correction at v63 ship. **Sister to v61 catch of OpenSpec v58 missing from Pattern #21 evidence list (v58→v60 gap)** — 2nd consecutive audit-gap-caught-at-next-wiki cycle.
+
+**Sub-archetype taxonomy (registered for v69 deliberation):**
+- 52a author-celebrity-driven (N=1: mattpocock-skills v57)
+- 52b corporate-celebrity-driven (N=1: codex-plugin-cc v62)
+- 52c source-celebrity-derivative (N=1: andrej-karpathy-skills v63)
+
+**Each sub-archetype N=1 stale-flagged at v63.** v69 audit deliberates consolidation vs split.
+
+**Stale-flag rationale:** all 3 subjects still in early-window for sustained-vs-burst resolution (mattpocock ~93d / codex ~21d / karpathy ~102d at v63 ship). Decision-criteria deferred per v60 Item 12 pre-registration:
+- All 3 sustain >100 stars/day at 6mo → promote to confirmed EXTREME-VIRAL pattern
+- All 3 decay below <50 stars/day at 6mo → reformulate as EXTREME-VIRAL-BURST-AND-DECAY observational
+- Mixed → split into sustained-vs-burst sub-variants
+
+**Earliest test point:** v69 audit (~6mo+ for all 3 subjects).
+
+### Pattern #19 — derivative-distillation-of-public-observations NEW sub-type a4 N=1 stale-flagged
+
+> **Pattern #19 archetype 2 (individual-influence-node) — sub-type a4 derivative-distillation-of-public-observations.** Solo-engineer extracts public-figure observations on LLM/coding/methodology and packages them as installable behavioral artifact with explicit source attribution.
+>
+> **N=1 baseline at v63: andrej-karpathy-skills (forrestchang distills Karpathy X-tweet observations).** Distinct from existing sub-types: a1 own-methodology (mattpocock / Cole Medin / etc.) / a2 own-tool / a3 corpus-cited-reference (passing reference, not artifact).
+>
+> **Un-stale criterion:** 2nd corpus subject performing same mechanism with similar attribution discipline (e.g., a future "andrew-ng-skills" or "fast.ai-skills"). Track for v64-v68 wikis.
+
+### Pattern #19 — ecosystem-portfolio-builder sub-type N=2 strengthening
+
+Sister N=1 was registered post-v61 audit (gotalab solo-Japanese with cc-sdd + skillport + uxaudit + claude-code-marimo 4-product portfolio). v63 brings forrestchang ecosystem-portfolio (karpathy-skills viral artifact + Multica commercial platform play = 2-product portfolio).
+
+**N=2 cross-archetype:** gotalab (Japanese SDD/skills ecosystem) + forrestchang (viral-distillation + commercial-platform). Mechanism repeatable across distinct portfolio shapes.
+
+**Un-stale promotion candidate at v66 audit** if structural-N=2 criterion satisfied (independent organizations, distinct portfolio compositions, both demonstrate first-mover-authority-without-lineage).
+
+### Pattern #18 Layer 2 — multi-platform-single-skill-manual-sync NEW sub-axis N=1 stale-flagged
+
+> **Pattern #18 Layer 2 sub-archetype (NEW) — multi-platform single-skill manual sync.** Single behavioral skill ships to 2+ platforms (Claude Code + Cursor) via parallel manually-maintained source files (CLAUDE.md / SKILL.md / `.cursor/rules/*.mdc`). Distinct from cc-sdd v61's framework-scale install-time-translator (auto-generation) and from codex-plugin-cc v62's cross-vendor-platform-bridge.
+>
+> **N=1 baseline at v63: andrej-karpathy-skills.** Acceptable manual-sync overhead at single-skill scale (~65-line content); would not scale to multi-skill collection.
+>
+> **Un-stale criterion:** 2nd single-skill artifact shipping to 2+ platforms with manual-sync discipline.
+
+**Pattern #18 Layer 2 sub-archetype catalog post-v63 (4 sub-types):**
+- Content-transformation (T4 N=8 prior)
+- Protocol-translation runtime (free-claude-code v60)
+- Install-time per-platform skill format translator (cc-sdd v61)
+- Cross-vendor-platform-bridge-as-plugin (codex-plugin-cc v62)
+- **Multi-platform single-skill manual sync (andrej-karpathy-skills v63 NEW)**
+
+### Pattern #57 — 57c corpus-foundation-individual inheritance strengthening
+
+**Karpathy = most-corpus-cited individual in Storm Bear vault.** LLM Wiki pattern (Karpathy-originated) is the FOUNDATION of vault per root CLAUDE.md "Who I Am & My Purpose"; autoresearch v8 = 1st corpus-explicit Karpathy citation. v63 karpathy-skills = direct derivative of corpus-foundation-individual's public observations with explicit X-tweet URL.
+
+**Strongest 57c instance in corpus** — recursive-citation-back-to-corpus-origin observation. Within-pattern strengthening; does NOT add active-candidate count.
+
+### Pattern #51 — NEW NEUTRAL-with-anti-overengineering pole observation
+
+karpathy-skills takes **NEUTRAL on workflow + anti-overengineering on output** — distinct from anti-vibe-discipline (cc-sdd v61's full-workflow critique with pragmatic-acknowledgment). Anti-overengineering is narrower critique scope (overcomplication / speculative features / silent assumptions) without rejecting vibe-coding workflow itself.
+
+**Spectrum reformulation evidence at v63** supporting v66 deferred deliberation. NEUTRAL-with-anti-overengineering pole position not currently captured in Pattern #51 spectrum points.
+
+### Storm Bear meta-entity Phase 0.9 — 4-consecutive INCLUDE post-v60-RESTART
+
+v60 PASS + v61 PASS + v62 PASS + v63 PASS = **4-consecutive streak**.
+
+**8-instance post-amendment window v56-v63:** v56 PASS / v57 PASS / v58 PASS / v59 SKIP / v60 PASS / v61 PASS / v62 PASS / v63 PASS = **7 PASS / 1 SKIP = 87.5% INCLUDE rate** validates STRICT amendment regularly satisfiable.
+
+**Criterion-(d) STRONGEST instance in 8-window:** Karpathy-corpus-foundation derivative-distillation = direct corpus-foundation inheritance.
+
+### v63 wiki-ship state changes
+
+- Confirmed patterns: 42 → 42 (Pattern #52 promotion deferred to v69)
+- Active candidates: 19 → 19 (only within-pattern strengthenings; no NEW top-level candidates)
+- Stale candidates: 1 → 1 (Pattern #52 OBSERVATIONAL FLAG distinct category)
+- Ratio: 0.452:1 PRESERVED (LARGEST sub-0.475 zone in corpus history maintained)
+- Routine v2.2 candidates: 20 → **25 accumulated** (codification URGENT at v65 window)
+
+### v66 mini-audit pre-registered items from v63 wiki ship (added to v63-EARLY-AUDIT carry-forward)
+
+1. **Pattern #52 N=3 retroactive strengthening formal registration** (mattpocock + codex-plugin-cc + karpathy-skills) + sub-archetype 3-axis (52a/52b/52c) deliberation
+2. **Pattern #19 a4 derivative-distillation NEW sub-type stale-check**
+3. **Pattern #19 ecosystem-portfolio-builder N=2 strengthening promotion deliberation** (gotalab v61 + forrestchang v63)
+4. **Pattern #18 Layer 2 multi-platform-single-skill-manual-sync NEW sub-axis stale-check**
+5. **Pattern #57 57c corpus-foundation-individual inheritance strengthening** (within-pattern; does NOT add candidate count)
+6. **Pattern #51 NEUTRAL-with-anti-overengineering pole observation** (spectrum reformulation evidence — continue v66 deferral)
+7. **v62 audit gap closure documentation** (Pattern #52 codex-plugin-cc velocity not flagged at v62 ship; closed at v63)
+8. **Routine v2.2 codification urgency review** (25 candidates accumulated; codify at v65 window)
+
+### Routine v2.2 codification candidates (NEW from v63 ship; +5)
+
+1. **Phase 0 velocity-screen automation** — auto-compute stars/day-vs-90d-threshold for ALL incoming wiki subjects (not only viral-routing subjects); would have caught codex-plugin-cc v62 Pattern #52 qualification at v62 ship rather than retroactively
+2. **Source-celebrity-derivative-distillation criteria** — codify recognition: (1) author ≠ source individual, (2) explicit source attribution with URL, (3) public observations as raw material, (4) installable artifact packaging
+3. **EXTREME-VIRAL sub-archetype 3-axis (52a/52b/52c) deliberation discipline** — when N=3 cross-archetype reached, register sub-archetypes alongside top-level pattern; deliberate consolidation vs split at sustained-velocity test
+4. **Engagement-signal sub-investigation discipline** — when EXTREME-VIRAL subjects appear, capture watchers/stars + forks/stars ratios; helps distinguish drive-by-stars-dominant from active-deployment
+5. **Pre-Phase-6 retroactive-correction-check** — when v63-style retroactive Pattern Library correction is caught, formal mechanism to update prior wiki's register (vs only forward-only updates)
+
+### Next natural-cadence trigger (post-v63 wiki ship)
+
+Candidate count ≥30 (currently 19; **11-candidate runway PRESERVED**) OR v66 wiki natural cadence (+3 wikis from v63) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.452:1 with 0.498 buffer — still very healthy; ratio-trigger remains unlikely soon).
