@@ -1,11 +1,62 @@
 # Pilot: Adversarial-Review Comparison v3 — hireui real monorepo
 
-> **Started:** 2026-05-12 (Step 0.E vault meta-folder creation; heavy run pending operator-scheduled block)
-> **Status:** Day 0 + Step 6 ✅ DONE · Step 7 ⚠️ PARTIAL (Pass 1 + Pass 2 done, Pass 3 blocked on codex usage limit B-A18; auto-retry scheduled 2026-05-13T02:03+07:00) · Steps 8-10 pending
+> **Started:** 2026-05-12 (Step 0.E vault meta-folder creation; heavy run executed 2026-05-12 + 2026-05-13)
+> **Status:** ✅ **Day 0 + Step 6 + Step 7 + Step 10 ALL DONE 2026-05-13.** Step 8 operator triage + post-pilot fix sprint remaining (operator-driven). First pilot in vault history to complete full candidate → in-flight → fully-completed lifecycle.
 > **Target monorepo:** `/Users/Cvtot/monorepo/hireui` (pnpm monorepo: Next.js 14 web + Expo SDK 55 mobile)
 > **Real feature scope:** Concept 6 deferred_count schema implementation (closes last 🔴 HIGH gap in v2 KJ OS integration plan) — ✅ landed Step 6
-> **Pilot branch:** `agent/pilot-2026-05-11-adversarial-review` (LOCAL-ONLY per 2026-05-12 branch policy amendment; 19 commits ahead of `agent-dev`)
-> **Current sync:** see `pilot-log/STATUS.md` for vault-side state as of 2026-05-12T07:35Z
+> **Pilot branch:** `agent/pilot-2026-05-11-adversarial-review` (LOCAL-ONLY per 2026-05-12 branch policy amendment; 20 commits ahead of `agent-dev`, tip `6004dead`)
+> **Headline results:** BMAD 18 findings + codex-neutral 2 + codex-adversarial 17 = 37 distinct findings (~19 unique real bugs after dedup). Pass 3 vs BMAD: 44% overlap + 9 codex-unique findings incl. 6 HIGH real bugs. Framing-vs-tool decomposition: MIXED (framing dominates breadth, tool dominates depth-of-execution-trace). Pattern #76 verdict: KEEP STAGED. See `pilot-log/step-10-final-analysis.md` for full ablation.
+
+---
+
+## ✅ FINAL RESULTS (2026-05-13 — Session B close-out vault state appends)
+
+### Adoption decisions (FINAL)
+
+- ✅ **KEEP BMAD `bmad-review-adversarial-general`** — Stratum A baseline; breadth + spec/scope/design-layer adversarial mandate (CRITICAL severity ceiling; 18 findings; 7 initial real bugs)
+- ✅ **KEEP codex-plugin-cc `/codex:adversarial-review`** — Stratum B; depth + code-execution-trace + integration defects (HIGH severity ceiling; 17 findings; 12 initial real bugs; 9 codex-unique)
+- ❌ **RETIRE codex neutral `/codex:review`** as standalone — only 2 findings on substantive 62-file diff; not standalone-useful (still callable on-demand for spot-checks)
+- 🔧 **Stack pattern for next substantive harness diff:** combine BMAD adversarial + codex adversarial in parallel — complementary not redundant
+
+### 4 Session B cross-session decisions — implementation status
+
+| Finding | Resolution (Session B 2026-05-12 evening) | Vault doc ✅ | Code fix-now status |
+|---------|-------------------------------------------|--------------|---------------------|
+| F-02 Pattern #76 scope mismatch | design-challenge → KEEP STRICT framework-level definition | ✅ evidence-note appended `_patterns/03-active-candidates.md` line 596+ | n/a (doc-only) |
+| F-03 B-A17 count doctored | real-bug → RENAME `attention_tag` → `recommended_severity` | n/a (hireui-side schema fix) | 🔜 post-pilot sprint Bucket 2 |
+| F-04 Phase 2 auto-increment vapor | design-challenge → RETIRE to manual-only with re-eval trigger (>10 deferred items aging OR >2/week velocity 30 days) | n/a (hireui HIR-1162 ticket amendment) | 🔜 post-pilot doc fix |
+| F-07 3 mattpocock misfit skills | real-bug → DELETE (20 → 17) — repeats 2026-05-06 Goodhart anti-pattern recognition | n/a (hireui-side skill deletion) | 🔜 post-pilot sprint |
+
+### Goal #2 ROI ledger (FIRST measurable returns)
+
+- **NEW Pattern #79 Tool-Level Adversarial Review as Skill candidate** for v66 mini-audit deliberation (N=2 evidence already accumulated: BMAD + codex-plugin-cc; potential N=3 if cc-sdd `kiro-review` qualifies independently)
+- **5 routine v2.2 codification candidates** surfaced (pilot framing discipline / Phase 0 Pattern #76 verification checklist / skills-bundle-import discipline / scheduled-task auto-retry branch handling / HIR-1162 schema hardening)
+- **HIR-1162 deferred_count schema validated under real B-A18 lifecycle** (filed 2026-05-12 count=1 attention_tag=null; resolved 2026-05-13 within 24h; sub-threshold lifecycle works as designed; 5 distinct schema flaws identified for hardening)
+- **9-ranked-pilots / 0-deployed → 9-ranked / 1-fully-completed** — operator-deployment imbalance reducing for first time since v60. Pattern-observation > operator-deployment ratio: 100% → 11% (1/9)
+
+### Vault state propagation — Session B FINAL appends
+
+| Vault file | Change | Status |
+|------------|--------|--------|
+| `_patterns/03-active-candidates.md` | Pattern #76 evidence-note appended at line 596+ (Pass-3-revised numbers; tool-vs-framework distinction codified; NEW Pattern #79 candidate flagged for v66) | ✅ |
+| `_state/pilot-ranking-2026-05-07.md` | "Completed pilot (2026-05-13)" section added at top; previous "In-flight" section preserved as historical | ✅ |
+| `03 Projects/_pilots/2026-05-11.../README.md` | FINAL RESULTS section (this section) added | ✅ |
+| `03 Projects/_pilots/2026-05-11.../pilot-log/STATUS.md` | "Session B FINAL — 2026-05-13" sub-section to be added | 🔜 |
+
+### Remaining post-pilot work (NOT pilot-scope; operator-driven)
+
+1. **Step 8 operator triage** — Session B classified 4 findings (F-02 / F-03 / F-04 / F-07); remaining 33 distinct findings await operator real-bug/false-positive confirmation in `pilot-log/step-8-triage.md` (~30-45 min)
+2. **Post-pilot fix sprint** — 5 buckets, ~4-6h total. See `pilot-log/post-pilot-fix-sprint.md` (revised post-Pass-3 with 5 schema-hardening + 4 hook-enforcement-gap additions)
+3. **Merge pilot → agent-dev → push origin agent-dev** — only after Step 8 triage + post-pilot fixes land
+
+### Cross-references
+
+- **Step 10 final analysis (canonical):** `pilot-log/step-10-final-analysis.md`
+- **Vault Pattern #76 entry (with appended evidence-note):** `_patterns/03-active-candidates.md` lines 588-598
+- **Pilot ranking completed-status:** `_state/pilot-ranking-2026-05-07.md` "Completed pilot (2026-05-13)" section
+- **Pilot plan v3.2 (authoritative methodology):** `04 Reviews/(C) 2026-05-11 adversarial-review pilot v3 - hireui real monorepo.md`
+- **Session A→B handoff doc:** `/Users/Cvtot/monorepo/hireui/_bmad-output/runbooks/session-a-to-b-handoff-2026-05-12.md`
+- **hireui Step 10 closeout commit:** `6004dead` on `agent/pilot-2026-05-11-adversarial-review` (LOCAL-ONLY per branch-policy amendment)
 
 ---
 

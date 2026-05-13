@@ -153,3 +153,159 @@ All 4 BMAD findings F-02 / F-03 / F-04 / F-07 now have Session B proposed resolu
 - Pilot Step 10 closes — vault Session B should then append `pattern-76-amendment-draft.md` content into `_patterns/03-active-candidates.md`
 
 **Goal #2 progress:** pilot v3.2 status transitions from "Day 0 + Step 6 done / Step 7 partial" → "Steps 7-10 finalizing 2026-05-13" → "fully-completed" status assignable by end-of-day 2026-05-13. First pilot in vault history to complete the candidate → in-flight → fully-completed → adopted/abandoned lifecycle.
+
+---
+
+## Session A FINAL — 2026-05-13 morning (Pass 3 retry success + Step 10 closed)
+
+> **Trigger:** Operator checked out pilot branch in Session A; manual retry launched 02:24:39Z after scheduled-task auto-retry at 02:03Z aborted on branch mismatch.
+
+### Pass 3 retry result
+
+| Field | Value |
+|---|---|
+| Wall-clock | ~20 min (02:24:39Z–~02:46Z, estimated; precise t_end ambiguous due to session suspension during background task) |
+| Total findings | **17** (7 HIGH + 9 MEDIUM + 1 LOW) |
+| Real bugs | 12 |
+| Design challenges | 5 |
+| Subjective | 0 |
+| Codex verdict | `needs-attention` |
+| Codex thread ID | `019e21d3-f894-7a50-8330-5ee07be3fa51` |
+
+### Headline ablation numbers
+
+- **Pass 3 overlap with BMAD Pass 1:** 6/18 full + 2/18 partial = **8/18 (44% any)**
+- **Pass 3 codex-unique findings:** **9 NEW**, including **6 HIGH-severity real bugs** BMAD missed entirely
+- **Pass 2 → Pass 3 delta:** +15 findings; severity ceiling P2 → HIGH; C2-2 elevated MEDIUM → HIGH under adversarial framing
+
+### Framing-vs-tool decomposition — FINAL verdict
+
+**MIXED:** framing dominates breadth, tool dominates depth-of-execution-trace.
+
+- Adversarial framing CLEARLY amplifies codex output (2 → 17 findings, P2 → HIGH severity)
+- BUT codex retains distinctive lens: 9 codex-unique findings remain even with framing matched to BMAD's adversarial mandate
+- The two tools fish in different ponds even under matching framing — BMAD: spec/scope/design-layer; codex: code-execution-trace, integration defects
+
+### Pattern #76 verdict (FINAL — confirms Session B's structural read)
+
+**KEEP STAGED.** Session B's structural verdict was correct and Pass 3 outcome doesn't change it. Pilot tested adversarial-review-PROMPT layer, not framework-level subagent architecture. Provides STRONG Proposition C evidence (tool-level adversarial review has substantive value: 37 distinct findings across 3 passes; 19+ unique real bugs combined). Promotion to Active still requires 2+ framework-level implementations by v71 retire-check. Session B's `pattern-76-amendment-draft.md` is ready to paste — recommended phrasing minor-revised in `step-10-final-analysis.md` Pattern #76 section.
+
+### B-A18 resolved 2026-05-13T02:46Z
+
+HIR-1162 schema lifecycle on B-A18 ran CLEAN:
+- filed count=1 attention_tag=null on 2026-05-12
+- did NOT breach ≥3 → 🟡 threshold during 24h waiting period
+- resolved 2026-05-13 with `resolved_at` + `resolution` fields added
+- migration script re-validated post-resolution: 5 entries, 🔴 1, 🟡 3, null 1 (B-A18 still null with count=1 but tracking until next manual cleanup)
+
+**Schema works as designed for sub-threshold lifecycle.** BUT Pass 3 found 5 distinct schema flaws (H-5 jq map over object, H-6 deferred_count type validation, M-5 A17 doctored initialization, M-6 attention_tag display-text, M-7 no schema version) — these go into Bucket 2 of post-pilot fix sprint as schema hardening before next blocker lifecycle.
+
+### Step 10 FINAL — closed
+
+Pilot Step 10 is now FINAL: full 3-of-3 pass data captured, match-up matrix complete, framing-vs-tool decomposition verdict reached, Pattern #76 structural conclusion confirmed. See `step-10-final-analysis.md` (vault + hireui both have copies; this is the canonical Step 10 deliverable).
+
+### Remaining work (operator-driven, NOT Session A autonomous)
+
+1. **Step 8 operator triage** — Session B already classified 4 findings (F-02, F-03, F-04, F-07). Remaining 33 distinct findings await operator real-bug/false-positive confirmation in `step-8-triage.md`. Estimate ~30-45 min.
+2. **Post-pilot fix sprint** — 6 buckets, ~4-6h total (revised from 3-5h after Pass 3 added H-5/H-6/H-7/H-1/H-2/H-4/M-2/M-4 to backlog). See `post-pilot-fix-sprint.md` revised version.
+3. **Vault state appends:**
+   - Append `pattern-76-amendment-draft.md` content (with Pass 3 numerical revisions noted) to `_patterns/03-active-candidates.md` lines 588-595
+   - Update `_state/pilot-ranking-2026-05-07.md` with completed-pilot status
+   - Update vault `_pilots/.../README.md` with ✅ FULLY-COMPLETED status block
+4. **Merge pilot → agent-dev → push origin agent-dev** — only after Step 8 triage + post-pilot fixes land
+
+### Commit hash for Step 10 close-out
+
+`6004dead` (LOCAL on pilot branch, 20 commits ahead of agent-dev): "chore(agent): pilot v3.2 Step 7 ✅ DONE + Step 10 FINAL + B-A18 resolved"
+
+### Lesson captured for next pilot
+
+Scheduled-task auto-retry at 02:03Z FIRED on time but pre-flight failed because current branch was `agent/local-sandbox` (not pilot branch). The retry instructions correctly aborted on branch mismatch per spec, but the auto-retry mechanism would have needed branch-switch logic to succeed. **Next pilot:** add `git checkout <expected-pilot-branch>` to retry-task pre-flight, OR have scheduled-task verify branch before fire and skip-with-notification if mismatch.
+
+This is logged for routine v2.2 codification candidate (alongside Session B's 3 candidates).
+
+---
+
+## Session B FINAL — 2026-05-13 (vault state appends after Step 10 closure)
+
+> **Trigger:** Session B resume prompt 2026-05-13 — Session A closed Step 10 at 02:46Z; Pass 3 retry succeeded with 17 findings (44% BMAD overlap + 9 codex-unique incl. 6 HIGH real bugs); framing-vs-tool decomposition MIXED. Session B executes Tasks A/B/C vault appends.
+
+### Vault appends executed 2026-05-13
+
+| # | Target file | Action | Timestamp | Lines added |
+|---|-------------|--------|-----------|-------------|
+| 1 | `_patterns/03-active-candidates.md` | Pattern #76 evidence-note appended after line 595 (Pass-3-revised numbers; tool-vs-framework distinction; NEW Pattern #79 candidate flagged) | 2026-05-13 | +1 evidence-note paragraph after line 595 |
+| 2 | `_state/pilot-ranking-2026-05-07.md` | "Completed pilot (2026-05-13)" section added at top; previous "In-flight" section preserved as historical | 2026-05-13 | +~50 lines (new Completed section + Historical wrapper around In-flight) |
+| 3 | `03 Projects/_pilots/2026-05-11.../README.md` | "FINAL RESULTS (2026-05-13)" section inserted after Session A header (line 9), before "Pilot intent" | 2026-05-13 | +~55 lines |
+| 4 | `pilot-log/STATUS.md` (this file) | "Session B FINAL — 2026-05-13" sub-section added | 2026-05-13 | this section |
+
+### Numerical revisions vs Session B's 2026-05-12 amendment draft
+
+The pre-drafted evidence-note (`pattern-76-amendment-draft.md`) had placeholders for Pass 3 data. Final-appended version replaces those with actual Pass 3 numbers per `step-10-final-analysis.md`:
+
+| Field | Draft (2026-05-12) | Final-appended (2026-05-13) |
+|-------|--------------------|-----------------------------|
+| Pass 3 overlap with BMAD | "pending Pass 3" | **44% (8/18 any)** |
+| Codex-unique findings | "Proposition C evidence (Pass 2 only)" | **STRONG Proposition C; 9 codex-unique incl. 6 HIGH real bugs** |
+| Framing-vs-tool verdict | "structural verdict (Pass-3-independent)" | **structural UNCHANGED; numerical MIXED — framing dominates breadth, tool dominates depth-of-execution-trace** |
+| Total findings | "18 BMAD + 2 codex-neutral" | **18 + 2 + 17 = 37 distinct; ~19 unique real bugs combined; 13 HIGH-severity real bugs** |
+| Diff scope | "61-file / 17-commit" | **62-file / 19-commit** (corrected from final analysis) |
+
+### Constraints honored
+
+- ✅ Did NOT modify any hireui repo files (only read for state alignment)
+- ✅ Did NOT touch `pilot-log/*.md` files except this STATUS.md (Session A's deliverables synced intact)
+- ✅ Pattern #76 status remains STAGED (did NOT promote or retire); only evidence-note appended
+- ✅ Did NOT push to origin (operator approval required per resume prompt §5 + Hybrid Option 3+5)
+
+### Goal #2 status delta (corpus-historical)
+
+| Date | Ranked | In-flight | Fully-completed | Imbalance |
+|------|-------:|----------:|----------------:|-----------|
+| 2026-05-07 (v63 ship + ranking) | 9 | 0 | 0 | 100% observation-only |
+| 2026-05-12 (Day 0 setup complete) | 9 | 1 | 0 | 89% observation / 11% in-flight |
+| **2026-05-13 (Step 10 closed + vault appends)** | **9** | **0** | **1** | **89% observation / 11% completed** |
+
+**Goal #2 ("Tôi muốn build software with these tools") compounds for the first time in 64-wiki corpus history.** Pilot v3.2 completes the FIRST full candidate → in-flight → fully-completed lifecycle. Pattern-observation > operator-deployment ratio shifts from 100% pure-observation to 11% operator-deployed (1/9). v66 mini-audit deliberation context now includes: NEW Pattern #79 candidate + 5 routine v2.2 codification candidates = first measurable operator-deployment ROI returning to corpus learning.
+
+### What's left for the pilot (operator-driven; NOT Session B scope)
+
+1. **Step 8 operator triage** (~30-45 min) — Session B classified 4 cross-session findings yesterday (F-02 / F-03 / F-04 / F-07); 33 remaining findings await operator real-bug/false-positive confirmation in `step-8-triage.md`
+2. **Post-pilot fix sprint** (~4-6h) — 5 buckets revised post-Pass-3: Bucket 1 quick-fix BMAD / Bucket 1b NEW hook enforcement gaps / Bucket 1c pre-push refspec / Bucket 1d .mcp.json regression / Bucket 2 schema hardening / Bucket 3 doc batch. See `post-pilot-fix-sprint.md`
+3. **Merge pilot → agent-dev → push origin agent-dev** — only after Step 8 triage + post-pilot fixes land
+
+### v66 mini-audit deliberation items pre-registered
+
+- **Pattern #79 Tool-Level Adversarial Review as Skill (NEW candidate)** — N=2 already accumulated (BMAD + codex-plugin-cc); potential N=3 if cc-sdd `kiro-review` qualifies independently from architecture it's embedded in (two-layer pattern decomposition)
+- **Pilot plan v3.3 retrospective** — codify pilot-framing-matches-test-mechanism discipline as routine v2.2 candidate
+- **Phase 0 probe Pattern #76 verification checklist** — 5-question gate for any future framework wiki (already drafted in `pattern-76-amendment-draft.md`)
+- **Skills-bundle-import discipline** — distinguish parity-relevant duplicates (KEEP per §3.5) from orthogonal-purpose pollutants (DELETE per F-07 outcome)
+- **Scheduled-task auto-retry branch-handling** — auto-retry mechanism needs branch-switch logic OR skip-with-notification on mismatch (per Session A 2026-05-13 retry-task lesson)
+
+### Final vault state status
+
+| Question | Status |
+|---|---|
+| All 4 cross-session decisions documented in vault state? | ✅ (Pattern #76 evidence-note + pilot ranking completed section + README FINAL RESULTS) |
+| Pattern #76 STAGED status preserved? | ✅ |
+| All Pass-3 numbers reflected in vault appends? | ✅ (44% overlap, 9 codex-unique, 6 HIGH bugs, MIXED verdict) |
+| Vault commit pending? | YES — Session B will commit with conventional message "docs(pilot): close pilot v3.2 adversarial-review with Pass 3 evidence" |
+| Push to origin? | NO — operator approval pending per Hybrid Option 3+5 §5 |
+
+---
+
+## 🎯 Suggested Next Action — pilot CLOSED for vault-side; operator returns to hireui-side
+
+Vault Session B work COMPLETE. Pilot v3.2 lifecycle now reads: **candidate (2026-05-07) → in-flight (2026-05-12) → ✅ fully-completed (2026-05-13)**.
+
+**For operator next time at hireui-side:**
+
+1. **Step 8 operator triage** (~30-45 min) — open `pilot-log/step-8-triage.md`; classify remaining 33 findings real-bug/design-challenge/subjective/false-positive
+2. **Post-pilot fix sprint** (~4-6h) — execute 5 buckets per `pilot-log/post-pilot-fix-sprint.md`
+3. **Merge + push** — after fixes land
+
+**For vault next time:**
+
+- Push vault commits to origin (operator approval needed)
+- Pre-v66-mini-audit prep: review the 5 routine v2.2 codification candidates + Pattern #79 deliberation
+- Next wiki build (v64) when operator ready

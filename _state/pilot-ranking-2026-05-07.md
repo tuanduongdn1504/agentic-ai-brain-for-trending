@@ -6,9 +6,75 @@
 
 ---
 
-## Active in-flight pilot (2026-05-12 onwards)
+## ✅ Completed pilot (2026-05-13)
 
-**Pilot v3.2 — Adversarial-review comparison on hireui real monorepo** is **IN-FLIGHT** (was candidate-ranked since 2026-05-07; transitioned to in-flight 2026-05-12 with Day 0 setup completion).
+**Pilot v3.2 — Adversarial-review comparison on hireui real monorepo** is **FULLY-COMPLETED 2026-05-13** (candidate 2026-05-07 → in-flight 2026-05-12 → fully-completed 2026-05-13). **FIRST corpus pilot to traverse the full candidate→in-flight→completed lifecycle.**
+
+### Outcome at completion (2026-05-13)
+
+| Item | Value |
+|------|-------|
+| **Outcome** | ✅ FULLY-COMPLETED — all 3 passes captured + Step 10 ablation FINAL + Pattern #76 evidence-note appended to vault |
+| **Pilot branch** | `agent/pilot-2026-05-11-adversarial-review` at hireui repo (20 commits ahead of `agent-dev`; LOCAL-ONLY per 2026-05-12 branch policy amendment) |
+| **Final commit** | `6004dead` "chore(agent): pilot v3.2 Step 7 ✅ DONE + Step 10 FINAL + B-A18 resolved" |
+| **Wall-clock total (operator-facing)** | ~9-10h spread over 2026-05-12 → 2026-05-13 (within v3.2 plan budget) |
+| **Vault propagation** | Pattern #76 evidence-note appended `_patterns/03-active-candidates.md` ✅ + completed-status here ✅ + pilot README FINAL-RESULTS section ✅ |
+
+### Key empirical result
+
+**37 distinct findings across 3 adversarial passes** (Pass 1 BMAD adversarial = 18 / Pass 2 codex neutral = 2 / Pass 3 codex adversarial = 17), **~19 unique real bugs combined**, **13 HIGH-severity real bugs** across the stack. Pattern #76 verdict: **KEEP STAGED** (pilot tests adversarial-review-prompt layer, not framework-level architecture per Pattern #76 definition; promotion bar requires 2+ framework-level implementations by v71).
+
+### Adoption decision
+
+**KEEP both BMAD `bmad-review-adversarial-general` + codex-plugin-cc `/codex:adversarial-review` as complementary stack.** The two tools fish in different ponds even under matching adversarial framing:
+- **BMAD** = breadth + spec/scope/design-layer adversarial mandate (CRITICAL severity ceiling; 18 findings; 7 initial real bugs)
+- **codex adversarial** = depth + code-execution-trace + integration defects (HIGH severity ceiling; 17 findings; 12 initial real bugs; 9 codex-unique)
+- **codex neutral RETIRED** as standalone review path (only 2 findings on a 62-file diff)
+
+### Framing-vs-tool decomposition (FINAL verdict)
+
+**MIXED.** Adversarial framing dominates breadth (Pass 2→3: +15 findings; P2→HIGH severity), but tool retains distinctive lens (9 codex-unique HIGH real bugs even with framing matched to BMAD's adversarial mandate). Both layers contribute orthogonally.
+
+### Next-pilot dependencies (re-check now that v3.2 complete)
+
+Any pilot that referenced this one for evidence should re-check:
+- **karpathy-skills v63 #3.5 Tier-2** — orthogonal behavioral overlay; pilot v3.2 did NOT independently measure karpathy effect (mattpocock-skills full-install dominated overlay layer). Pattern #76-style follow-up pilot could isolate karpathy behavioral effect on review character.
+- **free-claude-code v60 #2 Tier-1** — proxy layer; orthogonal to pilot v3.2 outcomes. Still eligible for independent pilot.
+- **n8n v56 Tier-2** — different category (workflow automation); unaffected.
+
+### v66 mini-audit deliberation items surfaced by this pilot
+
+1. **NEW Pattern #79 Tool-Level Adversarial Review as Skill** — N=2 evidence already accumulated (BMAD `bmad-review-adversarial-general` + codex-plugin-cc `/codex:adversarial-review`); register at v66 if cc-sdd's `kiro-review` qualifies independently → N=3 cross-archetype
+2. **Pilot plan framing-discipline routine v2.2 candidate** — pilot plan v3.2 §1 framed as "Pattern #76 empirical" but actual test scope was narrower (prompt layer not architecture); codify pilot-framing-matches-test-mechanism discipline
+3. **Phase 0 probe Pattern #76 verification checklist routine v2.2 candidate** — 5-question gate for any future framework wiki (implementer/reviewer/auto-debug/completion-gate/architectural-primitive)
+4. **Skills-bundle-import discipline routine v2.2 candidate** — distinguish parity-relevant duplicates (KEEP per §3.5) from orthogonal-purpose pollutants (DELETE per F-07 outcome)
+5. **Scheduled-task auto-retry branch-mismatch routine v2.2 candidate** — auto-retry mechanism needs branch-switch logic OR skip-with-notification on mismatch (per Session A 2026-05-13 retry-task lesson)
+
+### Operator-deployment imbalance — status update
+
+| Date | Ranked | In-flight | Fully-completed |
+|------|-------:|----------:|----------------:|
+| 2026-05-07 | 9 | 0 | 0 |
+| 2026-05-12 | 9 | 1 | 0 |
+| **2026-05-13** | **9** | **0** | **1** |
+
+**Goal #2 ("build software with these tools") compounds for the first time.** Pattern-observation > operator-deployment ratio shifts from 100% observation-only to 11% operator-deployed (1/9). v66 mini-audit deliberation context: NEW Pattern #79 candidate + 5 routine v2.2 codification candidates = first measurable Goal #2 ROI.
+
+### Cross-references for completed-pilot audit trail
+
+- **Step 10 final analysis (canonical):** `/Users/Cvtot/KJ OS Template/03 Projects/_pilots/2026-05-11 adversarial-review-v3-hireui/pilot-log/step-10-final-analysis.md`
+- **Pattern #76 evidence-note (this pilot's contribution):** `_patterns/03-active-candidates.md` lines 596 onwards (appended 2026-05-13)
+- **Vault pilot meta-folder:** `03 Projects/_pilots/2026-05-11 adversarial-review-v3-hireui/`
+- **hireui session log:** `/Users/Cvtot/monorepo/hireui/_bmad-output/sessions/(C) 2026-05-12 pilot-v3.2-day0-setup.md`
+- **hireui Step 10 closeout commit:** `6004dead` on `agent/pilot-2026-05-11-adversarial-review`
+- **Pilot plan v3.2 (authoritative):** `04 Reviews/(C) 2026-05-11 adversarial-review pilot v3 - hireui real monorepo.md`
+- **Session B handoff doc:** `/Users/Cvtot/monorepo/hireui/_bmad-output/runbooks/session-a-to-b-handoff-2026-05-12.md`
+
+---
+
+## (Historical) In-flight status block — 2026-05-12 → 2026-05-13 morning
+
+**Pilot v3.2 — Adversarial-review comparison on hireui real monorepo** was **IN-FLIGHT** (was candidate-ranked since 2026-05-07; transitioned to in-flight 2026-05-12 with Day 0 setup completion; transitioned to fully-completed 2026-05-13).
 
 ### Status at 2026-05-12
 
