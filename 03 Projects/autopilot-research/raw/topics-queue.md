@@ -6,15 +6,89 @@
 >
 > Format per topic:
 > - **Query:** the search string handed to yt-search
-> - **Notes:** optional hints (specific creators, deliverable type, anchors)
+> - **Anchors:** (optional) YouTube URLs to FORCE-INCLUDE in the bundle before yt-search picks the rest.
+>   Format: nested bullet list under `**Anchors:**`. Up to `SOURCES_PER_TOPIC` (6) URLs.
+>   Added 2026-05-14 after 4 of 6 user-named anchors got dropped by the search-rank rubric on 2026-05-13.
+>   Example:
+>     - **Anchors:**
+>       - https://www.youtube.com/watch?v=ABC123
+>       - https://www.youtube.com/watch?v=DEF456
+> - **Notes:** optional hints (specific creators, deliverable type, follow-ups)
 > - **Queued:** date queued
 > - **Status:** pending / in-progress / completed
+>
+> Tools:
+> - `python bin/autopilot-drain.py --list-only` — parse + show queue (no network, no log)
+> - `python bin/autopilot-drain.py --dry-run`   — show selection plan (yt-search runs, no NotebookLM)
+> - `python bin/autopilot-drain.py`             — full drain
+
+---
+
+## Agent Dashboard / Agent OS — anchor-corrected re-run
+
+- **Query:** `Chase AI Claude Code dashboard status line slash commands observability 2026`
+- **Anchors:**
+  - https://www.youtube.com/watch?v=7zxIeRWasbc
+- **Notes:** First run 2026-05-13 dropped this anchor — auto-selection picked LangSmith/OpenTelemetry/Tmux/Vercel sandbox content instead. Anchor: Chase AI "Claude Code Just Got a Dashboard". Tighter query + new force-include should land Claude-Code-native dashboard content. **Target:** replace or supersede `wiki/agent-dashboard-os/` (decide during compile based on signal overlap).
+- **Queued:** 2026-05-14
+- **Status:** pending
+
+## Codex — anchor-corrected re-run (3 anchors)
+
+- **Query:** `Chase AI Codex agentic harness Claude Code add codex adversarial review 2026`
+- **Anchors:**
+  - https://www.youtube.com/watch?v=nOFordZCyzs
+  - https://www.youtube.com/watch?v=VdxUKiF8CWI
+  - https://www.youtube.com/watch?v=zygsgz2k6zI
+- **Notes:** First run 2026-05-13 dropped ALL 3 user-named anchors. Anchors are: Chase AI "Codex Just Became THE BEST Long Running Agentic Harness" + Chase AI "You're Using Claude Code Wrong (Add Codex)" + Tù Bà Khuỳm "Có thể bạn chưa biết về Codex.". 3 anchors + 3 yt-search slots = 6 sources. **Target:** replace or supersede `wiki/codex/`. Cross-link Storm Bear Pattern Library v62 codex-plugin-cc.
+- **Queued:** 2026-05-14
+- **Status:** pending
+
+## Open Source Claude Design clones — anchor-corrected re-run
+
+- **Query:** `Chase AI open source Claude Code clone OpenClaw Hermes fork alternative agent CLI 2026`
+- **Anchors:**
+  - https://www.youtube.com/watch?v=BGQ9i3fvNds
+- **Notes:** First run 2026-05-13 was off-target — bundle was developer-workflow content (modular files, one-task-per-session) with only passing clone mentions. Anchor: Chase AI "ANOTHER Open Source Repo Just Cloned Claude Design". Anchor + tighter clone-specific query should land clone-focused content. **Target:** replace or supersede `wiki/claude-code-clones/`. Maps to Storm Bear Pattern Library T4 archetype (v60+v61+v62).
+- **Queued:** 2026-05-14
+- **Status:** pending
+
+## Autonomous Loops with HITL — tighter-query re-run
+
+- **Query:** `Karpathy autoresearch Ralph loop human checkpoint goal driven Claude Code plan mode grill paperclip`
+- **Notes:** First run 2026-05-13 had to relax recency filter — selection pulled in generic 2025 IBM/CNN/"What is Agentic AI" explainers. **No anchors specified originally** — this re-run relies on the tighter query alone (specific creator + framework names: Karpathy / Ralph / plan-mode / grill / paperclip). If this re-run also misses, queue with explicit anchors next time. **Target:** supplement or supersede `wiki/autonomous-loops-human-in-the-loop/`.
+- **Queued:** 2026-05-14
+- **Status:** pending
 
 ---
 
 ## Completed
 
 
+### AI daily news — May 2026 weekly snapshot ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-ai-daily-news-may-2026-weekly-snapshot.md`
+- **NotebookLM:** `9f08f424-31bc-4fe9-8e8b-3a91862171a1`
+### Open Source Claude Design clones — alternative agent CLIs ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-open-source-claude-design-clones-alternative-agent.md`
+- **NotebookLM:** `5155a280-86ce-49ce-8328-d4b75c0119ce`
+### Codex — long-running agentic harness alternative to Claude Code ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-codex-long-running-agentic-harness-alternative-to.md`
+- **NotebookLM:** `01707594-d36a-4a2f-b3f8-7fa9044528ba`
+### Harness Engineering — personal-repo continuation (Vietnamese practitioner take + more) ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-harness-engineering-personal-repo-continuation-vie.md`
+- **NotebookLM:** `58c51d8e-ab36-4331-993f-8a61dfd0a2c4`
+### Auto-Loop Goals with human-in-the-loop ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-auto-loop-goals-with-human-in-the-loop.md`
+- **NotebookLM:** `abe1647e-c9c3-4ad1-8e63-5e93fac50865`
+### Agent Dashboard / Agent OS — Claude Code observability + dashboards ✅
+- **Drained:** 2026-05-13 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-13-agent-dashboard-agent-os-claude-code-observability.md`
+- **NotebookLM:** `54d7812d-2305-4eac-b250-43ba577cb1dc`
 ### Remote agent control — tunneling, SSH, ngrok, tailscale ✅
 - **Drained:** 2026-05-07 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-07-remote-agent-control-tunneling-ssh-ngrok-tailscale.md`
