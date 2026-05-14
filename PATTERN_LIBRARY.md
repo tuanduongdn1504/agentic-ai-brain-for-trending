@@ -2,7 +2,22 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v60 EXTENDED MINI-AUDIT 2026-05-07 session 70)
+## Current state (post-v66 agentmemory wiki 2026-05-14)
+
+> ⚠️ **Shim narrative drift — housekeeping flag.** This shim's *detailed narrative* was last fully written at the v60 audit (preserved below as "Prior state snapshot"). The v61-v66 wiki ships + v63/v66 audits updated the **authoritative** records — `_patterns/03-active-candidates.md`, `_patterns/05-recent-additions.md`, and root `CLAUDE.md` — but did not re-narrate this shim. The counts below are synced to the authoritative chapter files at v66; the v61-v65 narrative detail lives in those chapters, not here. **A full shim re-narration is a deferred housekeeping task (recommend bundling with the v68 state-architecture rename).** Counts here are accurate; prose below the snapshot line is v60-era.
+
+- **Confirmed:** **43** (v66 audit promoted Pattern #19 ecosystem-portfolio-builder N=4 + Pattern #78 Living-Domain-Standards Tracking)
+- **Active candidates:** **27** (v66 audit registered #80-#84; v66 agentmemory wiki registered **#85 Platform-Primitive Foundation** N=1 stale-flagged)
+- **Stale candidates:** **1** (Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG preserved)
+- **Retired:** 9
+- **Observation-tracks:** 6
+- **Total:** **86 full / 70 active**
+- **Ratio:** 27:43 = **0.628:1** — buffer **0.322** below the 0.95:1 mini-audit trigger
+- **Routine:** `llm-wiki-routine-v2.2` (codified 2026-05-14; v66 EARLY-OPERATOR-ELECTED mini-audit was v2.2's first audit; v66 agentmemory wiki was v2.2's first wiki)
+- **Storm Bear meta-entity streak:** 2 post-v64-RESET (v65 STRONG PASS 3/4 STRICT → v66 STRONG PASS 4/4 STRICT — first 4/4 in the post-amendment window); 10-instance window v57-v66 = 8 PASS / 2 SKIP = 80% INCLUDE
+- **Authoritative sources:** `_patterns/02a-confirmed-patterns-pre-v42.md` + `_patterns/02b-confirmed-patterns-v42-plus.md` (confirmed) / `_patterns/03-active-candidates.md` (candidates incl. #85) / `_patterns/04-retired-stale.md` / `_patterns/05-recent-additions.md` (v66 wiki block) / `_patterns/01-audit-history.md` (audit history) / root `CLAUDE.md` (current state block)
+
+## Prior state snapshot (post-v60 EXTENDED MINI-AUDIT 2026-05-07 session 70)
 
 - **Confirmed:** **41** (was 39; **+2 promotions:** Pattern #45 Dual-Licensing under criterion 2 + Pattern #72 PolyForm-Family-License RENAME + criterion 4 promotion)
 - **Active candidates:** 17 (UNCHANGED post-audit)
