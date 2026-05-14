@@ -1,4 +1,4 @@
-## Active Candidates (19 — post-v63 mini-audit: -1 Pattern #21 promoted CONFIRMED via criterion #2 + 3 NEW top-level candidates registered (#74 EARS-Format Requirements + #75 External-IDE-Methodology Lineage Type + #76 Adversarial Subagent Review Architecture) = net +2 from 17 v60-baseline; ratio 19:42 = 0.452:1)
+## Active Candidates (26 — post-v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED CONFIRMED via criterion #2 with 78a + 78b sub-mechanisms + 5 NEW top-level candidates registered (#80 Tool-Level Adversarial Review N=2 + #81 Manifest-Drift-As-CI-Concern N=1 + #82 Gamified-Curated Community Contribution N=1 + #83 Honest-Deficiency-Disclosure Discipline N=2 + #84 Cross-Vendor Ecosystem-Tolerance N=2) = net +4 from 22 v65-baseline; Pattern #19 ecosystem-portfolio-builder formal sub-archetype with 19a/19b/19c/19d registered within already-CONFIRMED Pattern #19; ratio 26:43 = 0.605:1)
 
 #### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
 **Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
@@ -595,6 +595,128 @@ Original registration content (v32, preserved for history):
 **Rationale:** LLM-as-judge research is well-established (constitutional AI / red-teaming / autonomous evaluation); framework-level absorption is more recent. Stale-risk: may stay cc-sdd-specific if SDD methodology requires adversarial review but other agent frameworks remain cooperative. Watch for: any framework that ships explicit reviewer subagent as named role distinct from implementer.
 
 **2026-05-13 pilot v3.2 hireui evidence (3-of-3 passes complete; Session B vault sanity-check 2026-05-12 + Pass 3 numerical revisions 2026-05-13):** Tool-level adversarial review (BMAD's `bmad-review-adversarial-general` + codex-plugin-cc's `/codex:adversarial-review`) tested on real harness diff (62-file / 19-commit). Three passes: Pass 1 BMAD adversarial = 18 findings / 7 initial real bugs / CRITICAL ceiling; Pass 2 codex neutral = 2 findings / 0% BMAD overlap; Pass 3 codex adversarial = 17 findings / 44% BMAD overlap (8/18 any) / 9 codex-unique incl. **6 HIGH-severity real bugs at code-execution-trace layer BMAD missed**. **37 distinct findings; ~19 unique real bugs combined.** Pilot does NOT test framework-level architecture per Pattern #76 4-component definition — both tools score 0/4 full + 1/4 partial against (implementer + reviewer + auto-debug + completion-gate) primitives. Provides **STRONG Proposition C** evidence (tool-level adversarial has substantive independent value) but **does NOT satisfy promotion bar**. Pattern #76 remains N=1 (cc-sdd v61 baseline). **Framing-vs-tool decomposition (numerical, Pass 3 unblocked):** MIXED — framing dominates breadth (2→17 findings between Pass 2 and Pass 3; P2→HIGH severity ceiling), tool dominates depth-of-execution-trace (9 codex-unique HIGH real bugs even with framing matched to BMAD's adversarial mandate). Structural verdict (pilot scope ≠ pattern scope) UNCHANGED by numerical data. **Tool-level vs framework-level distinction worth registering separately:** propose at v66 mini-audit a NEW candidate **Pattern #79 Tool-Level Adversarial Review as Skill** with N=2 evidence already accumulated (BMAD + codex-plugin-cc). Pattern #76 stays NARROW to architectural-primitive framing to preserve distinctive claim. **Tooling adoption verdict (pilot v3.2 outcome):** KEEP BOTH BMAD + codex-plugin-cc adversarial-review tools as complementary stack (different lenses: spec/scope vs code-execution-trace); RETIRE codex neutral review (only 2 findings on substantive diff, not standalone-useful). **v66 audit watch-list:** (a) BMAD v11 FULL agent-system; (b) OpenHands v30 re-check; (c) any v62-v66 framework releases with named-role architecture; (d) cc-sdd v62+ evolution. v71 retire-check for Pattern #76 unchanged.
+
+---
+
+#### 🟡 #77 T1 Augmentation Domain-Vertical-Skill-Collection Sub-Archetype (NEW v64 wiki-ship — registered N=1 stale-risk-flagged)
+**Status at v64 wiki ship (2026-05-13):** Registered as candidate via claude-seo v64 first corpus T1 skill-collection scoped to a single domain vertical. **N=1 stale-risk-flagged at registration** per routine v2.1 N=1 stale-risk-flagging discipline.
+**Evidence:** v64 claude-seo only — 43 primitives (25 sub-skills + 18 sub-agents) all 100% SEO-domain-vertical scope. Distinct from existing T1 sub-archetypes: general-purpose multi-skill collection (mattpocock-skills v57 19 skills across coding/refactoring/git/etc.) / curated-meta aggregator (awesome-claude-skills v50) / corporate-curated collection (agent-skills-of-vercel v51) / single-artifact behavioral collection (karpathy-skills v63).
+**Formal statement (candidate):**
+> T1 Augmentation skill-collection where 100% of primitives are scoped to a single domain vertical, with cross-skill workflow chains within the vertical. Author or org explicitly identifies the vertical in README first paragraph; ≥10 primitives total.
+**Promotion criteria (5):**
+1. T1 Augmentation (Claude Code surface, skill collection function)
+2. ≥10 primitives
+3. 100% single-domain-vertical scope (no general-purpose mixing)
+4. Author/org explicitly identifies the vertical in README first paragraph
+5. Cross-skill workflow chains within the vertical
+**Required for promotion:** 2+ subjects with domain-vertical T1 skill-collection structure satisfying all 5 criteria.
+**Re-evaluation:** v67 stale-check / v72 retire-check.
+**Rationale:** Domain-vertical-specialization implies different go-to-market (target domain practitioners specifically), different community contribution discipline (claude-seo's Pro Hub Challenge specifically for SEO domain experts), different cross-product portfolio shape. Hypothetical un-stale candidates: `claude-legal` / `claude-medical` / `claude-finance` / `claude-sales` if published with 25+ vertical-scoped primitives. Stale-risk: may stay SEO-specific if domain-vertical T1 collections don't propagate to other verticals at meaningful scale.
+
+---
+
+#### ✅ #78 Living-Domain-Standards Tracking → PROMOTED at v66 EARLY mini-audit (CANDIDATE → CONFIRMED via criterion #2 structural-unambiguity-at-N=2 with 78a + 78b sub-mechanisms)
+**Status:** PROMOTED to CONFIRMED at v66 EARLY-OPERATOR-ELECTED mini-audit (2026-05-14). See Confirmed section in `_patterns/02b-confirmed-patterns-v42-plus.md` for full entry.
+**Status path:** v64 claude-seo registration N=1 stale-risk-flagged → **v65 claude-code-system-prompts N=2 evidence within 1 wiki (TIED FASTEST un-stale cycle in 65-wiki corpus history)** → **v66 mini-audit PROMOTE under criterion #2** with 78a multi-vendor-industry-domain-standards + 78b single-vendor-product-internals-archive registered as sub-mechanisms.
+**Status duration:** **1 wiki from N=1 stale-risk-flag to N=2 + 1 wiki from N=2 to promotion = 2 wikis total (FASTEST PROMOTION ARC in corpus history; vs prior fastest unknown — most promotions take 3-7 wikis from registration to promotion)**.
+**See full entry:** `_patterns/02b-confirmed-patterns-v42-plus.md` § "Promoted at v66 EARLY mini-audit (#78)".
+**See Phase 4b deliverable:** `03 Projects/claude-code-system-prompts - Beginner Analysis/01 Analysis/(C) Pattern-78 Living-Domain-Standards Tracking N=2 promotion proposal.md`.
+**Library-vocabulary item #10 evidence:** Pattern #78 is the second instance of 1-wiki Rapid-Pattern-Evolution at v64→v65 (sister to v62→v63 Pattern #76 1-wiki counter-evidence; N=2 evidence for vocabulary item).
+
+---
+
+#### 🟡 #79 Continuous-Reverse-Engineering Reference Archive (NEW v65 wiki-ship — registered N=1 stale-risk-flagged)
+**Status at v65 wiki ship (2026-05-13/14):** Registered as candidate via claude-code-system-prompts v65 first corpus continuous-reverse-engineering reference archive of closed-source agentic-AI product. **N=1 stale-risk-flagged at registration**.
+**Evidence:** v65 Piebald-AI/claude-code-system-prompts only — corporate-org maintains automated extraction script (`tools/updatePrompts.js` 19.5 KB JavaScript) that parses compiled `@anthropic-ai/claude-code` npm package and generates 293 system-prompt markdown files; updated within minutes of each Claude Code release; 211 KB CHANGELOG tracks 176 versions since v2.0.14 with per-version commit-hash + token-delta + per-prompt change description; quantified accuracy disclosure (±20 tokens tolerance from runtime values); explicit "Maintained by Piebald AI, not by Anthropic" disclosure; Anthropic apparent tolerance (no DMCA/cease-and-desist despite 10,176 stars + competitive context). Sister-related to v21 system-prompts-leaks (Pattern #21 N=1 baseline; one-time leak archive) but **fundamentally distinct mechanism**: v21 was one-time exfiltration; v65 is continuous-extraction with automated tooling + per-release update cadence.
+**Formal statement (candidate):**
+> Third-party (non-vendor) corporate-org or individual maintains continuously-updated reference archive of closed-source agentic-AI product's internal artifacts (system prompts / tool descriptions / agent specifications / etc.) via automated extraction from compiled binary/source distribution. Continuous-versioning per upstream release cadence (within-minutes or within-hours latency). Quantified accuracy disclosure. Distinct from one-time leaks (Pattern #21) and from vendor-published documentation. Reflects emerging agentic-AI ecosystem culture of corporate-tolerated reverse-engineering at sub-DMCA threshold.
+**Promotion criteria (3):**
+1. Third-party (NOT the vendor itself) authoring the archive
+2. Continuous-versioning discipline per upstream release (latency disclosed; typically minutes to hours)
+3. Extraction-from-compiled-source methodology (not vendor cooperation; not leaked credentials)
+**Required for promotion:** 2+ subjects with continuous-reverse-engineering reference archives matching all 3 criteria.
+**Re-evaluation:** v68 stale-check / v73 retire-check.
+**Rationale:** Multiple closed-source agentic-AI products exist (Claude Code / Cursor / Windsurf / GitHub Copilot Workspace / Codex CLI / etc.). v65 is the first corpus evidence of continuous-reverse-engineering reference archive at corporate-org scale with quantified accuracy + within-minutes update cadence. Hypothetical un-stale candidates: third-party Cursor system-prompt archive / third-party Codex CLI system-prompt archive / third-party Windsurf reference archive. Stale-risk: pattern may stay Claude-Code-specific if other closed-source agentic-AI products don't attract similar archive efforts (depends on vendor tolerance + market interest). Distinct from Pattern #21 System Prompts Leaks (one-time exfiltration mechanism) AND from vendor-published reference docs (Pattern #78 78b sub-mechanism — Pattern #78 is about TRACKING discipline; Pattern #79 is about EXTRACTION methodology).
+
+---
+
+#### 🟡 #80 Tool-Level Adversarial Review as Skill (NEW v66 EARLY mini-audit — registered N=2 stale-risk-flagged)
+**Status at v66 EARLY mini-audit (2026-05-14):** Registered as candidate via pilot v3.2 hireui adversarial-review evidence (2026-05-13 ship, 3-of-3 passes complete). **N=2 stale-risk-flagged at registration** — distinct from Pattern #76 Adversarial Subagent Review Architecture at Framework Level (Pattern #76 is architectural-primitive framework-level; Pattern #80 is tool-level skill-distribution at single-skill or skill-pair scale).
+**Evidence:** v11 BMAD `bmad-review-adversarial-general` skill (Method team framework-level architecture absorbed) + v62 codex-plugin-cc `/codex:adversarial-review` slash command (Stratum B prompt-framing variant of v61 cc-sdd Stratum A architectural). Both tested empirically in pilot v3.2 hireui (62-file / 19-commit harness): BMAD = 18 findings / 7 real bugs / CRITICAL ceiling; codex adversarial = 17 findings / 6 unique HIGH-severity bugs at code-execution-trace layer BMAD missed; 44% overlap; complementary lens (BMAD spec/scope + codex code-execution-trace).
+**Formal statement (candidate):**
+> Adversarial-review discipline ships as standalone skill/command (single-skill scope or skill-pair scope) rather than as full framework with named-role primitives (implementer + reviewer + auto-debug + completion-gate). Tool-level adversarial discipline produces substantive findings independently of framework architecture, validated empirically by 2-tool complementary stack with ~44% overlap rate. Distinct from Pattern #76 (framework-level architectural-primitive) by absence of named-role separation; same review function via different mechanism strata.
+**Promotion criteria (3):**
+1. Tool ships adversarial-review as standalone skill or command (not full framework architecture)
+2. Adversarial framing produces measurably distinct findings vs neutral framing (validated empirically, not just stated)
+3. Tool composes with at least one other adversarial-review tool with low-overlap complementary findings (or N≥3 standalone evidence)
+**Required for promotion:** 3+ subjects with tool-level adversarial-review pattern (current 2 + 1 more).
+**Re-evaluation:** v68 stale-check / v71 retire-check.
+**Rationale:** Pilot v3.2 STRONG Proposition C evidence that tool-level adversarial-review has substantive independent value (not just framework-level). Pattern #76 stays NARROW to architectural-primitive framework-level claim; Pattern #80 captures tool-level discipline as separate observation. 2 distinct mechanism strata within same review function. Stale-risk: pattern may merge with #76 if framework-vs-tool distinction proves operationally irrelevant at next pilot iteration; preserve as separate observation until 3rd tool-level evidence emerges OR framework-level Pattern #76 reaches promotion-readiness with explicit tool-level exclusion.
+**Cross-reference:** Pattern #76 Adversarial Subagent Review Architecture at Framework Level (CANDIDATE N=1 stale-risk-flagged v63; remains N=1 with cc-sdd v61 baseline — pilot v3.2 numerical data MIXED on framing-vs-tool but pilot scope ≠ Pattern #76 4-component definition, so Pattern #76 cannot be strengthened by tool-level evidence). Pattern #80 is SISTER candidate, not absorption candidate.
+
+---
+
+#### 🟡 #81 Manifest-Drift-As-First-Class-CI-Concern (NEW v66 EARLY mini-audit — registered N=1 stale-risk-flagged)
+**Status at v66 EARLY mini-audit (2026-05-14):** Registered as candidate via claude-seo v64 manifest-drift CI discipline observation. **N=1 stale-risk-flagged at registration** — observational only at v64; formal candidate-registration deferred to v66 audit.
+**Evidence:** v64 claude-seo only — atomic version-bump CI assertion across 5 version-source files (README.md / package.json / CHANGELOG.md / install scripts / etc.) with 13 explicit drift-detection assertions; CI fails the PR if any version-source diverges from canonical version. Strongest single-release manifest-discipline observation in 64-wiki corpus.
+**Formal statement (candidate):**
+> Framework treats version-string drift across multiple file locations as a first-class CI concern with explicit assertion-based validation. Drift between README badge version, package manifest version, CHANGELOG header version, install-script pinned version, etc. is mechanically detected and PR-blocked rather than relying on author discipline.
+**Promotion criteria (3):**
+1. CI explicitly asserts version-string consistency across ≥3 file locations
+2. Drift causes mechanical PR-block (not just warning)
+3. Framework documents this as discipline (CONTRIBUTING.md or similar) rather than incidental check
+**Required for promotion:** 2+ frameworks with manifest-drift CI discipline.
+**Re-evaluation:** v69 stale-check / v74 retire-check.
+**Rationale:** Most frameworks rely on author discipline + occasional manual sweeps for version-string consistency. claude-seo's mechanical CI assertion is operationally distinctive. Hypothetical un-stale candidates: framework with strict semver-validation CI / framework with manifest-snapshot-comparison hook / framework with explicit drift-test in test-suite. Stale-risk: may stay claude-seo-specific if other frameworks treat manifest-drift as soft concern.
+**Cross-reference:** Pattern #14 RELEASE.md Discipline (deferred / observational status); Pattern #67 CI-as-Documentation (CONFIRMED v32+).
+
+---
+
+#### 🟡 #82 Gamified-Curated Community Contribution (NEW v66 EARLY mini-audit — registered N=1 stale-risk-flagged)
+**Status at v66 EARLY mini-audit (2026-05-14):** Registered as candidate via claude-seo v64 "Pro Hub Challenge" community-contribution model observation. **N=1 stale-risk-flagged at registration**.
+**Evidence:** v64 claude-seo only — community contributions arrive via "Pro Hub Challenge" gamified review process (v1.9.0 release notes acknowledge ~10 community PRs absorbed via this mechanism); explicit named-contributors list per release; contribution-to-feature attribution discipline.
+**Formal statement (candidate):**
+> Open-source framework structures community contribution as gamified curated challenge rather than open-PR free-for-all. Contributions accepted via named challenge program with explicit attribution + curated merge process. Distinct from contributor-recognition (passive) and from bounty programs (transactional) — community contribution becomes a structured engagement loop.
+**Promotion criteria (3):**
+1. Named community-contribution program (not just CONTRIBUTING.md)
+2. Curated merge process (not open PR-anyone-can-submit)
+3. Explicit attribution per release (not anonymous aggregate)
+**Required for promotion:** 2+ frameworks with gamified curated community-contribution program.
+**Re-evaluation:** v69 stale-check / v74 retire-check.
+**Rationale:** Most frameworks default to open-PR or maintain a contributor list passively. Pro Hub Challenge is structured engagement loop. Hypothetical un-stale candidates: framework with named monthly-challenge / framework with seasonal-contribution-program / framework with explicit named-PR-curation process. Stale-risk: may stay claude-seo-specific if other frameworks don't adopt gamified curation.
+**Cross-reference:** Pattern #27 Community-Viral Scale Path (CONFIRMED) — Pattern #82 is contribution-engagement mechanism, Pattern #27 is discovery-scale mechanism; orthogonal.
+
+---
+
+#### 🟡 #83 Honest-Deficiency-Disclosure Discipline (NEW v66 EARLY mini-audit — registered N=2 stale-risk-flagged)
+**Status at v66 EARLY mini-audit (2026-05-14):** Registered as candidate via v64 + v65 cross-wiki observation. **N=2 stale-risk-flagged at registration**.
+**Evidence:** v64 claude-seo (v1.9.6 release notes explicitly disclose 10 named VULN fixes with severity tags + acknowledgment of prior exposure period — does NOT minimize the disclosure) + v65 claude-code-system-prompts (CHANGELOG explicitly discloses 49 "no-change placeholder" versions as honest version-tracking artifact + 10,176-star README discloses "±20 tokens tolerance from runtime" accuracy limit explicitly + "Maintained by Piebald AI, not by Anthropic" disclaimer); both subjects disclose deficiencies that competitors typically obscure.
+**Formal statement (candidate):**
+> Framework or reference archive explicitly discloses limitations, accuracy boundaries, prior security exposure periods, or methodology gaps in user-facing surface (README / CHANGELOG / release notes) rather than minimizing or obscuring. Distinct from formal anti-vibe discipline (Pattern #51) — Pattern #51 is upfront-positioning; Pattern #83 is ongoing-disclosure of specific deficiencies.
+**Promotion criteria (3):**
+1. Explicit numerical or categorical deficiency disclosure (not just generic "limitations" section)
+2. User-facing surface (README + CHANGELOG + release notes), not buried in docs
+3. Does NOT minimize or normalize the deficiency (e.g., "yeah we exposed VULNs for 2 weeks before patching" rather than "minor security update")
+**Required for promotion:** 3+ subjects with honest-deficiency-disclosure discipline.
+**Re-evaluation:** v68 stale-check / v73 retire-check.
+**Rationale:** Most frameworks default to marketing-tone disclosure (minimize / normalize / aggregate). v64 + v65 both demonstrate disclosure-forward discipline. Hypothetical un-stale candidates: framework with named-CVE-disclosure-policy / framework explicit accuracy-tolerance in claims / framework explicit methodology-limitations in CHANGELOG. Stale-risk: pattern may correlate with specific archetypes (security-focused solo or reverse-engineering archive) rather than generalize.
+**Cross-reference:** Pattern #51 Vibe-Adjacent Positioning Spectrum (CONFIRMED; anti-vibe sub-pole). Pattern #83 is disclosure-discipline subset/sister, not absorbed.
+
+---
+
+#### 🟡 #84 Cross-Vendor Ecosystem-Tolerance (NEW v66 EARLY mini-audit — registered N=2 stale-risk-flagged)
+**Status at v66 EARLY mini-audit (2026-05-14):** Registered as candidate via v62 + v65 cross-wiki observation. **N=2 stale-risk-flagged at registration**.
+**Evidence:** v62 codex-plugin-cc (OpenAI publishes Apache-2.0 plugin FOR Anthropic Claude Code rival platform — vendor-vendor cooperation across competitive boundary) + v65 claude-code-system-prompts (Piebald-AI publishes continuous-reverse-engineering archive of Anthropic Claude Code internals; Anthropic apparent tolerance with no DMCA/cease-and-desist despite competitive context + 10,176 stars). Both observations reflect emerging norm: agentic-AI vendors tolerate third-party + competitor-published artifacts that competing platforms would historically have legally challenged.
+**Formal statement (candidate):**
+> Agentic-AI ecosystem operates under emerging norm of cross-vendor tolerance for competitor-published or third-party-published artifacts (plugins for rival platforms; reverse-engineering reference archives; cross-platform compatibility shims). Distinct from formal open-source-permissiveness — observation is about vendor-business-decision-not-to-challenge rather than license-grant. Reflects ecosystem maturity stage where vendor-lock concerns yield to ecosystem-growth incentives.
+**Promotion criteria (3):**
+1. Cross-vendor cooperation OR vendor-apparent-tolerance of third-party reverse-engineering at substantial scale (1K+ stars / corporate-org / commercial-relevant)
+2. Sub-DMCA threshold maintained despite competitive context (no legal challenge documented)
+3. Not explicit open-source license-grant — the relevant artifact is competitor-published or unauthorized but tolerated
+**Required for promotion:** 3+ subjects with cross-vendor ecosystem-tolerance evidence.
+**Re-evaluation:** v68 stale-check / v73 retire-check.
+**Rationale:** v62 + v65 both demonstrate emergent ecosystem norm. Sister observations include public commentary about Claude Code skill format inspiring Cursor skill format (cross-platform spec convergence) and OpenAI Codex CLI accepting Anthropic-format skills via translation layer. Hypothetical un-stale candidates: similar plugin-for-rival-platform observation at a 3rd vendor / similar tolerance observation at a 3rd platform / explicit cross-vendor cooperation agreement. Stale-risk: pattern may invert if a vendor begins enforcement actions (DMCA-takedown of reverse-engineering archive would be counter-evidence).
+**Cross-reference:** Pattern #18 Cross-IDE-Coexistence (CONFIRMED) — Pattern #84 is vendor-business-decision layer; Pattern #18 is product-design layer. Orthogonal.
 
 ---
 

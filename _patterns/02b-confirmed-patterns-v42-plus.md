@@ -865,3 +865,63 @@ Prior 5 structural-promotion criteria in library:
 
 ---
 
+### Promoted at v66 EARLY mini-audit (#78)
+
+#### ✅ #78 Living-Domain-Standards Tracking (PROMOTED v66 EARLY-OPERATOR-ELECTED mini-audit under criterion #2 structural-unambiguity-at-N=2 with 78a + 78b sub-mechanisms)
+**Status at v66 EARLY-OPERATOR-ELECTED mini-audit (2026-05-14):** PROMOTED to CONFIRMED via criterion #2 (structural-unambiguity-at-N=2). **FASTEST PROMOTION ARC in corpus history at 2 wikis** (v64 candidate-registration N=1 stale-risk-flag → v65 N=2 evidence within 1 wiki → v66 EARLY mini-audit promotion within 1 wiki of N=2). **TIED-FASTEST 1-wiki un-stale cycle in corpus history with v62→v63 Pattern #76 1-wiki counter-evidence (Library-vocabulary item #10 evidence).**
+
+**Status history:**
+- v64 claude-seo wiki ship → candidate registration N=1 stale-risk-flagged (Agrici Daniel SEO-domain external-authority standards tracker with deprecation-aware schemas; 8 dated deprecation events + 4+ versioned external authority citations + CHANGELOG-as-absorption-ledger)
+- v65 claude-code-system-prompts wiki ship → N=2 evidence within 1 wiki (Piebald-AI single-vendor-product-internals archive: 211 KB CHANGELOG / 1,896 lines / 176 versions since v2.0.14 with per-version commit-hash + token-delta + per-prompt change-description; updated within minutes of each Claude Code release)
+- **v66 EARLY-OPERATOR-ELECTED mini-audit (this entry) → PROMOTE under criterion #2** with 78a + 78b registered as sub-mechanisms within confirmed Pattern #78
+
+**Evidence at N=2 across 2 maximally-distinct sub-mechanisms:**
+
+| # | Wiki | Sub-mechanism | Tier | Author archetype | Authority type | CHANGELOG scope |
+|---|------|---------------|------|------------------|----------------|----------------|
+| 78a | v64 claude-seo | **multi-vendor-industry-domain-standards** | T1 | Solo-individual (AgriciDaniel) | 4+ distinct authorities (Google QRG + Schema.org + CWV + ISO) | Release notes per version (8 dated deprecation events) |
+| 78b | v65 claude-code-system-prompts | **single-vendor-product-internals-archive** | T1 NEW sub-archetype (reverse-engineering reference archive) | Corporate-org (Piebald-AI) | Single-vendor (Anthropic Claude Code only) | 211 KB / 1,896 lines / 176 versions / per-prompt change-description |
+
+**10-axis structural distinction between 78a + 78b confirms non-coincidental sub-mechanisms:**
+
+| Axis | 78a multi-vendor-industry-domain | 78b single-vendor-product-internals |
+|------|----------------------------------|-------------------------------------|
+| 1. Authority type | Multi-source industry domain | Single-vendor product |
+| 2. Cardinality | 4+ distinct authoritative sources | 1 vendor product |
+| 3. Tracking granularity | Per-release notes | Per-version commit-hash + token-delta + per-prompt change-description |
+| 4. Version cadence | Yearly+ (Google QRG / Schema.org major releases) | Within-minutes-to-hours per Claude Code release |
+| 5. Absorption mechanism | CHANGELOG-as-absorption-ledger | Automated extraction script (`tools/updatePrompts.js`) |
+| 6. Reverse-engineering requirement | NO — external standards are public | YES — vendor source artifacts extracted from compiled distribution |
+| 7. Vendor relationship | Tracks-external-authorities | Tracks-vendor-internals (sub-DMCA tolerance) |
+| 8. Author archetype | Solo-individual + AI Workflow Architect | Corporate-org + commercial agentic-IDE company |
+| 9. CHANGELOG size | ~moderate (release-note tier) | 211 KB / 1,896 lines (archive-tier) |
+| 10. Granularity per change | Standards-version + deprecation-event | Per-prompt + token-delta + per-version |
+
+**Formal statement (promoted):**
+> Frameworks or reference archives codify continuously-evolving external authority standards via explicit deprecation-aware schemas + dated standards-version tracking — distinct from coding-methodology codification (Pattern #21 SDD), distinct from progressive disclosure (Pattern #28 LOAD-vs-TRACK), distinct from one-time leak archives (Pattern #21 System Prompts Leaks). Two sub-mechanisms emerge at N=2 with maximally-distinct structural axes:
+>
+> - **78a multi-vendor-industry-domain-standards** — tracks 3+ distinct authoritative sources at industry-domain level (regulatory + standards-body + measurement-framework + ISO-style codes) with CHANGELOG-as-absorption-ledger discipline. Per-release notes track which external standard moved when. Example: SEO domain tracking Google Quality Rater Guidelines + Schema.org + Core Web Vitals + ISO country codes.
+>
+> - **78b single-vendor-product-internals-archive** — tracks a single closed-source product's internal artifacts via continuous-reverse-engineering with automated extraction + per-release update cadence. Per-version commit-hash + token-delta + per-prompt change-description granularity. Example: continuous archive of Claude Code system prompts with within-minutes update cadence.
+>
+> The agent or archive INTERNALIZES the external standards' (or product internals') versioning system rather than reasoning from a frozen snapshot. Sub-mechanism choice correlates with author archetype + competitive-context: 78a aligns with solo-individual + multi-vendor-industry tracking; 78b aligns with corporate-org + single-vendor-product-internals via competitor-tolerated reverse-engineering.
+
+**Cross-references:**
+- Pattern #19 Intellectual-Lineage-Archetypes — ecosystem-portfolio-builder sub-archetype (PROMOTED at v66 EARLY mini-audit) includes both 78a author AgriciDaniel and 78b author Piebald-AI as portfolio-builder examples; sister within Pattern #19 family
+- Pattern #21 System Prompts Leaks (CONFIRMED v63) — Pattern #78 78b mechanism is distinct from Pattern #21 (one-time exfiltration); Pattern #78 78b is continuous-extraction with automated tooling
+- Pattern #28 Multi-Provider AI Support — distinct: Pattern #28 is LOAD-vs-RUN-with-multi-providers; Pattern #78 is TRACK-external-versions discipline
+- Pattern #57 Recursive Corpus Reference (CONFIRMED v50) — 57c-product sub-variant registered at v66 EARLY mini-audit captures Claude Code product becoming corpus-foundation-PRODUCT inheritance; reinforces Pattern #78 78b authority pattern at meta-level
+- Pattern #66 Supply-Chain (OT) — meta-supply-chain-awareness sub-category registered at v66 EARLY mini-audit captures the supply-chain-awareness layer of vendor-product-internals tracking; orthogonal to Pattern #78 (Pattern #66 is supply-chain mechanism; Pattern #78 is standards-tracking discipline)
+- Pattern #79 Continuous-Reverse-Engineering Reference Archive (CANDIDATE N=1 stale-risk-flagged v65) — distinct EXTRACTION methodology, NOT promoted with Pattern #78; Pattern #79 captures the methodology of building the archive; Pattern #78 78b captures the standards-tracking discipline applied via that methodology
+
+**Confidence:** High. N=2 with maximally-distinct structural axes (10-axis differentiation between sub-mechanisms). Formal statement structurally-coherent. Sub-mechanism registration at promotion (78a + 78b) per routine v2.2 discipline; stale-checks scheduled at v67 (+2 wikis from promotion).
+
+**Stale-risk-flag (post-promotion observational watch):**
+- **78a multi-vendor-industry-domain-standards** sub-mechanism — N=1 within Pattern #78; v67 stale-check for 2nd 78a-shape subject (medical-coding skill tracking ICD-10/ICD-11 / GDPR-compliance agent tracking case-law / financial-reporting agent tracking GAAP/IFRS / etc.). Risk: 78a may stay SEO-domain-specific.
+- **78b single-vendor-product-internals-archive** sub-mechanism — N=1 within Pattern #78; v67 stale-check for 2nd 78b-shape subject (third-party Cursor system-prompt archive / third-party Codex CLI system-prompt archive / third-party Windsurf reference archive). Risk: 78b may stay Claude-Code-specific.
+- **Sub-mechanism reorganization at v68-v69:** If 78a OR 78b fails to reach N=2 within 4 wikis post-promotion, reformulate Pattern #78 to retain only the strengthening sub-mechanism + retire the other to observational status.
+
+**Library-vocabulary item #10 evidence (1-wiki Rapid-Pattern-Evolution):** Pattern #78 1-wiki un-stale cycle (v64→v65) is the SECOND instance of 1-wiki pattern evolution in corpus history (after v62→v63 Pattern #76 1-wiki counter-evidence cycle). N=2 evidence for Library-vocabulary item #10 codified at routine v2.2.
+
+---
+

@@ -648,3 +648,222 @@ v60 PASS + v61 PASS + v62 PASS + v63 PASS = **4-consecutive streak**.
 ### Next natural-cadence trigger (post-v63 wiki ship)
 
 Candidate count ≥30 (currently 19; **11-candidate runway PRESERVED**) OR v66 wiki natural cadence (+3 wikis from v63) OR ratio >0.95:1 mini / >1.05:1 full (currently 0.452:1 with 0.498 buffer — still very healthy; ratio-trigger remains unlikely soon).
+
+---
+
+## Post-v64 strengthening notes (claude-seo wiki, 2026-05-13 session 73+)
+
+**State preserved post-v64**: 42 confirmed + **21 active** (was 19; **+2 NEW top-level candidates** registered at v64) + 1 stale + 9 retired + 6 OT = **77 full / 63 active**. Ratio **21:42 = 0.500:1** (was 0.452:1; +0.048 from 2 NEW candidates). Buffer **0.450 below 0.95:1 mini-trigger** (still healthy; preserves sub-0.55 zone since v60).
+
+**Subject**: `AgriciDaniel/claude-seo` v1.9.9 — Universal SEO Skill for Claude Code. 43 primitives (25 sub-skills + 18 sub-agents). 5-platform reach (Claude Code / Cursor / Cursor Cloud / Antigravity / Gemini CLI) + 1 sister-port (codex-seo). 5-product portfolio (claude-seo + claude-blog + banana-claude + codex-seo + FLOW). 6,494 stars / 993 forks / ~95 days = ~68 stars/day (medium-high engagement; below Pattern #52 threshold).
+
+**Storm Bear meta-entity Phase 0.9 STRICT — 2ND SKIP IN POST-AMENDMENT WINDOW.** v64 = 0-of-4 strong PASS + 2-of-4 WEAK (SEO domain not vault-relevant per Goal #2; no in-corpus references). **Streak resets 4 → 0**. **9-instance post-amendment window v56-v64: 77.8% INCLUDE rate (7 PASS / 2 SKIP)** — STRICT calibration appropriately rejects non-operational subjects.
+
+### Within-pattern strengthenings (no status changes — do NOT add candidate count)
+
+- **Pattern #19 ecosystem-portfolio-builder sub-type N=3 cross-archetype strengthening — PROMOTION-ELIGIBLE at v66 (PRIMARY)** — gotalab v61 (4-product Japanese SDD vertical) + forrestchang v63 (2-product viral+commercial) + **AgriciDaniel v64 (5-product SEO-vertical + cross-vendor port + dual-license)** = **3 distinct portfolio shapes across 3 distinct author archetypes**. Strongest possible structural-diversity-at-N=3 evidence. Promotion proposal document at `03 Projects/claude-seo - Beginner Analysis/01 Analysis/(C) Pattern-19 ecosystem-portfolio-builder N=3 promotion proposal.md`. Potential 19a/19b/19c sub-taxonomy deliberation deferred to v69 (after N=4+).
+- **Pattern #18 Layer 1 cross-IDE-coexistence at 5-platform scale strengthening — NEW sub-archetype "shared-skill-content-with-per-platform-dispatch-file"** — CLAUDE.md (210 lines Claude Code only) + AGENTS.md (126 lines for Cursor / Cursor Cloud / Antigravity / Gemini CLI) split discipline. Skill SKILL.md content shared platform-agnostic; HOW-to-invoke per-platform in dispatch file. Largest single Layer 1 mechanism (5 platforms). Sub-archetype consolidation candidate at v66.
+- **Pattern #18 Layer 2 NEW sub-archetype candidate "solo-author-cross-vendor-parallel-port-as-separate-repo" N=1 stale-flagged** — codex-seo sister-port to claude-seo (Agrici Daniel maintains both; no translation layer; TOML agents + deterministic runners + Codex plugin packaging vs Markdown + Anthropic spec). Distinct from runtime translation (v60 free-claude-code) / install-time translation (v61 cc-sdd) / cross-vendor bridge-as-plugin (v62 codex-plugin-cc). Un-stale criterion: 2nd subject with solo-author cross-vendor parallel-port arrangement. Re-evaluate v67.
+- **Pattern #28 Progressive Disclosure across 4 dimensions strengthening — NEW sub-variant "credential-tier-progressive-disclosure" candidate** — claude-seo's 4-tier Google credential model (Tier 0 API-key → Tier 1 +OAuth → Tier 2 +GA4 → Tier 3 +Ads); user gets value at Tier 0 without setup friction. Distinct from documentation/code progressive disclosure. v66 deliberation: register as Pattern #28 sub-variant?
+- **Pattern #59 Claude Code Plugin Marketplace at high-engagement-solo-individual scale strengthening** — 6.5K stars + 15.3% fork ratio + 5 platforms + 26 commands at solo-individual scale. Sub-variant: solo-individual with medium-high engagement (~68 stars/day below Pattern #52 EXTREME-VIRAL 300+/day threshold). Distinct from EXTREME-VIRAL (mattpocock + karpathy + codex-plugin-cc) AND from corporate-scale (codex-plugin-cc).
+- **Pattern #52 EXTREME-VIRAL counter-evidence** — claude-seo NOT extreme-viral (~68 stars/day in same observation window as karpathy-skills 102 days at ~1186/day and codex-plugin-cc 21 days at ~847/day). Useful negative-control: claude-seo NOT in any 52a/52b/52c sub-archetype. Strengthens Pattern #52 specificity (not over-broad).
+
+### NEW top-level candidate registrations (+2 to active count)
+
+- **NEW T1 sub-archetype: domain-vertical-skill-collection N=1 stale-flagged at v64** — First SEO-vertical T1 collection in corpus. 43 primitives all 100% SEO-domain. Distinct from general-purpose mattpocock-skills v57 / curated-meta awesome-claude-skills v50 / corporate-curated agent-skills-of-vercel v51 / single-artifact karpathy-skills v63. Criteria: (1) T1 Augmentation, (2) ≥10 primitives, (3) 100% single-domain-vertical scope, (4) Author/org explicitly identifies vertical in README first paragraph, (5) Cross-skill workflow chains within vertical. Un-stale criterion: 2nd domain-vertical T1 (e.g., claude-legal / claude-medical / claude-finance). Re-evaluate v67.
+- **NEW Pattern: Living-Domain-Standards Tracking N=1 stale-flagged at v64** — Agents codify external-authority quality-criteria with explicit deprecation-aware schemas + dated standards-version tracking. Criteria: (1) explicit external-authority + date citation, (2) deprecation-tracking discipline, (3) versioned absorption ledger. Evidence: 8 deprecation events with specific dates (HowTo Sept 2023 / FAQ Aug 2023 / SpecialAnnouncement July 2025 / FID→INP March 12 2024 / etc.) + Quality Rater Guidelines Sept 2025 / Schema.org v29.4 + ClaimReview + VehicleListing deprecations / E-E-A-T December 2025 core update. CHANGELOG-as-absorption-ledger discipline. Strongest external-authority tracker observed in corpus. Distinct from coding-methodology codification (Pattern #21 SDD). Un-stale criterion: 2nd subject satisfying all 3 criteria. Re-evaluate v67.
+
+### Observational candidates (NOT formal registrations at v64 — deferred to v66 deliberation)
+
+- **Manifest-Drift-As-First-Class-CI-Concern (observational)** — 5-version-source atomic-bump CI discipline with 13 assertions at claude-seo v1.9.9. Evolution: v1.8.1 first drift noted → v1.9.7 second drift → v1.9.8 first test suite → v1.9.9 13 assertions. Strongest manifest-consistency observed. v66 deliberation: register as top-level candidate?
+- **Self-Marketing Release Pipeline as Plugin Meta-Command (observational)** — claude-seo `/release-blog` slash command auto-publishes to claude-seo.md/blog with full SEO+indexing pipeline. Sister to oh-my-claudecode v27 mini-blog but higher automation (cover image / SEO metadata / FAQ schema / internal linking / sitemap+llms.txt / Vercel deploy / Google indexing). v66 deliberation.
+- **Gamified-Curated Community Contribution Mechanism (observational)** — Pro Hub Challenge v1.9.0 ran by AI Marketing Hub: named winner Lutfiya Miller + 4 named co-contributors + explicit "5/6 submissions scored Proficient or above" quality bar. Distinct from awesome-claude-skills v50 open-curation vs mattpocock v57 solo-author. v66 deliberation.
+- **Honest-Deficiency-Disclosure Discipline (observational)** — claude-seo README "Limitations" proactively discloses SPA/CSR + links to v2.0 epic; CHANGELOG v1.9.9 has explicit compatibility/migration section calling out third-party index-coupling risk; v2 deferrals explicit 6-item list. Corpus-rare honest disclosure. v66 deliberation.
+
+### v64 wiki-ship state changes summary
+
+- Confirmed patterns: 42 → 42 (no promotions at v64 ship; v66 will deliberate Pattern #19 ecosystem-portfolio-builder PROMOTION)
+- Active candidates: **19 → 21** (+2 NEW top-level: T1 domain-vertical + Living-Domain-Standards)
+- Stale candidates: 1 → 1 (Pattern #52 OBSERVATIONAL FLAG preserved)
+- Ratio: **0.452:1 → 0.500:1** (+0.048; still healthy in sub-0.55 zone since v60)
+- Routine v2.2 codification candidates: **25 → 29 accumulated** (+4 from v64 — see below; codification urgency ESCALATES)
+- Storm Bear meta-entity Phase 0.9: streak 4 → 0 RESET (v64 SKIP)
+
+### Routine v2.2 codification candidates (NEW from v64 ship; +4)
+
+1. **Phase 4b PRIMARY routing discipline** — when wiki ship has clear PRIMARY Pattern Library implication (e.g., promotion-eligible candidate), structure Phase 3 entity pages around it as PRIMARY deliverable. v64 demonstrated: Entity 2 was the v64 PRIMARY (Pattern #19 N=3 promotion). Pre-register at Phase 0 classification, not retroactively recognize at Phase 4.
+2. **NEW Pattern candidate proposal-document discipline** — when Phase 4b generates NEW top-level candidate(s), draft formal proposal-document at `01 Analysis/` for v66 audit deliberation (not just append to `05-recent-additions.md`). v64 demonstrated Pattern #19 N=3 promotion proposal as exemplar.
+3. **Phase 0.9 SKIP entity slot reallocation discipline** — when Phase 0.9 STRICT yields SKIP, formally reallocate the 4th entity slot to Pattern Library implications (NOT leave entity count at 3). v64 reallocation: Entity 4 = multi-platform + Pattern Library implications package (consolidates implications that would otherwise scatter).
+4. **Living-domain-standards-tracking as Phase 0 axis** — add to 12-axis classification: "Does the subject codify external authoritative standards with versioned/deprecation-aware discipline?" Captures the Living-Domain-Standards mechanism without requiring it to surface as a Pattern Library implication every time.
+
+### v66 mini-audit pre-registered items from v64 wiki ship (added to v63-EARLY-AUDIT + v63 wiki-ship carry-forward)
+
+1. **Pattern #19 ecosystem-portfolio-builder N=3 PROMOTION deliberation (PRIMARY)** — proposal document `03 Projects/claude-seo - Beginner Analysis/01 Analysis/(C) Pattern-19 ecosystem-portfolio-builder N=3 promotion proposal.md`
+2. **Pattern #18 Layer 1 sub-archetype consolidation** — "shared-skill-content-with-per-platform-dispatch-file" at 5-platform scale
+3. **Pattern #18 Layer 2 NEW sub-archetype** — solo-author-cross-vendor-parallel-port-as-separate-repo stale-check (un-stale via N=2)
+4. **Pattern #28 credential-tier-progressive-disclosure sub-variant** consideration
+5. **NEW T1 domain-vertical-skill-collection** stale-check (un-stale via N=2)
+6. **NEW Living-Domain-Standards Tracking** stale-check (un-stale via N=2)
+7. **Manifest-Drift-As-First-Class-CI-Concern** observational → candidate consideration
+8. **Self-Marketing Release Pipeline Meta-Command** observational → candidate consideration
+9. **Gamified-Curated Community Contribution** observational → candidate consideration
+10. **Honest-Deficiency-Disclosure** observational → candidate consideration
+
+**Combined v66 audit agenda with v63 EARLY-AUDIT + v63 wiki-ship + v64 wiki-ship carry-forward**: ~**24+ items** (was 19 pre-v64; +10 v64 items; -several overlap with earlier carry-forward). **Routine v2.2 codification URGENCY ESCALATES at v65 window — 29 candidates accumulated** (was 25 pre-v64; +4 v64). Continue routine v2.2 codification at v65 mini-audit if natural cadence triggers.
+
+### Next natural-cadence trigger (post-v64 wiki ship)
+
+Candidate count ≥30 (currently **21**; **9-candidate runway** — narrowed from 11 by +2 v64 candidates) OR **v66 wiki natural cadence (+2 wikis from v64)** OR ratio >0.95:1 mini / >1.05:1 full (currently 0.500:1 with 0.450 buffer — still very healthy).
+
+**v66 mini-audit ARMED at natural cadence:** ~24+ item agenda accumulated v60-v64; **routine v2.2 codification URGENT (29 candidates)**; Pattern #19 ecosystem-portfolio-builder PROMOTION-ELIGIBLE as PRIMARY v66 deliberation item.
+
+---
+
+## Post-v65 strengthening notes (claude-code-system-prompts wiki, 2026-05-13 → 2026-05-14)
+
+**State preserved post-v65**: 42 confirmed + **22 active** (was 21; **+1 NEW top-level candidate at v65**: Pattern #79 Continuous-Reverse-Engineering Reference Archive) + 1 stale + 9 retired + 6 OT = **78 full / 64 active**. Ratio **22:42 = 0.524:1** (was 0.500:1; +0.024 from 1 NEW candidate). Buffer **0.426 below 0.95:1 mini-trigger** (still healthy in sub-0.55 zone since v60).
+
+**Subject**: `Piebald-AI/claude-code-system-prompts` — third-party reverse-engineering reference archive of Claude Code's 110+ system prompts. 293 system-prompt files / 211 KB CHANGELOG / 176 versions tracked since v2.0.14. 10,176 stars / 1,811 forks / **17.8% fork ratio = corpus-record active-deployment intent** (exceeds claude-seo v64 15.3%). ~57.8 stars/day (below Pattern #52 EXTREME-VIRAL threshold). Corporate-org Piebald-AI building commercial Piebald agentic IDE at piebald.ai. Updated within minutes of each Claude Code release.
+
+**Storm Bear meta-entity Phase 0.9 STRICT — STRONGEST INCLUDE in 10-instance window history.** v65 = 3-of-4 STRONG PASS: (a) FAIL (corporate-org ≠ solo-individual archetype) + (b) STRONG (vault uses Claude Code as primary operating substrate) + (c) STRONG (Claude Code system prompts shape vault routine design) + (d) **STRONGEST IN CORPUS HISTORY** (Claude Code = most-referenced product across 64 prior wikis). **Streak RESTARTS at 1** post-v64-RESET. **10-instance post-amendment window v56-v65: 80% INCLUDE rate (8 PASS / 2 SKIP)** — calibration confirmed HEALTHY at strongest-PASS configuration.
+
+### Direct strengthenings (within already-CONFIRMED or -CANDIDATE patterns)
+
+- **Pattern #78 Living-Domain-Standards Tracking N=2 STRENGTHENING — PROMOTION-ELIGIBLE at v66 (ACCELERATED) / v67 (default)** — claude-seo v64 (78a multi-vendor-industry-domain-standards) + claude-code-system-prompts v65 (78b single-vendor-product-internals-archive) = **N=2 cross-archetype with 2 maximally-distinct sub-mechanisms** + **MAXIMAL cross-archetype diversity** (solo-individual + corporate-org). **FASTEST un-stale-via-N=2-evidence cycle in 64-wiki corpus history (1-wiki turnaround, 2026-05-13 v64 → 2026-05-13/14 v65; TIED FASTEST with v62→v63 Pattern #76 1-wiki counter-evidence cycle).** Proposal document at `03 Projects/claude-code-system-prompts - Beginner Analysis/01 Analysis/(C) Pattern-78 Living-Domain-Standards Tracking N=2 promotion proposal.md`. 10-axis structural distinction confirmed; PROMOTION-ELIGIBLE under criterion #2 with margin.
+- **Pattern #19 ecosystem-portfolio-builder N=4 STRENGTHENING — strengthens v66 PROMOTION proposal from N=3 to N=4 with corporate-org archetype added** — Piebald-AI corporate-org 4th distinct archetype after solo trio (gotalab v61 / forrestchang v63 / AgriciDaniel v64). NEW sub-mechanism **19d corporate-observation-as-marketing-with-tooling** (Piebald commercial agentic IDE + claude-code-system-prompts open-source archive + tweakcc patching tool); structurally distinct from 19a methodology-portfolio (gotalab) / 19b viral-and-commercial-portfolio (forrestchang) / 19c domain-vertical-with-cross-vendor-portfolio (AgriciDaniel). Cross-archetype evidence substantially broader at v65: 4 distinct portfolio shapes + 4 distinct archetypes including FIRST non-solo (corporate-org). v66 promotion verdict prediction STRENGTHENED.
+- **Pattern #57 Recursive Corpus Reference 57c STRONGEST instance — NEW 57c-product sub-variant** — Claude Code is THE most-referenced product across 64 prior corpus wikis (every T1 wiki + many T4/T5 wikis cite Claude Code as host/target). v65 documents the most-referenced product's internals = corpus-recursive at MAXIMUM DEPTH possible. NEW 57c sub-variant: **57c-product (corpus-foundation-PRODUCT inheritance)** distinct from 57c-individual (v63 Karpathy corpus-foundation-individual inheritance). v66 audit deliberation: register 57c-product as sub-axis OR merge into existing 57c-strongest tracking.
+- **Pattern #21 System Prompts Leaks N=2 strengthening at corpus-record scale** — extension of v21 system-prompts-leaks N=1 baseline. v65 at 10K stars vs v21 unknown-but-presumed-smaller scale + **continuous-versioning discipline (176 versions)** vs v21 one-time leak. **Sub-variant 21b NEW: continuous-extraction-versus-one-time-leak** — different mechanism category (continuous vs one-time). POTENTIAL UN-STALE for Pattern #21 if currently stale. Depends on Pattern #21 current status; v66 audit verifies + decides un-stale.
+- **Pattern #66 Supply Chain Awareness OBSERVATION-TRACK extension — meta-supply-chain-awareness sub-category** — Piebald-AI explicit disclosures ("Maintained by Piebald AI, not by Anthropic" / "extracted reference material, not modifiable source code" / "Editing files here does not change Claude Code's behavior" / "±20 tokens tolerance") = meta-supply-chain awareness at reference-archive level. Educates users about what the archive IS NOT. Sister to claude-seo v64 honest-deficiency-disclosure (SPA/CSR limitation in Limitations section + v2 deferrals 6-item list) at PRODUCT level. v66 deliberation: register meta-supply-chain-awareness as Pattern #66 sub-category OR as standalone OT.
+
+### NEW top-level candidate registrations (+1 to active count)
+
+- **NEW Pattern #79 Continuous-Reverse-Engineering Reference Archive N=1 stale-flagged at v65** — Third-party (NOT the vendor itself) corporate-org or individual maintains continuously-updated reference archive of closed-source agentic-AI product's internal artifacts (system prompts / tool descriptions / agent specs) via automated extraction from compiled binary/source distribution. 3 criteria: (a) third-party (not vendor); (b) continuous-versioning per upstream release with latency disclosure (within-minutes typical); (c) extraction-from-compiled-source methodology (not vendor cooperation; not leaked credentials). Evidence: v65 claude-code-system-prompts (Piebald-AI corporate-org / `tools/updatePrompts.js` 19.5 KB automated extraction / 211 KB CHANGELOG / ±20 token tolerance disclosure / 176 versions tracked / Anthropic apparent tolerance signal). Distinct from Pattern #21 System Prompts Leaks (one-time leak vs continuous-extraction) AND from vendor-published reference docs. Un-stale criterion: 2nd subject with continuous-reverse-engineering reference archive matching all 3 criteria (hypothetical candidates: Cursor / Codex CLI / Windsurf reference archives). Re-evaluate v68 stale-check / v73 retire-check.
+
+### Observational candidates (NOT formal registrations at v65 — deferred to v66 deliberation)
+
+- **Cross-Vendor Ecosystem-Tolerance observational track (NEW v65)** — v62 codex-plugin-cc cross-vendor cooperation observation (OpenAI publishes plugin FOR Claude Code) + v65 claude-code-system-prompts cross-vendor reverse-engineering tolerance (Anthropic tolerates Piebald-AI's archive without DMCA) = **N=2 observational evidence for "cross-vendor ecosystem-tolerance as legitimate pattern category" in agentic-AI ecosystem**. v66 deliberation: register as OT or top-level candidate?
+- **1-wiki Rapid-Pattern-Evolution observational track / Library-vocabulary item #10 candidate (NEW v65)** — sister to Library-vocabulary item #9 (cross-pattern coupled-design correlations). N=2 evidence: v62→v63 Pattern #76 1-wiki counter-evidence cycle (2026-05-07/08) + v64→v65 Pattern #78 1-wiki un-stale-via-N=2-evidence cycle (2026-05-13/14). Both at 1-wiki turnaround = corpus-fastest possible pattern-evolution velocity. v66 deliberation: formalize as Library-vocabulary item #10.
+- **Tier-Taxonomy Review observational candidate (NEW v65)** — v65 is first corpus subject that genuinely doesn't fit T1-T5 producer schema cleanly. v65 was classified as **T1 Augmentation NEW sub-archetype "reverse-engineering-reference-archive"** for taxonomic continuity, but functionally is observational/meta-archive (not producer-side augmentation). v66 deliberation: introduce T6 Reference/Meta tier? OR extend T1 with reference-archive sub-archetype as v65 elected (current default)?
+- **Cross-Pattern Coupled-Design CORPUS-RECORD at N=5+ (v65 strengthening)** — v65 exhibits 5+ patterns co-occurring at single wiki: Pattern #78 (78b) + Pattern #21 (continuous-extraction) + Pattern #19 (19d corporate-archetype) + Pattern #57 (57c-product STRONGEST) + Pattern #66 (meta-supply-chain-awareness sub-category) + NEW Pattern #79 (Continuous-Reverse-Engineering). Strengthens Library-vocabulary item #9 from prior v60 N=4 baseline to **N=5+ at v65** = corpus-record observation.
+
+### v65 wiki-ship state changes summary
+
+- Confirmed patterns: 42 → 42 (unchanged at v65 ship; v66 will deliberate Pattern #19 PROMOTION + Pattern #78 PROMOTION acceleration)
+- Active candidates: **21 → 22** (+1 NEW: #79 Continuous-Reverse-Engineering Reference Archive)
+- Stale candidates: 1 → 1 (Pattern #52 OT FLAG preserved)
+- Ratio: **0.500:1 → 0.524:1** (+0.024; still healthy in sub-0.55 zone since v60)
+- Routine v2.2 codification candidates: **29 → 31 accumulated** (+2 from v65 — see below; codification URGENT ESCALATES at v66 minimum)
+- Storm Bear meta-entity Phase 0.9 streak: 0 → **1** RESTART (v64 RESET → v65 STRONG PASS)
+- Cross-pattern coupled-design corpus-record: **5 patterns + 1 NEW candidate at single wiki** (strengthens Library-vocabulary item #9 from prior v60 N=4)
+
+### Routine v2.2 codification candidates (NEW from v65 ship; +2)
+
+1. **1-wiki rapid-evolution detection discipline** — when N+1 wiki provides evidence to evolve N wiki's pattern registration, log meta-observation as Library-vocabulary candidate AND consider promotion-acceleration. v65 demonstrates with Pattern #78 v64→v65 1-wiki un-stale cycle. Sister to v63 pre-Phase-6 retroactive-correction-check codification candidate.
+2. **Reference Claude Code's actual system prompts when designing vault routines (NEW v65)** — discipline of consulting v65 claude-code-system-prompts archive before codifying new vault practices (routine v2.2, brain-setup, etc.). v65 provides ground-truth for understanding Claude Code's prompt envelope; vault routine design should align with the envelope rather than assume.
+
+### v66 mini-audit pre-registered items from v65 wiki ship (added to v63-EARLY-AUDIT + v63 wiki-ship + v64 wiki-ship carry-forward)
+
+1. **Pattern #78 Living-Domain-Standards Tracking ACCELERATED PROMOTION (vs default v67 stale-check)** — proposal document at `03 Projects/claude-code-system-prompts - Beginner Analysis/01 Analysis/(C) Pattern-78 Living-Domain-Standards Tracking N=2 promotion proposal.md`
+2. **Pattern #19 ecosystem-portfolio-builder N=4 PROMOTION verdict STRENGTHENED** — v65 adds 4th archetype + 4th sub-mechanism (19d corporate-observation-as-marketing-with-tooling)
+3. **Pattern #57 NEW 57c-product sub-variant registration** — 57c-product (corpus-foundation-PRODUCT inheritance) distinct from v63 57c-individual
+4. **Pattern #21 N=2 strengthening + potential UN-STALE deliberation** — sub-variant 21b continuous-extraction-versus-one-time-leak
+5. **Pattern #66 meta-supply-chain-awareness sub-category** — Piebald-AI disclosures as sub-category extension
+6. **NEW Pattern #79 Continuous-Reverse-Engineering Reference Archive** stale-check (un-stale via N=2)
+7. **Cross-Vendor Ecosystem-Tolerance observational track** — N=2 (v62 cooperation + v65 reverse-engineering tolerance)
+8. **1-wiki Rapid-Pattern-Evolution Library-vocabulary item #10 candidate** — N=2 cycles observed
+9. **Tier-Taxonomy Review** — T6 Reference/Meta tier consideration OR T1 reference-archive sub-archetype confirmation
+10. **Cross-Pattern Coupled-Design N=5+ corpus-record** — Library-vocabulary item #9 strengthening at v65
+
+**Combined v66 audit agenda with v63 EARLY-AUDIT + v63 wiki-ship + v64 wiki-ship + v65 wiki-ship carry-forward**: ~**30+ items** (was 24+ pre-v65; +10 v65 items including 6 PRIMARY-tier deliberations). **Routine v2.2 codification URGENCY FURTHER ESCALATES at v65 — 31 candidates accumulated** (was 29 pre-v65). v66 codification highly recommended.
+
+### Next natural-cadence trigger (post-v65 wiki ship)
+
+Candidate count ≥30 (currently **22**; **8-candidate runway** — narrowed from 9 by +1 v65 candidate) OR **v66 wiki natural cadence (+1 wiki from v65)** OR ratio >0.95:1 mini / >1.05:1 full (currently 0.524:1 with 0.426 buffer — still very healthy).
+
+**v66 mini-audit ARMED at natural cadence (+1 wiki from v65):** ~**30+ item agenda** accumulated v60-v65; **routine v2.2 codification URGENT (31 candidates)**; Pattern #19 ecosystem-portfolio-builder N=4 + Pattern #78 ACCELERATED PROMOTION = **DUAL PRIMARY deliberation items** for v66 audit.
+
+---
+
+## v66 EARLY-OPERATOR-ELECTED mini-audit (2026-05-14) — DUAL PRIMARY EXECUTION COMPLETE
+
+**Audit class:** EARLY-OPERATOR-ELECTED (4th mini-audit class, FIRST formal use; codified routine v2.2 2026-05-14)
+**Trigger basis:** Operator-elected at +1 wiki from v65 (vs default +2-3 wiki natural cadence) — DUAL PRIMARY items ripe + 31 routine v2.2 candidates URGENT
+**Acceleration:** +1 wiki vs natural cadence
+**Routine version:** llm-wiki-routine-v2.2 (codified 2026-05-14; first audit under v2.2 discipline; passed without amendments)
+**Audit document:** `04 Reviews/(C) 2026-05-14 Pattern Library mini-audit post-v65 (EARLY-OPERATOR-ELECTED acceleration; DUAL PRIMARY).md` (15 decisions documented)
+
+### v66 EARLY mini-audit decisions (15 total)
+
+**DUAL PRIMARY:**
+- **Decision 1 (PRIMARY): Pattern #19 ecosystem-portfolio-builder PROMOTE** — formal sub-archetype within already-CONFIRMED Pattern #19; N=4 cross-archetype evidence: gotalab v61 (19a methodology-portfolio) + forrestchang v63 (19b viral-and-commercial-portfolio) + AgriciDaniel v64 (19c domain-vertical-with-cross-vendor-portfolio) + Piebald-AI v65 (19d corporate-observation-as-marketing-with-tooling). 4 structurally-distinct portfolio shapes; 4 distinct organizational archetypes. Does NOT change top-level confirmed count.
+- **Decision 2 (PRIMARY): Pattern #78 Living-Domain-Standards Tracking ACCELERATED PROMOTION** — CANDIDATE → CONFIRMED via criterion #2 structural-unambiguity-at-N=2 with 78a multi-vendor-industry-domain-standards + 78b single-vendor-product-internals-archive sub-mechanisms. **FASTEST PROMOTION ARC in 65-wiki corpus history at 2 wikis** (v64 registration → v65 N=2 → v66 promotion). **TIED-FASTEST 1-wiki un-stale cycle in corpus history with Pattern #76** (v62→v63 1-wiki counter-evidence). +1 confirmed; -1 active.
+
+**Secondary deliberations:**
+- **Decision 3: Pattern #21 21b continuous-extraction sub-variant registration** — within already-CONFIRMED Pattern #21; captures v65 claude-code-system-prompts continuous-extraction methodology as sub-variant distinct from v21 system-prompts-leaks one-time exfiltration. Fact-verification correction: v21 system-prompts-leaks remains Pattern #21 baseline; v65 21b is sister sub-variant within Pattern #21 family.
+- **Decision 4: Pattern #57 57c-product sub-variant registration** — within already-CONFIRMED Pattern #57; captures Claude Code product becoming corpus-foundation-PRODUCT inheritance (sister to v63 57c-individual Karpathy person-foundation). v65 claude-code-system-prompts is direct derivative of corpus-foundation-PRODUCT.
+- **Decision 5: Pattern #66 meta-supply-chain-awareness sub-category** — within already-OT Pattern #66 Supply-Chain; captures vendor-product-internals tracking discipline. v65 Piebald-AI explicit "Maintained by Piebald AI, not by Anthropic" disclosure + ±20 tokens accuracy tolerance = meta-supply-chain-awareness layer.
+- **Decision 6: Pattern #79 Continuous-Reverse-Engineering Reference Archive — stale-flag preserved** — N=1 stale-risk-flagged at registration v65; stale-check at v68 (+3 wikis) per default schedule. Pattern #79 captures EXTRACTION methodology; Pattern #78 78b captures TRACKING discipline applied via that methodology; orthogonal.
+- **Decision 7: Patterns #74 EARS-format / #75 External-IDE-methodology-lineage / #76 Adversarial-review v63 N=1 stale-checks** — all preserved N=1 stale-risk-flag status at +3 wikis from v63 registration. v68 stale-check (+5 wikis) per default schedule. NEW Pattern #80 Tool-Level Adversarial Review as Skill registered (N=2 evidence: BMAD + codex-plugin-cc; sister to Pattern #76, not absorption — pilot v3.2 confirms framework-level vs tool-level distinction).
+
+**Library-vocabulary items:**
+- **Decision 8: Library-vocabulary items #9 + #10 formalization** — Item #9 Cross-Pattern Coupled-Design strengthened to N=5+ corpus-record at v65 (Patterns #78 + #21 + #19 + #57 + #66 + Pattern #79 candidate co-occur at single wiki). Item #10 1-wiki Rapid-Pattern-Evolution formalized as observational-track Library-vocabulary item with N=2 evidence (v62→v63 + v64→v65 cycles).
+
+**NEW top-level candidate registrations:**
+- **Decision 9: NEW Pattern #80 Tool-Level Adversarial Review as Skill** (N=2 stale-risk-flagged) — BMAD v11 `bmad-review-adversarial-general` + codex-plugin-cc v62 `/codex:adversarial-review`; pilot v3.2 hireui empirical validation. Sister candidate to Pattern #76 (framework-level), not absorption.
+- **Decision 10: NEW Pattern #81 Manifest-Drift-As-First-Class-CI-Concern** (N=1 stale-risk-flagged) — v64 claude-seo 5-version-source atomic-bump CI assertion. Stale-check v69 (+3 wikis).
+- **Decision 11: NEW Pattern #82 Gamified-Curated Community Contribution** (N=1 stale-risk-flagged) — v64 claude-seo "Pro Hub Challenge" community-contribution model. Stale-check v69 (+3 wikis).
+- **Decision 12: NEW Pattern #83 Honest-Deficiency-Disclosure Discipline** (N=2 stale-risk-flagged) — v64 claude-seo named-VULN-disclosure + v65 claude-code-system-prompts accuracy-tolerance + no-change-placeholder disclosure. Stale-check v68 (+2 wikis).
+- **Decision 13: NEW Pattern #84 Cross-Vendor Ecosystem-Tolerance** (N=2 stale-risk-flagged) — v62 codex-plugin-cc cooperation + v65 claude-code-system-prompts reverse-engineering tolerance. Stale-check v68 (+2 wikis).
+
+**Meta-decisions:**
+- **Decision 14: Tier-Taxonomy Review T6 Reference/Meta consideration — DEFERRED to v69 audit** — v65 fits T1 NEW sub-archetype "reverse-engineering-reference-archive" for taxonomic continuity; observe 2+ more reference-archive subjects before deciding T6 introduction.
+- **Decision 15: Routine v2.2 first-audit validation PASSED** — v2.2 discipline tested cleanly at this audit; no amendments needed. v2.2 retains as current routine version.
+
+### v66 EARLY mini-audit state changes summary
+
+- **Confirmed patterns:** 42 → **43** (+1: Pattern #78 promotion)
+- **Active candidates:** 22 → **26** (+4 net: -1 Pattern #78 promoted + 5 NEW #80/#81/#82/#83/#84)
+- Stale candidates: 1 → 1 (Pattern #52 OT FLAG preserved)
+- Retired: 9 → 9 (unchanged)
+- Observation-tracks: 6 → 6 (Pattern #66 sub-category within existing OT)
+- **Total full:** 78 → **85** (43 confirmed + 26 active + 1 stale + 9 retired + 6 OT)
+- **Total active-counting (confirmed + active):** 64 → **69** (+5)
+- **Ratio (active/confirmed):** 0.524:1 → **0.605:1** (+0.081; still BELOW 0.95:1 mini-trigger; buffer 0.345)
+
+**Honest disclosure on ratio drift:** v66 EARLY audit pushes ratio to 0.605 due to 5 NEW candidates from accumulated v64+v65 observational queue (not a discipline regression — overdue disposition of real observations). Pre-v60 trajectory had ratio steadily declining; v60-v64 maintained sub-0.55 zone (0.452 → 0.500 → 0.524); v66 audit operates outside sub-0.55 zone but well within healthy bounds. Forecast: next 3-4 wikis likely strengthen existing candidates rather than register new ones; ratio should drift back toward sub-0.55 by v70-v72 absent extreme novelty.
+
+### Sub-mechanism + Library-vocabulary registrations at v66 EARLY audit
+
+Within-pattern strengthenings (no top-level count change):
+- **Pattern #19 4-sub-archetype formal sub-archetype** (19a/19b/19c/19d) — within Pattern #19 ecosystem-portfolio-builder PROMOTION
+- **Pattern #21 21b continuous-extraction sub-variant** — within already-CONFIRMED Pattern #21
+- **Pattern #57 57c-product sub-variant** — within already-CONFIRMED Pattern #57 (sister to v63 57c-individual)
+- **Pattern #66 meta-supply-chain-awareness sub-category** — within already-OT Pattern #66
+- **Pattern #78 78a + 78b sub-mechanisms** — within freshly-CONFIRMED Pattern #78
+
+Library-vocabulary items:
+- **Item #9 Cross-Pattern Coupled-Design** — N=5+ corpus-record observation at v65 (strengthened from prior N=4 at v60)
+- **Item #10 1-wiki Rapid-Pattern-Evolution** — N=2 observational-track (v62→v63 + v64→v65)
+
+### Routine v2.2 first-audit validation summary
+
+v2.2 discipline applied at v66 EARLY audit (all PASSED, no amendments needed):
+1. EARLY-OPERATOR-ELECTED 4th mini-audit class — operational
+2. Cross-archetype N-counting as 6th promotion-counting dimension — applied at Decisions 1 + 2
+3. Acceleration audit pattern (+1 wiki vs +2-3 natural) — operational
+4. 1-wiki Rapid-Pattern-Evolution Library-vocabulary item #10 — formalized at Decision 8
+5. Cross-Pattern Coupled-Design Library-vocabulary item #9 — strengthened to N=5+ at Decision 8
+6. NEW Pattern candidate proposal-document discipline — proposal documents for Pattern #19 (v64 ship) + Pattern #78 (v65 ship) leveraged at Decisions 1 + 2
+7. Pre-Phase-6 retroactive-correction-check — informed Pattern #21 21b sub-variant Decision 3
+8. Sub-mechanism registration at promotion — applied at Decisions 1 + 2 (multi-sub-mechanism promotions)
+
+### Next natural-cadence trigger (post-v66 EARLY audit)
+
+Candidate count ≥30 (currently **26**; **4-candidate runway** — narrowed from 8 pre-audit by +5 NEW registrations - 1 promotion) OR **v68 wiki natural cadence (+2 wikis from v66)** OR ratio >0.95:1 mini (currently 0.605:1 with buffer 0.345 — ratio-trigger unlikely soon).
+
+**Stale-check schedule post-v66:**
+- v67: Pattern #77 + Pattern #78 78a/78b sub-mechanisms
+- v68: Pattern #74 + #75 + #76 (v63 carry) + Pattern #79 + Pattern #80 + Pattern #83 + Pattern #84
+- v69: Pattern #81 + Pattern #82 + Pattern #52 sustained-velocity test (mattpocock ~early-August / karpathy-skills ~late-July / codex-plugin-cc ~mid-October 2026) + Tier-Taxonomy Review T6 consideration (deferred from v66)
+
+**Routine v2.2 codification candidates reset:** 31 candidates v60-v65 codified at v2.2 2026-05-14. v2.3 codification target = ~v75-v80 natural cadence (~11 pre-v60 candidates deferred from v2.2 honest disclosure).
