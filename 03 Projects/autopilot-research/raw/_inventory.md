@@ -43,6 +43,12 @@
 | 2026-05-11 | vividkit-claudekit-guides (HTML) | bypass-403-tier-0 | curl 21 guides from vividkit.dev | ~600K HTML total | — | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
 | 2026-05-11 | vividkit-claudekit-guides (clean MD) | bypass-403-tier-0 | html-to-clean-md.py with `main` selector | 250K MD total | — | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
 | 2026-05-11 | vividkit-claudekit-synthesis | 4 multi-bundle | NotebookLM 21-source synthesis (6 sections) | 24K | `d179ac0c-428b-47e6-b859-99a6b7e7bcb1` | compiled | [wiki/claudekit/](../wiki/claudekit/_index.md) |
+| 2026-05-13 | agent-dashboard-agent-os-claude-code-observability | 2 cron-overnight | YouTube ×6 | 18K | `54d7812d-2305-4eac-b250-43ba577cb1dc` | compiled ⚠️ anchor-miss | [wiki/agent-dashboard-os/](../wiki/agent-dashboard-os/_index.md) |
+| 2026-05-13 | auto-loop-goals-with-human-in-the-loop | 2 cron-overnight | YouTube ×6 | 18K | `abe1647e-c9c3-4ad1-8e63-5e93fac50865` | compiled ⚠️ low-signal | [wiki/autonomous-loops-human-in-the-loop/](../wiki/autonomous-loops-human-in-the-loop/_index.md) |
+| 2026-05-13 | harness-engineering-personal-repo-continuation-vie | 2 cron-overnight | YouTube ×6 | 19K | `58c51d8e-ab36-4331-993f-8a61dfd0a2c4` | compiled (extension) | [wiki/harness-engineering/](../wiki/harness-engineering/_index.md) |
+| 2026-05-13 | codex-long-running-agentic-harness-alternative-to | 2 cron-overnight | YouTube ×6 | 18K | `01707594-d36a-4a2f-b3f8-7fa9044528ba` | compiled ⚠️ anchor-miss | [wiki/codex/](../wiki/codex/_index.md) |
+| 2026-05-13 | open-source-claude-design-clones-alternative-agent | 2 cron-overnight | YouTube ×6 | 19K | `5155a280-86ce-49ce-8328-d4b75c0119ce` | compiled ⚠️ off-target | [wiki/claude-code-clones/](../wiki/claude-code-clones/_index.md) |
+| 2026-05-13 | ai-daily-news-may-2026-weekly-snapshot | 2 cron-overnight | YouTube ×3 | 17K | `9f08f424-31bc-4fe9-8e8b-3a91862171a1` | compiled ⚠️ rumor-heavy | [wiki/ai-news-2026-w19/](../wiki/ai-news-2026-w19/_index.md) |
 
 ## Status legend
 
@@ -67,11 +73,13 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 23 rows (4 added 2026-05-11: 1 manual paste + 3 vividkit bulk fetch)
-- **Compiled (or merged):** 21
+- **Total ingestions logged:** 29 rows (6 added 2026-05-13: overnight drain of 6 topics — agent-dashboard / auto-loop-goals / harness-engineering-personal / codex / claude-design-clones / ai-daily-news)
+- **Compiled (or merged):** 27 (was 21 → +6 from 2026-05-14 morning compile of overnight drain)
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
-- **Uncompiled:** 1 (lark-claude-course — 261 pages, biggest backlog)
+- **Uncompiled / raw (awaiting compile):** 1 (lark-claude-course 261 pages — biggest remaining backlog)
 - **Promoted to Storm Bear:** 0
 - **New topics 2026-05-11:** 2 added — claude-md-12-rules (3 articles, Mnilax behavioral contract) + claudekit (7 articles, vividkit.dev framework comparison with harness-engineering + 12-rules)
+- **2026-05-13 overnight drain:** 6 topics drained ~20 min (22:43→23:03). All in Status: raw, awaiting morning compile. Loop log: `loop-log/(C) 2026-05-13-22-autopilot-overnight.md`. Note: topic 2 (Auto-Loop Goals) had to relax recency filter — selection pulled in generic 2025 IBM/CNN/"What is Agentic AI" videos rather than Karpathy autoresearch / Ralph loop content; signal may be lower than other 5. Worth a re-run with tighter query.
+- **2026-05-14 morning compile:** All 6 overnight-drain topics compiled into wiki/ (5 NEW topics + 1 extension to harness-engineering). 33 new wiki articles + 6 _index.md (5 new + 1 updated harness extension). **CRITICAL META-FINDING:** 4 of 6 raw bundles had **anchor-miss** — the yt-search auto-selection rubric (log(views) + engagement×3 + recency×2 with channel-cap-2) did NOT surface the user-provided anchor URLs. Topics affected: agent-dashboard-os (Chase AI anchor missing), codex (all 3 anchors missing), claude-code-clones (off-target — bundle was developer-workflow not clone-focused), autonomous-loops (recency-filter relaxation → generic 2025 explainers). Only harness-engineering-personal partially captured anchor framing (Tù Bà Khuỳm). Implication: query-only search rubric is too weakly weighted toward operator-named anchors. **Operator action items:** (1) for next overnight, consider anchor-URL injection into the drain script (force-include named URLs before yt-search top-K); (2) tighten queries (add specific creator names / video keywords); (3) flag all anchor-miss compiles for re-run with refined queries. Loop log: `loop-log/(C) 2026-05-14-XX-autopilot-compile.md`.
 - **Path 9 emerged:** manual paste when source is auth-walled + mirrors dead (X.com 2026-05-11). Update CLAUDE.md "8 ingestion surfaces" table when this pattern occurs ≥3× total.
 - **Bulk fetch pattern emerged:** 21-URL fetch via `bin/bulk-fetch-vividkit.sh` (Path 6 custom scraper variant for sites without Cloudflare) — codify as reusable pattern when 2nd bulk-fetch occurs.
