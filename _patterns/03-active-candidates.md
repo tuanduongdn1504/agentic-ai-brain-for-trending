@@ -1,4 +1,4 @@
-## Active Candidates (31 — v68 zero wiki 2026-05-18: +1 NEW Pattern candidate **T1 sub-archetype #7 "programming-language-as-agent-substrate"** N=1 stale-risk-flagged (corpus-first programming-language subject; PROVISIONAL T1 NEW sub-archetype with v69 Tier-Taxonomy Review T6 audit-decision flag for NEW Tier T6 vs T1 sub-archetype retention) + 7 NEW observational candidates (Skill-As-Binary-Bootstrap + OC-A Agent-First-Language-Substrate + OC-B Self-Hosted Compiler Bootstrap + OC-C In-Browser-Compiler-Via-WASM + OC-D Anti-Compatibility-As-Project-Policy + OC-E Synchronicity-Discipline-As-Policy + OC-F Structured-JSON-as-First-Class-CLI-Output) + Pattern #83 N=4 strengthening (consolidates v67 N=3 PROMOTION-ELIGIBLE verdict) + Pattern #52 EXTREME-VIRAL v68 zero added to v69 sustained-velocity-test batch (1,050 stars/day at 2-day-old = corpus 2nd-highest after karpathy-skills v63 ~1,186/day) + Pattern #81 partial N=2 evidence (5-file version-bump discipline documented but MANUAL not CI-enforced — discipline-documented-but-not-enforced sub-variant) + Pattern #82 WEAK N=2 (per-release contributor lists; different mechanism than v64 Pro Hub Challenge); ratio 31:43 = 0.721:1. Prior v67 opencode-antigravity-auth wiki 2026-05-18: +3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture N=1 + OC-2 Issue-As-Enforcement-Signal Pipeline N=1 + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces N=1) + Pattern #83 advanced to N=3 PROMOTION-ELIGIBLE + Pattern #84 REFINEMENT evidence + NEW Library-vocabulary item #11 Engagement-Deficit-Extreme. v66 agentmemory wiki + v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED + 5 NEW top-level candidates #80-#84 + Pattern #19 sub-archetype 19a/b/c/d + Pattern #85 N=1)
+## Active Candidates (32 — v69 CloakBrowser wiki 2026-05-18 → 2026-05-19: +1 NEW Pattern #45 sub-typology candidate **45c "Artifact-Scope-Split with Acceptable-Use-Enumeration"** N=1 (corpus-first wrapper-OSS + binary-proprietary-with-acceptable-use license shape; 4 distinguishing mechanisms: two-file artifact-scope split + Acceptable Use enumeration + bounded $100 liability cap + OEM/SaaS B2B carve-out; HIGH confidence sub-typology registration verdict; v70 stale-check + v75 retire-check) + 4 NEW observational candidates (OC-G Fork-as-Integration-Strategy + OC-H Anonymous-Corporate-Author for Dual-Use Tools + OC-I Detection-Evasion-As-Product-Axis + OC-J Acceptable-Use Enumeration as Risk-Mitigation Layer) + Pattern #83 N=5 consolidation evidence (5-disclosure-surface saturation: LICENSE + CHANGELOG + Liability + Acceptable Use + Platform-disparity) + Pattern #52 sub-threshold-control case (CloakBrowser 172/day HIGH-NOT-EXTREME; clarifies >300 threshold discriminates) + Pattern #66 strengthening (3-tier signature verification GPG+attestation+cosign corpus-broadest + 3-level upstream attribution) + Pattern #57 57c-product strengthening (browser-use v34 + crawl4ai v29 named in single README) + Pattern #19 sister observation (corporate-anonymous-product-suite distinct from prior 4 individual-portfolio sub-archetypes); ratio 32:43 = 0.744:1. Active count ≥30 trigger maintained 3rd-consecutive-wiki at v69 — audit-before-v70 recommendation ELEVATED to blocking-priority. Prior v68 zero wiki 2026-05-18: +1 NEW Pattern candidate **T1 sub-archetype #7 "programming-language-as-agent-substrate"** N=1 stale-risk-flagged (corpus-first programming-language subject; PROVISIONAL T1 NEW sub-archetype with v69 Tier-Taxonomy Review T6 audit-decision flag for NEW Tier T6 vs T1 sub-archetype retention) + 7 NEW observational candidates (Skill-As-Binary-Bootstrap + OC-A Agent-First-Language-Substrate + OC-B Self-Hosted Compiler Bootstrap + OC-C In-Browser-Compiler-Via-WASM + OC-D Anti-Compatibility-As-Project-Policy + OC-E Synchronicity-Discipline-As-Policy + OC-F Structured-JSON-as-First-Class-CLI-Output) + Pattern #83 N=4 strengthening (consolidates v67 N=3 PROMOTION-ELIGIBLE verdict) + Pattern #52 EXTREME-VIRAL v68 zero added to v69 sustained-velocity-test batch (1,050 stars/day at 2-day-old = corpus 2nd-highest after karpathy-skills v63 ~1,186/day) + Pattern #81 partial N=2 evidence (5-file version-bump discipline documented but MANUAL not CI-enforced — discipline-documented-but-not-enforced sub-variant) + Pattern #82 WEAK N=2 (per-release contributor lists; different mechanism than v64 Pro Hub Challenge); ratio 31:43 = 0.721:1. Prior v67 opencode-antigravity-auth wiki 2026-05-18: +3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture N=1 + OC-2 Issue-As-Enforcement-Signal Pipeline N=1 + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces N=1) + Pattern #83 advanced to N=3 PROMOTION-ELIGIBLE + Pattern #84 REFINEMENT evidence + NEW Library-vocabulary item #11 Engagement-Deficit-Extreme. v66 agentmemory wiki + v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED + 5 NEW top-level candidates #80-#84 + Pattern #19 sub-archetype 19a/b/c/d + Pattern #85 N=1)
 
 #### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
 **Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
@@ -958,6 +958,176 @@ Pattern #81 promotion criteria require: (1) CI explicitly asserts version-string
 **Critical distinction:** Mechanism = automated extraction from commit authors + Co-authored-by trailers (per AGENTS.md release workflow). NOT named gamified curated challenge program like v64 claude-seo's "Pro Hub Challenge."
 
 **Status:** **WEAK N=2 sister observation** — different mechanism (programmatic extraction vs. named challenge program). Sister observation flag at v68 audit; lean toward "different mechanism" interpretation. Could register NEW Pattern "Automated-Per-Release-Contributor-Attribution-From-Git-Trailers" if N=2 emerges with same programmatic mechanism.
+
+---
+
+#### 🟡 Pattern #45 sub-typology 45c — Artifact-Scope-Split with Acceptable-Use-Enumeration (NEW v69 CloakBrowser registration)
+
+**Status:** OBSERVATIONAL at N=1 v69; sub-typology proposal-document filed at `03 Projects/CloakBrowser - Beginner Analysis/01 Analysis/(C) Pattern-45 sub-typology 45c wrapper-OSS + binary-proprietary-with-acceptable-use registration.md`. v70 stale-check + v75 retire-check. Formal sub-variant promotion at N=2 emergence (criterion 4 variant-within-pattern-at-N=2).
+
+**Source:** CloakHQ/CloakBrowser v0.3.28 (created 2026-02-22; 86 days old at v69 wiki build).
+
+**Structural form:** Two separate license files at repo root, with license boundary following artifact-compilation scope rather than usage-tier scope.
+
+**Distinguishing mechanisms (4 co-occurring):**
+1. **Artifact-scope split** — MIT wrapper-source (LICENSE file) + Proprietary compiled-binary (BINARY-LICENSE.md file). License boundary follows artifact-compilation rather than usage-tier.
+2. **Acceptable Use enumeration** — explicit prohibited-use list (4 prohibitions: unauthorized financial/banking/healthcare/government auth access + credential stuffing/brute-force + auth-circumvention on systems not owned + fraud/identity-theft/unauthorized-data-collection).
+3. **Bounded liability cap** — fixed-dollar max-aggregate-liability ($100) rather than unbounded "AS IS" framing.
+4. **OEM/SaaS commercial-licensing carve-out** — B2B revenue-gate for product-embedders (separate license required for bundling into third-party-distributed products).
+
+**Pattern #45 sub-variant taxonomy after v69:**
+- **45a:** Unsloth v23 — Apache-2.0 + commercial-shield clauses inline (usage-tier-split, single file)
+- **45b:** AutoGPT v59 — MIT + PolyForm-Shield-Restrictions overlay (usage-tier-split, single file)
+- **45c (NEW v69):** CloakBrowser — Artifact-scope-split with Acceptable Use + bounded liability + OEM carve-out (artifact-scope-split, two files)
+
+**Why this qualifies as sub-typology (not just strengthening):**
+- Six structural dimensions distinguish 45c from 45a/45b (license-file count + scope basis + mechanism-coupling + prohibited-use treatment + liability framing + revenue mechanism)
+- All 3 sub-typology promotion criteria PASS (structurally distinct + mechanism-cluster has internal coherence + adds Pattern Library descriptive power)
+- Distinct license-axis machinery not currently captured by Pattern #45 formulation
+
+**Sister observations (within Pattern #45):**
+- 45c is structurally parallel to Pattern #29 "License-Category Diversity" sub-axes (License-axis IS corpus's most-richly-categorized pattern axis per v60 audit confirmed)
+- 45c may motivate Pattern #29 sub-sub-axis "artifact-scope-split licensing" if N=2 emerges
+
+**Falsification tests pre-registered:**
+- Another corpus subject independently adopts 45c-shape (all 4 mechanisms) → STRENGTHENS toward N=2 promotion
+- Another corpus subject adopts ONE 45c mechanism but not others → REFINES into 45c1/45c2 sub-sub-variants
+- No 45c-shape subject in next 5 wikis → WEAKENS to OBSERVATION-TRACK
+- CloakBrowser drops one mechanism → WEAKENS (mechanism instability suggests 45c was incidental)
+
+**Required for formal sub-variant promotion:** N=2 — another corpus subject with 45c-shape (artifact-scope split + Acceptable Use + bounded liability + OEM carve-out). Promotion under criterion 4 variant-within-pattern-at-N=2.
+
+**Re-evaluation:** at v70 stale-check + v75 retire-check.
+
+---
+
+#### 🟡 OC-G — Fork-as-Integration-Strategy (NEW v69 CloakBrowser observation)
+
+**Status:** OBSERVATIONAL at N=1 v69. v70+ stale-check evaluates generalizability.
+
+**Source:** CloakHQ/CloakBrowser org structure (6 repos: 3 original + 3 forks).
+
+**Mechanism:** Org maintains forks of dependency frameworks as integration assets distinct from original product cluster. CloakHQ originals = CloakBrowser + CloakBrowser-Manager + chromium-stealth-builds; CloakHQ forks = crawl4ai (v29 corpus subject) + crawlee-python + awesome-playwright.
+
+**Distinguishing from Pattern #19 ecosystem-portfolio-builder:** Forks aren't original products — they're integration-with-patches assets. Distinct archetype from individual-portfolio-builder sub-archetypes (founder-personal/viral-individual/SEO-vertical/archive-individual).
+
+**Required for promotion:** 1+ more corpus subject with fork-as-integration-strategy pattern (org maintains forks of dependency frameworks as integration assets).
+
+**Re-evaluation:** at v70+ stale-check.
+
+---
+
+#### 🟡 OC-H — Anonymous-Corporate-Author for Dual-Use Tools (NEW v69 CloakBrowser observation)
+
+**Status:** OBSERVATIONAL at N=1 v69. v70+ stale-check evaluates generalizability.
+
+**Source:** CloakHQ identity profile (pm.me hosted email + no individual identity disclosure + dual-use product).
+
+**Mechanism:** Anonymous-corporate-author profile combining: (a) privacy-focused hosted email (ProtonMail `pm.me`); (b) no individual identity disclosure (no founder bio / photo / social linkage); (c) multi-contributor recognition without identity-of-leader; (d) dual-use product warranting defensive anonymity.
+
+**Distinguishing from Pattern #19 sub-archetypes:** All 4 prior Pattern #19 sub-archetypes (founder-personal lineage / viral-individual / SEO-vertical / archive-individual) describe **individual-portfolio shapes**. CloakHQ is **organization-pseudonymity** rather than individual identity.
+
+**Corpus-context:** CloakHQ is the **corpus-first anonymous-corporate-author** in 68-wiki corpus history. Prior corpus subjects had either founder-personal identity or org-level identity with public-individual attribution.
+
+**Required for promotion:** 1+ more corpus subject with anonymous-corporate-author profile (especially for dual-use tools).
+
+**Re-evaluation:** at v70+ stale-check.
+
+---
+
+#### 🟡 OC-I — Detection-Evasion-As-Product-Axis (NEW v69 CloakBrowser observation)
+
+**Status:** OBSERVATIONAL at N=1 v69. v70+ stale-check evaluates generalizability.
+
+**Source:** CloakHQ/CloakBrowser product positioning (purpose-built-for-stealth vs stealth-as-feature).
+
+**Mechanism:** Stealth/anti-detection is the **central product axis** (not one feature among many). Architecture, license-axis, naming, README positioning, all coherent around stealth differentiation.
+
+**Distinguishing from corpus prior subjects:** browser-use v34 + crawl4ai v29 + Skyvern v24 + agency-agents v18 all treat stealth as one feature in a larger automation/scraping/agent product. CloakBrowser inverts the proportion: stealth IS the product, everything else is support.
+
+**Corpus-context:** CloakBrowser is the **corpus-first purpose-built-for-stealth subject** in 68-wiki corpus history.
+
+**Required for promotion:** 1+ more corpus subject with detection-evasion-as-product-axis positioning (stealth not as feature but as entire product).
+
+**Re-evaluation:** at v70+ stale-check.
+
+---
+
+#### 🟡 OC-J — Acceptable-Use Enumeration as Risk-Mitigation Layer (NEW v69 CloakBrowser observation)
+
+**Status:** OBSERVATIONAL at N=1 v69. Tied to Pattern #45 sub-typology 45c proposal but observationally distinct. v70+ stale-check evaluates generalizability.
+
+**Source:** CloakHQ/CloakBrowser BINARY-LICENSE.md Acceptable Use section.
+
+**Mechanism:** License explicitly enumerates prohibited use cases (rather than vague "for legitimate purposes only" framing). 4 specific prohibitions: unauthorized financial/banking/healthcare/government auth + credential stuffing/brute-force + auth-circumvention on systems not owned + fraud/identity-theft.
+
+**Distinguishing from prior corpus license shapes:** Prior corpus Pattern #45 instances (Unsloth v23 + AutoGPT v59) did NOT enumerate prohibited uses. They used standard liability disclaimers + standard "AS IS" framing.
+
+**Corpus-context:** CloakBrowser is the **corpus-first subject with explicit prohibited-use enumeration in license** in 68-wiki corpus history.
+
+**Required for promotion:** 1+ more corpus subject with explicit prohibited-use enumeration in license (especially for dual-use tools).
+
+**Re-evaluation:** at v70+ stale-check.
+
+---
+
+### Pattern #83 update at v69 — N=5 consolidation (5-disclosure-surface saturation)
+
+**v69 evidence:** CloakHQ/CloakBrowser exhibits 5 distinct disclosure surfaces within single subject:
+1. **BINARY-LICENSE explicit security disclaimer** — *"THE BINARY IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND..."*
+2. **CHANGELOG #217 path-traversal security fix** — explicit + linked: *"Security: `cloakserve` — sanitize fingerprint seed to prevent path traversal, bind to 127.0.0.1 on bare metal, detects Podman containers"*
+3. **$100 max-liability cap** — defensive financial framing (not buried): *"CLOAKHQ'S TOTAL AGGREGATE LIABILITY SHALL NOT EXCEED ONE HUNDRED US DOLLARS"*
+4. **Acceptable Use enumeration** — explicit prohibition list (4 specific use cases)
+5. **macOS platform-tier-disparity disclosure in README** — *"macOS fingerprints have inconsistencies aggressive sites catch. Use Windows fingerprint on macOS by disabling stealth defaults..."*
+
+**Status:** Pattern #83 remains CANDIDATE N=5 PROMOTION-ELIGIBLE. **v69 evidence consolidates v67 N=3 + v68 N=4 promotion case; no acceleration request. Promotion target at v69 audit batch per v67 proposal.**
+
+**Multi-surface saturation pattern:** v67 = 5 surfaces / v68 = 2 surfaces / **v69 = 5 surfaces** — second-consecutive 5-surface-saturation evidence in single subject. → multi-surface-saturation candidate sub-mechanism of Pattern #83.
+
+**Sub-taxonomy reconsideration with v69:** v64 = 83a security-disclosure, v65 = 83b methodology-disclosure, v67 = 83c legal-operational-disclosure, v68 = 83d experimental-status-disclosure, **v69 spans 83a + 83c + corpus-first license-axis-as-disclosure-surface sub-mechanism (45c overlap)**. Sub-taxonomy emergent 4-dimension coverage continues with v69 spanning multiple dimensions.
+
+---
+
+### Pattern #52 update at v69 — sub-threshold-control test case
+
+**v69 evidence:** CloakHQ/CloakBrowser at 172.7 stars/day for 86 days = **HIGH-velocity-NOT-EXTREME** (below >300/day threshold for Pattern #52 EXTREME-VIRAL-Velocity).
+
+**Status:** ADD CloakBrowser to v70 Pattern #52 sustained-velocity-test batch as **sub-threshold-control test case** — confirms threshold discriminates correctly (a subject at HIGH-but-sub-extreme velocity exists and is observable as distinct from EXTREME-VIRAL). v70 batch now includes mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + opencode-antigravity-auth + zero + CloakBrowser (7 subjects, mixed thresholds).
+
+**Special interest:** Pattern #52 sub-threshold-control case clarifies whether Pattern #52 needs a HIGH-velocity sub-threshold class for >150-stars/day-but-<300, distinct from EXTREME-VIRAL. v70 audit decision item.
+
+---
+
+### Pattern #66 update at v69 — 3-tier signature verification corpus-broadest
+
+**v69 evidence:** CloakHQ/CloakBrowser README documents **3-tier signature verification** explicitly:
+1. **GPG signature on git tags** (`gpg --recv-keys` + `git verify-tag`)
+2. **GitHub binary attestation** (`gh attestation verify`)
+3. **Cosign Docker image signature** (`cosign verify --certificate-identity-regexp`)
+
+This is **corpus-broadest signature-verification surface** documented in a single README. Pattern #66 meta-supply-chain-awareness gets significant strengthening evidence at v69.
+
+**3-level upstream attribution at v69:** BINARY-LICENSE documents Chromium (Google / BSD-3-Clause) → ungoogled-chromium (community fork) → CloakHQ (57 patches) — **corpus-first 3-level upstream chain in license itself.**
+
+**Status:** Pattern #66 UNCHANGED CONFIRMED + sub-mechanism candidate: *signature-verification-as-marketed-feature* (corpus-first explicit 3-tier verification at v69; was implicit at most prior corpus subjects).
+
+---
+
+### Pattern #57 update at v69 — 2 corpus-subjects-named in single README
+
+**v69 evidence:** CloakHQ/CloakBrowser README framework integrations table names **2 corpus subjects** explicitly: browser-use (v34 corpus subject) + Crawl4AI (v29 corpus subject). Plus CloakHQ org maintains FORK of crawl4ai (v29 corpus) as integration asset — **3-layer cross-corpus integration depth** (cite + integrate + fork).
+
+**Status:** Pattern #57 sub-variant 57c-product-comparison-parallel (CONFIRMED v60) STRENGTHENING. **3-layer corpus integration depth** = corpus-record for single subject. Potential Pattern #57 sub-mechanism candidate: *fork-of-cited-corpus-subject-as-strongest-integration-anchor*.
+
+---
+
+### Pattern #19 update at v69 — sister observation (NOT N+1)
+
+**v69 evidence:** CloakHQ org has 6 repos = 3 originals (CloakBrowser + CloakBrowser-Manager + chromium-stealth-builds) + 3 forks (crawl4ai + crawlee-python + awesome-playwright). The 3 originals cluster around stealth-browser product.
+
+**Critical distinction:** Pattern #19 sub-archetypes (founder-personal lineage / viral-individual / SEO-vertical / archive-individual) all describe **individual-portfolio shapes**. CloakHQ is **organization-anonymous-product-suite-portfolio**.
+
+**Status:** **Sister observation** to Pattern #19 — NOT N+1 evidence. Could be Pattern #19 sub-pattern at audit but more likely organization-portfolio is its own archetype distinct from individual-portfolio.
 
 ---
 

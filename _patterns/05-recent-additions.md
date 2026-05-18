@@ -1143,3 +1143,178 @@ v68 is the THIRD wiki built under routine v2.2. v2.2 features validated at v68:
 ### v69 audit batch additions
 
 (beyond existing v66/v67 carry items): **Pattern #52 sustained-velocity test ADD v68 zero** (1,050 stars/day at 2-day-old; corporate-strategic-lab launch test case) + **Tier-Taxonomy Review T6** (NEW Tier T6 Language/Runtime substrate vs T1 sub-archetype #7 retention decision) + **Pattern #83 sub-taxonomy** (83a security / 83b methodology / 83c legal-operational / 83d experimental-status emergent 4-dimension coverage).
+
+---
+
+## v69 CloakHQ/CloakBrowser wiki ship (2026-05-18 → 2026-05-19)
+
+**Subject:** [github.com/CloakHQ/CloakBrowser](https://github.com/CloakHQ/CloakBrowser) — v0.3.28 era; created 2026-02-22; **86 days old at wiki build**
+
+**Routine:** llm-wiki-routine-v2.2 (FOURTH wiki under v2.2 after v66 agentmemory + v67 opencode-antigravity-auth + v68 vercel-labs/zero)
+
+**Subject summary:** Stealth Chromium with 57 C++ source-level fingerprint patches as drop-in Playwright/Puppeteer replacement; 14.9K stars / 172.7 stars/day HIGH-NOT-EXTREME velocity; corpus-first purpose-built-for-stealth subject + corpus-first anonymous-corporate-author + corpus-first artifact-scope-split licensing.
+
+### Phase 4b PRIMARY at v69 — Pattern #45 sub-typology 45c NEW registration
+
+**Pattern #45 Dual-Licensing Discipline (CONFIRMED at v60 EXTENDED MINI-AUDIT)** at v69 gets NEW sub-typology registration: **45c "Artifact-Scope-Split with Acceptable-Use-Enumeration"**.
+
+Pre-v69 Pattern #45 sub-variant taxonomy:
+- **45a:** Unsloth v23 — Apache-2.0 + commercial-shield clauses inline (single LICENSE file, usage-tier-split)
+- **45b:** AutoGPT v59 — MIT + PolyForm-Shield-Restrictions overlay (single LICENSE file, usage-tier-split)
+
+**v69 evidence (CloakBrowser):** TWO separate license files at repo root with structurally distinct mechanism cluster:
+1. **Two-file artifact-scope split** — LICENSE (MIT for Python/JS wrapper) + BINARY-LICENSE.md (proprietary for compiled Chromium binary)
+2. **Acceptable Use enumeration** — explicit 4-prohibited-use list (unauthorized financial/banking/healthcare/government auth + credential stuffing/brute-force + auth-circumvention + fraud)
+3. **Bounded $100 max-aggregate-liability cap** — corpus-rare fixed-dollar liability bound (vs unbounded "AS IS")
+4. **OEM/SaaS commercial-licensing carve-out** — B2B revenue-gate for product-embedders; primary revenue mechanism
+
+Plus auxiliary mechanisms: Internal-use carve-out (Artifactory/Nexus/VM/Docker), Indemnification, Termination grounds, 3-level upstream attribution (Chromium → ungoogled-chromium → CloakHQ).
+
+**Sub-typology promotion criteria evaluation:**
+- **Criterion 1 (structurally distinct):** STRONG PASS — 6 dimensions distinguish 45c from 45a/45b
+- **Criterion 2 (mechanism-cluster internal coherence):** STRONG PASS — user-facing legal-clarity + CloakHQ-facing risk-revenue coherently combined
+- **Criterion 3 (Pattern Library descriptive power gain):** MODERATE-STRONG PASS — captures artifact-scope-split + prohibited-use enumeration + bounded liability + OEM carve-out (all missing from 45a/45b)
+
+**Status:** REGISTERED as Pattern #45 sub-typology 45c at v69 iteration log + `_patterns/03-active-candidates.md`. **OBSERVATIONAL at N=1 v69.** v70 stale-check + v75 retire-check. Formal sub-variant promotion to 45c at N=2 emergence (criterion 4 variant-within-pattern-at-N=2).
+
+**Proposal-document:** `03 Projects/CloakBrowser - Beginner Analysis/01 Analysis/(C) Pattern-45 sub-typology 45c wrapper-OSS + binary-proprietary-with-acceptable-use registration.md`
+
+**Routine v2.2 lesson captured:** "Sub-typology proposal-document discipline" — FIRST formal sub-typology proposal-document in corpus history. Distinct vehicle from new-pattern registration (v68 Pattern #86) or simple within-pattern strengthening note. Routine v2.3 codification candidate.
+
+### Phase 4b SECONDARY — 4 NEW observational candidates (OC-G through OC-J)
+
+**OC-G: Fork-as-Integration-Strategy** — CloakHQ org maintains 3 forks (crawl4ai v29 corpus subject + crawlee-python + awesome-playwright) as integration assets distinct from original product cluster. Corpus-first sub-pattern. Distinguishes from Pattern #19 individual-portfolio sub-archetypes.
+
+**OC-H: Anonymous-Corporate-Author for Dual-Use Tools** — pm.me hosted email + no individual identity disclosure + dual-use product → defensive anonymity profile. Corpus-first in 68-wiki corpus history.
+
+**OC-I: Detection-Evasion-As-Product-Axis** — purpose-built-for-stealth subject vs prior corpus subjects with stealth-as-feature (browser-use v34 / crawl4ai v29 / Skyvern v24). Corpus-first product-axis inversion.
+
+**OC-J: Acceptable-Use Enumeration as Risk-Mitigation Layer** — explicit 4-prohibited-use list in BINARY-LICENSE.md; tied to Pattern #45 sub-typology 45c proposal but observationally distinct. Corpus-first.
+
+### Pattern #83 N=5 consolidation at v69
+
+**Pattern #83 Honest-Deficiency-Disclosure Discipline** continues PROMOTION-ELIGIBLE trajectory:
+- v64 N=1 (security-axis disclosure)
+- v65 N=2 (methodology-axis disclosure)
+- v67 N=3 (legal-operational-axis disclosure; PROMOTION-ELIGIBLE)
+- v68 N=4 (experimental-status-axis disclosure; consolidation)
+- **v69 N=5 (5-disclosure-surface saturation in single subject; consolidation)**
+
+**v69 5-disclosure-surface saturation breakdown:**
+1. BINARY-LICENSE explicit "AS IS, WITHOUT WARRANTY..." disclaimer
+2. CHANGELOG #217 path-traversal security fix (explicit + linked)
+3. $100 max-aggregate-liability cap (defensive financial framing)
+4. Acceptable Use enumeration (explicit prohibition list)
+5. README macOS platform-tier-disparity disclosure
+
+**5-surface saturation observation:** v67 = 5 surfaces / v68 = 2 surfaces / **v69 = 5 surfaces** — second-consecutive 5-surface-saturation evidence within single subject. → multi-surface-saturation candidate sub-mechanism of Pattern #83.
+
+**Status:** Pattern #83 PROMOTION-ELIGIBLE consolidated at N=5. v69 audit promotion target.
+
+### Pattern #52 sub-threshold-control test case at v69
+
+**Pattern #52 EXTREME-VIRAL-Velocity (CONFIRMED v63)** at v69 gets sub-threshold-control data point:
+- v69 CloakBrowser: 172.7 stars/day for 86 days = HIGH-velocity-NOT-EXTREME (below >300/day threshold)
+- Confirms Pattern #52 threshold discriminates correctly — a HIGH-velocity-but-sub-extreme subject is observable as distinct from EXTREME-VIRAL
+
+**v70 audit-batch test cases (mixed thresholds):**
+- mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + opencode-antigravity-auth + zero (EXTREME-VIRAL claimants)
+- CloakBrowser (sub-threshold-control case)
+
+**Status:** v70 audit decision item — does Pattern #52 need a HIGH-velocity sub-threshold class for >150-stars/day-but-<300 distinct from EXTREME-VIRAL?
+
+### Pattern #66 strengthening at v69 — 3-tier signature verification + 3-level upstream attribution
+
+**Pattern #66 meta-supply-chain-awareness (CONFIRMED)** at v69 gets dual strengthening:
+1. **3-tier signature verification documented in single README** (GPG + GitHub attestation + cosign) — corpus-broadest verification surface
+2. **3-level upstream license attribution** (Chromium / The Chromium Authors / BSD-3-Clause → ungoogled-chromium → CloakHQ patches) — corpus-first 3-level upstream-chain documented in license itself
+
+**Status:** Pattern #66 UNCHANGED CONFIRMED + sub-mechanism candidate: *signature-verification-as-marketed-feature*. Corpus-first explicit 3-tier verification at v69.
+
+### Pattern #57 strengthening at v69 — 3-layer corpus integration depth
+
+**Pattern #57 Cross-Wiki-Citation 57c-product (CONFIRMED v60)** at v69 gets strengthening:
+- 2 corpus subjects named in single README (browser-use v34 + crawl4ai v29)
+- 3-layer cross-corpus integration: cite (README) + integrate (framework integration documented) + fork (CloakHQ maintains FORK of crawl4ai v29)
+- **Corpus-record depth** for single subject's cross-corpus integration
+
+**Status:** Pattern #57 sub-mechanism candidate: *fork-of-cited-corpus-subject-as-strongest-integration-anchor*.
+
+### Pattern #19 sister observation at v69 — corporate-anonymous-product-suite distinct archetype
+
+**Pattern #19 ecosystem-portfolio-builder (CONFIRMED N=4 at v66)** at v69 gets sister observation (NOT N+1):
+- CloakHQ has 6 repos: 3 originals + 3 forks
+- The 3 originals cluster around stealth-browser product (product-suite shape)
+- Prior 4 Pattern #19 sub-archetypes describe individual-portfolio shapes
+
+**Status:** Sister observation — CloakHQ corporate-anonymous-product-suite distinct archetype from prior 4 sub-archetypes. NOT N+1; potential future Pattern #19 sub-pattern at audit if N=2 emerges with similar organization-portfolio shape.
+
+### Storm Bear meta-entity Phase 0.9 at v69 — SECOND consecutive WEAK INCLUDE
+
+**Verdict:** 1/4 STRICT PASS = WEAK INCLUDE — SECOND consecutive WEAK in post-amendment window after v68.
+
+| Criterion | Pass/Fail |
+|----------|-----------|
+| (a) Author archetype peer | FAIL (anonymous-corporate) |
+| (b) Operational tool for Scrum-coaching | FAIL (stealth browser binary; Acceptable Use restrictions) |
+| (c) Methodology-influence-node | FAIL (no methodology lineage) |
+| (d) In-corpus sibling reference | **PASS** (browser-use v34 + crawl4ai v29 explicit + 3-layer integration depth) |
+
+**5 consecutive PASS streak post-v64-RESET:** v65 STRONGEST 3/4 → v66 STRONG 4/4 → v67 MODERATE 2/4 → v68 WEAK 1/4 → **v69 WEAK 1/4 — SECOND consecutive WEAK**.
+
+**Strength categorization spectrum:** WEAK is modal category (2 of 5 in v65-v69 window). 13-instance Phase 0.9 post-amendment window v57-v69 = 11 PASS / 2 SKIP = **84.6% INCLUDE rate**.
+
+**v70-v75 evaluation:** Is WEAK modal-status a coincidence or center-of-gravity calibration need? Routine v2.3 codification queue.
+
+### Routine v2.2 fourth-wiki validation at v69
+
+All 9 v2.2 features validated cleanly at v69:
+- ✅ Phase 0.4 docs/ tree-listing
+- ✅ Phase 0 velocity-screen automation (caught HIGH-NOT-EXTREME 172/day correctly)
+- ✅ Engagement-signal sub-investigation (all 5 ratios computed)
+- ✅ 13th classification axis Living-Domain-Standards Tracking (assessed NO)
+- ✅ Phase 0.9 WEAK INCLUDE strength categorization
+- ✅ Phase 4b PRIMARY routing pre-registration at Phase 0
+- ✅ **Sub-typology proposal-document discipline (NEW v2.2 exemplar)** — first formal sub-typology proposal-document in corpus history
+- ✅ Pre-Phase-6 fact-verification: pattern references verified against PATTERN_LIBRARY.md
+- ✅ **Dual-use framing applied at Phase 0** (NEW v2.3 codification candidate)
+
+### Corpus-firsts at v69 (~12)
+
+(1) **First purpose-built-for-stealth subject** in 68-wiki corpus (prior corpus had stealth-as-feature in larger products) / (2) **First anonymous-corporate-author** (pm.me hosted email + no individual identity disclosure) / (3) **First two-separate-license-files at repo root** (LICENSE MIT + BINARY-LICENSE.md proprietary) / (4) **First artifact-scope-split licensing** (license boundary follows compilation artifact rather than usage-tier) / (5) **First explicit Acceptable Use enumeration in license** (4 prohibited use cases) / (6) **First bounded fixed-dollar liability cap** ($100 max aggregate) / (7) **First explicit OEM/SaaS commercial-licensing carve-out** as primary revenue mechanism / (8) **First 3-tier signature verification** (GPG + GitHub attestation + cosign) in single README / (9) **First 3-level upstream license attribution** (Chromium → ungoogled-chromium → CloakHQ) documented in license / (10) **First 28+ release in 86-day window** sustained 0.33 releases/day / (11) First Pattern #45 sub-typology proposal-document at v2.2 era / (12) First sub-typology proposal-document vehicle in corpus history.
+
+**Corpus-records at v69:**
+- License file count per repo: 2 (LICENSE + BINARY-LICENSE.md) — corpus-record
+- License clause count per BINARY-LICENSE: 17 clauses — corpus-record
+- v69 audit batch size: **~24-25 items = NEW LARGEST in corpus history** (was ~20 at v68)
+- Consecutive-wiki-past-active-count-trigger: 3 (v67/v68/v69) — corpus-record
+
+### v69 / v70 audit agenda additions
+
+**v69 audit batch ~24-25 items LARGEST in corpus history** (was ~20 at v68; +4-5 from v69):
+- **Pattern #83 PROMOTION** at N=5 (v64+v65+v67+v68+v69 consolidated evidence; HIGH confidence) — pre-eligible from v67
+- **Pattern #45 sub-typology 45c registration** (NEW v69 PROPOSED) — first formal sub-typology proposal-document in corpus history
+- **Pattern #84 REFINEMENT** decision (84a tool-tolerance / 84b usage-enforcement)
+- Pattern #74 + #75 + #76 + #77 + #78 78a/78b + #79 + #80 + #81 + #82 + #85 stale-checks
+- Pattern #18 shared-backend-service sub-archetype evaluation
+- Pattern #86 T1 sub-archetype #7 PROVISIONAL stale-check
+- Pattern #87 Skill-As-Binary-Bootstrap observational stale-check
+- OC-A through OC-F (v68) stale-checks
+- OC-1 / OC-2 / OC-3 (v67) stale-checks
+- Library-vocabulary item #11 Engagement-Deficit-Extreme evaluation
+- AI-Generated-Repo Artifact Contamination observational
+- **NEW v69:** OC-G Fork-as-Integration-Strategy + OC-H Anonymous-Corporate-Author for Dual-Use Tools + OC-I Detection-Evasion-As-Product-Axis + OC-J Acceptable-Use Enumeration
+
+**v70 audit agenda items (ELEVATED priority):**
+- **Tier-Taxonomy Review T6** (NEW Tier T6 Language/Runtime substrate decision vs T1 sub-archetype #7 retention) — ELEVATED from v69 deferral
+- **Pattern #52 sustained-velocity-test batch** (~7 subjects including CloakBrowser sub-threshold-control case)
+- Pattern #83 sub-taxonomy decision (83a / 83b / 83c / 83d / NEW v69 sub-mechanism for license-axis-as-disclosure-surface)
+- Pattern #45 sub-typology 45c stale-check (NEW v69 first-cycle stale-check)
+
+**Routine v2.3 codification candidates accumulated at v69:**
+- Sub-typology proposal-document discipline (FIRST exemplar at v69)
+- Dual-use subject framing as Phase 0 sub-procedure
+- Strength categorization threshold calibration (WEAK modal at v68+v69)
+- Audit batch >20-item splitting consideration
+- Liability-framing axis as Phase 0 sub-tracking
+
