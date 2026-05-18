@@ -166,7 +166,7 @@ Vault state appends (Phase 5):
 
 Vault state pending (Phase 6):
 - /Users/Cvtot/KJ OS Template/CLAUDE.md                                     (root state-block update)
-- /Users/Cvtot/KJ OS Template/_state/03a-projects-v48-v61.md                (v64 project entry append)
+- /Users/Cvtot/KJ OS Template/_state/03c-projects-v61-v67.md                (v64 project entry — relocated here at v68 housekeeping; was inline in CLAUDE.md; chapter renamed v61-v66 → v61-v67 at v67 ship 2026-05-18)
 - /Users/Cvtot/KJ OS Template/GOALS.md or _goals/                           (version log if applicable)
 ```
 

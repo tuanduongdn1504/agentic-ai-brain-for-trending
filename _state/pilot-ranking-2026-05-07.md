@@ -1,6 +1,6 @@
 # Storm Bear vault pilot ranking — 2026-05-07 (post-v63 mini-audit)
 
-> **Purpose:** Authoritative consolidated ranking of pilot candidates accumulated across 61 wikis. Replaces scattered pilot-ranking mentions in `_state/03a-projects-v48-v61.md` and project entity files.
+> **Purpose:** Authoritative consolidated ranking of pilot candidates accumulated across 61 wikis. Replaces scattered pilot-ranking mentions in `_state/03a-projects-v48-v60.md` + `_state/03c-projects-v61-v67.md` and project entity files.
 > **Last updated:** 2026-05-12 session — handoff §6(b) drift closure: pilot v3.2 in-flight status added at top (was: 2026-05-07 session 71+ continuation post-v63 EARLY mini-audit)
 > **Maintained by:** Storm Bear vault operator + Claude routine v2.1 Phase 6 vault sync
 

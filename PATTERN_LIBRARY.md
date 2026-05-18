@@ -2,22 +2,45 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v66 agentmemory wiki 2026-05-14)
+## Current state (post-v67 opencode-antigravity-auth wiki 2026-05-18)
 
-> ⚠️ **Shim narrative drift — housekeeping flag.** This shim's *detailed narrative* was last fully written at the v60 audit (preserved below as "Prior state snapshot"). The v61-v66 wiki ships + v63/v66 audits updated the **authoritative** records — `_patterns/03-active-candidates.md`, `_patterns/05-recent-additions.md`, and root `CLAUDE.md` — but did not re-narrate this shim. The counts below are synced to the authoritative chapter files at v66; the v61-v65 narrative detail lives in those chapters, not here. **A full shim re-narration is a deferred housekeeping task (recommend bundling with the v68 state-architecture rename).** Counts here are accurate; prose below the snapshot line is v60-era.
-
-- **Confirmed:** **43** (v66 audit promoted Pattern #19 ecosystem-portfolio-builder N=4 + Pattern #78 Living-Domain-Standards Tracking)
-- **Active candidates:** **27** (v66 audit registered #80-#84; v66 agentmemory wiki registered **#85 Platform-Primitive Foundation** N=1 stale-flagged)
+- **Confirmed:** **43** (v66 EARLY-OPERATOR-ELECTED audit promoted Pattern #19 ecosystem-portfolio-builder N=4 + Pattern #78 Living-Domain-Standards Tracking; **Pattern #83 N=3 PROMOTION-ELIGIBLE at v68 natural-cadence audit**)
+- **Active candidates:** **30** (v66 audit registered #80-#84; v66 agentmemory wiki registered #85 Platform-Primitive Foundation; **v67 opencode-antigravity-auth wiki registered 3 NEW observational candidates: OC-1 Adversarial-Detection-Tolerant Architecture + OC-2 Issue-As-Enforcement-Signal Pipeline + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces**)
 - **Stale candidates:** **1** (Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG preserved)
 - **Retired:** 9
 - **Observation-tracks:** 6
-- **Total:** **86 full / 70 active**
-- **Ratio:** 27:43 = **0.628:1** — buffer **0.322** below the 0.95:1 mini-audit trigger
-- **Routine:** `llm-wiki-routine-v2.2` (codified 2026-05-14; v66 EARLY-OPERATOR-ELECTED mini-audit was v2.2's first audit; v66 agentmemory wiki was v2.2's first wiki)
-- **Storm Bear meta-entity streak:** 2 post-v64-RESET (v65 STRONG PASS 3/4 STRICT → v66 STRONG PASS 4/4 STRICT — first 4/4 in the post-amendment window); 10-instance window v57-v66 = 8 PASS / 2 SKIP = 80% INCLUDE
-- **Authoritative sources:** `_patterns/02a-confirmed-patterns-pre-v42.md` + `_patterns/02b-confirmed-patterns-v42-plus.md` (confirmed) / `_patterns/03-active-candidates.md` (candidates incl. #85) / `_patterns/04-retired-stale.md` / `_patterns/05-recent-additions.md` (v66 wiki block) / `_patterns/01-audit-history.md` (audit history) / root `CLAUDE.md` (current state block)
+- **Total:** **89 full / 73 active-counting** (confirmed + active)
+- **Ratio:** 30:43 = **0.698:1** — buffer **0.252** below the 0.95:1 mini-audit trigger
+- **Library-vocabulary items:** 14 (was 13; v67 added item #11 Engagement-Deficit-Extreme — corpus-record fork_ratio 0.0001)
+- **Routine:** `llm-wiki-routine-v2.2` (codified 2026-05-14; v66 EARLY-OPERATOR-ELECTED mini-audit was v2.2's first audit, v66 agentmemory wiki its first wiki, **v67 opencode-antigravity-auth its second wiki — all 9 v2.2 features exercised cleanly**)
+- **Storm Bear meta-entity streak:** **3 consecutive PASS post-v64-RESET** (v65 STRONGEST PASS 3/4 STRICT → v66 STRONG INCLUDE 4/4 STRICT → **v67 MODERATE INCLUDE 2/4 STRICT — FIRST MODERATE in post-amendment window**); 11-instance window v57-v67 = 9 PASS / 2 SKIP = **81.8% INCLUDE rate**
+- **Active candidate count trigger:** REACHED at v67 (30 candidates ≥ 30 trigger) — **mini-audit zone met via candidate-count metric** (ratio still 0.698 well below 0.95); **v68 audit batch ~17 items, LARGEST in corpus history**
+- **Authoritative sources:** `_patterns/02a-confirmed-patterns-pre-v42.md` + `_patterns/02b-confirmed-patterns-v42-plus.md` (confirmed) / `_patterns/03-active-candidates.md` (30 candidates incl. #85 + OC-1/2/3) / `_patterns/04-retired-stale.md` / `_patterns/05-recent-additions.md` (v54→v67 strengthening + audit blocks) / `_patterns/01-audit-history.md` (audit history v21-v55) / root `CLAUDE.md` (compact current-state block)
 
-## Prior state snapshot (post-v60 EXTENDED MINI-AUDIT 2026-05-07 session 70)
+### v60 → v67 narrative arc
+
+The v60 EXTENDED MINI-AUDIT (2026-05-07) left the library at 41 confirmed / 17 active / 0.415:1 — the largest buffer in corpus history. The v61-v66 arc (full detail in `_patterns/05-recent-additions.md`):
+
+- **v61 cc-sdd ship** — 25th-consecutive ZERO-NEW-ACTIVE-CANDIDATES wiki (new corpus-longest streak); surfaced un-stale evidence for Pattern #21 SDD-Methodology-Emergence (cc-sdd = independent 4th-lineage SDD framework via Kiro IDE — corpus-first external-IDE-methodology lineage).
+- **v63 EARLY MINI-AUDIT (operator-elected)** — FIRST EARLY-OPERATOR-ELECTED mini-audit (4th mini-audit class). Promoted Pattern #21 (LONGEST stale-to-promotion arc in corpus history at 36 wikis, v25→v63; 1st un-stale-via-independence-test promotion). Registered 3 NEW top-level candidates — #74 EARS-Format / #75 External-IDE-Methodology-Lineage / #76 Adversarial-Subagent-Review — breaking the 25-streak. → 42 / 19 / 0.452:1.
+- **v62 codex-plugin-cc ship** — corpus-first cross-vendor cooperation (OpenAI ships an Apache-2.0 plugin FOR Claude Code); corpus-first 1-wiki counter-evidence cycle against Pattern #76.
+- **v63 andrej-karpathy-skills ship** — corpus-record ~1,186 stars/day; Pattern #52 Extreme-Viral-Velocity retroactively strengthened N=1 → N=3 cross-archetype.
+- **v64 claude-seo ship** — +2 NEW candidates (Pattern #77 T1 domain-vertical-skill-collection + Pattern #78 Living-Domain-Standards Tracking); Pattern #19 ecosystem-portfolio-builder reached N=3. → 42 / 21 / 0.500:1.
+- **v65 claude-code-system-prompts ship** — +1 NEW candidate (#79 Continuous-Reverse-Engineering Reference Archive); Pattern #78 reached N=2 in a 1-wiki turnaround (TIED-fastest un-stale cycle in corpus history); Pattern #19 reached N=4 with a corporate-org archetype. → 42 / 22 / 0.524:1.
+- **v66 EARLY-OPERATOR-ELECTED MINI-AUDIT (2026-05-14)** — DUAL PRIMARY: promoted Pattern #19 (N=4 cross-archetype) + Pattern #78 (ACCELERATED — fastest promotion arc in corpus at 2 wikis). 15 decisions; registered 5 NEW top-level candidates #80-#84 (Tool-Level-Adversarial-Review / Manifest-Drift / Gamified-Curated-Community / Honest-Deficiency-Disclosure / Cross-Vendor-Ecosystem-Tolerance). → 43 / 26 / 0.605:1.
+- **v66 agentmemory wiki (2026-05-14, same day)** — FIRST wiki built under routine v2.2; +1 NEW candidate #85 Platform-Primitive Foundation; 7 corpus-firsts incl. the first provably-contaminated governance file (counter-evidence against Pattern #12 Governance-Depth). → 43 / 27 / 0.628:1.
+- **v67 opencode-antigravity-auth wiki (2026-05-18)** — SECOND wiki under routine v2.2; FIRST T4 Bridge OAuth-credential-plugin in corpus; FIRST Opencode-ecosystem subject as primary. **Phase 4b PRIMARY: Pattern #83 Honest-Deficiency-Disclosure N=3 PROMOTION-ELIGIBLE** (v64 + v65 + v67; 5 distinct disclosure surfaces in single subject — corpus-first multi-surface saturation; HIGH confidence promotion verdict at v68 audit). Pattern #84 REFINEMENT evidence (84a tool-tolerance / 84b usage-enforcement candidate sub-mechanisms). Pattern #18 shared-backend-service sister-observation flag (one-backend-many-IDENTITIES variant). 3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture + OC-2 Issue-As-Enforcement-Signal Pipeline + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces). NEW Library-vocabulary item #11 Engagement-Deficit-Extreme (CORPUS-RECORD-LOW fork_ratio 0.0001 = 1/10500 = 1,780× below prior corpus-record v65 = 0.178). Library-vocabulary item #10 N=3 evidence (v66→v67 1-wiki rapid-pattern-evolution cycle, 4-day gap). 9 corpus-firsts. Storm Bear meta-entity Phase 0.9 2/4 STRICT PASS → MODERATE INCLUDE (first MODERATE in post-amendment window); 11-instance window 81.8% INCLUDE rate. → 43 / **30** / **0.698**:1.
+
+**Routine v2.2** (codified 2026-05-14, supersedes v2.1) adds: EARLY-OPERATOR-ELECTED as 4th mini-audit class · cross-archetype N-counting as 6th promotion-counting dimension · 2 NEW Library-vocabulary items (#9 Cross-Pattern Coupled-Design at N=5+ corpus-record / #10 1-wiki Rapid-Pattern-Evolution) · 13th classification axis (Living-Domain-Standards) · MODERATE/STRONG/STRONGEST strength categorization for Phase 0.9 INCLUDE verdicts. 31 v60-v65 candidates codified; ~11 pre-v60 deferred to v2.3 (~v75-v80). **v67 added Library-vocabulary item #11 Engagement-Deficit-Extreme as observational metric.**
+
+**Honest disclosure on ratio drift:** the ratio rose 0.415 → 0.698 across v60→v67. Of the +0.283 drift: v66 audit disposed the v64+v65 observational queue (5 NEW candidates + 1 wiki-ship) for +0.213; v67 added 3 NEW observational candidates for +0.070. Real observations from genuinely novel subjects, not a discipline regression. The library held the sub-0.55 zone v60-v64; v66-v67 operate outside it but within healthy bounds (buffer 0.252 below the 0.95:1 trigger). **Active count REACHED 30 trigger at v67** — v68 mini-audit zone-met via candidate-count metric (ratio remains well below). Forecast: drift back toward sub-0.55 by v70-v72 absent extreme novelty, accelerated by v68 audit disposition.
+
+**Audit documents:** v60 EXTENDED MINI-AUDIT — `_state/v60-mini-audit-results-2026-05-07.md` (14 items; the v60-era pattern-by-pattern snapshot is preserved below) · v63 EARLY MINI-AUDIT — `04 Reviews/(C) 2026-05-07 Pattern Library mini-audit post-v61 (early-elected; 1 promotion + 3 NEW candidates + 6 within-pattern decisions).md` · v66 EARLY-OPERATOR-ELECTED MINI-AUDIT — `04 Reviews/(C) 2026-05-14 Pattern Library mini-audit post-v65 (EARLY-OPERATOR-ELECTED acceleration; DUAL PRIMARY).md` (15 decisions).
+
+## Prior state snapshot — frozen v60-era detail (post-v60 EXTENDED MINI-AUDIT 2026-05-07 session 70)
+
+_Retained as history. The current state + v60→v66 arc is the section above; this block is the v60-audit pattern-by-pattern snapshot, not updated since._
+
 
 - **Confirmed:** **41** (was 39; **+2 promotions:** Pattern #45 Dual-Licensing under criterion 2 + Pattern #72 PolyForm-Family-License RENAME + criterion 4 promotion)
 - **Active candidates:** 17 (UNCHANGED post-audit)
@@ -61,15 +84,15 @@
 |---|---|---|
 | `_patterns/01-audit-history.md` | Full audit summary v21-v55 (every direct-update + mini-audit + full audit decision history) | 136KB |
 | `_patterns/02a-confirmed-patterns-pre-v42.md` | Confirmed patterns #1-50ish (originally-confirmed pre-v13 + promotions through v36 mini-audit) | 92KB |
-| `_patterns/02b-confirmed-patterns-v42-plus.md` | Confirmed patterns from v42 mini-audit onwards (#46 + #48 + #58 + #57 + #38 + sub-variant promotions) | 106KB |
-| `_patterns/03-active-candidates.md` | 17 active candidates with formal statements + observations + N tracking | 62KB |
-| `_patterns/04-retired-stale.md` | 9 retired patterns + 3 stale candidates with retirement / stale-flag rationale | 11KB |
-| `_patterns/05-recent-additions.md` | Post-v54 strengthening notes + post-v54 mini-audit decisions + post-v55 strengthening notes | 22KB |
+| `_patterns/02b-confirmed-patterns-v42-plus.md` | Confirmed patterns from v42 mini-audit onwards (#46 + #48 + #58 + #57 + #38 + sub-variant promotions) | 120KB |
+| `_patterns/03-active-candidates.md` | 27 active candidates with formal statements + observations + N tracking (incl. #85 Platform-Primitive Foundation) | 96KB |
+| `_patterns/04-retired-stale.md` | 9 retired patterns + 1 stale candidate with retirement / stale-flag rationale | 12KB |
+| `_patterns/05-recent-additions.md` | Strengthening notes + mini-audit decisions, v54 → v66 (incl. v60/v63/v66 mini-audits + v61-v66 wiki ships) | 116KB |
 
 **Reading discipline for agents:**
 - Never read more than 1 chapter file per session — context-thrashing risk
 - Use `awk` via Bash for surgical line-range extracts when looking up specific Pattern #
-- For most pattern-pre-check tasks: read `_patterns/03-active-candidates.md` + `_patterns/05-recent-additions.md` together (74KB combined ≈ ~18K tokens — safe)
+- For most pattern-pre-check tasks: read `_patterns/03-active-candidates.md` OR `_patterns/05-recent-additions.md` — each is now large (96KB / 116KB ≈ ~25-30K tokens each); read one at a time and use `awk` line-range extracts rather than loading both whole
 - For full pattern definition lookup: identify which chapter (02a or 02b) by pattern number, read only that one
 
 **Authoritative state pointer:** Chapter files are the authoritative state record. Root PATTERN_LIBRARY.md (this file) is entry-point shim only. Updates go to chapter files; root only updated when adding new chapters or major state-summary changes.
@@ -114,7 +137,7 @@
 
 **Trigger:** N=1 candidate enters stale-tracking at registration with explicit stale-check window (typically +5 wikis) + retirement-check window (typically +10 wikis).
 
-**Stale-flagged at registration (current open windows post-v55):**
+**Stale-flagged at registration (v55-era snapshot — for the *current* open stale-flag windows see `_patterns/03-active-candidates.md` + `_patterns/04-retired-stale.md`):**
 - 57b aggregator-mediated multi-citation (registered v50; stale-check v55 → preserved as 57b CONFIRMED sub-variant within Pattern #57)
 - 50c aggregator-with-commercial-product-entry-bundled (registered v50)
 - 29-absent-3 aggregator-mixed-license (registered v50; reached structural-N=2 at v51)
@@ -143,26 +166,21 @@
 
 ## Next audit trigger
 
-**Current state (post-v60 EXTENDED MINI-AUDIT):** 17 active candidates / 41 confirmed = **0.415:1 ratio (NEW LARGEST in corpus history; buffer 0.535 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history).**
+**Current state (post-v66 agentmemory wiki):** 27 active candidates / 43 confirmed = **0.628:1 ratio** (buffer 0.322 below the 0.95:1 mini-audit trigger).
 
-**Audit triggers RESET at v60 EXTENDED MINI-AUDIT (session 70 / 2026-05-07). Next triggers:**
-- Active candidate count ≥30 (currently 17 — 13-candidate runway)
-- v63 wiki natural cadence (+3 wikis from v60)
-- Ratio >0.95:1 mini-audit / >1.05:1 full audit (huge buffer; unlikely to trigger by ratio anytime soon)
+**Audit triggers post-v66 EARLY-OPERATOR-ELECTED mini-audit (session 73++ / 2026-05-14). Next triggers:**
+- Active candidate count ≥30 (currently 27 — **3-candidate runway**)
+- v68 wiki natural cadence (+2 wikis from v66)
+- Ratio >0.95:1 mini-audit / >1.05:1 full audit (buffer 0.252; ratio-trigger unlikely soon)
+- **Active candidate count ≥30 trigger REACHED at v67** (30 candidates ≥ 30 trigger) — mini-audit zone met via candidate-count metric (ratio still 0.698 well below 0.95)
 
-**v60 EXTENDED MINI-AUDIT EXECUTED 2026-05-07 session 70 (results: `_state/v60-mini-audit-results-2026-05-07.md`).** Outcome: ratio 0.436:1 → 0.415:1 (within projected 0.30-0.35 outer band — slightly smaller drop because retirements were 0 not 0-2 since #52 preserve-flag carries forward; #45 + #72 promotions executed cleanly).
-
-**Carry-forward to v63 mini-audit:**
-- Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG re-evaluation
-- Pattern #18 cross-tool-skill-format-translator stale-check
-- Pattern #19 first-mover-no-lineage N=2 stale-check (utility-tool + paradigm-foundational sub-types)
-- Pattern #19 org-level-pseudonymity stale-check
-- Pattern #57 57c-positive-comparison-parallel sister sub-variant stale-check (registered v60 audit)
-- Process-owning-meta-frameworks OT candidate (waiting 2nd external author convergence)
+**Stale-check schedule post-v67:**
+- **v68 (LARGEST batch in corpus history, ~17 items):** Pattern #74 + #75 + #76 (v63 carry) + #77 + #78 78a/78b + #79 + #80 + #81 + #82 + **#83 PROMOTION** (v64+v65+v67 = N=3 evidence with HIGH confidence verdict; sub-taxonomy 83a/83b/83c DEFER to v69) + **#84 REFINEMENT** (84a tool-tolerance / 84b usage-enforcement decision) + #85 + Pattern #18 shared-backend-service sub-archetype (one-backend-many-IDENTITIES vs one-backend-many-PLATFORMS sister-observation evaluation) + **NEW from v67: OC-1 Adversarial-Detection-Tolerant Architecture + OC-2 Issue-As-Enforcement-Signal Pipeline + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces + Library-vocabulary item #11 Engagement-Deficit-Extreme evaluation** + AI-Generated-Repo Artifact Contamination observational
+- **v69:** Pattern #52 sustained-velocity test (mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + opencode-antigravity-auth) + Pattern #83 sub-taxonomy decision (83a security / 83b methodology / 83c legal-operational) + Tier-Taxonomy Review T6 consideration (deferred from v66 Decision 14)
 
 
 ## References
 
-- Pattern Library audit documents: `04 Reviews/(C) 2026-04-XX Pattern Library *.md` (12+ documents v21-v54)
-- Routine v2.1: `05 Skills/llm-wiki-routine-v2.1.md`
+- Pattern Library audit documents: `04 Reviews/(C) 2026-04-XX / 2026-05-XX Pattern Library *.md` (14+ documents v21-v66)
+- Routine: `05 Skills/llm-wiki-routine-v2.2.md` (current; supersedes v2.1 at `05 Skills/llm-wiki-routine-v2.1.md`)
 - Vault state architecture (refactor 2026-04-27 session 67): root CLAUDE.md "Vault State Architecture" section

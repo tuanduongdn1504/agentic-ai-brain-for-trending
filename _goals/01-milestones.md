@@ -1,5 +1,35 @@
 ## ✅ Milestones Achieved
 
+### 2026-05-14 (v68 housekeeping) — v55-v66 milestone backfill (consolidated)
+
+> **Why consolidated:** the per-version `### ` milestone headers in this file stopped at v54. v55-v66 (12 wiki ships + 3 audits) accumulated without milestone entries — a drift parallel to the PATTERN_LIBRARY.md + GOALS version-log drift, all caught up in the v68 housekeeping pass 2026-05-14. Rather than fabricate 12 full-depth milestone records, this is an accurately-sourced consolidated catch-up. **Authoritative full detail:** per-version narrative → `_goals/02-version-log.md` (caught up to v66 in this same pass) + project entries → `_state/03a-projects-v48-v60.md` (v55-v60) and `_state/03c-projects-v61-v66.md` (v61-v66) + Pattern Library per-wiki narrative → `_patterns/05-recent-additions.md`.
+
+**v55 automate-faceless-content** (2026-04-26 session 65) — 55th wiki. OUTSIDE-SCOPE: first content-marketing-genre wiki in corpus (10th outside-scope sub-type candidate). cporter202; 2,083 stars; no LICENSE file; 21%-built-then-abandoned. 38th consecutive Storm Bear meta-entity via FIRST cautionary-contrast framing ("don't-be-Chris-Porter" template). Pattern Library 39C/17A/0.436:1; 19-consecutive-wiki zero-new-candidate streak.
+
+**v56 n8n** (2026-04-27 session 67) — 56th wiki. T2 Service; n8n GmbH German commercial; 185K stars (3rd-largest in corpus). First wiki post-vault-refactor; FIRST Storm Bear meta-entity under STRICT Phase 0.9 amendment (2-of-4 PASS). Pattern #18 STRONGEST T2 evidence (bidirectional MCP). Pattern Library 39C/17A/0.436:1; 20-streak. **→ v56 MINI-AUDIT** (2nd CONSERVATIVE-DISCIPLINE audit; zero state transitions; Pattern #29 sub-context promoted N=3).
+
+**v57 mattpocock-skills** (2026-05-06 session 69) — 57th wiki. T1 skills-collection (opinionated-curated-by-author). 62K stars; Matt Pocock solo-individual + commercial-educator. Storm Bear meta-entity 40th consecutive, 2nd under STRICT, 3-of-4 PASS (STRONGEST STRICT instance to date). Pattern #57 57c N=3→N=7; Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG raised. 39C/17A/0.436:1; 21-streak.
+
+**v58 OpenSpec** (2026-05-07 session 70) — 58th wiki. T1 SDD framework (2nd corpus SDD after spec-kit v17). 45.8K stars; Fission-AI pseudonymous-org. Storm Bear meta-entity 41st consecutive, 3rd under STRICT, 3-of-4 PASS (emergent STRICT-triad pattern). Corpus-broadest multi-platform at 30+ AI tools. 39C/17A/0.436:1; 22-streak.
+
+**v59 AutoGPT** (2026-05-07 session 71) — 59th wiki. Multi-tier T1+T5 within single repo; 184K stars; Toran Bruce Richards → Significant-Gravitas. **1st DISCIPLINED-SKIP Storm Bear meta-entity — 41-streak BREAKS** (Phase 0.9 STRICT 0-of-4). Corpus-rare DOUBLE un-stale (Pattern #45 + Pattern #72). 39C/17A/1-stale/0.436:1; 23-streak.
+
+**v60 free-claude-code** (2026-05-07 session 71+) — 60th wiki ROUND-NUMBER MILESTONE. T4 Bridge (corpus-first 9th archetype api-protocol-translation-proxy). 22.1K stars; Alishahryar1 solo-community. Storm Bear meta-entity streak RESTARTS at 1 (2-of-4 PASS). 39C/17A/0.436:1; 24-streak NEW LONGEST. **→ v60 EXTENDED MINI-AUDIT** (1st STRENGTHENING-DOMINANT class; LARGEST mini-audit at 14 items; 2 promotions: Pattern #45 Dual-Licensing + Pattern #72 PolyForm-Family-License → 41C/17A/0.415:1 NEW LARGEST buffer).
+
+**v61 cc-sdd** (2026-05-07 session 71+) — 61st wiki. T1 SDD framework (3rd-4th independent); gotalab solo-Japanese; 3.3K stars. Pattern #21 SDD Methodology Emergence un-stale evidence; 10 corpus-firsts (most-prolific since v18). Storm Bear meta-streak → 2. 41C/17A/0.415:1; 25-streak NEW LONGEST.
+
+**v62 codex-plugin-cc** (2026-05-08 session 72) — 62nd wiki. T4 Bridge; OpenAI corporate; 17.8K stars. CORPUS-FIRST cross-vendor cooperation (OpenAI publishes plugin FOR Claude Code); corpus-first 1-wiki counter-evidence cycle. Storm Bear meta-streak → 3.
+
+**v63 andrej-karpathy-skills** (2026-05-09 session 73) — 63rd wiki. T1 single-artifact behavioral-guidelines; forrestchang; 121K stars; **CORPUS-RECORD ~1,186 stars/day velocity**. Pattern #52 N=1→N=3 retroactive strengthening. Storm Bear meta-streak → 4. **→ v63 EARLY MINI-AUDIT** (EARLY-OPERATOR-ELECTED class; 13 items; 1 promotion Pattern #21 SDD Methodology Emergence + 3 NEW candidates #74/#75/#76).
+
+**v64 claude-seo** (2026-05-13 session 73+) — 64th wiki. T1 Augmentation NEW sub-archetype domain-vertical-skill-collection; AgriciDaniel; 6,494 stars; 43 primitives (LARGEST T1 collection). PRIMARY = Pattern #19 ecosystem-portfolio-builder N=3 promotion-eligible. 2 NEW candidates #77 + #78. Phase 0.9 STRICT SKIP (meta-streak resets 4→0).
+
+**v65 claude-code-system-prompts** (2026-05-13→14 session 73++) — 65th wiki. T1 Augmentation NEW sub-archetype reverse-engineering-reference-archive; Piebald-AI corporate-org; 10,176 stars. DUAL PRIMARY (Pattern #78 N=2 accelerated promotion-eligible + Storm Bear corpus-recursive maximum-depth). NEW Pattern #79. Storm Bear meta-entity 3-of-4 STRICT STRONGEST INCLUDE; meta-streak RESTARTS at 1.
+
+**v66 agentmemory** (2026-05-14 session 73++) — 66th wiki. T2 Service — **FIRST dedicated agent-memory-system in the corpus; FIRST wiki built under routine v2.2.** Rohit Ghumare solo; 7,900 stars. PRIMARY = NEW Pattern #85 Platform-Primitive Foundation (corpus-first). Storm Bear meta-entity **Phase 0.9 4-of-4 STRICT PASS** (first 4/4 in post-amendment window); meta-streak → 2. **→ v66 EARLY-OPERATOR-ELECTED MINI-AUDIT** (DUAL PRIMARY: Pattern #19 N=4 PROMOTED + Pattern #78 ACCELERATED PROMOTION; 15 decisions; +5 NEW candidates #80-#84) **+ routine v2.2 codification** (supersedes v2.1). Pattern Library state post-v66: **43 confirmed / 27 active / 0.628 ratio**.
+
+---
+
 ### 2026-04-17 — Phase 1 Complete (7 milestones trong 1 session)
 
 - ✅ **Vault initialized** — brain-setup skill → root CLAUDE.md

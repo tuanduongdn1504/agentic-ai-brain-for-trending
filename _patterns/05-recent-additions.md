@@ -906,3 +906,104 @@ Candidate count ≥30 (currently **26**; **4-candidate runway** — narrowed fro
 **7 corpus-firsts at v66:** (1) first dedicated agent-memory-system in corpus / (2) first Platform-Primitive Foundation observation (Pattern #85) / (3) first memory-retrieval-domain benchmark (Pattern #8 extension) / (4) first Pattern #18 shared-backend-service mechanism / (5) first provably-contaminated governance file (DESIGN.md) / (6) first wiki built under routine v2.2 / (7) first Phase 0.9 4/4 STRICT PASS in the post-amendment window.
 
 **v67/v68 audit agenda additions from v66 wiki:** v68 stale-check Pattern #85 (all-4-criteria match + coupling-risk diagnostic re-check) + Pattern #18 shared-backend-service sub-archetype / v68-v69 stale-check AI-Generated-Repo Artifact Contamination observational / v69 Pattern #52 sustained-velocity re-check for agentmemory.
+
+---
+
+## v67 opencode-antigravity-auth wiki — 2026-05-18
+
+**Subject:** [`NoeFabris/opencode-antigravity-auth`](https://github.com/NoeFabris/opencode-antigravity-auth) v1.6.0 (2026-02-20 latest release; v1.0.0 2025-12-10; 159-day age at wiki build); T4 Bridge / solo-community / medium-scale (10.5K stars) / TypeScript 97.6% / MIT / npm package / Node ≥20 / NoeFabris solo author (@dopesalmon on X)
+
+**Velocity-screen (v2.2 NEW):** stars/day ~66 (NOT EXTREME-VIRAL; Pattern #52 threshold >300/day in <90 days) / fork_ratio **0.0001** = 1/10500 = **CORPUS-RECORD LOW** (1,780× below prior corpus-record v65 = 0.178) / watchers/stars 0.0028 / open_issues/stars 0.0029 = drive-by-stars-dominant engagement-deficit-extreme
+
+**Build velocity:** ~152 min (slightly above v60-v65 range; drivers: source-richness 8 files × 250-700 lines + Pattern Library implication density 6 items + bilingual guide ethical-framing depth)
+
+**Phase 0.9 STRICT 2/4 PASS → MODERATE INCLUDE** ((a) NoeFabris solo independent engineer PASS / (b) FAIL TOS-violation + Opencode-not-CC + intended-use mismatch / (c) FAIL no methodology lineage / (d) PASS Opencode-as-sibling-to-Claude-Code + v62 codex-plugin-cc same T4 archetype). Storm Bear streak post-v64-RESET: 3 consecutive PASS (v65 STRONGEST + v66 STRONGEST 4/4 + **v67 MODERATE 2/4 — FIRST MODERATE in post-amendment window**). 11-instance Phase 0.9 window v57-v67 = 9 PASS / 2 SKIP = **81.8% INCLUDE rate**.
+
+### Phase 4b PRIMARY: Pattern #83 N=3 PROMOTION-ELIGIBLE
+
+**Pattern #83 Honest-Deficiency-Disclosure Discipline N=3 evidence via 5 distinct disclosure surfaces in single subject** (corpus-first multi-surface saturation):
+
+1. README `[!CAUTION]` block (open-by-default, top of README): *"Using this plugin (and any proxy for Antigravity) violates Google's Terms of Service. Accounts banned or shadow-banned."* + 3-bullet user-acknowledgment ("Your account may be suspended or permanently banned")
+2. README "Legal" footer collapsed `<details>`: 4-category risk disclosure (Terms of Service risk / Account risk / No guarantees / Assumption of risk)
+3. README "Intended Use" disclaimer: *"Personal / internal development only / Not for production services or bypassing intended limits"*
+4. docs/ANTIGRAVITY_API_SPEC.md status banner: *"Last Updated: December 13, 2025 / Status: Verified by Direct API Testing"* (explicit empirical-discovery status, not vendor contract)
+5. CHANGELOG entries (267 lines, 91 releases): Honest naming of detection-patterns + enforcement-mechanism responses (e.g., "Auth headers aligned with official Gemini CLI... to reduce 'account ineligible' errors and potential bans" / "Linux users now masquerade as macOS" / "Skip account over 90% to prevent Google penalties")
+
+All 3 registration criteria SATISFIED with STRONG PASS verdicts. Structural diversity across 6 dimensions (T1/T1-sub/T4 tier / solo/corporate-org archetype / security/methodology/legal-operational deficiency-type / different primary disclosure surfaces / all-quantitative-component / cooperative/tolerant/adversarial vendor-relationship axes). 4-of-5 standard promotion criteria SATISFIED + 1 PARTIAL (sub-taxonomy 83a/83b/83c DEFER to v69). **Recommended PROMOTE at v68 natural-cadence audit.** HIGH confidence verdict. Proposal document at `03 Projects/opencode-antigravity-auth - Beginner Analysis/01 Analysis/(C) Pattern-83 Honest-Deficiency-Disclosure N=3 promotion proposal.md`.
+
+### Pattern #84 REFINEMENT evidence
+
+Pattern #84 Cross-Vendor Ecosystem-Tolerance candidate sub-mechanisms (NOT direct N=3 strengthening):
+- **84a Tool-tolerance** — vendor does NOT challenge the artifact (no DMCA against 10.5K-star repo); sub-DMCA threshold maintained
+- **84b Usage-enforcement** — vendor DOES enforce at the account level (bans / shadow-bans / 403 `validation_required`)
+
+Co-existence refines #84 scope: *vendor-tolerance distinguishes between the artifact (tolerated as fair-research / dev-utility / community speech) and the usage (enforced at account level). Account-level enforcement is a release valve that allows vendor to maintain plausible non-enforcement against the tool while still defending the business model.* Flag for v68 audit consideration as REFINEMENT decision: ADOPT 84a/84b sub-typology vs. retain single-mechanism formulation.
+
+### Pattern #18 shared-backend-service sister-observation flag (NOT direct N+1)
+
+v67 plugin's many-accounts-rotation → one-Antigravity-backend mechanism shares "one-server-many-clients" structural property with v66 agentmemory N=1 baseline BUT with inverted client semantics:
+- agentmemory v66: distinct host platforms with shared service (host-shaped diversity = one-backend-many-PLATFORMS)
+- opencode-antigravity-auth v67: distinct authenticated identities with shared upstream (identity-shaped diversity = one-backend-many-IDENTITIES)
+
+Conservative call: SISTER OBSERVATION FLAGGED for v68 stale-check, NOT direct N=2 claim. Audit decides whether the property abstraction "one-backend-many-clients" generalizes across host-vs-identity client distinction or splits into two sub-archetypes.
+
+### Pattern #85 NOT N+1 evidence
+
+opencode-antigravity-auth uses `@opencode-ai/plugin` as a dependency but does NOT meet Pattern #85 criteria (b) self-as-instance framing, (c) host-unit self-description, or (d) host-CLI extensibility. Ordinary heavy-dependency plugin. Pattern #85 remains N=1 stale-flagged.
+
+### NEW observational candidates (3) + Library-vocabulary item (1)
+
+**OC-1 Adversarial-Detection-Tolerant Architecture** N=1 — 8+ integrated defensive sub-mechanisms in opencode-antigravity-auth: header mimicry + timing jitter + fingerprint diversity + per-account fingerprint persistence + fingerprint history rotation + backend-partition reassignment via fingerprint regeneration + soft quota thresholds + platform masquerading. Architecturally distinct from fault-tolerant (= survives random errors); this is enforcement-tolerant (= survives adversarial vendor responses). Re-eval v68 stale-check / v70 retire-check.
+
+**OC-2 Issue-As-Enforcement-Signal Pipeline** N=1 — CHANGELOG references GitHub issues (#178, #410, etc.) as the source signal for defensive engineering responses. Each issue is NOT a code defect but a user-observed vendor-enforcement signal. Sister to OC-1: OC-1 is architectural response, OC-2 is signal input mechanism. Re-eval v68 stale-check / v70 retire-check.
+
+**OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces** N=1 (Library-vocabulary candidate) — single Google account exposes 2 independent quota pools (Antigravity at `cloudcode-pa.googleapis.com` + Gemini CLI at `generativelanguage.googleapis.com`); plugin multiplexes for ~2× effective Gemini quota. Plausible at Anthropic API + Workbench, OpenAI API + Codex CLI, etc. Re-eval v68 stale-check.
+
+**Library-vocabulary item #11 Engagement-Deficit-Extreme** — corpus-record fork_ratio 0.0001 (1/10500) at v67 = 1,780× below prior corpus-record (v65 = 0.178). Threshold proposal: `fork_ratio < 0.005` AND `stars > 5000`. Observational metric, not discipline. v67 is N=1 for vocabulary item.
+
+### Library-vocabulary item #10 N=3 evidence (1-wiki rapid-pattern-evolution)
+
+v66→v67 Pattern #83 1-wiki promotion-readiness cycle (2026-05-14 registration → 2026-05-18 promotion-eligible = 4-day gap, within 1-wiki window). Now N=3 evidence for Library-vocabulary item #10:
+- v62→v63 Pattern #76 1-wiki counter-evidence cycle (1-day gap, original)
+- v64→v65 Pattern #78 1-wiki un-stale-via-N=2-evidence cycle (1-day gap, TIED FASTEST until v67)
+- **v66→v67 Pattern #83 1-wiki promotion-readiness cycle (4-day gap)** — slightly slower but in-window
+
+### Pattern Library state-block changes
+
+| Metric | Pre-v67 | Post-v67 | Δ |
+|--------|---------|----------|---|
+| Confirmed patterns | 43 | 43 | 0 |
+| Active candidates | 27 | 30 | +3 (3 NEW observational candidates) |
+| **Ratio (active:confirmed)** | **0.628** | **0.698** | **+0.070** |
+| Library-vocabulary items | 13 | 14 | +1 (item #11) |
+| Storm Bear streak post-v64-RESET | 2 | 3 | +1 |
+| Wiki count (total corpus) | 66 | 67 | +1 |
+
+**Ratio 0.698 well below 0.95 mini-audit threshold; next wiki proceeds normally.**
+
+### Routine v2.2 second-wiki validation (post-v66 first-wiki)
+
+v67 is the SECOND wiki built under routine v2.2. v2.2 features validated at v67:
+- ✅ Phase 0.4 docs/ tree-listing (fetched 6 docs/*.md files cleanly)
+- ✅ Phase 0 velocity-screen automation (caught corpus-record fork_ratio 0.0001 at Phase 0)
+- ✅ Engagement-signal sub-investigation (watchers/stars + forks/stars + open_issues/stars all computed)
+- ✅ 13th classification axis Living-Domain-Standards Tracking (assessed NO at Phase 0)
+- ✅ Phase 0.9 MODERATE INCLUDE strength categorization (NEW v2.2 — first MODERATE in post-amendment window)
+- ✅ Phase 4b PRIMARY routing pre-registration at Phase 0 (Pattern #83 N=3 pre-registered; Entity 3 structured around it)
+- ✅ NEW Pattern candidate proposal-document discipline (Pattern #83 N=3 proposal-document per v2.2 spec; 3rd exemplar after v64 #19 + v65 #78)
+- ✅ Pre-Phase-6 fact-verification: pattern references verified against PATTERN_LIBRARY.md
+- ✅ 1-wiki rapid-evolution detection (Pattern #83 v66→v67 1-wiki cycle logged as Library-vocabulary item #10 N=3 evidence)
+
+### 9 corpus-firsts at v67
+
+(1) CORPUS-RECORD-LOW fork_ratio (0.0001 = 1/10,500) — 1,780× below prior corpus-record (v65 = 0.178) / (2) first T4 Bridge OAuth-credential-plugin in corpus / (3) first explicit adversarial-vendor-tolerance architecture in corpus (8+ integrated sub-mechanisms) / (4) first closed-vendor-internal-gateway-as-discovered-surface in corpus (Google Antigravity via `/v1internal:*` paths + non-standard OAuth scopes `cclog` + `experimentsandconfigs`) / (5) first quota-arbitrage-across-vendor-internal-surfaces in corpus (Antigravity + Gemini CLI dual pool for same account) / (6) first Opencode-ecosystem subject as primary in corpus (Opencode is sibling-to-Claude-Code, previously only referenced indirectly) / (7) first multi-disclosure-surface saturation pattern (5 Pattern #83 surfaces in single subject; the within-subject saturation as N=3-evidence shortcut is a corpus-distinctive discovery) / (8) first explicit issue-as-enforcement-signal pipeline in corpus / (9) first explicit platform-masquerading (Linux users masquerade as macOS) in corpus.
+
+**Corpus-records at v67:**
+- Solo-utility release cadence: 91 releases / 5 months / ~1.75-day average cadence
+- Single-subject disclosure surface count for any candidate Pattern: 5 distinct surfaces
+- Single-wiki Pattern Library implication count: 1 PROMOTION-ELIGIBLE + 1 REFINEMENT + 3 observational candidates + 1 vocabulary item = 6 implications
+- Lowest fork_ratio: 0.0001
+
+### v68 audit agenda additions from v67 wiki
+
+(11 items now — largest v68 batch in corpus history): Pattern #83 N=3 PROMOTION + Pattern #84 refinement (84a/84b decision) + Pattern #18 shared-backend-service sub-archetype (one-backend-many-IDENTITIES vs one-backend-many-PLATFORMS) + OC-1 stale-check + OC-2 stale-check + OC-3 stale-check + Library-vocabulary item #11 evaluation + carry-overs from v66 (Pattern #77 stale-check, Pattern #78 78a/78b stale-check, Pattern #74-79-80-83-84-85 stale-checks, AI-Generated-Repo Artifact Contamination observational).

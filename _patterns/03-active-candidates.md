@@ -1,4 +1,4 @@
-## Active Candidates (27 — v66 agentmemory wiki 2026-05-14: +1 Pattern #85 Platform-Primitive Foundation N=1 registered (corpus-first; framework built ENTIRELY on another platform's primitives with self-as-instance framing). Prior same-day v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED CONFIRMED via criterion #2 with 78a + 78b sub-mechanisms + 5 NEW top-level candidates registered (#80 Tool-Level Adversarial Review N=2 + #81 Manifest-Drift-As-CI-Concern N=1 + #82 Gamified-Curated Community Contribution N=1 + #83 Honest-Deficiency-Disclosure Discipline N=2 + #84 Cross-Vendor Ecosystem-Tolerance N=2); Pattern #19 ecosystem-portfolio-builder formal sub-archetype with 19a/19b/19c/19d registered within already-CONFIRMED Pattern #19; ratio 27:43 = 0.628:1)
+## Active Candidates (30 — v67 opencode-antigravity-auth wiki 2026-05-18: +3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture N=1 + OC-2 Issue-As-Enforcement-Signal Pipeline N=1 + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces N=1) + Pattern #83 advanced to N=3 PROMOTION-ELIGIBLE + Pattern #84 REFINEMENT evidence (sub-mechanism 84a tool-tolerance / 84b usage-enforcement candidate) + NEW Library-vocabulary item #11 Engagement-Deficit-Extreme observational track (corpus-record fork_ratio 0.0001 = 1/10500) + Pattern #18 shared-backend-service sub-archetype sister-observation flag (one-backend-many-IDENTITIES variant vs v66 one-backend-many-PLATFORMS); ratio 30:43 = 0.698:1. Prior v66 agentmemory wiki 2026-05-14: +1 Pattern #85 Platform-Primitive Foundation N=1 registered (corpus-first; framework built ENTIRELY on another platform's primitives with self-as-instance framing). v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED CONFIRMED via criterion #2 with 78a + 78b sub-mechanisms + 5 NEW top-level candidates registered (#80 Tool-Level Adversarial Review N=2 + #81 Manifest-Drift-As-CI-Concern N=1 + #82 Gamified-Curated Community Contribution N=1 + #83 Honest-Deficiency-Disclosure Discipline N=2 + #84 Cross-Vendor Ecosystem-Tolerance N=2); Pattern #19 ecosystem-portfolio-builder formal sub-archetype with 19a/19b/19c/19d registered within already-CONFIRMED Pattern #19)
 
 #### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
 **Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
@@ -734,6 +734,101 @@ Original registration content (v32, preserved for history):
 **Re-evaluation:** v68 stale-check / v71 retire-check.
 **Rationale:** Corpus-first across 65 wikis. NOT iii-specific — plausible un-stale subjects: other iii-engine-based projects / projects built entirely on Cloudflare Workers+Durable Objects with self-as-instance framing / projects built entirely on a BaaS substrate (Supabase/Convex) counting in BaaS units + extending via BaaS CLI. The coupling-risk trait is the diagnostic that distinguishes a true Platform-Primitive Foundation from a heavy-dependency project. Stale-risk: may stay N=1 if the self-as-instance framing is rare; retire-via-absorption or OT-demotion if still N=1 at v71. Overlap pre-check passed: <70% overlap with Pattern #17 Ecosystem-Layer Organizations (organizational/commercial axis, not technical-substrate) / Pattern #18 Agent Runtime Standardization (multi-runtime reach, not built-on-substrate) / Pattern #2 Distribution Evolution (packaging channel, not runtime substrate).
 **Cross-reference:** Pattern #18 Agent Runtime Standardization — agentmemory ALSO contributes a NEW Pattern #18 sub-archetype (shared-backend-service: one server, 15+ platforms as clients; 3rd multi-platform mechanism after Layer 1 coexistence + Layer 2 translation). Cross-pattern coupled-design observation (Library-vocabulary item #9): Pattern #85 co-occurs with the #18 shared-backend sub-archetype at agentmemory — the iii-foundation is what makes the one-server-many-clients mechanism cheap to build (observational coupling, not necessary).
+**v67 update (2026-05-18):** NOT N=2 evidence from v67 opencode-antigravity-auth. The plugin uses `@opencode-ai/plugin` as a dependency but does NOT meet criteria (b) self-as-instance framing, (c) host-unit self-description, or (d) host-CLI extensibility. Ordinary heavy-dependency plugin. Pattern #85 remains N=1 stale-flagged; v68 stale-check still scheduled per default.
+
+---
+
+### Pattern #83 update at v67 — N=3 PROMOTION-ELIGIBLE
+
+**v67 evidence (2026-05-18):** opencode-antigravity-auth N=3 STRONG via 5 distinct disclosure surfaces in single subject:
+1. README `[!CAUTION]` block (open-by-default): "Using this plugin violates Google's Terms of Service. Accounts banned or shadow-banned." + 3-bullet user-acknowledgment block
+2. README "Legal" footer collapsed `<details>`: 4-category risk disclosure (ToS / Account / No guarantees / Assumption of risk)
+3. README "Intended Use" disclaimer: "Personal / internal development only / Not for production services or bypassing intended limits"
+4. docs/ANTIGRAVITY_API_SPEC.md status banner: "Verified by Direct API Testing" (empirical-discovery status, not vendor contract)
+5. CHANGELOG entries (91 releases): Honest naming of detection-patterns + enforcement-mechanism responses ("Auth headers aligned... to reduce 'account ineligible' errors and potential bans"; "Linux users now masquerade as macOS"; "Skip account over 90% to prevent Google penalties")
+
+All 3 registration criteria SATISFIED with STRONG PASS verdicts: (1) Quantitative (90% threshold) + categorical (TOS/bans/intended-use) disclosure; (2) README opening + footer + docs + CHANGELOG = 4 user-facing surfaces saturated; (3) Non-minimized ("Your account may be suspended or permanently banned" + "Linux users now masquerade as macOS" = brutal honesty).
+
+**Structural diversity (6 dimensions):** T1+T1-sub+T4 tier diversity / solo+corporate-org archetype / security+methodology+legal-operational deficiency-type / different primary disclosure surfaces / all-quantitative-component / cooperative+tolerant+adversarial vendor-relationship axes.
+
+**Status:** CANDIDATE N=3 PROMOTION-ELIGIBLE. **Recommended PROMOTE at v68 natural-cadence audit / v69 audit window.** Sub-taxonomy (83a security / 83b methodology / 83c legal-operational) DEFER to v69 (4-5 evidence needed to stabilize).
+
+**Proposal document:** `03 Projects/opencode-antigravity-auth - Beginner Analysis/01 Analysis/(C) Pattern-83 Honest-Deficiency-Disclosure N=3 promotion proposal.md`
+
+**Library-vocabulary item #10 N=3 evidence (1-wiki rapid-pattern-evolution observational track):** v66→v67 Pattern #83 1-wiki promotion-readiness cycle (2026-05-14 registration → 2026-05-18 promotion-eligible = 4-day gap, within 1-wiki window).
+
+---
+
+### Pattern #84 update at v67 — REFINEMENT EVIDENCE (not strengthening)
+
+**v67 evidence (2026-05-18):** opencode-antigravity-auth refines Pattern #84 tolerance-mechanism scope. The REPO is sub-DMCA-tolerated by Google (10.5K stars + 91 releases + npm package without legal challenge) BUT individual USAGE is enforced (account bans, shadow-bans, 403 `validation_required`). Two tolerance/enforcement mechanisms co-exist.
+
+**Refinement statement:** *Vendor-tolerance distinguishes between the artifact (tolerated as fair-research / dev-utility / community speech) and the usage (enforced at account level). Account-level enforcement is a release valve that allows vendor to maintain plausible non-enforcement against the tool while still defending the business model.*
+
+**Candidate sub-mechanisms:**
+- **84a Tool-tolerance** — vendor does NOT challenge the artifact (no DMCA / no enforcement against repo or npm package); sub-DMCA threshold maintained
+- **84b Usage-enforcement** — vendor DOES enforce at the account level (bans / shadow-bans / verification challenges)
+
+**Status:** CANDIDATE N=2 (not N=3 strengthening because mechanism is refined rather than strengthened along same axis). Flag for v68 audit consideration as REFINEMENT decision: ADOPT 84a/84b sub-typology vs. retain single-mechanism formulation.
+
+---
+
+### Pattern #18 update at v67 — Sister-observation flag (NOT direct N+1)
+
+**v67 evidence (2026-05-18):** opencode-antigravity-auth's many-accounts-rotation → one-Antigravity-backend mechanism shares the "one-server-many-clients" structural property with v66 agentmemory's Pattern #18 shared-backend-service sub-archetype BUT with inverted client semantics:
+
+- agentmemory v66: distinct host platforms with shared service (host-shaped diversity)
+- opencode-antigravity-auth v67: distinct authenticated identities with shared upstream (identity-shaped diversity)
+
+**Status:** Conservative call — SISTER OBSERVATION FLAGGED for v68 stale-check, NOT direct N=2 claim. Audit decides whether the property abstraction "one-backend-many-clients" generalizes across host-vs-identity client distinction or splits into two sub-archetypes.
+
+---
+
+#### 🟡 OC-1 Adversarial-Detection-Tolerant Architecture (NEW v67 opencode-antigravity-auth wiki — registered N=1 observational candidate)
+**Status at v67 wiki ship (2026-05-18):** Registered as observational candidate via opencode-antigravity-auth v67. **N=1 observational-track-flagged at registration**.
+**Evidence:** v67 opencode-antigravity-auth only — 8+ integrated sub-mechanisms in single plugin: (1) request interception with mimicry of Antigravity Manager's exact User-Agent string + header shape, (2) per-request timing jitter for detection-pattern dilution (v1.3.2), (3) header randomization for fingerprint diversity (v1.3.2), (4) per-account fingerprint persistence with `deviceId`/`sessionToken`/`userAgent` (v1.3.2), (5) fingerprint history rotation (max 5, restorable, v1.3.2), (6) backend-partition reassignment via fingerprint regeneration on capacity exhaustion (v1.3.2), (7) soft quota threshold (default 90%) explicitly "to prevent Google from penalizing accounts that fully exhaust quota" (v1.4.5), (8) platform masquerading (Linux users masquerade as macOS, v1.5.1). All 8 mechanisms accumulated across 91-release evolution as defensive responses to observed vendor enforcement patterns.
+**Formal statement (candidate):**
+> When a framework's correctness depends on evading vendor anomaly detection, architectural decisions accumulate as integrated defensive surface. Distinct from fault-tolerant architecture (= survives random errors) — this is enforcement-tolerant architecture (= survives adversarial vendor responses). Diagnostic: multiple integrated sub-mechanisms (header mimicry + fingerprint diversity + identity-rotation + timing jitter + soft-thresholds + platform masquerading) co-exist in single codebase, accumulating across release evolution as response to observed enforcement patterns.
+**Promotion criteria (3):**
+1. Multiple (3+) integrated defensive sub-mechanisms in single codebase
+2. Defensive mechanisms explicitly documented as responding to vendor enforcement (not generic anti-fraud or rate-limiting)
+3. Evolution of mechanisms traceable through release history (each mechanism addresses specific observed enforcement pattern)
+**Required for promotion:** 2+ subjects with adversarial-detection-tolerant architecture.
+**Re-evaluation:** v68 stale-check / v70 retire-check.
+**Rationale:** Architecturally distinctive in 67-wiki corpus history. Hypothetical un-stale candidates: similar bridge plugins to other closed-vendor gateway APIs / web scraping frameworks with vendor-detection-evasion / unofficial API SDKs with fingerprinting layers. Stale-risk: may stay opencode-antigravity-auth-specific if the architectural archetype is rare; demote to Library-vocabulary observational entry if N=1 at v70.
+**Cross-reference:** Pattern #66 meta-supply-chain-awareness (CONFIRMED) — Pattern OC-1 is a structural manifestation of #66 awareness applied to vendor-tolerance constraints. Pattern #51 Vibe-Adjacent Positioning Spectrum (CONFIRMED) — opencode-antigravity-auth's anti-vibe-with-pragmatic-acknowledgment positioning correlates with OC-1 architecture.
+
+---
+
+#### 🟡 OC-2 Issue-As-Enforcement-Signal Pipeline (NEW v67 opencode-antigravity-auth wiki — registered N=1 observational candidate)
+**Status at v67 wiki ship (2026-05-18):** Registered as observational candidate via opencode-antigravity-auth v67. **N=1 observational-track-flagged at registration**.
+**Evidence:** v67 opencode-antigravity-auth only — CHANGELOG explicitly references GitHub issue numbers (#178, #207, #233, #263, #286, #337, #368, #370, #377, #381, #384, #410, #444, #454, #397) as the source signal for defensive engineering responses. E.g., issue #178 → v1.3.1 auth-header alignment with Gemini CLI "to reduce 'account ineligible' errors and potential bans"; issue #410 → v1.5.0 strip `x-goog-user-project` header. Each issue is NOT a code defect but a user-observed vendor-enforcement signal; CHANGELOG response is defensive engineering not bug fix.
+**Formal statement (candidate):**
+> User-reported issues function as the sensor network for vendor enforcement patterns; each pattern triggers a defensive engineering response in the next minor release. Distinct from ordinary bug-fix pipelines because the issue is NOT a code defect — it's a vendor response. Project's issue tracker becomes a live feed of vendor-enforcement observations, with maintainer-side defensive engineering as the response loop.
+**Promotion criteria (3):**
+1. Project has issue tracker with explicit pattern-tracking discipline (not just generic bug reports)
+2. CHANGELOG / release notes reference issues as enforcement signals, not code defects
+3. Defensive engineering response visible in release-cadence pattern (each issue → next-release-defensive-fix arc)
+**Required for promotion:** 2+ subjects with issue-as-enforcement-signal pipeline.
+**Re-evaluation:** v68 stale-check / v70 retire-check.
+**Rationale:** Distinct corpus-first observation. Hypothetical un-stale candidates: similar adversarial-vendor-tolerant subjects / web scraping framework issue trackers / unofficial API SDK projects with similar dynamics. Stale-risk: may stay opencode-antigravity-auth-specific if community-as-sensor-network is uncommon at adversarial-vendor-tolerant scale.
+**Cross-reference:** OC-1 Adversarial-Detection-Tolerant Architecture — sister observation; OC-1 is the architectural response, OC-2 is the signal input mechanism. Pattern #27 Community-Viral Scale Path (CONFIRMED) — OC-2 is community-as-signal-network mechanism, Pattern #27 is community-as-distribution-network.
+
+---
+
+#### 🟡 OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces (NEW v67 opencode-antigravity-auth wiki — registered N=1 Library-vocabulary candidate)
+**Status at v67 wiki ship (2026-05-18):** Registered as observational/Library-vocabulary candidate via opencode-antigravity-auth v67. **N=1 vocabulary-candidate-flagged at registration**.
+**Evidence:** v67 opencode-antigravity-auth only — single Google account exposes 2 independent API quota pools (Antigravity at `cloudcode-pa.googleapis.com` + Gemini CLI at `generativelanguage.googleapis.com`) because Antigravity and Gemini CLI are separate Google services with separate quotas despite hitting the same underlying Gemini model. Plugin treats them as mergeable: Antigravity-first routing with automatic fallback to Gemini CLI on exhaustion. Effective ~2× Gemini quota per account.
+**Formal statement (candidate):**
+> Closed-vendor's internal API surface exposes multiple quota pools via different product-line endpoints. Single user account may have N independent quotas because the vendor's internal service architecture treats them as separate billable services. Plugin / bridge can multiplex across pools for the same user. Distinct from rate-limiting (= temporal multiplexing) and from multi-account (= identity multiplexing); this is product-line multiplexing within single identity.
+**Promotion criteria (vocabulary item):**
+1. Closed-vendor with multiple internal API endpoints for similar/same model
+2. Each endpoint has independent quota billing
+3. Bridge/plugin multiplexes across pools for same user identity
+**Required for promotion:** 2+ subjects observing same vendor's internal-API quota-arbitrage OR 1 subject + 1 documented vendor-API analogy.
+**Re-evaluation:** v68 stale-check / v70 retire-check.
+**Rationale:** Plausible at other closed-vendor + sister-internal-product pairings: Anthropic API + Workbench, OpenAI API + Codex CLI, Google Antigravity + Gemini CLI + Vertex AI (3-pool case). Vocabulary item rather than top-level Pattern because mechanism-form is parameter (number of pools), not architectural-pattern. Could become Pattern candidate if N=3+ evidence shows generalizability.
+**Cross-reference:** Pattern #18 Agent Runtime Standardization sub-archetype shared-backend-service — adjacent observation but OC-3 is about vendor-internal-API multiplexing, not platform-to-server multiplexing.
 
 ---
 
