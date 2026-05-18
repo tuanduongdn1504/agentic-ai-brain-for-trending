@@ -1007,3 +1007,139 @@ v67 is the SECOND wiki built under routine v2.2. v2.2 features validated at v67:
 ### v68 audit agenda additions from v67 wiki
 
 (11 items now — largest v68 batch in corpus history): Pattern #83 N=3 PROMOTION + Pattern #84 refinement (84a/84b decision) + Pattern #18 shared-backend-service sub-archetype (one-backend-many-IDENTITIES vs one-backend-many-PLATFORMS) + OC-1 stale-check + OC-2 stale-check + OC-3 stale-check + Library-vocabulary item #11 evaluation + carry-overs from v66 (Pattern #77 stale-check, Pattern #78 78a/78b stale-check, Pattern #74-79-80-83-84-85 stale-checks, AI-Generated-Repo Artifact Contamination observational).
+
+---
+
+## v68 vercel-labs/zero wiki — 2026-05-18
+
+**Subject:** [`vercel-labs/zero`](https://github.com/vercel-labs/zero) v0.1.2 (2026-05-17 latest release; v0.1.0 2026-05-16; **2-day age at wiki build**); PROVISIONAL T1 Augmentation NEW sub-archetype #7 "programming-language-as-agent-substrate" / corporate-strategic-lab / small-scale (2.1K stars) but EXTREME-VIRAL velocity / **C 65.9% (corpus-first primary language)** + JavaScript 26.9% + Shell 5.4% / Apache-2.0 / curl-installer + npm workspaces + native make / Vercel Labs sub-org of Vercel main / `@ctate` solo maintainer with namespace release branches `ctate/v0.1.x`
+
+**Velocity-screen (v2.2 NEW):** stars/day **1,050** = **EXTREME-VIRAL** (corpus 2nd-highest after karpathy-skills v63 ~1,186/day) / fork_ratio 0.065 (6.5%; moderate) / watchers/stars 0.0043 (very low; drive-by-stars partial) / open_issues/stars 0.0067 (low) / commits/day **~45.5** (extreme author-velocity) / **release cadence 1.5 releases/day = corpus-record** (3 releases in 2-day window)
+
+**Build velocity:** ~139 min (lower end of v60-v67 range; drivers: smaller source surface 5 main files + cleaner Pattern Library implication structure + Phase 4b proposal-document template precedent from v64+v65+v67 exemplars)
+
+**Phase 0.9 STRICT 1/4 PASS → WEAK INCLUDE — FIRST WEAK in post-amendment window** ((a) FAIL Vercel Labs corporate-strategic-lab / (b) FAIL Zero pre-1.0 experimental C-primary language not Scrum-applicable / (c) FAIL no methodology lineage / (d) PASS vercel-labs is sub-org of v51 Vercel main + `@vercel/sandbox` dep + skills protocol corpus-anchor). Storm Bear streak post-v64-RESET: **4 consecutive PASS** (v65 STRONGEST + v66 STRONG 4/4 + v67 MODERATE 2/4 + **v68 WEAK 1/4 — FIRST WEAK in post-amendment window**). **Strength categorization spectrum fully exercised** at 4 consecutive wikis (validates v2.2 NEW strength categorization as discriminative). 12-instance Phase 0.9 window v57-v68 = 10 PASS / 2 SKIP = **83.3% INCLUDE rate** (slight uptick from v67's 81.8%).
+
+### Phase 4b PRIMARY: NEW T1 sub-archetype #7 "programming-language-as-agent-substrate" registration
+
+**Pattern #86 NEW T1 sub-archetype #7 "programming-language-as-agent-substrate"** registered N=1 PROVISIONAL stale-risk-flagged. All 4 distinguishing properties STRONG PASS:
+
+1. **Primary artifact is a programming language** — Zero is a programming language with native C compiler (`native/zero-c/`) + self-hosted compiler (`compiler-zero/`), file extension `.0`, zerolang.ai
+2. **Agents are PRIMARY users (explicit)** — README + AGENTS.md explicit "agent-first programming language" + "agents are primary users from day one" framing
+3. **Language-level commitments to agent-readability** — 5 explicit design axioms (agent-first learnability + standard-library depth + deterministic tooling + direct DX + regularity-over-syntax)
+4. **Skill content bundled with runtime** — `skills/zero/SKILL.md` thin stub + 7+ inner skills bundled in native binary served via `zero skills get zero --full`
+
+**Structural diversity from 6 prior T1 sub-archetypes:** Distinct from general-purpose / curated-meta / corporate-curated / single-artifact / domain-vertical / reverse-engineering-reference-archive — Zero v68's primary artifact is a programming language with compiler infrastructure (not skill curation/collection).
+
+**T1 sub-archetype #7 vs NEW Tier T6 audit-decision deferred to v69 Tier-Taxonomy Review T6** (pre-registered at v66 Decision 14). Recommended: ADOPT T1 sub-archetype #7 + DEFER NEW Tier T6 to future audit when N=2 emerges. **Conservative classification preserves option to graduate to NEW Tier T6 later.**
+
+**Promotion criteria (4):** All 4 distinguishing properties + ≥1 explicit "agent-first" positioning statement + skill content version-coupled with runtime. **Required for validation:** 2+ subjects matching all 4 criteria. **Re-evaluation:** v70 stale-check / v75 retire-check.
+
+**Proposal document:** `03 Projects/zero - Beginner Analysis/01 Analysis/(C) T1-programming-language-as-agent-substrate NEW sub-archetype registration.md`
+
+### Pattern #87 NEW Skill-As-Binary-Bootstrap observational candidate
+
+**Mechanism:** Framework ships skill content via thin discovery-stub SKILL.md that explicitly directs skill managers to invoke framework runtime/binary/compiler for actual version-matched skill content. Skill manager registers ONE skill per framework; runtime serves N inner skills version-coupled with installed framework version. **Solves skill-content-version-drift** by binding content to runtime artifact lifecycle.
+
+**v68 zero N=1:** SKILL.md (51 lines) explicitly self-identifies as "discovery stub. Do not treat it as the full Zero workflow." Directs to `zero skills get zero --full`. Compiler serves 7+ inner skills (zero-agent / zero-language / zero-diagnostics / zero-packages / zero-builds / zero-testing / zero-stdlib) from bundled `skill-data/` at build time.
+
+**Promotion criteria (3):** Thin stub + stub-directs-to-runtime + runtime-serves-bundled-content. **Required for promotion:** 2+ subjects. Re-evaluation: v70 stale-check / v73 retire-check.
+
+**Cross-reference:** Pattern #2 Distribution Evolution (CONFIRMED) — Skill-As-Binary-Bootstrap is candidate sub-variant. Could register as Pattern #2 sub-variant rather than top-level pattern; audit decides at v69+.
+
+### 6 additional NEW observational candidates (OC-A through OC-F)
+
+**OC-A Agent-First-Language-Substrate design philosophy** N=1 — explicit "agents are primary users from day one" + 5-axiom design discipline. Distinct from agent-augmentation pattern (prior corpus default).
+
+**OC-B Self-Hosted Compiler Bootstrap** N=1 — native/zero-c (C bootstrap) + compiler-zero/ (self-hosted Zero). Classic compiler engineering pattern, corpus-first as wiki subject. Likely to stay corpus-N=1 unless other compiler subjects enter corpus.
+
+**OC-C In-Browser-Compiler-Via-WASM** N=1 — compiler-zero/ compiles to WASM for zerolang.ai playground. Browser-side execution without server roundtrip. Could generalize to other language subjects.
+
+**OC-D Anti-Compatibility-As-Project-Policy** N=1 — AGENTS.md explicit "Do not preserve legacy behavior by default." Counter-norm to typical software-engineering. Sister observation to v62 + v66 + v67 corpus subjects (all compatibility-aware).
+
+**OC-E Synchronicity-Discipline-As-Policy** N=1 — AGENTS.md "Keep examples, docs, tests, and command contracts aligned with the new behavior so the repository describes one coherent current system." BEHAVIORAL alignment across repository surfaces (distinct from Pattern #81 version-string consistency).
+
+**OC-F Structured-JSON-as-First-Class-CLI-Output** N=1 — 5 of 8 Zero common commands have `--json` flag. Machine-readable output as default, not secondary. Aligns with deterministic-tooling design axiom.
+
+All 6 OCs: v70 stale-check / v73 retire-check.
+
+### Pattern #83 N=4 strengthening (consolidates v67 N=3 PROMOTION-ELIGIBLE)
+
+**v68 evidence (2026-05-18):** vercel-labs/zero N=4 STRONG via 2 distinct disclosure surfaces saturated (README pre-1.0 + safety paragraph + AGENTS.md §Safety with specific failure-mode disclosure). All 3 registration criteria STRONG PASS.
+
+**Status:** Pattern #83 remains CANDIDATE N=4 PROMOTION-ELIGIBLE. v68 evidence consolidates v67 N=3 promotion case; no acceleration request. **Promotion target at v68 natural-cadence audit / v69 audit window** per v67 proposal-document.
+
+**Sub-taxonomy reconsideration with v68:** v64 = 83a security-disclosure, v65 = 83b methodology-disclosure, v67 = 83c legal-operational-disclosure, **v68 = potential 83d experimental-status-disclosure** (pre-1.0 + intentionally-unstable framing). Sub-taxonomy now has emergent 4-dimension coverage. v69 sub-taxonomy decision at audit.
+
+### Pattern #52 v69 sustained-velocity-test batch addition
+
+**v68 evidence:** vercel-labs/zero at 1,050 stars/day in 2-day window = **corpus 2nd-highest velocity** (karpathy-skills v63 ~1,186/day at 102 days = corpus-record).
+
+**Status:** ADD v68 zero to v69 Pattern #52 sustained-velocity-test batch (mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + **zero v68**). **Special interest:** v68 zero is unique test case — corporate-strategic-lab launch at 2-day-old. v69 sustained-velocity result evaluates corporate-lab velocity sustainability.
+
+### Pattern #81 partial N=2 evidence (sister observation flag — discipline-documented-but-not-CI-enforced sub-variant)
+
+**v68 evidence:** Zero AGENTS.md release workflow documents 5-file version-bump discipline. Matches Pattern #81 structural property (≥3 file locations) BUT workflow is MANUAL ("Releases are manual, single-branch affairs"), NOT CI-enforced.
+
+**Status:** Sister observation flag for v68 audit — Pattern #81 needs sub-typology decision: 81a CI-enforced (v64 claude-seo baseline) vs 81b manually-disciplined (v68 zero) sub-variants.
+
+### Pattern #82 WEAK N=2 (sister observation, different mechanism)
+
+**v68 evidence:** Zero CHANGELOG lists named contributors per release. BUT mechanism is automated extraction from commit authors + Co-authored-by trailers (NOT named gamified curated challenge program like v64 claude-seo Pro Hub Challenge).
+
+**Status:** WEAK N=2 sister observation — different mechanism. Sister observation flag at v68 audit; lean toward "different mechanism" interpretation. Could register NEW Pattern "Automated-Per-Release-Contributor-Attribution-From-Git-Trailers" if N=2 emerges with same programmatic mechanism.
+
+### Pattern Library state-block changes
+
+| Metric | Pre-v68 | Post-v68 | Δ |
+|--------|---------|----------|---|
+| Confirmed patterns | 43 | 43 | 0 |
+| Active candidates | 30 | 31 | +1 (NEW T1 sub-archetype #7 = Pattern #86) |
+| NEW observational candidates | 6 | 13 | +7 (Pattern #87 Skill-As-Binary-Bootstrap + OC-A through OC-F) |
+| Stale candidates | 1 | 1 | 0 |
+| Retired patterns | 9 | 9 | 0 |
+| **Ratio (active:confirmed)** | **0.698** | **0.721** | **+0.023** |
+| Library-vocabulary items | 14 | 14 | 0 |
+| Storm Bear streak post-v64-RESET | 3 | 4 | +1 |
+| Wiki count (total corpus) | 67 | 68 | +1 |
+
+**Ratio 0.721 still well below 0.95 mini-audit threshold; consolidation guard does not hard-trigger. Active count 31 ≥ 30 trigger retained (was reached at v67). v68 audit batch grows to ~20 items = NEW LARGEST in corpus history.**
+
+### Routine v2.2 third-wiki validation (after v66 + v67)
+
+v68 is the THIRD wiki built under routine v2.2. v2.2 features validated at v68:
+- ✅ Phase 0.4 docs/ tree-listing (WebFetch enumerated `/tree/main` top-level)
+- ✅ Phase 0 velocity-screen automation (caught EXTREME-VIRAL 1,050 stars/day at Phase 0)
+- ✅ Engagement-signal sub-investigation (watchers/stars + forks/stars + open_issues/stars + commits/day all computed)
+- ✅ 13th classification axis Living-Domain-Standards Tracking (assessed NO at Phase 0)
+- ✅ Phase 0.9 WEAK INCLUDE strength categorization (NEW v2.2 — first WEAK in post-amendment window)
+- ✅ Phase 4b PRIMARY routing pre-registration at Phase 0 (NEW T1 sub-archetype #7 + Skill-As-Binary-Bootstrap pre-registered)
+- ✅ NEW Pattern candidate proposal-document discipline (T1 sub-archetype #7 registration proposal per v2.2 spec; 4th exemplar after v64 + v65 + v67)
+- ✅ Pre-Phase-6 fact-verification: pattern references verified against PATTERN_LIBRARY.md
+- ✅ 1-wiki rapid-evolution detection (no acceleration; v67→v68 Pattern #83 is consolidation not new evolution cycle)
+
+### Strength categorization spectrum fully exercised post-v64-RESET
+
+12-instance Phase 0.9 post-amendment window v57-v68:
+- v57 PASS / v58 PASS / v59 SKIP / v60 PASS / v61 PASS / v62 PASS / v63 PASS / v64 SKIP / **v65 STRONGEST 3/4** / **v66 STRONG 4/4** / **v67 MODERATE 2/4** / **v68 WEAK 1/4**
+- = 10 PASS / 2 SKIP = **83.3% INCLUDE rate**
+- 4 consecutive PASS post-v64-RESET demonstrating ALL strength categories (STRONGEST/STRONG/MODERATE/WEAK)
+- v2.2's strength categorization (NEW per v65 lesson) **discriminates fully across distinct relevance levels — validated empirically at v68**
+
+### 12 corpus-firsts at v68
+
+(1) **First programming-language subject in corpus** (67 prior wikis were skill collections / agent frameworks / plugins / etc.) / (2) **First C-primary language subject** (C 65.9% — prior corpus had TypeScript/Python/Markdown primary) / (3) **First explicit "agent-first" design philosophy** (agents as PRIMARY users, not augmentees) / (4) **First self-hosted compiler bootstrap architecture** (`native/zero-c/` + `compiler-zero/`) / (5) **First Skill-As-Binary-Bootstrap mechanism** (thin SKILL.md stub → compiler-served version-matched content) / (6) **First in-browser-compiler-via-WASM** at docs-site playground / (7) **First Rust-style borrow checking as language feature** / (8) First anti-compatibility-as-project-policy / (9) First synchronicity-discipline-as-policy / (10) First fix-plan-as-first-class-primitive at compiler level / (11) First corporate-published-but-individual-maintained sub-pattern (Vercel Labs publishes; `@ctate` maintains individually) / (12) First 8-layer test pipeline at 2-day-old project.
+
+**Corpus-records at v68:**
+- Single-wiki Pattern Library implication count: 11+ implications (1 NEW Pattern #86 + 7 observational candidates + Pattern #83 N=4 + Pattern #52 v69-batch + Pattern #81 sister flag + Pattern #82 weak N=2)
+- Release cadence: 1.5 releases/day (3 releases in 2-day window)
+- v68 audit batch size: ~20 items = LARGEST in corpus history
+- Strength categorization spectrum: fully exercised at 4 consecutive wikis (v65-v68)
+
+### v68/v69 audit agenda additions from v68 wiki
+
+(~20 items at v68 — LARGEST in corpus history; +5 new from v68): Pattern #83 N=3+N=4 PROMOTION (v67+v68 consolidated evidence) + **NEW v68: T1 sub-archetype #7 PROVISIONAL classification + v69 Tier-Taxonomy Review T6 motivation** + **NEW v68: Pattern #87 Skill-As-Binary-Bootstrap observational sub-mechanism** + **NEW v68: 6 observational candidates (OC-A through OC-F)** + **NEW v68: Pattern #81 partial N=2 sub-typology decision (81a CI-enforced vs 81b manually-disciplined)** + **NEW v68: Pattern #82 WEAK N=2 sister observation evaluation** + carry-overs from v67 + v66 (Pattern #74-85 stale-checks + Pattern #84 REFINEMENT + Pattern #18 sub-archetype evaluation + OC-1/2/3 + Library-vocabulary item #11 + AI-Generated-Repo Artifact Contamination).
+
+### v69 audit batch additions
+
+(beyond existing v66/v67 carry items): **Pattern #52 sustained-velocity test ADD v68 zero** (1,050 stars/day at 2-day-old; corporate-strategic-lab launch test case) + **Tier-Taxonomy Review T6** (NEW Tier T6 Language/Runtime substrate vs T1 sub-archetype #7 retention decision) + **Pattern #83 sub-taxonomy** (83a security / 83b methodology / 83c legal-operational / 83d experimental-status emergent 4-dimension coverage).
