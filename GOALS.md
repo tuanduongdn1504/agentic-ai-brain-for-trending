@@ -175,7 +175,7 @@ Không chỉ "biết dùng" — mà trở thành **operator có khả năng desi
 - `_state/` — CLAUDE.md chapter files (post-refactor session 67)
 - `_goals/` — GOALS.md chapter files (post-refactor session 67)
 - `_patterns/` — PATTERN_LIBRARY.md chapter files (post-refactor session 67, if executed)
-- `03 Projects/` — 73 wiki projects v1-v73 (each has own CLAUDE.md)
+- `03 Projects/` — 75 wiki projects v1-v75 (each has own CLAUDE.md)
 - `04 Reviews/` — pattern library audit documents
 - `05 Skills/llm-wiki-routine-v2.2.md` — current routine (codified 2026-05-14; supersedes v2.1)
 - `02 Chess Moves (Long-Term Planning)/` — strategic thinking sessions

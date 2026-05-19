@@ -2171,3 +2171,138 @@ Combined with all inherited candidates from v66-v72 = **~21 total v2.3 candidate
 - **OC-S N=2 promotion-eligible** establishes pure-methodology-influence as recognized Phase 0.9 STRICT formal class
 - **Active-count maintained at 29 for 3rd-consecutive-wiki** — audit-relief continues; no trigger re-elevation despite multiple sub-mechanism candidate additions
 
+---
+
+
+
+## Post-v75 pbakaus/impeccable wiki strengthening notes (2026-05-19)
+
+**State preserved post-v75-wiki:** 45 confirmed / 29 active / 0.644 ratio **UNCHANGED** (within-pattern strengthening + 3 NEW observational candidates only — no top-level state transitions). Observational candidate count: 26 → **29** (OC-U + OC-V + OC-W registered).
+
+**Wiki:** v75 pbakaus/impeccable (T1 Assistant Skill / design-language; 28,816 stars at 185 days = HIGH-NOT-EXTREME 155.8 stars/day at lower-edge of 150-300/d band; founder-personal + ecosystem-portfolio-builder Paul Bakaus = Creative Technologist at Google + jQuery UI creator + multi-product portfolio; Apache 2.0 + NOTICE.md 2-source derivative-attribution chain; **14 harness-target directories CORPUS-RECORD multi-target distribution**; 23 commands + 7 reference domains + 27 anti-pattern rules + `npx impeccable detect` deterministic CLI scanner).
+
+**Class:** ELEVENTH WIKI UNDER ROUTINE v2.2 / **SECOND WIKI POST-v74 LLMs-from-scratch ship** = CORPUS-RECORD audit-relief sustainability at 4-consecutive-wiki post-v72-audit window with active count 29 maintained throughout.
+
+### Phase 4b PRIMARY at v75 wiki
+
+**Pattern #84 84c "Provider-Agnostic-By-Design" N=4 POST-PROMOTION STRENGTHENING with CORPUS-RECORD 14-harness multi-target distribution:**
+
+| Wiki | Subject | 84c metric | Value | Corpus position |
+|------|---------|------------|-------|-----------------|
+| v71 | agents-best-practices | dual-vendor pattern-synthesis | Anthropic + OpenAI synthesized equally | 84c registration (pre-promotion) |
+| v72 | DeepSeek-TUI | provider-API matrix | 9 providers | 84c N=2 + post-promotion |
+| v73 | cc-switch | provider-API matrix | 12 providers | 84c N=3 + CORPUS-RECORD |
+| **v75** | **impeccable** | **harness-installation-target matrix** | **14 harnesses** | **84c N=4 + NEW CORPUS-RECORD + axis-of-measurement migration** |
+
+**Three corpus-firsts in this evidence chain:**
+
+1. **FIRST 4-instance Pattern #84 sub-mechanism-strengthening arc within post-promotion window** — exceeds all prior post-promoted-pattern strengthening arcs in corpus
+2. **FIRST monotonic corpus-record migration across 4 consecutive wikis** (2 → 9 → 12 → 14)
+3. **FIRST sub-mechanism layer change-of-measurement-axis within post-promotion arc** — methodology layer v71 → runtime layer v72-v73 → distribution layer v75; same axis (cross-vendor distribution as author-design-choice) at different measurement layers
+
+**Verdict:** Pattern #84 84c sustainability now bulletproof beyond any reasonable retire-check threshold. v76 stale-check + v80 retire-check both well-relieved.
+
+**Proposal-document:** `03 Projects/impeccable - Beginner Analysis/01 Analysis/(C) Pattern-84-84c-N4-strengthening-CORPUS-RECORD-14-harness-multi-target-distribution.md`
+
+**Vehicle:** Sub-mechanism N-strengthening with corpus-record-migration documentation (5th Phase 4b vehicle established at v66 Pattern #19 19a/b/c/d strengthening).
+
+### Other within-pattern strengthenings at v75
+
+- **Pattern #57 STRONG corpus-recursive citation** — 2-source NOTICE.md derivative-attribution chain (Anthropic frontend-design Apache-2.0 parent + ehmo/typecraft-guide-skill tactical-additions); corpus-recursive depth HIGH (parent-skill citation) but not MAXIMUM (would require substrate-direct like v65); NEW sub-variant candidate **57e "Multi-Source-Derivative-Attribution-Chain via NOTICE.md"** PROVISIONAL N=1
+- **Pattern #52 HIGH-NOT-EXTREME sub-class N=4 lower-edge confirmation** — 155.8/d × 185d completes velocity-band edge coverage 155-268/d + age-span coverage 86-289d (4-wiki arc v69 86d → v72 120d → v75 185d → v73 289d); Pattern #52 top-level promotion at v75 audit administrative-only confirmed
+- **Pattern #19 N+1 + NEW sub-mechanism 19f candidate "Creative-Technologist-Multi-Product-Portfolio"** — Bakaus 5+-domain portfolio (jQuery UI + Google for Creators + Spotter Studio + impeccable + radiant + agent-reviews + Dev Auth Shortcuts) at corporate-employer scale; distinct from 19a/b/c/d/e (educator / founder-personal / one-anchor-many-tools / corporate-suite / educator-multi-book-portfolio) — domain-breadth-as-portfolio-signal vs depth-focus
+- **Pattern #78 78a CLI-enforceable-LDS strengthening** — 27 anti-pattern deterministic rules + `npx impeccable detect <path-or-URL>` standalone scanner (zero API key) + 7 reference domain files + explicit spacing scale (8/16/24/32/48/80/120px) + explicit easing curve (`cubic-bezier(0.16, 1, 0.3, 1)`); corpus-first enforceable-LDS layer; stronger than v71 78a triple-standard (which lacked CLI-enforceability)
+- **Pattern #28 sister-mechanism candidate "Editorial-Build-Validator"** PROVISIONAL N=1 — STYLE.md denylist (load-bearing / seamless / robust / elevate / empower / delve / em-dashes / ...) CI-enforced via build validator; distinct from v73 cc-switch anti-bloat-via-documented-refusal; two enforcement layers (documentation vs CI) signal Pattern #28 might split into sub-mechanisms at N=3
+- **Pattern #66 supply-chain observation** — `skills-lock.json` v1 schema with empty `skills: {}` payload (manifest-pattern-with-empty-payload); per-component release versioning (skill 3.1.1 + CLI + extension + plugin all separately versioned); Apache 2.0 + NOTICE.md derivative-attribution-chain
+- **Pattern #18 NEW sub-mechanism candidate "one-skill-many-HARNESS-CONSUMERS"** PROVISIONAL N=1 — consumer-side inverse of v70 promoted sub-mechanism B "one-binary-many-CLIENTS"; impeccable single-skill replicated into 14 harness-target directories; both axes serve multi-target portability at different layers (runtime protocol vs distribution pathway); v76 stale-check
+
+### NEW observational candidates at v75 (3)
+
+**OC-U "Editorial-Voice-Denylist-As-Build-Validator" N=1:** STYLE.md denylist enforced via build process not advisory; corpus-first editorial copy-validation as CI gate. v76 stale-check; promote at N=2.
+
+**OC-V "Multi-Source-Derivative-NOTICE-Attribution" N=1:** Single Apache-2.0 derivative crediting both parent (Anthropic) AND third-party tactical-additions (ehmo) via dedicated NOTICE.md attribution document; distinct from Pattern #45 sub-typologies which addressed license-mechanism modifications. v76 stale-check; promote at N=2.
+
+**OC-W "Anti-Pattern-Enumeration-With-CLI-Detector" N=1:** 27 anti-pattern rules codified as deterministic CLI-detectable violations via `npx impeccable detect`; distinct from generic linting — enforces design-aesthetic-conformance not code-correctness. v76 stale-check; promote at N=2.
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 11 consecutive PASS (CORPUS-RECORD extension):**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 (d STRONGEST) |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| v71 | agents-best-practices | MODERATE | 2/4 |
+| v72 | DeepSeek-TUI | MODERATE | 2/4 |
+| v73 | cc-switch | STRONGEST | 3-4/4 |
+| v74 | LLMs-from-scratch | WEAK | 1/4 |
+| **v75** | **impeccable** | **STRONG** | **3/4** |
+
+**v75 = STRONG 3/4 INCLUDE:** (a) FAIL Bakaus = Google Creative Technologist with ecosystem-portfolio-at-scale not Storm Bear structural-peer + (b) PASS direct vault deployment as Claude Code skill + (c) PASS methodology-influence-node at sub-foundation scale (4 routine v2.3 codification candidates: editorial-discipline-as-build-validator + multi-source-derivative-attribution-chain-via-NOTICE.md + harness-installation-pathway-as-distinct-distribution-axis + anti-pattern-enumeration-with-deterministic-detector) + (d) PASS corpus-recursive HIGH-depth via Anthropic frontend-design parent-skill citation + ehmo/typecraft-guide-skill tactical-additions.
+
+**v75 extends streak to 11 consecutive PASS** — CORPUS-RECORD extension by 1 wiki. **STRONG returns to spectrum after 9-wiki gap** (last STRONG was v66 agentmemory at 4/4 STRICT PASS). Strength distribution v65-v75: STRONGEST × 2 + STRONG × 2 + MODERATE × 4 + WEAK × 3. MODERATE remains modal-status (4/11 v65-v75).
+
+**18-instance Phase 0.9 post-amendment window v57-v75 = 16 PASS / 2 SKIP = 88.9% INCLUDE rate UNCHANGED** (v75 PASS maintains rate without changing it).
+
+### Corpus-firsts at v75 wiki (8)
+
+1. **CORPUS-RECORD 14-harness multi-target skill distribution** — exceeds all prior records (v73 12-provider / v72 9-provider / v71 dual-vendor)
+2. **FIRST 4-instance Pattern #84 sub-mechanism-strengthening arc within post-promotion window** — most prior post-promoted patterns strengthen 1-2 instances within first 5 wikis
+3. **FIRST monotonic corpus-record migration across 4 consecutive wikis** at sub-mechanism layer (count axis: 2 → 9 → 12 → 14)
+4. **FIRST Pattern #84 sub-mechanism axis-of-measurement layer-migration within post-promotion arc** — methodology → runtime → distribution layers covered
+5. **FIRST 2-source NOTICE.md derivative-attribution chain in corpus** (Anthropic parent + ehmo tactical-additions; Pattern #57 57e candidate)
+6. **FIRST editorial-denylist-as-build-validator subject in corpus** (STYLE.md denylist as CI gate; OC-U candidate)
+7. **FIRST anti-pattern-enumeration with deterministic CLI detector** (`npx impeccable detect`; OC-W candidate)
+8. **FIRST creative-technologist-multi-product-portfolio sub-mechanism within Pattern #19** (Bakaus 5+-domain breadth-focus at corporate-employee scale; 19f candidate)
+
+### v76 audit agenda additions from v75 wiki
+
+- **Pattern #84 84c 4th-N evidence verification** (impeccable 14-harness multi-target distribution = corpus-record at audit-time)
+- **Pattern #57 NEW sub-variant 57e "Multi-Source-Derivative-Attribution-Chain via NOTICE.md" PROVISIONAL registration**
+- **Pattern #19 NEW sub-mechanism 19f "Creative-Technologist-Multi-Product-Portfolio" PROVISIONAL registration**
+- **Pattern #78 78a CLI-enforceable-LDS strengthening verification**
+- **Pattern #28 sister-mechanism "Editorial-Build-Validator" PROVISIONAL registration**
+- **Pattern #18 NEW sub-mechanism "one-skill-many-HARNESS-CONSUMERS" PROVISIONAL registration**
+- **OC-U / OC-V / OC-W first-cycle stale-checks**
+
+### Routine v2.3 codification candidates added at v75 (+4)
+
+**NEW v75 wiki candidates:**
+
+1. **Editorial-discipline-as-build-validator** — denylist enforcement at CI-time, not advisory
+2. **Multi-source-derivative-attribution-chain-via-NOTICE.md** — corpus-first 2-source attribution mechanism
+3. **Harness-installation-pathway-as-distinct-distribution-axis** — sub-mechanism layer distinct from runtime-API-portability
+4. **Anti-pattern-enumeration-with-deterministic-detector** — design-aesthetic-conformance as enforceable layer distinct from code-correctness linting
+
+Combined with all inherited candidates from v66-v74 = **~26 total v2.3 candidates** (target codification at ~v75-v80 natural cadence).
+
+### Pilot relevance note (v75)
+
+**impeccable = NOT a vault pilot candidate:**
+
+| Axis | impeccable (v75) |
+|------|-------------------|
+| Vault-deployable scope | Direct (Claude Code skill install) but vault has no active UI work |
+| Setup complexity | Low (skill directory copy + bundle download) |
+| Value-add per session | Currently NONE — vault scope is software-development + Scrum-coaching + knowledge-vault, no UI work |
+| Risk profile | Low — no service deployment, no state mutation outside skill directory |
+| Reversibility | High — directory removal |
+
+**Pilot ranking unchanged from post-v74:** codegraph #1 → cc-switch #2 → agents-best-practices #3 → agentmemory #4. impeccable joins **corpus-knowledge-only subject tier** alongside v63 Karpathy + v74 Raschka — methodology-influence-only, not pilot-actionable.
+
+### Cross-corpus impacts at v75 wiki
+
+- **Pattern #84 84c 4-wiki monotonic corpus-record migration** = corpus-first post-promotion sustainability discipline; sets new floor for sub-mechanism strengthening expectations
+- **Cross-layer sub-mechanism validation** (methodology + runtime + distribution layers all covered for 84c) = sub-mechanism is layer-agnostic
+- **HARNESSES.md as corpus artifact** = single solo-author doing cross-harness-spec interoperability research that harness vendors haven't standardized; NEW corpus-artifact-type
+- **Bakaus + impeccable + Anthropic-derivative chain** = corpus-first Apache-2.0 derivative-via-NOTICE.md attribution chain at sibling-Anthropic-skill scale; informs Pattern #45 + Pattern #57 sub-typology work
+- **6-pattern coupled-design at single wiki** (Pattern #84 84c + Pattern #57 57e + Pattern #19 19f + Pattern #78 78a + Pattern #28 sister + Pattern #18 NEW sub-mechanism) = Library-vocabulary item #9 cross-pattern coupled-design potential CORPUS-RECORD couple-count
+- **STRONG returns to Storm Bear spectrum after 9-wiki gap** = Phase 0.9 STRICT spectrum-discrimination demonstrated again; 11-consecutive-PASS streak = corpus-record extension
+- **Active count 29 maintained 4th-consecutive-wiki post-v72-audit relief** = corpus-record audit-relief sustainability
+
+---
+
