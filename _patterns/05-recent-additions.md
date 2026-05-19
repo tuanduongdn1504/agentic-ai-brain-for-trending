@@ -1545,4 +1545,155 @@ Both are file-synchronicity-discipline but at different layers. Promotion path: 
 - **MCP-multi-platform-via-one-binary is now corpus-default T2 Service pattern** — agentmemory v66 + codegraph v70 N=2 with diverse client counts (15+ vs 4) + diverse tool counts (51 vs 8); validates MCP as agent-ecosystem-native protocol layer
 - **Active-count maintained at trigger-threshold 30 for 4th-consecutive-wiki** — audit-velocity-control test: does within-pattern-strengthening-without-top-level-promotion at trigger-threshold suppress audit-cadence trigger?
 
+---
+
+## Post-v71 agents-best-practices wiki strengthening notes (2026-05-19)
+
+**State preserved post-v71:** 44 confirmed / 30 active / 0.682 ratio **UNCHANGED** (within-pattern strengthening + 1 NEW observational candidate only — no top-level state transitions). Observational candidate count: 21 → **22** (OC-O registered).
+
+**Wiki:** v71 DenisSergeevitch/agents-best-practices (T1 Assistant Skill; provider-agnostic agentic framework; 821 stars at 4 days = 205.25 stars/day HIGH-velocity-NOT-EXTREME; solo-individual; Markdown-only; MIT).
+
+**Class:** SIXTH WIKI UNDER ROUTINE v2.2 / T1 assistant skill (4th T1 skill in corpus) / FIRST provider-agnostic unified framework synthesizing BOTH OpenAI AND Anthropic agentic patterns equally.
+
+### Phase 4b PRIMARY at v71
+
+**Pattern #84 Cross-Vendor Ecosystem-Tolerance N=3 PROMOTION-ELIGIBLE + sub-typology 84c "Provider-Agnostic-By-Design" proposed:**
+
+| Wiki | Subject | Sub-typology | Mechanism |
+|------|---------|--------------|-----------|
+| v62 (2026-04-18) | codex-plugin-cc | 84a Tool-tolerance | OpenAI publishes plugin explicitly FOR Claude Code (ecosystem norm) |
+| v65 (2026-05-14) | claude-code-system-prompts | 84b Usage-enforcement | Anthropic documents internal Claude Code product for cross-vendor awareness (ecosystem norm) |
+| **v71 (2026-05-19)** | **agents-best-practices** | **84c Provider-Agnostic-By-Design** | **Individual author creates unified framework explicitly targeting BOTH vendors equally (author design choice)** |
+
+**Key architectural distinction:** v62/v65 evidence reflects ecosystem-tolerance as external norm imposed by vendor-level actors; v71 evidence reflects ecosystem-agnosticism as explicit author-level design choice — a meta-archetype shift. Sub-typology 84c captures the author-intentionality axis absent from 84a/84b.
+
+**Promotion criteria evaluation (from Phase 4b proposal-document):**
+1. **Criterion 1 — N≥3:** PASS (N=3; v62 + v65 + v71)
+2. **Criterion 2 — Cross-tier:** PASS (T4 Bridge + T1 reference-archive + T1 assistant-skill = 3 distinct types)
+3. **Criterion 3 — Temporal distribution:** PASS (v62 → v65 → v71 = 3 distinct sessions 2026-04-18 to 2026-05-19)
+4. **Criterion 4 — Novel mechanism:** PASS (84c adds author-intentionality as new mechanism axis vs 84a/84b ecosystem-enforcement)
+5. **Criterion 5 — Not captured elsewhere:** PASS (cross-vendor ecosystem tolerance not adequately captured by #78 Living-Domain-Standards or #66 Supply-Chain-Isolation)
+
+**Verdict: PROMOTE Pattern #84 at v71+ formal audit.** Sub-typology 84c formal registration deferred to audit (proposal-document at `03 Projects/agents-best-practices - Beginner Analysis/01 Analysis/(C) Pattern-84-cross-vendor-ecosystem-tolerance-N3-promotion-evaluation.md`).
+
+### Secondary Pattern Library impacts at v71
+
+**Pattern #78 (CONFIRMED) — Living-Domain-Standards Tracking — N=3 STRONGEST 78a instance:**
+
+| Subject | Standards referenced | Vendor layer |
+|---------|---------------------|--------------|
+| v64 claude-seo | Domain SEO standards (N=1) | Single-domain |
+| v65 claude-code-system-prompts | Anthropic internal + MCP spec (N=2) | Single-vendor |
+| **v71 agents-best-practices** | **OWASP AI Agent Security + NIST AI RMF + MCP spec 2025-11-25 + Anthropic 5 guides + OpenAI 5 guides (N=3)** | **Triple-vendor + triple-standard** |
+
+v71 = STRONGEST 78a instance to date: triple-external-standard (OWASP + NIST + MCP-spec) + dual-vendor-primary (Anthropic + OpenAI) + version-pinned URL evidence.
+
+**Pattern #83 (CONFIRMED) — Honest-Deficiency-Disclosure — 83b within-pattern:**
+
+83b methodology-deficiency-disclosure sub-mechanism: "Prompt-only safety is insufficient — behavior at the harness boundary matters more than instruction quality." Three disclosure surfaces: (1) "Most agent failures caused by weak harness boundaries, not insufficient autonomy" / (2) "Move up autonomy levels only when evals show the simpler level is insufficient" / (3) autonomy-level-gating as the recommended deficiency-mitigation mechanism. Companion to 83a (pure-capability), 83c (scope-limit), 83d (context-limit), 83e (multi-surface); corpus-first harness-boundary-deficiency-disclosure.
+
+**Pattern #21 (CONFIRMED) — SDD Methodology — within-pattern:**
+
+v71 contributes the most explicit agentic-SDD methodology formalization in corpus: 8 foundational principles + 7 loop invariants + L0-L4 autonomy levels + planning-mode protocol + draft-commit pattern = 5-layer prescriptive methodology. The draft-commit pattern (draft_email → send_email two-phase separation) is corpus-first formalization of this sub-variant.
+
+**Pattern #66 (CONFIRMED) — Supply-Chain Isolation — 66d "malicious skill packages" threat:**
+
+v71 threat model category 10/15 explicitly names "Malicious skill packages" as an attack surface: connector tool descriptions from skill packages treated as potentially unreliable unless from trusted sources. First explicit skill-package-as-supply-chain-attack-surface in corpus (previous #66 evidence was repository/dependency layer, not skill-package layer). Sub-mechanism candidate 66d; deferred to v72+ audit for formal sub-mechanism registration.
+
+### OC-O registration at v71
+
+**OC-O — Agentic-Harness-Execution-Separation (N=1):**
+
+"The model never executes a tool directly. It emits a structured request. The harness executes, validates, or rejects it." Formal separation of inference-layer (model proposes) from execution-layer (harness disposes) as architectural governance principle.
+
+Seven invariants formalized in v71:
+1. Each tool call gets exactly one result
+2. Arguments parsed and validated before execution
+3. Permission decisions occur before side effects
+4. Results bounded, structured, traceable
+5. Hard budgets for steps, time, tokens, cost, calls
+6. Final answers derive from observations, not assumed success
+7. Errors become structured observations (not raw exceptions)
+
+Distinct from Pattern #80 Tool-Level Adversarial Review (review discipline, not execution-separation architecture), Pattern #66 Supply-Chain Isolation (adversarial-sourcing focus), Pattern #21 SDD Methodology (methodology emergence vs execution-architecture principle), and OC-1 (different mechanism). **v72 stale-check / v75 retire-check.**
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 7 consecutive PASS:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| **v71** | **agents-best-practices** | **MODERATE** | **2/4** |
+
+**v71 = MODERATE 2/4 INCLUDE:** (b) PASS operational-tool-for-vault (directly installable as Claude Code skill; applicable to agentic-harness design work) + (c) PASS methodology-influence (7-invariant loop + context tiers + planning mode + autonomy levels directly inform LLM wiki routine v2.2 design); (a) FAIL solo-eastern-european developer / (d) FAIL no explicit corpus-subject URL citation.
+
+**v71 extends streak to 7 consecutive** — two consecutive MODERATEs (v70 + v71) following v68+v69 consecutive WEAKs. Strength distribution v65-v71: STRONGEST × 1 + STRONG × 1 + MODERATE × 3 + WEAK × 2 (MODERATE becomes modal-status at v71).
+
+**15-instance Phase 0.9 post-amendment window v57-v71 = 13 PASS / 2 SKIP = 86.7% INCLUDE rate** (uptick from v70's 85.7%).
+
+### Corpus-firsts at v71 (8)
+
+(1) **First explicit "model proposes, harness disposes" execution-separation formalization** (7-invariant loop as governance principle; OC-O candidate) / (2) **First 15-reference-file structured reference library within single skill** (most comprehensive reference architecture in corpus; previous max ~5-8 per subject) / (3) **First explicit autonomy-level taxonomy (L0-L4) as safety framework** (graduated deployment governance model) / (4) **First provider-agnostic skill explicitly synthesizing BOTH OpenAI AND Anthropic agentic patterns equally** (Pattern #84 N=3; meta-archetype shift from ecosystem-tolerance to author-design-choice) / (5) **First 15-category security threat model in agent skill context** (comprehensive threat coverage including malicious skill packages + subagent miscoordination) / (6) **First "draft-commit" pattern formalization** (draft_email → send_email two-phase separation as explicit architectural principle; Pattern #21 sub-variant) / (7) **First OWASP + NIST + MCP-spec triple-standard integration** (Pattern #78 N=3 STRONGEST 78a instance) / (8) **First 12-tier context architecture taxonomy** (provider / organization / role / task / plan / scoped / retrieved / visible-skill / visible-tool / observations / history / reminders).
+
+### v72 audit agenda additions from v71
+
+**v71 → v72 audit batch additions:**
+- **Pattern #84 N=3 PROMOTION-ELIGIBLE** — promote to CONFIRMED at v72+ formal audit + register sub-typology 84c "Provider-Agnostic-By-Design" + register 84a/84b retroactively
+- **Pattern #66 sub-mechanism 66d "Malicious skill packages"** — formal sub-mechanism registration (first skill-package-layer supply-chain evidence)
+- **OC-O Agentic-Harness-Execution-Separation** — stale-check at v72; retire-check at v75
+- **Pattern #84 sub-typology 84c promotion criteria** — confirm all 3 sub-typology criteria PASS with HIGH confidence
+- **OC-M Quantitative-Benchmark-Marketing** — N=3 evaluation (if v72+ adds quantitative-marketing subject; v71 adds 0 new OC-M evidence)
+
+**Batch additions deferred from v70 (unchanged):**
+- Pattern #18 sub-mechanism B formal sub-archetype promotion decision (N=3 across B1+B2 protocol-variants)
+- B1 MCP + B2 CDP formal registration + B3 placeholder consideration
+- OC-K / OC-L / OC-N stale-checks
+- OC-E E1/E2 sub-mechanism distinction decision
+- Pattern #52 sustained-velocity-test batch (~8 subjects)
+- Pattern #45 sub-typology 45c first-cycle stale-check
+- Tier-Taxonomy Review T6 (ELEVATED from v69 deferral)
+- ~16 default-schedule stale-check items
+
+### Routine v2.3 codification candidates — additional at v71
+
+v71 adds no new v2.3 candidates beyond those accumulated at v70. v2.3 candidate list remains:
+- 6th Phase 4b promotion vehicle (sub-mechanism formalization)
+- n-layer pattern hierarchy support (4-layer)
+- Protocol-variants-within-sub-mechanism as criterion 4 evidence
+- OVERDUE-NATURAL-CADENCE class formalization
+- Sub-typology proposal-document discipline
+- Multi-surface saturation as Pattern #83 sub-archetype
+- Audit batch >20-item splitting consideration
+- Sub-variant-without-top-level-promotion as legitimate audit move
+- Dual-use subject framing
+- Strength categorization threshold calibration
+- Liability-framing axis
+
+### Pilot relevance note (v71)
+
+**agents-best-practices = MODERATE-RELEVANCE vault pilot candidate:**
+
+| Axis | agents-best-practices (v71) |
+|------|-----------------------------|
+| Vault-deployable scope | Claude Code skill; applicable to hireui-harness agentic work |
+| Setup complexity | Low (`skills attach DenisSergeevitch/agents-best-practices` or git clone) |
+| Value-add per session | Agentic harness discipline + autonomy-level-gating + 7-invariant loop enforcement |
+| Risk profile | Very Low — Markdown-only skill definition; no service deployment; no state mutation |
+| Reversibility | Very High — remove skill file; no cleanup needed |
+
+**Pilot ranking:** MODERATE-RELEVANCE below codegraph (HIGH-RELEVANCE, LOWER-risk) and agentmemory (HIGH-RELEVANCE, MEDIUM-risk). Recommended sequence remains: codegraph pilot first → agents-best-practices second (skill install) → agentmemory third. agents-best-practices skill install is the lowest-risk action in the entire pilot backlog — zero infrastructure, purely additive governance discipline.
+
+### Cross-corpus impacts at v71
+
+- **Pattern #84 meta-archetype shift** — ecosystem-tolerance (external norm) → author-design-choice (internal principle); requires sub-typology to capture; sets precedent for "intent-axis" sub-typologies in future Pattern #84 evidence
+- **OC-O Agentic-Harness-Execution-Separation** — if N=3 reached, would be one of few execution-architecture patterns (vs methodology or ecosystem patterns that dominate corpus)
+- **15-reference-file architecture as corpus-record** — agents-best-practices establishes new upper bound for reference-library depth within a single skill; sets comparison baseline for future T1 skills
+- **MODERATE-streak at v71** — two consecutive MODERATEs breaks the WEAK-trending signal from v68+v69; Storm Bear meta-entity Phase 0.9 STRICT continues to show spectrum discrimination rather than binary-PASS convergence
+
 

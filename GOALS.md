@@ -175,7 +175,7 @@ Không chỉ "biết dùng" — mà trở thành **operator có khả năng desi
 - `_state/` — CLAUDE.md chapter files (post-refactor session 67)
 - `_goals/` — GOALS.md chapter files (post-refactor session 67)
 - `_patterns/` — PATTERN_LIBRARY.md chapter files (post-refactor session 67, if executed)
-- `03 Projects/` — 66 wiki projects v1-v66 (each has own CLAUDE.md)
+- `03 Projects/` — 71 wiki projects v1-v71 (each has own CLAUDE.md)
 - `04 Reviews/` — pattern library audit documents
 - `05 Skills/llm-wiki-routine-v2.2.md` — current routine (codified 2026-05-14; supersedes v2.1)
 - `02 Chess Moves (Long-Term Planning)/` — strategic thinking sessions
@@ -188,4 +188,4 @@ See `_goals/01-milestones.md` for full chronological milestone log (~305KB; per-
 
 ## 📜 Version log (full history)
 
-See `_goals/02-version-log.md` for full version log v1-v66 (~128KB, every wiki version-summary entry).
+See `_goals/02-version-log.md` for full version log v1-v66 (~128KB, every wiki version-summary entry). **Note:** v67-v71 entries not yet appended to chapter file — deferred to operator-involved GOALS.md re-narration session.

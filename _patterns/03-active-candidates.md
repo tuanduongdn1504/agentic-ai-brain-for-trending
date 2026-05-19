@@ -1141,3 +1141,251 @@ This is **corpus-broadest signature-verification surface** documented in a singl
 
 ---
 
+### Pattern #18 sub-mechanism B update at v70 — N=3 + protocol-variants formalization
+
+**v70 evidence (2026-05-19):** colbymchenry/codegraph establishes sub-mechanism B "one-binary-many-CLIENTS" N=3 with protocol-variants taxonomy:
+- **B1 MCP variant N=2:** agentmemory v66 (51 MCP tools / 15+ platforms) + codegraph v70 (8 MCP tools / 4 platforms) — both serve multiple agent-platform clients via single MCP server binary
+- **B2 CDP variant N=1:** CloakBrowser v69 — single compiled binary serves Playwright SDK (Python pip) + Playwright SDK (npm) + native CDP protocol (3 interface variants from one binary)
+- **B3 placeholder:** future protocol-variants (gRPC / REST / WebSocket / etc.)
+
+**Structural insight:** Protocol-variants-within-sub-mechanism satisfies criterion 4 (variant-within-pattern-at-N=2) as cross-protocol-variants satisfy structural-diversity intent analogously to cross-tier-diversity.
+
+**4-layer Pattern hierarchy formalized (CORPUS-FIRST):** Pattern #18 top-level → sub-archetype shared-backend-service → sub-mechanism B one-binary-many-CLIENTS → protocol-variants (B1 MCP + B2 CDP + B3 placeholder).
+
+**Status:** Sub-mechanism B **PROMOTION-ELIGIBLE** to formal sub-archetype (pattern-within-pattern promotion pending v71+ audit). Proposal-document: `03 Projects/codegraph - Beginner Analysis/01 Analysis/(C) Pattern-18 sub-mechanism B one-binary-many-CLIENTS N=3 protocol-variants formalization.md`.
+
+---
+
+### OC-E sister observation at v70 — configuration-synchronicity variant
+
+**v70 evidence (2026-05-19):** colbymchenry/codegraph CLAUDE.md documents 3-file MCP-tool-behavior configuration-synchronicity: `server-instructions.ts` + `instructions-template.ts` + `.cursor/rules/codegraph.mdc` must be kept in sync when modifying MCP tool behavior. Distinct from v68 zero behavioral synchronicity (examples + docs + tests + contracts aligned with runtime behavior).
+
+**OC-E taxonomy candidate — 2-mode distinction:**
+- **OC-E1 Behavioral synchronicity** (v68 zero baseline): examples + docs + tests + contracts must all reflect current runtime behavior as single coherent description
+- **OC-E2 Configuration synchronicity** (v70 codegraph sister): multiple config files serving different platform readers must encode identical operational constraints
+
+**Status:** OC-E E1/E2 sub-mechanism distinction deferred to v71+ audit decision. v70 stale-check PASS (sister observation found; not retiring; promoting to 2-mode candidate at v71+ audit).
+
+---
+
+### Pattern #57 update at v70 — STRONGEST (d) of post-v64-RESET window
+
+**v70 evidence (2026-05-19):** colbymchenry/codegraph README + CLAUDE.md cite **2 corpus subjects + Claude Code substrate** in single subject:
+- Codex CLI v62 corpus subject (explicit `--target=codex` installer + CLAUDE.md mention)
+- OpenCode v67 corpus subject (explicit `--target=opencode` installer + CLAUDE.md mention)
+- Claude Code vault substrate (primary platform; README benchmark against Claude Code's native `grep/find` exploration baseline)
+
+**Status:** Pattern #57 CONFIRMED unchanged. **57d (corpus-ecosystem-citation) STRONGEST instance in post-v64-RESET window** (v65-v70). Sub-mechanism candidate: *2-corpus-subject-plus-substrate citation in single subject* (highest citation density in corpus).
+
+---
+
+### Pattern #52 update at v70 — SUSTAINED-MODERATE-HIGH sub-threshold data point
+
+**v70 evidence (2026-05-19):** colbymchenry/codegraph at 42 stars/day for 121 days = **SUSTAINED-MODERATE-HIGH velocity** (below >300/day EXTREME-VIRAL + below ~150/day HIGH-NOT-EXTREME from v69 CloakBrowser). Mid-lifecycle sustained engagement.
+
+**Status:** ADD codegraph to v71+ Pattern #52 sustained-velocity-test batch as **SUSTAINED-MODERATE-HIGH-velocity sub-threshold control** — clarifies whether Pattern #52 needs a mid-lifecycle sustained-moderate class (>10/day-but-<150 at 100+ days) distinct from HIGH-NOT-EXTREME and EXTREME-VIRAL. v71+ batch now includes ~8 subjects.
+
+---
+
+### Pattern #19 update at v70 — N+1 founder-personal-portfolio strengthening
+
+**v70 evidence (2026-05-19):** Colby McHenry (colbymchenry) maintains 20 public GitHub repos with 6 pinned distinct products: codegraph + devpit + shopify-graphql-admin-mcp + saturday.shop + n8n-gcp-firebase + frontend-audit-skill. Matches sub-archetype 19a founder-personal-multi-product-portfolio. **NOT new sub-archetype** — strengthens 19a. N=5 corpus presence at 19a sub-archetype (ongoing; count not incremented as promotion milestone since already CONFIRMED).
+
+---
+
+#### 🔍 OC-K — Pre-Indexed-Context-Layer (NEW v70 codegraph wiki — registered N=1 observational candidate)
+
+**Status at v70 wiki ship (2026-05-19):** Registered as observational candidate via colbymchenry/codegraph v70. **N=1 stale-flagged at registration.**
+
+**Evidence:** v70 codegraph only — pre-indexes code knowledge graph BEFORE agent interaction begins (5-stage pipeline: tree-sitter parsing → SQLite FTS5 → symbol/edge graph → query manager → context builder). Agents query the pre-built graph via 8 MCP tools rather than exploring codebase in real-time. Benchmark: "94% fewer tool calls / 77% faster exploration" vs Claude Code's native `grep/find` baseline.
+
+**Formal statement (candidate):**
+> A service or tool pre-indexes structured information (code graph / semantic embeddings / documentation trees) BEFORE the agent session begins, making that index available to agents as a queryable layer. Distinct from real-time retrieval: the index is built ahead of agent invocation, not during. Agents trade pre-indexing latency for reduced in-session exploration costs.
+
+**Promotion criteria (3):**
+1. Explicit pre-indexing step prior to agent session (not real-time retrieval during session)
+2. Queryable layer served to agents via structured interface (MCP / REST / SDK)
+3. Measurable token or tool-call reduction documented (not just claimed)
+
+**Required for promotion:** 2+ subjects with pre-indexed-context-layer mechanism.
+
+**Re-evaluation:** v72 stale-check / v75 retire-check.
+
+**Rationale:** Distinct architectural approach from RAG (real-time retrieval) and from in-context loading (whole-file reads). Pre-indexing is the mechanism that makes large codebase navigation practical for agents without context exhaustion. Hypothetical un-stale candidates: other code-graph services / documentation-pre-indexing services / semantic-search-as-MCP services.
+
+---
+
+#### 🔍 OC-L — Multi-Agent-Installer-Pattern (NEW v70 codegraph wiki — registered N=1 observational candidate)
+
+**Status at v70 wiki ship (2026-05-19):** Registered as observational candidate via colbymchenry/codegraph v70. **N=1 stale-flagged at registration.**
+
+**Evidence:** v70 codegraph only — `npx codegraph install --target=<platform>` supports 4 platform targets (claude / cursor / codex / opencode). Interactive installer generates platform-specific config artifacts. v0.7.7→v0.7.8 same-day fix-cycle for OpenCode target demonstrates **maintenance-cost sub-mechanism** (each additional platform target = ongoing maintenance surface that drifts independently).
+
+**Formal statement (candidate):**
+> A tool ships a multi-platform installer with a `--target=<platform>` parameter (or equivalent) that generates platform-specific integration artifacts per target agent platform. Maintenance-cost implication: each platform target creates ongoing surface for platform-version-drift, requiring separate fix cycles per target.
+
+**Promotion criteria (3):**
+1. Single install command with `--target=<platform>` or equivalent parameter selecting among 2+ agent platforms
+2. Each target generates platform-specific config artifact (CLAUDE.md section / .cursor/rules / codex config / opencode config)
+3. Maintenance-cost evidence: platform-specific bug visible in release history (not just theoretical)
+
+**Required for promotion:** 2+ subjects with multi-agent-installer mechanism.
+
+**Re-evaluation:** v72 stale-check / v75 retire-check.
+
+**Rationale:** codegraph v70 is first corpus subject with explicit multi-agent-installer pattern at this formalization level. As more tools support multiple agent platforms, the installer-pattern may become standard. The maintenance-cost sub-mechanism is the non-obvious insight: adding platforms is not additive-only — it creates ongoing drift risk per-target.
+
+---
+
+#### 🔍 OC-M — Quantitative-Benchmark-Marketing (NEW v70 codegraph wiki — registered N=2 with v69 sister)
+
+**Status at v70 wiki ship (2026-05-19):** Registered as observational candidate via colbymchenry/codegraph v70 with v69 CloakBrowser sister evidence. **N=2 at registration.**
+
+**Evidence:**
+- **v69 CloakBrowser (sister evidence):** README quantitative claims for stealth effectiveness (detection-evasion metrics / benchmark comparisons supporting product differentiation)
+- **v70 codegraph:** README headline benchmark: "94% fewer tool calls / 77% faster exploration vs Claude Code native baseline" — specific quantitative claims in top-of-README position used as competitive differentiation
+
+**Formal statement (candidate):**
+> Projects use quantitative performance benchmarks in README / marketing copy as primary competitive differentiation. Claims are specific (numeric %, ratio, latency) and positioned in headline / top-3-sections position. Distinct from feature-list marketing — quantitative-benchmark-marketing uses numeric measurement as the differentiator.
+
+**Promotion criteria (3):**
+1. Quantitative benchmark in README headline or top-3-sections position (not buried in docs)
+2. Numeric specificity: %, ratio, latency, or named-baseline comparison
+3. Used as competitive differentiation (not just accuracy documentation)
+
+**Required for promotion:** 3+ subjects. Currently N=2 (v69 + v70).
+
+**Re-evaluation:** v72 stale-check for N=3 / v75 retire-check if still N=2.
+
+**Rationale:** Quantitative marketing is becoming standard in agent tooling as teams compete on measurable efficiency gains. If N=3 emerges at v71+, may be promotion-eligible as Library-vocabulary item or Pattern candidate.
+
+---
+
+#### 🔍 OC-N — Auto-generated AGENTS.md from tool installer (NEW v70 codegraph wiki — registered N=1 observational candidate)
+
+**Status at v70 wiki ship (2026-05-19):** Registered as observational candidate via colbymchenry/codegraph v70. **N=1 stale-flagged at registration.**
+
+**Evidence:** v70 codegraph v0.7.8 CHANGELOG — `npx codegraph install --target=claude` now auto-generates `AGENTS.md` at project root. Auto-generated AGENTS.md is corpus-first: generated by tool installer rather than authored by developer. Codegraph ships its own `CLAUDE.md` at repo root as agent-onboarding doc (corpus-first subject with CLAUDE.md at repo root); AGENTS.md adds parallel auto-generation mechanism via installer.
+
+**Formal statement (candidate):**
+> A tool's installer auto-generates an AGENTS.md (or equivalent agent-onboarding file) at the project root as part of installation, rather than requiring the developer to author it. The installer encodes what context agents need to use the tool effectively and codifies it automatically at install-time.
+
+**Promotion criteria (3):**
+1. AGENTS.md (or equivalent) is generated by tool installer, not authored by developer
+2. Generated file is project-root-level (not buried in config dirs)
+3. Content is tool-specific context (not generic placeholder)
+
+**Required for promotion:** 2+ subjects with auto-generated agent-onboarding file from tool installer.
+
+**Re-evaluation:** v72 stale-check / v75 retire-check.
+
+**Rationale:** As agent-first tooling matures, the AGENTS.md convention is likely to proliferate. Auto-generation from installers removes the adoption friction of developers needing to understand what to put in AGENTS.md. Hypothetical un-stale candidates: other MCP servers with `--target` installers / agent-platform-aware CLI tools with agent-onboarding auto-generation.
+
+---
+
+### Pattern #84 update at v71 — N=3 PROMOTION-ELIGIBLE + sub-typology 84c proposed
+
+**v71 evidence (2026-05-19):** DenisSergeevitch/agents-best-practices N=3 via PROVIDER-AGNOSTIC-BY-DESIGN architecture — **meta-archetype shift from ecosystem-norm observation to author-design-choice:**
+- **v62 codex-plugin-cc (84a Tool-tolerance):** Ecosystem-norm — OpenAI publishes plugin FOR Claude Code without coordinated agreement; vendor tolerance at industry level
+- **v65 claude-code-system-prompts (84b Usage-enforcement):** Ecosystem-norm — Piebald-AI publishes reverse-engineering archive of Anthropic internals; Anthropic apparent tolerance despite competitive context
+- **v71 agents-best-practices (84c Provider-Agnostic-By-Design PROPOSED):** Author design choice — individual deliberately synthesizes BOTH OpenAI Agents guide + Anthropic building-effective-agents equally; neither vendor dominates; skill runs identically on Claude Code + Codex + OpenAI Agents
+
+**Sub-typology 84c definition (proposed):** "Provider-Agnostic-By-Design" — author deliberately synthesizes BOTH OpenAI AND Anthropic production agentic patterns into unified framework with no vendor dominance; skill/tool runs identically across competing platforms as explicit design goal; intellectual synthesis from BOTH vendor corpora equally. Distinct from 84a/84b ecosystem-norm observations: 84c is an architectural design decision, not a vendor-business-decision observation.
+
+**Promotion criteria evaluation:**
+1. ✓ Cross-vendor cooperation OR tolerance at substantial scale — PASS (N=3 across 3 distinct cooperation/tolerance/abstraction shapes)
+2. ✓ Sub-DMCA threshold maintained — PASS (v71 synthesizes public documentation; no enforcement pressure)
+3. ✓ Not explicit open-source license-grant — PASS (v71 represents provider-abstraction-by-design, distinct from license-based mechanism)
+
+**Promotion verdict:** Pattern #84 CANDIDATE N=3 **PROMOTION-ELIGIBLE** (following Pattern #83 precedent: v67 N=3 PROMOTION-ELIGIBLE → v69 audit CONFIRMED). **Recommended PROMOTE at v71+ formal audit.** Sub-typology 84c formal registration deferred to v71+ audit (audit decides sub-typology taxonomy stability + whether 84c is sub-variant of #84 or warrants independent pattern).
+
+**Proposal document:** `03 Projects/agents-best-practices - Beginner Analysis/01 Analysis/(C) Pattern-84-cross-vendor-ecosystem-tolerance-N3-promotion-evaluation.md`.
+
+---
+
+### Pattern #85 update at v71 — retire-check triggered, no N=2 evidence
+
+**v71 retire-check (2026-05-19):** agents-best-practices v71 does NOT provide N=2 evidence for Pattern #85 Platform-Primitive Foundation. agents-best-practices is self-contained (Markdown skill files; no host platform; no self-as-instance framing; no host-unit counting; no host-CLI extensibility). Ordinary standalone skill collection — ordinary heavy-file-dependency, NOT Platform-Primitive Foundation.
+
+**Retire-check decision:** Pattern #85 **STALE-FLAG MAINTAINED** at N=1. NOT demoted to OT at v71 because:
+1. The iii-engine pattern (agentmemory v66) is structurally distinctive and plausibly generalizable
+2. 5 T1-skill corpus subjects (66 total corpus subjects) is insufficient to conclude exclusivity — not enough T1 skill diversity to rule out Platform-Primitive Foundation in this class
+3. Hypothetical un-stale path still exists: other iii-engine projects / BaaS-substrate-first agent projects / Cloudflare Workers-platform-built-as-instance cases
+
+**Revised re-evaluation:** N=1 stale-flag MAINTAINED. **v76 retire-check** (5-wiki extension from original v71). If still N=1 at v76, demote to OT (observation-track) or absorb into Library-vocabulary as unique-corpus-observation.
+
+---
+
+### Pattern #78 update at v71 — N=3 strengthening (STRONGEST 78a instance)
+
+**v71 evidence (2026-05-19):** agents-best-practices exhibits **triple-standard + dual-vendor integration** at single-skill scale — STRONGEST 78a instantiation in corpus:
+- **OWASP AI Agent Security Cheat Sheet + Agentic Skills Top 10** (external standards body)
+- **NIST AI Risk Management Framework** (external standards body)
+- **MCP spec 2025-11-25** (version-pinned protocol spec URL)
+- **Anthropic suite (5 canonical guides):** building-effective-agents + context-engineering + writing-tools-for-agents + long-running-agents + equipping-agents-for-the-real-world-with-agent-skills
+- **OpenAI suite (5 canonical guides):** agents guide + function-calling + guardrails-approvals + tools-connectors-mcp + harness-engineering
+
+**78a sub-mechanism N=3:** v64 claude-seo (SEO-domain external authority tracking) + v71 agents-best-practices (triple-standard + dual-vendor convergence = strongest 78a) = 78a has 2 distinct-scale instances now. v65 claude-code-system-prompts = 78b sub-mechanism.
+
+**Status:** Pattern #78 CONFIRMED unchanged. Within-pattern strengthening only. Sub-mechanism candidate: *multi-authority-synthesis-as-methodological-foundation* (citing OWASP + NIST + MCP-spec + 2 vendor suites as intellectual synthesis rather than endorsement).
+
+---
+
+### Pattern #66 update at v71 — malicious skill packages threat naming
+
+**v71 evidence (2026-05-19):** agents-best-practices 15-category security threat model explicitly names **"malicious skill packages"** as category 10/15 (connector tool descriptions as potentially unreliable unless from trusted sources = skills-distribution supply-chain attack surface as formal named threat).
+
+**Status:** Pattern #66 CONFIRMED unchanged. Within-pattern strengthening. Sub-mechanism candidate: *skill-package-supply-chain-threat-naming* — corpus-first explicit naming of skills-distribution supply-chain attack surface as formal threat category.
+
+---
+
+### Pattern #83 update at v71 — 83b within-pattern (methodology-deficiency-disclosure)
+
+**v71 evidence (2026-05-19):** agents-best-practices 83b sub-mechanism N=2+ evidence (methodology-deficiency-disclosure):
+1. "Prompt-only safety is insufficient" — explicit methodology-deficiency claim in primary skill content
+2. "Most agent failures caused by weak harness boundaries, not insufficient autonomy" — methodology-deficiency root-cause attribution
+3. Autonomy-level gating: "Move up levels only when evals show the simpler level is insufficient" — methodology-deficiency-driven governance discipline
+
+**Status:** Pattern #83 CONFIRMED unchanged. Within-pattern 83b strengthening. 83b sub-mechanism now has 2 distinct instantiations: v65 methodology-disclosure (CC system prompt limitations) + v71 harness-boundary-deficiency-disclosure (harness > prompt-safety framing).
+
+---
+
+#### 🔍 OC-O — Agentic-Harness-Execution-Separation (NEW v71 agents-best-practices wiki — registered N=1 observational candidate)
+
+**Status at v71 wiki ship (2026-05-19):** Registered as observational candidate via DenisSergeevitch/agents-best-practices v71. **N=1 stale-flagged at registration.**
+
+**Evidence:** v71 agents-best-practices only — 7-invariant agentic loop formalizing model/harness execution separation:
+1. Each tool call gets exactly one result (no ambiguous multi-result)
+2. Arguments parsed and validated BEFORE execution (not during)
+3. Permission decisions occur BEFORE side effects (not after)
+4. Results bounded, structured, traceable (not unbounded)
+5. Hard budgets for steps / time / tokens / cost / calls (not unlimited)
+6. Final answers derive from observations, not assumed success
+7. Errors become structured observations (not thrown exceptions)
+
+Central thesis: *"The model never executes a tool directly. It emits a structured request. The harness executes or rejects it."*
+
+**Formal statement (candidate):**
+> Framework explicitly formalizes the separation between the model's inference layer (which proposes tool calls) and the harness's execution layer (which validates, authorizes, executes, records, and returns observations). The model has NO direct tool execution authority — all execution passes through harness gatekeeping. This separation is codified as invariants (numbered / listed / enforced discipline), not just best practice, creating a formal trust-boundary between inference and action.
+
+**Promotion criteria (3):**
+1. Explicit formal statement that the model does NOT execute tools directly (inference/execution separation is stated, not implied)
+2. Harness execution boundary codified as invariants or enforcement-grade rules (not just recommendations)
+3. Permission decisions and execution budgets are harness-side concerns (not delegated to model judgment)
+
+**Required for promotion:** 2+ subjects explicitly formalizing inference/execution separation as invariant-based architecture.
+
+**Re-evaluation:** v72 stale-check / v75 retire-check.
+
+**Rationale:** Corpus-first formalization across 70 prior wikis. Model-proposes-harness-disposes framing is present implicitly in prior corpus subjects (cc-sdd v61 adversarial-subagent architecture / agentmemory v66 MCP server gatekeeping) but NONE explicitly formalize it as numbered invariants constituting a governance principle. v71 agents-best-practices is the first to codify inference/execution separation as 7-invariant architectural discipline. Hypothetical un-stale candidates: other agent-harness frameworks (LangChain / CrewAI / AutoGPT analogues) with explicit execution-boundary discipline / safety-focused agent orchestration frameworks with formal permission boundary codification.
+
+**Distinguishing from existing patterns:**
+- Pattern #80 Tool-Level Adversarial Review (CANDIDATE N=2) — review-discipline for agentic actions, not execution-separation architecture
+- Pattern #66 Supply-Chain Isolation (CONFIRMED) — supply-chain trust, not inference/execution boundary formalization
+- Pattern #21 SDD Methodology Emergence (CONFIRMED) — specification-driven development workflow, not harness-level execution separation
+- OC-1 Adversarial-Detection-Tolerant Architecture — defensive architecture against vendor enforcement, not model/harness trust boundary
+
+**Cross-reference:** Pattern #21 within-pattern (prescriptive agentic methodology strengthens). Pattern #83 83b (methodology-deficiency-disclosure about harness boundaries). Pattern #66 66d (malicious skill packages threat = supply-chain-adjacent).
+
+---
+
