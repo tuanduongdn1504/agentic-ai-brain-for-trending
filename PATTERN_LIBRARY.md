@@ -2,7 +2,26 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v70 codegraph wiki 2026-05-19)
+## Current state (post-v74 LLMs-from-scratch wiki 2026-05-19)
+
+> **State header below was last fully-rewritten at v70 codegraph; v71-v74 contributions captured in `_patterns/05-recent-additions.md` post-vNN strengthening blocks. The compact summary below applies to post-v74 state; for full v71-v74 strengthening detail consult `_patterns/05-recent-additions.md`.**
+
+- **Confirmed:** **45** (was 44 post-v70; +1 at v72 audit Pattern #84 Cross-Vendor Ecosystem-Tolerance PROMOTED — see `_patterns/05-recent-additions.md` v72 audit summary block for detail; UNCHANGED at v71+v73+v74 wikis — within-pattern strengthening only)
+- **Active candidates:** **29** (was 30 post-v70; -1 net at v72 audit; UNCHANGED at v71+v73+v74 wikis)
+- **Observational candidates:** **26** (was 21 post-v70; +1 OC-O at v71 + +1 OC-P at v72 + +1 OC-Q at v73 + +3 at v74 OC-R/OC-S/OC-T with OC-S registering N=2 EARLY-promotion-eligible)
+- **Ratio:** 29:45 = **0.644:1 UNCHANGED across v71-v74** (within-pattern strengthening + sub-typology + sub-archetype + sub-mechanism candidates only)
+- **Pattern #45 sub-typology taxonomy:** **4-variant** (45a Apache+commercial-shield + 45b MIT+PolyForm-Shield + 45c MIT-wrapper+proprietary-binary + **45d Apache-modified intra-license carve-out — NEW v74**)
+- **Storm Bear meta-streak:** **10 consecutive PASS post-v64-RESET** (extends from v70's 6 through v71+v72+v73+v74); strength categorization v65-v74: STRONGEST × 2 + STRONG × 1 + MODERATE × 4 + WEAK × 3 (MODERATE remains modal-status 4/10); 18-instance Phase 0.9 post-amendment window 88.9% INCLUDE rate
+- **v74 Phase 4b PRIMARY:** NEW Pattern #45 sub-typology 45d "Apache-2.0 with Book-Content-Exclusion-from-Source" (SECOND formal sub-typology proposal-document in corpus history after v69's 45c)
+- **v74 vault-pilot status:** NOT-PILOT (corpus-knowledge-only subject; Raschka = corpus-second-foundation-individual after v63 Karpathy)
+
+---
+
+## Prior state snapshot (post-v70 codegraph wiki 2026-05-19)
+
+> Retained as history. v71-v74 strengthening captured in `_patterns/05-recent-additions.md` post-vNN blocks. The block below is the v70-era state-block; consult `_patterns/05-recent-additions.md` for v71-v74 detail.
+
+
 
 - **Confirmed:** **44** (UNCHANGED post-v70; within-pattern strengthening only at v70 — Pattern #18 sub-mechanism B N=3 strengthening + protocol-variants formalization; no top-level promotions)
 - **Active candidates:** **30** (UNCHANGED post-v70; v70 contributes within-pattern strengthening + 4 NEW observational candidates, not active candidates)

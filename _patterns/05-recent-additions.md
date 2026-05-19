@@ -2012,3 +2012,162 @@ Combined with all inherited candidates from v66-v72 = **~21 total v2.3 candidate
 - **PROBABLE-PASS criterion call as Phase 0.9 discipline** — admits inference-tolerant axis-call without forcing FAIL; opens calibration path for future Chinese-handle / pseudonymous-handle subjects without compromising STRICT discriminative power
 
 ---
+
+## Post-v74 rasbt/LLMs-from-scratch wiki strengthening notes (2026-05-19)
+
+**State preserved post-v74:** 45 confirmed / 29 active / 0.644 ratio **UNCHANGED** (within-pattern strengthening + sub-typology + sub-archetype + sub-mechanism candidates only — no top-level state transitions). Observational candidate count: 24 → **26** (OC-R + OC-T register N=1; OC-S registers N=2).
+
+**Wiki:** v74 rasbt/LLMs-from-scratch (T3 Education NEW sub-archetype "Educational-Book-Companion"; Sebastian Raschka Manning 2024 book companion; 95,135 stars at 1,032 days = 92.2 stars/day SUSTAINED-MULTI-YEAR; PhD academic-author-educator multi-book portfolio).
+
+**Class:** NINTH WIKI UNDER ROUTINE v2.2 / SECOND formal sub-typology proposal-document in corpus history (after v69's 45c).
+
+### Phase 4b PRIMARY at v74
+
+**NEW Pattern #45 sub-typology 45d "Apache-2.0 with Book-Content-Exclusion-from-Source" registration:**
+
+- **Mechanism:** Apache-2.0 license modifies "Source form" definition to explicitly exclude books + related images + book-documentation-source. Single license file with intra-Apache modification (vs prior 45 sub-typologies which used dual-file / wrapper / tier-based mechanisms)
+- **Verbatim LICENSE.txt lines 26-30:** *""Source" form shall mean the preferred form for making modifications, **explicitly excluding any books specific to this software and any related images**, and includes but is not limited to software source code, documentation source (**excluding books and images related to this software**), and configuration files."*
+- **45 sub-typology taxonomy now 4-variant:**
+  - 45a Apache + commercial-shield (Unsloth v23) — tier-based dual-license
+  - 45b MIT + PolyForm-Shield (AutoGPT v59) — wrapper-based non-OSI
+  - 45c MIT-wrapper + Proprietary-Binary with Acceptable-Use (CloakBrowser v69) — dual-file artifact-scope split
+  - **45d Apache-modified intra-license carve-out (LLMs-from-scratch v74) ← NEW** — single-file content-type-carve-out
+- **Promotion criteria evaluation:**
+  - ✅ Criterion 1 corpus-first structural property: PASS HIGH confidence
+  - ✅ Criterion 2 mechanism-distinct from 45a/b/c: PASS HIGH confidence
+  - ✅ Criterion 3 clear definition + falsification tests: PASS HIGH confidence
+- **Verdict:** REGISTER 45d as sub-typology at N=1 PROVISIONAL. v75 stale-check + v80 retire-check. Formal sub-variant promotion at N=2 emergence.
+- **Forward N=2 candidates:** retroactive `rasbt/machine-learning-book` Packt 2022 companion check + future book-companion subjects + sequel `rasbt/reasoning-from-scratch` when wiki-eligible
+
+**Proposal-document:** `03 Projects/LLMs-from-scratch - Beginner Analysis/01 Analysis/(C) Pattern-45 sub-typology 45d Apache-with-book-content-exclusion registration.md`
+
+**Vehicle:** SECOND formal sub-typology proposal-document in corpus history (after v69 CloakBrowser 45c). Validates v69 audit's establishment of sub-typology proposal-document as 5th Phase 4b promotion vehicle.
+
+### NEW T3 sub-archetype "Educational-Book-Companion" registration
+
+- **Mechanism:** Book is primary artifact (Manning publication + ISBN) + code is companion (Apache-modified license preserves print copyright) + chapter-folder-mirrors-book-TOC + print-book-constraint-shapes-architecture (main chapters print-locked, bonus folders contribution-open)
+- **Distinct from prior T3 sub-archetypes:**
+  - v6 ai-agents-for-beginners (Microsoft corporate-org course-tutorial)
+  - v55 mattpocock-skills (solo-individual educational-skill-collection)
+  - v63 andrej-karpathy-skills (solo-individual single-skill-derivative)
+- **N=1 PROVISIONAL within T3 archetype expansion.** v75 stale-check.
+- **Forward N=2 candidates:** retroactive `rasbt/machine-learning-book` Packt 2022 + sequel `rasbt/reasoning-from-scratch` + future book-companion repos
+
+### NEW Pattern #19 sub-mechanism 19e "educator-multi-book-portfolio" candidate
+
+- **Mechanism:** Solo academic-author-educator + multi-book Manning/Packt + companion-repo per book + book-as-primary-artifact
+- **Distinct from sub-mechanisms 19a/b/c/d:**
+  - 19a founder-personal-tool-portfolio (multi-tool, not multi-book)
+  - 19b corporate-strategic (corporate-org, not solo)
+  - 19c community-collective (community-led, not single-author)
+  - 19d corporate-observation-as-marketing (marketing-narrative, not pedagogical-book)
+- **N=1 PROVISIONAL within Pattern #19 (CONFIRMED at v66 audit).** v75 stale-check + v80 retire-check.
+- **Forward N=2 candidates:** Chip Huyen / Aurélien Géron / Lewis Tunstall / Christoph Molnar / any solo academic-author-educator with 2+ book-companion repos at significant scale
+
+### NEW Pattern #52 sub-class candidate "LONG-SUSTAINED-MEDIUM-velocity (60-150/d × 1000+d)"
+
+- **Mechanism:** Medium-velocity sustained over multi-year time horizon (1,000+ days)
+- **Distinct from existing v72-audit Pattern #52 sub-classes:**
+  - EXTREME-VIRAL >300/d × ≥30d (v63 karpathy / v68 zero / v62 codex-plugin-cc)
+  - HIGH-NOT-EXTREME 150-300/d × ≥30d (v69 CloakBrowser / v72 DeepSeek-TUI / v73 cc-switch — PROMOTION-LOCKED at v75)
+  - SUSTAINED-MODERATE-HIGH 25-150/d × <1000d (v70 codegraph 42/d × 121d)
+- **v74 case:** LLMs-from-scratch 92.2/d × 1,032d
+- **N=1 PROVISIONAL.** v75 stale-check.
+- **Forward N=2 candidates:** academic/educational repos with multi-year sustenance at moderate velocity (e.g., scikit-learn / pandas / numpy if were corpus-eligible; mature-OSS-libraries-with-pedagogical-value)
+
+### Within-pattern strengthenings (no state changes)
+
+- **Pattern #78 Living-Domain-Standards N+1 strengthening** — book-content-stability + bonus-folder-LDS-evolution dual-layer. Tracks LLM frontier via bonus folders: Llama 3.2 / Qwen3 / Gemma 3 / OLMo 3 / MoE / Attention variants (GQA/MHL/Sliding-Window/Gated-DeltaNet/Cross-Layer-KV) / KV Cache / DPO / LoRA. **NEW LDS-tracking mechanism:** print-book-stability separates canonical (main chapters) from LDS-frontier (bonus folders).
+
+- **Pattern #19 N+1 top-level strengthening** — Raschka 149 public repos + 6 pinned (~124.3K combined pinned stars) at solo academic-author-educator scale.
+
+- **Pattern #66 within-pattern observation** — 3-OS CI test matrix (Linux + Windows + macOS via `uv` + `uv-pip` modern Python tooling) at book-companion-repo scale.
+
+- **Library-vocabulary item #9 Cross-Pattern Coupled-Design strengthening** — v74 exhibits 4-pattern coupling at single wiki (45d × Educational-Book-Companion T3 × 19e × Pattern #52 sub-class). **NEW sub-mechanism candidate "archetype-derived-pattern-cluster"** — multiple patterns flow from single archetype constraint (educational-book-companion) rather than from independent dimensions.
+
+### NEW observational candidates registered at v74
+
+- **OC-R "Affiliate-Link-As-Repository-Homepage"** (N=1 v74 LLMs-from-scratch) — GitHub `homepage` field = `https://amzn.to/4fqvn0D` (Amazon affiliate redirect URL). Corpus-typical homepage is project-website or product-page; v74 corpus-first homepage-as-monetization-link. v77 stale-check + v80 retire-check.
+
+- **OC-S "Methodology-Influence-Node-Without-Operational-Tool"** (**N=2 EARLY-promotion-eligible**) — v63 Andrej Karpathy (corpus-foundation-individual) + **v74 Sebastian Raschka (corpus-second-foundation-individual)**. Mechanism: Phase 0.9 (c) STRONG PASS valid without (b) PASS — pure methodology-influence without vault-operational-deployability. **Promotion path:** criterion 4 variant-within-pattern-at-N=2 PASS; register as NEW Phase 0.9 STRICT formal observation class at v75+ audit. **EARLY-promotion-eligible status reflects N=2 EARLIER threshold than typical N=3 cross-tier criterion 1.**
+
+- **OC-T "Print-Book-Constraint-As-Architecture"** (N=1 v74 LLMs-from-scratch) — Repository structure shaped by print-publishing constraints rather than software-architecture constraints. **5 manifestations:** (1) main-chapter print-pinned-content-locked + (2) bonus-folders contribution-accepting + (3) LDS evolution constrained to bonus + (4) license carve-out for print content + (5) distribution via git-clone + publisher-ZIP. Corpus-first observation. v77 stale-check + v80 retire-check.
+
+### Sister observation: Pattern #83 sub-mechanism 83f candidate
+
+**"License-declaration-vs-actual-mismatch"** — CITATION.cff declares `license: "Apache-2.0"` while LICENSE.txt is Apache-modified (effectively NOASSERTION per GitHub auto-classifier). N=1 sister observation at v74. Sister to Pattern #83 Honest-Deficiency-Disclosure (PROMOTED v69 audit; 5 sub-mechanisms 83a-e registered). v75+ N=2 emergence check; promote as 83f if N=2 confirmed.
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 10 consecutive PASS:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| v71 | agents-best-practices | MODERATE | 2/4 |
+| v72 | DeepSeek-TUI | MODERATE | 2/4 |
+| v73 | cc-switch | STRONGEST | 3-4/4 |
+| **v74** | **LLMs-from-scratch** | **WEAK** | **1/4** |
+
+**v74 returns to WEAK after v73's STRONGEST** — strength categorization continues to discriminate. **Spectrum re-expanded across STRONGEST→WEAK in 2 consecutive wikis** (v73→v74) — validates Phase 0.9 STRICT discriminative power across consecutive sessions.
+
+**Spectrum distribution v65-v74:** STRONGEST × 2 + STRONG × 1 + MODERATE × 4 + WEAK × 3 (MODERATE remains modal-status 4/10).
+
+**18-instance Phase 0.9 post-amendment window v57-v74 = 16 PASS / 2 SKIP = 88.9% INCLUDE rate** (slight uptick from v73's 88.2%).
+
+### Corpus-firsts at v74 (~8)
+
+(1) **First T3 Educational-Book-Companion sub-archetype** in v60+ corpus window
+(2) **First Apache-2.0 with explicit intra-license book-content-carve-out** in corpus history
+(3) **First Pattern #45 sub-typology proposal-document for Apache-modified pattern** (45d) = SECOND formal sub-typology proposal-document overall after v69's 45c
+(4) **First multi-year sustained moderate-velocity subject** (Pattern #52 NEW sub-class LONG-SUSTAINED-MEDIUM 60-150/d × 1000+d)
+(5) **First academic-author-educator with multi-book-portfolio** as primary archetype (Pattern #19 sub-mechanism 19e candidate)
+(6) **First corpus-second-foundation-individual** (Raschka, sister to v63 Karpathy corpus-foundation-individual)
+(7) **First affiliate-link-as-repository-homepage** (OC-R; amzn.to redirect)
+(8) **First archetype-derived-pattern-cluster** coupling observation (Library-vocabulary item #9 sub-mechanism candidate)
+
+### v75 audit agenda additions
+
+**v74 → v75 audit batch additions:**
+- Pattern #45 sub-typology 45d first-cycle stale-check + retroactive `rasbt/machine-learning-book` Packt 2022 companion check
+- T3 sub-archetype "Educational-Book-Companion" first-cycle stale-check
+- Pattern #19 sub-mechanism 19e first-cycle stale-check
+- Pattern #52 sub-class candidate "LONG-SUSTAINED-MEDIUM-velocity" first-cycle stale-check
+- **OC-S Methodology-Influence-Node-Without-Operational-Tool N=2 PROMOTION-EVALUATION** (criterion 4 variant-within-pattern PASS; promote as NEW Phase 0.9 STRICT formal observation class)
+- OC-R Affiliate-Link-As-Repository-Homepage first-cycle stale-check
+- OC-T Print-Book-Constraint-As-Architecture first-cycle stale-check
+- Pattern #83 sub-mechanism 83f candidate "license-declaration-vs-actual-mismatch" N=2 emergence check
+- Library-vocabulary item #9 archetype-derived-pattern-cluster sub-mechanism strengthening
+- Pattern #52 top-level PROMOTION confirmed (HIGH-NOT-EXTREME N=3 v73 LOCKED-IN per v72 audit deferred-promotion + v74 adds NEW sub-class LONG-SUSTAINED-MEDIUM)
+
+**Routine v2.3 codification candidates accumulated at v74:**
+- Intra-license carve-out as recognized Pattern #45 sub-typology variant (5th sub-typology codification)
+- License-declaration-vs-actual mismatch tracking (potential 83f sub-mechanism) — Phase 0 sub-procedure
+- Print-publishing-constraint detection — Phase 0 sub-procedure for book-companion archetype recognition
+- Archetype-derived-pattern-cluster framing — Library-vocabulary item #9 sub-mechanism
+- Affiliate-link homepage detection (OC-R sister) — Phase 0 sub-procedure
+- Methodology-influence-node-without-operational-tool as recognized Phase 0.9 STRICT pattern (when OC-S promotes)
+- LONG-SUSTAINED-MEDIUM velocity sub-class codification (Pattern #52 4-tier velocity taxonomy)
+
+### Vault-pilot relevance note
+
+**LLMs-from-scratch is NOT a vault pilot candidate** (Phase 0.9 (b) FAIL — educational reference for LEARNING LLM internals, not vault-operational tool).
+
+**Pilot ranking post-v74 unchanged from post-v73:** cc-switch #1 + codegraph #2 + agents-best-practices skill #3 + agentmemory #4 + DeepSeek-TUI #5. v74 is **NOT-PILOT — corpus-knowledge-only subject** added for Pattern Library contributions (45d sub-typology + 19e sub-mechanism + Educational-Book-Companion T3 sub-archetype + Pattern #52 sub-class + OC-S N=2 + LDS strengthening) NOT for vault deployment.
+
+**Methodology-influence value:** Indirect — understanding LLM internals improves prompt design, context-window management, finetuning evaluation, and substrate-selection decisions in Storm Bear vault routine work.
+
+### Cross-corpus impacts
+
+- **Pattern #45 sub-typology taxonomy reaches 4-variant** (45a/b/c/d) — corpus-richest license-axis sub-typology after Pattern #29 absent-LICENSE 7-variant
+- **T3 sub-archetype count expands** with corpus-first book-companion shape
+- **Pattern #19 sub-mechanism taxonomy reaches 5-variant** (19a/b/c/d/e)
+- **Pattern #52 sub-class taxonomy reaches 4-tier** (EXTREME-VIRAL + HIGH-NOT-EXTREME + SUSTAINED-MODERATE-HIGH + LONG-SUSTAINED-MEDIUM)
+- **OC-S N=2 promotion-eligible** establishes pure-methodology-influence as recognized Phase 0.9 STRICT formal class
+- **Active-count maintained at 29 for 3rd-consecutive-wiki** — audit-relief continues; no trigger re-elevation despite multiple sub-mechanism candidate additions
+
