@@ -2,20 +2,21 @@
 
 > **Purpose:** Authoritative register of cross-wiki patterns observed across the Storm Bear corpus. Refactored 2026-04-27 session 67 — bulk content moved to `_patterns/` chapter files for agent-context-fit.
 
-## Current state (post-v69 CloakHQ/CloakBrowser wiki 2026-05-18 → 2026-05-19)
+## Current state (post-v69 OVERDUE-NATURAL-CADENCE mini-audit 2026-05-19)
 
-- **Confirmed:** **43** (v66 EARLY-OPERATOR-ELECTED audit promoted Pattern #19 ecosystem-portfolio-builder N=4 + Pattern #78 Living-Domain-Standards Tracking; **Pattern #83 N=5 PROMOTION-ELIGIBLE at v69 audit — HIGH confidence, consolidated v64+v65+v67+v68+v69 evidence with 5-disclosure-surface saturation at v69**)
-- **Active candidates:** **32** (v66 audit registered #80-#84; v66 agentmemory wiki registered #85; v67 opencode-antigravity-auth wiki registered 3 NEW OCs OC-1/OC-2/OC-3 + Library-vocabulary item #11; v68 zero wiki registered NEW Pattern #86 T1 sub-archetype #7 + NEW Pattern #87 Skill-As-Binary-Bootstrap observational + 6 OCs OC-A through OC-F; **v69 CloakBrowser wiki registered NEW Pattern #45 sub-typology 45c "Artifact-Scope-Split with Acceptable-Use-Enumeration" + 4 NEW observational candidates OC-G/OC-H/OC-I/OC-J**)
+- **Confirmed:** **44** (was 43; **Pattern #83 Honest-Deficiency-Disclosure Discipline PROMOTED at v69 OVERDUE-NATURAL-CADENCE mini-audit** under criterion #1 ≥3-cross-tier with N=5 v64+v65+v67+v68+v69 + 5 sub-mechanisms 83a/83b/83c/83d/83e registered + multi-surface saturation sub-archetype emergent at N=2)
+- **Active candidates:** **30** (was 32; -2 for Pattern #83 promotion-out + Pattern #45 sub-typology 45c absorbed into Pattern #45 confirmed entry at audit)
 - **Stale candidates:** **1** (Pattern #52 Extreme-Viral-Velocity OBSERVATIONAL FLAG preserved)
 - **Retired:** 9
-- **Observation-tracks:** 6 (formal OTs) + 17 NEW observational candidates accumulated v67+v68+v69 (4 from v69 OC-G/H/I/J + 7 from v68 Pattern #87 + OC-A-F + 3 from v67 OC-1/2/3 + 3 carry)
-- **Total:** **102 full / 79 active-counting** (confirmed + active)
-- **Ratio:** 32:43 = **0.744:1** — buffer **0.206** below the 0.95:1 mini-audit trigger
-- **Library-vocabulary items:** 14 (was 13; v67 added item #11 Engagement-Deficit-Extreme — corpus-record fork_ratio 0.0001)
-- **Routine:** `llm-wiki-routine-v2.2` (codified 2026-05-14; **v66 + v67 + v68 + v69 all under v2.2 — 4 wikis + 1 audit validated; all 9 v2.2 features exercised cleanly + NEW sub-typology proposal-document discipline + NEW dual-use framing applied at v69**)
+- **Observation-tracks:** 6 (formal OTs) + 17 observational candidates (4 v69 OC-G/H/I/J + 7 v68 Pattern #87 + OC-A-F + 3 v67 OC-1/2/3 + 3 carry — all maintained at audit)
+- **Total:** **103 full / 78 active-counting** (confirmed + active; +1 full, -1 active-counting vs pre-audit 102/79)
+- **Ratio:** 30:44 = **0.682:1** — buffer **0.268** below the 0.95:1 mini-audit trigger (post-promotion ratio drop of -0.062 from pre-audit 0.744)
+- **Library-vocabulary items:** 14 (item #11 Engagement-Deficit-Extreme confirmed as formal-observational metric at v69 audit)
+- **Routine:** `llm-wiki-routine-v2.2` (codified 2026-05-14; **v66 + v67 + v68 + v69 wikis + v66 EARLY + v69 OVERDUE-NATURAL-CADENCE audits all under v2.2 — 4 wikis + 2 audits validated; all 9 v2.2 features exercised cleanly + NEW sub-typology proposal-document discipline + dual-use framing + OVERDUE-NATURAL-CADENCE class formalization candidate for v2.3**)
 - **Storm Bear meta-entity streak:** **5 consecutive PASS post-v64-RESET** (v65 STRONGEST 3/4 → v66 STRONG 4/4 → v67 MODERATE 2/4 → v68 WEAK 1/4 → **v69 WEAK 1/4 — SECOND consecutive WEAK in post-amendment window**); strength categorization spectrum continues with **WEAK becoming modal category** (2 of 5 in v65-v69 window); 13-instance window v57-v69 = 11 PASS / 2 SKIP = **84.6% INCLUDE rate**; v70-v75 evaluation: is WEAK modal-status coincidence or center-of-gravity calibration need?
-- **Active candidate count trigger:** REACHED at v67 + maintained at v68 + **maintained at v69 — 3rd CONSECUTIVE WIKI past trigger = corpus-record** (32 candidates ≥ 30 trigger) — **mini-audit zone fully met via candidate-count metric** (ratio still 0.744 well below 0.95); **v69 audit batch ~24-25 items = NEW LARGEST in corpus history** (was ~20 at v68; +4-5 from v69); v70 audit-before-wiki recommendation ELEVATED to blocking-priority
-- **Authoritative sources:** `_patterns/02a-confirmed-patterns-pre-v42.md` + `_patterns/02b-confirmed-patterns-v42-plus.md` (confirmed) / `_patterns/03-active-candidates.md` (32 candidates incl. #85 + #86 + #87 + Pattern #45 sub-typology 45c + OC-1-through-OC-3 + OC-A-through-OC-F + OC-G-through-OC-J) / `_patterns/04-retired-stale.md` / `_patterns/05-recent-additions.md` (v54→v69 strengthening + audit blocks) / `_patterns/01-audit-history.md` (audit history v21-v55) / root `CLAUDE.md` (compact current-state block)
+- **Active candidate count trigger:** **RESET post-v69 OVERDUE-NATURAL-CADENCE audit** — back AT trigger threshold (30 candidates = trigger; was 32 pre-audit); v70 audit-not-blocking
+- **v69 audit batch size:** **24 items = LARGEST single audit batch in corpus history** (was 17 at v53; 14 at v60 EXTENDED MINI-AUDIT)
+- **Authoritative sources:** `_patterns/02a-confirmed-patterns-pre-v42.md` + `_patterns/02b-confirmed-patterns-v42-plus.md` (44 confirmed, incl. **NEW Pattern #83 entry at v69 audit**) / `_patterns/03-active-candidates.md` (30 candidates post-audit) / `_patterns/04-retired-stale.md` / `_patterns/05-recent-additions.md` (v54→v69 strengthening + audit blocks incl. **v69 OVERDUE-NATURAL-CADENCE audit summary**) / `_patterns/01-audit-history.md` (audit history v21-v55) / root `CLAUDE.md` (compact current-state block)
 
 ### v60 → v69 narrative arc
 
@@ -168,19 +169,25 @@ _Retained as history. The current state + v60→v66 arc is the section above; th
 
 ## Next audit trigger
 
-**Current state (post-v69 CloakHQ/CloakBrowser wiki 2026-05-18 → 2026-05-19):** 32 active candidates / 43 confirmed = **0.744:1 ratio** (buffer 0.206 below the 0.95:1 mini-audit trigger). **Active count trigger REACHED at v67 + maintained at v68 + maintained at v69 — 3rd CONSECUTIVE WIKI past trigger = corpus-record; mini-audit zone fully met via candidate-count metric.**
+**Current state (post-v69 OVERDUE-NATURAL-CADENCE mini-audit 2026-05-19):** 30 active candidates / 44 confirmed = **0.682:1 ratio** (buffer 0.268 below the 0.95:1 mini-audit trigger). **Active count trigger RESET at audit — back AT trigger threshold (30); sub-0.95 zone restored.**
 
-**Audit triggers post-v69 (session 73++ / 2026-05-19). Next triggers — ELEVATED to blocking-priority for v70:**
-- Active candidate count ≥30 trigger **REACHED at v67 + maintained at v68 + maintained at v69 (32 candidates)** — mini-audit zone fully met; 3rd-consecutive-wiki-past-trigger condition
-- v70 wiki natural cadence (+1 wiki from v69)
-- Ratio >0.95:1 mini-audit / >1.05:1 full audit (buffer 0.206; ratio-trigger unlikely soon)
-- **v69 audit batch ~24-25 items = NEW LARGEST in corpus history** (was ~20 at v68; +4-5 from v69) — extending the LARGEST-batch record
-- **v70 audit-before-wiki recommendation ELEVATED to blocking-priority** (4-consecutive-trigger-past condition would warrant pause)
+**Audit triggers post-v69 (session 73++ / 2026-05-19). v70 audit-not-blocking post-audit-disposition:**
+- Active candidate count 30 = AT trigger threshold; v70 wiki natural cadence (+1 wiki from v69 audit) opens audit-availability window again
+- Ratio >0.95:1 mini-audit / >1.05:1 full audit (buffer 0.268; ratio-trigger unlikely soon)
+- v69 OVERDUE-NATURAL-CADENCE audit disposed 24-item batch (LARGEST in corpus history); v70 should NOT carry overdue debt
+- **OVERDUE-NATURAL-CADENCE class is NEW 5th formal mini-audit class** (routine v2.3 codification candidate)
 
-**Stale-check schedule post-v69:**
-- **v69 audit batch (NEW LARGEST in corpus history, ~24-25 items):** Pattern #74 + #75 + #76 (v63 carry) + #77 + #78 78a/78b + #79 + #80 + **#81 sub-typology decision (81a CI-enforced vs 81b discipline-documented-but-MANUAL)** + #82 + **#83 PROMOTION** (v64+v65+v67+v68+v69 = N=5 consolidated evidence with HIGH confidence verdict; sub-taxonomy 83a/83b/83c/83d DEFER to v70) + **#84 REFINEMENT** (84a tool-tolerance / 84b usage-enforcement decision) + #85 + Pattern #86 T1 sub-archetype #7 stale-check + Pattern #87 Skill-As-Binary-Bootstrap stale-check + OC-A through OC-F (6 observational candidates) stale-check + Pattern #18 shared-backend-service sub-archetype (one-backend-many-IDENTITIES vs one-backend-many-PLATFORMS sister-observation evaluation) + OC-1 Adversarial-Detection-Tolerant Architecture + OC-2 Issue-As-Enforcement-Signal Pipeline + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces + Library-vocabulary item #11 Engagement-Deficit-Extreme evaluation + AI-Generated-Repo Artifact Contamination observational + **NEW from v69: Pattern #45 sub-typology 45c registration confirmation + OC-G Fork-as-Integration-Strategy + OC-H Anonymous-Corporate-Author for Dual-Use Tools + OC-I Detection-Evasion-As-Product-Axis + OC-J Acceptable-Use Enumeration as Risk-Mitigation Layer**
-- **v70 (ELEVATED priority):** Pattern #52 sustained-velocity test (mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + opencode-antigravity-auth + zero + **CloakBrowser sub-threshold-control case**) + Pattern #83 sub-taxonomy decision (83a security / 83b methodology / 83c legal-operational / 83d pre-1.0-instability disclosure / **NEW from v69: license-axis-as-disclosure-surface sub-mechanism**) + **Tier-Taxonomy Review T6 consideration** (deferred from v66 Decision 14; **ELEVATED PRIORITY** — NEW T1 sub-archetype #7 programming-language registration + v69 sub-typology proposal-document discipline both warrant tier-taxonomy revisitation) + **Pattern #45 sub-typology 45c stale-check** (NEW v69 first-cycle stale-check)
-- **Routine v2.3 codification candidates accumulated:** sub-typology proposal-document discipline (FIRST exemplar at v69) + dual-use subject framing as Phase 0 sub-procedure + strength categorization threshold calibration (WEAK modal at v68+v69) + audit batch >20-item splitting consideration + liability-framing axis as Phase 0 sub-tracking
+**Stale-check schedule post-v69 audit:**
+- **v70+ (next natural cadence; deferred from v69 audit per default schedule):**
+  - **Pattern #52 sustained-velocity test** (mattpocock + codex-plugin-cc + karpathy-skills + agentmemory + opencode-antigravity-auth + zero + CloakBrowser sub-threshold-control case = ~7 subjects mixed thresholds)
+  - **Pattern #83 sub-taxonomy formal-sub-variant decision** (83a security / 83b methodology / 83c legal-operational / 83d experimental-status / 83e license-axis-as-disclosure-surface — split into formal sub-variants or retain as observational sub-mechanisms?)
+  - **Pattern #83 multi-surface saturation sub-archetype N=2 promotion-evaluation** (v67 + v69 both at 5+ surfaces; promote to formal sub-archetype at criterion 4 variant-within-pattern-at-N=2?)
+  - **Pattern #45 sub-typology 45c first-cycle stale-check** (NEW v69 registration; v70 = first-cycle check)
+  - **Pattern #74 + #75 v75-eval** + **Pattern #77 + #79 v70-eval** + **Pattern #85 v71-eval** + **OC stale-checks per default schedule** (v70 for OC-1/2/3 + OC-A-F + OC-G/H/I/J retire-checks at v75)
+- **v75+:**
+  - **Tier-Taxonomy Review T6** decision (Pattern #86 PROVISIONAL T1 sub-archetype #7 — graduate to NEW Tier T6 if N=2 emerges; otherwise downgrade to formal T1 sub-archetype #7)
+  - **Pattern #87 Skill-As-Binary-Bootstrap retire-check** if no N=2
+- **Routine v2.3 codification candidates accumulated:** OVERDUE-NATURAL-CADENCE as 5th formal mini-audit class + sub-typology proposal-document as 5th promotion vehicle + multi-surface saturation as Pattern #83 sub-archetype + audit batch >20-item splitting + sub-variant-without-top-level-promotion + dual-use subject framing as Phase 0 sub-procedure + strength categorization threshold calibration (WEAK modal at v68+v69) + liability-framing axis as Phase 0 sub-tracking
 
 
 ## References
