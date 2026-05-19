@@ -2306,3 +2306,148 @@ Combined with all inherited candidates from v66-v74 = **~26 total v2.3 candidate
 
 ---
 
+
+
+## Post-v76 HoangNguyen0403/agent-skills-standard wiki strengthening notes (2026-05-19)
+
+**State preserved post-v76-wiki:** 45 confirmed / 29 active / 0.644 ratio **UNCHANGED** (within-pattern strengthening + 3 NEW observational candidates only — no top-level state transitions). Observational candidate count: 29 → **32** (OC-X + OC-Y + OC-Z registered).
+
+**Wiki:** v76 HoangNguyen0403/agent-skills-standard (T1 Assistant Skill / Standards-Layer; Apache 2.0; **CORPUS-FIRST VN-located solo developer in v60+ window** post-pilot-v3.2 hireui = 45-wiki gap; 496 stars at 124 days = 4.0 stars/day sustained-low velocity; **fork ratio 0.296 CORPUS-RECORD-HIGH** = 1.66× v65 17.8% prior record; **0 open issues / 0 issue-rate CORPUS-RECORD-LOW engagement-deficit-extreme** despite 147 forks; 259 skills × 20+ frameworks = corpus-record codification density; 10+ AI harnesses via CLI-generated native formats; 3-tier hierarchical lookup architecture O(n) → O(1); MCP "Transparent Interception" with audit logs; Nguyen Huy Hoang = Senior Software Engineer at VMO Holding + Hanoi Vietnam).
+
+**Class:** TWELFTH WIKI UNDER ROUTINE v2.2 / **THIRD WIKI POST-v74 LLMs-from-scratch ship; 5-CONSECUTIVE-WIKI post-v72-audit-relief CORPUS-RECORD EXTENSION** at active count 29.
+
+### Phase 4b PRIMARY at v76 wiki
+
+**Pattern #84 84c "Provider-Agnostic-By-Design" N=5 POST-PROMOTION STRENGTHENING with NEW sub-mechanism "CLI-generates-native-formats-from-canonical-source":**
+
+| # | Wiki | Subject | Layer | Mechanism | Count |
+|---|------|---------|-------|-----------|-------|
+| 1 | v71 | agents-best-practices | methodology | dual-vendor pattern-synthesis | 2 vendors |
+| 2 | v72 | DeepSeek-TUI | runtime | provider-API matrix | 9 providers |
+| 3 | v73 | cc-switch | runtime | provider-API matrix | 12 providers |
+| 4 | v75 | impeccable | distribution | repo-stored-N-harness-replicas | 14 harnesses |
+| **5** | **v76** | **agent-skills-standard** | **CLI-generation** | **CLI-generates-native-formats-from-canonical-source** | **10+ harnesses (NEW MECHANISM)** |
+
+**Three corpus-firsts in this evidence chain:**
+
+1. **FIRST 5-instance Pattern #84 sub-mechanism-strengthening arc within post-promotion window** — NEW CORPUS-RECORD extending v75 4-instance record
+2. **FIRST CLI-generation distribution mechanism distinct from repo-stored replicas** — mechanism-layer-distinction at distribution layer (84c.1 repo-stored + 84c.2 CLI-generated)
+3. **FIRST sub-mechanism mechanism-layer-distinction within 84c** — methodology + runtime + distribution layers covered with 2 sub-sub-mechanisms at distribution layer
+
+**Verdict:** 84c is now FULLY MATURE sub-mechanism with multi-layer + multi-archetype + multi-geographic + multi-sub-sub-mechanism coverage. v77 audit formal sub-mechanism elevation expected.
+
+**Proposal-document:** `03 Projects/agent-skills-standard - Beginner Analysis/01 Analysis/(C) Pattern-84-84c-N5-strengthening-NEW-sub-mechanism-CLI-generates-native-formats-from-canonical-source.md`
+
+### Other within-pattern strengthenings at v76
+
+- **Pattern #78 N=4 CORPUS-RECORD codification density** — 259 skills × 20+ frameworks at ~500 tokens/skill avg + 3-tier hierarchical lookup architecture (AGENTS.md router → category _INDEX.md → SKILL.md on-demand) + evals.json per skill CI-validated + benchmark-report.md methodology document + MCP Transparent-Interception with audit logs = corpus-first audit-trail enforcement layer
+- **Pattern #83 sub-mechanism 83f "license-declaration-vs-actual-mismatch" N=2 PROMOTION-ELIGIBLE** — v74 LLMs-from-scratch CITATION.cff "Apache-2.0" vs LICENSE.txt modified Apache + v76 agent-skills-standard README "MIT License" vs LICENSE Apache-2.0 = criterion 4 variant-within-pattern N=2 PASS threshold; v77 audit formal sub-mechanism promotion expected
+- **Pattern #19 NEW sub-mechanism 19g candidate "Vietnamese-Solo-Standards-Codifier"** PROVISIONAL N=1 — Hoang 4-product portfolio: agent-skills-standard 496★ + sheet_loader_localization 9★ + mvvm_architecture 6★ + ai_code_reviewer 2★; solo VN engineer + mobile-Flutter foundation + standards-codification anchor + AI-workflow secondary; distinct from 19a/b/c/d/e/f
+- **Pattern #82 N+1 quantitative-marketing strengthening** — "85% fewer tokens" + 540 tokens/skill avg + 90% scouting-token reduction + benchmark-report.md methodology document + evals.json per skill CI validation; corpus-second quantitative-marketing with methodology document (after v70 codegraph 100%-local supply-chain claim)
+- **Pattern #18 sub-mechanism B B1 MCP variant N=3 strengthening + NEW within-B1 sub-variant candidate "MCP-Transparent-Interception-with-audit-logs"** PROVISIONAL N=1 — v66 agentmemory (B1 N=1 original sub-archetype foundation) + v70 codegraph (B1 N=2 protocol-variant promotion) + **v76 agent-skills-standard (B1 N=3 NEW Transparent-Interception variant)**; "Transparent Interception" intercepts file read requests + auto-injects rules + audit logs + Lazy Loading + Token Filtering
+- **Pattern #66 6-axis supply-chain integrity discipline** — text-only artifacts + CLI text-only downloads + zero telemetry + local-first + prompt-injection-scanning + Zod schema validation + per-skill evals.json (corpus-broadest supply-chain integrity discipline)
+- **Pattern #57 sub-variant 57c-product strengthening** — 3+ corpus subjects cited as ecosystem peers (v62 codex-plugin-cc + v65 claude-code-system-prompts + v71 agents-best-practices ecosystem); corpus-recursive depth HIGH
+
+### NEW observational candidates at v76 (3)
+
+**OC-X "Audit-Log-As-Enforcement-Layer" N=1:** MCP server provides audit logs showing which skills informed each AI decision; corpus-first audit-trail enforcement layer within MCP. Distinct from policy-enforcement (rejection) — audit-log layer transparently records influence without blocking. v77 stale-check; promote at N=2.
+
+**OC-Y "Engagement-Deficit-Extreme-With-Active-Forks" N=1:** 0 open issues + 147 forks = highest-fork-with-lowest-issue corpus subject; active project per 144 commits + recent android v1.4.2 release; community engagement happens via forks/PRs not issues. v77 stale-check; promote at N=2.
+
+**OC-Z "VN-Solo-Developer-Standards-Codifier" N=1:** Solo Vietnamese-located developer producing canonical standards layer at scale (496★ + 147 forks + 10+ harness adoption); **CORPUS-FIRST VN-located archetype in v60+ window** post-pilot-v3.2 hireui (45-wiki gap). v77 stale-check; promote at N=2.
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 12 consecutive PASS = NEW CORPUS-RECORD extension by 1 wiki:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 (d STRONGEST) |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| v71 | agents-best-practices | MODERATE | 2/4 |
+| v72 | DeepSeek-TUI | MODERATE | 2/4 |
+| v73 | cc-switch | STRONGEST | 3-4/4 |
+| v74 | LLMs-from-scratch | WEAK | 1/4 |
+| v75 | impeccable | STRONG | 3/4 |
+| **v76** | **agent-skills-standard** | **STRONGEST** | **4/4** |
+
+**v76 = STRONGEST 4/4 INCLUDE:** (a) STRONGEST PASS Nguyen Huy Hoang = Senior Software Engineer at VMO Holding + Hanoi Vietnam = direct structural-peer to Storm Bear (CORPUS-FIRST VN-located solo developer in v60+ window post-pilot-v3.2 hireui = 45-wiki gap) / (b) PASS direct vault deployment via npm CLI sync + MCP server runtime enforcement + zero-API-key local use + reversible / (c) PASS methodology-influence-node: 4 routine v2.3 codification candidates (mechanism-layer-distinction + MCP Transparent-Interception with audit-log enforcement + 3-tier hierarchical lookup + CLI-generates-native-formats discipline) / (d) PASS multi-harness ecosystem citation includes 3+ corpus subjects (v62 Codex + v65 Claude Code system prompts + v71 agents-best-practices ecosystem).
+
+**v76 extends streak to 12 consecutive PASS — NEW CORPUS-RECORD by 1 wiki.** **First 4/4 STRONGEST since v66 agentmemory (10-wiki gap STRONGEST recurrence with FULL criterion-PASS).** Strength distribution v65-v76: STRONGEST × 3 + STRONG × 2 + MODERATE × 4 + WEAK × 3.
+
+**19-instance Phase 0.9 post-amendment window v57-v76 = 17 PASS / 2 SKIP = 89.5% INCLUDE rate** (uptick from v75's 88.9%).
+
+### Corpus-firsts at v76 wiki (10)
+
+1. **CORPUS-FIRST VN-located solo developer in v60+ window** — Nguyen Huy Hoang Hanoi Vietnam (45-wiki gap since pilot v3.2 hireui)
+2. **CORPUS-RECORD 5-instance Pattern #84 84c sub-mechanism-strengthening arc** — extends v75 4-instance record
+3. **CORPUS-FIRST CLI-generation distribution mechanism distinct from repo-stored replicas** — v75 vs v76 mechanism distinction within 84c
+4. **CORPUS-RECORD codification density 259 skills × 20+ frameworks** — exceeds all prior Pattern #78 evidence
+5. **CORPUS-FIRST 3-tier hierarchical lookup architecture** — AGENTS.md router → _INDEX.md → SKILL.md with O(n) → O(1) scan cost
+6. **CORPUS-FIRST MCP Transparent-Interception with audit logs** — audit-trail enforcement layer distinct from prior MCP usage
+7. **CORPUS-RECORD-HIGH fork ratio 0.296** — 1.66× v65 17.8% prior record
+8. **CORPUS-RECORD-LOW engagement-deficit-extreme** — 0 open issues despite 147 forks
+9. **First 4/4 STRONGEST Storm Bear INCLUDE since v66 agentmemory** — 10-wiki gap STRONGEST 4/4 recurrence with FULL criterion-PASS
+10. **Storm Bear streak CORPUS-RECORD extension to 12 consecutive PASS** — extends v75 11-instance record
+
+### v77 audit agenda additions from v76 wiki
+
+- **Pattern #84 84c sub-mechanism formalization + layer-distinction registration** (3-layer + 2-sub-sub-mechanism coverage; 5-wiki sustainability)
+- **Pattern #83 sub-mechanism 83f "license-declaration-vs-actual-mismatch" PROMOTION evaluation** at N=2 (v74 + v76; PROMOTION-ELIGIBLE)
+- **Pattern #19 NEW sub-mechanism 19g "Vietnamese-Solo-Standards-Codifier" PROVISIONAL registration**
+- **Pattern #78 N=4 CORPUS-RECORD codification density verification**
+- **Pattern #18 B1 MCP variant N=3 strengthening + NEW within-B1 sub-variant "MCP-Transparent-Interception-with-audit-logs" PROVISIONAL registration**
+- **Pattern #82 N+1 quantitative-marketing verification**
+- **Pattern #66 6-axis supply-chain integrity discipline registration**
+- **Pattern #57 sub-variant 57c-product 3+-corpus-subject ecosystem citation registration**
+- **OC-X / OC-Y / OC-Z first-cycle stale-checks**
+- **Library-vocabulary item #9 NEW CORPUS-RECORD 8-pattern couple-count verification**
+- **Library-vocabulary item #11 Engagement-Deficit-Extreme corpus-record-low strengthening verification**
+
+### Routine v2.3 codification candidates added at v76 (+4)
+
+**NEW v76 wiki candidates:**
+
+1. **Mechanism-layer-distinction within sub-mechanism layer** — repo-stored vs CLI-generated as distinct sub-sub-mechanisms within Pattern #84 84c distribution layer
+2. **MCP Transparent-Interception with audit-log enforcement** — corpus-first audit-trail layer; differs from policy-enforcement (rejection) by injecting rules transparently
+3. **3-tier hierarchical lookup as token-efficient architecture pattern** — AGENTS.md router → category _INDEX.md → on-demand skill files (O(n) → O(1) scan cost)
+4. **CLI-generates-native-formats discipline** — single canonical source + per-harness format generation at user install-time
+
+Combined with all inherited candidates from v66-v75 = **~30 total v2.3 candidates** (target codification at ~v75-v80 natural cadence).
+
+### Pilot relevance note (v76)
+
+**agent-skills-standard = HIGH-RELEVANCE vault pilot candidate Tier-1 — ranks #2:**
+
+| Axis | agent-skills-standard (v76) |
+|------|------------------------------|
+| Vault-deployable scope | Direct via npm CLI sync; zero-API-key for local use; MCP server runtime enforcement optional |
+| Setup complexity | Low (npm install + sync command) |
+| Value-add per session | Methodology-influence for routine v2.3 standards-codification + cross-cultural-peer alignment (VN-located + same career stage) |
+| Risk profile | Low — text-only artifacts; zero telemetry; local-first; reversible |
+| Reversibility | Very High — uninstall + delete `.skillsrc` + delete generated outputs |
+| Cultural alignment | VN-located peer = direct community-network relevance |
+
+**Updated pilot ranking post-v76:**
+1. cc-switch (Tool-lock-in mitigation; Tier-1 actionable)
+2. **agent-skills-standard NEW v76** (VN-cultural-peer + methodology + zero-infra; multi-relevance dimensions)
+3. codegraph (read-only indexing, lowest-risk)
+4. agents-best-practices (zero-infra skill install)
+5. agentmemory (MEDIUM-risk state mutation)
+
+### Cross-corpus impacts at v76 wiki
+
+- **Pattern #84 84c 5-wiki monotonic corpus-record migration** = NEW CORPUS-RECORD post-promotion sustainability discipline; sets new floor for sub-mechanism strengthening expectations
+- **Cross-layer + mechanism-axis sub-mechanism validation** (methodology + runtime + distribution layers; repo-stored + CLI-generated mechanisms at distribution layer) = 84c is fully mature sub-mechanism with multi-axis coverage
+- **CORPUS-FIRST VN-located solo developer in v60+ window** = restores VN representation to corpus + provides direct structural-blueprint for Storm Bear vault-publication scenario; 45-wiki gap closed
+- **Storm Bear streak CORPUS-RECORD extension to 12 consecutive PASS** = post-v64-RESET corpus-record extension by 1 wiki
+- **First 4/4 STRONGEST since v66 agentmemory (10-wiki gap)** = STRONGEST recurrence with FULL criterion-PASS; demonstrates Phase 0.9 STRICT spectrum-discrimination produces full-criterion-PASS when genuine structural-peer present
+- **8-pattern coupled-design at single wiki** (Pattern #84 + #78 + #19 + #82 + #83 83f + #18 + #66 + #57) = NEW potential CORPUS-RECORD couple-count (v75 was 6-pattern; v76 is 8-pattern)
+- **Pattern #83 sub-mechanism 83f N=2 PROMOTION-ELIGIBLE** = formal sub-mechanism promotion expected at v77 audit
+- **Active count 29 maintained 5th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
+
+---
