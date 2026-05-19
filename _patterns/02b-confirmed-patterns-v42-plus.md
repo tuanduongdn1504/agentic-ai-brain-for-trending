@@ -1006,3 +1006,127 @@ At N=2 multi-surface saturation, this is registered as a Pattern #83 SUB-ARCHETY
 
 ---
 
+### Promoted at v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (#84)
+
+#### ✅ #84 Cross-Vendor Ecosystem-Tolerance (PROMOTED v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit under criterion #1 default ≥3-cross-tier + criterion #4 variant-within-pattern-at-N=2 with N=3 cross-archetype evidence; 3 sub-mechanisms 84a/84b/84c registered at promotion)
+
+**Status at v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (2026-05-19):** PROMOTED to CONFIRMED via criterion #1 (default ≥3-cross-tier, N=3 evidence v62+v65+v71) + criterion #4 (variant-within-pattern, 3 sub-mechanisms emerge: 84a Tool-tolerance + 84b Usage-enforcement + 84c Provider-Agnostic-By-Design) with HIGH confidence. **3rd PROMOTION-from-pre-eligible-state in corpus history** (after Pattern #19 + #78 at v66 EARLY mini-audit, Pattern #83 at v69 OVERDUE-NATURAL-CADENCE mini-audit). **6-wiki accumulation arc** (v62 codex-plugin-cc 84a first evidence → v65 claude-code-system-prompts 84b N=2 → v66 EARLY audit candidate registration → v67 84a/84b sub-mechanism refinement → v71 agents-best-practices N=3 PROMOTION-ELIGIBLE with 84c proposal-document → v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER audit PROMOTION).
+
+**Status history:**
+- v62 codex-plugin-cc wiki ship (2026-04-18) → N=1 first evidence (Tool-tolerance: OpenAI publishes Apache-2.0 plugin FOR Anthropic Claude Code rival platform; sub-DMCA threshold maintained)
+- v65 claude-code-system-prompts wiki ship (2026-05-14) → N=2 strengthening (Usage-enforcement-axis emerges: Piebald-AI reverse-engineering archive; Anthropic apparent tolerance with no DMCA despite competitive context + 10,176 stars)
+- v66 EARLY-OPERATOR-ELECTED mini-audit registration → CANDIDATE N=2 stale-risk-flagged
+- v67 opencode-antigravity-auth wiki ship → REFINEMENT evidence (84a/84b sub-mechanism candidates registered: artifact-tolerance vs usage-enforcement split)
+- v71 agents-best-practices wiki ship → N=3 PROMOTION-ELIGIBLE with 84c sub-typology proposed (Provider-Agnostic-By-Design = author-design-choice meta-archetype vs prior 84a/84b ecosystem-norm meta-archetype); proposal-document filed at `03 Projects/agents-best-practices - Beginner Analysis/01 Analysis/(C) Pattern-84-cross-vendor-ecosystem-tolerance-N3-promotion-evaluation.md`
+- **v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (this entry) → PROMOTE under criterion #1 + criterion #4** with 3 sub-mechanisms 84a / 84b / 84c registered
+
+**Evidence at N=3 across maximally-distinct sub-mechanisms + tier diversity:**
+
+| # | Wiki | Subject | Sub-mechanism | Tier | Meta-archetype | Mechanism evidence |
+|---|------|---------|---------------|------|----------------|--------------------|
+| 84a | v62 codex-plugin-cc | T4 Bridge OpenAI→Claude Code plugin | **Tool-tolerance** | T4 | ecosystem-norm | OpenAI publishes Apache-2.0 plugin explicitly FOR Anthropic Claude Code; no DMCA; sub-DMCA threshold maintained |
+| 84b | v65 claude-code-system-prompts | T1 reverse-engineering reference archive | **Usage-enforcement** | T1 | ecosystem-norm | Piebald-AI reverse-engineers Anthropic Claude Code internals; Anthropic apparent tolerance with no DMCA against artifact despite 10,176-star visibility; vendor enforcement layer separated from artifact-takedown layer |
+| 84c | v71 agents-best-practices | T1 Assistant Skill | **Provider-Agnostic-By-Design (NEW)** | T1 | author-design-choice | Individual author deliberately synthesizes BOTH OpenAI AND Anthropic agentic patterns equally; framework runs identically on both platforms; intellectual synthesis from BOTH vendor corpora equally; vendor-tolerance is inherent rather than tested-after-publication |
+
+**Cross-tier distribution:** T1 (2×: 84b + 84c) + T4 (1×: 84a) = **2 distinct tiers** with N=3 ≥ criterion #1 (default ≥3-cross-tier) requirement satisfied (alongside cross-archetype distribution).
+
+**Cross-archetype diversity (maximally distinct):**
+- Vendor-published plugin (84a OpenAI corporate-org) + Community reverse-engineering archive (84b Piebald-AI corporate-org) + Individual-author synthesis (84c DenisSergeevitch solo-individual) = 3 distinct author archetypes
+- T4 cross-vendor Bridge (84a) + T1 reverse-engineering archive (84b) + T1 provider-agnostic Assistant Skill (84c) = 3 distinct sub-archetypes
+
+**3 sub-mechanism formal definitions (registered at promotion):**
+
+- **84a Tool-tolerance** — Vendor does NOT challenge the cross-vendor artifact at the tool/artifact layer (no DMCA, no enforcement against repo, npm package, or distribution channel). Sub-DMCA threshold maintained despite competitive context. Tolerance is an externally-applied norm; the vendor *could* have challenged but chose not to. Example: v62 codex-plugin-cc — OpenAI publishes Apache-2.0 plugin explicitly targeting Anthropic's Claude Code platform; no legal challenge from Anthropic.
+
+- **84b Usage-enforcement** — Vendor tolerates at the artifact layer but may enforce at the account/usage layer (bans, shadow-bans, verification challenges, validation_required errors). Artifact-takedown and usage-enforcement are separated as distinct enforcement layers. Example: v65 claude-code-system-prompts — Piebald-AI archive tolerated as artifact; v67 opencode-antigravity-auth refinement evidence — Google enforces against accounts but not against the npm package.
+
+- **84c Provider-Agnostic-By-Design (NEW v72)** — Subject is created with explicit intent to synthesize/serve multiple vendor ecosystems equally; vendor-tolerance is inherent rather than tested-after-publication. Meta-archetype shift: vendor-tolerance becomes an internal design principle (author-design-choice) rather than an externally-applied ecosystem norm. Author intentionality is the distinguishing axis. Example: v71 agents-best-practices — DenisSergeevitch synthesizes Anthropic 5-guide corpus + OpenAI 5-guide corpus into unified 15-reference framework running identically on Claude Code + Codex + OpenAI Agents.
+
+**Formal statement (promoted):**
+> Agentic-AI ecosystem operates under cross-vendor tolerance dynamics manifesting via three distinct sub-mechanisms. (84a) Vendors tolerate cross-vendor artifacts at the artifact layer (no DMCA, no take-down against rival-platform plugins, reverse-engineering archives, or compatibility shims). (84b) Vendors may separate artifact-tolerance from usage-enforcement — accounts may be banned while artifacts remain unchallenged. (84c) Individual authors design provider-agnostic frameworks that synthesize multiple vendor corpora equally, making cross-vendor tolerance an inherent internal design choice rather than an externally-applied ecosystem norm.
+>
+> Three sub-mechanisms with meta-archetype distinction:
+> - **84a Tool-tolerance** — vendor-applied artifact-layer tolerance (ecosystem-norm meta-archetype)
+> - **84b Usage-enforcement** — vendor-applied account-layer enforcement separated from artifact-layer (ecosystem-norm meta-archetype)
+> - **84c Provider-Agnostic-By-Design** — author-applied internal design principle for multi-vendor synthesis (author-design-choice meta-archetype)
+>
+> Meta-archetype shift from 84a/b to 84c (ecosystem-norm → author-design-choice) is the corpus-first author-intentionality axis added at v71 + v72 audit. Sub-mechanism choice correlates with author position: vendor-organization adopts 84a/b posture; solo-author adopts 84c posture.
+
+**Cross-references:**
+- Pattern #18 Agent Runtime Standardization (CONFIRMED) — Pattern #84 is vendor-business-decision layer; Pattern #18 is product-design layer. Orthogonal but co-occur in cross-vendor artifacts.
+- Pattern #78 Living-Domain-Standards Tracking (CONFIRMED) — Pattern #78 v71 78a evidence (triple-standard + dual-vendor) co-occurs with Pattern #84 84c (provider-agnostic-by-design); the LDS-tracking discipline enables provider-agnostic synthesis. Observational coupling, not necessary.
+- Pattern #83 Honest-Deficiency-Disclosure (CONFIRMED v69) — Pattern #83 83c sub-mechanism evidence overlaps with Pattern #84 84a tool-tolerance (v67 opencode-antigravity-auth ToS-disclosure within cross-vendor context). NOT absorbed — Pattern #83 is disclosure-discipline; Pattern #84 is vendor-business-decision dynamic.
+- Pattern #66 Supply-Chain Isolation (CONFIRMED) — orthogonal. Pattern #66 is supply-chain attribution; Pattern #84 is cross-vendor tolerance dynamic.
+
+**Confidence:** HIGH. N=3 with cross-tier (T1 + T4) + cross-archetype (vendor-corp + community-corp + solo-individual) + 3 maximally-distinct sub-mechanisms (Tool-tolerance / Usage-enforcement / Provider-Agnostic-By-Design) and meta-archetype distinction (ecosystem-norm vs author-design-choice). Formal statement structurally-coherent. Sub-mechanism registration at promotion (84a/b/c) per routine v2.2 discipline.
+
+**Stale-risk-flag (post-promotion observational watch):**
+- 84a/b/c sub-mechanisms each at N=1 within Pattern #84. v75+ stale-checks for 2nd-shape evidence per sub-mechanism.
+- If any sub-mechanism fails to reach N=2 within 4 wikis post-promotion (v76), reformulate Pattern #84 to retire the unsupported sub-mechanism.
+- Pattern #84 84c is the corpus-first meta-archetype shift; if v75+ adds no additional author-design-choice evidence, 84c sub-mechanism downgrades to within-84a/b refinement rather than separate sub-mechanism.
+
+**Library-vocabulary item #10 evidence (1-wiki Rapid-Pattern-Evolution):** Pattern #84 v66→v67 1-wiki refinement cycle (84a/84b sub-mechanism candidates emerge within 4 days of candidate registration) is the FOURTH instance of 1-wiki pattern evolution in corpus history (after Pattern #76 v62→v63 + Pattern #78 v64→v65 + Pattern #83 v66→v67). N=4 evidence for Library-vocabulary item #10.
+
+**Audit document:** `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v70-v71 (PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER; Pattern #84 + Pattern #18 sub-mechanism B PROMOTIONS + 22 other items).md` § "Decision A1"
+
+---
+
+### Promoted sub-archetype at v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (Pattern #18 sub-mechanism B)
+
+#### ✅ Pattern #18 sub-archetype shared-backend-service sub-mechanism B "one-binary-many-CLIENTS" PROMOTED to formal sub-archetype with protocol-variants B1 MCP + B2 CDP + B3 placeholder
+
+**Status at v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (2026-05-19):** PROMOTED from within-pattern sub-mechanism to formal sub-archetype within Pattern #18 shared-backend-service. **Promotion vehicle: NEW 6th Phase 4b vehicle (sub-mechanism formalization proposal-document)** introduced at v70 codegraph wiki — first sub-mechanism-promotion-via-proposal-document in corpus history. **FIRST 4-layer Pattern hierarchy formalized in corpus:** Pattern #18 (top-level) → sub-archetype shared-backend-service (registered v69 audit) → sub-mechanism B one-binary-many-CLIENTS (PROMOTED v72) → protocol-variants B1/B2/B3.
+
+**Status history:**
+- v66 agentmemory wiki ship (2026-05-14) → Pattern #18 sub-archetype shared-backend-service registered (sub-mechanism A: one-backend-many-IDENTITIES + sub-mechanism B: one-binary-many-CLIENTS sister observation)
+- v69 OVERDUE-NATURAL-CADENCE mini-audit → sub-archetype shared-backend-service confirmed; sub-mechanisms A + B distinguished at audit
+- v69 CloakBrowser wiki ship (2026-05-18→19) → sub-mechanism B N=2 (CDP variant; CloakBrowser-as-cloakserve)
+- v70 codegraph wiki ship (2026-05-19) → sub-mechanism B N=3 (MCP variant strengthening; protocol-variants taxonomy emerges); proposal-document filed at `03 Projects/codegraph - Beginner Analysis/01 Analysis/(C) Pattern-18 sub-mechanism B one-binary-many-CLIENTS N=3 protocol-variants formalization.md`
+- **v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (this entry) → PROMOTE sub-mechanism B to formal sub-archetype** with protocol-variants B1 MCP + B2 CDP + B3 placeholder registered
+
+**Evidence at N=3 across 2 protocol-variants:**
+
+| Wiki | Subject | Protocol | Protocol-variant | Client count | Tool/endpoint count |
+|------|---------|----------|------------------|--------------|---------------------|
+| v66 (2026-05-14) | agentmemory | MCP | **B1** | 15+ agent platforms | 51 MCP tools |
+| v69 (2026-05-18→19) | CloakBrowser | CDP | **B2** | Multiple framework clients (Playwright Python + Playwright npm + native CDP) | N/A (CDP endpoint) |
+| v70 (2026-05-19) | codegraph | MCP | **B1** | 4 agent platforms (Claude Code + Cursor + Codex CLI + OpenCode) | 8 MCP tools |
+
+**Promotion criteria evaluation:**
+- ✅ **Criterion 1:** N=3 across T2 Service (×3); cross-tier not satisfied (all T2) but cross-protocol-variant satisfied + cross-substrate-archetype satisfied — PARTIAL PASS via cross-archetype dimension
+- ✅ **Criterion 4 (variant-within-pattern-at-N=2):** B1 MCP N=2 (agentmemory + codegraph) + B2 CDP N=1 (CloakBrowser) — STRONG PASS for sub-mechanism B; protocol-variants establish criterion 4 evidence within sub-mechanism
+- ✅ **NEW criterion (cross-archetype counting, v2.2):** memory-substrate (agentmemory) + browser-substrate (CloakBrowser) + code-knowledge-substrate (codegraph) — 3 distinct substrate-archetypes — STRONG PASS
+
+**3 protocol-variant formal definitions (registered at promotion):**
+
+- **B1 MCP variant** — one-binary-many-CLIENTS via Model Context Protocol; one MCP server binary serves multiple agent platforms as MCP clients via stdio or SSE transport. N=2 evidence: agentmemory v66 (51 tools / 15+ platforms), codegraph v70 (8 tools / 4 platforms). v72 stale-check: not applicable (already at promotion); v76 N=3 within-variant check.
+
+- **B2 CDP variant** — one-binary-many-CLIENTS via Chrome DevTools Protocol; one browser binary serves multiple framework clients via CDP endpoint (HTTP/WebSocket). N=1 evidence: CloakBrowser v69 (Playwright Python + Playwright npm + native CDP). v75 N=2 within-variant stale-check.
+
+- **B3 placeholder** — Reserved for future protocol-variants (gRPC, WebSocket-RPC, custom-RPC, HTTP-streaming, JSON-RPC, etc.). v77 stale-check; if no B3 evidence by v77, remove placeholder and reformulate as N-variants-fixed rather than N-variants-open taxonomy.
+
+**4-layer Pattern hierarchy (corpus-first):**
+
+```
+Pattern #18 Agent Runtime Standardization (top-level CONFIRMED)
+└── sub-archetype: shared-backend-service (registered v69 audit)
+    ├── sub-mechanism A: one-backend-many-IDENTITIES (v67 Opencode↔Antigravity)
+    └── sub-mechanism B: one-binary-many-CLIENTS (PROMOTED v72; N=3 across protocol-variants)
+        ├── protocol-variant B1: MCP (N=2; agentmemory + codegraph)
+        ├── protocol-variant B2: CDP (N=1; CloakBrowser)
+        └── protocol-variant B3: placeholder (future protocols)
+```
+
+**Routine v2.3 codification implication:** n-layer pattern hierarchy support (4-layer at v70/v72) is now corpus-validated. v2.3 must support n-layer hierarchies as routine feature including: (a) protocol-variant registration as criterion 4 evidence within sub-mechanism, (b) placeholder-variant registration with stale-check schedule, (c) sub-archetype-promotion via proposal-document as NEW 6th Phase 4b vehicle.
+
+**Cross-references:**
+- Pattern #18 sub-archetype shared-backend-service sub-mechanism A "one-backend-many-IDENTITIES" (v67 Opencode↔Antigravity) — sister sub-mechanism; both share the "one binary, many clients" structural property at different layers (A: many account identities, B: many client implementations).
+- Pattern #85 Platform-Primitive Foundation (CANDIDATE N=1 v66 agentmemory) — co-occurs with Pattern #18 sub-mechanism B at agentmemory subject (iii-foundation enables one-binary-many-clients cheaply). Library-vocabulary item #9 Cross-Pattern Coupled-Design evidence.
+- Pattern #84 Cross-Vendor Ecosystem-Tolerance (PROMOTED v72, sister entry above) — orthogonal. Pattern #18 is product-design layer; Pattern #84 is vendor-business-decision layer.
+
+**Confidence:** HIGH. N=3 with cross-protocol-variant + cross-substrate-archetype diversity and corpus-first 4-layer Pattern hierarchy formalization. Sub-mechanism promotion-via-proposal-document is NEW 6th Phase 4b vehicle established at v70/v72.
+
+**Audit document:** `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v70-v71 (PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER; Pattern #84 + Pattern #18 sub-mechanism B PROMOTIONS + 22 other items).md` § "Decision A2"
+
+---
+

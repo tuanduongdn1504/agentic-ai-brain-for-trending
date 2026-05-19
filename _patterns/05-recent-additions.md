@@ -1696,4 +1696,76 @@ v71 adds no new v2.3 candidates beyond those accumulated at v70. v2.3 candidate 
 - **15-reference-file architecture as corpus-record** — agents-best-practices establishes new upper bound for reference-library depth within a single skill; sets comparison baseline for future T1 skills
 - **MODERATE-streak at v71** — two consecutive MODERATEs breaks the WEAK-trending signal from v68+v69; Storm Bear meta-entity Phase 0.9 STRICT continues to show spectrum discrimination rather than binary-PASS convergence
 
+---
+
+## Post-v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (2026-05-19)
+
+**Audit class:** PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit (corpus-first dual-trigger class)
+**Batch:** ~24 items (Pattern #84 PROMOTION + Pattern #18 sub-mechanism B PROMOTION + Pattern #66 66d sub-mechanism + Pattern #52 3-tier velocity sub-classification + 7 OC stale-checks + 1 OC N=3 eval + Pattern #45 45c stale-check + Tier-Taxonomy Review T6 + 6 default stale-checks). Second-largest single audit batch in corpus history (v69 = 24 items; v72 ≈ 24 items).
+
+**Audit document:** `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v70-v71 (PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER; Pattern #84 + Pattern #18 sub-mechanism B PROMOTIONS + 22 other items).md`
+
+### State-change summary
+
+| Metric | Pre-audit | Post-audit | Δ |
+|--------|-----------|------------|---|
+| Confirmed | 44 | **45** | **+1 (Pattern #84 PROMOTED)** |
+| Active candidates | 30 | **29** | -1 (Pattern #84 → confirmed) |
+| Ratio (active:confirmed) | **0.682** | **0.644** | **-0.038** (decrease, healthier) |
+| OC candidates | 22 | 22 | 0 (OC-E count 1→2 internal) |
+
+### Phase A — High-confidence promotions
+
+**A1 — Pattern #84 Cross-Vendor Ecosystem-Tolerance PROMOTED to CONFIRMED.** Criterion 1 (≥3-cross-tier, N=3 v62+v65+v71) + criterion 4 (variant-within-pattern, 3 sub-mechanisms emerge) + NEW v2.2 cross-archetype criterion (vendor-corp + community-corp + solo-individual). Sub-taxonomy 84a Tool-tolerance + 84b Usage-enforcement + 84c Provider-Agnostic-By-Design (NEW) registered. **3rd PROMOTION-from-pre-eligible-state in corpus history** (after #19 + #78 at v66, #83 at v69).
+
+**Meta-archetype distinction (corpus-first):** 84a/84b reflect ecosystem-norm (externally-applied by vendor); 84c reflects author-design-choice (internally-adopted by author). Author-intentionality axis added as criterion-distinction.
+
+**A2 — Pattern #18 sub-archetype shared-backend-service sub-mechanism B "one-binary-many-CLIENTS" PROMOTED to formal sub-archetype.** Criterion 4 STRONG PASS (B1 MCP N=2 + B2 CDP N=1; protocol-variants establish within-sub-mechanism criterion-4 evidence). Protocol-variants B1/B2/B3 formally registered. **FIRST 4-layer Pattern hierarchy formalized in corpus** (top-level → sub-archetype → sub-mechanism → protocol-variants).
+
+**A3 — Pattern #66 sub-mechanism 66d "Malicious-skill-package supply-chain layer" PROVISIONAL registration.** N=1 at v71 (agents-best-practices 15-category threat model category 10); FIRST explicit skill-package-as-supply-chain-attack-surface in corpus. v75 stale-check; promote to formal sub-mechanism at N=2.
+
+**A4 — OC-E Synchronicity-Discipline-As-Policy:** count updated 1→2 (v68 zero behavioral + v70 codegraph configuration sister); E1/E2 2-mode taxonomy DEFERRED to v75+ (await N=3 within either variant).
+
+**A5 — Tier-Taxonomy Review T6:** 2nd consecutive deferral with v75 HARD-DEADLINE per 2-deferral-elevation precedent. Retain Pattern #86 as PROVISIONAL T1 sub-archetype #7; v75 hard-deadline forces commit-or-downgrade decision (no further deferrals possible).
+
+### Phase B — Stale-checks (7 items)
+
+All 4 v70/v71-registered OC candidates (OC-K Pre-Indexed-Context-Layer / OC-L Multi-Agent-Installer-Pattern / OC-N Auto-generated AGENTS.md / OC-O Agentic-Harness-Execution-Separation) confirmed STALE-CANDIDATE per default schedule. OC-M Quantitative-Benchmark-Marketing: no N=3 at v71; remains N=2 with v74 re-evaluation. Pattern #45 sub-typology 45c first-cycle stale confirmed at N=1; v75 second-cycle. Pattern #85 retire-check (v76 re-evaluation maintained from Phase 6 strengthening notes).
+
+### Phase C — Pattern #52 Sustained-Velocity sub-classification
+
+**3-tier velocity taxonomy registered (NEW v72):**
+
+- **EXTREME-VIRAL:** >300 stars/day sustained ≥30 days (karpathy-skills v63 confirmed at 1,186/d × 102d; zero v68 pending age >30 days re-evaluation at 1,050/d)
+- **HIGH-NOT-EXTREME:** 150-300 stars/day sustained ≥30 days (N=1 control case CloakBrowser v69 at 172.7/d × 86d)
+- **SUSTAINED-MODERATE-HIGH:** 25-150 stars/day sustained ≥60 days (N=1 codegraph v70 at 42/d × 121d)
+
+**Top-level promotion DEFERRED to v75** — await N=2 within HIGH-NOT-EXTREME or SUSTAINED-MODERATE-HIGH sub-classes; current evidence diverges into multi-class taxonomy needing N=2-per-class for variant-within-pattern criterion 4 PASS.
+
+### Phase D — Default stale-checks (6 items)
+
+No retirements at v72 (#74 EARS-Format + #75 External-IDE-Methodology-Lineage maintain STALE-CANDIDATE per v69-set v75 retire-check; #80 + #81 + #82 + OC-1/2/3 all within standard candidate-lifetime windows).
+
+### Audit-layer fact-verification
+
+**Zero corrections at v72.** 0-correction streak extends to 3 consecutive audits (v66 + v69 + v72). All audit decisions traceable to source wikis + iteration logs + Phase 4b proposal-documents.
+
+### Routine v2.3 codification candidates added at v72
+
+**NEW v72 candidates (+2):**
+1. **2-deferral-elevation rule** — tier-taxonomy or sub-typology decisions deferred 2× without new evidence must be EITHER explicitly committed OR scheduled for hard-deadline at next cycle (no further deferrals allowed)
+2. **Pattern #52 3-tier velocity sub-classification model** — EXTREME-VIRAL / HIGH-NOT-EXTREME / SUSTAINED-MODERATE-HIGH as exemplar for velocity-pattern taxonomization with sub-class-N-counting for criterion 4 evidence
+
+Inherited candidates: 6th Phase 4b vehicle (sub-mechanism formalization) + n-layer pattern hierarchy support (4-layer formalized at v72) + protocol-variants as criterion 4 evidence + OVERDUE-NATURAL-CADENCE + PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER class formalization + sub-typology proposal-document discipline + multi-surface saturation + audit batch >20 splitting + sub-variant-without-top-level-promotion + dual-use framing + strength categorization threshold calibration + liability-framing axis.
+
+### Cross-corpus impacts at v72 audit
+
+- **Pattern #84 meta-archetype shift formalization** — corpus-first author-intentionality axis (84c) registered alongside ecosystem-norm axes (84a/84b); sets precedent for "intent-axis" sub-typologies in future pattern promotions
+- **Pattern #18 4-layer hierarchy** — first formal n-layer pattern hierarchy in corpus; validates routine v2.3 n-layer support requirement
+- **3rd PROMOTION-from-pre-eligible-state** — Pattern #84 joins Pattern #19 + #78 (v66) and Pattern #83 (v69); sub-5-wiki promotion arc establishing as discipline (Pattern #84 = 6-wiki arc v62→v72; Pattern #83 = 5-wiki arc v64→v69; Pattern #78 = 2-wiki arc v64→v66 FASTEST)
+- **3-audit clean fact-verification streak** — v66 + v69 + v72 all 0-correction; previous corrections at v45 + v54 + v60 establish historical-baseline-error-rate ~1-per-2-audits; current 3-audit streak is corpus-record clean run
+- **Trigger-state RELIEVED first time in 5 wikis** — active count drops below trigger-threshold (30→29) for first time since v66 audit; demonstrates audit-velocity-control discipline works (within-pattern strengthening at trigger-threshold can be resolved by next-cycle audit without forced-pause)
+
+---
+
 
