@@ -1769,3 +1769,128 @@ Inherited candidates: 6th Phase 4b vehicle (sub-mechanism formalization) + n-lay
 ---
 
 
+
+## Post-v72 Hmbown/DeepSeek-TUI wiki strengthening notes (2026-05-19)
+
+**State preserved post-v72-wiki:** 45 confirmed / 29 active / 0.644 ratio **UNCHANGED** (within-pattern strengthening + 1 NEW observational candidate only — no top-level state transitions). Observational candidate count: 22 → **23** (OC-P registered).
+
+**Wiki:** v72 Hmbown/DeepSeek-TUI (T1 Coding Agent / Framework; terminal coding agent for DeepSeek V4 with 1M context + 9-provider matrix + OS-level sandbox + concurrent sub-agent pool + RLM batch-analysis primitive + MCP/LSP integration; 32,114 stars at 120 days = 267.6 stars/day HIGH-NOT-EXTREME sub-class; solo developer Hmbown; Rust 1.88+; MIT).
+
+**Class:** SEVENTH WIKI UNDER ROUTINE v2.2 / **FIRST WIKI POST-v72-AUDIT** = **CORPUS-FIRST audit-policy-satisfaction speed at 0-wiki gap**. v72 audit (same day, morning) registered Pattern #52 HIGH-NOT-EXTREME sub-class; v72 wiki (this entry, afternoon) provides N=2 evidence within that sub-class.
+
+### Phase 4b PRIMARY at v72 wiki
+
+**Pattern #52 HIGH-NOT-EXTREME sub-class N=2 PROMOTION-ELIGIBLE — FIRST POST-v72-AUDIT POLICY SATISFACTION:**
+
+| # | Wiki | Subject | Velocity | Age | Tier | Archetype |
+|---|------|---------|----------|-----|------|-----------|
+| 1 | v69 | CloakBrowser | 172.7/d | 86d | T2 Service | corporate-anonymous (CloakHQ) |
+| **2** | **v72** | **DeepSeek-TUI** | **267.6/d** | **120d** | **T1 Coding Agent** | **solo-community (Hmbown)** |
+
+**Sub-class promotion-criteria evaluation:**
+- ✅ Criterion 1: N=2 cross-tier (T2 + T1)
+- ✅ Criterion 4 (variant-within-pattern-at-N=2): STRONG PASS — HIGH-NOT-EXTREME is formal sub-variant registered at v72 audit; N=2 evidence within sub-variant satisfies criterion 4
+- ✅ Cross-archetype: corporate-anonymous + solo-community (2 distinct archetypes)
+
+**Verdict:** Pattern #52 **PROMOTION-ELIGIBLE at v72 wiki** via cumulative sub-variant evidence; **DEFER formal top-level promotion to v75 audit** per v72 audit's deferred-promotion schedule (audit-velocity-control discipline).
+
+**v75 audit path:** Pattern #52 PROMOTE to CONFIRMED with 3 sub-variants formalized (52d EXTREME-VIRAL + 52e HIGH-NOT-EXTREME + 52f SUSTAINED-MODERATE-HIGH).
+
+**Library-vocabulary item #10 N+1 (1-wiki Rapid-Pattern-Evolution):** v72-audit-sub-classification-registration → v72-wiki-N=2-evidence-within-sub-classification = **0-wiki gap = CORPUS-RECORD at sub-class layer**. Library-vocabulary item #10 N=5 at v72.
+
+**Proposal document:** `03 Projects/DeepSeek-TUI - Beginner Analysis/01 Analysis/(C) Pattern-52-HIGH-NOT-EXTREME-velocity-N2-sub-class-strengthening-evaluation.md`
+
+### Secondary Pattern Library impacts at v72 wiki
+
+**Pattern #84 (CONFIRMED v72) — 84c FIRST POST-PROMOTION STRENGTHENING:**
+
+DeepSeek-TUI 9-provider matrix (DeepSeek + NVIDIA NIM + AtlasCloud + OpenRouter + Novita + Fireworks + generic OpenAI-compatible + SGLang + vLLM + Ollama) provides N=2 within sub-mechanism 84c "Provider-Agnostic-By-Design". Quantitative escalation from v71 dual-vendor synthesis. **Fastest sub-mechanism N=2 in corpus history** — 0-wiki gap from v72 audit's 84c registration. **RELIEVES Pattern #84 v76 retire-check threat.**
+
+**Pattern #21 (CONFIRMED) — Sub-variant candidate "Session-Longevity-Discipline-As-Pattern":**
+
+AGENTS.md 6-rule operational discipline (delegate early / batch reads / compact at 60% / reassess every 3 turns / use RLM for batch / check every 3 turns). Distinct from v71's 7-invariant loop architecture — v71 = execution-separation principle; v72 = operator-context-management principle. Complementary layers; both inform routine v2.3.
+
+**Pattern #66 (CONFIRMED) — Sub-mechanism 66e PROVISIONAL candidate "GitHub-issue-as-prompt-injection-attack-surface":**
+
+AGENTS.md "Watch for issue / PR injection" section — corpus-first explicit GitHub-artifacts-as-untrusted-input formal treatment with maintainer-trust-boundary discipline. Sister to v71/v72-audit-registered 66d "Malicious skill packages". Both 66d + 66e are community-input-layer supply-chain attack surfaces; could form N=2 within Pattern #66 community-input-layer family at v75 audit.
+
+**Pattern #18 (CONFIRMED) — Sub-mechanism C PROVISIONAL candidate "dispatcher-companion-binary-split":**
+
+`deepseek` (CLI dispatcher, `crates/cli`) + `deepseek-tui` (companion ratatui binary, `crates/tui`) ship as SEPARATE executables. Dispatcher resolves and spawns companion as sibling on PATH at runtime. Distinct from sub-mechanism B (one-binary-many-CLIENTS via MCP/CDP server-architecture). N=1 at v72; provisional registration; promote to formal sub-mechanism at N=2.
+
+**Pattern #78 (CONFIRMED v66) — Within-pattern 6-layer LDS strengthening:**
+
+DeepSeek API spec + OpenAI-compatible API standard + MCP protocol + LSP protocol (5 language servers) + Rust 2024 edition + OSC notification protocols (3 distinct: OSC 9 + OSC 99 + OSC 777). Sister to v71 78a 5-layer strengthening at different axes (v71 = 5-vendor-standards; v72 = 6-layer-protocols).
+
+**Pattern #83 (CONFIRMED v69) — 83b + 83d multi-surface within-pattern:**
+
+AGENTS.md multi-surface honest-deficiency-disclosure: token-counting-inflation + session-degradation + V4-thinking-mode API constraint + stable-Rust constraint + Scoop-manifest-lag + Rust-1.88-requirement + ARM64-from-v0.8.8+ + npm-CN-mirror-needed + Cargo-registry-mirror-needed.
+
+### OC-P registration at v72 wiki
+
+**OC-P — Community-Built-Canonical-Vendor-Client (N=1):**
+
+Solo individual developer (not corporate team) builds vendor-product-quality terminal/desktop client for a specific vendor's API series, becoming de-facto canonical client (32K+ stars at vendor-employee-product scale) while remaining independent from vendor employment/sponsorship. Client provides best-experience FOR vendor's API while also supporting other vendor APIs (multi-provider matrix as portability layer).
+
+Distinct from prior corpus subjects: REVERSED (v62) / REVERSE-ENGINEERING-ARCHIVE (v65) / PROVIDER-AGNOSTIC-SYNTHESIS (v71). **v72 stale-check (first-cycle) / v75 second-cycle / v77 retire-check.**
+
+Cross-reference Pattern #84 84c: OC-P is COMPATIBLE with 84c (DeepSeek-TUI exemplifies BOTH); could converge into 84c sub-typology at v77+ if OC-P reaches N=2.
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 8 consecutive PASS:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| v71 | agents-best-practices | MODERATE | 2/4 |
+| **v72** | **DeepSeek-TUI** | **MODERATE** | **2/4** |
+
+**v72 = MODERATE 2/4 INCLUDE:** (b) PASS operational-tool-for-vault (full coding agent providing vendor-diversification path for documented "Tool lock-in moderate — heavy investment in Claude Code + Anthropic stack" risk; binary install via npm/Homebrew/Cargo/Docker = zero infrastructure) + (c) PASS methodology-influence (AGENTS.md 6-rule session-longevity discipline + summary-first tool principle + concurrent-sub-agent-pool architecture + RLM batch-analysis primitive directly inform routine v2.3); (a) FAIL English-language handle / (d) FAIL no explicit corpus-subject citation.
+
+**v72 extends streak to 8 consecutive** — three consecutive MODERATEs (v70+v71+v72). **MODERATE confirmed as modal-status (4/8 v65-v72).**
+
+**16-instance Phase 0.9 window v57-v72 = 14 PASS / 2 SKIP = 87.5% INCLUDE rate** (uptick from v71's 86.7%).
+
+### Corpus-firsts at v72 wiki (13)
+
+(1) **FIRST POST-v72-AUDIT POLICY SATISFACTION at 0-wiki gap** — Pattern #52 HIGH-NOT-EXTREME N=2 + Pattern #84 84c N=2 both reached within hours of v72 audit registration / (2) **FIRST 9-provider matrix subject in corpus** — exceeds v71 dual-vendor synthesis / (3) **FIRST 5-packaging-method T1 subject in corpus** — npm + cargo + Homebrew + Docker + direct download / (4) **FIRST 4-locale T1 subject in corpus** — EN + zh-Hans + ja + pt-BR / (5) **FIRST OS-level sandbox 3-platform integration** — Seatbelt + Landlock + Job Objects / (6) **FIRST 5-language-server LSP integration** — rust-analyzer + pyright + typescript-language-server + gopls + clangd / (7) **FIRST OSC notification 3-protocol integration** — OSC 9 + OSC 99 + OSC 777 / (8) **FIRST RLM (REPL Language Mode) batch-analysis primitive** / (9) **FIRST prefix-cache-stability statusline-chip discipline** / (10) **FIRST 2-binary dispatcher-companion architecture** — Pattern #18 sub-mechanism C candidate / (11) **FIRST explicit GitHub-issue-as-prompt-injection-attack-surface formal treatment** — Pattern #66 sub-mechanism 66e candidate / (12) **FIRST community-built-canonical-vendor-client at 32K-star scale** — OC-P candidate / (13) **FASTEST sub-mechanism N=2 in corpus history** — Pattern #84 84c reaches N=2 within 0 wikis of registration.
+
+### v75 audit agenda additions from v72 wiki
+
+**v72 wiki → v75 audit batch additions:**
+- **Pattern #52 top-level formal PROMOTION** via HIGH-NOT-EXTREME sub-variant N=2 (criterion 4 variant-within-pattern PASS)
+- **52d/52e/52f sub-variant formal registration** (3-tier velocity sub-classification)
+- **Pattern #18 sub-mechanism C "dispatcher-companion-binary-split" PROVISIONAL registration**
+- **Pattern #66 sub-mechanism 66e "GitHub-issue-as-attack-surface" PROVISIONAL registration**
+- **Pattern #21 sub-variant "Session-Longevity-Discipline-As-Pattern" registration**
+- **OC-P first-cycle stale-check** (Community-Built-Canonical-Vendor-Client)
+- **Pattern #84 84c second-N=2 verification** (DeepSeek-TUI 9-provider matrix)
+- **zero v68 age-30d re-evaluation** for Pattern #52 52d EXTREME-VIRAL sustained-confirmation
+
+### Routine v2.3 codification candidates added at v72 wiki (+6)
+
+**NEW v72 wiki candidates (in addition to v72 audit's 2 candidates):**
+1. **Session-Longevity-Discipline-As-Pattern** — 6-rule operational discipline for long-running agentic sessions
+2. **Summary-First Tool Principle** — decision-quality summary first; raw detail behind handles/pagers
+3. **Concurrent-Sub-Agent-Pool-With-Completion-Events architecture** — `agent_open` (non-blocking) + structured completion events + var_handle parking
+4. **RLM (REPL Language Mode) batch-analysis primitive** — persistent Python REPL with `sub_query_batch` for fan-out classification
+5. **Dispatcher-Companion-Binary-Split architecture** — update-path isolation + interactive-vs-headless surface separation
+6. **GitHub-issue-as-attack-surface awareness** — treat external sources as untrusted input + maintainer-trust-boundary discipline
+
+Combined with v72 audit candidates (2-deferral-elevation rule + Pattern #52 3-tier velocity sub-classification model) + inherited candidates from v66-v71 = **~17 total v2.3 candidates** (target codification at ~v75-v80 natural cadence).
+
+### Cross-corpus impacts at v72 wiki
+
+- **CORPUS-FIRST 0-wiki-gap audit-policy-satisfaction speed** — v72 audit set policy at morning; v72 wiki provides satisfying evidence at afternoon. Demonstrates routine v2.2's audit-then-wiki same-day capability and validates audit-policy realism
+- **Pattern #84 84c v76 retire-check RELIEVED** — fastest sub-mechanism N=2 in corpus history (0-wiki gap from registration); Pattern #84 promotion sustainability validated
+- **Pattern #52 promotion path SOLIDIFIED** — HIGH-NOT-EXTREME N=2 means v75 audit very likely to promote Pattern #52 top-level via criterion 4 variant-within-pattern
+- **Three consecutive MODERATEs (v70+v71+v72)** — MODERATE confirmed as modal-status for Storm Bear meta-entity v65-v72 window; spectrum discrimination continues
+- **Active count 29 unchanged** — within-pattern strengthening + 1 NEW OC only; no top-level state transitions
+
+---
