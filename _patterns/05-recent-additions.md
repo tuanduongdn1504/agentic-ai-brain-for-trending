@@ -1894,3 +1894,121 @@ Combined with v72 audit candidates (2-deferral-elevation rule + Pattern #52 3-ti
 - **Active count 29 unchanged** — within-pattern strengthening + 1 NEW OC only; no top-level state transitions
 
 ---
+
+
+
+## Post-v73 farion1231/cc-switch wiki strengthening notes (2026-05-19)
+
+**State preserved post-v73-wiki:** 45 confirmed / 29 active / 0.644 ratio **UNCHANGED** (within-pattern strengthening + 1 NEW observational candidate only — no top-level state transitions). Observational candidate count: 23 → **24** (OC-Q registered).
+
+**Wiki:** v73 farion1231/cc-switch (T2 Service / Provider-Management Aggregator; Tauri 2 desktop app for managing Claude Code provider configurations + 5+ runtime variant aggregation under single UI; ~56,500 stars at 289 days = ~195 stars/day HIGH-NOT-EXTREME sub-class **at mid-life-cycle** post-launch-spike; solo developer farion1231 with Chinese-speaking inferred profile; Rust + TypeScript; MIT).
+
+**Class:** EIGHTH WIKI UNDER ROUTINE v2.2 / **SECOND WIKI POST-v72-AUDIT** = **CORPUS-RECORD 289-day mid-life-cycle sustenance validates HIGH-NOT-EXTREME sub-class as durable not just launch-window phenomenon**. v72 wiki provided 120-day evidence; v73 extends to 289-day sustained-velocity = **CORPUS-FIRST 1-wiki gap from N=2 to N=3 within a sub-classification**.
+
+### Phase 4b PRIMARY at v73 wiki
+
+**Pattern #52 HIGH-NOT-EXTREME sub-class N=3 PROMOTION-LOCKED-IN — CORPUS-RECORD 289-day sustenance:**
+
+| # | Wiki | Subject | Velocity | Age | Tier | Archetype |
+|---|------|---------|----------|-----|------|-----------|
+| 1 | v69 | CloakBrowser | 172.7/d | 86d | T2 Service | corporate-anonymous (CloakHQ) |
+| 2 | v72 | DeepSeek-TUI | 267.6/d | 120d | T1 Coding Agent | solo-community (Hmbown) |
+| **3** | **v73** | **cc-switch** | **~195/d** | **289d** | **T2 Service** | **solo-community (farion1231)** |
+
+**Sub-class promotion-criteria evaluation:**
+- ✅ Criterion 1: N=3 cross-tier (T2 + T1 + T2) + cross-archetype (corporate-anonymous + solo-community ×2)
+- ✅ Criterion 4 (variant-within-pattern-at-N=3): STRONGEST PASS — sustained HIGH-NOT-EXTREME band validated across full launch-window (v69 86d) → mid-launch (v72 120d) → mid-life-cycle (v73 289d) age-span
+- ✅ Sub-class durability: v73 demonstrates sub-class NOT a launch-window artifact; sustainable at 9.6-month repo age
+- ✅ Cross-archetype: 2 distinct archetypes (corporate-anonymous + solo-community ×2)
+
+**Verdict:** Pattern #52 **PROMOTION-LOCKED-IN at v73 wiki** via N=3 sub-variant evidence with CORPUS-RECORD age-span; **DEFER formal top-level promotion to v75 audit** per v72 audit's deferred-promotion schedule (audit-velocity-control discipline maintained). v75 audit Pattern #52 PROMOTE to CONFIRMED HIGH confidence (no further evidence-strengthening needed; sub-class is mature).
+
+**Library-vocabulary item #10 N+1 (1-wiki Rapid-Pattern-Evolution):** v72-N=2 → v73-N=3 = **1-wiki gap from N=2 to N=3 within sub-class = CORPUS-RECORD sub-class maturation speed**. Library-vocabulary item #10 N=6 at v73.
+
+### Other within-pattern strengthenings at v73
+
+- **Pattern #84 84c THIRD POST-PROMOTION strengthening** — cc-switch supports 12 providers (Anthropic + OpenAI Codex + Google Gemini CLI + Qwen CLI + DeepSeek + Kimi/Moonshot + GLM/ZhipuAI + custom-endpoint + 4 self-host targets); **CORPUS-RECORD 12-provider matrix supersedes v72's 9-provider** in 1-wiki gap. Pattern #84 84c sustainability now bulletproof
+- **Pattern #57 STRONGEST evidence post-v64-RESET window** — README + UI cross-references 4 distinct LLM substrate vendors (Claude Code + Codex CLI + Gemini CLI + Qwen CLI) in single subject = **CORPUS-RECORD 4-substrate cross-reference density**; surpasses prior corpus record of 3 substrates (v62 codex-plugin-cc)
+- **Pattern #28 PROVISIONAL "Anti-Bloat-Discipline-Documented-Refusal" candidate** — README explicit "won't add feature X because [stated rationale]" pattern (NOT Pattern #28 simplicity-via-deletion but adjacent simplicity-via-refusal mechanism); sister-observation candidate for v74+ formal sub-mechanism evaluation
+- **Pattern #66 sub-mechanism 66f PROVISIONAL "Local-config-snapshot-as-rollback-strategy"** — cc-switch creates timestamped local backups of provider config before any mutation; corpus-first config-rollback-as-safety-net for agent-substrate; v75 stale-check + promote to formal sub-mechanism at N=2
+- **Pattern #78 within-pattern multi-protocol-tracking strengthening** — cc-switch UI integrates OSC 7 (working directory) + OSC 9 (terminal notification) + OSC 133 (semantic prompts) + LSP 3.18 versioning + Anthropic API versioning + OpenAI API versioning = 6-protocol-tracking discipline in single UI surface
+- **Pattern #21 within-pattern session-handoff-via-README-checkpoint sub-variant** — bilingual README + dedicated CHANGELOG + versioned migration guide as session-handoff artifacts (3-surface handoff discipline)
+- **Pattern #18 sub-archetype #8 PROVISIONAL "multi-runtime-aggregator"** — cc-switch aggregates 5+ Claude-Code runtime variants (claude-code official + claude-code-router + opencode-cli + claude-bridge + ccusage-relay) under single config-management UI. **DISTINCT from sub-mechanism C "dispatcher-companion-binary-split"** registered at v72 (dispatcher-companion is 2-binary topology with same vendor; multi-runtime-aggregator is N-runtime topology with vendor-variation as the axis). Layer-distinction confirmed; both registered as PROVISIONAL N=1 with v75 stale-check
+
+### NEW observational candidate at v73 (1)
+
+**OC-Q "Sponsor-Density-As-Corpus-Signal" N=1:** cc-switch lists 4+ named Chinese sponsors (companies + individuals) in README as community-validation signal; FIRST corpus subject with explicit sponsor-density display. Distinct from generic GitHub Sponsors button (which is platform-default); explicit sponsor-listing-discipline is the candidate-mechanism. v75 stale-check; promote to formal sub-mechanism at N=2.
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 9 consecutive PASS:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| v70 | codegraph | MODERATE | 2/4 |
+| v71 | agents-best-practices | MODERATE | 2/4 |
+| v72 | DeepSeek-TUI | MODERATE | 2/4 |
+| **v73** | **cc-switch** | **STRONGEST** | **3-4/4** |
+
+**v73 = STRONGEST 3-4/4 INCLUDE:** (a) PROBABLE PASS solo developer with Chinese-speaking-inferred handle farion1231 (README_ZH primary + Chinese sponsor base; pending verification but conservative-PROBABLE-PASS call) + (b) PASS operational-tool-for-vault (directly deployable for vault's Claude Code provider management; addresses documented "Tool lock-in moderate — heavy investment in Claude Code + Anthropic stack" risk via provider-portability path) + (c) PASS methodology-influence (multi-runtime-aggregator design + 12-provider matrix + sponsor-density signal influence routine v2.3 ecosystem-stewardship considerations) + (d) PASS Storm Bear PATTERN-LIBRARY corpus directly cited as adjacent reference in iteration log (Pattern #52 promotion-arc-tracking is corpus-recursive).
+
+**v73 extends streak to 9 consecutive** — STRONGEST is first since v65; breaks three-consecutive-MODERATE pattern (v70+v71+v72). Strength distribution v65-v73: STRONGEST × 2 + STRONG × 1 + MODERATE × 4 + WEAK × 2. MODERATE remains modal-status (4/9 v65-v73) but STRONGEST returns after 8-wiki gap.
+
+**17-instance Phase 0.9 post-amendment window v57-v73 = 15 PASS / 2 SKIP = 88.2% INCLUDE rate** (uptick from v72's 87.5%).
+
+### Corpus-firsts at v73 (17)
+
+(1) **CORPUS-RECORD 289-day HIGH-NOT-EXTREME mid-life-cycle sustenance** — Pattern #52 sub-class durability validated beyond launch-window / (2) **CORPUS-FIRST 1-wiki gap N=2→N=3 within sub-classification** — fastest sub-class maturation in corpus / (3) **CORPUS-RECORD 12-provider matrix** — exceeds v72 9-provider in 1-wiki gap / (4) **CORPUS-RECORD 4-substrate cross-reference density** — single subject references 4 LLM substrate vendors (Claude Code + Codex + Gemini + Qwen) / (5) **FIRST multi-runtime-aggregator T2 Service subject** — Pattern #18 sub-archetype #8 candidate / (6) **FIRST local-config-snapshot-as-rollback for agent-substrate** — Pattern #66 66f candidate / (7) **FIRST sponsor-density display as community-validation signal** — OC-Q candidate / (8) **FIRST 6-protocol-tracking discipline in single UI surface** — OSC 7 + OSC 9 + OSC 133 + LSP 3.18 + Anthropic + OpenAI API versioning / (9) **FIRST 3-surface session-handoff discipline** — bilingual README + CHANGELOG + migration guide / (10) **FIRST anti-bloat-discipline-via-documented-refusal** — Pattern #28 adjacent sub-mechanism candidate / (11) **FIRST Tauri 2 T2 Service subject** — Rust + TypeScript desktop framework / (12) **FIRST Chinese-speaking solo-community archetype with corpus-record sponsor base** — farion1231 + 4+ named Chinese sponsors / (13) **FIRST single subject with both v72 sub-classification N=2 and N=3 within same wiki batch** — DeepSeek-TUI v72 N=2 + cc-switch v73 N=3 in same 2-day batch / (14) **FIRST STRONGEST Storm Bear strength since v65** — 8-wiki gap STRONGEST recurrence / (15) **FIRST corpus-recursive Pattern Library citation in solo-community-tier subject** — typically corpus-recursive is corporate-tier / (16) **FIRST 9-consecutive Phase 0.9 PASS streak in corpus history** — extends post-v64-RESET window record / (17) **FIRST PROBABLE-PASS (a) criterion call in Phase 0.9** — Storm Bear-axis (a) PROBABLE rather than PASS/FAIL for Chinese-handle-inferred profile.
+
+### v75 audit agenda additions from v73 wiki
+
+**v73 wiki → v75 audit batch additions:**
+- **Pattern #52 top-level formal PROMOTION-LOCKED-IN** via HIGH-NOT-EXTREME sub-variant N=3 (criterion 4 variant-within-pattern STRONGEST PASS; v75 audit PROMOTE HIGH confidence no-further-evidence-needed)
+- **52d/52e/52f sub-variant formal registration** (HIGH-NOT-EXTREME N=3 anchors registration)
+- **Pattern #18 sub-archetype #8 "multi-runtime-aggregator" PROVISIONAL registration** — distinct from sub-mechanism C dispatcher-companion-binary-split (different layer)
+- **Pattern #66 sub-mechanism 66f "Local-config-snapshot-as-rollback-strategy" PROVISIONAL registration**
+- **Pattern #28 "Anti-Bloat-Discipline-Documented-Refusal" sister-observation registration** (adjacent to simplicity-via-deletion mechanism)
+- **OC-Q first-cycle stale-check** (Sponsor-Density-As-Corpus-Signal)
+- **Pattern #84 84c third-N evidence verification** (cc-switch 12-provider matrix)
+- **Pattern #57 STRONGEST 4-substrate cross-reference verification**
+
+### Routine v2.3 codification candidates added at v73 (+4)
+
+**NEW v73 wiki candidates (in addition to v72 audit's 2 + v72 wiki's 6):**
+1. **Multi-runtime-aggregator-as-distinct-sub-archetype** — N-runtime topology with vendor-variation axis is distinct from 2-binary dispatcher-companion topology; sub-archetype layer needs explicit vs sub-mechanism layer
+2. **Local-config-snapshot-as-rollback-strategy** — safety-net mechanism for agent-substrate config mutations; orthogonal to broader supply-chain integrity (Pattern #66) and session-handoff (Pattern #21)
+3. **PROBABLE-PASS criterion call discipline** — Phase 0.9 STRICT (a) axis admits PROBABLE-PASS for inferred-but-not-confirmed solo-developer identity; previous calls were binary PASS/FAIL only
+4. **Sub-class-maturation-velocity-tracking** — explicit Library-vocabulary #10 N+1 tracking for sub-class N-evidence growth speed (analogous to top-level pattern N+1 tracking)
+
+Combined with all inherited candidates from v66-v72 = **~21 total v2.3 candidates** (target codification at ~v75-v80 natural cadence).
+
+### Pilot relevance note (v73)
+
+**cc-switch = HIGH-RELEVANCE vault pilot candidate (Tier-1 actionable):**
+
+| Axis | cc-switch (v73) |
+|------|-----------------|
+| Vault-deployable scope | Direct: manage Claude Code provider configurations + switch between Anthropic / Codex / Gemini / Qwen + custom-endpoint for self-host targets |
+| Setup complexity | Low (binary download + UI config wizard) |
+| Value-add per session | Direct mitigation of documented "Tool lock-in moderate — heavy investment in Claude Code + Anthropic stack" risk; provider-portability path opens |
+| Risk profile | Medium — local-only config management (no remote service); reversibility via timestamp-snapshot backup; vault could test in isolated config-directory first |
+| Reversibility | High — local-config-snapshot-as-rollback is built-in; uninstall removes binary + config remains |
+
+**Pilot ranking:** cc-switch joins HIGH-RELEVANCE tier with codegraph (read-only indexing, LOWEST-risk) and agentmemory (state-mutation, MEDIUM-risk). **Recommended sequence:** codegraph FIRST (lowest-risk, read-only) → agents-best-practices second (zero-infra skill install) → cc-switch THIRD (config-snapshot-backed, addresses lock-in directly) → agentmemory FOURTH (state-mutation). cc-switch is the FIRST pilot candidate directly addressing the documented tool-lock-in risk.
+
+### Cross-corpus impacts at v73 wiki
+
+- **Pattern #52 promotion-arc COMPLETED at sub-class layer** — HIGH-NOT-EXTREME N=3 with CORPUS-RECORD 289-day sustenance leaves no remaining evidence ambiguity; v75 audit is administrative-promotion only
+- **Pattern #84 84c sustainability bulletproof** — 12-provider matrix at N=3 across 3 consecutive sub-mechanism-strengthening wikis (v71 dual-vendor → v72 9-provider → v73 12-provider) = MONOTONIC corpus-record migration discipline
+- **Pattern #57 corpus-record reset** — 4-substrate cross-reference density supersedes prior 3-substrate record from v62; cross-reference density continues monotonic-record-migration trajectory
+- **First STRONGEST Storm Bear strength since v65** — 8-wiki gap MODERATE+WEAK streak broken; demonstrates Phase 0.9 STRICT spectrum-discrimination is NOT downward-drift but truly evidence-responsive
+- **9-consecutive Phase 0.9 PASS streak** — extends post-v64-RESET window record by 1; routine v2.2 Phase 0.9 reliability validated
+- **Active count 29 maintained 2nd-consecutive-wiki post-audit-relief** — audit-velocity-control discipline holds; no early-trigger re-elevation despite v72+v73 both adding within-pattern strengthening
+- **PROBABLE-PASS criterion call as Phase 0.9 discipline** — admits inference-tolerant axis-call without forcing FAIL; opens calibration path for future Chinese-handle / pseudonymous-handle subjects without compromising STRICT discriminative power
+
+---

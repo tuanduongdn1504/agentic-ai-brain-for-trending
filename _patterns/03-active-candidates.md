@@ -1,4 +1,4 @@
-## Active Candidates (29 — post-v72 wiki Hmbown/DeepSeek-TUI 2026-05-19: 0 NEW top-level patterns + Pattern #52 **HIGH-NOT-EXTREME sub-class N=2 PROMOTION-ELIGIBLE** (CORPUS-FIRST 0-wiki-gap audit-policy-satisfaction; v72 audit registered sub-class at morning; v72 wiki provides N=2 evidence at afternoon; v75 audit Pattern #52 top-level promotion path eligible via criterion 4 variant-within-pattern); Pattern #84 84c FIRST POST-PROMOTION strengthening (9-provider matrix N=2 within sub-mechanism; fastest sub-mechanism N=2 in corpus history; RELIEVES v76 retire-check threat); Pattern #21 sub-variant candidate "Session-Longevity-Discipline-As-Pattern" (AGENTS.md 6-rule discipline); Pattern #66 sub-mechanism 66e PROVISIONAL "GitHub-issue-as-attack-surface"; Pattern #18 sub-mechanism C PROVISIONAL "dispatcher-companion-binary-split"; Pattern #78 within-pattern 6-layer LDS strengthening; Pattern #83 83b + 83d multi-surface; **NEW observational candidate OC-P "Community-Built-Canonical-Vendor-Client"** (solo dev builds canonical client for vendor API at 32K-star scale + 9-provider matrix portability). OC count 22 → **23** with OC-P. Ratio 29:45 = 0.644 UNCHANGED (within-pattern strengthening + 1 NEW OC only). Active count 29 maintained 1-wiki-below-trigger-threshold post-v72-audit relief. Prior post-v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit 2026-05-19: **Pattern #84 Cross-Vendor Ecosystem-Tolerance PROMOTED to CONFIRMED** under criterion 1 + criterion 4 with N=3 evidence v62+v65+v71 (sub-taxonomy 84a Tool-tolerance / 84b Usage-enforcement / 84c Provider-Agnostic-By-Design registered); **Pattern #18 sub-archetype shared-backend-service sub-mechanism B PROMOTED** to formal sub-archetype with protocol-variants B1 MCP N=2 + B2 CDP N=1 + B3 placeholder; **Pattern #66 sub-mechanism 66d "Malicious-skill-package supply-chain layer" PROVISIONAL registration**; **Pattern #52 3-tier velocity sub-classification registered** (EXTREME-VIRAL >300/d + HIGH-NOT-EXTREME 150-300/d + SUSTAINED-MODERATE-HIGH 25-150/d; top-level promotion DEFERRED to v75); OC-E count updated 1 → 2 (v68 + v70 sister observation); E1/E2 2-mode taxonomy DEFERRED to v75+; OC-K/L/N/O confirmed STALE-CANDIDATE; OC-M remains N=2 (no N=3 at v71); Pattern #45 45c first-cycle stale confirmed at N=1; Tier-Taxonomy Review T6 2nd deferral with v75 hard-deadline; Pattern #85 v76 re-evaluation maintained. Ratio 30:44 = 0.682 → **29:45 = 0.644** (active count decrease + confirmed count increase; trigger-state RELIEVED for first time in 5 wikis). Audit document: `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v70-v71 (PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER; Pattern #84 + Pattern #18 sub-mechanism B PROMOTIONS + 22 other items).md`. Active-candidates header before v72 audit (preserved for narrative continuity below): v70 codegraph wiki 2026-05-19: 0 NEW top-level patterns + Pattern #18 sub-archetype shared-backend-service **sub-mechanism B N=3 strengthening with 2 protocol-variants formalization** (B1 MCP variant N=2 = agentmemory v66 + codegraph v70 + B2 CDP variant N=1 = CloakBrowser v69; FIRST 4-layer Pattern hierarchy formalized in corpus; FIRST sub-mechanism formalization proposal-document = NEW 6th Phase 4b vehicle); 4 NEW observational candidates (**OC-K Pre-Indexed-Context-Layer** as agent augmentation strategy N=1 + **OC-L Multi-Agent-Installer-Pattern** N=1 (single tool, multiple agent targets via `--target` flag) + **OC-M Quantitative-Benchmark-Marketing** N=2 (v69 CloakBrowser + v70 codegraph both lead with quantitative claims) + **OC-N Auto-generated AGENTS.md from tool installer** N=1); **OC-E Synchronicity-Discipline-As-Policy** sister observation (codegraph 3-file MCP-tool-behavior config-synchronicity vs v68 zero examples+docs+tests+contracts behavioral-synchronicity — mechanism-distinction defer to v71+ audit; 2-mode taxonomy candidate OC-E1 behavioral + OC-E2 configuration); Pattern #19 N+1 founder-personal-multi-product-portfolio strengthening (Colby McHenry 20-repo portfolio + 6 distinct pinned products); Pattern #57 strengthening (2 corpus subjects Codex v62 + OpenCode v67 + Claude Code substrate cited in single subject — STRONGEST (d) of post-v64-RESET window); Pattern #66 strengthening (100% local supply-chain-isolation claim + tree-sitter upstream attribution); Pattern #52 SUSTAINED-MODERATE-HIGH-velocity data point (42 stars/day at 121 days — below EXTREME-VIRAL >300/day threshold but sustained-mid-life-cycle case for v70+ audit batch). Ratio 30:44 = 0.682:1 (UNCHANGED — within-pattern strengthening only; no top-level state transitions). Active count 30 = AT trigger threshold maintained 4th-consecutive-wiki — audit-velocity-control test case. Prior post-v69 OVERDUE-NATURAL-CADENCE mini-audit 2026-05-19: **Pattern #83 Honest-Deficiency-Disclosure PROMOTED to CONFIRMED** under criterion 1 (≥3-cross-tier, N=5 evidence v64+v65+v67+v68+v69 with HIGH confidence; sub-taxonomy 83a/83b/83c/83d/83e registered; full confirmed entry at `_patterns/02b-confirmed-patterns-v42-plus.md`); **Pattern #45 sub-typology 45c absorbed into Pattern #45 confirmed entry** (registration confirmed at audit; v70 stale-check + v75 retire-check; sub-variant promotion at N=2); 4 within-pattern sub-mechanism/sub-variant registrations (Pattern #84 84a/84b + Pattern #81 81a/81b + Pattern #18 shared-backend-service sub-archetype). Pre-v69-audit: 32 active. Audit document: `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v66-v69 (OVERDUE-NATURAL-CADENCE; LARGEST batch corpus-history; Pattern #83 N=5 PROMOTION + 23 other items).md`. Active-candidates header before audit (preserved for narrative continuity below): v69 CloakBrowser wiki 2026-05-18 → 2026-05-19: +1 NEW Pattern #45 sub-typology candidate **45c "Artifact-Scope-Split with Acceptable-Use-Enumeration"** N=1 (corpus-first wrapper-OSS + binary-proprietary-with-acceptable-use license shape; 4 distinguishing mechanisms: two-file artifact-scope split + Acceptable Use enumeration + bounded $100 liability cap + OEM/SaaS B2B carve-out; HIGH confidence sub-typology registration verdict; v70 stale-check + v75 retire-check) + 4 NEW observational candidates (OC-G Fork-as-Integration-Strategy + OC-H Anonymous-Corporate-Author for Dual-Use Tools + OC-I Detection-Evasion-As-Product-Axis + OC-J Acceptable-Use Enumeration as Risk-Mitigation Layer) + Pattern #83 N=5 consolidation evidence (5-disclosure-surface saturation: LICENSE + CHANGELOG + Liability + Acceptable Use + Platform-disparity) + Pattern #52 sub-threshold-control case (CloakBrowser 172/day HIGH-NOT-EXTREME; clarifies >300 threshold discriminates) + Pattern #66 strengthening (3-tier signature verification GPG+attestation+cosign corpus-broadest + 3-level upstream attribution) + Pattern #57 57c-product strengthening (browser-use v34 + crawl4ai v29 named in single README) + Pattern #19 sister observation (corporate-anonymous-product-suite distinct from prior 4 individual-portfolio sub-archetypes); ratio 32:43 = 0.744:1. Active count ≥30 trigger maintained 3rd-consecutive-wiki at v69 — audit-before-v70 recommendation ELEVATED to blocking-priority. Prior v68 zero wiki 2026-05-18: +1 NEW Pattern candidate **T1 sub-archetype #7 "programming-language-as-agent-substrate"** N=1 stale-risk-flagged (corpus-first programming-language subject; PROVISIONAL T1 NEW sub-archetype with v69 Tier-Taxonomy Review T6 audit-decision flag for NEW Tier T6 vs T1 sub-archetype retention) + 7 NEW observational candidates (Skill-As-Binary-Bootstrap + OC-A Agent-First-Language-Substrate + OC-B Self-Hosted Compiler Bootstrap + OC-C In-Browser-Compiler-Via-WASM + OC-D Anti-Compatibility-As-Project-Policy + OC-E Synchronicity-Discipline-As-Policy + OC-F Structured-JSON-as-First-Class-CLI-Output) + Pattern #83 N=4 strengthening (consolidates v67 N=3 PROMOTION-ELIGIBLE verdict) + Pattern #52 EXTREME-VIRAL v68 zero added to v69 sustained-velocity-test batch (1,050 stars/day at 2-day-old = corpus 2nd-highest after karpathy-skills v63 ~1,186/day) + Pattern #81 partial N=2 evidence (5-file version-bump discipline documented but MANUAL not CI-enforced — discipline-documented-but-not-enforced sub-variant) + Pattern #82 WEAK N=2 (per-release contributor lists; different mechanism than v64 Pro Hub Challenge); ratio 31:43 = 0.721:1. Prior v67 opencode-antigravity-auth wiki 2026-05-18: +3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture N=1 + OC-2 Issue-As-Enforcement-Signal Pipeline N=1 + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces N=1) + Pattern #83 advanced to N=3 PROMOTION-ELIGIBLE + Pattern #84 REFINEMENT evidence + NEW Library-vocabulary item #11 Engagement-Deficit-Extreme. v66 agentmemory wiki + v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED + 5 NEW top-level candidates #80-#84 + Pattern #19 sub-archetype 19a/b/c/d + Pattern #85 N=1)
+## Active Candidates (29 — post-v73 wiki farion1231/cc-switch 2026-05-19: 0 NEW top-level patterns + **Pattern #52 HIGH-NOT-EXTREME sub-class N=3 PROMOTION-LOCKED-IN with CORPUS-RECORD 289-day sustenance** (cc-switch 195/day at 289-day repo age — sustained mid-life-cycle case post-launch-spike validates HIGH-NOT-EXTREME 150-300/d band as sustainable not just launch-window phenomenon; CORPUS-FIRST 1-wiki gap from N=2 v72 → N=3 v73 = sustained-velocity sub-class promotion via criterion 4 variant-within-pattern at v75 audit LOCKED-IN HIGH confidence); Pattern #84 84c THIRD POST-PROMOTION strengthening (CORPUS-RECORD 12-provider matrix supersedes v72 9-provider — corpus-record migration in 1 wiki); Pattern #57 STRONGEST evidence post-v64-RESET (4 LLM substrate vendors cross-referenced single subject: Claude Code + Codex CLI + Gemini CLI + Qwen CLI — corpus-record cross-vendor density); Pattern #28 PROVISIONAL "Anti-Bloat-Discipline-Documented-Refusal" candidate (README explicit refusal of feature creep with stated rationale); Pattern #66 sub-mechanism 66f PROVISIONAL "Local-config-snapshot-as-rollback-strategy"; Pattern #78 within-pattern OSC-7 + OSC-9 + OSC-133 + LSP-3.18 multi-protocol-tracking strengthening; Pattern #21 within-pattern session-handoff-via-README-checkpoint sub-variant; Pattern #18 sub-archetype #8 PROVISIONAL "multi-runtime-aggregator" (cc-switch aggregates 5+ Claude-Code runtime variants under single config-management UI — DISTINCT from sub-mechanism C "dispatcher-companion-binary-split" registered v72); **NEW observational candidate OC-Q "Sponsor-Density-As-Corpus-Signal"** (cc-switch lists 4+ named Chinese sponsors in README — first corpus subject with explicit sponsor-density display as community-validation signal). OC count 23 → **24** with OC-Q. Ratio 29:45 = 0.644 UNCHANGED (within-pattern strengthening + 1 NEW OC only). Active count 29 maintained 1-wiki-below-trigger-threshold post-v72-audit relief (2nd consecutive wiki at 29 = audit-relief-sustained). Prior post-v72 wiki Hmbown/DeepSeek-TUI 2026-05-19: 0 NEW top-level patterns + Pattern #52 **HIGH-NOT-EXTREME sub-class N=2 PROMOTION-ELIGIBLE** (CORPUS-FIRST 0-wiki-gap audit-policy-satisfaction; v72 audit registered sub-class at morning; v72 wiki provides N=2 evidence at afternoon; v75 audit Pattern #52 top-level promotion path eligible via criterion 4 variant-within-pattern); Pattern #84 84c FIRST POST-PROMOTION strengthening (9-provider matrix N=2 within sub-mechanism; fastest sub-mechanism N=2 in corpus history; RELIEVES v76 retire-check threat); Pattern #21 sub-variant candidate "Session-Longevity-Discipline-As-Pattern" (AGENTS.md 6-rule discipline); Pattern #66 sub-mechanism 66e PROVISIONAL "GitHub-issue-as-attack-surface"; Pattern #18 sub-mechanism C PROVISIONAL "dispatcher-companion-binary-split"; Pattern #78 within-pattern 6-layer LDS strengthening; Pattern #83 83b + 83d multi-surface; **NEW observational candidate OC-P "Community-Built-Canonical-Vendor-Client"** (solo dev builds canonical client for vendor API at 32K-star scale + 9-provider matrix portability). OC count 22 → **23** with OC-P. Ratio 29:45 = 0.644 UNCHANGED (within-pattern strengthening + 1 NEW OC only). Active count 29 maintained 1-wiki-below-trigger-threshold post-v72-audit relief. Prior post-v72 PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER mini-audit 2026-05-19: **Pattern #84 Cross-Vendor Ecosystem-Tolerance PROMOTED to CONFIRMED** under criterion 1 + criterion 4 with N=3 evidence v62+v65+v71 (sub-taxonomy 84a Tool-tolerance / 84b Usage-enforcement / 84c Provider-Agnostic-By-Design registered); **Pattern #18 sub-archetype shared-backend-service sub-mechanism B PROMOTED** to formal sub-archetype with protocol-variants B1 MCP N=2 + B2 CDP N=1 + B3 placeholder; **Pattern #66 sub-mechanism 66d "Malicious-skill-package supply-chain layer" PROVISIONAL registration**; **Pattern #52 3-tier velocity sub-classification registered** (EXTREME-VIRAL >300/d + HIGH-NOT-EXTREME 150-300/d + SUSTAINED-MODERATE-HIGH 25-150/d; top-level promotion DEFERRED to v75); OC-E count updated 1 → 2 (v68 + v70 sister observation); E1/E2 2-mode taxonomy DEFERRED to v75+; OC-K/L/N/O confirmed STALE-CANDIDATE; OC-M remains N=2 (no N=3 at v71); Pattern #45 45c first-cycle stale confirmed at N=1; Tier-Taxonomy Review T6 2nd deferral with v75 hard-deadline; Pattern #85 v76 re-evaluation maintained. Ratio 30:44 = 0.682 → **29:45 = 0.644** (active count decrease + confirmed count increase; trigger-state RELIEVED for first time in 5 wikis). Audit document: `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v70-v71 (PROMOTION-DRIVEN + 5TH-CONSECUTIVE-TRIGGER; Pattern #84 + Pattern #18 sub-mechanism B PROMOTIONS + 22 other items).md`. Active-candidates header before v72 audit (preserved for narrative continuity below): v70 codegraph wiki 2026-05-19: 0 NEW top-level patterns + Pattern #18 sub-archetype shared-backend-service **sub-mechanism B N=3 strengthening with 2 protocol-variants formalization** (B1 MCP variant N=2 = agentmemory v66 + codegraph v70 + B2 CDP variant N=1 = CloakBrowser v69; FIRST 4-layer Pattern hierarchy formalized in corpus; FIRST sub-mechanism formalization proposal-document = NEW 6th Phase 4b vehicle); 4 NEW observational candidates (**OC-K Pre-Indexed-Context-Layer** as agent augmentation strategy N=1 + **OC-L Multi-Agent-Installer-Pattern** N=1 (single tool, multiple agent targets via `--target` flag) + **OC-M Quantitative-Benchmark-Marketing** N=2 (v69 CloakBrowser + v70 codegraph both lead with quantitative claims) + **OC-N Auto-generated AGENTS.md from tool installer** N=1); **OC-E Synchronicity-Discipline-As-Policy** sister observation (codegraph 3-file MCP-tool-behavior config-synchronicity vs v68 zero examples+docs+tests+contracts behavioral-synchronicity — mechanism-distinction defer to v71+ audit; 2-mode taxonomy candidate OC-E1 behavioral + OC-E2 configuration); Pattern #19 N+1 founder-personal-multi-product-portfolio strengthening (Colby McHenry 20-repo portfolio + 6 distinct pinned products); Pattern #57 strengthening (2 corpus subjects Codex v62 + OpenCode v67 + Claude Code substrate cited in single subject — STRONGEST (d) of post-v64-RESET window); Pattern #66 strengthening (100% local supply-chain-isolation claim + tree-sitter upstream attribution); Pattern #52 SUSTAINED-MODERATE-HIGH-velocity data point (42 stars/day at 121 days — below EXTREME-VIRAL >300/day threshold but sustained-mid-life-cycle case for v70+ audit batch). Ratio 30:44 = 0.682:1 (UNCHANGED — within-pattern strengthening only; no top-level state transitions). Active count 30 = AT trigger threshold maintained 4th-consecutive-wiki — audit-velocity-control test case. Prior post-v69 OVERDUE-NATURAL-CADENCE mini-audit 2026-05-19: **Pattern #83 Honest-Deficiency-Disclosure PROMOTED to CONFIRMED** under criterion 1 (≥3-cross-tier, N=5 evidence v64+v65+v67+v68+v69 with HIGH confidence; sub-taxonomy 83a/83b/83c/83d/83e registered; full confirmed entry at `_patterns/02b-confirmed-patterns-v42-plus.md`); **Pattern #45 sub-typology 45c absorbed into Pattern #45 confirmed entry** (registration confirmed at audit; v70 stale-check + v75 retire-check; sub-variant promotion at N=2); 4 within-pattern sub-mechanism/sub-variant registrations (Pattern #84 84a/84b + Pattern #81 81a/81b + Pattern #18 shared-backend-service sub-archetype). Pre-v69-audit: 32 active. Audit document: `04 Reviews/(C) 2026-05-19 Pattern Library mini-audit post-v66-v69 (OVERDUE-NATURAL-CADENCE; LARGEST batch corpus-history; Pattern #83 N=5 PROMOTION + 23 other items).md`. Active-candidates header before audit (preserved for narrative continuity below): v69 CloakBrowser wiki 2026-05-18 → 2026-05-19: +1 NEW Pattern #45 sub-typology candidate **45c "Artifact-Scope-Split with Acceptable-Use-Enumeration"** N=1 (corpus-first wrapper-OSS + binary-proprietary-with-acceptable-use license shape; 4 distinguishing mechanisms: two-file artifact-scope split + Acceptable Use enumeration + bounded $100 liability cap + OEM/SaaS B2B carve-out; HIGH confidence sub-typology registration verdict; v70 stale-check + v75 retire-check) + 4 NEW observational candidates (OC-G Fork-as-Integration-Strategy + OC-H Anonymous-Corporate-Author for Dual-Use Tools + OC-I Detection-Evasion-As-Product-Axis + OC-J Acceptable-Use Enumeration as Risk-Mitigation Layer) + Pattern #83 N=5 consolidation evidence (5-disclosure-surface saturation: LICENSE + CHANGELOG + Liability + Acceptable Use + Platform-disparity) + Pattern #52 sub-threshold-control case (CloakBrowser 172/day HIGH-NOT-EXTREME; clarifies >300 threshold discriminates) + Pattern #66 strengthening (3-tier signature verification GPG+attestation+cosign corpus-broadest + 3-level upstream attribution) + Pattern #57 57c-product strengthening (browser-use v34 + crawl4ai v29 named in single README) + Pattern #19 sister observation (corporate-anonymous-product-suite distinct from prior 4 individual-portfolio sub-archetypes); ratio 32:43 = 0.744:1. Active count ≥30 trigger maintained 3rd-consecutive-wiki at v69 — audit-before-v70 recommendation ELEVATED to blocking-priority. Prior v68 zero wiki 2026-05-18: +1 NEW Pattern candidate **T1 sub-archetype #7 "programming-language-as-agent-substrate"** N=1 stale-risk-flagged (corpus-first programming-language subject; PROVISIONAL T1 NEW sub-archetype with v69 Tier-Taxonomy Review T6 audit-decision flag for NEW Tier T6 vs T1 sub-archetype retention) + 7 NEW observational candidates (Skill-As-Binary-Bootstrap + OC-A Agent-First-Language-Substrate + OC-B Self-Hosted Compiler Bootstrap + OC-C In-Browser-Compiler-Via-WASM + OC-D Anti-Compatibility-As-Project-Policy + OC-E Synchronicity-Discipline-As-Policy + OC-F Structured-JSON-as-First-Class-CLI-Output) + Pattern #83 N=4 strengthening (consolidates v67 N=3 PROMOTION-ELIGIBLE verdict) + Pattern #52 EXTREME-VIRAL v68 zero added to v69 sustained-velocity-test batch (1,050 stars/day at 2-day-old = corpus 2nd-highest after karpathy-skills v63 ~1,186/day) + Pattern #81 partial N=2 evidence (5-file version-bump discipline documented but MANUAL not CI-enforced — discipline-documented-but-not-enforced sub-variant) + Pattern #82 WEAK N=2 (per-release contributor lists; different mechanism than v64 Pro Hub Challenge); ratio 31:43 = 0.721:1. Prior v67 opencode-antigravity-auth wiki 2026-05-18: +3 NEW observational candidates (OC-1 Adversarial-Detection-Tolerant Architecture N=1 + OC-2 Issue-As-Enforcement-Signal Pipeline N=1 + OC-3 Quota-Arbitrage-Across-Vendor-Internal-Surfaces N=1) + Pattern #83 advanced to N=3 PROMOTION-ELIGIBLE + Pattern #84 REFINEMENT evidence + NEW Library-vocabulary item #11 Engagement-Deficit-Extreme. v66 agentmemory wiki + v66 EARLY-OPERATOR-ELECTED mini-audit 2026-05-14: -1 Pattern #78 PROMOTED + 5 NEW top-level candidates #80-#84 + Pattern #19 sub-archetype 19a/b/c/d + Pattern #85 N=1)
 
 #### 🟡 #14 Alignment-Theory Visibility ⏳ STALE-CANDIDATE at v21 audit
 **Status at v21 audit:** Flagged STALE-CANDIDATE — N=1 after 7 wikis since v14 with no additional evidence.
@@ -1548,3 +1548,157 @@ Ships as SEPARATE executables. Dispatcher resolves and spawns `deepseek-tui` as 
 
 ---
 
+
+### Pattern #52 update at v73 — HIGH-NOT-EXTREME sub-class N=3 + CORPUS-RECORD sustenance
+
+**v73 wiki context:** v72 wiki (DeepSeek-TUI) provided N=2 within HIGH-NOT-EXTREME sub-class at 0-wiki gap from v72 audit registration. v73 wiki (cc-switch, this entry) provides N=3 with CORPUS-RECORD 289-day sustenance.
+
+**v73 evidence:** farion1231/cc-switch = 259.6 stars/day × 289 days = N=3 within HIGH-NOT-EXTREME sub-class.
+
+**N=3 within HIGH-NOT-EXTREME sub-class (cross-tier + cross-archetype + extended-sustain):**
+
+| # | Wiki | Subject | Velocity | Age | Tier | Archetype |
+|---|------|---------|----------|-----|------|-----------|
+| 1 | v69 | CloakBrowser | 172.7/d | 86d | T2 Service | corporate-anonymous (CloakHQ) |
+| 2 | v72 | DeepSeek-TUI | 267.6/d | 120d | T1 Coding Agent | solo-community (Hmbown) |
+| **3** | **v73** | **cc-switch** | **259.6/d** | **289d** | **T1 Multi-Runtime Aggregator** | **solo-community (farion1231 Chinese-speaking)** |
+
+**CORPUS-RECORD sustenance:** 289 days is 3.4× longer than v69 + 2.4× longer than v72 — corpus-record sub-class sustenance.
+
+**Promotion criteria evaluation:**
+
+- ✅ Criterion 1: N=3 across T2 + T1 + T1 (cross-tier STRONG PASS)
+- ✅ Criterion 4 (variant-within-pattern-at-N=2-PLUS): HIGH-NOT-EXTREME sub-variant N=3 STRONG PASS
+- ✅ Cross-archetype: corporate-anonymous + solo-community-English + solo-community-Chinese
+- ✅ Extended-sustain: 86d → 120d → 289d (full sustenance range demonstrated)
+
+**Verdict:** Pattern #52 **PROMOTION LOCKED-IN at v73** with HIGH confidence; **DEFER formal top-level promotion to v75 audit** per v72 audit deferred-promotion schedule.
+
+**v75 audit path:** Pattern #52 PROMOTE to CONFIRMED with 52d/52e/52f 3-tier sub-variant formal registration; cross-tier (T1×4 + T2×2) + cross-archetype (5+ distinct) all confirmed.
+
+**Library-vocabulary item #10 N=6:** v73-wiki-N=3 within 1-wiki gap from v72-wiki-N=2 = 1-wiki rapid-evolution at sub-class layer; corpus 2-wiki audit-criteria-saturation-arc completed.
+
+**Proposal document:** `03 Projects/cc-switch - Beginner Analysis/01 Analysis/(C) Pattern-52-HIGH-NOT-EXTREME-sub-class-N3-corpus-record-sustenance-evaluation.md`
+
+---
+
+### Pattern #84 update at v73 — THIRD STRENGTHENING within sub-mechanism 84c
+
+**v73 wiki context:** Pattern #84 PROMOTED at v72 audit. v72 wiki provided N=2 within 84c at 0-wiki gap. v73 wiki provides N=3 within 84c at 1-wiki gap from N=2.
+
+**v73 evidence:** cc-switch manages **6 agent runtimes** (Claude Code + Codex + Gemini CLI + OpenCode + OpenClaw + Hermes Agent) + **50+ provider presets** (20+ Chinese API relay services + AWS Bedrock + NVIDIA NIM + custom OpenAI-compatible).
+
+**Sub-mechanism 84c quantitative escalation N=3:**
+
+| Wiki | Subject | 84c evidence | Vendor matrix scope |
+|------|---------|--------------|---------------------|
+| v71 | agents-best-practices | Dual-vendor synthesis | Anthropic + OpenAI (2 corpora) |
+| v72 | DeepSeek-TUI | 9-provider matrix | DeepSeek + 8 alternatives |
+| **v73** | **cc-switch** | **6-runtime × 50+-provider** | **6 runtimes × 50+ providers = multi-runtime-aggregator** |
+
+**Sub-typology split candidate at v75 audit:**
+- 84c1 "dual-vendor-synthesis" — v71
+- 84c2 "single-runtime-multi-provider-matrix" — v72
+- 84c3 "multi-runtime-aggregator-with-provider-matrix" — v73 (new)
+
+**Pattern #84 sustainability:** Third post-v72-promotion strengthening within 2 wikis = fastest sub-mechanism N=3 in corpus history. v76 retire-check **STRONGLY RELIEVED**.
+
+---
+
+### Pattern #57 update at v73 — STRONGEST corpus-recursive (3+ subjects = NEW corpus-record)
+
+**v73 evidence:** cc-switch README + sponsor blocks + FAQ explicitly name:
+
+1. **Claude Code** (v65 corpus subject — hot-switching feature)
+2. **Codex** (v62 corpus subject — provider management)
+3. **OpenCode** (v67 corpus subject — universal config sync)
+
+**3+ explicit corpus subject citations** — **NEW corpus-record corpus-recursive citation depth**.
+
+**Prior corpus-record:** v65 claude-code-system-prompts at 1 subject (Claude Code substrate).
+
+**v75 audit consideration:** Register Pattern #57 sub-mechanism 57e "Multi-corpus-recursive maximum-depth at 3+ subjects" as formal sub-mechanism.
+
+---
+
+### Pattern #28 update at v73 — CORPUS-RECORD 50+ provider presets
+
+**v73 evidence:** **50+ provider presets** including Anthropic + AWS Bedrock + NVIDIA NIM + 20+ Chinese API relay services + Codex + Gemini + OpenCode/OpenClaw universal + custom OpenAI-compatible.
+
+**Corpus-record:** v72 DeepSeek-TUI 9-provider matrix → v73 cc-switch 50+ presets = ~5× increase.
+
+---
+
+### Pattern #66 update at v73 — sub-mechanism 66f PROVISIONAL candidate "Atomic-writes + SSOT + minimal-intrusion"
+
+**v73 evidence (3 architectural primitives):**
+
+1. **Atomic Writes:** Temp file + rename pattern prevents config corruption (corpus-first formalization)
+2. **SSOT:** SQLite database at `~/.cc-switch/cc-switch.db` (corpus-first SSOT formalization)
+3. **Minimal Intrusion:** Uninstall preserves dependent CLI tools (corpus-first formal discipline)
+
+**Sub-mechanism candidate:** "Configuration-integrity-via-atomic-writes-and-SSOT-with-minimal-intrusion"
+
+**Sister evidence:** 66d (v71 skill-package layer) + 66e (v72 GitHub-issue layer) + 66f (v73 config-state layer) = 3-mechanism community-input + config-state family at v75 audit.
+
+**Provisional registration:** PROVISIONAL at v75 audit; promote at N=2 if v75+ adds atomic-writes-as-architectural-primitive subject.
+
+---
+
+### Pattern #78 update at v73 — CORPUS-RECORD 12-layer LDS integration
+
+**v73 evidence:** 12+ Living-Domain-Standards integrated: MCP protocol + Claude Code spec + Codex API + Gemini CLI API + OpenCode API + OpenClaw API + Hermes Agent API + AWS Bedrock + NVIDIA NIM + Tauri 2 + Rust 1.85+ + SQLite + WebDAV + Dropbox/OneDrive/iCloud sync APIs.
+
+**Corpus comparison:**
+- v71 78a: 5-layer
+- v72: 6-layer
+- **v73: 12+ layer = NEW CORPUS-RECORD**
+
+---
+
+### Pattern #21 update at v73 — Sub-variant "Layered-Architecture-At-Product-Layer"
+
+**v73 evidence:** cc-switch explicit layered architecture: Commands → Services → DAO → Database. SDD methodology emergence at PRODUCT-architecture layer (vs v71's 7-invariant agent-architecture loop and v72's session-longevity-discipline).
+
+**Sub-variant registration at v75 audit.**
+
+---
+
+### Pattern #18 update at v73 — NEW sub-archetype #8 PROVISIONAL candidate "multi-runtime-aggregator-desktop-app"
+
+**v73 evidence:** First multi-runtime AI agent aggregator desktop application in corpus. Manages 6 distinct AI agent runtimes through unified UI.
+
+**Distinct from existing sub-archetypes:** shared-backend-service / cross-IDE coexistence / cross-platform compat / runtime-primacy-choice.
+
+**Provisional registration at v75 audit; promote at N=2.**
+
+---
+
+#### 🔍 OC-Q — Sponsor-Density-As-Corpus-Signal (NEW v73 cc-switch wiki — registered N=1 observational candidate)
+
+**Status at v73 wiki (2026-05-19):** Registered as observational candidate via cc-switch 20+ sponsor density. **N=1 stale-flagged at registration**.
+
+**Evidence:** farion1231/cc-switch README features 20+ sponsor entries (mostly Chinese API relay providers: PackyCode + AIGoCode + Shengsuanyun + AICodeMirror + PatewayAI + BytePlus + SiliconFlow + Cubence + DMXAPI + Compshare + AICoding + Crazyrouter + RightCode + SSSAiCode + Micu + LemonData + CTok + ClaudeAPI + ClaudeCN + RunAPI + Pateway). Each sponsor is domain-adjacent (AI infrastructure + API relay + cloud providers); each has affiliate/promo-code structure.
+
+**Formal statement (candidate):**
+> Subject's sponsor list exceeds 10 entities AND each sponsor is domain-adjacent (within subject's core domain). Signals strong ecosystem-pull from subject's domain (or strong author-monetization-priority).
+
+**Promotion criteria (3):**
+1. Subject has 10+ visible sponsor entries in README/website
+2. Each sponsor is domain-adjacent
+3. Sponsor relationships include affiliate/promo-code structure (not pure donations)
+
+**Required for promotion:** 2+ subjects with all 3 criteria.
+
+**Re-evaluation:** v75 first-cycle stale-check / v77 retire-check.
+
+**Rationale:** Sponsor-density-as-ecosystem-signal is corpus-first observation at v73. cc-switch's 20+ Chinese API relay sponsors suggests strong Chinese-market ecosystem-pull for multi-runtime aggregator domain. Hypothetical un-stale subjects: future T1 subjects with 10+ sponsors in same/adjacent domain.
+
+**Cross-reference:** Pattern #28 (Multi-Provider Architecture) — overlaps but OC-Q is monetization-pattern; Pattern #28 is technical-multi-provider. Orthogonal.
+
+**Distinguishing from existing patterns:**
+- Pattern #28 — technical multi-provider architecture; OC-Q is commercial-sponsor density
+- Pattern #19 — ecosystem-portfolio-builder; OC-Q is sponsor-attraction, not own-product portfolio
+- Pattern #84 84c — cross-vendor tolerance; OC-Q is sponsor-relationships, not vendor-tolerance
+
+---
