@@ -1396,3 +1396,153 @@ All 9 v2.2 features validated cleanly at v69:
 
 No corrections needed (3 audit-layer fact-verification corrections in corpus history: v45 magika / v54 / v60). All 5 Pattern #83 evidence chains verified against source wikis + iteration logs. All verbatim quotes preserved.
 
+---
+
+## Post-v70 codegraph wiki strengthening notes (2026-05-19)
+
+**State preserved post-v70:** 44 confirmed / 30 active / 0.682 ratio **UNCHANGED** (within-pattern strengthening + 4 NEW observational candidates only — no top-level state transitions). Observational candidate count: 17 → **21** (OC-K + OC-L + OC-M + OC-N registered).
+
+**Wiki:** v70 colbymchenry/codegraph (T2 Service; MCP server + multi-agent installer; 5,062 stars at 121 days = ~42 stars/day SUSTAINED-MODERATE-HIGH; solo-individual portfolio).
+
+**Class:** FIFTH WIKI UNDER ROUTINE v2.2 / FIRST sub-mechanism formalization proposal-document in corpus history (= NEW 6th Phase 4b promotion vehicle).
+
+### Phase 4b PRIMARY at v70
+
+**Pattern #18 sub-archetype shared-backend-service sub-mechanism B "one-binary-many-CLIENTS" N=3 strengthening + protocol-variants formalization:**
+
+| Wiki | Subject | Protocol | Client count | Tool count |
+|------|---------|----------|--------------|-----------|
+| v66 (2026-05-14) | agentmemory | MCP (B1) | 15+ agent platforms | 51 MCP tools |
+| v69 (2026-05-18→05-19) | CloakBrowser | CDP (B2) | Multiple framework clients | N/A (CDP endpoint) |
+| **v70 (2026-05-19)** | **codegraph** | **MCP (B1)** | **4 agent platforms** | **8 MCP tools** |
+
+**Protocol-variants formalization (NEW):**
+- **B1 MCP variant N=2** — agentmemory v66 + codegraph v70 (Model Context Protocol — Anthropic-introduced; agent-ecosystem-native; tool-schema platform-agnostic; per-platform config-target writes; client-count scales independently of tool-count)
+- **B2 CDP variant N=1** — CloakBrowser v69 (Chrome DevTools Protocol — browser-automation-specific; Chromium-tied; multiple frameworks via standard CDP-client libraries; client-count limited to browser-automation ecosystem)
+
+**Promotion criteria evaluation:**
+- ✅ Criterion 1 (≥3-cross-tier): N=3 all at T2 Service; cross-protocol-variants (MCP × 2 + CDP × 1) satisfies "structural diversity" intent
+- ✅ Criterion 4 (variant-within-pattern-at-N=2): N=2 MCP variant + N=1 CDP variant; sub-variant promotion threshold met
+
+**Sub-mechanism B is promotion-eligible to formal sub-archetype** within Pattern #18 at v71+ audit. Defer formal B1 vs B2 promotion to v71+ pending further evidence.
+
+**Pattern #18 hierarchy now 4 layers:**
+1. Top-level Pattern #18 Cross-IDE-Coexistence (CONFIRMED; 11+ refinements; corpus-most-refined pattern)
+2. Sub-archetype shared-backend-service (REGISTERED v69 audit)
+3. Sub-mechanism B one-binary-many-CLIENTS (REGISTERED v69 audit; promotion-eligible at v71+)
+4. Protocol-variants B1 MCP + B2 CDP (REGISTERED v70; formal sub-sub-variants)
+
+**FIRST 4-layer Pattern hierarchy formalized in corpus.** Routine v2.3 codification candidate: n-layer pattern hierarchy support.
+
+### Phase 4b proposal-document (NEW Phase 4b vehicle)
+
+**`03 Projects/codegraph - Beginner Analysis/01 Analysis/(C) Pattern-18 sub-mechanism B one-binary-many-CLIENTS N=3 protocol-variants formalization.md`** — FIRST sub-mechanism formalization proposal-document in corpus history.
+
+**This is the 6th formal Phase 4b promotion vehicle**, alongside:
+1. New-pattern registration proposal-document (e.g., v68 zero Pattern #86 / v66 agentmemory Pattern #85)
+2. Sub-typology proposal-document (FIRST exemplar: v69 CloakBrowser Pattern #45 45c)
+3. Within-pattern strengthening note (multiple)
+4. Observation-track-to-candidate proposal (e.g., Pattern #50)
+5. Retirement-to-OT proposal (e.g., Pattern #4 v25)
+6. **Sub-mechanism formalization proposal-document (NEW v70)** — for cases where N=2+ evidence within sub-mechanism warrants protocol-variants/mechanism-variants formalization without top-level pattern promotion
+
+**Routine v2.3 codification candidate:** Add 6th Phase 4b vehicle to routine documentation.
+
+### Within-pattern strengthenings (no state changes)
+
+- **Pattern #19 ecosystem-portfolio-builder (CONFIRMED N=4 at v66) N+1 strengthening** — Colby McHenry portfolio: 20 public repos with 6 pinned distinct products (codegraph + devpit + shopify-graphql-admin-mcp + saturday.shop + n8n-gcp-firebase + frontend-audit-skill). Matches Pattern #19 sub-archetype 19a founder-personal lineage (similar to v23 Unsloth + v66 agentmemory rohitg00 + v64 claude-seo AgriciDaniel). N=5 corpus presence at 19a sub-archetype. NOT new sub-archetype.
+
+- **Pattern #57 Cross-Wiki-Citation 6th+ data point + STRONGEST (d) of post-v64-RESET window** — codegraph README + CLAUDE.md cite **Claude Code (vault substrate) + Cursor + Codex (v62 corpus subject) + OpenCode (v67 corpus subject)** = 2 corpus subjects + Claude Code substrate citation in single subject. Stronger than v68 (1 sub-org + dep) + v69 CloakBrowser (2 corpus subjects without substrate citation).
+
+- **Pattern #66 Supply-Chain Awareness strengthening** — "100% local. No data leaves your machine. No API keys. No external services. SQLite database only." Explicit supply-chain isolation as product positioning + tree-sitter upstream attribution. N+1 corpus data point at supply-chain-as-positioning sub-category.
+
+- **Pattern #52 SUSTAINED-MODERATE-HIGH-velocity sub-threshold data point** — codegraph 42 stars/day at 121 days = SUSTAINED but below EXTREME-VIRAL >300/day threshold. Joins v69 CloakBrowser (172/day at 86 days; HIGH-NOT-EXTREME) as sub-threshold control case. v70+ audit batch test: does mid-life-cycle 42/day SUSTAINED rate qualify Pattern #52 evidence under different sub-mechanism, or stays sub-threshold-control? **Sustained-velocity-test batch now includes ~8 subjects** (v63 karpathy-skills EXTREME-VIRAL + v66 agentmemory + v67 opencode-antigravity-auth + v68 zero EXTREME-VIRAL + v69 CloakBrowser sub-threshold + v70 codegraph sub-threshold + 2 prior).
+
+### NEW observational candidates registered at v70 (4 new)
+
+- **OC-K Pre-Indexed-Context-Layer as agent augmentation strategy (N=1 v70 codegraph)** — Pre-index codebase once via tree-sitter + SQLite FTS5; query graph at runtime instead of grep/find exploration. Corpus-novel positioning: "94% fewer tool calls / 77% faster exploration" benchmark vs default Claude Code exploration. Distinct from runtime-augmentation (v66 agentmemory memory layer is runtime-stateful; codegraph pre-index is one-time-prep). v75 stale-check + v80 retire-check.
+
+- **OC-L Multi-Agent-Installer-Pattern (N=1 v70 codegraph)** — Single tool ships with interactive multi-agent installer (`npx codegraph install --target=claude|cursor|codex|opencode`). Per-platform config-target writes (auto-detects + writes to `.claude/`, `.cursor/rules/`, `codex.json`, `opencode.jsonc`). v0.7.7→v0.7.8 same-day fix-cycle for OpenCode target = MAINTENANCE-COST observational sub-mechanism. Distinct from per-platform separate-installers (e.g., agentmemory ships 15+ platform-specific MCP server configs separately). v75 stale-check + v80 retire-check.
+
+- **OC-M Quantitative-Benchmark-Marketing (N=2; v69 CloakBrowser + v70 codegraph)** — Both subjects lead with quantitative claims as primary product positioning. CloakBrowser = "0.9 reCAPTCHA score / Pass Turnstile / 30+ sites." codegraph = "94% fewer tool calls / 77% faster exploration / 100% local." Mechanism: quantitative-claim-as-marketing-positioning invites verification (or falsification). N=2 EARLY-promotion-eligible at v71+ audit if N=3 emerges. Sister to Pattern #52 EXTREME-VIRAL stars-as-marketing-proxy (quantitative-engagement-claim is implicit in star count); OC-M is explicit-claim-by-author. v71 stale-check + v75 retire-check.
+
+- **OC-N Auto-generated AGENTS.md from tool installer (N=1 v70 codegraph)** — codegraph v0.7.8 installer auto-generates `AGENTS.md` in user's project with codegraph-specific usage guidance. Corpus pattern: AGENTS.md is mostly hand-written (Pattern #22 22a-22d variants); auto-generated AGENTS.md from tool installer is corpus-novel layer. Sister to Pattern #22 hand-write tradition + Pattern #18 shared-backend-service (auto-gen AGENTS.md is per-platform-config-write extension). v75 stale-check + v80 retire-check.
+
+### Sister observation: OC-E Synchronicity-Discipline-As-Policy refinement candidate
+
+**Observational refinement (no state change at v70; mechanism-distinction defer to v71+):**
+
+- **v68 zero** — OC-E original formulation: examples + docs + tests + contracts aligned with current behavior (behavioral-synchronicity-as-policy)
+- **v70 codegraph** — sister observation: CLAUDE.md mandates "Three files must stay synchronized when updating MCP tool behavior: server-instructions.ts + instructions-template.ts + .cursor/rules/codegraph.mdc" — file-synchronicity-as-policy at MCP-tool-behavior layer
+
+**2-mode taxonomy candidate (defer to v71+ audit):**
+- **OC-E1 behavioral-synchronicity** (v68 zero) — code-behavior alignment across surfaces (examples + docs + tests + contracts)
+- **OC-E2 configuration-synchronicity** (v70 codegraph) — config-file alignment across surfaces (server-instructions + template + IDE rules)
+
+Both are file-synchronicity-discipline but at different layers. Promotion path: if v71+ wiki adds N=3 evidence under either E1 or E2, register sub-mechanism. v69 CloakBrowser counter-evidence (README "49 patches" vs CHANGELOG "57 patches" synchronicity gap) is documented but distinct mechanism (post-hoc-disclosure vs discipline-policy). **Defer to v71+ audit for mechanism-distinction decision.**
+
+### Storm Bear meta-entity streak observation
+
+**Post-v64-RESET window now 6 consecutive PASS:**
+
+| Wiki | Subject | Strength | STRICT PASS count |
+|------|---------|----------|-------------------|
+| v65 | claude-code-system-prompts | STRONGEST | 3/4 |
+| v66 | agentmemory | STRONG | 4/4 |
+| v67 | opencode-antigravity-auth | MODERATE | 2/4 |
+| v68 | vercel-labs/zero | WEAK | 1/4 |
+| v69 | CloakBrowser | WEAK | 1/4 |
+| **v70** | **codegraph** | **MODERATE** | **2/4** |
+
+**v70 breaks v68+v69 2-consecutive-WEAK** — strength categorization continues to discriminate empirically. Spectrum distribution v65-v70: STRONGEST × 1 + STRONG × 1 + MODERATE × 2 + WEAK × 2 (modal-status now SHARED between MODERATE + WEAK).
+
+**14-instance Phase 0.9 post-amendment window v57-v70 = 12 PASS / 2 SKIP = 85.7% INCLUDE rate** (slight uptick from v69's 84.6%).
+
+### Corpus-firsts at v70 (~6)
+
+(1) **First sub-mechanism formalization proposal-document in corpus history** (NEW 6th Phase 4b promotion vehicle) / (2) **First 4-layer Pattern hierarchy formalized** (Pattern #18 top-level → sub-archetype → sub-mechanism → protocol-variants) / (3) **First protocol-variants taxonomy** within sub-mechanism (B1 MCP + B2 CDP) / (4) **First testing-against-substrate benchmark** in corpus (codegraph benchmarks against Claude Code's own grep/find exploration baseline) / (5) **First subject CLAUDE.md at repo root** (codegraph ships CLAUDE.md as agent-onboarding doc; meta-recursive parallel to vault CLAUDE.md) / (6) **First auto-generated AGENTS.md from tool installer** in corpus.
+
+### v71 / v72 audit agenda additions
+
+**v70 → v71 audit batch additions:**
+- Pattern #18 sub-mechanism B formal sub-archetype promotion decision (N=3 across 2 protocol-variants)
+- B1 MCP variant + B2 CDP variant formal registration as protocol-variants
+- B3 placeholder for future protocol-variants (gRPC / WebSocket / etc.) consideration
+- OC-K Pre-Indexed-Context-Layer stale-check
+- OC-L Multi-Agent-Installer-Pattern stale-check
+- OC-M Quantitative-Benchmark-Marketing N=3 evaluation (if v71+ adds quantitative-marketing subject)
+- OC-N Auto-generated AGENTS.md stale-check
+- OC-E E1/E2 sub-mechanism distinction decision (behavioral-synchronicity vs configuration-synchronicity)
+- Pattern #52 sustained-velocity-test batch (~8 subjects including v70 sub-threshold-control)
+- Pattern #45 sub-typology 45c stale-check (first-cycle from v69)
+- Tier-Taxonomy Review T6 (ELEVATED from v69 deferral; v70 codegraph is T2 Service confirmed, no T6 evidence)
+
+**Routine v2.3 codification candidates accumulated at v70:**
+- 6th Phase 4b promotion vehicle: sub-mechanism formalization proposal-document
+- n-layer pattern hierarchy support (4-layer at v70)
+- Protocol-variants-within-sub-mechanism as criterion 4 evidence
+- v66 agentmemory + v70 codegraph N=2 establishes MCP-multi-platform as corpus-default T2 Service pattern
+- Sister-observation registration discipline (OC-E E1/E2 candidate as exemplar)
+
+### Vault-pilot relevance note
+
+**codegraph is HIGH-relevance vault pilot candidate comparable to v66 agentmemory:**
+
+| Axis | codegraph (v70) | agentmemory (v66) |
+|------|-----------------|-------------------|
+| Vault-deployable scope | TypeScript codebases (hireui-harness primary) | Vault as memory-substrate |
+| Setup complexity | Low (`npx codegraph install --target=claude`) | Higher (MCP server setup + iii-engine deployment) |
+| Value-add per session | Token savings (94% fewer tool calls) for coding work | Memory persistence across vault sessions |
+| Risk profile | Low — read-only indexing; no vault state mutation | Medium — memory layer mutates state |
+| Reversibility | High — `codegraph uninit` cleans up | Medium — depends on memory storage |
+
+**Pilot ranking update:** codegraph is LOWER-risk than agentmemory for vault pilot. Recommended sequence: codegraph pilot first → agentmemory pilot second. Both fenced (scratch projects, not production vault). See `_state/pilot-ranking-2026-05-07.md` for consolidated ranking.
+
+### Cross-corpus impacts
+
+- **NEW 6th Phase 4b promotion vehicle** — sub-mechanism formalization joins new-pattern / sub-typology / within-pattern / OT-to-candidate / retirement-to-OT vehicle list
+- **FIRST 4-layer Pattern hierarchy** — Pattern #18 establishes pattern-hierarchy-depth precedent; routine v2.3 codification needed for n-layer support
+- **MCP-multi-platform-via-one-binary is now corpus-default T2 Service pattern** — agentmemory v66 + codegraph v70 N=2 with diverse client counts (15+ vs 4) + diverse tool counts (51 vs 8); validates MCP as agent-ecosystem-native protocol layer
+- **Active-count maintained at trigger-threshold 30 for 4th-consecutive-wiki** — audit-velocity-control test: does within-pattern-strengthening-without-top-level-promotion at trigger-threshold suppress audit-cadence trigger?
+
+
