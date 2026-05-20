@@ -24,35 +24,6 @@
 
 ---
 
-## Agent Dashboard / Agent OS — anchor-corrected re-run
-
-- **Query:** `Chase AI Claude Code dashboard status line slash commands observability 2026`
-- **Anchors:**
-  - https://www.youtube.com/watch?v=7zxIeRWasbc
-- **Notes:** First run 2026-05-13 dropped this anchor — auto-selection picked LangSmith/OpenTelemetry/Tmux/Vercel sandbox content instead. Anchor: Chase AI "Claude Code Just Got a Dashboard". Tighter query + new force-include should land Claude-Code-native dashboard content. **Target:** replace or supersede `wiki/agent-dashboard-os/` (decide during compile based on signal overlap).
-- **Queued:** 2026-05-14
-- **Status:** pending
-
-## Codex — anchor-corrected re-run (3 anchors)
-
-- **Query:** `Chase AI Codex agentic harness Claude Code add codex adversarial review 2026`
-- **Anchors:**
-  - https://www.youtube.com/watch?v=nOFordZCyzs
-  - https://www.youtube.com/watch?v=VdxUKiF8CWI
-  - https://www.youtube.com/watch?v=zygsgz2k6zI
-- **Notes:** First run 2026-05-13 dropped ALL 3 user-named anchors. Anchors are: Chase AI "Codex Just Became THE BEST Long Running Agentic Harness" + Chase AI "You're Using Claude Code Wrong (Add Codex)" + Tù Bà Khuỳm "Có thể bạn chưa biết về Codex.". 3 anchors + 3 yt-search slots = 6 sources. **Target:** replace or supersede `wiki/codex/`. Cross-link Storm Bear Pattern Library v62 codex-plugin-cc.
-- **Queued:** 2026-05-14
-- **Status:** pending
-
-## Open Source Claude Design clones — anchor-corrected re-run
-
-- **Query:** `Chase AI open source Claude Code clone OpenClaw Hermes fork alternative agent CLI 2026`
-- **Anchors:**
-  - https://www.youtube.com/watch?v=BGQ9i3fvNds
-- **Notes:** First run 2026-05-13 was off-target — bundle was developer-workflow content (modular files, one-task-per-session) with only passing clone mentions. Anchor: Chase AI "ANOTHER Open Source Repo Just Cloned Claude Design". Anchor + tighter clone-specific query should land clone-focused content. **Target:** replace or supersede `wiki/claude-code-clones/`. Maps to Storm Bear Pattern Library T4 archetype (v60+v61+v62).
-- **Queued:** 2026-05-14
-- **Status:** pending
-
 ## Autonomous Loops with HITL — tighter-query re-run
 
 - **Query:** `Karpathy autoresearch Ralph loop human checkpoint goal driven Claude Code plan mode grill paperclip`
@@ -65,6 +36,18 @@
 ## Completed
 
 
+### Open Source Claude Design clones — anchor-corrected re-run ✅
+- **Drained:** 2026-05-14 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-14-open-source-claude-design-clones-anchor-corrected.md`
+- **NotebookLM:** `de7bec64-846d-486b-8661-4784d3cf0a1f`
+### Codex — anchor-corrected re-run (3 anchors) ✅
+- **Drained:** 2026-05-14 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-14-codex-anchor-corrected-re-run-3-anchors.md`
+- **NotebookLM:** `3561e31a-5cfa-4fe6-9d5f-bec48b84d029`
+### Agent Dashboard / Agent OS — anchor-corrected re-run ✅
+- **Drained:** 2026-05-14 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-14-agent-dashboard-agent-os-anchor-corrected-re-run.md`
+- **NotebookLM:** `1cd445b9-d834-4686-9fd0-12f4d67ce9d6`
 ### AI daily news — May 2026 weekly snapshot ✅
 - **Drained:** 2026-05-13 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-13-ai-daily-news-may-2026-weekly-snapshot.md`
