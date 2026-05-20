@@ -2755,3 +2755,298 @@ Affaan Mustafa profile: single-architect + 170+ community contributors + paid-Pr
 - **Active count 29 maintained 7th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
 
 ---
+
+## v79 thu-vu92/autoresearch_folktales wiki strengthening block (2026-05-20)
+
+**Wiki version**: v79 (FIFTEENTH under routine v2.2; 8-CONSECUTIVE-WIKI post-v72-audit-relief CORPUS-RECORD EXTENSION)
+
+**Subject**: `thu-vu92/autoresearch_folktales` — Apple Silicon (MPS) port of Karpathy's `autoresearch` framework via miolini/autoresearch-macos intermediate adapter, retrained on Hugging Face's `merve/folk-mythology-tales` dataset.
+
+**Tier**: T3 Education / Agentic-Research-Framework
+
+**Archetype**: solo-VN-diaspora-data-scientist-YouTuber (NEW Pattern #19 sub-mechanism 19j candidate)
+
+**Verified GitHub API 2026-05-20**: 31 stars / 15 forks / 0 subscribers / 0 open issues / 26 days old (2026-04-24 created) / single-push-and-done activity / `license: None` (README declares "MIT" but no LICENSE file) / Python 84.6% + Jupyter Notebook 15.4% / default_branch `autoresearch/apr10`
+
+**fork_ratio = 15/31 = 0.484 = 48.4% NEW CORPUS-RECORD-HIGH active-deployment-intent** (exceeds v76 0.296 prior record by 1.64×)
+
+### Phase 4b PRIMARY: Pattern #57 NEW sub-variant 57g candidate
+
+**57g "Second-Order-Derivative-Chain-of-Corpus-Foundation-Subject via intermediate-adapter"** PROVISIONAL N=1 registration.
+
+**Definition**: corpus subject that is a CODEBASE-derivative of a corpus-foundation-subject's PUBLIC CODEBASE, mediated by an EXPLICIT INTERMEDIATE ADAPTER (NOT in corpus), with all 3 actors attributed in the subject's documentation.
+
+**Structure**:
+```
+Karpathy autoresearch (v9 corpus parent)
+        ↓ [public codebase fork]
+miolini/autoresearch-macos (intermediate adapter; NOT in corpus)
+        ↓ [public codebase fork]
+Thu Vu autoresearch_folktales (v79 corpus subject)
+```
+
+**Distinct from v78 57f anchor-self-reference**:
+| Axis | 57f | 57g |
+|------|-----|-----|
+| Subject identity | Same as anchor | Different from anchor |
+| Hop count | 0 (self-reference) | 2 (chain) |
+| Intermediate adapter | N/A | Required (NOT in corpus) |
+| Time relation | Delta from anchor | Delta from corpus-foundation |
+| Layer of preservation | Methodology + corpus-evaluation snapshot | Methodology only (substrate-layer modified) |
+| Number of authors in chain | 1 (same author) | 3 (foundation + adapter + this subject) |
+
+**Source-celebrity-derivative-distillation criteria (all 4 PASS)**:
+- (1) Author ≠ source individual ✅ (Thu Vu ≠ Karpathy ≠ miolini)
+- (2) Explicit source attribution with URL ✅ (all 3 GitHub URLs in README Credits)
+- (3) Public observations as raw material ✅ (all 3 upstream artifacts public)
+- (4) Installable artifact packaging ✅ (uv-installable Python package)
+
+**Promotion criteria evaluation at N=1**: criterion 4 variant-within-pattern PROMOTION-ELIGIBLE at N=2 (sub-variant within already-CONFIRMED Pattern #57).
+
+**Verdict**: REGISTER as PROVISIONAL N=1 sub-variant. Re-evaluate at N=2.
+
+**Stale-check at v84 + retire-check at v89.**
+
+**Proposal document**: `03 Projects/autoresearch_folktales - Beginner Analysis/01 Analysis/(C) Pattern-57-57g-second-order-derivative-chain-of-corpus-foundation-subject-N1-registration.md`
+
+### 7 SECONDARY pattern observations at v79
+
+1. **Pattern #83 sub-mechanism 83f N=4 post-promotion strengthening + NEW sub-variant 83f.4 candidate** "README-Declared-but-no-LICENSE-file" PROVISIONAL N=1 (83f taxonomy 3-variant → 4-variant: 83f.1 within-LICENSE / 83f.2 across-doc-LICENSE / 83f.3 across-doc-API / 83f.4 README-declared-no-LICENSE-file)
+2. **Pattern #84 NEW sub-typology 84d candidate "Hardware-Substrate-Tolerance"** PROVISIONAL N=1 (Apple Silicon MPS substrate-pinned + agent-platform-tolerant; orthogonal dimension to 84a Tool / 84b Usage / 84c Provider-Agnostic at substrate-vs-provider axis)
+3. **Pattern #18 NEW sub-archetype #9 candidate** "agentic-research-framework-with-constraint-architecture" PROVISIONAL N=1 (single-modifiable-file + fixed-time-budget + never-stop-autonomy 3-constraint architecture distinct from v66/v68/v70/v73 prior sub-archetypes)
+4. **Pattern #19 NEW sub-mechanism 19j candidate** "Vietnamese-Diaspora-Data-Scientist-YouTuber-with-LLM-derivative-experiments" PROVISIONAL N=1 (Thu Vu profile distinct from 19a-19i)
+5. **Pattern #66 within-pattern strengthening** — minimal-dependency-discipline-by-constraint (vs by-defense; distinct from v78 ECC's discipline-by-active-defense)
+6. **Pattern #45 NEW sub-typology 45f candidate** "README-Declared-MIT-without-LICENSE-file" OR Pattern #29 absent-LICENSE strengthening (v80 audit decides framing)
+7. **Library-vocabulary item #10 strengthening at sub-variant-layer** — v78 57f + v79 57g 2-wiki consecutive Pattern #57 sub-variant accumulation; distinct from prior item #10 instances at top-level-pattern-layer (v62→v63 + v64→v65)
+
+### +10 NEW Library-vocabulary candidates at single wiki (HIGHEST single-wiki count under routine v2.2)
+
+1. "Method-Preserved-Despite-10×-Throughput-Collapse" (MPS 85-90 steps vs CUDA 1000s in 5min)
+2. "High-Fork-Ratio with Zero-Engagement-Signal = Try-Once-and-Move-On profile" (fork_ratio 0.484 + 0 subscribers + 0 issues)
+3. "Human-Asleep-as-Design-Target" (program.md verbatim "user might leave you running while they sleep")
+4. "Editorial-Judgment-Embedded-in-Agent-Skill" (program.md simplicity criterion)
+5. "Context-Window-Protection-as-Agent-Skill-Directive" (program.md Step 4 + Step 5 disciplines)
+6. "Size-Independent-Quality-Metric Design Principle" (val_bpb vocab-size-independent)
+7. "Single-Tool-No-Fallback Packaging Adoption" (uv-only; no pip/poetry/conda fallback)
+8. "Deliberately-Narrow-Distribution-Profile in v60+ window" (most subjects expand; v79 contracts)
+9. "Autonomy-vs-Session-Handoff-Continuum" PROVISIONAL N=2 (v79 never-stop vs v73/v77/v78 session-handoff cluster — OPPOSITE ENDS)
+10. "VN-Diaspora-vs-VN-Located Distinction in Storm Bear (a) axis" (v76 VN-LOCATED + v79 VN-DIASPORA sub-distinction)
+
+### Storm Bear streak=15 NEW CORPUS-RECORD extension
+
+| Criterion | Result | Evidence |
+|-----------|--------|----------|
+| (a) Author archetype peer | STRONG PASS | Thu Vu = solo-VN-diaspora-data-scientist-YouTuber cultural-peer; **CORPUS-FIRST VN-DIASPORA vs VN-LOCATED sub-distinction in Storm Bear (a) axis** |
+| (b) Vault-deployable for Scrum | FAIL | LLM-training framework; domain mismatch + Apple Silicon hardware-pin |
+| (c) Methodology-influence-node | STRONG PASS | Karpathy methodology lineage + generalizable principles for vault routine v2.2+ design |
+| (d) Corpus-recursive | STRONG PASS | 2nd-order corpus-recursive chain via intermediate adapter |
+
+**Sum: 3/4 PASS → STRONG INCLUDE 3/4**
+
+**Streak progression**: 14 → 15 consecutive PASS post-v64-RESET = NEW CORPUS-RECORD extension by 1 wiki
+
+**23-instance Phase 0.9 post-amendment window**: 21 PASS / 2 SKIP = **91.3% INCLUDE rate** (uptick from v78's 90.9%)
+
+**Strength distribution v65-v79**: STRONGEST × 4 + STRONG × 3 + MODERATE × 4 + WEAK × 4
+
+### State changes at v79
+
+- Confirmed: **45** (UNCHANGED — no top-level promotions)
+- Active candidates: **29** (UNCHANGED 8th-consecutive-wiki post-v72-audit-relief = NEW CORPUS-RECORD)
+- Ratio: **0.644** (UNCHANGED)
+- Library-vocabulary items: 13 → **13** (10 NEW v79 candidates held at OC layer pending v80 audit filing decisions)
+- Observational candidates: 36 → estimated 38-46 (10 NEW v79 candidates registration timing TBD at v80 audit)
+
+### v80 audit batch additions from v79 wiki
+
+- Pattern #57 sub-variant 57g first-cycle stale-check at v84 + retire-check at v89
+- Pattern #83 sub-mechanism 83f.4 NEW sub-variant taxonomy formalization (within already-promoted 83f; taxonomy 3-variant → 4-variant)
+- Pattern #84 NEW sub-typology 84d first-cycle stale-check at v84
+- Pattern #18 NEW sub-archetype #9 first-cycle stale-check at v84
+- Pattern #19 NEW sub-mechanism 19j first-cycle stale-check at v84
+- Pattern #45 45f vs Pattern #29 framing decision (with v77's 45e also pending — multi-candidate decision)
+- Library-vocabulary item #10 sub-variant-layer strengthening verification
+- 10 NEW Library-vocabulary candidates from v79 — filing decisions at v80
+
+### Library-vocabulary item #9 Cross-Pattern Coupled-Design
+
+**7-8-pattern couple-count at single wiki** (Pattern #57 57g + Pattern #83 83f.4 + Pattern #84 84d + Pattern #18 #9 + Pattern #19 19j + Pattern #66 + Pattern #45 45f + Library-vocab item #10 sub-variant-layer = 7-8 intersections; matches v77 7-pattern + below v78's 9-pattern CORPUS-RECORD).
+
+### Routine v2.3 codification candidates contributed at v79 (+6)
+
+1. **VN-DIASPORA vs VN-LOCATED sub-distinction within Storm Bear (a) axis** — formal sub-criterion
+2. **Sub-variant-accumulation as distinct Library-vocabulary item #10 dimension** (vs prior pattern-evolution top-level usage)
+3. **Hardware-substrate dimension as classification axis** (current 13-axis classification could extend to 14-axis)
+4. **High-fork-ratio with zero-engagement-signal as Library-vocabulary observation track** — Try-Once-and-Move-On profile
+5. **Single-push-and-done activity profile as Phase 0 engagement-signal sub-investigation discipline addition**
+6. **CORPUS-RECORD audit-relief sustainability tracking** as Pattern Library health metric (8-consecutive-wiki UNCHANGED ratio = clean signal)
+
+### v79 corpus-firsts (14 total — matches v78's top single-wiki record under routine v2.2)
+
+1. CORPUS-FIRST Apple Silicon / MPS adaptation in v60+ window
+2. CORPUS-FIRST second-order codebase-derivative-chain of v9 corpus subject via intermediate adapter
+3. CORPUS-FIRST folklore-mythology dataset as LLM training corpus in v60+ window
+4. CORPUS-FIRST single-push-and-done activity profile in v60+ window
+5. CORPUS-FIRST 4-distinct-authors-across-artifact-stack (Karpathy + miolini + Thu Vu + merve)
+6. CORPUS-FIRST single-tool-no-fallback packaging adoption (uv-only) in v60+ window
+7. CORPUS-FIRST VN-DIASPORA vs VN-LOCATED distinction in Storm Bear (a) axis
+8. CORPUS-FIRST deliberately-narrow distribution profile in v60+ window
+9. CORPUS-FIRST explicit human-asleep-as-design-target use case in v60+ window
+10. CORPUS-FIRST documented method-preserved-despite-10×-throughput-collapse trade-off in v60+ window
+11. CORPUS-FIRST hardware-substrate-pinned-but-agent-platform-tolerant distribution
+12. CORPUS-FIRST context-window-protection embedded as agent-skill-directive
+13. CORPUS-FIRST editorial-judgment-embedded-in-agent-skill
+14. CORPUS-FIRST CLI-installable single-modifiable-file constraint-architecture in v60+ window
+
+### v79 corpus-records
+
+1. **NEW CORPUS-RECORD-HIGH fork_ratio 0.484** = 48.4% active-deployment-intent (exceeds v76 0.296 by 1.64×)
+2. **NEW CORPUS-RECORD Storm Bear meta-entity streak**: 15 consecutive PASS post-v64-RESET (extending v78's 14-record by 1)
+3. **NEW CORPUS-RECORD 8th-consecutive-wiki active count UNCHANGED post-v72-audit-relief** (extending v78's 7-record by 1)
+4. **NEW CORPUS-RECORD 23-instance Phase 0.9 INCLUDE rate 91.3%** (uptick from v78's 90.9%)
+5. **NEW CORPUS-RECORD 10 NEW Library-vocabulary candidates at single wiki under routine v2.2** (exceeds v78's 5 + v77's 5)
+
+---
+
+## v80 TroniePh/SmartMacroAI wiki strengthening block (2026-05-20)
+
+**Wiki version**: v80 (SIXTEENTH under routine v2.2; 9-CONSECUTIVE-WIKI post-v72-audit-relief CORPUS-RECORD EXTENSION)
+
+**Subject (URL)**: `tronieph.github.io/SmartMacroAI-Website/` (marketing site = submitted URL via Facebook share with fbclid)
+
+**Substrate product**: `TroniePh/SmartMacroAI` — Windows-desktop RPA framework by Phạm Quốc Duy
+
+**Tier**: T5 Application / **NEW sub-archetype 80a "Hybrid-RPA-with-LLM-augmented-decision-making"** PROVISIONAL N=1
+
+**Decision-gate**: Operator confirmed "Full routine v2.2, T5 outside-scope" at Phase 0; post-README-fetch reclassified to **in-scope NEW T5 sub-archetype** due to actual LLM API integration revealed in README ("OpenAI & Gemini for smart decision-making"). Subject is NOT outside-scope.
+
+**Archetype**: solo-VN-LOCATED developer (Pattern #19 NEW sub-mechanism 19k candidate)
+
+**Verified GitHub API 2026-05-20**:
+- Product: 17 stars / 13 forks / 0 subscribers / 0 open issues / 40 days old / C# / `license: NOASSERTION` / 404 on `/contents/LICENSE` (unambiguous absent-license state)
+- Marketing site: 0 stars / 0 forks / HTML / `license: None`
+
+**fork_ratio = 13/17 = 0.765 = 76.5% NEW CORPUS-RECORD-HIGH active-deployment-intent** (exceeds v79 0.484 prior record by 1.58×)
+
+**3-wiki sustained fork_ratio CORPUS-RECORD-HIGH ladder**: v76 0.296 → v79 0.484 → v80 0.765 (each redefining ceiling by ~1.6×)
+
+### Phase 4b PRIMARY: NEW T5 sub-archetype 80a
+
+**80a "Hybrid-RPA-with-LLM-augmented-decision-making"** PROVISIONAL N=1.
+
+**Definition**: T5 Application where rule-based RPA/automation logic forms the framework spine; LLM API calls (OpenAI + Gemini in v80's case) are integrated as ONE OF MULTIPLE tool-mode options at the decision-making layer — NOT as orchestration brain.
+
+**Architectural inversion**:
+| Typical T5 | NEW 80a |
+|-----------|---------|
+| LLM → tools → results → LLM | Rules → (tool A OR LLM OR tool B) → result |
+| LLM drives the framework | LLM is consumed by rule-based framework |
+
+**6 sub-archetype criteria evaluation at N=1**:
+| # | Criterion | Status | Evidence |
+|---|-----------|--------|----------|
+| 1 | Tier T5 | ✅ | End-user Windows desktop application |
+| 2 | Multiple input/automation modes | ✅ | 4 input modes + image-rec + OCR + pixel + LLM = 7+ tool-modes |
+| 3 | LLM OPTIONAL | ✅ | Framework runs without LLM (rule-based by default) |
+| 4 | LLM at decision-layer not orchestration | ✅ | LLM for interpretation; not framework loop |
+| 5 | LLM is REMOTE service | ✅ | OpenAI + Gemini APIs |
+| 6 | Fundamental architecture rule-based | ✅ | WPF + Win32 + 4-input-mode spine |
+
+→ All 6 criteria PASS at N=1.
+
+**T5 sub-archetype taxonomy expansion (proposed)**: 3-sub-class (orchestration-brain / harness-consumer / application-itself) → 4-sub-class (+ NEW 80a tool-mode-option).
+
+**Verdict**: REGISTER as PROVISIONAL N=1 sub-archetype within T5. Stale-check at v85 + retire-check at v90.
+
+**Proposal-document**: `03 Projects/SmartMacroAI - Beginner Analysis/01 Analysis/(C) T5-NEW-sub-archetype-Hybrid-RPA-with-LLM-augmented-decision-making-N1-registration.md`
+
+### 6 SECONDARY pattern observations
+
+1. **Pattern #19 NEW sub-mechanism 19k candidate "Vietnamese-Located-Solo-Developer-with-Dual-Repo-Marketing-Discipline"** PROVISIONAL N=1 (2-wiki VN-LOCATED cluster building v76 + v80)
+2. **Pattern #29 absent-LICENSE strengthening + NEW sub-mechanism "404-confirmed-absent-LICENSE"** PROVISIONAL N=1 (UNAMBIGUOUS via NOASSERTION + 404 + no README declaration; stronger than v79's 83f.4 case where README declared MIT)
+3. **Pattern #66 within-pattern** — mixed local-bundled (Apache 2.0 deps) + remote-API (OpenAI + Gemini)
+4. **Library-vocabulary candidate "LLM-Inversion-Architecture"** PROVISIONAL N=1
+5. **Library-vocabulary candidate "Deliberately-Narrow Distribution Profile"** N=2 STRENGTHENING (v79 + v80 = 2-wiki sustained at different narrowness axes; promotion-eligible at v85)
+6. **Library-vocabulary candidate "Localization-Depth-vs-Locale-Breadth Distinction"** N=2 STRENGTHENING at sub-distinction layer (v77 13-locale breadth + v80 830+-key depth; promotion-eligible at v85)
+
+### +5 NEW Library-vocabulary candidates at v80
+
+1. **LLM-Inversion-Architecture** (LLM-as-callable-tool vs LLM-as-orchestration-brain)
+2. **Cultural-Distribution-Channel-Diversity** (Facebook for VN audiences vs X for global dev audiences)
+3. **Hybrid-Donation-Channel-Localization** (MB Bank VN-domestic QR + PayPal international)
+4. **Marketing-Site-vs-README AI-Positioning Divergence** (site downplays LLM; README emphasizes "AI Integration")
+5. **LLM-Integration-at-Any-Layer As Inclusion Criterion** (codifies v80 boundary decision: subjects with LLM integration at any layer = in-scope; pure-rule-based with no AI APIs = outside-scope)
+
+### Storm Bear streak=16 NEW CORPUS-RECORD
+
+| Criterion | Result | Evidence |
+|-----------|--------|----------|
+| (a) Author archetype peer | STRONG PASS | Phạm Quốc Duy = solo-VN-LOCATED developer; MB Bank account 379997999 + Vietnamese-first README + "Made with ❤️ in Vietnam"; 2-wiki VN-LOCATED cluster v76 + v80 |
+| (b) Vault-deployable for Scrum | FAIL | Windows-only; macOS vault operator; domain mismatch with Scrum coaching |
+| (c) Methodology-influence-node | FAIL | LLM-inversion + 4-input-mode + Bézier-curves = technical not methodological |
+| (d) Corpus-citation | FAIL | No corpus citations; AutoHotkey + Pulover (cited) NOT in corpus |
+
+**Sum: 1/4 PASS → WEAK INCLUDE 1/4**
+
+**Streak progression**: 15 → 16 NEW CORPUS-RECORD extension by 1 wiki.
+
+**24-instance Phase 0.9 post-amendment window**: 22 PASS / 2 SKIP = **91.7% INCLUDE rate** (uptick from v79's 91.3%)
+
+**Strength distribution v65-v80**: STRONGEST × 4 + STRONG × 3 + MODERATE × 4 + **WEAK × 5** (WEAK leads with 5 instances)
+
+### State changes at v80
+
+- Confirmed: **45** (UNCHANGED)
+- Active candidates: **29** (UNCHANGED 9th-consecutive-wiki post-v72-audit-relief = NEW CORPUS-RECORD)
+- Ratio: **0.644** (UNCHANGED)
+- Library-vocabulary items: 13 → **13** (5 NEW v80 candidates held at OC layer pending v85 audit; combined with 10 from v79 = 15 NEW candidates accumulated)
+- Observational candidates: ~38-46 → ~43-51
+
+### v85 audit batch additions from v80 wiki
+
+- NEW T5 sub-archetype 80a first-cycle stale-check at v85 + retire-check at v90
+- Pattern #19 NEW sub-mechanism 19k first-cycle stale-check
+- Pattern #29 NEW sub-mechanism "404-confirmed-absent-LICENSE" first-cycle stale-check
+- T5 sub-archetype taxonomy 3-sub-class → 4-sub-class formalization (if 80a sustains)
+- Library-vocabulary "LLM-Inversion-Architecture" first-cycle stale-check
+- Library-vocabulary "Deliberately-Narrow Distribution Profile" N=2 filing decision
+- Library-vocabulary "Localization-Depth-vs-Locale-Breadth Distinction" N=2 filing decision
+- 5 NEW Library-vocabulary candidates from v80 — filing decisions
+- 3-wiki fork_ratio CORPUS-RECORD-HIGH ladder codification consideration
+
+### Library-vocabulary item #9 Cross-Pattern Coupled-Design
+
+**6-7-pattern couple-count at single wiki** (NEW T5 sub-archetype 80a + Pattern #19 19k + Pattern #29 404-confirmed + Pattern #66 + Library-vocab LLM-Inversion + Library-vocab Deliberately-Narrow N=2 + Library-vocab Localization-Depth-vs-Breadth N=2 = 6-7 intersections; matches v75 6-pattern; below v77 7-pattern + v78 9-pattern CORPUS-RECORD + v79 7-8-pattern).
+
+### Routine v2.3 codification candidates contributed at v80 (+6)
+
+1. **LLM-Integration-at-Any-Layer As Inclusion Criterion** — formal corpus-boundary rule (codifies v80 decision)
+2. **3-wiki sustained fork_ratio CORPUS-RECORD-HIGH ladder pattern** — Library-vocabulary candidate
+3. **Marketing-Site-vs-README AI-Positioning Divergence** — Phase 0 sub-investigation axis
+4. **Dual-repo-marketing-discipline at solo developer scale** — Phase 0 distribution-axis addition
+5. **Localization-depth (key-count × locale-count) tracking** — Phase 0 i18n axis refinement
+6. **License-state-verification via 404-on-LICENSE-file probe** — Phase 0 license-state probe addition
+
+### v80 corpus-firsts (12 total — below v78 + v79 14-record top)
+
+1. CORPUS-FIRST Apple-Silicon-free Windows-only end-user product with LLM integration in v60+ window
+2. CORPUS-FIRST 4-input-mode automation architecture
+3. CORPUS-FIRST Driver-Level-Kernel-mode for anti-cheat-bypass in v60+ window
+4. CORPUS-FIRST LLM-inversion-architecture (LLM-as-callable-tool vs LLM-as-orchestration-brain)
+5. CORPUS-FIRST OpenAI + Gemini dual-AI-API integration at solo developer scale
+6. CORPUS-FIRST CDP-Stealth (Chrome DevTools Protocol) integration in v60+ window
+7. CORPUS-FIRST 830+ localization keys at solo developer scale (depth-of-translation)
+8. CORPUS-FIRST dual-repo separation at solo developer scale
+9. CORPUS-FIRST Facebook-share-distribution-channel evidence in v60+ window
+10. CORPUS-FIRST hybrid-donation-channel-localization (MB Bank VN + PayPal international)
+11. CORPUS-FIRST unambiguous-absent-LICENSE-at-Apache-bundle-scale (404-confirmed)
+12. CORPUS-FIRST Bézier-mouse-curves anti-detection discipline in v60+ window
+
+### v80 corpus-records
+
+1. **NEW CORPUS-RECORD-HIGH fork_ratio 0.765 = 76.5%** active-deployment-intent (3-wiki sustained ladder)
+2. **NEW CORPUS-RECORD Storm Bear meta-entity streak 16** (extending v79's 15-record)
+3. **NEW CORPUS-RECORD 9-consecutive-wiki active count UNCHANGED post-v72-audit-relief** (extending v79's 8-record)
+4. **NEW CORPUS-RECORD 24-instance Phase 0.9 INCLUDE rate 91.7%** (uptick from v79's 91.3%)
+
+---
