@@ -2451,3 +2451,146 @@ Combined with all inherited candidates from v66-v75 = **~30 total v2.3 candidate
 - **Active count 29 maintained 5th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
 
 ---
+
+## v77 wiki datawhalechina/easy-vibe 2026-05-20 strengthening notes
+
+**Subject:** datawhalechina/easy-vibe — "💻 vibe coding 2026 | Your first modern Coding course for beginners to master step by step"
+**Source:** https://github.com/datawhalechina/easy-vibe
+**Homepage:** https://datawhalechina.github.io/easy-vibe/welcome.html
+**Author:** Datawhalechina (Chinese AI/ML open-source community-org) + project lead **Sanbu** + Tsinghua University contributors (mentor **Fang Ke** + students Yerim Kang / Zhilin Zhao / Yixuan Li / Siyi Liu / Lixin Liu)
+**License:** CC BY-NC-SA 4.0 (declared README; GitHub API "None specified" — Pattern #83 sub-mechanism 83f N=3 evidence)
+**Scale:** 13,202 stars / 1,258 forks / 44 watchers / 10 open issues / 505 commits at 144 days = **91.7 stars/day** Pattern #52 SUSTAINED-MODERATE-HIGH sub-class N=2 evidence
+**Tier:** T3 Education / Vibe-Coding-Course
+**Wiki version:** v77 (thirteenth wiki under routine v2.2)
+
+### Phase 4b PRIMARY: Pattern #51 PRO-VIBE positioning corpus-first direct evidence + spectrum-sub-pole anchoring
+
+**Verdict:** REGISTER Pattern #51 NEW sub-pole "PRO-VIBE-explicit" with v77 easy-vibe as N=1 anchor. CORPUS-FIRST explicit-affirmative-PRO-VIBE-named subject filling known Pattern #51 spectrum gap at affirmative end. PROMOTE-AS-NEW-SUB-POLE HIGH confidence at v80 audit if N=2 sustains.
+
+**Evidence:**
+- Tagline "vibe coding 2026" names methodology as 2026-era affirmative
+- Secondary tagline "Jump right in and vibe together — if you can talk, you can build apps" lowers entry barrier explicitly
+- Inverted learning order: build first → understand mechanisms after
+- Conversation-as-product framing: "In the AI era, programming starts by describing what you want"
+- Multi-tool dialogue fluency as Stage 2 learning outcome
+- 13.2K stars + 1.3K forks community-validation at scale
+- Datawhalechina + Tsinghua University academic endorsement
+- 120+ topic curriculum organized entirely around vibe-coding methodology
+- Methodology naming = citable handle for future cross-wiki reference
+
+**Pre-v77 spectrum status:** Pattern #51 had identified anchor at discipline-leaning end ("Anti-vibe-with-pragmatic-acknowledgment") but lacked affirmative-end anchor. v77 fills this gap.
+
+**Sub-pole taxonomy after v77:**
+- **PRO-VIBE-explicit (NEW)** at v77 — affirmative end
+- Pragmatic-positive (not formalized) at v75/v76 — observational
+- Pragmatic-neutral (not formalized) at v65/v71 — observational
+- Anti-vibe-with-pragmatic-acknowledgment (prior registration) — discipline-leaning end
+- Strict-discipline end — open (awaits N=1)
+
+**Promotion path:** v77 N=1 PROVISIONAL → v78-v79 stale-check → v80 audit PROMOTE if N=2 OR REGISTER as singular-anchor sub-pole.
+
+### Pattern #83 sub-mechanism 83f N=3 PROMOTION-LOCKED-IN
+
+3-instance arc within 3 consecutive wikis = **CORPUS-RECORD sub-mechanism promotion-arc-speed** under routine v2.2:
+
+| Wiki | Subject | Mismatch surface |
+|------|---------|------------------|
+| v74 | LLMs-from-scratch | CITATION.cff "Apache-2.0" vs LICENSE.txt modified Apache (within-LICENSE) |
+| v76 | agent-skills-standard | README "MIT License" vs LICENSE Apache-2.0 (across-doc-LICENSE) |
+| **v77** | **easy-vibe** | **README "CC BY-NC-SA 4.0" vs GitHub API "None specified"** (across-doc-API) |
+
+3 mechanism-variants within sub-mechanism 83f:
+- **83f.1** within-LICENSE (declaration-format vs LICENSE content)
+- **83f.2** across-doc-LICENSE (README vs LICENSE)
+- **83f.3** across-doc-API (README vs GitHub API metadata)
+
+Sub-sub-mechanism taxonomy formalization candidate at v80 audit. Top-level Pattern #83 already CONFIRMED at v69; sub-mechanism 83f formal promotion at v80 audit administrative.
+
+### NEW Library-vocabulary item #12 candidate "AI-Optimized Tutorial Index via llms.txt"
+
+CORPUS-FIRST artifact-type at v77. Structure:
+- Document-type declaration
+- 3+1-stage architecture (Stage 0-1 + Stage 2 + Stage 3 + 9-knowledge-domain appendix)
+- Quick decision tree (user-intent → tutorial-section routing priority)
+- Dual-layer index (directory structure quick-reference + detailed article index)
+- 120+ articles × 20+ search keywords each
+- Answer specifications (citation format + code-first strategy + stage-matching principle)
+- Version management (update dates + article counts)
+- 10+ language versions
+
+**Distinct from prior LLM-optimization artifacts:**
+
+| Wiki | Subject | Artifact | Mechanism |
+|------|---------|----------|-----------|
+| v75 | impeccable | `HARNESSES.md` | Cross-harness specification compliance matrix |
+| v76 | agent-skills-standard | `AGENTS.md` router | 3-tier hierarchical lookup (router → category-index → skill) |
+| **v77** | **easy-vibe** | **`llms.txt`** | **AI-Agent-optimized tutorial index with intent-routing + dual-layer index + answer-spec** |
+
+3 consecutive wikis introducing distinct LLM-optimization artifact-type = corpus-record-rate for vocabulary-item-candidate observation density.
+
+### NEW Pattern #19 sub-mechanism 19h candidate "Chinese-Educational-Community-Organization-with-University-Anchor"
+
+PROVISIONAL N=1 at v77. Datawhalechina community-org + Sanbu project lead + Fang Ke Tsinghua mentor + 5+ named Tsinghua student contributors (Yerim Kang + Zhilin Zhao + Yixuan Li + Siyi Liu + Lixin Liu). Distinct from prior 19a-19g sub-mechanisms — captures explicit Chinese-cultural-locus org + named university-mentor + named multi-contributor student-team combination (corpus-first).
+
+### Pattern #84 84c N=6 strengthening with NEW sub-sub-mechanism 84c.3 "curriculum-mediated harness exposure"
+
+| Wiki | Subject | 84c sub-sub-mechanism | Mechanism |
+|------|---------|------------------------|-----------|
+| v71 | agents-best-practices | 84c.1 (Anthropic + OpenAI dual-vendor) | explicit-provider-matrix |
+| v72 | DeepSeek-TUI | 84c.1 (9-provider matrix) | explicit-provider-matrix |
+| v73 | cc-switch | 84c.1 (12-provider matrix CORPUS-RECORD) | explicit-provider-matrix |
+| v75 | impeccable | 84c.2 (14-harness dirs) | CLI-generates-native-formats |
+| v76 | agent-skills-standard | 84c.2 (15+ harness lookup) | CLI-generates-native-formats |
+| **v77** | **easy-vibe** | **84c.3 NEW (5+ via curriculum)** | **curriculum-mediated harness exposure** |
+
+CORPUS-RECORD 6-instance Pattern #84 sub-mechanism-strengthening arc post-promotion. 84c sustainability bulletproof + sub-sub-mechanism taxonomy formalization at v80.
+
+### Pattern #52 SUSTAINED-MODERATE-HIGH sub-class N=2 evidence
+
+91.7 stars/day × 144 days = clean mid-range fit within 25-150/d band. N=2 PROMOTION-ELIGIBLE at v80 audit.
+
+### Pattern #78 NEW sub-mechanism 78c candidate "Educational-Curriculum-LDS-with-AI-routing"
+
+PROVISIONAL N=1 at v77. 120+ articles + 20+ keywords-per-article + decision tree + dual-layer index + answer-specifications + 10+ language versions. Distinct from 78a CLI-enforceable + 78b multi-protocol-tracking.
+
+### Pattern #45 NEW sub-typology 45e candidate "Non-Commercial-Educational-CC-License"
+
+CC BY-NC-SA 4.0 educational content NC-licensing for educational distribution. Distinct from 45a-d (Apache/MIT mechanisms). Alternative framing: Pattern #29 absent-LICENSE strengthening. v80 audit decides framing (recommendation: 45e preserves Pattern #45 taxonomy expansion).
+
+### Pattern #57 sub-variant 57c-product strengthening
+
+6+ corpus-subject citations in product surface (Claude Code v65 + MCP v66/v70/v76 + Cursor v75/v76 + Trae v75/v76 + VS Code AI + Dify) = STRONG 57c evidence.
+
+### NEW observational candidates at v77
+
+- **OC-AA "Inverted-Learning-Order-Pedagogy"** N=1 — 4-axis inversion (build-first + multi-tool-dialogue-fluency + conversation-as-product + conversational-onboarding)
+- **OC-AB "Multi-Deploy-Intelligence-via-Base-Path-Auto-Detection"** N=1 — 5-deploy-target Vercel + GitHub Pages + Azure + Docker + nginx with runtime base-path detection
+
+### Storm Bear meta-entity at v77
+
+**STRONG INCLUDE 3-4/4:** (a) PROBABLE PASS at Asian-cultural-peer community-education scope (CORPUS-FIRST inference-tolerant criterion-(a) call for community-org subject; Datawhalechina + Tsinghua Mainland-China-located community-org + academic-anchor); (b) PASS MODERATE-RELEVANCE vault pilot pedagogy cross-reference; (c) STRONG PASS methodology-influence-node Pattern #51 spectrum-anchor + 5 routine v2.3 codification candidates; (d) STRONG PASS 6+ corpus-subject citations.
+
+**Streak = 13 consecutive PASS post-v64-RESET = NEW CORPUS-RECORD extension by 1 wiki** (v76 was prior 12-record). 21-instance Phase 0.9 post-amendment window 90.5% INCLUDE rate (uptick from 90.0%). Strength categorization v65-v77: STRONGEST × 3 + STRONG × 2 + MODERATE × 4 + WEAK × 4.
+
+### State change at v77
+
+- 45 confirmed UNCHANGED
+- 29 active UNCHANGED (within-pattern + sub-pole + sub-mechanism + sub-sub-mechanism strengthening + 2 NEW OCs only)
+- 0.644 ratio UNCHANGED
+- OC count 32 → 34 (+OC-AA + OC-AB)
+- Storm Bear streak 12 → **13 NEW CORPUS-RECORD**
+- 11 corpus-firsts at v77 wiki
+- Routine v2.2 thirteenth-wiki validation clean
+
+### Cross-corpus impacts at v77 wiki
+
+- **Pattern #51 PRO-VIBE-explicit sub-pole anchor** = fills known affirmative-end gap in Pattern #51 spectrum; provides corpus anchor for future calibration of PRO-VIBE evidence
+- **Pattern #83 sub-mechanism 83f 3-instance arc within 3 wikis** = CORPUS-RECORD sub-mechanism promotion-arc-speed under routine v2.2; sub-sub-mechanism taxonomy emerges (83f.1/83f.2/83f.3)
+- **NEW Library-vocabulary item #12 candidate** = third consecutive wiki introducing distinct LLM-optimization artifact-type (HARNESSES.md → AGENTS.md → llms.txt) = vocabulary-item observation-density CORPUS-RECORD
+- **Pattern #84 84c 6-wiki monotonic strengthening arc** = post-promotion sub-mechanism evidence floor raised again; sub-sub-mechanism taxonomy now 3-variant (84c.1 explicit-provider-matrix + 84c.2 CLI-generates-native-formats + 84c.3 curriculum-mediated harness exposure)
+- **CORPUS-FIRST inference-tolerant criterion-(a) call for community-org subject** = expands Phase 0.9 STRICT PROBABLE PASS axis-call discipline from individual-developer profile to community-org scope
+- **Storm Bear streak 13 = NEW CORPUS-RECORD** = post-v64-RESET corpus-record extension by 1 wiki
+- **5-layer Pattern hierarchy emergence** (top-level → sub-archetype → sub-mechanism → sub-sub-mechanism → sub-sub-mechanism-variant) at Pattern #84 84c.3 + Pattern #83 83f.3 = routine v2.3 codification candidate for hierarchy-depth formalization
+- **Active count 29 maintained 6th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
+
+---
