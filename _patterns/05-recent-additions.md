@@ -2594,3 +2594,164 @@ CC BY-NC-SA 4.0 educational content NC-licensing for educational distribution. D
 - **Active count 29 maintained 6th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
 
 ---
+
+## v78 wiki affaan-m/ECC corpus-recursive revisit 2026-05-20 strengthening notes
+
+**Subject:** affaan-m/ECC (renamed from `everything-claude-code` at v1) — "The harness-native operator system for agentic work. From an Anthropic hackathon winner."
+**Source:** https://github.com/affaan-m/ECC
+**Homepage / Pro:** https://ecc.tools
+**Author:** Affaan Mustafa (Anthropic Hackathon Winner; single-architect + 170+ community contributors; weekly-ship cadence across 7+ harnesses)
+**License:** MIT (verified GitHub API 2026-05-20)
+**Scale:** 187,238 stars / 28,997 forks / 1 open issue / 170+ contributors / 1,974 commits at 122 days = **1,535 stars/day** = **NEW CORPUS-RECORD velocity** (exceeds v63 Karpathy ~1,186/d single-artifact + v68 zero 1,050/d 2-day-old)
+**Tier:** T1 Assistant Skill / Multi-Harness Operator System (cross-archetype)
+**Wiki version:** v78 (fourteenth wiki under routine v2.2; **CORPUS-FIRST corpus-recursive anchor revisitation** — v1 ECC 2026-04-17 → v78 ECC 2026-05-20 at 33-day delta)
+**Baseline reference:** v1 wiki at `03 Projects/Everything Claude Code - Beginner Analysis/` (preserved as 2026-04-17 historical snapshot)
+
+### Phase 4b PRIMARY: Pattern #52 NEW sub-class "Multi-Month-Sustained EXTREME-VIRAL" (>300/d × 90+d) N=1 PROMOTION-LOCKED-IN
+
+**Verdict:** REGISTER NEW Pattern #52 sub-class with v78 ECC as N=1 PROMOTION-LOCKED-IN anchor; sub-class taxonomy expands 4-variant → 5-variant; v80 audit formal sub-class registration administrative.
+
+**Definition:** >300/d sustained over 90+ days (multi-month window).
+
+**Distinction from existing EXTREME-VIRAL sub-class (re-labeled as "pulse"):**
+
+| Sub-class | v63 Karpathy | v68 zero | **v78 ECC (NEW)** |
+|-----------|--------------|----------|---------------------|
+| Velocity | ~1,186/d | 1,050/d | **1,535/d** |
+| Window at probe | single-artifact pulse | 2-day-old | **122 days sustained** |
+| Phenomenon | tweet→repo viral spike | launch-window | **multi-month-sustained virality** |
+
+**Evidence (verified GitHub API 2026-05-20):**
+- 187,238 stars / 122 days = 1,535 stars/day
+- Repo created 2026-01-18, actively pushed 2026-05-20
+- 170+ contributors + weekly-ship cadence + Hermes v2.0.0-rc.1 release = sustained product-progression
+- Corpus-recursive validation: v1 ECC probe 2026-04-17 (89-day data point) + v78 at 122-day data point = velocity continued
+
+**Promotion criteria (sub-class formalization within already-CONFIRMED Pattern #52):**
+- Criterion 4 variant-within-pattern STRONGEST PASS
+- Criterion 1 corpus-first evidence
+- Retroactive v1 anchor (corpus-recursive evidence supports N=1 within already-CONFIRMED Pattern)
+
+**Sub-class taxonomy after v78:**
+
+| Sub-class | Threshold | Status post-v78 | Anchor |
+|-----------|-----------|------------------|--------|
+| **Multi-Month-Sustained EXTREME-VIRAL (NEW)** | **>300/d × 90+d** | **N=1 PROMOTION-LOCKED-IN** | **v78 ECC** |
+| EXTREME-VIRAL (pulse) | >300/d × <90d | N=2 | v63 + v68 |
+| HIGH-NOT-EXTREME | 150-300/d | N=3 PROMOTION-LOCKED-IN | v69 + v72 + v73 |
+| SUSTAINED-MODERATE-HIGH | 25-150/d | N=2 PROMOTION-ELIGIBLE | v72 + v77 |
+| LONG-SUSTAINED-MEDIUM | 60-150/d × 1000+d | N=1 PROVISIONAL | v74 Raschka |
+
+Proposal-document at `03 Projects/ECC-v78-recursive-revisit - Beginner Analysis/01 Analysis/(C) Pattern-52-Multi-Month-Sustained-EXTREME-VIRAL-sub-class-N1-promotion-locked-in.md`.
+
+### Pattern #84 84c.1 N+1 strengthening at repo-stored layer
+
+ECC ships 11+ harness directories at repo-stored layer (.claude / .codex / .cursor / .opencode / .gemini / .kiro / .trae / .qwen / .zed / .codebuddy / .agents). Joins v75 14-harness + v76 15+-harness sub-sub-mechanism cluster.
+
+**7-consecutive-wiki Pattern #84 84c sub-mechanism strengthening arc** (v71→v72→v73→v75→v76→v77→v78) = NEW CORPUS-RECORD extending v77's 6-wiki record by 1 wiki.
+
+Sub-sub-mechanism distribution post-v78:
+
+- 84c.1 explicit-provider-matrix at repo-stored layer: N=5 (v71 + v72 + v73 + v75 + v78)
+- 84c.2 CLI-generates-native-formats: N=2 (v75 + v76)
+- 84c.3 curriculum-mediated harness exposure: N=1 (v77)
+
+### Pattern #57 STRONGEST corpus-recursive citation + NEW sub-variant 57f candidate
+
+**v78 is CORPUS-FIRST corpus-recursive revisitation of an anchor subject** (v1 → v78 at 33-day delta = corpus-self-reference at maximum-possible depth).
+
+**NEW Pattern #57 sub-variant 57f candidate "Corpus-Recursive-Anchor-Self-Reference"** PROVISIONAL N=1 at v78. v81+ stale-check (second anchor revisit promotes to N=2).
+
+**ECC 57c-product evidence: CORPUS-RECORD 7+ corpus-subject citations in product surface** — Claude Code v65 + Codex v62 + Cursor v75/v76 + OpenCode v67 + Gemini v76 + MCP v66/v70/v76 + Anthropic + Trae v75/v77 + Qwen v73 + Kiro v75/v76 + Zed corpus-new = 11+ citations exceeds prior 6-citation record at v77 by 5+.
+
+### NEW Library-vocabulary item #13 candidate "OSS-with-hosted-Pro-SaaS-tier-on-MIT-base"
+
+ECC ships explicit dual-tier economic model:
+- MIT-OSS base (free forever per README)
+- npm packages (ecc-universal + ecc-agentshield; free)
+- GitHub App ecc-tools (freemium; 150+ installs)
+- ECC Pro SaaS tier at $19/seat/mo (paid)
+- GitHub Sponsors $5+/mo (community-funded)
+
+Framing: "OSS stays free forever; Pro funds the maintainer."
+
+**Distinct from prior corpus subjects:**
+- Pure-OSS (v74 + v75 + v77) — no paid tier
+- Pure-commercial (v69 wrapper-with-binary-proprietary)
+- Foundation-funded (v66) — community-funded but no SaaS tier
+- Tier-based-licensing (Pattern #45 45a) — different mechanism
+
+**N=1 PROVISIONAL registration at v78.** v81+ stale-check; promote to formal Library-vocabulary item #13 if N=2 second subject observed.
+
+### NEW Pattern #19 sub-mechanism 19i candidate "Solo-Architect-Community-Augmented-Paid-Pro-Tier"
+
+Affaan Mustafa profile: single-architect + 170+ community contributors + paid-Pro-tier + Anthropic-Hackathon-Winner + weekly-cadence-at-scale. Distinct from 19a/b/c/d/e/f/g/h sub-mechanisms.
+
+**N=1 PROVISIONAL at v78.** v81 stale-check.
+
+### Pattern #78 STRONGEST single-subject LDS-tracking evidence + NEW sub-mechanism 78d candidate
+
+**6-layer LDS surface at single subject:**
+1. manifests/ (declared schemas + assets)
+2. schemas/ (formal type definitions)
+3. research/ (research-first-development output)
+4. contexts/ (context-engineering primitives)
+5. 232-skill codification with per-skill SKILL.md template + 60-agent codification with frontmatter conventions
+6. Cross-harness architecture document + Hermes operator release notes
+
+**NEW sub-mechanism 78d candidate "Operator-System-LDS-with-6-layer-codification"** PROVISIONAL N=1 at v78.
+
+### Pattern #82 STRONGEST single-subject quantitative-marketing density
+
+9+ quantitative claims in README first 25 lines: stars + forks + contributors + language ecosystems + Anthropic Hackathon Winner status + GitHub App installs + harness count + skills count + agents count + commands count + months-of-daily-use.
+
+### Pattern #66 CORPUS-FIRST supply-chain-discipline-at-velocity
+
+- `ecc-agentshield` security-scanning npm package (separately published)
+- Prompt Defense Baseline in CLAUDE.md (corpus-first explicit prompt-injection-defense at project scope)
+- security-reviewer agent
+- TDD 80%+ coverage discipline
+- Single-maintainer-weekly-cadence-discipline-at-187K-star-scale
+
+### NEW observational candidates at v78
+
+- **OC-AC "Anthropic-Hackathon-Winner-Status as corpus-signal-axis"** N=1 — corpus-first explicit hackathon-status identity-declaration at subject scope
+- **OC-AD "Community-Augmented-Solo-Architect-at-Velocity"** N=1 — solo-architect + 170+ contributors + sustained-multi-month-EXTREME-VIRAL combination = corpus-first structural pattern
+
+### Storm Bear meta-entity at v78
+
+**STRONGEST INCLUDE 4/4** — first STRONGEST 4/4 since v76 agent-skills-standard at 2-wiki delta (v77 was STRONG between them):
+
+- (a) **NEW axis-call PASS at VN-cultural-locale-inclusive-product scope** — ECC ships `docs/vi-VN/README.md` first-class i18n = CORPUS-FIRST locale-inclusion-as-(a)-evidence axis-call distinct from prior v76 direct-author-peer + v77 community-org PROBABLE PASS
+- (b) STRONGEST PASS direct vault deployment as Claude Code skill collection + multi-harness applicability + reversible + already-corpus-evaluated at v1
+- (c) STRONGEST PASS v1 anchor + corpus-recursive subject + 5+ routine v2.3 codification candidates contributed
+- (d) STRONGEST PASS 7+ corpus-subject citations = CORPUS-RECORD citation density
+
+**Streak = 14 consecutive PASS post-v64-RESET = NEW CORPUS-RECORD extension by 1 wiki** (v77 was prior 13-record). 22-instance Phase 0.9 post-amendment window 90.9% INCLUDE rate (uptick from 90.5%). Strength distribution v65-v78: STRONGEST × 4 + STRONG × 2 + MODERATE × 4 + WEAK × 4 (STRONGEST × 4 reflects late-window maturation).
+
+### State change at v78
+
+- 45 confirmed UNCHANGED
+- 29 active UNCHANGED (sub-class N=1 PROMOTION-LOCKED-IN + within-pattern + sub-mechanism + 2 NEW OCs only)
+- 0.644 ratio UNCHANGED
+- OC count 34 → 36 (+OC-AC + OC-AD)
+- Library-vocabulary items 12 → 13 candidates (with #13 PROVISIONAL N=1)
+- Pattern #52 sub-class taxonomy expands 4-variant → 5-variant at v80 audit
+- Storm Bear streak 13 → **14 NEW CORPUS-RECORD**
+- 14 corpus-firsts at v78 wiki
+- Routine v2.2 fourteenth-wiki validation clean
+
+### Cross-corpus impacts at v78 wiki
+
+- **CORPUS-FIRST corpus-recursive anchor revisitation** = v1 → v78 establishes routine v2.3 codification candidate (folder convention + entity-share-vs-fork + Pattern #57 self-reference handling)
+- **Pattern #52 NEW sub-class "Multi-Month-Sustained EXTREME-VIRAL"** = sub-class taxonomy 4→5-variant expansion at v80; CORPUS-FIRST sustained-multi-month-EXTREME-VIRAL phenomenon recognized
+- **Pattern #84 84c 7-wiki sub-mechanism strengthening arc** = NEW CORPUS-RECORD extending v77 6-wiki record
+- **Pattern #57 corpus-recursive at maximum depth** = anchor-self-reference is the most extreme corpus-recursive depth possible; sub-variant 57f registration captures this
+- **CORPUS-RECORD 7+ corpus-subject citation density at single subject** (11+ citations in ECC product surface)
+- **NEW Library-vocabulary item #13 candidate** = third consecutive wiki contributing NEW Library-vocab candidate (vocab item #12 at v77 + #13 at v78)
+- **CORPUS-FIRST Phase 0.9 (a) axis-call via product-locale-inclusion** = locale-inclusion-of-Storm-Bear-locale as PASS evidence; expands Storm Bear (a) criterion mechanism repertoire
+- **Storm Bear streak=14 NEW CORPUS-RECORD** = post-v64-RESET corpus-record extension by 1 wiki
+- **Library-vocabulary item #9 Cross-Pattern Coupled-Design 9-pattern couple-count at single wiki** = NEW CORPUS-RECORD couple-count (Pattern #52 + #84 + #57 + Library-vocab #13 + Pattern #19 19i + Pattern #78 78d + Pattern #82 + Pattern #66 + Pattern #21)
+- **Active count 29 maintained 7th-consecutive-wiki post-v72-audit relief** = CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki
+
+---
