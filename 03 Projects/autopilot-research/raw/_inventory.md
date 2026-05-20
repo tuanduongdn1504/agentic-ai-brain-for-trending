@@ -49,6 +49,9 @@
 | 2026-05-13 | codex-long-running-agentic-harness-alternative-to | 2 cron-overnight | YouTube ×6 | 18K | `01707594-d36a-4a2f-b3f8-7fa9044528ba` | compiled ⚠️ anchor-miss | [wiki/codex/](../wiki/codex/_index.md) |
 | 2026-05-13 | open-source-claude-design-clones-alternative-agent | 2 cron-overnight | YouTube ×6 | 19K | `5155a280-86ce-49ce-8328-d4b75c0119ce` | compiled ⚠️ off-target | [wiki/claude-code-clones/](../wiki/claude-code-clones/_index.md) |
 | 2026-05-13 | ai-daily-news-may-2026-weekly-snapshot | 2 cron-overnight | YouTube ×3 | 17K | `9f08f424-31bc-4fe9-8e8b-3a91862171a1` | compiled ⚠️ rumor-heavy | [wiki/ai-news-2026-w19/](../wiki/ai-news-2026-w19/_index.md) |
+| 2026-05-20 | tejas-kumar-harnesses-deep-dive | 5 yt-dlp-only | YouTube C_GG5g38vLU (Tejas Kumar IBM, AI Engineer 2026 talk, 20:26, 38.7K views) | 31K | — | compiled (definitional anchor candidate N=1) | [wiki/harness-engineering/tejas-kumar-anchor](../wiki/harness-engineering/tejas-kumar-anchor.md) |
+| 2026-05-20 | langchain-interrupt-26-adl-transcript | 5 yt-dlp-only | YouTube jWy39wavbjY (Harrison Chase + Ankush Gola, LangChain Interrupt 2026 keynote, 44:58, ~1.9K views) | 67K | — | compiled (new topic agent-development-lifecycle, N=1 anchor) | [wiki/agent-development-lifecycle/](../wiki/agent-development-lifecycle/_index.md) |
+| 2026-05-20 | howznguyen-router-opus-gpt-subagent | 3-webfetch | Blog howznguyen.dev (Vietnamese, ~20 min read, 2026-05-19) | 14K | — | compiled (individual-scale 5th sibling article) | [wiki/harness-engineering/personal-repo-router-multimodel](../wiki/harness-engineering/personal-repo-router-multimodel.md) |
 
 ## Status legend
 
@@ -73,8 +76,8 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 29 rows (6 added 2026-05-13: overnight drain of 6 topics — agent-dashboard / auto-loop-goals / harness-engineering-personal / codex / claude-design-clones / ai-daily-news)
-- **Compiled (or merged):** 27 (was 21 → +6 from 2026-05-14 morning compile of overnight drain)
+- **Total ingestions logged:** 32 rows (3 added 2026-05-20: Tejas Kumar IBM harness deep-dive [path 5 yt-dlp] + LangChain Interrupt 2026 ADL anchor [path 5 yt-dlp] + howznguyen router+sub-agent blog [path 3 webfetch])
+- **Compiled (or merged):** 30 (was 27 → +3 from 2026-05-20 anchor articles)
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled / raw (awaiting compile):** 1 (lark-claude-course 261 pages — biggest remaining backlog)
 - **Promoted to Storm Bear:** 0

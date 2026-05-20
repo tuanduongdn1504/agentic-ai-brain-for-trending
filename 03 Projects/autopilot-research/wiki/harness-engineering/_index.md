@@ -1,11 +1,11 @@
 # harness-engineering
 
 > **Anchor:** Ryan Lopopolo (OpenAI Frontier & Symphony) — AI Engineer 2026 keynote + Latent Space podcast 2026-04-07
-> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources)
-> **Article count:** 14 (10 org-scale + 4 individual-scale)
+> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources) — extended 2026-05-20 with definitional-anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk) + individual-scale 5th sibling article on router-mediated cross-vendor multi-model (howznguyen blog post 2026-05-19)
+> **Article count:** 16 (10 org-scale + 5 individual-scale + 1 definitional anchor candidate)
 > **Status:** Anchor seeded — designed for ongoing ingestion; expect 10-20+ articles as research thread expands
 
-This topic is the autopilot wiki's research thread on **harness engineering** — Lopopolo's discipline for restructuring software work around the assumption that humans steer and agents execute. The anchor defines the conceptual surface; subsequent ingests fill gaps, falsify claims, or expand cited references. The 2026-05-14 extension adds an **individual-scale axis** (single developer, single repo) to test which Lopopolo positions are scale-invariant vs scale-bounded.
+This topic is the autopilot wiki's research thread on **harness engineering** — Lopopolo's discipline for restructuring software work around the assumption that humans steer and agents execute. The anchor defines the conceptual surface; subsequent ingests fill gaps, falsify claims, or expand cited references. The 2026-05-14 extension adds an **individual-scale axis** (single developer, single repo) to test which Lopopolo positions are scale-invariant vs scale-bounded. The 2026-05-20 extension adds a **definitional axis** (scale-invariant primitives) with Tejas Kumar's IBM talk, which delivers the corpus-first prompt-held-constant falsifiability demonstration of the harness>prompt thesis.
 
 ## Articles
 
@@ -27,6 +27,9 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - [[personal-repo-patterns]] — 12 concrete techniques (`/init` bootstrap, Plan Mode, GCAO prompting, `progress.md`, sub-agents, Git worktrees, adversarial eval, skill curation, MCP, `#` corrections, `/context` audits, Dispatch)
 - [[personal-repo-vs-org-scale]] — axis-by-axis comparison: 5 convergences + 6 divergences + claim-by-claim challenge map ([[core-claims]] #2 partially falsified, #5 silent, #6 doesn't translate)
 - [[personal-repo-gaps]] — 5 production-readiness gaps + 5 structural gaps + 5 NotebookLM follow-up topics routed to [[research-roadmap]]
+- [[personal-repo-router-multimodel]] — router-mediated cross-vendor multi-model pattern (howznguyen blog 2026-05-19). Exploits Claude Code's 3-slot model config (opus/sonnet/haiku) to route opus→Kiro-Opus-4.6 and sonnet→Codex-GPT-5.5 via 9Router, enabling cross-vendor supervisor+sub-agent orchestration with zero plugin/MCP infrastructure. Adds **task-allocation rubric** (Opus should-do / GPT should-do / sub-agent NEVER-do without plan) + **file-based phase handoff** convention (`.agent/notes/<domain>-research.md`) + **research-then-implement** parallel-staging discipline. Tier-A operationally pilotable.
+
+- [[tejas-kumar-anchor]] — N=1 definitional anchor candidate. 5-component decomposition of agent harness (tool registry / model / context / guardrails / loop / verify) + corpus-first prompt-held-constant live demo (GPT-3.5 Turbo Hacker News upvote agent succeeds with harness alone, prompt untouched). Adds 4 new open questions + 3 new cited-reference candidates (OpenRAG, GPT-OSS, Qwen) + a 2025→2026→2027 prediction axis. **Not yet promoted to full anchor** — promotion criteria require ≥2 corroborating sources.
 
 ## Cross-links to existing autopilot topics
 
@@ -57,3 +60,15 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
   - [Source 14] GritAI Studio — *Master Context in Claude Code in 5 Minutes* — https://www.youtube.com/watch?v=I1EGbrH5Xdk (7:08, 19K views, 2026-02-05)
   - [Source 15] Productive Dude — *FULL Claude Tutorial For Beginners in 2026!* — https://www.youtube.com/watch?v=Xg55nTrbYYY (112:38, 316K views, 2026-04-13)
   - [Source 16] Simon Scrapes — *How to Use Claude Code Skills Like the 1%* — https://www.youtube.com/watch?v=6-D3fg3JUL4 (16:33, 180K views, 2026-03-04)
+
+### Definitional anchor candidate (added 2026-05-20)
+
+- `raw/2026-05-17-tejas-kumar-harnesses-deep-dive.md` — verbatim auto-caption transcript with `[MM:SS]` timestamps (607 segments, ~3.4K words; cleaned VTT via `/tmp/clean_vtt.awk`)
+- [Source 17] Tejas Kumar (IBM AI developer advocate) — *Harnesses in AI: A Deep Dive* — https://www.youtube.com/watch?v=C_GG5g38vLU (20:26, 38.7K views as of 2026-05-20, uploaded 2026-05-17, AI Engineer conference channel @aiDotEngineer)
+- Path: 5 (yt-dlp-only single-source, no NotebookLM bundle)
+
+### Individual-scale 5th sibling — router-mediated cross-vendor multi-model (added 2026-05-20)
+
+- `raw/2026-05-19-howznguyen-router-opus-gpt-subagent.md` — blog post verbatim (Vietnamese, ~20 min read)
+- [Source 19] howznguyen — *Kết hợp Opus + GPT trong Claude Code bằng Router và Sub-agent* — https://howznguyen.dev/blog/router-opus-gpt-subagent-workflow (published 2026-05-19)
+- Path: 3-webfetch (Tier 0; no bypass needed)
