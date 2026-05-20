@@ -3050,3 +3050,118 @@ Thu Vu autoresearch_folktales (v79 corpus subject)
 4. **NEW CORPUS-RECORD 24-instance Phase 0.9 INCLUDE rate 91.7%** (uptick from v79's 91.3%)
 
 ---
+
+## v81 Leonxlnx/taste-skill wiki strengthening block (2026-05-20)
+
+**Subject**: `Leonxlnx/taste-skill` — Leon Lin (Munich) — *"Portable Agent Skills that upgrade AI-built interfaces"* / *"The Anti-Slop Frontend Framework for AI Agents"*
+**Routine v2.2 wiki count**: SEVENTEENTH execution
+**Metadata**: 18,264 stars / 1,560 forks / 92 subscribers / 14 open issues / 90 days at fetch / MIT / Shell primary / tasteskill.dev custom domain / GitHub Sponsors 8 named
+**Storm Bear meta-entity verdict**: STRONGEST INCLUDE 4/4 (streak=17 NEW CORPUS-RECORD; 25-instance window 92.0% INCLUDE rate)
+
+### Phase 4b PRIMARY proposal
+
+**NEW T1 sub-archetype "Multi-Skill Brand Portfolio with Sub-Variant Taxonomy" PROVISIONAL N=1 registration** — HIGH confidence verdict.
+
+4-property definition:
+1. Single brand identity (Leon Lin / taste-skill / tasteskill.dev).
+2. Setting-based spectrum-control mechanism (layout dimension + motion dimension explicit; density + typography implicit).
+3. Portable multi-harness installation (`npx skills add`).
+4. Sub-variant taxonomy decomposable along orthogonal axes (4 aesthetic + 4 workflow + 4 platform-extension = clean 4+4+4=12 partitioning).
+
+Distinct from v75 impeccable "Single-Skill Multi-Target Distribution" — **architectural inversion at multiplicity-layer** (v75 = 1 skill × 14 harness; v81 = 12 skills × ~4 harness).
+
+5-criterion promotion-criteria PASS:
+1. Corpus-first ✅
+2. Distinct from 6 existing sub-archetypes ✅
+3. Mechanism articulable (4-property) ✅
+4. Variant-within-pattern (3-axis × 4-skills internal decomposition) ✅
+5. **MEDIUM confidence** (revised 2026-05-20 post-self-review; was HIGH; criterion 4 STRETCH interpretation + 2 partition outlier-risks justify MEDIUM)
+
+v85-v90 promotion-eligibility window.
+
+Proposal-document: `03 Projects/taste-skill - Beginner Analysis/01 Analysis/(C) T1-NEW-sub-archetype-Multi-Skill-Brand-Portfolio-with-Sub-Variant-Taxonomy-N1-registration.md`.
+
+### SECONDARY pattern observations (6+)
+
+1. **Pattern #19 NEW sub-mechanism 19l candidate "Munich-Solo-Founder-with-Multi-Skill-Design-Brand-Portfolio"** PROVISIONAL N=1 — distinct from 19a-19k (different geography + different methodology + different domain).
+2. **Anti-Slop-Design-Curation observation track candidate at OC layer** PROVISIONAL N=1 — framing revised 2026-05-20 post-self-review: NOT Pattern #51 sub-pole. Pattern #51 axis = vibe-coding-spectrum (PRO-VIBE-explicit ↔ Anti-vibe-with-pragmatic-acknowledgment); anti-slop is orthogonal to that axis (design-aesthetic-quality dimension, not vibe-coding-discipline dimension). Registered at OC layer for v85+ evaluation as separate Pattern OR Library-vocabulary item OR Pattern #51 axis-expansion-with-rename.
+3. **Library-vocabulary item #12 `llms.txt` N=1 → N=2 PROMOTION-ELIGIBLE strengthening** — v77 PROVISIONAL N=1 curriculum-router → v81 N=2 skill-bundle-router. PROMOTE decision at v85 audit.
+4. **Pattern #84 84c.1 N+1 strengthening at repo-stored layer** — 8-consecutive-wiki Pattern #84 84c sub-mechanism strengthening arc v71→v81 = NEW CORPUS-RECORD (extends v78 7-wiki record by 1).
+5. **Pattern #57 sub-variant 57c-product STRONG within-pattern strengthening** — 4-harness corpus-subject ecosystem citation (Claude Code v65 + Codex v62 + Cursor v75/v76 + ChatGPT Images corpus-adjacent).
+6. **Pattern #52 N=4 HIGH-NOT-EXTREME age-distribution-coverage strengthening** — 202.93/d × 90d mid-life-cycle fills age-bracket between v69 86d + v72 120d + v73 289d existing N=3 evidence.
+7. **Pattern #66 within-pattern strengthening** — 3-of-6 axes from v76 baseline (text-only + zero-telemetry + local-first); NO SECURITY.md / NO CODEOWNERS / NO Prompt Defense Baseline; meta-supply-chain-awareness sub-category evidence.
+8. **Pattern #82 within-pattern strengthening** — 4+ quantitative-marketing claims ("Anti-Slop" + "Portable Agent Skills" + "Framework-Agnostic" + dimensional spectrum + 4-harness).
+9. **Library-vocabulary item #13 (OSS-with-hosted-Pro-SaaS-tier) NEGATIVE-EVIDENCE CONTRAST** — v81 = pure-OSS-with-donations distinct from v78 ECC Pro-SaaS hybrid = sub-typology contrast strengthening.
+
+### Cross-Pattern Coupled-Design (Library-vocabulary item #9)
+
+**8+-pattern coupled-design at single wiki** — NEW T1 sub-archetype + Pattern #19 19l + Pattern #51 Anti-Slop sub-pole + Library-vocab #12 N=2 + Pattern #84 84c.1 N+1 + Pattern #57 + Pattern #52 + Pattern #66 + Pattern #82 = 8+ intersections. Matches v76's 8-pattern + below v78's 9-pattern CORPUS-RECORD.
+
+### Corpus-firsts at v81 (~8)
+
+1. Clean 4+4+4=12-skill tri-axis sub-variant taxonomy at single skill bundle.
+2. Anti-Slop framing on design-aesthetic-quality axis as orthogonal Pattern #51 sub-pole.
+3. Munich-solo-founder archetype in v60+ window.
+4. Multi-skill-brand-portfolio with `.dev` custom-domain brand-investment without paid-tier.
+5. Architectural-inversion-at-multiplicity-layer direct sister relationship (v75 ↔ v81).
+6. 12-skill `npx skills add` install granularity at single repo.
+7. `llms.txt` artifact serving skill-bundle-routing role (vs v77 curriculum-routing role).
+8. 8-consecutive-wiki Pattern #84 84c sub-mechanism strengthening arc (v71-v81 extending v78 7-wiki record).
+
+### Storm Bear meta-entity STRICT verdict
+
+| Criterion | Result | Evidence |
+|---|---|---|
+| (a) Author archetype is structural peer | **MODERATE PASS** | Leon Lin = solo-engineer with ecosystem-portfolio (104 repos + 819 followers + tasteskill.dev + GitHub Sponsors); Munich-located (NOT VN-cultural-peer); archetype-peer-with-scale-gap on "solo-with-ecosystem-portfolio at scale" axis |
+| (b) Vault-deployable for Scrum work | **STRONG PASS** | `npx skills add` installable + framework-agnostic React/Vue/Svelte + per-skill granularity = minimal-footprint trial + reversible |
+| (c) Methodology-influence-node | **STRONG PASS** | Anti-slop framing + setting-based design-spectrum + 12-skill bundle architecture + 5 routine v2.3 codification candidates contributed |
+| (d) Corpus-citation | **MODERATE PASS** | Direct sibling-product to v75 impeccable; multi-harness includes Claude Code v65 + Codex v62 + Cursor v75/v76; `llms.txt` Library-vocabulary item #12 N=2 strengthening |
+
+**Sum: 4/4 PASS → STRONGEST INCLUDE 4/4**. v81 = 5th STRONGEST in v65-v81 window with 4-of-5 clustered late-window v73-v81.
+
+### Routine v2.3 codification candidates contributed
+
+1. Multi-skill-brand-portfolio sub-archetype as formal Phase 0 distribution-axis sub-distinction.
+2. Anti-slop framing as Pattern #51 sub-pole expansion vehicle.
+3. `llms.txt` artifact-type promotion-eligibility tracking discipline.
+4. Setting-spectrum dimensional control as design-aesthetic axis-of-variation.
+5. Custom-domain brand-investment without monetization as economic-axis evidence (CONTRAST to Pro-SaaS hybrid).
+
+### v85 audit batch additions from v81 wiki
+
+- NEW T1 sub-archetype "Multi-Skill Brand Portfolio with Sub-Variant Taxonomy" first-cycle stale-check at v85 + retire-check at v90
+- Pattern #19 NEW sub-mechanism 19l first-cycle stale-check
+- Anti-Slop-Design-Curation observation track candidate first-cycle stale-check (NOT Pattern #51 sub-pole — framing revised; evaluated as separate Pattern OR Library-vocabulary OR Pattern #51 axis-expansion)
+- Library-vocabulary item #12 `llms.txt` N=2 PROMOTION decision
+- Pattern #84 84c.1 N+1 sustainability verification
+- Pattern #57 sub-variant 57c-product strengthening verification
+- Pattern #52 N=4 HIGH-NOT-EXTREME age-distribution-coverage verification
+
+### Pattern Library state after v81 wiki
+
+- **45 confirmed** / **29 active** / 1 stale / 9 retired / 6 observation-tracks → UNCHANGED
+- **Ratio 29:45 = 0.644** → UNCHANGED (10th-consecutive-wiki post-v72-audit-relief = NEW CORPUS-RECORD audit-relief sustainability)
+- OC count ~45-53 estimated (+2 from v81 PROVISIONAL N=1 registrations + 5 NEW routine v2.3 candidates at OC layer)
+- Library-vocabulary items 13 candidates UNCHANGED (with #12 N=2 PROMOTION-ELIGIBLE strengthening)
+
+### v81 corpus-records
+
+1. **NEW CORPUS-RECORD 8-consecutive-wiki Pattern #84 84c sub-mechanism strengthening arc** v71→v81 (extending v78 7-wiki record by 1)
+2. **NEW CORPUS-RECORD Storm Bear meta-entity streak 17** (extending v80's 16-record by 1)
+3. **NEW CORPUS-RECORD 10-consecutive-wiki active count UNCHANGED post-v72-audit-relief** (extending v80's 9-record by 1)
+4. **NEW CORPUS-RECORD 25-instance Phase 0.9 INCLUDE rate 92.0%** (uptick from v80's 91.7%)
+5. **NEW CORPUS-RECORD 5th STRONGEST in v65-v81 window** (4-of-5 clustered late-window v73-v81; STRONGEST ties WEAK at 5 each)
+
+### v81 self-review tightening pass (post-Phase-6, 2026-05-20)
+
+Per operator request, the v81 Phase 4b PRIMARY proposal was self-reviewed after Phase 6 vault-sync. Five substantive corrections applied:
+
+1. **Verdict downgrade HIGH → MEDIUM** — criterion 4 STRETCH (within-instance variation vs cross-instance Pattern Library convention) + 2 partition outlier-risks (soft-skill Axis A placement + brandkit Axis C placement Phase 0 unverified) justify MEDIUM, not HIGH.
+2. **§3 comparison table reframed** — honest framing is that no formal T1 sub-archetype taxonomy exists yet; the named sub-archetypes were retrospective descriptions. v81 is proposed as the FIRST formally-registered T1 sub-archetype, which strengthens (not weakens) the structural argument.
+3. **Pattern #51 sub-pole framing dropped** — anti-slop is orthogonal to vibe-coding-spectrum axis; demoted to observation track candidate at OC layer. NOT a Pattern #51 sub-pole.
+4. **Library-vocab #12 N-count corrected** — honest N=2 (v77 + v81 `llms.txt` only); HARNESSES.md + AGENTS.md are different artifact types and belong to a separate "LLM-routing-artifact" meta-category track (not item #12).
+5. **30% retire-rate statistic removed** — was unsourced; replaced with audit-retrospective flag in proposal §7 risk #2.
+
+Architectural-inversion-with-v75 framing remains intact and is the load-bearing claim. Surrounding scaffolding tightened. Audit-cycle expectation: v85 auditor should expect criterion-4 PASS to be re-evaluated and partition outlier-risks to be tested via Phase 4 SKILL.md spot-check.
+
+---
