@@ -26,48 +26,66 @@ Template duplication + 6-question interview → project folder với CLAUDE.md +
 
 **Skill reference:** `05 Skills/new-project.md`
 
-### 4. LLM Wiki Routine (autonomous orchestration) — ✅ proven 2026-04-18, **v2 codified 2026-04-19**
+### 4. LLM Wiki Routine (autonomous orchestration) — ✅ proven 2026-04-18, **v2.2 codified 2026-05-14**
 
-**Verified trong 18 projects** (v1-v18), production-stable across **16 distinct Phase 4b routing modes**.
+**Verified trong 81 projects** (v1-v81), **17 wikis under v2.2** (v66-v81 2026-05-14 → 2026-05-20) with zero amendments needed. Production-stable across **~25 distinct Phase 4b routing modes**.
 
-Routine pattern = orchestration meta-skill. User input = 1 source URL. Routine autonomous handles toàn bộ 7 phases (Pre-flight → Scaffold → Sources → Entities → Beginner Guide → Phase 4b deliverable → Iteration log → Vault updates) trong ~2h (velocity plateau 13 consecutive wikis v6-v18).
+Routine pattern = orchestration meta-skill. User input = 1 source URL. Routine autonomous handles toàn bộ 7 phases (Pre-flight → Scaffold → Sources → Entities → Beginner Guide → Phase 4b deliverable → Iteration log → Vault updates) trong ~75-180 min (velocity depends on subject complexity + corpus-firsts density; v81 = 75 min; v79 = 180 min).
 
 **Skill references:**
-- **`05 Skills/llm-wiki-routine-v2.1.md`** — **ACTIVE** (consolidated 2026-04-22 from ~205 cumulative action items across v19-v31 + v29 full audit + v30 direct updates + v31 mini-audit)
-- `05 Skills/llm-wiki-routine-v2.md` — v2 (superseded 2026-04-22, retained for history)
-- `05 Skills/llm-wiki-routine.md` — v1 (superseded 2026-04-19, retained for history)
+- **`05 Skills/llm-wiki-routine-v2.2.md`** — **ACTIVE** (consolidated 2026-05-14 from ~31 codification candidates accumulated across v60-v65 wiki ships + v66 EARLY-OPERATOR-ELECTED mini-audit + completed pilot lifecycle v3.2 hireui adversarial-review)
+- `05 Skills/llm-wiki-routine-v2.1.md` — v2.1 (superseded 2026-05-14; production-stable across v19-v65 corpus before supersession)
+- `05 Skills/llm-wiki-routine-v2.md` — v2 (PUBLIC-ARCHIVED 2026-04-29; superseded 2026-04-22; retained for history)
+- `05 Skills/llm-wiki-routine.md` — v1 (PUBLIC-ARCHIVED 2026-04-29; superseded 2026-04-19; retained for history)
 
-**Evidence:** Pattern proven 18× across 16 distinct Phase 4b routing modes. Shipped 18 wikis covering **5-tier taxonomy** (T1 Assistant N=8, T2 Service N=2, T3 Education N=1, T4 Bridge N=3, T5 Application N=3) + outside-scope. **Only T3 remains at N=1** for full 5/5 validation.
+**Evidence:** Pattern proven 81× across ~25 distinct Phase 4b routing modes. Shipped 81 wikis covering **5-tier taxonomy + outside-scope** (all 5 tiers multi-validated; T3 closed gap at v74 LLMs-from-scratch + NEW T3 sub-archetype "Educational-Book-Companion"). **17 wikis under v2.2 with zero amendments needed** = first-cycle validation clean. **Storm Bear meta-entity streak = 17 consecutive PASS post-v64-RESET** (NEW CORPUS-RECORD; 25-instance window 92.0% INCLUDE rate).
 
-**v2 changes from v1:**
-- 12-axis Phase 0 classification (archetype, lineage, methodology, governance, etc.)
-- 16-mode Phase 4b routing (vs 3 in v1)
-- Consolidation guard (blocks new wikis when candidate:confirmed > 2:1 or action-backlog > 100)
-- Pattern Library integration (Phase 5 updates `PATTERN_LIBRARY.md` directly)
-- Cross-wiki absence detection (presences AND absences as signal)
-- External URL resolution (fetch referenced catalogs/guides)
-- Branch fallback (main → master → v4 → dev on 404)
-- Storm Bear meta-entity as routine feature (9+ consecutive wikis)
-- New BLOCKED_CONSOLIDATION status
+**v2.2 changes from v2.1 (2026-05-14):**
+- **Phase 0.4 docs/ tree-listing** (v61 lesson) — explicit `docs/` directory tree fetch before individual files; avoids 404 silent-fail
+- **Phase 0 velocity-screen automation** (v63 lesson) — auto-compute stars/day for ALL incoming subjects (not only viral-routing); catches Pattern #52 qualifications at ship-time
+- **Engagement-signal sub-investigation** (v63 lesson) — capture watchers/stars + forks/stars ratios for ALL subjects; distinguishes drive-by-stars-dominant from active-deployment
+- **13th classification axis "Living-Domain-Standards Tracking"** (v64 lesson) — Phase 0 axis: does subject codify external authoritative standards with versioned/deprecation-aware discipline?
+- **Phase 0.9 SKIP entity slot reallocation** (v64 lesson) — when STRICT yields SKIP, reallocate 4th slot to Pattern Library implications; do not ship 3-entity wiki
+- **Phase 4b PRIMARY routing discipline** (v64 lesson) — pre-register at Phase 0 classification, structure Phase 3 entity pages around PRIMARY deliverable
+- **NEW Pattern candidate proposal-document discipline** (v64 lesson) — formal proposal at `01 Analysis/` for next-audit deliberation; 8 instances shipped under v2.2 (v74 + v75 + v76 + v77 + v78 + v79 + v80 + v81)
+- **Source-celebrity-derivative-distillation criteria** (v63 lesson) — codify recognition: author ≠ source individual + explicit attribution + public observations as raw material + installable artifact packaging
+- **Reference Claude Code's actual system prompts when codifying vault routines** (v65 lesson) — consult `claude-code-system-prompts` archive (v65 wiki subject) for ground-truth
+- **Pre-Phase-6 fact-verification expanded** (v63 lesson) — verify Pattern Library evidence lists current to last 3-5 wikis
+- **Pre-Phase-6 retroactive-correction-check** (v63 lesson) — formal mechanism to update prior wiki's register when retroactive correction caught
+- **1-wiki rapid-evolution detection** (v65 lesson) — log meta-observation as Library-vocabulary candidate when N+1 wiki evolves N wiki's pattern
+- **Cross-archetype N-counting as separate dimension from cross-tier** (v63 lesson) — Pattern #21 promotion via N=4 cross-archetype demonstrates counting dimension distinct from N=4 cross-tier
+- **Un-stale 3-step arc** (v63 lesson) — lineage-test → independence-test → promotion sequence
+- **Strengthen-over-discover discipline streak metric** (v63 lesson) — track ZERO-NEW-ACTIVE-CANDIDATES streak as health metric
+- **Pattern #51 sub-pole "Anti-vibe-with-pragmatic-acknowledgment"** (v61+v63 counter-evidence narrowing scope)
+- **EXTREME-VIRAL sub-archetype 3-axis discipline** (v63 lesson) — register sub-archetypes 52a/52b/52c alongside top-level Pattern #52
+- **EARLY-OPERATOR-ELECTED mini-audit class** (v63 lesson) — 4th mini-audit class alongside CONSERVATIVE-DISCIPLINE / STRENGTHENING-DOMINANT / EXTENDED
+- **Library-vocabulary item #9 cross-pattern coupled-design** (v60-v65 baseline; N=5+ at v65; CORPUS-RECORD 9-pattern at v78)
+- **Library-vocabulary item #10 1-wiki rapid-pattern-evolution observational track** (v62→v63 Pattern #76 + v64→v65 Pattern #78 = N=2 TIED FASTEST cycles)
+- **4 NEW anti-patterns added** — skip Phase 0 velocity-screen / defer NEW Pattern candidate proposal-document / skip Phase 0.9 SKIP entity slot reallocation / re-derive Claude Code prompt envelope from memory
 
-**v2.1 changes from v2 (2026-04-22):**
-- **5 structural-promotion criteria** (up from 2): default ≥3-cross-tier / structural-N=2 / spectrum-N=2 / variant-within-pattern-N=2 / **meta-pattern-at-N=3-consolidation**
-- **4 new Pattern Library mechanisms:** OBSERVATION-TRACK sub-category / absorption-retirement / un-stale mechanism / counter-evidence-driven refinement
-- **Audit cadence reform:** mini-audit at 0.95:1 / full audit at 1.05:1 (replaces v2's >1:1 trigger)
-- **Mini-audit protocol** codified as reusable routine (validated v31)
-- **Pre-registration overlap pre-check** (>70% overlap → reject/consolidate)
-- **Consolidation-forward registration discipline** (register meta-pattern not 3rd standalone)
-- **N=1 stale-risk-flagging at registration**
-- **Storm Bear meta-entity per-wiki evaluation** (not blanket obligation since v29)
-- **Supply-chain awareness protocol** (Pattern #66 transitive trust-boundary framing)
-- **Fact-verification protocol** (pre-Phase-6 numbered-pattern re-check; v31 lesson)
-- **Operator-facing backlog discipline** (escalate deferred vault actions at 5+ sessions)
-- **Stream-timeout resume protocol** (delegated builds can resume from partial completion; v31 validated)
-- **Phase 4b routing modes expanded** from 16 to ~25 (added: tier-completion-milestone / counter-evidence-refinement / un-stale-mechanism / meta-pattern-consolidation / protocol-directory-meta-reference / etc.)
-- **Ratio notation clarified:** ratio = active/confirmed; lower is healthier
-- Velocity plateau preserved: 26 consecutive wikis at ~2h (v6-v31)
+**Routine v2.3 codification backlog (post-v81):** ~33 candidates accumulated across v66→v81 (target codification at ~v85-v90 natural cadence). Key items: sub-archetype proposal-document discipline as Phase 4b vehicle / corpus-recursive anchor revisitation policy / honest-self-review tightening pass post-Phase-6 (v81 first instance) / Storm Bear (a) axis 5-distinct-sub-criterion-calls (VN-located + VN-diaspora + VN-locale-inclusive + Chinese-handle-inferred + community-org PROBABLE-PASS) / criterion-stretching discipline (v81 criterion-4 within-instance-variation stretch lesson) / multi-skill-brand-portfolio Phase 0 distribution-axis sub-distinction / 8-pattern coupled-design as new corpus-record-condition.
 
-**Khi dùng:** User nói "LLM wiki cho <URL>" → invoke v2.1 routine, autonomous execute. Consolidation guard (with reformed cadence) runs first.
+**v2.1 changes from v2 (2026-04-22, historical):**
+- 5 structural-promotion criteria (up from 2)
+- 4 new Pattern Library mechanisms (OBSERVATION-TRACK sub-category / absorption-retirement / un-stale mechanism / counter-evidence-driven refinement)
+- Audit cadence reform (mini at 0.95:1 / full at 1.05:1)
+- Pre-registration overlap pre-check (>70% overlap → reject/consolidate)
+- Consolidation-forward registration discipline
+- Storm Bear meta-entity per-wiki evaluation (not blanket obligation)
+- Supply-chain awareness protocol (Pattern #66)
+- Fact-verification protocol
+- Operator-facing backlog discipline
+- Stream-timeout resume protocol
+- Phase 4b routing modes expanded from 16 to ~25
+- Ratio notation clarified (active/confirmed; lower is healthier)
 
-**Meta-insight:** Routines compound differently than skills. Skill = knowledge. Routine = execution automation. v2 is the product of 18 wikis × 102+ action items consolidated into operational protocol.
+**v2 changes from v1 (2026-04-19, historical):**
+- 12-axis Phase 0 classification + 16-mode Phase 4b routing
+- Consolidation guard + Pattern Library integration + Cross-wiki absence detection
+- External URL resolution + Branch fallback + Storm Bear meta-entity feature
+- BLOCKED_CONSOLIDATION status
+
+**Khi dùng:** User nói "LLM wiki cho <URL>" → invoke v2.2 routine, autonomous execute. Consolidation guard (with v2.1 reformed cadence + v2.2 expansions) runs first.
+
+**Meta-insight:** Routines compound differently than skills. Skill = knowledge. Routine = execution automation. v2.2 is the product of 81 wikis × ~31 v60+ codification candidates consolidated into operational protocol. Phase 4b PRIMARY proposal-document discipline (introduced at v64; matured across v74-v81 with 8 formal proposals shipped) is the highest-leverage v2.2 addition.
 
