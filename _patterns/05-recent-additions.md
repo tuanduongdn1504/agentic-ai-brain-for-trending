@@ -3413,3 +3413,114 @@ Proposal-document: `03 Projects/huashu-design - Beginner Analysis/01 Analysis/(C
 - Library-vocab "Visual Directions Taxonomy" N=2 PROMOTION decision
 - Pattern #52 NEW CORPUS-RECORD per-day-rate at pulse-class verification
 - 60-day velocity-sustenance watch for Multi-Month-Sustained EXTREME-VIRAL N=2 candidate
+
+## v84 neilsonnn/image-blaster wiki strengthening block (2026-05-21) — FIRST OPERATOR-ELECTED PHASE 0.9 OVERRIDE
+
+**Wiki:** v84 neilsonnn/image-blaster — TWENTIETH WIKI UNDER ROUTINE v2.2 + **FIRST OPERATOR-ELECTED PHASE 0.9 OVERRIDE in routine v2.2 window**. T1 Assistant Skill / creative-tech-vertical (image-to-3D-world). Solo SF indie creative-tech developer Neilson K-S; 3.8K stars / 30 days at ~128/d.
+
+**Counts pre/post wiki:** 45 confirmed / 29 active / 0.644 ratio UNCHANGED (sub-archetype + sub-mechanism + Library-vocab PROVISIONAL N=1 candidates only at v84 ship); active count 29 maintained 13th-consecutive-wiki post-v72-audit-relief = NEW CORPUS-RECORD audit-relief sustainability EXTENDED by 1 wiki.
+
+### PRIMARY 1 (Phase 4b deliverable): Operator-Elected Phase 0.9 Override Policy registration
+
+**Trigger event**: Phase 0.9 STRICT 4-criterion check returned **0 clear PASS**:
+- (a) Author archetype peer: WEAK (Neilson SF creative-tech vs Storm Bear VN Scrum coach)
+- (b) Vault-deployable: FAIL (creative-tech vertical not Scrum-applicable)
+- (c) Methodology-influence-node: WEAK → PROBABLE-PASS-post-settings.json-discovery
+- (d) Corpus-citation: FAIL (no v60+ corpus subjects cited)
+
+= 0 clear PASS + 1 WEAK + 1 PROBABLE-PASS-on-revision → SKIP under strict interpretation.
+
+**Operator-elected force-build override invoked 2026-05-21** with honest framing throughout all artifacts. FIRST OVERRIDE in routine v2.2 19-PASS streak window.
+
+**Override policy proposal (routine v2.3 codification candidate)**:
+- Override-trigger conditions (when to invoke / when NOT to invoke)
+- Override-artifact-trail discipline (CLAUDE.md block + index notice + log statement + per-entity reference + Phase 4b proposal + Phase 5 dissent)
+- Streak treatment options:
+  - **B1 RESET**: v84 = NOT PASS; counter resets; preserves 19-consecutive-PASS history at v83
+  - **B2 streak-with-override-asterisk** (RECOMMENDED): "19+1*" notation; preserves momentum + integrity
+  - **B3 verdict-launder** (NOT RECOMMENDED): retroactive (c) PASS; performative
+- Override-frequency threshold: 2-in-20 window → v2.3 Phase 0.9 redesign trigger; 3-in-30 → immediate audit
+
+**Filing decision RECOMMENDED for v85 audit**:
+- Register override-policy as Library-vocab item PROVISIONAL N=1
+- Adopt Option B2 streak-with-override-asterisk notation
+- Track override-frequency (v84 = 1; threshold not approached)
+
+### PRIMARY 2: NEW T1 sub-archetype "Linear-Workflow-Pipeline Skill Bundle" PROVISIONAL N=1
+
+**Definition** (5-property): explicit run-order + workflow-orchestration sub-skill + state-propagation-via-JSON-files + provider-abstraction with explicit parameter shape + atomic-unit discipline at sub-skill granularity.
+
+**v84 evidence**: 8-skill ordered pipeline (project → plate → uncover → world → 3d → sfx → image-edit → wildcard) with `image-blast-project` as workflow-orchestration sub-skill ("Use before other image-blast skills" + downstream-recommendation logic) + state files project.json/scene.json/image.json/object.json + 2-provider switch at image-blast-3d (Hunyuan default + Meshy alt with distinct param taxonomies) + atomic-unit discipline at image-blast-3d ("atomic object creation — excluding pairs, clusters, or adjacent items") + subtractive prompt synthesis at image-blast-world (clean-plate caption = original scene MINUS confirmed removed objects).
+
+**Distinct from prior 4 T1 sub-archetypes**: v75 single-skill-multi-harness / v81 multi-skill-brand-portfolio / v82 monolithic-single-SKILL.md / v83 OSS-Alternative-to-Vendor-Product.
+
+**Promotion criteria**: 1 corpus-first PASS + 2 mechanism-distinction PASS + 3 N≥2 PENDING (N=1 at v84; v90 stale-check) + 4 variant-within-pattern STRETCH + 5 HIGH-confidence PASS. PROVISIONAL N=1.
+
+### SECONDARY pattern observations
+
+1. **CORPUS-FIRST per-skill `Skill(name)` allowlist syntax** at settings.json scope (all 8 image-blast skills enumerated in `permissions.allow` array)
+2. **CORPUS-FIRST 2-hook SessionStart + UserPromptSubmit combination** at project-CLAUDE.md scope (setup-check.sh + input-check.sh)
+3. **CORPUS-FIRST tight Bash-scoping discipline** (8 specific Bash entries; no broad `Bash(*)`)
+4. **CORPUS-FIRST Bun-primary packaging in v60+ window candidate** (bun.lock 114KB + Bash allowlist permits `bun install:*` + `bun run dev:*`; pending v60-v83 packaging-tool taxonomy verification at v85 audit)
+5. **CORPUS-FIRST creative-tech-vertical T1 skill in v60+ window** (image-to-3D-world for game-dev/VFX/arch-viz; not design-language)
+6. **CORPUS-FIRST 4-external-service multi-vendor BYOK at asset-generation layer (non-LLM)**: World Labs + FAL + ElevenLabs + image-edit-providers; Library-vocab "Multi-Vendor BYOK at Asset-Generation Layer (Non-LLM)" PROVISIONAL N=1
+7. **CORPUS-FIRST workflow-orchestration sub-skill pattern** (`image-blast-project` as entry-point + state-manager + downstream-recommender role)
+8. **CORPUS-FIRST state-propagation-via-JSON-files convention** (project.json + scene.json + image.json + object.json schema)
+9. **CORPUS-FIRST SF-located solo indie creative-tech developer subject in v60+ window**; Pattern #19 NEW sub-mechanism "SF-Indie-Creative-Tech-Solo-Developer-with-Personal-Domain-and-Game-Vertical" PROVISIONAL N=1
+10. **Library-vocab "Subtractive Prompt Synthesis Pattern"** PROVISIONAL N=1 (from world-skill clean-plate-by-subtraction)
+11. **Library-vocab "Atomic-Unit Skill Discipline"** PROVISIONAL N=1 (from 3d-skill atomic-object discipline)
+12. **Pattern #84 84c.1 NEGATIVE-evidence contrast** — 1-harness Claude-Code-only deliberate-narrowness (lowest harness count in v60+ T1 skill cluster; vs v83's 16-harness CORPUS-RECORD)
+13. **Pattern #52 SUSTAINED-MODERATE-HIGH sub-class N strengthening** (~128/d × 30d at 25-150/d band; joins v77 91.7/d + v82 mid-window comparison)
+14. **Pattern #66 STRONG within-pattern strengthening at agent-runtime permission + hook layer** (3 CORPUS-FIRST sub-mechanism candidates contributed)
+
+### Storm Bear meta-entity verdict
+
+**0 clear PASS + 1 WEAK + 1 PROBABLE-PASS-on-revision = OVERRIDE INCLUDE** (NOT a streak extension).
+
+**Streak**: 19 PASS (v65-v83) + 1 OVERRIDE (v84) = **"19+1*"** notation (Option B2 RECOMMENDED at v85 audit).
+
+**Strength distribution v65-v84**: STRONGEST × 7 + STRONG × 4 + MODERATE × 4 + WEAK × 5 + **OVERRIDE × 1 NEW category**.
+
+**INCLUDE rate**: 28-instance window v57-v84 with OVERRIDE counted as INCLUDE = 26 PASS / 2 SKIP / 1 OVERRIDE = 92.9% (uptick from v83's 92.6%); strict 3-category alternative: 26 PASS / 2 SKIP / 1 OVERRIDE as distinct categories.
+
+### Routine v2.3 codification candidates contributed by v84 (12 items)
+
+1. Operator-Elected Phase 0.9 Override Policy with Explicit-Document-Trail
+2. Streak-with-override-asterisk notation
+3. Override-frequency threshold (2-in-20 / 3-in-30) as v2.3-trigger
+4. NEW T1 sub-archetype "Linear-Workflow-Pipeline Skill Bundle"
+5. Workflow-orchestration sub-skill role
+6. State-propagation-via-JSON-files convention
+7. CORPUS-FIRST per-skill `Skill(name)` allowlist syntax discipline
+8. CORPUS-FIRST 2-hook SessionStart + UserPromptSubmit combination discipline
+9. CORPUS-FIRST tight Bash-scoping discipline
+10. Library-vocab "Multi-Vendor BYOK at Asset-Generation Layer (Non-LLM)"
+11. Library-vocab "Subtractive Prompt Synthesis Pattern"
+12. Library-vocab "Atomic-Unit Skill Discipline"
+
+### Honest dissent / cluster-bias awareness
+
+- **v84 should NOT be normalized as INCLUDE precedent**. Override is controlled exception; if used routinely, Phase 0.9 STRICT becomes performative.
+- **12 corpus-firsts at 0-PASS subject is HIGH** — some are ad-hoc-coined (e.g., "SF-located solo creative-tech") rather than naturally-emerging. v85 audit pressure-test required.
+- **8 routine v2.3 codification candidates from settings.json + hooks + Bun-primary + linear-pipeline observations are genuine** — would stand even if Phase 0.9 STRICT had PASSED through other axes.
+- **Streak treatment matters more than override aesthetics**. v85 audit must commit to B2 notation discipline to set precedent.
+- **Override-frequency threshold** = v84 = 1 in window; threshold 2-in-20 / 3-in-30 not yet approached. Track.
+
+### Vault pilot ranking
+
+**v84 = NOT a vault pilot candidate** (creative-tech vertical not Scrum-applicable; corpus-knowledge-only tier joins v63 + v74 + v75 + v77 + v79 + v80 + v81). Pilot ranking unchanged from post-v83.
+
+### v85 audit batch additions from v84 wiki
+
+- Operator-Elected Phase 0.9 Override Policy administrative registration (Library-vocab PROVISIONAL N=1)
+- Streak treatment decision (B1 RESET / B2 streak-with-override-asterisk / B3 verdict-launder; RECOMMENDED B2)
+- Override-frequency threshold tracking (v84 = 1; threshold 2-in-20 / 3-in-30)
+- NEW T1 sub-archetype "Linear-Workflow-Pipeline Skill Bundle" first-cycle stale-check at v90
+- 3 CORPUS-FIRST settings.json sub-mechanism candidates first-cycle stale-checks (per-skill allowlist + 2-hook + tight-Bash)
+- Library-vocab "Multi-Vendor BYOK at Asset-Generation Layer (Non-LLM)" first-cycle stale-check
+- Library-vocab "Subtractive Prompt Synthesis Pattern" first-cycle stale-check
+- Library-vocab "Atomic-Unit Skill Discipline" first-cycle stale-check
+- Pattern #19 NEW sub-mechanism "SF-Indie-Creative-Tech-Solo-Developer" first-cycle stale-check
+- Bun-primary CORPUS-FIRST verification (audit v60-v83 packaging-tool taxonomy)
+- 12-corpus-firsts pressure-test (flag ad-hoc-coined frames; downgrade where appropriate)
+- Pattern #66 within-pattern formal sub-mechanism registration consideration (3 NEW candidates from v84 settings.json layer)
