@@ -3279,3 +3279,137 @@ Proposal-document: `03 Projects/huashu-design - Beginner Analysis/01 Analysis/(C
 7. **NEW CORPUS-RECORD first all-STRONG STRONGEST verdict in v65-v82 window**
 
 ---
+
+## v83 nexu-io/open-design wiki strengthening block (2026-05-21)
+
+**Wiki:** v83 nexu-io/open-design — NINETEENTH WIKI UNDER ROUTINE v2.2; 4th design-skill in T1 cluster in 8-wiki window v75→v81→v82→v83; CORPUS-FIRST organization-owner in T1 design-skill cluster (nexu indie org); CORPUS-FIRST 3-vector multi-tier corpus-recursive citation density at single subject.
+
+**Counts pre/post wiki:** 45 confirmed / 29 active / 0.644 ratio UNCHANGED (sub-archetype + sub-variant + sub-mechanism + Library-vocab candidates only at v83 ship; PROMOTION-LOCKED-IN deferred to v85 audit administrative); OC count grows by NEW T1 sub-archetype + Pattern #57 57i + Pattern #19 19m + 4 Library-vocab candidates = ~51-62 OCs.
+
+### PRIMARY (Phase 4b deliverable): Anti-Slop-Design-Curation observation track N=3 PROMOTION-LOCKED-IN with machinery sub-typology
+
+**3-instance arc**:
+- **v81 taste-skill** (N=1, sub-typology a "framing-anchor"): tagline *"The Anti-Slop Frontend Framework for AI Agents"*; framing-only at PRIMARY positioning layer; no named-rules section; no enforcement machinery
+- **v82 huashu-design** (N=2, sub-typology b "named-rules-with-enumeration"): named section *"Anti AI-slop Rules"* in SKILL.md; CSS-technique enumeration (text-wrap pretty + CSS Grid + serif display + oklch) + cliché enumeration (purple gradients + emoji icons + rounded corners + SVG silhouettes); specification-layer, not enforcement-layer
+- **v83 open-design** (N=3 PROMOTION-LOCKED-IN, sub-typology c "machinery-with-enforcement"): named section *"Anti-AI-slop machinery"* (README section 19); P0/P1/P2 gates *"the agent must pass P0 before emitting"*; explicit forbidden-list *"invented metrics, generic emoji icons"*; Honest-placeholders-over-fake-stats discipline; Anti-AI-slop checklist; Five-dim critique post-emission rubric (Philosophy + Hierarchy + Detail + Function + Innovation)
+
+**Sub-typology taxonomy registered**: 83a framing-anchor + 83b named-rules-with-enumeration + 83c machinery-with-enforcement — escalating implementation-granularity arc (framing-only → named-rules → runtime-enforcement) = clean monotonic depth-of-implementation increase across 3 consecutive wikis.
+
+**3-instance arc in 2 calendar days** (v81 2026-05-20 + v82 2026-05-21 + v83 2026-05-21) = ties Pattern #83 83f sub-mechanism arc-speed CORPUS-RECORD set at v77.
+
+**Critical orthogonality (recorded at v81 self-review, carried through v82 + v83)**: Anti-Slop axis is ORTHOGONAL to Pattern #51 vibe-coding-spectrum. CO-EXISTENT framings at v82 + v83 (PRO-VIBE + Anti-Slop simultaneously) provide empirical orthogonality validation.
+
+**5-of-5 promotion criteria PASS HIGH-confidence verdict**: criterion 1 corpus-first + criterion 2 cross-instance recurrence at N≥3 + criterion 3 mechanism distinction from prior patterns + criterion 4 variant-within-pattern + criterion 5 HIGH-confidence verbatim evidence in all 3 subjects.
+
+**Filing decision RECOMMENDED Option A — NEW top-level Pattern at v85 audit administrative-only** (honors v81 orthogonality framing-revision rejecting Pattern #51 sub-pole status).
+
+**Proposal-document**: `03 Projects/open-design - Beginner Analysis/01 Analysis/(C) Anti-Slop-Design-Curation-N3-PROMOTION-LOCKED-IN-with-machinery-sub-typology.md`
+
+### SECONDARY pattern observations (11+ pattern intersections at single wiki = STRONG candidate for NEW CORPUS-RECORD)
+
+1. **Pattern #57 NEW sub-variant 57i candidate "Multi-Tier Corpus-Recursive Citation Density at Single Subject"** PROVISIONAL N=1 — v83 = CORPUS-FIRST 3-vector simultaneity: (1) v83 BUNDLES `skills/taste-skill/` from v81 + (2) v83 CITES v82 "Junior-Designer workflow borrowed from huashu-design" verbatim + (3) v83 POSITIONS as alternative-to Anthropic Claude Design anchor product. Distinct from prior 57e Multi-Source-Derivative-Attribution-Chain via NOTICE.md + 57f Corpus-Recursive-Anchor-Self-Reference + 57g Second-Order-Derivative-Chain via intermediate-adapter + 57h Reverse-Engineering-of-Anchor-Corpus-Foundation-Product.
+
+2. **Pattern #57 sub-variant 57e N=2 STRENGTHENING** (Multi-Source-Derivative-Attribution-Chain) — v75 NOTICE.md 2-source anchor + v83 inline-attribution bundled-MIT-components-in-tree at multi-skill layer = sub-variant strengthened to N=2 across distinct mechanism-layers.
+
+3. **Pattern #84 84c.1 N+1 strengthening + NEW CORPUS-RECORD 16-harness multi-target distribution** — exceeds v75's 14-harness prior record by 2; **10-consecutive-wiki Pattern #84 84c arc v71→v83 = NEW CORPUS-RECORD** extending v82's 9-wiki record by 1.
+
+4. **HIGHEST corpus-subject-citation count within single harness-list in routine v2.2 window** — 7 corpus subjects cited (Claude Code v65 + Codex v62 + Cursor v75/v76 + OpenCode v67 + Hermes v78 + Mistral Vibe v79 + DeepSeek TUI v72).
+
+5. **NEW T1 sub-archetype "OSS-Alternative-to-Vendor-Product with Multi-Distribution Stack"** PROVISIONAL N=1 — distinct from v75 single-skill-multi-target + v81 multi-skill-brand-portfolio + v82 single-skill-multi-target-with-reverse-engineering.
+
+6. **Pattern #19 NEW sub-mechanism 19m candidate "indie-org-AI-coworker-stack-with-movement-framing"** PROVISIONAL N=1 — nexu org-scale + "our skills" team-perspective + "We don't ship an agent. Yours is good enough" community-movement positioning; distinct from prior solo-developer sub-mechanisms 19a-19l.
+
+7. **Pattern #51 PRO-VIBE-explicit sub-pole N=3 strengthening** at solo-influencer + community-org + indie-org sub-scopes (v77 community-org + v82 solo-influencer + v83 indie-org-with-`vibe-coding`-topic).
+
+8. **Pattern #52 NEW CORPUS-RECORD per-day-rate at pulse-class** — 2,093.1/d × 23d exceeds v68 zero 1,050/d × 2d + v82 huashu-design 452.4/d × 32d at pulse-window comparison; below v78 ECC 1,535/d × 122d at sustained-class; 60-day velocity-sustenance watch for Multi-Month-Sustained EXTREME-VIRAL N=2 candidate (v78 ECC's class) noted at v85 audit.
+
+9. **Pattern #78 STRONGEST single-subject LDS-tracking density** — 31-skill + 72-system + 5-direction + 93-media + AGENTS.md skill-router + multi-locale + Six-load-bearing-ideas + Five-dim critique + P0/P1/P2 gates = >200-element codification challenging v76 259-skill at multi-axis layer.
+
+10. **Pattern #82 STRONGEST quantitative-marketing density** — 10+ claims in README first 25 lines.
+
+11. **Pattern #66 STRONGEST within-pattern in T1 design-skill cluster** — 5-of-6 axes from v76 baseline + 2 NEW axes (Electron sandboxed-renderer + sidecar IPC supply-chain isolation + BYOK every-layer).
+
+12. **Pattern #45 within-pattern bundled-multi-license attribution discipline** — Apache-2.0 root + bundled-MIT components retained in-tree at multi-skill layer; distinct from v75 NOTICE.md 2-source single-skill layer.
+
+13. **Library-vocabulary candidate "4-Distribution-Method Matrix at single subject"** PROVISIONAL N=1 — source install + Docker + Desktop Electron + Vercel-deploy at single T1 design-skill subject vs prior 1-method-each.
+
+14. **Library-vocabulary candidate "Local-First + BYOK-at-Every-Layer Economic Model"** PROVISIONAL N=1 — Anthropic + OpenAI + Azure + Gemini + Ollama + OpenAI-compatible BYOK proxy + zero direct monetization.
+
+15. **Library-vocabulary candidate "Visual Directions Taxonomy"** N=2 strengthening with v81 Axis A aesthetic-variants — Editorial Monocle + Modern Minimal + Tech Utility + Brutalist + Soft Warm = 5-direction taxonomy.
+
+16. **Library-vocabulary candidate "CO-EXISTENT framing axes within single subject as orthogonality-validation evidence"** N=2 STRENGTHENING — v82 + v83 = 2-instance CO-EXISTENT corpus-record (Pattern #51 PRO-VIBE + Anti-Slop coexisting); v85 PROMOTION-ELIGIBLE.
+
+17. **Library-vocabulary item #12 LLM-routing artifacts N strengthening** — v83 `skills/AGENTS.md` (2,717 bytes) skill-router joins v75 HARNESSES.md + v76 AGENTS.md + v77 llms.txt + v81 llms.txt artifact-type cluster.
+
+### Storm Bear meta-entity verdict
+
+**STRONGEST INCLUDE 4/4** with (c)(d) STRONGEST + (a) MODERATE + (b) STRONG = 2-criteria-STRONGEST verdict (first 2-criteria-STRONGEST at (c)(d) since v76 all-4-STRONGEST in v65-v83 window).
+
+- **(a) MODERATE PASS**: nexu indie-org-scale (3-mo-old + 15 repos + 721 followers + customer-support email) at small-indie-org-building-AI-developer-stack archetype-peer axis; CORPUS-FIRST organization-owner in T1 design-skill cluster
+- **(b) STRONG PASS**: 4-distribution-method matrix + BYOK + local-first + 31 skills + 72 design systems + 93 media prompts span Scrum-board overlays + sprint-report PDFs + retrospective videos + presentation decks + brand-style work + reversible via uninstall
+- **(c) STRONGEST PASS**: Anti-AI-slop machinery + P0/P1/P2 gates + Five-dim critique + Six load-bearing ideas + Junior-Designer workflow + Senior-designer-with-working-filesystem + BYOK discipline + Honest-placeholders + 8+ routine v2.3 codification candidates contributed
+- **(d) STRONGEST PASS**: 3-vector multi-tier corpus-recursive citation density CORPUS-FIRST + 16-harness with 7 corpus-subject citations HIGHEST in routine v2.2 window + Pattern #57 STRONGEST evidence at maximum-multi-tier-depth in corpus history
+
+**Streak**: v83 extends Storm Bear meta-entity streak from 18 (v65-v82) → **19 consecutive PASS post-v64-RESET = NEW CORPUS-RECORD extension by 1 wiki**. **3-consecutive STRONGEST at v81 + v82 + v83 = NEW CORPUS-RECORD STRONGEST-streak**.
+
+**Strength distribution v65-v83** (19 wikis): STRONGEST × 7 + STRONG × 4 + MODERATE × 4 + WEAK × 5 — STRONGEST now LEADS spectrum (was WEAK × 5 tie set at v81).
+
+**INCLUDE rate**: 27-instance Phase 0.9 post-amendment window v57-v83 = 25 PASS / 2 SKIP = **92.6%** (uptick from v82's 92.3%).
+
+### Corpus-firsts at v83 wiki (~15 = matches v78 + v79 14-record top single-wiki count tier)
+
+1. 3-vector multi-tier corpus-recursive citation density at single subject
+2. Organization-owner in T1 design-skill cluster (nexu vs prior 3 solo-developer)
+3. 16-harness multi-target distribution (exceeds v75 14-harness prior record)
+4. 4-distribution-method matrix at single T1 design-skill subject
+5. NEW CORPUS-RECORD per-day-rate at pulse-class (2,093.1/d × 23d)
+6. 13-locale i18n CORPUS-RECORD-TIE with v77 (English-primary vs Chinese-primary distinction)
+7. 10-consecutive-wiki Pattern #84 84c arc v71→v83
+8. Electron sandboxed-renderer + sidecar IPC supply-chain isolation in T1 design-skill cluster
+9. BYOK-at-every-layer + zero-monetization economic model
+10. 3-consecutive STRONGEST Storm Bear streak v81+v82+v83
+11. Anti-Slop track sub-typology c "machinery-with-enforcement" anchor
+12. Apache-2.0 + bundled-MIT-components retained in-tree multi-license attribution at multi-skill layer
+13. 31-skill README claim vs ~280+ skills/ tree (featured-vs-leaf-skill-count discrepancy)
+14. 2-custom-domain split with org-brand + product-brand axis (nexu.io + open-design.ai)
+15. HIGHEST corpus-subject-citation count within single harness-list (7 corpus subjects)
+
+### Pilot ranking adjustment
+
+**v83 open-design vault pilot candidacy**: **CONDITIONAL Tier-1 actionable IF Storm Bear has UI/design work planned in next 30-day window**.
+
+**Pilot ranking insertion at position #5**: cc-switch #1 / agent-skills-standard #2 / ECC v78 #3 fenced-scope / taste-skill #4 / **open-design #5 NEW v83** / huashu-design #6 / codegraph #7 / agents-best-practices #8 / agentmemory #9.
+
+**Rationale for position #5**: Electron desktop app + 280+ skill bundle + 4-distribution-method choice = larger surface than taste-skill #4. Cost-of-trial higher. BYOK reduces lock-in risk but increases setup-complexity. Recommended sequence: taste-skill #4 pilot first → if successful, escalate to open-design #5 pilot.
+
+### Routine v2.3 codification candidates contributed by v83 (8 new items)
+
+1. Multi-tier corpus-recursive citation density discipline (Pattern #57 sub-variant 57i registration discipline)
+2. Organization-as-T1-design-skill-owner archetype Phase 0.9 (a) inference-tolerant axis-call discipline
+3. 4-distribution-method matrix as Phase 0 artifact-type distinction
+4. BYOK-at-every-layer economic-model artifact registration
+5. 16-harness count axis Pattern #84 84c.1 CORPUS-RECORD migration tracking discipline
+6. Anti-Slop-Design-Curation as PROMOTION-LOCKED-IN observation track promotion-trigger discipline (3-consecutive-wiki sub-typology arc as promotion-trigger)
+7. CO-EXISTENT framing axes within single subject as orthogonality-validation evidence (Library-vocab discipline)
+8. Apache-2.0 + bundled-MIT-components in-tree as multi-license attribution sub-discipline at multi-skill layer
+
+### Honest dissent / cluster-bias awareness
+
+- v83 wiki pattern coupled-design density is HIGH (11+ pattern intersections). Risk: pattern-stretching where every observation gets coupled to N+1 patterns. v85 audit should pressure-test which couplings are durable vs reactive.
+- Anti-Slop track 3-instance arc concentrated in T1 design-skill cluster across 2 calendar days. v85 audit should evaluate stale-check at non-design-skill subjects to confirm track endurance vs transient cluster-effect.
+- Phase 0.9 (a) MODERATE PASS for nexu indie-org is the weakest evidence in 4/4 STRONGEST verdict. If next wiki's organization-owner subject is more clearly Storm-Bear-peer scale, this MODERATE upgrades to STRONG retrospectively.
+
+### v85 audit batch additions from v83 wiki
+
+- Anti-Slop-Design-Curation observation track N=3 PROMOTION-LOCKED-IN administrative filing (Option A NEW top-level Pattern recommended)
+- Sub-typology a/b/c taxonomy formalization
+- NEW T1 sub-archetype "OSS-Alternative-to-Vendor-Product with Multi-Distribution Stack" first-cycle stale-check
+- Pattern #57 NEW sub-variant 57i first-cycle stale-check
+- Pattern #19 NEW sub-mechanism 19m first-cycle stale-check
+- Pattern #84 84c.1 10-wiki arc sustainability verification
+- Library-vocab "4-Distribution-Method Matrix" first-cycle stale-check
+- Library-vocab "Local-First + BYOK-at-Every-Layer" first-cycle stale-check
+- Library-vocab "CO-EXISTENT framing axes" N=2 PROMOTION decision
+- Library-vocab "Visual Directions Taxonomy" N=2 PROMOTION decision
+- Pattern #52 NEW CORPUS-RECORD per-day-rate at pulse-class verification
+- 60-day velocity-sustenance watch for Multi-Month-Sustained EXTREME-VIRAL N=2 candidate
