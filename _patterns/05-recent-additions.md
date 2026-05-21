@@ -3165,3 +3165,117 @@ Per operator request, the v81 Phase 4b PRIMARY proposal was self-reviewed after 
 Architectural-inversion-with-v75 framing remains intact and is the load-bearing claim. Surrounding scaffolding tightened. Audit-cycle expectation: v85 auditor should expect criterion-4 PASS to be re-evaluated and partition outlier-risks to be tested via Phase 4 SKILL.md spot-check.
 
 ---
+
+## v82 alchaincyf/huashu-design wiki strengthening block (2026-05-21)
+
+**Subject**: `alchaincyf/huashu-design` — 花叔 / Huasheng (Hua Shu) — *"Type. Hit enter. A finished design lands in your lap."* + *"HTML-native design skill for Claude Code"*
+**Routine v2.2 wiki count**: EIGHTEENTH execution
+**Metadata**: 14,478 stars / 1,965 forks / 71 subscribers / 5 open issues / 32 days at fetch / MIT (relicensed 2026-05-14) / HTML primary / 222MB heavy-assets repo / huasheng.ai + bookai.top dual-custom-domain / no GitHub Sponsors observed
+**Storm Bear meta-entity verdict**: STRONGEST INCLUDE 4/4 (all-STRONG; first all-STRONG verdict in v65-v82 window; streak=18 NEW CORPUS-RECORD; 26-instance window 92.3% INCLUDE rate)
+
+### Phase 4b PRIMARY proposal
+
+**Anti-Slop-Design-Curation observation track N=2 STRENGTHENING + corpus-first PRO-VIBE + Anti-Slop CO-EXISTENT framing within same subject as orthogonality-validation evidence for v81 framing-revision** — PROMOTION-ELIGIBLE at v85 audit with MEDIUM-HIGH confidence.
+
+4-property observation track operational definition:
+1. Explicit anti-slop terminology (subject uses "slop"/"AI-slop"/equivalent in product positioning or methodology section)
+2. Design-aesthetic-quality axis (anti-slop framing applies to visual/design/UI quality specifically, not anti-vibe-coding at methodology layer)
+3. Counterposition to default LLM aesthetics
+4. Implementation-level OR framing-level evidence
+
+**2-instance evidence**:
+- v81 taste-skill (2026-05-20): PROVISIONAL N=1 — Anti-Slop as PRIMARY positioning frame ("The Anti-Slop Frontend Framework for AI Agents"); framing-level evidence only.
+- v82 huashu-design (2026-05-21): N=2 STRENGTHENING — named "Anti AI-slop Rules" methodology mechanic + CSS-technique enumeration (`text-wrap: pretty` + CSS Grid + serif display faces + `oklch`) + cliché enumeration (purple gradients + emoji icons + rounded corners with left borders + SVG silhouettes); framing+implementation evidence.
+
+**Granularity escalation between v81 → v82** = stronger N=2 strengthening than typical equal-granularity 2-instance pairing.
+
+**Corpus-first orthogonality-validation co-finding**: v82 simultaneously positions as PRO-VIBE-explicit ("AI Native Coder" + "Ship products without writing code" + AI content creator) AND Anti-Slop-Design-Curation (named "Anti AI-slop Rules") within same subject. CO-EXISTENT framing is coherent IF AND ONLY IF the two axes are orthogonal. v82 = corpus-first orthogonality-validation evidence for v81 framing-revision (which moved Anti-Slop from Pattern #51 sub-pole to orthogonal observation track at OC layer).
+
+**v85 audit promotion-decision branches**: PROMOTE to Library-vocabulary item ~60% / PROMOTE to standalone Pattern in Pattern Library ~20% / Continue PROVISIONAL pending N=3 ~20%.
+
+Proposal-document: `03 Projects/huashu-design - Beginner Analysis/01 Analysis/(C) Anti-Slop-Design-Curation-N2-strengthening-with-PRO-VIBE-coexistent-framing.md`.
+
+### SECONDARY pattern observations (8+)
+
+1. **Pattern #57 NEW sub-variant 57h candidate "Reverse-Engineering-of-Anchor-Corpus-Foundation-Product with explicit attribution"** PROVISIONAL N=1 — Anthropic Claude Design system prompts + brand asset protocols reverse-engineered by 花叔 with explicit attribution; distinct from 57e (Multi-Source-Derivative-Attribution-Chain v75) + 57f (Corpus-Recursive-Anchor-Self-Reference v78) + 57g (Second-Order-Derivative-Chain via intermediate-adapter v79).
+2. **Pattern #51 PRO-VIBE-explicit sub-pole N=2 STRENGTHENING at solo-influencer sub-scope** — v77 community-org PRO-VIBE-explicit (Datawhalechina + Tsinghua) + v82 solo-influencer PRO-VIBE-explicit (花叔) = 2-wiki sub-scope strengthening at sub-scope-distinction layer.
+3. **Pattern #19 NEW sub-mechanism 19m candidate "Chinese-AI-Native-Coder-Influencer-with-Multi-Product-Portfolio"** PROVISIONAL N=1 — 花叔 profile distinct from prior 19a-19l (different geography + cross-product breadth + scale axis).
+4. **Pattern #45 NEW sub-mechanism candidate "License-relicensing-event-tracking"** PROVISIONAL N=1 — LICENSE relicensed 2026-05-14 mid-life-cycle event (current MIT; prior unknown).
+5. **Pattern #84 84c.1 N+1 strengthening at repo-stored layer** = **9-consecutive-wiki Pattern #84 84c arc v71→v82 = NEW CORPUS-RECORD** (extends v81 8-wiki record by 1; 6-harness ecosystem Claude Code + Cursor + Codex + OpenClaw NEW + Hermes corpus-recursive from v78 ECC + Trae).
+6. **Pattern #52 EXTREME-VIRAL pulse N+1 strengthening** — 452.4 stars/day × 32 days = 4th EXTREME-VIRAL evidence point (300-500/d sub-band; below v78 1535/d Multi-Month-Sustained + above v68 zero 1050/d 2-day launch-pulse + below v63 Karpathy 1186/d single-artifact-pulse).
+7. **Pattern #66 within-pattern strengthening** — 3-of-6 axes from v76 baseline; broader execution surface than v75/v81 via scripts/ (shell + Node + Python) + `.env.example` external-service integration.
+8. **Pattern #82 within-pattern strengthening** — 6+ quantitative-marketing claims (5 schools × 20 philosophies + 80-point + 300k+ followers + 12k+ Nüwa.skill stars + App Store Top 1 + book authorship).
+9. **Pattern #83 within-pattern strengthening** — Limitations section + "80-point skill" honest-deficiency-disclosure framing.
+10. **"Single-Skill Multi-Target Distribution" retrospective archetype N=2 STRENGTHENING** — v75 + v82 = 2-instance baseline vs v81's 12-skill content-layer inversion.
+11. **`npx skills add` install-syntax sub-typology distinction** — v81 full-URL + --skill flag vs v82 owner/repo shorthand = Pattern #66 supply-chain sub-typology candidate.
+
+### Cross-Pattern Coupled-Design (Library-vocabulary item #9)
+
+**8-11-pattern coupled-design at single wiki** — Anti-Slop track + Pattern #57 57h + Pattern #19 19m + Pattern #51 sub-pole N=2 + Pattern #84 84c.1 9-wiki CORPUS-RECORD + Pattern #52 EXTREME-VIRAL pulse N+1 + Pattern #45 + Pattern #66 + Pattern #82 + Pattern #83 + Single-Skill Multi-Target retrospective N=2. Matches v76's 8-pattern + below v78's 9-pattern CORPUS-RECORD.
+
+### Corpus-firsts at v82 (~12)
+
+1. Reverse-engineering-of-Anchor-Corpus-Foundation-Product (Anthropic Claude Design) with explicit attribution as subject lineage.
+2. PRO-VIBE + Anti-Slop CO-EXISTENT framing within same subject = orthogonality-validation evidence.
+3. 9-consecutive-wiki Pattern #84 84c arc v71→v82.
+4. 6-harness ecosystem with OpenClaw + Hermes (corpus-recursive) + Trae co-presence.
+5. Bilingual EN + zh README in T1 design-skill cluster (v75 + v81 EN-only).
+6. Chinese-AI-Native-Coder + Book Author + App Store hit + Multi-Skill-Portfolio archetype (花叔 profile).
+7. "80-point skill" honest-deficiency-disclosure within design-skill positioning.
+8. Multimedia-output toolchain in T1 design-skill (HTML + MP4 + GIF + PPTX + PDF + 60fps animation + voiceover audio + SFX library).
+9. 2-custom-domain split in T1 design-skill (huasheng.ai brand + bookai.top developer-hub).
+10. Cross-platform-product-portfolio monetization model.
+11. `npx skills add` owner/repo shorthand form.
+12. 2-consecutive STRONGEST INCLUDE 4/4 at v81 + v82.
+
+### Storm Bear meta-entity STRICT verdict
+
+| Criterion | Result | Evidence |
+|---|---|---|
+| (a) Author archetype is structural peer | **STRONG PASS** | 花叔 = solo Chinese-Mainland AI Native Coder + book author + multi-product-portfolio + 300k+ followers; direct cultural-peer joining 3-wiki Asian-LOCATED cluster (v76 + v80 + v82); China vs VN sub-distinction within Asian-LOCATED |
+| (b) Vault-deployable for Scrum work | **STRONG PASS** | Shorthand `npx skills add alchaincyf/huashu-design` + multimedia output (HTML+MP4+GIF+PPTX+PDF+60fps animation + voiceover audio); broader vault-deployability than v75/v81 (Scrum-board overlays + sprint-report PDFs + retrospective video presentations) |
+| (c) Methodology-influence-node | **STRONG PASS** | 5-mechanic methodology + 100-philosophy taxonomy + WebSearch-grounded fact verification + 80-point quality calibration + 7 routine v2.3 codification candidates |
+| (d) Corpus-citation | **STRONG PASS** | 3-instance T1 design-skill cluster (v75 + v81 + v82) + 6-harness with 4-of-6 corpus-subject citations + Hermes corpus-recursive citation from v78 ECC + Anthropic Claude Design reverse-engineering subject lineage |
+
+**Sum: 4/4 PASS → STRONGEST INCLUDE 4/4 (all-STRONG)** = highest-strength STRONGEST verdict in v65-v82 window. v82 = 6th STRONGEST in v65-v82 with 5-of-6 clustered late-window v73-v82.
+
+### Routine v2.3 codification candidates contributed
+
+1. Anti-Slop-Design-Curation observation track as formal Library-vocabulary item codification at v85.
+2. CO-EXISTENT framing axes within single subject as orthogonality-validation evidence methodology.
+3. `npx skills add` install-syntax sub-typology distinction (full-URL vs owner/repo shorthand).
+4. License-relicensing-event-tracking as Pattern #45 sub-mechanism candidate.
+5. Reverse-engineering-of-anchor-corpus-foundation-product as Pattern #57 sub-variant 57h.
+6. SKILL.md cluster fetch discipline for large-spec subjects (>30KB threshold).
+7. License-state history probe discipline for relicensing-event detection.
+
+7 routine v2.3 candidates contributed by v82 (above v81's 5 + tied with v79's 6+).
+
+### v85 audit batch additions from v82 wiki
+
+- Anti-Slop-Design-Curation observation track N=2 PROMOTION decision (3 branches: Library-vocab item / standalone Pattern / continue PROVISIONAL)
+- Pattern #51 PRO-VIBE-explicit sub-pole N=2 strengthening codification at solo-influencer sub-scope
+- Pattern #57 NEW sub-variant 57h first-cycle stale-check
+- Pattern #19 NEW sub-mechanism 19m first-cycle stale-check
+- Pattern #45 NEW sub-mechanism "License-relicensing-event-tracking" first-cycle stale-check
+- Pattern #84 84c.1 9-wiki arc sustainability verification
+- Library-vocab candidate "CO-EXISTENT framing axes" first-cycle stale-check
+
+### Pattern Library state after v82 wiki
+
+- **45 confirmed** / **29 active** / 1 stale / 9 retired / 6 observation-tracks → UNCHANGED
+- **Ratio 29:45 = 0.644** → UNCHANGED (11th-consecutive-wiki post-v72-audit-relief = NEW CORPUS-RECORD audit-relief sustainability)
+- OC count ~47-56 estimated (+3 from v82 PROVISIONAL N=1 registrations + 7 NEW routine v2.3 candidates at OC layer)
+- Library-vocabulary items 13 candidates with Anti-Slop track + CO-EXISTENT framing both at candidate count UNCHANGED at top level (with Anti-Slop track N=2 PROMOTION-ELIGIBLE strengthening)
+
+### v82 corpus-records
+
+1. **NEW CORPUS-RECORD 9-consecutive-wiki Pattern #84 84c arc** v71→v82 (extending v81's 8-wiki record by 1)
+2. **NEW CORPUS-RECORD Storm Bear meta-entity streak 18** (extending v81's 17-record by 1)
+3. **NEW CORPUS-RECORD 11-consecutive-wiki active count UNCHANGED post-v72-audit-relief** (extending v81's 10-record by 1)
+4. **NEW CORPUS-RECORD 26-instance Phase 0.9 INCLUDE rate 92.3%** (uptick from v81's 92.0%)
+5. **NEW CORPUS-RECORD 6th STRONGEST in v65-v82 window** (STRONGEST now LEADS WEAK by 1)
+6. **NEW CORPUS-RECORD 2-consecutive STRONGEST INCLUDE 4/4 at v81 + v82** (first 2-wiki STRONGEST run)
+7. **NEW CORPUS-RECORD first all-STRONG STRONGEST verdict in v65-v82 window**
+
+---
