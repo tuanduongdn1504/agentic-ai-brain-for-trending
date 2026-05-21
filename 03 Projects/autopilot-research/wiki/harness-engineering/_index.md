@@ -2,8 +2,8 @@
 
 > **Anchor:** Ryan Lopopolo (OpenAI Frontier & Symphony) — AI Engineer 2026 keynote + Latent Space podcast 2026-04-07
 > **Authoritative anchor (2026-05-21):** Anthropic — *How Claude Code Works in Large Codebases* blog (2026-05-14) + Cole Medin walkthrough video (2026-05-21) + coleam00/helpline worked-example repo
-> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources) — extended 2026-05-20 with definitional-anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk) + individual-scale 5th sibling article on router-mediated cross-vendor multi-model (howznguyen blog post 2026-05-19) — extended 2026-05-21 with **authoritative anchor** (Anthropic first-party 7-component decomposition + Cole Medin walkthrough + helpline worked-example repo)
-> **Article count:** 18 (10 org-scale + 5 individual-scale + 1 definitional anchor candidate + 2 authoritative anchor)
+> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources) — extended 2026-05-20 with definitional-anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk) + individual-scale 5th sibling article on router-mediated cross-vendor multi-model (howznguyen blog post 2026-05-19) — extended 2026-05-21 with **authoritative anchor** (Anthropic first-party 7-component decomposition + Cole Medin walkthrough + helpline worked-example repo) + individual-scale 6th sibling article on orchestrator-mediated cross-vendor (Nemanja Mirkovic Hermes+Codex+Claude video 2026-05-20) + prerequisite article on Hermes /goal mechanics (Nemanja prior /goal-vs-Ralph video + Hermes repo audit)
+> **Article count:** 20 (10 org-scale + 6 individual-scale + 1 /goal-mechanics prerequisite + 1 definitional anchor candidate + 2 authoritative anchor)
 > **Status:** Anchor seeded + authoritative source compiled — designed for ongoing ingestion; expect 10-20+ articles as research thread expands
 
 This topic is the autopilot wiki's research thread on **harness engineering** — Lopopolo's discipline for restructuring software work around the assumption that humans steer and agents execute. The anchor defines the conceptual surface; subsequent ingests fill gaps, falsify claims, or expand cited references. The 2026-05-14 extension adds an **individual-scale axis** (single developer, single repo) to test which Lopopolo positions are scale-invariant vs scale-bounded. The 2026-05-20 extension adds a **definitional axis** (scale-invariant primitives) with Tejas Kumar's IBM talk, which delivers the corpus-first prompt-held-constant falsifiability demonstration of the harness>prompt thesis.
@@ -29,6 +29,8 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - [[personal-repo-vs-org-scale]] — axis-by-axis comparison: 5 convergences + 6 divergences + claim-by-claim challenge map ([[core-claims]] #2 partially falsified, #5 silent, #6 doesn't translate)
 - [[personal-repo-gaps]] — 5 production-readiness gaps + 5 structural gaps + 5 NotebookLM follow-up topics routed to [[research-roadmap]]
 - [[personal-repo-router-multimodel]] — router-mediated cross-vendor multi-model pattern (howznguyen blog 2026-05-19). Exploits Claude Code's 3-slot model config (opus/sonnet/haiku) to route opus→Kiro-Opus-4.6 and sonnet→Codex-GPT-5.5 via 9Router, enabling cross-vendor supervisor+sub-agent orchestration with zero plugin/MCP infrastructure. Adds **task-allocation rubric** (Opus should-do / GPT should-do / sub-agent NEVER-do without plan) + **file-based phase handoff** convention (`.agent/notes/<domain>-research.md`) + **research-then-implement** parallel-staging discipline. Tier-A operationally pilotable.
+- [[personal-repo-hermes-orchestrator]] — orchestrator-mediated cross-vendor pattern (Nemanja Mirkovic video 2026-05-20). Sibling mechanism to router-mediated: Hermes Agent acts as 3rd-party orchestrator that shells out to Codex CLI (builder) and Claude Code CLI (reviewer) as subprocesses, with **subscription-arbitrage** as load-bearing motivation (native CLI auth preserves Claude/ChatGPT subs vs Hermes Profiles burning extra API balance — VERIFIED 2026-05-21 with 3-condition env-hygiene caveat, see `output/(C) 2026-05-21-subscription-billing-verification.md`). Ships pre-built skills for both rival CLIs + built-in Kanban + mid-loop vision check. `/goal` command = Ralph loop primitive. N=1; subscription-billing claim verified-with-caveats, "much better than Ralph loop" comparison still unverified. Candidate evidence for Storm Bear Pattern #76 (adversarial subagent review) + Pattern #18 Layer 2 (4th cross-vendor-bridge sub-archetype).
+- [[hermes-goal-mechanics]] — prerequisite article for the orchestrator pattern (Nemanja Mirkovic prior /goal-vs-Ralph video + Hermes repo audit 2026-05-21). Documents the **5-stage `/goal` architecture** (accept → plan → execute → yes/no-judge → exit/loop) and the load-bearing distinction that **`/goal`'s judge is NOT a code reviewer** — which is exactly the gap the orchestrator pattern fills by adding Claude CLI as a real reviewer. Also confirms **`/goal` is emerging as cross-vendor primitive** (host claims Codex and Claude both have it now — N=1 claim). **Negative finding:** Hermes repo ships profile system as Python code but NO `coder.md`/`reviewer.md` markdown defaults — pilot profile bodies must be hand-authored (+1-2h beyond install).
 
 ### Definitional / pedagogical anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk, added 2026-05-20)
 
@@ -80,6 +82,19 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - `raw/2026-05-19-howznguyen-router-opus-gpt-subagent.md` — blog post verbatim (Vietnamese, ~20 min read)
 - [Source 19] howznguyen — *Kết hợp Opus + GPT trong Claude Code bằng Router và Sub-agent* — https://howznguyen.dev/blog/router-opus-gpt-subagent-workflow (published 2026-05-19)
 - Path: 3-webfetch (Tier 0; no bypass needed)
+
+### Individual-scale 6th sibling — orchestrator-mediated cross-vendor (Hermes + Codex + Claude, added 2026-05-21)
+
+- `raw/2026-05-21-nemanja-codex-claude-hermes-orchestrator-transcript.md` — verbatim YouTube auto-caption transcript (cleaned VTT, ~340 deduped lines)
+- [Source 23] Nemanja Mirkovic — *Codex Builds. Claude Reviews. Hermes Agent Runs It.* — https://www.youtube.com/watch?v=O-PEeD7fymo (13:48, 2175 views as of 2026-05-21, uploaded 2026-05-20, channel `@nemanja-mirkovic`)
+- Path: 5-yt-dlp-only (single-source, no NotebookLM bundle)
+
+### /goal mechanics prerequisite — covers what `/goal` does + Hermes repo audit (added 2026-05-21)
+
+- `raw/2026-05-21-nemanja-goal-vs-ralph-transcript.md` — verbatim YouTube auto-caption transcript (cleaned VTT, ~440 deduped lines)
+- [Source 24] Nemanja Mirkovic — *I Was Wrong About Hermes Agent /goal* — https://www.youtube.com/watch?v=CKtz9lp8X-8 (19:09)
+- [Source 25] NousResearch/hermes-agent repo recursive tree (main branch) via GitHub REST API — confirms no shipped `coder.md`/`reviewer.md` profile defaults; profile system implemented in Python (`hermes_cli/profiles.py`, `profile_describer.py`, `profile_distribution.py`, `skills_config.py`, `skills_hub.py`, `skill_bundles.py`); only shipped markdown asset for Claude integration is `skills/autonomous-ai-agents/claude-code/SKILL.md` (separately audited in `output/(C) 2026-05-21-subscription-billing-verification.md`).
+- Path: 5-yt-dlp-only (video) + 3-webfetch (GitHub API)
 
 ### Authoritative anchor — Anthropic first-party (added 2026-05-21)
 

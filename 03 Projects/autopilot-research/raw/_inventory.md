@@ -55,6 +55,9 @@
 | 2026-05-21 | anthropic-large-codebases-blog | 3-webfetch | claude.com/blog (Anthropic first-party, published 2026-05-14) | 8K | — | compiled (authoritative anchor) | [wiki/harness-engineering/anthropic-large-codebases-anchor](../wiki/harness-engineering/anthropic-large-codebases-anchor.md) |
 | 2026-05-21 | cole-medin-anthropic-masterclass-transcript | 5-yt-dlp-only | YouTube efRIrLXoOVA (Cole Medin, 28:10, 2.1K views as of 2026-05-21, uploaded 2026-05-21) | 47K | — | compiled (authoritative anchor walkthrough) | [wiki/harness-engineering/anthropic-large-codebases-anchor](../wiki/harness-engineering/anthropic-large-codebases-anchor.md) |
 | 2026-05-21 | coleam00-helpline-readme | 3-webfetch | github.com/coleam00/helpline README + API metadata (Python repo, created 2026-05-19, 2 stars at fetch) | 7K | — | compiled (worked-example sibling article) | [wiki/harness-engineering/helpline-worked-example](../wiki/harness-engineering/helpline-worked-example.md) |
+| 2026-05-21 | nemanja-codex-claude-hermes-orchestrator-transcript | 5-yt-dlp-only | YouTube O-PEeD7fymo (Nemanja Mirkovic, 13:48, 2175 views as of 2026-05-21, uploaded 2026-05-20) | 11K | — | compiled (individual-scale 6th sibling article — orchestrator-mediated cross-vendor) | [wiki/harness-engineering/personal-repo-hermes-orchestrator](../wiki/harness-engineering/personal-repo-hermes-orchestrator.md) |
+| 2026-05-21 | nemanja-goal-vs-ralph-transcript | 5-yt-dlp-only + 3-webfetch | YouTube CKtz9lp8X-8 (Nemanja Mirkovic, 19:09) + GitHub API NousResearch/hermes-agent recursive tree (repo audit, negative finding on profile defaults) | 13K | — | compiled (orchestrator-prerequisite article on `/goal` mechanics + repo audit) | [wiki/harness-engineering/hermes-goal-mechanics](../wiki/harness-engineering/hermes-goal-mechanics.md) |
+| 2026-05-21 | nemanja-goal-video-resources-repo | 3-webfetch + 5-yt-dlp-only (comments) | github.com/nemanjadotcom/goal-video-resources (4 verbatim files: PROMPT.md + AGENTS.md + SOUL-codexbuilder.md + SOUL-claudereviewer.md) + YouTube O-PEeD7fymo comments (13 comments incl. billing corroboration from @kikserthg233 + cross-vendor pattern N=2 evidence from @aichess.online) | 10K | — | merged-into-stack (findings folded into [[personal-repo-hermes-orchestrator]] + [[hermes-goal-mechanics]] + subscription-billing audit) | [wiki/harness-engineering/hermes-goal-mechanics](../wiki/harness-engineering/hermes-goal-mechanics.md) |
 
 ## Status legend
 
@@ -79,8 +82,8 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 35 rows (3 added 2026-05-21: Anthropic large-codebases blog [path 3-webfetch] + Cole Medin masterclass video transcript [path 5-yt-dlp] + coleam00/helpline README [path 3-webfetch])
-- **Compiled (or merged):** 33 (was 30 → +3 from 2026-05-21 authoritative anchor + worked-example articles)
+- **Total ingestions logged:** 38 rows (6 added 2026-05-21: Anthropic large-codebases blog [path 3-webfetch] + Cole Medin masterclass video transcript [path 5-yt-dlp] + coleam00/helpline README [path 3-webfetch] + Nemanja Mirkovic Hermes-Codex-Claude orchestrator video [path 5-yt-dlp] + Nemanja Mirkovic /goal-vs-Ralph prerequisite video plus Hermes repo audit [path 5-yt-dlp + path 3-webfetch] + nemanjadotcom/goal-video-resources companion repo + YouTube comments [path 3-webfetch + path 5-yt-dlp-comments])
+- **Compiled (or merged):** 36 (was 30 → +6 from 2026-05-21 authoritative anchor + worked-example + Hermes orchestrator + /goal-mechanics-prerequisite articles + companion-repo merged-into-stack)
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled / raw (awaiting compile):** 1 (lark-claude-course 261 pages — biggest remaining backlog)
 - **Promoted to Storm Bear:** 0
