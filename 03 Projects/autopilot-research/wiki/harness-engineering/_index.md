@@ -1,9 +1,10 @@
 # harness-engineering
 
 > **Anchor:** Ryan Lopopolo (OpenAI Frontier & Symphony) — AI Engineer 2026 keynote + Latent Space podcast 2026-04-07
-> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources) — extended 2026-05-20 with definitional-anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk) + individual-scale 5th sibling article on router-mediated cross-vendor multi-model (howznguyen blog post 2026-05-19)
-> **Article count:** 16 (10 org-scale + 5 individual-scale + 1 definitional anchor candidate)
-> **Status:** Anchor seeded — designed for ongoing ingestion; expect 10-20+ articles as research thread expands
+> **Authoritative anchor (2026-05-21):** Anthropic — *How Claude Code Works in Large Codebases* blog (2026-05-14) + Cole Medin walkthrough video (2026-05-21) + coleam00/helpline worked-example repo
+> **First compiled:** 2026-05-09 — extended 2026-05-14 with individual-scale layer (Tù Bà Khuỳm anchor + 6 English-language YouTube sources) — extended 2026-05-20 with definitional-anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk) + individual-scale 5th sibling article on router-mediated cross-vendor multi-model (howznguyen blog post 2026-05-19) — extended 2026-05-21 with **authoritative anchor** (Anthropic first-party 7-component decomposition + Cole Medin walkthrough + helpline worked-example repo)
+> **Article count:** 18 (10 org-scale + 5 individual-scale + 1 definitional anchor candidate + 2 authoritative anchor)
+> **Status:** Anchor seeded + authoritative source compiled — designed for ongoing ingestion; expect 10-20+ articles as research thread expands
 
 This topic is the autopilot wiki's research thread on **harness engineering** — Lopopolo's discipline for restructuring software work around the assumption that humans steer and agents execute. The anchor defines the conceptual surface; subsequent ingests fill gaps, falsify claims, or expand cited references. The 2026-05-14 extension adds an **individual-scale axis** (single developer, single repo) to test which Lopopolo positions are scale-invariant vs scale-bounded. The 2026-05-20 extension adds a **definitional axis** (scale-invariant primitives) with Tejas Kumar's IBM talk, which delivers the corpus-first prompt-held-constant falsifiability demonstration of the harness>prompt thesis.
 
@@ -29,7 +30,14 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - [[personal-repo-gaps]] — 5 production-readiness gaps + 5 structural gaps + 5 NotebookLM follow-up topics routed to [[research-roadmap]]
 - [[personal-repo-router-multimodel]] — router-mediated cross-vendor multi-model pattern (howznguyen blog 2026-05-19). Exploits Claude Code's 3-slot model config (opus/sonnet/haiku) to route opus→Kiro-Opus-4.6 and sonnet→Codex-GPT-5.5 via 9Router, enabling cross-vendor supervisor+sub-agent orchestration with zero plugin/MCP infrastructure. Adds **task-allocation rubric** (Opus should-do / GPT should-do / sub-agent NEVER-do without plan) + **file-based phase handoff** convention (`.agent/notes/<domain>-research.md`) + **research-then-implement** parallel-staging discipline. Tier-A operationally pilotable.
 
+### Definitional / pedagogical anchor candidate (Tejas Kumar IBM, AI Engineer 2026 talk, added 2026-05-20)
+
 - [[tejas-kumar-anchor]] — N=1 definitional anchor candidate. 5-component decomposition of agent harness (tool registry / model / context / guardrails / loop / verify) + corpus-first prompt-held-constant live demo (GPT-3.5 Turbo Hacker News upvote agent succeeds with harness alone, prompt untouched). Adds 4 new open questions + 3 new cited-reference candidates (OpenRAG, GPT-OSS, Qwen) + a 2025→2026→2027 prediction axis. **Not yet promoted to full anchor** — promotion criteria require ≥2 corroborating sources.
+
+### Authoritative anchor — first-party Anthropic (added 2026-05-21)
+
+- [[anthropic-large-codebases-anchor]] — **CORPUS-FIRST FIRST-PARTY AUTHORITATIVE source** on harness engineering. Synthesizes Anthropic's 2026-05-14 blog (official 7-component decomposition: CLAUDE.md hierarchy / hooks / skills / plugins / LSP / MCP / subagents) + Cole Medin's 2026-05-21 walkthrough video (28:10) + helpline worked-example. 3 explicit configuration patterns (lean-and-layered CLAUDE.md / actively maintain / assigned ownership). Names emerging **"agent manager"** role explicitly. Frequency-based component hierarchy (CLAUDE.md continuous; hooks/skills/LSP/MCP/subagents sporadic; plugins install-time). Strong Storm Bear Pattern Library promotion candidate at v66 cadence.
+- [[helpline-worked-example]] — companion article: deep-dive on `coleam00/helpline` as the worked-example codebase. 5 services + 2 shared packages monorepo where every 7-component primitive is built + validated end-to-end (13/13 validator pass). Distributes `helpline-ai-layer` Claude Code plugin for one-command install of portable pieces (Stop hook + explorer read-only subagent + codebase-search MCP + scoped-tests skill). Pilot-readiness Tier-A with caveats (no license declared at fetch time, Python-specific LSP/MCP).
 
 ## Cross-links to existing autopilot topics
 
@@ -72,3 +80,13 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - `raw/2026-05-19-howznguyen-router-opus-gpt-subagent.md` — blog post verbatim (Vietnamese, ~20 min read)
 - [Source 19] howznguyen — *Kết hợp Opus + GPT trong Claude Code bằng Router và Sub-agent* — https://howznguyen.dev/blog/router-opus-gpt-subagent-workflow (published 2026-05-19)
 - Path: 3-webfetch (Tier 0; no bypass needed)
+
+### Authoritative anchor — Anthropic first-party (added 2026-05-21)
+
+- `raw/2026-05-14-anthropic-large-codebases-blog.md` — Anthropic blog content verbatim (cleaned WebFetch extract)
+- `raw/2026-05-21-cole-medin-anthropic-masterclass-transcript.md` — verbatim YouTube auto-caption transcript (808 segments / ~6.6K words; cleaned VTT via `/tmp/clean_vtt3.awk`)
+- `raw/2026-05-19-coleam00-helpline-readme.md` — repo README + GitHub metadata at fetch time
+- [Source 20] Anthropic — *How Claude Code Works in Large Codebases: Best Practices and Where to Start* — https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start (published 2026-05-14)
+- [Source 21] Cole Medin (@ColeMedin) — *Anthropic Just Dropped a Masterclass on Building Agent Harnesses (for Large Codebases)* — https://www.youtube.com/watch?v=efRIrLXoOVA (28:10, ~2.1K views as of 2026-05-21, uploaded 2026-05-21)
+- [Source 22] coleam00 (Cole Medin) — *helpline* — https://github.com/coleam00/helpline (Python, created 2026-05-19, 2 stars at fetch)
+- Path: 3-webfetch (blog + repo README) + 5-yt-dlp-only (video transcript)

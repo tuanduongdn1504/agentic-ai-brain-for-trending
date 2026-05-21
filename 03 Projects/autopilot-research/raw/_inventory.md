@@ -52,6 +52,9 @@
 | 2026-05-20 | tejas-kumar-harnesses-deep-dive | 5 yt-dlp-only | YouTube C_GG5g38vLU (Tejas Kumar IBM, AI Engineer 2026 talk, 20:26, 38.7K views) | 31K | — | compiled (definitional anchor candidate N=1) | [wiki/harness-engineering/tejas-kumar-anchor](../wiki/harness-engineering/tejas-kumar-anchor.md) |
 | 2026-05-20 | langchain-interrupt-26-adl-transcript | 5 yt-dlp-only | YouTube jWy39wavbjY (Harrison Chase + Ankush Gola, LangChain Interrupt 2026 keynote, 44:58, ~1.9K views) | 67K | — | compiled (new topic agent-development-lifecycle, N=1 anchor) | [wiki/agent-development-lifecycle/](../wiki/agent-development-lifecycle/_index.md) |
 | 2026-05-20 | howznguyen-router-opus-gpt-subagent | 3-webfetch | Blog howznguyen.dev (Vietnamese, ~20 min read, 2026-05-19) | 14K | — | compiled (individual-scale 5th sibling article) | [wiki/harness-engineering/personal-repo-router-multimodel](../wiki/harness-engineering/personal-repo-router-multimodel.md) |
+| 2026-05-21 | anthropic-large-codebases-blog | 3-webfetch | claude.com/blog (Anthropic first-party, published 2026-05-14) | 8K | — | compiled (authoritative anchor) | [wiki/harness-engineering/anthropic-large-codebases-anchor](../wiki/harness-engineering/anthropic-large-codebases-anchor.md) |
+| 2026-05-21 | cole-medin-anthropic-masterclass-transcript | 5-yt-dlp-only | YouTube efRIrLXoOVA (Cole Medin, 28:10, 2.1K views as of 2026-05-21, uploaded 2026-05-21) | 47K | — | compiled (authoritative anchor walkthrough) | [wiki/harness-engineering/anthropic-large-codebases-anchor](../wiki/harness-engineering/anthropic-large-codebases-anchor.md) |
+| 2026-05-21 | coleam00-helpline-readme | 3-webfetch | github.com/coleam00/helpline README + API metadata (Python repo, created 2026-05-19, 2 stars at fetch) | 7K | — | compiled (worked-example sibling article) | [wiki/harness-engineering/helpline-worked-example](../wiki/harness-engineering/helpline-worked-example.md) |
 
 ## Status legend
 
@@ -76,8 +79,8 @@
 
 ## Coverage summary (auto-derivable; manually maintained until Lớp 3 ships)
 
-- **Total ingestions logged:** 32 rows (3 added 2026-05-20: Tejas Kumar IBM harness deep-dive [path 5 yt-dlp] + LangChain Interrupt 2026 ADL anchor [path 5 yt-dlp] + howznguyen router+sub-agent blog [path 3 webfetch])
-- **Compiled (or merged):** 30 (was 27 → +3 from 2026-05-20 anchor articles)
+- **Total ingestions logged:** 35 rows (3 added 2026-05-21: Anthropic large-codebases blog [path 3-webfetch] + Cole Medin masterclass video transcript [path 5-yt-dlp] + coleam00/helpline README [path 3-webfetch])
+- **Compiled (or merged):** 33 (was 30 → +3 from 2026-05-21 authoritative anchor + worked-example articles)
 - **Dropped (intentional):** 1 (Symphony spec page failed Tier 2; pivoted to community impls)
 - **Uncompiled / raw (awaiting compile):** 1 (lark-claude-course 261 pages — biggest remaining backlog)
 - **Promoted to Storm Bear:** 0
