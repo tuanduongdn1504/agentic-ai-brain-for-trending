@@ -3677,3 +3677,129 @@ v76 HoangNguyen0403 (VN-Hanoi solo) + v80 TroniePh (VN-Hanoi solo) + v82 huashu 
 12. ~15 corpus-firsts at v85 pressure-test (downgrade ad-hoc-coined frames where appropriate)
 
 **Plus carry-over from v83 + v84 batches** (~22 items) = **~34 items total at v86** = LARGEST single-audit batch in corpus history if executed.
+
+---
+
+## v86 Pattern Library mini-audit post-v83/v84/v85 (2026-05-22) — 3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST-BATCH-IN-CORPUS-HISTORY (~34 items NEW CORPUS-RECORD)
+
+**Audit class:** 3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST-BATCH-IN-CORPUS-HISTORY (sixth audit class formalized; routine v2.3 codification candidate)
+**Operator invocation:** explicit "Execute v86 audit BEFORE the next wiki build" 2026-05-22 post-v85 vault-sync commit `026422b`
+**Pre-audit state:** 45 confirmed / 29 active / 0.644 ratio
+**Post-audit state:** **46 confirmed / 28 active / 0.609 ratio** (HEALTHIER zone; buffer 0.341 below 0.95 mini-trigger)
+
+### Promotions (4)
+
+1. **Pattern #88 Anti-Slop-Design-Curation — NEW top-level CONFIRMED at N=3** with 3-variant sub-typology taxonomy (88a framing-only v81 + 88b named-rules-with-enumeration v82 + 88c machinery-with-enforcement v83). First NEW top-level Pattern PROMOTED since Pattern #84 at v72 audit (14-wiki gap). 3-arc-in-2-days promotion-arc-speed CORPUS-RECORD-TIE.
+
+2. **Pattern #52 N=2 Multi-Month-Sustained EXTREME-VIRAL sub-class — PROMOTED administrative-only** (within already-CONFIRMED Pattern #52). v78 ECC (1,535/d × 122d N=1) + v85 ui-ux-pro-max (467/d × 174d N=2) = 5-of-5 criteria PASS HIGH-confidence. Pattern #52 sub-class taxonomy at v86 = 5-variant formal (added as variant #5 to existing 4-variant taxonomy).
+
+3. **Library-vocab #12 LLM-routing artifacts — CONFIRMED N=5** with 5-variant taxonomy (NOTICE.md + HARNESSES.md + AGENTS.md + llms.txt + skill.json).
+
+4. **Library-vocab #14 Org-Brand-and-Product-Brand-Split via 2-Custom-Domain — CONFIRMED N=3** (v82 + v83 + v85 with T1-design-skill + Asian-LOCATED overfit caveat).
+
+### Provisional registrations (8)
+
+5. Pattern #19 sub-mechanism 19n (v85 VN-Located-AI-Skills-Indie-Organization-with-.io-Org-Domain) PROVISIONAL N=1
+6. Pattern #19 sub-mechanism 19o (RECONCILED from v83 19m identifier collision; indie-org-AI-coworker-stack-with-movement-framing) PROVISIONAL N=1
+7. Pattern #57 sub-variant 57j (v85 antigravity-corpus-recursive-sub-chain) PROVISIONAL N=1
+8. Pattern #45 sub-mechanism "License-relicensing-event-tracking" (v82) PROVISIONAL N=1
+9. NEW T1 sub-archetype "Linear-Workflow-Pipeline Skill Bundle" (v84) PROVISIONAL N=1 with OVERRIDE-INCLUDE-EVIDENCE-QUALITY-CAVEAT
+10. Pattern #66 sub-mechanism 66g (per-skill Skill(name) allowlist syntax) PROVISIONAL N=1 with OVERRIDE caveat
+11. Pattern #66 sub-mechanism 66h (2-hook SessionStart+UserPromptSubmit combination) PROVISIONAL N=1 with OVERRIDE caveat
+12. Library-vocab #15 Operator-Elected-Phase-0-9-Override-with-Honest-Documentation-Trail CONFIRMED N=1 ONE-TIME-EXCEPTION
+
+### Downgrades (7)
+
+13. CORPUS-FIRST Apple-Product-Naming-Convention-Adoption (v85) — ad-hoc-coined frame; NOT registered
+14. CORPUS-FIRST Internal-Codename-Distinct-from-Public-Tagline (v85) — single observation; common practice; NOT registered
+15. CORPUS-FIRST PR-Discipline-at-Project-CLAUDE.md-Scope (v85) — single observation; NOT registered
+16. Tight Bash-scoping discipline (v84) — subjective; common settings.json practice; Pattern #66 66i NOT registered
+17. SF-located solo indie creative-tech archetype (v84) — demographic, not pattern-evidence; NOT registered
+18. Pattern #66 sub-mechanism 66i (subsumed in #16)
+19. (1 other v84 minor corpus-first downgraded — case-by-case)
+
+### Reconciliations + framing-corrections (2)
+
+20. **Pattern #19 sub-mechanism 19m identifier collision RECONCILED** — v82 huashu kept as 19m "Chinese-AI-Native-Coder-Influencer-with-Multi-Product-Portfolio"; v83 nexu renamed to 19o "indie-org-AI-coworker-stack-with-movement-framing". v2.3 codification candidate: sub-mechanism-identifier collision-detection discipline.
+
+21. **v85 "11-consecutive-wiki Pattern #84 84c arc v71→v85" framing REJECTED** — verified 4 wikis didn't contribute (v74 + v79 + v80 + v84). Reframed to "11-instance Pattern #84 84c sub-mechanism strengthening within 15-wiki window v71→v85" = 73% density-rate. CORPUS-RECORD-CONSECUTIVE claim DROPPED; instance-count claim ACCEPTED. v2.3 codification candidate: "Consecutive" claim auditing discipline.
+
+### Stale-confirms (~15)
+
+Sub-variants Pattern #57 57f + 57g + 57h + 57i — all at PROVISIONAL N=1; v90 retire-checks. Pattern #19 sub-mechanism layer 19g-19o ALL at PROVISIONAL N=1 — CONSOLIDATION CANDIDATE flagged for v90 audit. NEW T5 sub-archetype 80a (v80) STALE-CONFIRM N=1. Library-vocab #13 (v78 ECC OSS+SaaS-tier) STALE-CONFIRM N=1. Library-vocab N=2 strengthening: Visual Directions Taxonomy + CO-EXISTENT framing axes — STALE-CONFIRM; v90 N=3 check. Library-vocab N=1: 4-Distribution-Method Matrix + Local-First+BYOK + Multi-Vendor-BYOK-Asset-Gen + Subtractive-Prompt + Atomic-Unit-Skill + Bun-primary-packaging — STALE-CONFIRM with OVERRIDE caveats where applicable.
+
+### Framing decisions resolved (3)
+
+22. **Pattern #45 sub-typology 45e (v77) + 45f (v79) candidates REJECTED** — reassigned to Pattern #83 sub-mechanism 83f.4 already-existing. Pattern #45 sub-typology STAYS 4-variant (45a/b/c/d). Pattern #83 83f sub-mechanism STAYS 4-variant (83f.1/2/3/4).
+
+23. **Tier-Taxonomy Review T6 — DOWNGRADED + CLOSED** after 4 deferrals (v69 + v72 + v75 hard-deadline + v85). T1-T5 tier taxonomy functional as-is; T6 redundant; closes as DOWNGRADED.
+
+24. **Storm Bear streak "20+1*" CONFIRMED** (Option B2 streak-with-override-asterisk per operator decision at v84; v85 clean PASS demonstration; v86 audit endorses notation + closes Operator-Elected-Override discussion via Library-vocab #15 registration).
+
+### CORPUS-RECORD verifications (4)
+
+25. **18-harness count verification — VERIFIED with diminishing-returns flag.** Going forward, single-count-increment over prior record (18→19) should NOT qualify as new CORPUS-RECORD by itself; future record-claims require qualitative dimension change. v2.3 codification candidate: Quantitative-Saturation-Threshold-for-Observational-Records.
+
+26. **Pattern #78 LDS density 669+ unit-normalization required.** UNIT-MISMATCH flagged with v76 259-skill prior record (skill-unit vs compound multi-axis). ACCEPT v85 as CORPUS-RECORD at compound multi-axis layer only; flag direct comparison as invalid. Future Pattern #78 tracking should normalize at atomic-unit layer.
+
+27. **skill.json CORPUS-FIRST verification** subsumed into Library-vocab #12 PROMOTION.
+
+28. **11-consecutive-wiki Pattern #84 84c arc claim** — REFRAMED (see #21).
+
+### Routine v2.3 codification candidates registered at v86 (6 NEW)
+
+29. 3-WIKI-DEFERRAL-CARRY-OVER mini-audit class formalization
+30. LARGEST-BATCH audit threshold tracking (>30 items = audit-batch-saturation territory)
+31. Sub-mechanism-identifier collision-detection discipline
+32. Quantitative-Saturation-Threshold-for-Observational-Records (diminishing-returns axis)
+33. "Consecutive" claim auditing discipline (verify N-consecutive vs N-instances-in-N-window)
+34. Library-vocab promotion threshold formalization
+
+**Total v2.3 codification candidates accumulated: ~107** (~33 pre-v75 + ~50 v75-v85 wiki contributions + ~12 from audits + 6 NEW at v86) = **OPERATOR-ATTENTION REQUIRED** (exceeds informal codification threshold ~100 by 7-candidate margin).
+
+### Audit performance
+
+| Metric | Value |
+|--------|-------|
+| Batch size | **~34 items NEW CORPUS-RECORD** (was 24 at v69 + v72 tied prior) |
+| Promotions | 4 (Pattern #88 NEW + Pattern #52 N=2 + Library-vocab #12 + #14) |
+| Downgrades | 7 |
+| Reconciliations | 1 (Pattern #19 19m collision) |
+| Reframings | 1 (v85 11-consecutive claim) |
+| Stale-confirms | ~15 |
+| New PROVISIONAL registrations | 8 |
+| Fact-verification corrections | **0** (4-audit clean streak: v66 + v69 + v72 + v86) |
+| Tier-Taxonomy Review T6 | CLOSED via downgrade (4-deferral resolved) |
+
+### State after audit
+
+- **Confirmed:** 45 → **46** (+1 Pattern #88)
+- **Active candidates:** 29 → **28** (-1 net)
+- **Ratio:** 0.644 → **0.609** (HEALTHIER)
+- **Library-vocab CONFIRMED:** 0 → **3** (#12 + #14 + #15)
+- **Pattern #52 sub-class taxonomy:** 5-variant formal (added Multi-Month-Sustained EXTREME-VIRAL CONFIRMED N=2)
+- **Pattern #88 sub-typology taxonomy:** 3-variant formal (88a/b/c)
+- **Pattern #66 sub-mechanism:** 6 → 8 (66g + 66h NEW; 66i DOWNGRADED)
+- **Pattern #19 sub-mechanism:** 10 (19a-19o; CONSOLIDATION CANDIDATE for v90)
+- **Storm Bear streak:** **"20+1*"** CONFIRMED + Operator-Elected-Override discussion CLOSED
+
+### Next audit triggers (v90 projected window)
+
+Active count 28 (below trigger-threshold 30; 2-candidate runway). Ratio 0.609 HEALTHY. v90 natural-cadence projected at +4-5 wikis from v86.
+
+**v90 pre-scheduled batch priorities** (~13 items):
+1. Pattern #88 first-cycle stale-check (cross-vertical applicability pressure-test)
+2. Pattern #52 Multi-Month-Sustained EXTREME-VIRAL N=3 watch
+3. Pattern #19 sub-mechanism CONSOLIDATION (10 sub-mechanisms; 9 at PROVISIONAL N=1)
+4. Pattern #57 sub-variant 57f/57g/57h/57i/57j stale-checks (5 sub-variants at PROVISIONAL N=1)
+5. OC-S Methodology-Influence-Node-Without-Operational-Tool N=3 check (v63+v74 N=2)
+6. NEW Library-vocab #13 + Library-vocab #14 N=2/N=3 strengthening watch
+7. Bun-primary CORPUS-FIRST stale-check (v84 N=1)
+8. OVERRIDE-INCLUDE provenance retire-checks (v84 contributions with caveats)
+9. Tier-Taxonomy Review T6 closure verification
+10. Pattern #45 sub-typology stability check
+11. Pattern #66 sub-mechanism 66g + 66h stale-check
+12. Storm Bear streak override-frequency threshold watch (2-in-20 / 3-in-30)
+13. Default 6-cycle stale-checks for OC carryovers v76-v85 (~30 OCs)
+
+**Audit document:** `04 Reviews/(C) 2026-05-22 Pattern Library mini-audit post-v83-v84-v85 (3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST batch corpus-history; Pattern #88 Anti-Slop NEW + Pattern #52 N=2 + Library-vocab #12 + #14 + 30 other items).md`

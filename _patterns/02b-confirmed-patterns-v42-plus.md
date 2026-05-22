@@ -1130,3 +1130,130 @@ Pattern #18 Agent Runtime Standardization (top-level CONFIRMED)
 
 ---
 
+
+## Promoted at v86 3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST-BATCH-IN-CORPUS-HISTORY mini-audit (#88)
+
+### Pattern #88 — Anti-Slop-Design-Curation
+
+**Status:** CONFIRMED at v86 audit 2026-05-22 (PROMOTED from observation-track at N=3 with formal 3-variant sub-typology taxonomy).
+
+**Definition:** Design-curation practice that explicitly names and enforces resistance to LLM-generated low-quality default aesthetic output ("AI slop") — distinct from general anti-LLM positioning (which is broader and includes anti-vibe-coding, anti-magic-glue-app, etc.) — by enumerating forbidden patterns + providing CSS/HTML/component-technique alternatives + sometimes integrating enforcement machinery (P0/P1/P2 gates, denylists, build-validators).
+
+**Evidence at PROMOTION (N=3 cross-instance arc):**
+
+- **v81 Leonxlnx/taste-skill** (sub-typology a "framing-only"): "Anti-Slop Frontend Framework for AI Agents" + anti-slop framing-anchor + 12-skill bundle organization with aesthetic-variants as anti-slop sub-variants. Framing as identity but no enumerated forbidden-list or enforcement-machinery yet.
+
+- **v82 alchaincyf/huashu-design** (sub-typology b "named-rules-with-enumeration"): Named "Anti AI-slop Rules" section + explicit forbidden-list (no fake-stats, no invented metrics, no generic emoji icons) + CSS-technique enumeration (specific font-stacks + color-palettes + spacing-rhythms). Co-existent PRO-VIBE + Anti-Slop framing within same subject = orthogonality-validation evidence.
+
+- **v83 nexu-io/open-design** (sub-typology c "machinery-with-enforcement"): "Anti-AI-slop machinery" named section with P0/P1/P2 gates + Honest-placeholders-over-fake-stats discipline + Anti-AI-slop checklist + Junior-Designer workflow (borrowed from huashu-design) + Five-dim critique with "Innovation" as explicit anti-slop critique axis + integrated machinery.
+
+**3-variant sub-typology taxonomy:**
+
+- **88a framing-only** (v81 anchor) — anti-slop positioning as identity framing; no operational enforcement
+- **88b named-rules-with-enumeration** (v82) — explicit forbidden-list + CSS-technique recommendations as rule-set
+- **88c machinery-with-enforcement** (v83) — P0/P1/P2 gates + honest-placeholders discipline + integrated build-machinery
+
+**3-instance arc within 2 calendar days** = TIES Pattern #83 83f promotion-arc-speed CORPUS-RECORD (v74+v76+v77 = 3-arc within 3 wikis).
+
+**Cross-references:**
+- Pattern #51 PRO-VIBE positioning (CONFIRMED) — ORTHOGONAL axis to Pattern #88 Anti-Slop-Design-Curation. v82 huashu CO-EXISTENT evidence validates orthogonality (PRO-VIBE = methodology framing; Anti-Slop = design-aesthetic-quality framing). Pattern #51 sub-pole "PRO-VIBE-explicit" registered at v77; sub-pole "PRO-VIBE+Anti-Slop CO-EXISTENT" candidate at v82.
+- Pattern #66 Supply-Chain Isolation (CONFIRMED) — Pattern #88 sub-typology c "machinery-with-enforcement" overlaps with Pattern #66 at build-validator + denylist machinery layer. Careful framing required at v90 audit (Pattern #88 = design-aesthetic-output enforcement; Pattern #66 = supply-chain trust enforcement).
+- Pattern #82 Quantitative-Marketing (PROMOTED v66) — Pattern #88 sub-typology b "named-rules-with-enumeration" explicitly rejects "fake stats" + "invented metrics" = NEGATIVE-stance toward Pattern #82-style claims. Adversarial cross-pattern interaction.
+
+**Honest dissent / caveats:**
+- 3-instance arc within 2 calendar days = unusually fast = risk of "trend-following" subjects within design-skill cluster rather than independent cross-vertical recurrence
+- All 3 instances in T1 design-skill cluster + 2/3 Asian-LOCATED (huashu Chinese + open-design unknown but anti-slop framing prominent) — possible T1-design-skill vertical overfit
+- "Anti-slop" boundary-vs-other-anti-LLM-framings not yet sharply defined (overlaps with anti-vibe-coding Pattern #51 + anti-magic-glue-app)
+- v90 audit should pressure-test cross-vertical applicability (T2 Service? T3 Education? non-design verticals?)
+
+**Confidence:** MEDIUM-HIGH. N=3 with formal 3-variant sub-typology + orthogonality-validation against Pattern #51 + co-occurrence-validation against Pattern #66/#82 + 3-arc-in-2-days promotion-arc-speed CORPUS-RECORD-TIE. Caveats above downgrade from HIGH to MEDIUM-HIGH.
+
+**Audit document:** `04 Reviews/(C) 2026-05-22 Pattern Library mini-audit post-v83-v84-v85 (3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST batch corpus-history; Pattern #88 Anti-Slop NEW + Pattern #52 N=2 + Library-vocab #12 + #14 + 30 other items).md`
+
+**Phase 4b proposal-document:** `03 Projects/open-design - Beginner Analysis/01 Analysis/(C) Anti-Slop-Design-Curation-N3-PROMOTION-LOCKED-IN-with-machinery-sub-typology.md`
+
+---
+
+## Pattern #52 sub-class N=2 PROMOTION at v86 audit (sub-class-only; Pattern #52 top-level already CONFIRMED via v75 audit)
+
+### Pattern #52 Multi-Month-Sustained EXTREME-VIRAL sub-class — CONFIRMED N=2 at v86 audit
+
+**Sub-class definition:** Pattern #52 (velocity-class) sub-class characterized by **stars-per-day > 300 AND sustained-window ≥ 90 days** — distinct from EXTREME-VIRAL pulse (>300/d × <90d short launch-window).
+
+**Evidence at PROMOTION (N=2 cross-instance):**
+
+- **v78 affaan-m/ECC** (N=1 anchor): 187,238 stars / 122 days = **1,535 stars/day** sustained over 4-month window. PROMOTION-LOCKED-IN at v85 audit deferred to v86.
+
+- **v85 nextlevelbuilder/ui-ux-pro-max-skill** (N=2 confirmation): 81,352 stars / 174 days = **467 stars/day** sustained over 6-month window (LONGER sustenance than v78 anchor at 3.3× lower per-day rate).
+
+**Cross-instance comparison:**
+
+| Metric | v78 ECC | v85 ui-ux-pro-max | Ratio/Notes |
+|--------|---------|-------------------|-------------|
+| Stars/day | 1,535 | 467 | v78 much higher per-day rate (3.3×) |
+| Sustained-days | 122 | 174 | v85 LONGER sustenance window |
+| Total stars | 187K | 81K | v78 much higher absolute count |
+| Owner archetype | Solo + community | VN org | Different archetypes |
+| Vertical | Multi-Harness Operator System | T1 design-skill | Different T1 sub-archetypes |
+| Velocity trajectory | Sustained high-magnitude | Sustained moderate-magnitude | Same sub-class, different magnitudes |
+
+Both qualify under sub-class threshold (>300/d × ≥90d) but at DIFFERENT magnitudes within the sub-class.
+
+**5-of-5 promotion criteria PASS HIGH-confidence:**
+
+1. Cross-instance recurrence at N≥2 ✅ PASS
+2. Sub-class threshold met ✅ PASS
+3. Mechanism distinction from pulse-class ✅ PASS
+4. Variant-within-pattern strengthening ✅ PASS
+5. HIGH-confidence verdict ✅ PASS
+
+**Pattern #52 sub-class taxonomy at v86 (formal 5-variant):**
+
+1. EXTREME-VIRAL pulse (>300/d × <90d) — CONFIRMED
+2. HIGH-NOT-EXTREME (150-300/d) — CONFIRMED (N=4 PROMOTED v75)
+3. SUSTAINED-MODERATE-HIGH (25-150/d) — CONFIRMED
+4. LONG-SUSTAINED-MEDIUM (60-150/d × 1000+d) — PROVISIONAL N=1 (v74 Raschka)
+5. **Multi-Month-Sustained EXTREME-VIRAL (>300/d × 90+d) — CONFIRMED N=2 NEW at v86 (v78 + v85)**
+
+**Honest dissent / caveats:**
+- 3.3× velocity ratio across N=1 + N=2 = wide-magnitude range within single sub-class; v90 should pressure-test sustenance-definition (≥90 days at what cumulative-velocity?)
+- Both instances in T1 territory (operator-system + design-skill) → possible T1-vertical overfit; cross-vertical applicability open at N=2
+- Sustained-window definition is implicit; if last 60d of v85 dropped to 100/d, would that still qualify as "sustained"?
+
+**Confidence:** HIGH (per 5-of-5 criteria PASS).
+
+**Audit document:** `04 Reviews/(C) 2026-05-22 Pattern Library mini-audit post-v83-v84-v85 ...md`
+
+**Phase 4b proposal-document:** `03 Projects/ui-ux-pro-max-skill - Beginner Analysis/01 Analysis/(C) Pattern-52-N2-Multi-Month-Sustained-EXTREME-VIRAL-promotion.md`
+
+---
+
+## Library-vocab items PROMOTED at v86 audit (3 items: #12 + #14 + #15)
+
+### Library-vocab #12 LLM-routing artifacts — CONFIRMED N=5
+
+5-variant taxonomy:
+1. **NOTICE.md** (v75 impeccable) — 2-source derivative-attribution chain
+2. **HARNESSES.md** (v75 impeccable) — harness-tolerance routing description
+3. **AGENTS.md** (v76 agent-skills-standard) — 3-tier hierarchical-lookup router
+4. **llms.txt** (v77 easy-vibe + v81 taste-skill, N=2 strengthening within item) — curriculum-stage / skill-bundle routing
+5. **skill.json** (v85 ui-ux-pro-max-skill) — formal Claude-Code-skill manifest with 18-platform enumeration
+
+### Library-vocab #14 Org-Brand-and-Product-Brand-Split via 2-Custom-Domain — CONFIRMED N=3
+
+- v82 huashu-design: huasheng.ai + bookai.top
+- v83 open-design: nexu.io + open-design.ai
+- v85 ui-ux-pro-max-skill: nextlevelbuilder.io + uupm.cc
+
+T1-design-skill + Asian-LOCATED overfit caveat applied; v90 cross-vertical pressure-test required.
+
+### Library-vocab #15 Operator-Elected-Phase-0-9-Override-with-Honest-Documentation-Trail — CONFIRMED N=1 ONE-TIME-EXCEPTION
+
+Codifies v84 OVERRIDE policy + ONE-TIME-EXCEPTION annotation:
+- Override-trigger conditions: Phase 0.9 STRICT verdict = 0-PASS or 1-WEAK-only with operator force-build
+- Override-artifact-trail: project CLAUDE.md OVERRIDE-block + Phase 4b proposal-document + root CLAUDE.md Storm Bear streak block
+- Streak-notation: Option B2 "N+1*" format
+- Override-frequency threshold: 2-in-20 wikis OR 3-in-30 wikis = v2.3 Phase 0.9 redesign trigger
+- ONE-TIME-EXCEPTION annotation: v84 declared one-time; Phase 0.9 STRICT remains LOAD-BEARING; future 0-PASS defaults to SKIP
+
+---
