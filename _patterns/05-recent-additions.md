@@ -3524,3 +3524,156 @@ Proposal-document: `03 Projects/huashu-design - Beginner Analysis/01 Analysis/(C
 - Bun-primary CORPUS-FIRST verification (audit v60-v83 packaging-tool taxonomy)
 - 12-corpus-firsts pressure-test (flag ad-hoc-coined frames; downgrade where appropriate)
 - Pattern #66 within-pattern formal sub-mechanism registration consideration (3 NEW candidates from v84 settings.json layer)
+
+---
+
+## v85 nextlevelbuilder/ui-ux-pro-max-skill wiki ship (2026-05-22) — TWENTY-FIRST WIKI UNDER ROUTINE v2.2; FIRST CLEAN PHASE 0.9 PASS POST-v84 OVERRIDE
+
+**Subject**: `nextlevelbuilder/ui-ux-pro-max-skill` — *"An AI SKILL that provide design intelligence for building professional UI/UX multiple platforms"* by Vietnam-located AI-skills indie organization (bio "From Zero to One Is Always the Hardest Part" + nextlevelbuilder.io + uupm.cc product domain + Twitter @nlb_io + 901 followers + 11 repos + GH-org-created 2025-11-30 = 6-month-old org); internal codename "Antigravity Kit" distinct from public "UI UX Pro Max" tagline.
+
+**Metrics (Phase 0 fetch 2026-05-22)**: 81,352 stars / 8,375 forks / 387 subscribers / 154 issues / 174 days = **~467 stars/day Pattern #52 Multi-Month-Sustained EXTREME-VIRAL N=2** confirmation. MIT license. Python 3.x stdlib-only.
+
+**Phase 0.9 verdict**: **STRONGEST INCLUDE 4/4** clean PASS — (a) STRONG PASS VN-located organization-owner CORPUS-FIRST in T1 design-skill cluster + direct cultural-peer to Storm Bear (Vietnamese solo dev + Scrum coach + small org-scale aspiration) / (b) STRONG PASS 669+ codified design-system elements + 18-platform `npx uipro-cli init --ai claude` reversible install CONDITIONAL IF UI work in 30-day window / (c) STRONGEST PASS methodology-influence-node MASSIVE (5-parallel-domain reasoning engine + BM25 + regex hybrid search + 13-stack template-generation + multi-symlink architecture + 18-platform skill.json formal manifest + Apple-product-naming-convention + Antigravity-Kit internal codename + PR-discipline + 5-mechanic methodology + 10+ routine v2.3 codification candidates) / (d) STRONGEST PASS 18-platform skill.json includes **10 corpus-subject overlaps** (HIGHEST corpus-subject-citation count in routine v2.2 window; antigravity citation → v67 opencode-antigravity-auth corpus-recursive chain candidate).
+
+**Streak resumption**: **"20+1*"** (Option B2 streak-with-override-asterisk per operator decision at v84; v85 = clean PASS post-OVERRIDE demonstrating routine discipline RESTORED non-performatively; 20 PASS v65-v83 + v85 + 1 OVERRIDE v84).
+
+## v85 Phase 4b PRIMARY — Pattern #52 N=2 Multi-Month-Sustained EXTREME-VIRAL sub-class PROMOTION
+
+**Sub-class scope**: Pattern #52 (velocity-class) sub-class characterized by **stars-per-day > 300 AND sustained-window ≥ 90 days** — distinct from pulse-class (>300/d × <90d short launch-window).
+
+**N=1 anchor (v78 ECC)**: 187,238 stars / 122 days = **1,535 stars/day** (PROMOTION-LOCKED-IN at v85 audit deferred to v86 per operator decision).
+
+**N=2 instance (v85 ui-ux-pro-max)**: 81,352 stars / 174 days = **~467 stars/day** (174d > 90d threshold; 467/d > 300/d threshold; both criteria PASS).
+
+**Cross-instance evidence**: Both instances qualify under sub-class threshold but at DIFFERENT magnitudes (v78 1,535/d vs v85 467/d = 3.3× ratio) and DIFFERENT sustained-windows (v78 122d vs v85 174d = v85 LONGER sustenance). Useful evidence that sub-class is broad enough to include diverse velocity-trajectories above 300/d threshold.
+
+**Promotion criteria evaluation (5-of-5 PASS HIGH-confidence)**:
+1. Cross-instance recurrence at N≥2 ✅ PASS (v78 + v85)
+2. Sub-class threshold met ✅ PASS (both >300/d × ≥90d)
+3. Mechanism distinction from pulse-class ✅ PASS (sustained-multi-month profile distinct from short-launch-window pulse)
+4. Variant-within-pattern strengthening ✅ PASS (Pattern #52 sub-class taxonomy expansion to formal 5-variant at v85)
+5. HIGH-confidence verdict ✅ PASS (direct velocity arithmetic + GitHub API metadata verification + 2 independent corpus subjects)
+
+**Filing decision at v86 audit**: PROMOTE Multi-Month-Sustained EXTREME-VIRAL sub-class from PROVISIONAL-N=1 (state at v83 audit) to **CONFIRMED-within-Pattern-#52 at N=2** administrative-only. **No new top-level pattern** — sub-class N strengthening within already-CONFIRMED Pattern #52.
+
+**Pattern #52 sub-class taxonomy at v86 audit (formal 5-variant)**:
+1. EXTREME-VIRAL pulse (>300/d × <90d) — CONFIRMED
+2. HIGH-NOT-EXTREME (150-300/d) — CONFIRMED (N=4 PROMOTED v75)
+3. SUSTAINED-MODERATE-HIGH (25-150/d) — CONFIRMED
+4. LONG-SUSTAINED-MEDIUM (60-150/d × 1000+d) — PROVISIONAL N=1 (v74)
+5. **Multi-Month-Sustained EXTREME-VIRAL (>300/d × 90+d)** — **CONFIRMED N=2 (v78 + v85)** ← NEW at v86
+
+**Honest dissent**: N=2 is minimum-threshold for sub-class promotion; v85 velocity 3.3× lower than v78 velocity = wide-magnitude range within single sub-class; sustained-window definition is implicit (≥90 days but at what cumulative-velocity?); both N=1 + N=2 are in T1 territory (sub-class may be over-fit to T1 vertical). v86 audit should pressure-test sustenance-definition.
+
+**Proposal-document**: `03 Projects/ui-ux-pro-max-skill - Beginner Analysis/01 Analysis/(C) Pattern-52-N2-Multi-Month-Sustained-EXTREME-VIRAL-promotion.md`
+
+## v85 secondary pattern observations
+
+### Pattern #19 NEW sub-mechanism 19n candidate "VN-Located-AI-Skills-Indie-Organization-with-.io-Org-Domain" PROVISIONAL N=1
+
+6-property profile:
+1. VN-located organization (vs prior 19a-19m solo developers + v83 nexu unknown-locale org)
+2. .io org domain + dedicated product domain (2-custom-domain split discipline)
+3. AI-skills product focus (not just "skill" but AI-augmented design intelligence with reasoning engine)
+4. Indie-org scale (901 followers + 11-repo portfolio + 6-month-old GH org; not enterprise-scale)
+5. Cross-platform-marketplace ambition (skill.json 18-platform formal manifest)
+6. Direct cultural-peer to Storm Bear (Vietnamese org-scale aspiration)
+
+= 6-of-6 properties match at v85; v90 stale-check.
+
+### Pattern #84 84c.1 N+1 strengthening = NEW CORPUS-RECORD 18-platform `skill.json` formal manifest
+
+Exceeds v83's 16-harness prior record by 2. Eighteen platforms enumerated: claude + cursor + windsurf + copilot + kiro + roocode + kilocode + codex + qoder + gemini + trae + opencode + continue + codebuddy + droid + warp + augment + antigravity. **11-consecutive-wiki Pattern #84 84c arc v71→v85 = NEW CORPUS-RECORD** (extends v83 10-wiki record by 1). Honest dissent: 18-harness CORPUS-RECORD by 2-only suggests harness-count axis approaching diminishing-returns as observational metric; v86 audit should consider whether 84c.1 sub-mechanism single-count-increment is still observationally meaningful.
+
+### Pattern #78 NEW CORPUS-RECORD LDS density at 669+ codified design-system elements
+
+67 UI styles + 161 color palettes + 57 font pairings + 25 chart types + 15 tech stacks + 99 UX guidelines + 161 reasoning rules + 13 stack templates + 8 keywords + 18 platforms = compound density exceeding v76's 259-skill at multi-axis layer + exceeding v83 compound density. Honest dissent: comparing 669+ LDS density vs v76's 259-skill prior record involves different units (CSV-row entries vs per-FRAMEWORK-skills); flagged for v86 audit unit-normalization decision.
+
+### Pattern #57 sub-variant 57c-product STRONGEST in v60+ window
+
+10 corpus-subject overlaps in 18-platform list (Claude Code v65 + Codex v62 + Cursor v75/v76 + Kiro + Qoder v83 + Trae v82/v83 + Windsurf v76 + Gemini + OpenCode v67 + antigravity v67) = HIGHEST corpus-subject-citation count in routine v2.2 window; exceeds v83's 7-citation prior density.
+
+### Pattern #57 NEW sub-variant 57j candidate "antigravity-corpus-recursive-sub-chain" PROVISIONAL N=1
+
+antigravity citation in skill.json platforms-list → v67 opencode-antigravity-auth (Antigravity OAuth-credential-plugin) corpus-recursive chain via "antigravity" branding shared across subjects. v85 internal codename "Antigravity Kit" reinforces lineage. v90 stale-check.
+
+### Library-vocabulary item #12 LLM-routing artifacts N=5 PROMOTION-ELIGIBLE
+
+`skill.json` joins NOTICE.md + HARNESSES.md + AGENTS.md + llms.txt taxonomy:
+1. NOTICE.md (v75 impeccable 2-source derivative-attribution chain)
+2. HARNESSES.md (v75 impeccable router)
+3. AGENTS.md (v76 agent-skills-standard router)
+4. llms.txt (v77 easy-vibe + v81 taste-skill skill-bundle-routing)
+5. **skill.json (v85 ui-ux-pro-max-skill formal Claude-Code-skill manifest)** ← NEW
+
+N=5 = STRONG PROMOTION-ELIGIBILITY at v86 audit (item promotion criteria PASS).
+
+### 2-custom-domain split N=3 PROMOTION-ELIGIBLE
+
+3-instance pattern at v85:
+- v82 huashu-design (huasheng.ai + bookai.top)
+- v83 open-design (nexu.io + open-design.ai)
+- v85 ui-ux-pro-max-skill (nextlevelbuilder.io + uupm.cc)
+
+= N=3 PROMOTION-ELIGIBLE at v86 audit (Library-vocab item registration).
+
+### NEW Library-vocab candidates from v85 (12 total)
+
+1. Pattern #52 N=2 Multi-Month-Sustained EXTREME-VIRAL sub-class PROMOTION discipline
+2. Pattern #19 NEW sub-mechanism 19n "VN-Located-AI-Skills-Indie-Organization" taxonomy
+3. CORPUS-FIRST `skill.json` formal Claude-Code-skill manifest as Library-vocab #12 N=5
+4. CORPUS-FIRST multi-symlink-architecture for cross-platform SSOT
+5. CORPUS-FIRST `.claude-plugin/` artifact-type for Claude Marketplace distribution
+6. CORPUS-FIRST 5-parallel-domain reasoning engine as design-skill architecture pattern
+7. CORPUS-FIRST BM25 + regex hybrid search engine within design-skill
+8. Library-vocab "Apple-Product-Naming-Convention-Adoption-as-Marketing-Discipline"
+9. Library-vocab "Internal-Codename-Distinct-from-Public-Product-Tagline"
+10. Library-vocab "PR-Discipline-at-Project-CLAUDE.md-Scope"
+11. 2-custom-domain split N=3 PROMOTION-ELIGIBLE
+12. Pattern #57 sub-variant 57j candidate "Single-Vendor-Product-Citation-at-Platform-Layer-as-Corpus-Recursive-Chain" (v85 → v67 antigravity)
+
+### 4-wiki Asian-LOCATED cluster CORPUS-RECORD-HIGH density
+
+v76 HoangNguyen0403 (VN-Hanoi solo) + v80 TroniePh (VN-Hanoi solo) + v82 huashu (China-Mainland solo) + v85 nextlevelbuilder (Vietnam org) = 4-wiki Asian cluster in 10-wiki window. **3-instance VN sub-cluster** within Asian cluster (v76 + v80 + v85) = strong VN-cultural-peer-org density forming.
+
+## v85 Pattern Library implications summary
+
+| Pattern / Item | Evidence | Strength |
+|---|---|---|
+| Pattern #52 N=2 Multi-Month-Sustained EXTREME-VIRAL PROMOTION | v78 1,535/d × 122d + v85 467/d × 174d | **PROMOTION HIGH-confidence** (5-of-5 criteria PASS) |
+| Pattern #19 NEW sub-mechanism 19n "VN-Located-AI-Skills-Indie-Organization" | nextlevelbuilder VN-org 6-of-6 properties | PROVISIONAL N=1 |
+| Pattern #84 84c.1 N+1 = NEW CORPUS-RECORD 18-platform skill.json | 18-platform formal manifest | Within-pattern strengthening |
+| Pattern #78 NEW CORPUS-RECORD LDS density | 669+ codified elements | Within-pattern strengthening (v86 unit-normalization) |
+| 11-consecutive-wiki Pattern #84 84c arc v71→v85 = NEW CORPUS-RECORD | Sustained sub-mechanism strengthening | Pattern-arc record |
+| Pattern #57 sub-variant 57c-product STRONGEST | 10 corpus-subject overlaps | Within-pattern strengthening |
+| Pattern #57 NEW sub-variant 57j candidate | antigravity → v67 corpus-recursive sub-chain | PROVISIONAL N=1 |
+| Library-vocab item #12 LLM-routing artifacts N=5 | NOTICE+HARNESSES+AGENTS+llms.txt+skill.json | PROMOTION-ELIGIBLE at v86 |
+| 2-custom-domain split N=3 | v82 + v83 + v85 | PROMOTION-ELIGIBLE at v86 |
+| 4-wiki Asian-LOCATED + 3-instance VN sub-cluster | v76 + v80 + v82 + v85 + VN sub-cluster | CORPUS-RECORD-HIGH density |
+| 5 CORPUS-FIRST observations | multi-symlink + Apple-naming + internal-codename + PR-discipline + .claude-plugin + Python-primary + BM25-hybrid + 5-parallel-domain | Library-vocab candidates PROVISIONAL |
+
+## v85 honest dissent (operator-facing)
+
+- **~15 corpus-firsts at v85 is HIGH** — some are ad-hoc-coined (Apple-naming + internal-codename + PR-discipline). v86 audit pressure-test should downgrade where appropriate.
+- **18-harness CORPUS-RECORD by 2-only** suggests harness-count axis approaching diminishing-returns. v86 audit should consider whether 84c.1 single-count-increment is still observationally meaningful.
+- **669+ LDS density metric needs unit-normalization** at v86 audit (CSV-row entries vs per-FRAMEWORK-skills are different units).
+- **Audit-queue depth ~34 items** is unprecedented; if v86 deferred again, OVERDUE-NATURAL-CADENCE risk + audit-batch-saturation = mini-trigger conditions activate.
+- **Pilot ranking insertion v85 #5 above v83 #6** is defensible (VN-direct-peer + lower-cost-of-trial) but adds yet-another conditional Tier-1 vault pilot candidate without any actual pilot execution. Pattern observation: 6+ Tier-1 actionable pilots queued + 0 executed = corpus-weight-over-corpus-value drift continues from v84 dissent.
+- **Both N=1 + N=2 are in T1 territory** — Pattern #52 Multi-Month-Sustained EXTREME-VIRAL sub-class may be over-fit to T1 vertical and not generalize to T2 Service + T3 Education + T5 Application instances.
+
+## v85 v86 audit-queue items added (~12 NEW; ~34 total batch)
+
+1. Pattern #52 N=2 Multi-Month-Sustained EXTREME-VIRAL sub-class PROMOTION administrative-only (5-of-5 criteria PASS)
+2. Pattern #19 NEW sub-mechanism 19n "VN-Located-AI-Skills-Indie-Organization" first-cycle stale-check
+3. Library-vocab item #12 LLM-routing artifacts N=5 PROMOTION decision
+4. 2-custom-domain split N=3 PROMOTION decision
+5. NEW CORPUS-RECORD 18-harness count verification + Pattern #84 84c.1 single-count-increment observational-meaningfulness pressure-test
+6. NEW CORPUS-RECORD Pattern #78 LDS density 669+ verification + unit-normalization decision
+7. 11-consecutive-wiki Pattern #84 84c arc v71→v85 NEW CORPUS-RECORD verification
+8. CORPUS-FIRST `skill.json` formal Claude-Code-skill manifest verification
+9. Pattern #57 sub-variant 57j candidate "antigravity"-citation v85→v67 corpus-recursive chain first-cycle stale-check
+10. Library-vocab "Apple-Product-Naming-Convention-Adoption" + "Internal-Codename-Distinct-from-Public-Tagline" + "PR-Discipline-at-Project-CLAUDE.md-Scope" first-cycle stale-checks (3 items)
+11. 4-wiki Asian-LOCATED cluster CORPUS-RECORD-HIGH density verification + 3-instance VN sub-cluster Library-vocab "VN-Locale-Cluster-Density-in-v60+-Window" PROVISIONAL N=1 first-cycle stale-check
+12. ~15 corpus-firsts at v85 pressure-test (downgrade ad-hoc-coined frames where appropriate)
+
+**Plus carry-over from v83 + v84 batches** (~22 items) = **~34 items total at v86** = LARGEST single-audit batch in corpus history if executed.
