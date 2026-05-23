@@ -24,36 +24,13 @@
 
 ---
 
-## Autonomous Loops with HITL — anchor-injection re-run
-
-- **Query:** `Karpathy autoresearch Ralph loop Claude Code autonomous overnight`
-- **Anchors:**
-  - https://www.youtube.com/watch?v=vjJwgXsMfjM
-  - https://www.youtube.com/watch?v=9jxrmk_Xses
-  - https://www.youtube.com/watch?v=o-pMCoVPN_k
-  - https://www.youtube.com/watch?v=Yl_GGlAQ4Gc
-  - https://www.youtube.com/watch?v=rnvNW-6XniU
-  - https://www.youtube.com/watch?v=jfAIKrNMKvM
-- **Notes:** 3rd attempt at this topic. **History:**
-  - 2026-05-13 1st run: relaxed recency filter, pulled generic 2025 IBM/CNN/"What is Agentic AI" explainers (anchor-miss).
-  - 2026-05-21 2nd run (tighter-query re-run, no anchors): 10-keyword AND-query `"Karpathy autoresearch Ralph loop human checkpoint goal driven Claude Code plan mode grill paperclip"` returned **0 yt-search results** → aborted. Tighter query swung too far the other way.
-  - 2026-05-22 3rd attempt (THIS one): **anchor injection** per the 2026-05-14 operator-action-item #1. 6 anchors hand-picked 2026-05-22 to cap `SOURCES_PER_TOPIC=6`; yt-search fills 0 additional slots. Query simplified to balance discovery (would only matter if anchor count is reduced below 6 later).
-- **Anchor selection rationale (2026-05-22):**
-  - `vjJwgXsMfjM` — AI Andy, "Claude Code + Karpathy's Autoresearch = GOD MODE!" (58K views) — combines both halves of the topic
-  - `9jxrmk_Xses` — Tonbi's AI Garage, "Karpathy's Autoresearch: We Achieved Near-Human Scores in 2 Hours!" (44K views) — direct Karpathy autoresearch coverage
-  - `o-pMCoVPN_k` — Developers Digest, "How to Run Claude Code For Hours Autonomously" (88K views) — Ralph-loop-adjacent autonomous workflow
-  - `Yl_GGlAQ4Gc` — WorldofAI, "Claude Code Ralph Loop: Run Claude Code For Hours Autonomously & Code ANYTHING!" (33K views) — explicit Ralph loop
-  - `rnvNW-6XniU` — Nemanja Mirkovic, "Claude code shipped this while I slept (Ralph Loop explained)" — corpus-author follow-up (Nemanja's other work already ingested as sources 23-24). Note: dry-run 2026-05-22 surfaced this resolves to current title "Ralph loop shipped this with claude code while I slept" — same video ID, recent rename.
-  - `jfAIKrNMKvM` — Siggi, "Karpathy Autoresearch & The Ralph Wiggum Loop: The Future of Autonomous AI Agents" — perfect title-match (combines BOTH halves of the topic explicitly). Replaced `8T3lMCfZHQM` (Nick Puru, dry-run-unreachable on 2026-05-22 — likely deleted/private/region-blocked).
-- **Target:** supplement or supersede `wiki/autonomous-loops-human-in-the-loop/` (anchor-miss content from 2026-05-14).
-- **Queued:** 2026-05-14 (re-queued with anchors 2026-05-22)
-- **Status:** pending
-
----
-
 ## Completed
 
 
+### Autonomous Loops with HITL — anchor-injection re-run ✅
+- **Drained:** 2026-05-23 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-23-autonomous-loops-with-hitl-anchor-injection-re-run.md`
+- **NotebookLM:** `94db9216-eb26-489d-8f06-fd65fbea3fd4`
 ### Open Source Claude Design clones — anchor-corrected re-run ✅
 - **Drained:** 2026-05-14 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-14-open-source-claude-design-clones-anchor-corrected.md`
