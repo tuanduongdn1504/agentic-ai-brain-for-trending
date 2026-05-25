@@ -776,6 +776,194 @@ ECC ships `docs/vi-VN/README.md` among 10+ locales. Author is not necessarily VN
 
 ---
 
+## §25. (a) taxonomy 7-axis formalization (v2.3.1 mini-codification post-v96 audit)
+
+### Trigger
+
+v96 audit (2026-05-25) PROMOTED Phase 0.9 (a)-7 Foundational-Vendor-Direct-Source sub-axis from PROVISIONAL N=2 STRENGTHENING (v93) → CONFIRMED at N=3 with ALL cross-axis spread requirements PASS (v92 anchor + v93 N=2 + v95 N=3 PROMOTION = 3 distinct Anthropic teams + 3 verticals + 3-tier scale + 3 velocity-classes + 3 license-handling-models).
+
+Per v2.3 §9, the (a) taxonomy was a 6-axis taxonomy at codification (2026-05-22). v96 audit formal-promotion of (a)-7 expands to **7-axis taxonomy**.
+
+### Authoritative (a) sub-axis catalog (7-axis)
+
+| Sub-axis | Definition | Evidence type | Verdict strength | Anchor wiki |
+|---|---|---|---|---|
+| **(a)-1** | Direct author peer | Explicit Vietnam location + solo/small-team profile | STRONGEST | v76 Hoang (2026-05-19) |
+| **(a)-2** | Native-language fluency | Tiếng Việt README + idiomatic phrasing (not translation) | STRONG (PROBABLE-PASS if inferred) | v87 bsquang (2026-05-22) |
+| **(a)-3** | Product-locale-inclusion | `docs/vi-VN/README.md` or similar at first-class i18n | PASS via locale-inclusion sub-criterion | v78 ECC (2026-05-20) |
+| **(a)-4** | Community-org cultural-peer | VN/Asian community-org with explicit cultural-positioning | STRONG (PROBABLE-PASS if inferred) | v77 datawhalechina (2026-05-20) |
+| **(a)-5** | Multi-org-founder cultural-peer | Established multi-org-founder with VN/Asian-locale-anchor | STRONGEST | v88 teleport (2026-05-22) |
+| **(a)-6** | Cluster-extension cultural-peer | Subject extends established cultural-cluster axis | STRONG (not STRONGEST because cluster-extension is broader than direct-peer) | v89 Wei Lee (2026-05-22) |
+| **(a)-7 NEW** | **Foundational-Vendor-Direct-Source** | **Subject owned directly by foundational substrate-vendor whose product layer ALL prior corpus subjects depend on; methodology-influence source-authoritative not derivative** | **STRONGEST when 4-of-4 criteria PASS** | **v92 claude-for-legal anchor + v93 N=2 + v95 N=3 PROMOTION** |
+
+### (a)-7 formal definition — 4 evidence-criteria
+
+For (a)-7 PASS verdict, subject must satisfy:
+
+1. **Owner is foundational-vendor org itself** (not subsidiary, partner, or contractor)
+2. **Subject's product layer is upstream of operator's typical work** (e.g. Anthropic = upstream of Storm Bear's daily Claude Code usage)
+3. **Methodological-influence is source-authoritative** (subject DEFINES or REFERENCE-IMPLEMENTS a pattern that other corpus subjects derive / extend / consume / reverse-engineer)
+4. **Subject is at foundational-vendor's primary GitHub org** (e.g. `anthropics/*` for Anthropic), not a personal/team subaccount
+
+### (a)-7 verdict-strength assignment
+
+| Criteria PASS count | Verdict |
+|---|---|
+| 4-of-4 | **STRONGEST** |
+| 3-of-4 | STRONG |
+| 2-of-4 (with inference-tolerant evidence per §8 PROBABLE-PASS) | PROBABLE-PASS |
+| <2 | FAIL |
+
+### Worked examples at v96 promotion
+
+| Wiki | (a)-7 criteria PASS | Verdict |
+|---|---|---|
+| v92 claude-for-legal | 4-of-4 (anthropics/* + legal vertical built on Claude API + Anthropic-vetted legal-workflow methodology + anthropics PBC primary org) | STRONGEST |
+| v93 anthropics/skills | 4-of-4 (anthropics/* + Agent Skills spec foundational + reference-implementation of agentskills.io standard + anthropics PBC primary org) | STRONGEST |
+| v95 claude-plugins-official | 4-of-4 (anthropics/* + distribution-infrastructure foundational + Anthropic-curated marketplace = source-authoritative for plugin-distribution methodology + anthropics PBC primary org) | STRONGEST |
+
+### Multi-sub-axis co-PASS handling
+
+Use the strongest sub-axis as the verdict-criterion. If 2+ STRONGEST sub-axes co-PASS, note both but use STRONGEST. Multi-sub-axis evidence does **NOT** escalate the verdict beyond STRONGEST.
+
+Example: v76 Hoang PASS (a)-1 STRONGEST + (a)-2 STRONG → verdict (a) STRONGEST (not super-STRONGEST).
+
+### Foundational-Vendor-Direct-Source ladder beyond Anthropic
+
+(a)-7 generalizes to other foundational vendors if/when they appear as corpus subjects. Operator-specific evaluation — for Storm Bear's vault, Anthropic is THE foundational vendor (Claude Code daily use). Other foundational-vendor candidates if they appear in corpus and meet the 4 criteria:
+
+| Vendor | GitHub primary org | Foundation-status for Storm Bear vault |
+|---|---|---|
+| Anthropic | `anthropics/*` | **YES** (Claude Code daily; Claude API; Agent Skills spec) |
+| OpenAI | `openai/*` | Possibly (if Codex/GPT-API substrate used in vault) |
+| Google / Alphabet | `google/*`, `googleapis/*` | Possibly (if Gemini CLI substrate used) |
+| Microsoft | `microsoft/*` | Possibly (if VS Code + Copilot substrate used) |
+| Meta | `meta-llama/*` | Indirect (no current vault substrate dependency) |
+
+### Internal strength-gradient (deferred to v2.4)
+
+Within (a)-6 and (a)-7, there are internal strength-gradient sub-criteria (e.g. (a)-7 4-of-4 vs 3-of-4 PASS counts as STRONGEST vs STRONG). Formal internal-gradient codification is deferred to v2.4 with multi-instance evidence required.
+
+### v100 watch for (a)-7
+
+- **STRENGTHENING beyond v95**: watch for new Anthropic-direct-org subjects (e.g. `anthropics/frontend-design` retrospective)
+- **Cross-foundation-vendor**: watch for `openai/*`, `google/*`, or `microsoft/*` subjects emerging in corpus
+- **Edge-case watch**: subjects at foundational-vendor-affiliated-but-not-primary-org (e.g. `anthropic-experimental/*` if such existed) — would test the "primary GitHub org" criterion-4
+
+### v96 audit decision codified
+
+(a)-7 sub-axis FORMAL ADMISSION to Phase 0.9 (a) taxonomy completed at v96 audit (2026-05-25). v2.3 §9 6-axis taxonomy table updated to 7-axis. Decision is final; further refinement of (a)-7 internal-gradient deferred to v2.4 natural cadence.
+
+---
+
+## §26. Corpus-recursive event-class taxonomy (3-class formalization)
+
+### Trigger
+
+v94 + v95 ships introduced two distinct corpus-recursive event observations that, combined with the pre-existing v78 anchor-self-reference precedent, form a **3-class taxonomy** with potential for a 4th class at v95.
+
+v96 audit identified this as a HIGH-PRIORITY codification candidate alongside (a)-7 taxonomy formalization. Mini-codified at v2.3.1.
+
+### Class taxonomy
+
+#### Class 1: Anchor self-reference
+
+**Definition**: Same subject revisited at delta-time. The corpus subject at v_N is the same as a prior anchor at v_M, observed at a delta of M-N wikis.
+
+**Properties**:
+- Recursion-depth: **0** (same subject)
+- Subject relationship to corpus: **same subject at delta-time**
+- Operator-applicability: **INDIRECT** (corpus-knowledge only)
+- Methodology preservation: **re-anchored** (re-analyzed with corpus-evolution context)
+
+**Anchor**: v78 affaan-m/ECC (2026-05-20) revisiting v1 affaan-m/everything-claude-code (2026-04-17). 33-day delta. CORPUS-FIRST in v60+ window.
+
+**Detection criteria**: subject at v_N is provably the same GitHub repo / project as a v_M < v_N anchor (allowing for repo-rename like `everything-claude-code` → `ECC`).
+
+**N=2 watch**: subsequent re-analysis events of any prior anchor.
+
+#### Class 2: Methodology-direction reversal
+
+**Definition**: Third-party implementer of a vendor-published spec creates a methodology-loop closure between implementer and source-authoritative vendor. The two subjects exist as sibling lineage at source-authoritative ↔ implementer.
+
+**Properties**:
+- Recursion-depth: **1** (sibling lineage at source ↔ implementer)
+- Subject relationship to corpus: **sibling lineage**
+- Operator-applicability: **INDIRECT-special** (methodology-influence-special pilot track)
+- Methodology preservation: **source-vs-implementer reversal**
+
+**Anchor**: v76 HoangNguyen0403/agent-skills-standard (third-party standards-layer implementer of agentskills.io standard; 2026-05-19) ↔ v93 anthropics/skills (vendor-authoritative reference implementation of same agentskills.io standard; 2026-05-23). 4-day delta with the reversal direction (v76 → standard ← v93).
+
+**Detection criteria**: two subjects at v_M and v_N where one is third-party-implementer and the other is vendor-source-authoritative for the SAME spec / standard / pattern, AND the methodology-direction reverses (implementer-published-first OR source-authoritative-published-first).
+
+**N=2 watch**: another methodology-direction reversal event (e.g. third-party implementer of OpenAI's Agent SDK spec ↔ openai/* source-authoritative if such pair emerges).
+
+#### Class 3: Foundation-pattern-as-first-class-product-feature
+
+**Definition**: Third-party tool that ANALYZES a corpus-foundation pattern as a first-class product feature. The corpus-foundation pattern is consumed as direct structural input to the product, not just referenced as inspiration.
+
+**Properties**:
+- Recursion-depth: **N** (corpus pattern is direct input)
+- Subject relationship to corpus: **consumer-tool of corpus-foundation pattern**
+- Operator-applicability: **DIRECT** (operator's vault IS the input structure for the product)
+- Methodology preservation: **consumed as structural input**
+
+**Anchor**: v94 Lum1104/Understand-Anything (2026-05-25). `/understand-knowledge` command literally designed for Karpathy-pattern LLM wikis = the foundational pattern Storm Bear's entire vault is built on.
+
+**Detection criteria**: subject explicitly references a corpus-foundation pattern (Karpathy LLM Wiki gist, Anthropic Agent Skills spec, etc.) AND consumes it as direct product input (not just citation) AND product operates on operator's exact corpus structure.
+
+**N=2 watch**: another tool that analyzes Karpathy-pattern wikis (e.g. Obsidian graph-visualization plugins, AI-research-assistant vault-scrapers) OR another tool that consumes Anthropic Agent Skills spec as direct input.
+
+#### Class 4 candidate (PROVISIONAL N=1): Distribution-infrastructure-anchor
+
+**Definition**: Subject IS the distribution layer that materializes prior corpus subjects' delivery. The subject is upstream of multiple prior corpus subjects in the distribution layer.
+
+**Properties**:
+- Recursion-depth: **∞** (distribution-layer for arbitrary downstream subjects)
+- Subject relationship to corpus: **distribution-infrastructure for multiple prior subjects**
+- Operator-applicability: **DIRECT** (already-installed-by-default if foundational-vendor-direct-source)
+- Methodology preservation: **hosted as distribution**
+
+**Anchor**: v95 anthropics/claude-plugins-official (2026-05-25). Marketplace is upstream of v92 claude-for-legal 12-plugin bundle + v93 anthropics/skills sub-marketplace + frontend-design at `/plugins/frontend-design/` (REFERENCED BY v75 + v82 + v83) + telegram external_plugin (SIBLING to v88 teleport) + linear external_plugin (corpus-recursive to v62/v88). Corpus-novel observational class at PROVISIONAL N=1.
+
+**Detection criteria**: subject IS the distribution / marketplace / aggregator layer for N≥3 prior corpus subjects.
+
+**N=2 watch**: another distribution-infrastructure subject (e.g. OpenAI plugins marketplace if it emerges; Cursor extensions marketplace; Microsoft VS Code marketplace).
+
+**Formal class-promotion**: PROVISIONAL N=1 currently; v100 audit reviews for N=2 to formal Class 4.
+
+### Class-detection methodology
+
+When evaluating a corpus-recursive event:
+
+1. **Subject relationship to corpus**: same / sibling / consumer-tool / distribution
+2. **Recursion depth**: 0 / 1 / N / ∞
+3. **Operator-applicability**: INDIRECT / INDIRECT-special / DIRECT
+4. **Methodology preservation mode**: re-anchored / source-vs-implementer-reversal / consumed-as-input / hosted-as-distribution
+
+A single subject may exhibit multiple class properties (e.g. v95 claude-plugins-official is primarily Class 4 distribution but also exhibits Class 2 elements via the v76↔v93 spec-marketplace lineage). Use the strongest class signal as primary; note co-class observations as secondary.
+
+### When to register a NEW corpus-recursive event-class
+
+Trigger: subject doesn't fit any of the 4 documented classes AND has structural properties that warrant a distinct class label. Register as PROVISIONAL N=1 with explicit class-definition. Promotion to formal class at N=2 (per Library-vocab promotion ladder §2).
+
+### Honest deficiency disclosure
+
+- **Class 1-3 have N=1 evidence each**: no within-class strengthening events have occurred yet. The 3-class taxonomy is a structural-distinction observation, not a frequency-validated typology.
+- **Class 4 is PROVISIONAL N=1**: corpus-novel and possibly idiosyncratic to Anthropic-direct-org distribution scope.
+- **Operator-vault-specific bias**: all 4 classes are observed against Storm Bear's specific vault structure (Karpathy LLM wiki pattern). For other operator-vault structures, class definitions may need adjustment.
+
+### v100 watch summary
+
+| Class | Anchor wiki | N=2 watch trigger |
+|---|---|---|
+| Class 1 Anchor self-reference | v78 (2026-05-20) | Another re-analysis of prior anchor |
+| Class 2 Methodology-direction reversal | v76 ↔ v93 (2026-05-19 / 2026-05-23) | Another implementer ↔ source-authoritative pair |
+| Class 3 Foundation-pattern-as-first-class-product-feature | v94 (2026-05-25) | Another corpus-foundation-pattern consumer-tool |
+| Class 4 Distribution-infrastructure-anchor (PROVISIONAL) | v95 (2026-05-25) | Another distribution-layer subject for N≥3 prior corpus subjects |
+
+---
+
 ## Routine v2.3 cross-references
 
 ### Unchanged from v2.2 (still authoritative)
@@ -831,15 +1019,17 @@ ECC ships `docs/vi-VN/README.md` among 10+ locales. Author is not necessarily VN
 - **v2.1**: 2026-04-22 — Phase 4b routing + operator-facing-backlog discipline
 - **v2.2**: 2026-05-14 — Phase 0.9 STRICT + 4 audit classes + Library-vocab items + Pattern #51 sub-pole + 65-wiki-accumulated lessons codified
 - **v2.3**: 2026-05-22 — Library-vocab observational layer + N=4 promotion ladder + 8 Phase 4b vehicles + 3-layer Pattern hierarchy + Operator-Elected OVERRIDE policy + Streak Option B2 + 6-axis Phase 0.9 (a) taxonomy + 7-audit-class taxonomy + Pattern #52 5-variant + CORPUS-FIRST pressure-test discipline + Pattern #19 CONSOLIDATION + density-not-scale-correlated finding + cultural-cluster CORPUS-RECORD protocol + T*-tier sub-typology precedent + native-language-fluency + product-locale-inclusion (a)-sub-criteria — ~126 codification candidates v60-v89 + 5 audits (v66/v69/v72/v86/v90) folded; ~8-10 spillover deferred to v2.4
+- **v2.3.1**: 2026-05-25 — **Mini-codification post-v96 audit**: §25 (a) taxonomy 7-axis formalization (6-axis → 7-axis expansion via (a)-7 Foundational-Vendor-Direct-Source N=3 PROMOTION administrative-formalization; v92+v93+v95 anchors; 4 evidence-criteria + verdict-strength assignment table + Foundational-Vendor ladder beyond Anthropic + v100 watch) + §26 Corpus-recursive event-class 3-class taxonomy (Class 1 anchor self-reference v78 + Class 2 methodology-direction reversal v76↔v93 + Class 3 foundation-pattern-as-first-class-product-feature v94 + Class 4 PROVISIONAL distribution-infrastructure-anchor v95; class-detection methodology + N=2 watch table) — both load-bearing enough to warrant formal codification ahead of full v2.4 cycle per v96 audit recommendation; remaining v2.4 candidates (~18-20 items) continue accumulating for natural ~v110-v120 cadence
 
 ---
 
 ## Operator-facing usage notes
 
-### When to use v2.3 vs v2.2
+### When to use v2.3.1 vs v2.3 vs v2.2
 
-- All future wiki builds use **v2.3** as the authoritative reference
-- v2.2 remains valid for unchanged content (cross-referenced above)
+- All future wiki builds use **v2.3.1** as the authoritative reference (v2.3 base + §25 + §26 mini-codification)
+- v2.3 base remains valid for §1-§24 content (unchanged at v2.3.1)
+- v2.2 remains valid for content unchanged in v2.3 (cross-referenced above)
 - v2.4 trigger: ~50+ new codification candidates OR major Phase 0.9 redesign
 
 ### What changes for routine v2.2 → v2.3 transition
@@ -869,4 +1059,4 @@ Trigger conditions for v2.4 codification:
 
 ---
 
-**End of routine v2.3 codification.**
+**End of routine v2.3.1 codification** (v2.3 base + §25 (a)-7 7-axis + §26 corpus-recursive 3-class taxonomy mini-codification 2026-05-25 post-v96 audit).
