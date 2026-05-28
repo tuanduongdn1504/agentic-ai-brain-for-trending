@@ -1257,3 +1257,172 @@ Codifies v84 OVERRIDE policy + ONE-TIME-EXCEPTION annotation:
 - ONE-TIME-EXCEPTION annotation: v84 declared one-time; Phase 0.9 STRICT remains LOAD-BEARING; future 0-PASS defaults to SKIP
 
 ---
+
+## QUADRUPLE PROMOTION at v101 1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN mini-audit (Pattern #84 84d + Library-vocab #20 Token-Economy-Quantification + T1 Domain-Vertical-Skill-Collection sub-archetype + Pattern #57 57k)
+
+### Pattern #84 sub-typology 84d Hardware-Substrate-Tolerance — CONFIRMED at N=4 STRONGER
+
+**Status at v101 audit (2026-05-28)**: PROMOTED to CONFIRMED Pattern #84 sub-typology (sibling-level to 84a Tool-tolerance + 84b Usage-enforcement + 84c Provider-Agnostic-By-Design).
+
+**Definition**: Cross-vendor ecosystem-tolerance variant where the subject achieves tolerance ACROSS hardware/substrate boundaries (Apple Silicon MPS + WASM-software-substrate + native-macOS Apple-dev-toolchain + bundled fine-tuned models) rather than across vendor/distribution boundaries (84a/b/c).
+
+**Evidence at PROMOTION (N=4 cross-substrate arc)**:
+
+| Wiki | Subject | Substrate-tolerance mechanism | Sub-sub-mechanism |
+|---|---|---|---|
+| v79 (2026-05-20) | thu-vu92/autoresearch_folktales | Apple Silicon MPS (PyTorch + Metal) | **84d.1** PyTorch-MPS substrate-tolerance |
+| v94 (2026-05-25) | Lum1104/Understand-Anything | WASM-Tree-sitter substrate-tolerance workaround | **84d.2** WASM-software-substrate |
+| v97 (2026-05-25) | samuelfaj/distill | MLX-Apple-Silicon-native bundled fine-tuned model | **84d.3** MLX-Apple-native bundled-fine-tuned-model |
+| v99 (2026-05-27) | manaflow-ai/cmux | native macOS Swift+AppKit + libghostty embed | **84d.4** Native-macOS-Apple-dev-toolchain with embedded-library |
+
+**Cross-substrate spread**: 4-variant distinct substrate-tolerance mechanisms = full coverage of major macOS / cross-platform substrate-axes.
+
+**Pattern #84 hierarchy after v101 promotion**:
+
+```
+Pattern #84 Cross-Vendor Ecosystem-Tolerance (top-level; PROMOTED v72)
+├── 84a Tool-tolerance (v62)
+├── 84b Usage-enforcement (v65)
+├── 84c Provider-Agnostic-By-Design (PROMOTED v72)
+│   ├── 84c.1 Marketplace-Plugin-Install (CONFIRMED v96 at N=6)
+│   ├── 84c.2 CLI-Generated-Formats (PROVISIONAL N=2)
+│   └── 84c.3 Provider-Agnostic via Log-Parsing at Observability Layer (PROVISIONAL N=1)
+└── 84d Hardware-Substrate-Tolerance (CONFIRMED v101 at N=4 — NEW)
+    ├── 84d.1 PyTorch-MPS substrate-tolerance (v79)
+    ├── 84d.2 WASM-software-substrate-tolerance (v94)
+    ├── 84d.3 MLX-Apple-native bundled-fine-tuned-model (v97)
+    └── 84d.4 Native-macOS-Apple-dev-toolchain with embedded-library (v99)
+```
+
+**Distinction from 84c**: 84c provider-agnostic addresses vendor/distribution layer (which CLI/which IDE/which marketplace); 84d hardware-substrate-tolerance addresses hardware/substrate layer (which GPU/which compute-runtime/which OS-toolchain). Orthogonal measurement-axes within Pattern #84.
+
+**Confidence**: HIGH. 4-instance arc + cross-substrate spread is structurally complete coverage of macOS-tier substrate axes. Note 84d is sibling-level to 84a/b/c (sub-typology layer), NOT sub-sub-mechanism within 84c.
+
+**Promotion-arc velocity**: 4-instance arc within 38 calendar days (v79 2026-05-20 → v99 2026-05-27).
+
+**Honest dissent / caveats**:
+- All 4 instances at macOS-centric substrate-axes; cross-OS substrate-tolerance (Windows / Linux native) not represented at v101
+- 84d.2 WASM-software-substrate is the structural outlier (software substrate vs hardware substrate); arguably belongs in distinct sub-sub-mechanism but per 4-variant promotion at N=4, retained within 84d taxonomy
+- v105+ pressure-test required for cross-OS evidence (e.g. CUDA-NVIDIA substrate-tolerance subject)
+
+**Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 (1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN; Pattern #84 84d + Token-Economy-Quantification + T1 Domain-Vertical-Skill-Collection + Pattern #57 57k QUADRUPLE PROMOTION + 46 other items).md`
+
+---
+
+### Library-vocab #20 Token-Economy-Quantification — CONFIRMED N=3
+
+**Status at v101 audit (2026-05-28)**: PROMOTED to CONFIRMED Library-vocab item.
+
+**Definition**: Explicit quantification of token-cost-impact as a primary design-discriminator axis at communication-style / runtime / data-structure layer — distinct from general "efficient design" framing because token-cost is explicitly named, quantified, and used as a primary comparison-axis for design-choice tradeoffs.
+
+**Evidence at PROMOTION (3-axis cross-mechanism)**:
+
+| Wiki | Subject | Mechanism-axis | Quantification |
+|---|---|---|---|
+| v87 (2026-05-22) | bsquang/claude-comstyle | composition-axis | per-style %-token-impact rating (65-75% fewer to +20-40% more) at 13-communication-style taxonomy |
+| v97 (2026-05-25) | samuelfaj/distill | runtime-axis | product-level %-token-saving ("99% saved" claim; bundled-local-LLM compression pipeline) |
+| v98 (2026-05-25) | mukul975/Anthropic-Cybersecurity-Skills | data-structure-axis | progressive-disclosure-per-skill (~30-tokens-scan + 500-2,000-tokens-full-load) at 754-skill scale |
+
+**Cross-axis spread at N=3**:
+- Cross-author: bsquang + samuelfaj + mukul975 (3 distinct authors)
+- Cross-vertical: T1 Prompt-Style + T2 CLI-Service + T1 Domain-Vertical-Skill-Collection (3 distinct verticals)
+- Cross-mechanism-axis: composition + runtime + data-structure (3 distinct quantification mechanisms)
+- Cross-scale: 28★ + 559★ + 8,735★ (3-tier scale-stratification micro + low-mid + mid)
+
+**Confidence**: HIGH. All cross-axis spread requirements PASS per routine v2.3 §2.
+
+**Cross-references**:
+- Library-vocab #18 Coupled-Design Density Not Scale-Dependent — orthogonal to #20; #18 measures pattern-density at single subject across scales; #20 measures token-cost-quantification as design-axis
+- Pattern #66 Supply-Chain Isolation — overlaps at v98 (progressive-disclosure functions as supply-chain coverage discipline) but #20 is distinct measurement-axis (cost-quantification not trust-attribution)
+
+**Honest dissent / caveats**:
+- 3-axis evidence is structurally distinct but loose — composition (v87) + runtime (v97) + data-structure (v98) span 3 distinct architectural layers; could fragment into 3 separate Library-vocab items at v110+ if cross-axis observations diverge further
+- v97 "99% saved" is a quantitative-marketing claim (Pattern #82); part of token-quantification is also marketing-framing; v105 pressure-test should distinguish design-discipline-quantification from marketing-claim-quantification
+
+**Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 ...md`
+
+---
+
+### T1 Assistant Skill sub-archetype: Domain-Vertical-Skill-Collection — CONFIRMED at N=3
+
+**Status at v101 audit (2026-05-28)**: PROMOTED to CONFIRMED T1 sub-archetype (administrative-only at N=3).
+
+**Definition**: T1 Assistant Skill subjects that codify a complete domain-vertical via N-skill collection at single repo scope, with explicit per-skill metadata (frontmatter / SKILL.md / category mapping) and cross-skill routing artifact (AGENTS.md / _INDEX.md / similar).
+
+**Evidence at PROMOTION (3-vertical cross-domain)**:
+
+| Wiki | Subject | Domain-vertical | Skill count |
+|---|---|---|---|
+| v64 (2026-05-13) | claude-seo | SEO-vertical | ~24 skills |
+| v90 (2026-05-22) | Imbad0202/academic-research-skills | academic-research-vertical | 4 nested versioned sub-skills × 42 agents |
+| v98 (2026-05-25) | mukul975/Anthropic-Cybersecurity-Skills | cybersecurity-vertical | 754 skills × 26 domains × 26+ AI platforms |
+
+**Cross-axis spread at N=3**:
+- Cross-author: 3 distinct authors (claude-seo team + Imbad0202 + mukul975)
+- Cross-vertical: 3 distinct domain-verticals (SEO + academic + cybersecurity)
+- Cross-scale: ~24-skill / 4-nested-sub-skill-with-42-agents / 754-skill = 3-tier scale-stratification
+
+**Confidence**: HIGH. Cross-vertical spread is the load-bearing criterion; 3 distinct verticals with explicit domain-codification at each.
+
+**Distinction from other T1 sub-archetypes**:
+- T1 single-artifact (v63 Karpathy + others): single skill or single methodology-package
+- T1 design-language (v75 + v81 + v82 + v83 + v85): design-skill cluster at single subject
+- T1 multi-skill-brand-portfolio (v81): N skills as brand-product variants
+- T1 standards-layer (v76): standards-framework for N-domain
+- T1 Domain-Vertical-Skill-Collection (THIS PROMOTION): N skills codifying a complete domain-vertical at single repo
+
+**Honest dissent / caveats**:
+- v90 academic-research-skills uses nested-versioned-sub-skill structure (4 sub-skills × 42 agents); structurally distinct from v64 single-tier + v98 single-tier-flat; sub-typology candidate at v105 if more nested-structure-subjects emerge
+- All 3 evidence points use Claude-Code-skill format (`.claude/skills/` + SKILL.md); sub-archetype may be CC-skill-specific or generalize to other harness formats — v105 pressure-test
+
+**Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 ...md`
+
+---
+
+### Pattern #57 sub-variant 57k Standards-Conformance-Layer Corpus-Recursive Chain (5-Implementer) — CONFIRMED at N=3 PROMOTION
+
+**Status at v101 audit (2026-05-28)**: PROMOTED to CONFIRMED Pattern #57 sub-variant (first sub-variant PROMOTION to CONFIRMED within Pattern #57's sub-variant taxonomy).
+
+**Definition**: Pattern #57 sub-variant where N implementers each conform to a shared external authoritative standard (here: agentskills.io standard with SKILL.md spec) — distinct from prior 57c-d-e-f-g-h-i-j sub-variants because recursion anchors at external standard-conformance layer (not at corpus-subject-as-anchor).
+
+**Evidence at PROMOTION (5-implementer agentskills.io standard chain across 8 calendar days)**:
+
+| Implementer | Wiki | Date | Vertical | Scale | Geography | Primary Language |
+|---|---|---|---|---|---|---|
+| HoangNguyen0403/agent-skills-standard (anchor; first third-party implementer) | v76 | 2026-05-19 | Standards-meta | 496★ | Hanoi Vietnam | TypeScript |
+| anthropics/skills (authoritative reference; SKILL.md spec + template) | v93 | 2026-05-23 | Foundational-vendor reference | 139,442★ | Anthropic PBC SF | Python |
+| mukul975/Anthropic-Cybersecurity-Skills | v98 | 2026-05-25 | Cybersecurity-vertical | 8,735★ | Berlin (Indian-diaspora) | Python |
+| manaflow-ai/cmux | v99 | 2026-05-27 | Native-terminal-multiplexer-vertical | 19,853★ | SF | Swift |
+| tisfeng/Easydict | v100 | 2026-05-27 | Translation-utility-vertical | 13,310★ | China-Mainland | Swift |
+
+**Cross-axis spread at N=5** (well above N=3 threshold):
+- Cross-author: 5 distinct authors
+- Cross-vertical: 5 distinct verticals
+- Cross-scale: 496★ → 139,442★ (~280× range)
+- Cross-geography: 5 distinct geographies (Vietnam + SF + Berlin + SF + China-Mainland)
+- Cross-language: 4 distinct primary languages (TypeScript + Python ×2 + Swift ×2)
+
+**Promotion-arc velocity**: 5-implementer-in-8-calendar-days (v76 2026-05-19 → v100 2026-05-27). **CORPUS-FIRST in v60+ window for a standards-conformance-layer chain at this arc-velocity**.
+
+**Confidence**: HIGH. All cross-axis spread requirements PASS robustly (N=5 well above N=3 threshold).
+
+**Distinction from prior Pattern #57 sub-variants**:
+- 57c-product (corpus-subject citation density): recursion at product-citation layer
+- 57e (multi-source derivative attribution via NOTICE.md): recursion at attribution-chain layer
+- 57f (anchor self-reference v78 ECC): recursion at same-subject-at-delta layer
+- 57g (second-order derivative via intermediate adapter v79): recursion at derivative-chain layer
+- 57h (reverse-engineering of anchor v82 huashu): recursion at reverse-engineering layer
+- 57i (multi-tier corpus-recursive citation v83 open-design): recursion at multi-tier-citation density
+- 57j (antigravity-corpus-recursive sub-chain v85): recursion at sub-chain layer
+- **57k (standards-conformance 5-implementer chain v76→v100): recursion at EXTERNAL standard-conformance layer** = structurally distinct because anchor is external standard (agentskills.io) not corpus subject
+
+**v2.4 codification candidate**: "Authoritative-Standard-Conformance Chain Rapid-Adoption Discipline" — 5-implementer arc within 8 calendar days suggests an unusually fast standards-adoption process worth formalizing as routine v2.4 observation.
+
+**Honest dissent / caveats**:
+- All 5 implementers chose agentskills.io standard specifically; the 5-implementer chain is contingent on this single standard's adoption pattern, not a generalizable phenomenon yet
+- 8-calendar-day arc-velocity = unusually fast = possibly a "novelty-burst" rather than sustained adoption; v105+ N=6-7 watch will test sustained-adoption hypothesis
+- Cross-language Swift-primary clustering at v99+v100 (both Swift) = possible same-substrate clustering bias
+
+**Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 ...md`
+
+---

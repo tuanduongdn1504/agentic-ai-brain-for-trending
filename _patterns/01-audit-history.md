@@ -1360,3 +1360,18 @@ v21 audit decisions: promoted #27 + #29; reformulated #20; flagged #14 + #16 sta
 
 ---
 
+## Audit-history chapter under-maintenance disclosure
+
+This chapter file holds per-audit detail through v41 era. v42 onward, audit narrative lives canonically in `_patterns/05-recent-additions.md` + per-audit documents at `04 Reviews/`. Audits v54 + v56 + v61 + v66 + v69 + v72 + v86 + v90 + v96 + v101 each have full audit documents; chapter-level backfill deferred to housekeeping cycle.
+
+### v101 audit entry (2026-05-28) — minimal-stub
+
+- **Audit-class**: 1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + AUDIT-BATCH-HIGH-TIER
+- **Batch size**: ~50 items (second-largest in corpus history behind v96's 71-item CORPUS-RECORD)
+- **QUADRUPLE PROMOTION**: Pattern #84 84d Hardware-Substrate-Tolerance CONFIRMED N=4 + Library-vocab #20 Token-Economy-Quantification CONFIRMED N=3 + T1 Domain-Vertical-Skill-Collection sub-archetype CONFIRMED N=3 + Pattern #57 sub-variant 57k Standards-Conformance-Layer Corpus-Recursive Chain (5-Implementer) CONFIRMED N=3
+- **State changes**: 46c / 25a / 0.543 ratio UNCHANGED + Library-vocab CONFIRMED 6→7
+- **Fact-verification corrections**: 0 (7-audit clean streak v66+v69+v72+v86+v90+v96+v101 = NEW CORPUS-RECORD)
+- **Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 (1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN; Pattern #84 84d + Token-Economy-Quantification + T1 Domain-Vertical-Skill-Collection + Pattern #57 57k QUADRUPLE PROMOTION + 46 other items).md`
+
+---
+

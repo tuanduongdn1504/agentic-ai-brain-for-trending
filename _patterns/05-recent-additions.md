@@ -3803,3 +3803,86 @@ Active count 28 (below trigger-threshold 30; 2-candidate runway). Ratio 0.609 HE
 13. Default 6-cycle stale-checks for OC carryovers v76-v85 (~30 OCs)
 
 **Audit document:** `04 Reviews/(C) 2026-05-22 Pattern Library mini-audit post-v83-v84-v85 (3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST batch corpus-history; Pattern #88 Anti-Slop NEW + Pattern #52 N=2 + Library-vocab #12 + #14 + 30 other items).md`
+
+---
+
+## v90 + v96 + v101 audit narratives — chapter-level summary (per-audit detail in audit documents)
+
+This section provides chapter-level summary for v90 + v96 + v101 audits; full audit detail in dedicated audit documents at `04 Reviews/`.
+
+### v90 audit (2026-05-22) — 4-CONSECUTIVE-CLEAN-PASS-POST-OVERRIDE-DEFERRAL + PROMOTION-DRIVEN + LARGEST-BATCH-IN-CORPUS-HISTORY
+
+**Batch**: 43 items (CORPUS-RECORD at audit time; later surpassed by v96's 71-item)
+**6 PROMOTIONS**: Library-vocab #16 Engagement-Deficit-Extreme + #17 Try-Once-and-Move-On + #18 Coupled-Design-Density-Not-Scale-Dependent + #19 Deliberately-Narrow Distribution (all N=4/N=3) + T4 Bridge tier sub-typology FORMALIZED 3-variant (T4a/T4b/T4c) + Pattern #19 CONSOLIDATION executed (5 VN-related candidates → 1 unified "VN-Community Multi-Profile-Type" CONFIRMED N=5)
+**State**: 46c / 28a (unchanged) / 0.609 ratio / Library-vocab CONFIRMED 3 → 7
+**5-audit clean fact-verification streak** v66+v69+v72+v86+v90 = NEW CORPUS-RECORD
+**Audit document**: `04 Reviews/(C) 2026-05-22 Pattern Library mini-audit post-v87-v88-v89 (4-CONSECUTIVE-CLEAN-PASS-POST-OVERRIDE-DEFERRAL + LARGEST batch corpus-history; 4 Library-vocab PROMOTIONS + T4 Bridge sub-typology + Pattern #19 CONSOLIDATION + 35 other items).md`
+
+### v96 audit (2026-05-25) — 1-WIKI-DEFERRAL-CARRY-OVER + AUDIT-BATCH-CORPUS-RECORD + PROMOTION-DRIVEN
+
+**Batch**: 71 items NEW CORPUS-RECORD (extends v90's 43 by 28 / +65%)
+**2 PRIMARY PROMOTIONS**: Phase 0.9 (a)-7 Foundational-Vendor-Direct-Source sub-axis N=3 PROMOTION → FORMAL ADMISSION (6-axis → 7-axis taxonomy expansion) + Pattern #84 84c.1 Marketplace-Plugin-Install sub-sub-mechanism N=6 PROMOTION → CONFIRMED (first sub-sub-mechanism layer CONFIRMED at 4-layer hierarchy formalization)
+**RETIRES**: 6 v84 OVERRIDE-provenance items at 10-15-wiki forced-retire (Bun-primary + Pattern #66 66g + 66h + T1 Linear-Workflow-Pipeline + 3 Library-vocab) + Library-vocab #13 OSS-with-hosted-Pro-SaaS-tier at 15-wiki forced-retire
+**State**: 46c / 28→25 active / 0.609 → 0.543 ratio IMPROVED / Library-vocab CONFIRMED 7→6
+**6-audit clean fact-verification streak** v66+v69+v72+v86+v90+v96 = NEW CORPUS-RECORD
+**Pressure-test**: ALL 14 v94 + 13 v95 corpus-first claims PASS (0 rejections; 3-audit clean pressure-test streak)
+**Audit document**: `04 Reviews/(C) 2026-05-25 Pattern Library mini-audit v96 ((a)-7 7-axis-expansion + Pattern #84 84c.1 PROMOTION + 70 other items).md`
+
+### v101 audit (2026-05-28) — 1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + AUDIT-BATCH-HIGH-TIER
+
+**Trigger**: v100 was projected natural audit window per v99 state-block; operator elected wiki-ship at v100 = 1-WIKI-DEFERRAL trigger; v101 = operator-elected audit-only session per v100 state-block STRONGLY-RECOMMENDED recommendation to avoid CRITICAL audit-deferral threshold per routine v2.3 §12.
+
+**Batch**: ~50 items SECOND-LARGEST in corpus history (behind v96's 71-item by ~21; ahead of v90's 43-item prior-second by ~7)
+
+**QUADRUPLE PROMOTION** (administrative-only at audit; all 4 evidence-mature pre-audit per v100 state-block):
+
+1. **Pattern #84 84d Hardware-Substrate-Tolerance N=4 STRONGER PROMOTION → CONFIRMED Pattern #84 sub-typology** (sibling-level to 84a/b/c) — Evidence: v79 PyTorch-MPS + v94 WASM + v97 MLX-Apple + v99 native-macOS-Swift-AppKit = 4-variant cross-substrate spread; sub-sub-mechanisms 84d.1-84d.4 registered
+
+2. **Library-vocab #20 Token-Economy-Quantification N=3 PROMOTION → CONFIRMED Library-vocab item** — Evidence: v87 composition-axis (per-style %-token-impact) + v97 runtime-axis (product-level %-token-saving) + v98 data-structure-axis (progressive-disclosure-per-skill). Library-vocab CONFIRMED count 6 → 7
+
+3. **T1 Domain-Vertical-Skill-Collection sub-archetype N=3 PROMOTION → CONFIRMED T1 sub-archetype** — Evidence: v64 SEO-vertical + v90 academic-vertical + v98 cybersecurity-vertical = 3-vertical cross-domain spread; first formal T1 sub-archetype promotion
+
+4. **Pattern #57 sub-variant 57k Standards-Conformance-Layer Corpus-Recursive Chain (5-Implementer) N=3 PROMOTION → CONFIRMED Pattern #57 sub-variant** — Evidence: v76 → v93 → v98 → v99 → v100 agentskills.io standard chain across 8 calendar days. CORPUS-FIRST sub-variant PROMOTION within Pattern #57's sub-variant taxonomy. Promotion-arc velocity 5-implementer-in-8-calendar-days = CORPUS-FIRST for standards-conformance-layer chain at this arc-velocity
+
+**State changes**:
+- Confirmed Patterns: 46 → 46 (PRIMARY promotions at sub-typology + sub-archetype + Library-vocab + sub-variant layers, not top-level Pattern layer)
+- Active candidates: ~25 (net unchanged)
+- Ratio: 0.543 UNCHANGED
+- Library-vocab CONFIRMED: 6 → **7** (+1 Token-Economy-Quantification PROMOTED to #20)
+- Library-vocab PROVISIONAL: ~73 → ~78 (+5 net from v99-v100 NEW registrations)
+- Pattern #84 hierarchy: + 84d sub-typology CONFIRMED at N=4 (4-layer with 2 CONFIRMED sub-levels — 84c.1 at v96 + 84d at v101)
+- T1 sub-archetype taxonomy: + Domain-Vertical-Skill-Collection CONFIRMED at N=3
+- Pattern #57 sub-variants: + 57k CONFIRMED at N=3 (first sub-variant promotion)
+- (a) taxonomy sub-axes: 7 UNCHANGED
+- Storm Bear streak: "33+1*" UNCHANGED (audit ≠ wiki ship)
+- Override-frequency: 1-in-35 UNCHANGED
+
+**Pattern #19 CONSOLIDATION review at trigger threshold**: graveyard reached ~10-11 PROVISIONAL N=1 candidates post-v100; CONSOLIDATION trigger per routine v2.3 §19 reached. Cluster A "Chinese-Mainland/Chinese-Mainland-Origin solo-developer with technical product" identified at N=3 (19m alchaincyf v82 + 19q Lum1104 v94 + 19t tisfeng v100 NEW) but cluster cohesion at v101 insufficient for clean CONSOLIDATION (3 distinct profile-sub-types: influencer + diaspora-academic + long-lived-solo). DEFERRED to v105 with potential N=4 evidence + cleaner profile-type-axis.
+
+**Fact-verification corrections**: **0** (7-audit clean streak v66+v69+v72+v86+v90+v96+v101 = NEW CORPUS-RECORD; extends v96's 6-audit streak by 1)
+
+**CORPUS-FIRST claim pressure-tests** (v97 + v98 + v99 + v100 batches):
+- v97 ~10 claims pressure-tested — 0 rejections
+- v98 ~10 claims pressure-tested — 0 rejections
+- v99 ~10+ claims pressure-tested — 0 rejections
+- v100 6 claims pressure-tested — 0 rejections
+- **Total ~36 corpus-first claims; 0 rejected** (continues v90 + v94 + v95 + v96 clean pressure-test streak = 5-audit clean streak)
+
+**Routine v2.4 codification debt at v101**: ~26-28 candidates accumulated v90-v100. No HIGH-PRIORITY mini-codification trigger at v101 (unlike v96 which triggered v2.3.1 mini-codification). Library-vocab CONSOLIDATION discipline at Library-vocab layer flagged as most-likely-near-term v2.4 candidate (extends §19 to Library-vocab layer).
+
+**Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 (1-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN; Pattern #84 84d + Token-Economy-Quantification + T1 Domain-Vertical-Skill-Collection + Pattern #57 57k QUADRUPLE PROMOTION + 46 other items).md`
+
+### Spillover to v105 audit (~12 items)
+
+1. Pattern #19 graveyard CONSOLIDATION continued review (Cluster A N=3 candidates; await N=4 + cleaner profile-type-axis)
+2. Pattern #52 Multi-Month-Sustained EXTREME-VIRAL N=4 watch (v94 trending toward 90+d)
+3. (a)-7 STRENGTHENING beyond Anthropic watch (OpenAI/Google/Meta-direct-org subjects)
+4. (a)-8 South-American-LOCATED sub-axis first-cycle stale-check (v97 PROVISIONAL N=1)
+5. (a)-6 ethno-cultural-lineage-vs-geographic-LOCATED framing-decision (2nd deferral at v105; v110 MUST resolve per §12)
+6. NEW T2 sub-archetype "Native-Desktop Terminal Multiplexer for AI Coding Agents" (v99) first-cycle stale-check
+7. Pattern #84 84c.1 N=9 post-CONFIRMED arc post-promotion strengthening monitoring
+8. Pattern #84 84d post-promotion strengthening watch
+9. Library-vocab CONSOLIDATION discipline at Library-vocab layer codification (v2.4)
+10. All v96-v97 PROVISIONAL N=1 second-cycle stale-checks
+11. §26 corpus-recursive event-class NEGATIVE-CASE rate (4-of-4 since codification; baseline forming)
+12. Rapid-Cross-Wiki-Cluster-Formation-within-1-Wiki-Window meta-Library-vocab (v100) first-cycle stale-check
