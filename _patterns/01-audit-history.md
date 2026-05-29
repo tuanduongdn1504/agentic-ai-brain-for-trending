@@ -1393,3 +1393,21 @@ This chapter file holds per-audit detail through v41 era. v42 onward, audit narr
 **State:** 46 confirmed UNCHANGED / ~25 active / 0.543 ratio UNCHANGED / **Library-vocab CONFIRMED 8** / streak "37+1*" UNCHANGED. v106 AUDIT-ONLY clears v105 1-WIKI-DEFERRAL → v107 = wiki-OK; §12 CRITICAL avoided.
 
 **Spillover to ~v110:** Library-vocab CONSOLIDATION (the big one) · (a)-8 N=2 watch · Pattern #28 N=3 watch · Pattern #85 Memory-System sub-archetype N=3 watch · Vendored-Author-to-Subject N=2 watch · Pattern #57 57k 9th-implementer watch · remaining Pattern #19 graveyard.
+
+---
+
+## v110 mini-audit (2026-05-29) — NATURAL-CADENCE (operator-elected audit-first over 6th build) + FRAMING-DECISION-HEAVY
+
+~28-item batch (v106 spillover + v107/v108/v109 items). Full doc: `04 Reviews/(C) 2026-05-29 Pattern Library mini-audit v110 ...md`.
+
+**Promotions/formalizations:** **Pattern #88 Anti-Slop DOMAIN-GENERALIZATION FORMALIZED** — "Anti-Slop-Design-Curation" → domain-general **"Anti-Slop-Curation"** with 88-design (CONFIRMED v81/v82/v83/v85/v105) + 88-text/prose (NEW N=1, v108 humanizer canonical anchor); 88a/b/c orthogonal-to-domain; scope-broadening (no new top-level pattern) · **T2 "AI-Agent Observability/Metering Tool" sub-archetype N=2 STRENGTHENING** (v89 Rust-CLI + v109 TS-React-dashboard; distinct implementations; PROMOTION-ELIGIBLE at N=3) · **Pattern #83 83f.4 declared-but-no-LICENSE-file N=2** (v79 README-MIT + v109 package.json-MIT).
+
+**Consolidations:** **Library-vocab PROVISIONAL ~102 items RE-DEFERRED to dedicated v2.4 session** (re-flagged from v101+v106; escalated to CRITICAL #1 codification priority; past mini-audit capacity — do NOT fake-resolve) · Pattern #19 graveyard STABLE (v109 absorbed into CONFIRMED N=5 VN-Community Multi-Profile-Type; v107 Japan + v108 SF-Founder candidates held OC-only, not registered).
+
+**First-cycle stale-checks/watches:** v107 Enforced-Gate Operating-Loop sub-archetype HELD PROVISIONAL N=1 (N=2 watch) · v107 Pattern #83 unknown-stays-unknown HELD N=1 · 88-text/prose N=2 watch · Pattern #28 Editorial-Build-Validator N=3 watch · Pattern #85 Memory-System T2 N=3 watch · (a)-8 South-American still N=1 (≈v112 forced-retire) · Pattern #57 57k arc PAUSED (v107/v108/v109 none agentskills.io-conformant; correctly NOT added) · Library-vocab candidates registered (Pure-Markdown-MEGA-Viral + voice-calibration + Cost-Attribution-via-External-Pricing-Service → consolidation backlog) · High-Dev-Cadence N=2 watch.
+
+**Pressure-tests:** v107-v109 CORPUS-FIRST spot-checks ALL PASS (Japan-first ✓, first-text-#88 ✓, T2-N=2 ✓, license-gap ✓; release-count/versioning discrepancies all flagged at ship-time). **0 fact-verification corrections** = **9-audit clean streak** (v66+v69+v72+v86+v90+v96+v101+v106+v110) NEW CORPUS-RECORD (spot-check depth).
+
+**State:** 46 confirmed UNCHANGED / ~25 active / 0.543 ratio UNCHANGED / Library-vocab CONFIRMED 8 UNCHANGED / streak "40+1*" UNCHANGED. Pattern #88 scope generalized; T2 Observability/Metering N=2; 83f.4 N=2. v110 = AUDIT not deferred (clean). Next ship = v111 hello-agents.
+
+**Spillover to ~v115:** Library-vocab CONSOLIDATION (dedicated v2.4 session, CRITICAL #1) · 88-text/prose N=2 · T2 Observability/Metering N=3 · v107 Enforced-Gate sub-archetype N=2 · (a)-8 ≈v112-retire · Pattern #28 N=3 · Pattern #85 Memory-System N=3 · Pattern #57 57k 9th-implementer.

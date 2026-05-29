@@ -1133,9 +1133,11 @@ Pattern #18 Agent Runtime Standardization (top-level CONFIRMED)
 
 ## Promoted at v86 3-WIKI-DEFERRAL-CARRY-OVER + PROMOTION-DRIVEN + LARGEST-BATCH-IN-CORPUS-HISTORY mini-audit (#88)
 
-### Pattern #88 — Anti-Slop-Design-Curation
+### Pattern #88 — Anti-Slop-Curation (domain-general)
 
-**Status:** CONFIRMED at v86 audit 2026-05-22 (PROMOTED from observation-track at N=3 with formal 3-variant sub-typology taxonomy).
+> **Renamed/generalized at v110 audit 2026-05-29** from "Anti-Slop-**Design**-Curation" to domain-general **"Anti-Slop-Curation"** with two sub-domains: **88-design** (CONFIRMED; v81/v82/v83/v85/v105) + **88-text/prose** (NEW, N=1; v108 humanizer canonical anchor — MEGA-viral 21K★, 30-pattern enumerated AI-writing ruleset). The 88a/b/c sub-typology (framing / named-rules / machinery) is **orthogonal to domain** and applies to both sub-domains unchanged. Scope-broadening of an already-CONFIRMED pattern (no new top-level pattern minted). **88-text/prose N=2 watch.**
+
+**Status:** CONFIRMED at v86 audit 2026-05-22 (PROMOTED from observation-track at N=3 with formal 3-variant sub-typology taxonomy). **Domain-generalized at v110 audit 2026-05-29 (design → domain-general; +text/prose sub-domain).**
 
 **Definition:** Design-curation practice that explicitly names and enforces resistance to LLM-generated low-quality default aesthetic output ("AI slop") — distinct from general anti-LLM positioning (which is broader and includes anti-vibe-coding, anti-magic-glue-app, etc.) — by enumerating forbidden patterns + providing CSS/HTML/component-technique alternatives + sometimes integrating enforcement machinery (P0/P1/P2 gates, denylists, build-validators).
 
