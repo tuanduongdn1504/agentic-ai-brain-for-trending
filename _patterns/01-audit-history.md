@@ -1375,3 +1375,21 @@ This chapter file holds per-audit detail through v41 era. v42 onward, audit narr
 
 ---
 
+
+---
+
+## v106 mini-audit (2026-05-29) — 1-WIKI-DEFERRAL-CARRY-OVER + FRAMING-DECISION-HEAVY + PROMOTION-DRIVEN
+
+~32-item batch (v102–v105 carryovers + deferred v105 audit batch + v105-new). Full doc: `04 Reviews/(C) 2026-05-29 Pattern Library mini-audit v106 ...md`.
+
+**Promotions/formalizations:** (a)-7 Foundational-Vendor-Direct-Source **5-variant sub-typology FORMALIZED** (v92/v93/v95/v102/v104) · Pattern #85 Platform-Primitive Foundation **N=2 STRENGTHENING** (v66 agentmemory + v103 claude-mem; 37-wiki gap = longest top-level N=1→N=2 latency) + PROVISIONAL T2 Memory-System sub-archetype · **uv tooling Library-vocab N=3 → CONFIRMED** (v79+v97+v102; Library-vocab CONFIRMED 7→8) · Pattern #28 sister "Editorial-Build-Validator" N=2 (v75+v105) · Pattern #19 19m N=2 · Pattern #88 N+1 · Library-vocab "Vendored-Dependency-Author Promoted to Direct Subject" PROVISIONAL N=1 (v105).
+
+**Consolidations:** Pattern #19 19m partial CONSOLIDATION (Chinese-AI-influencer v82 花叔 + v105 歸藏; graveyard ~11→~9-10; v94/v100 kept distinct) · Library-vocab PROVISIONAL ~97 items **DEFERRED to dedicated v2.4 session = #1 codification priority** (too large for mini-audit).
+
+**Framing decisions:** Anthropic-direct-org cluster pace = **self-selection-bias** (NOT corpus signal) · (a)-6 = strictly **geographic-LOCATED**, ethno-lineage non-(a) (§12 2-deferral RESOLVED) · (a)-8 South-American PROVISIONAL continue (≈v112 retire deadline).
+
+**Pressure-tests:** v102–v105 CORPUS-FIRST spot-checks ALL PASS (0 rejections); v105 "AGPL NOT corpus-first" correctly avoided at ship-time. **0 fact-verification corrections** = **8-audit clean streak** (v66+v69+v72+v86+v90+v96+v101+v106) NEW CORPUS-RECORD (spot-check depth).
+
+**State:** 46 confirmed UNCHANGED / ~25 active / 0.543 ratio UNCHANGED / **Library-vocab CONFIRMED 8** / streak "37+1*" UNCHANGED. v106 AUDIT-ONLY clears v105 1-WIKI-DEFERRAL → v107 = wiki-OK; §12 CRITICAL avoided.
+
+**Spillover to ~v110:** Library-vocab CONSOLIDATION (the big one) · (a)-8 N=2 watch · Pattern #28 N=3 watch · Pattern #85 Memory-System sub-archetype N=3 watch · Vendored-Author-to-Subject N=2 watch · Pattern #57 57k 9th-implementer watch · remaining Pattern #19 graveyard.
