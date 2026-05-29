@@ -417,6 +417,37 @@
 
 **Stale-risk tracking:** N=1-per-point across 3 architectural approaches. Per v2.1 N=1 stale-risk-flagging discipline: +5-wiki check at **v51** / +10-wiki retirement review at **v56**.
 
+#### 🔍 "Cost-Discipline Enforcement Primitive" — OBSERVATION-TRACK (NEW 2026-05-29; corpus-absence + non-corpus N=1; stale-risk-flagged at registration)
+**Origin:** FIRST **wiki←product** contribution in corpus history — operator-elected fold-in of the cost-discipline architecture from the operator's own product (Command Center / `build-your-own-dashboard-prompt`) rather than an external wiki subject. Full proposal: `04 Reviews/(C) 2026-05-29 Pattern Library OT proposal — Cost-Discipline Enforcement (corpus-absence + Command Center N=1).md`.
+
+**Scope:** Monetary-spend-cap **enforcement** as a dispatch-time primitive (refuse-to-dispatch at a $ ceiling) — distinct from token-optimization, cost-visibility, or time-boxed budgets.
+
+**Corpus observation (VERIFIED ABSENCE):** Corpus-grep across project chapters (v1–v61) + `_patterns/*.md` on 2026-05-29 — **0 hits** on monetary-spend-cap / cost-ceiling / budget-enforcement regex. Adjacent-but-distinct concepts exist (do NOT satisfy the pattern): gsd-2 v54 `token_profile` optimization + cost/token visibility charts; claude-hud v35 context-budget display; Karpathy autoresearch time-boxed 5-min experiment budget; Storm Bear self-noted "no budget enforcement" gap vs Karpathy (~v29). Absence claim deliberately narrowed to *enforcement* to survive corpus-grep challenge (cf. Pattern #57 BIDIRECTIONAL-ABSENCE OT rejection at v60 audit).
+
+**Non-corpus N=1 instance (Command Center):** Enforce-at-$-ceiling across 3 releases — global daily cost cap (v0.2.0, `MISSION_CONTROL_DAILY_COST_CAP_USD`, reads api_pool only) + cost-source disambiguation (v0.6.0: api_pool real-$ vs max_sub notional vs unknown vs codex_api) + per-skill daily budgets (v0.6.7: NULL=unlimited / 0=blocked / >0=post-hoc cap, sums across accounts). Dispatcher pre-claim order: back-pressure → hard risk gate → global cap → per-skill budget → autonomy gate.
+
+**Observational formal statement:**
+> Corpus (v1–v61) implements **zero monetary-spend-cap enforcement primitives**. Where resource-discipline appears it is token-optimization (reduce consumption), cost-visibility (report spend), or time-box (bound experiment duration) — never refuse-to-dispatch at a monetary ceiling. The enforce-at-$-ceiling primitive is, in this corpus era, **product-led, not corpus-led** (sole instance = operator product Command Center, non-corpus). **OBSERVATIONAL TRACK — descriptive, not predictive.** Does not claim enforcement-gating is emerging-as-archetype; documents a corpus gap + a single non-corpus instance.
+
+**Rationale for OBSERVATION-TRACK (not candidate):**
+- **Zero corpus presence-observations** — a candidate requires ≥1 corpus observation of the pattern's presence; this has none. Registering as candidate would misrepresent N.
+- Sole presence-evidence is non-corpus (operator product) — inadmissible as cross-wiki candidate evidence.
+- The valid *corpus* observation is the absence; Command Center is the motivating non-corpus N=1.
+
+**Re-evaluation / promotion conditions:**
+- **Promote OT → candidate** on first corpus wiki subject implementing monetary-spend-cap enforcement (distinct from optimization / visibility / time-box).
+- **At N=2 structural corpus presence** (2 distinct orgs, same enforce-at-ceiling signature) → promotion-eligible under criterion #2.
+- If no corpus corroboration by retirement window → keep as historical observation (cost-enforcement was product-led this era).
+
+**Cross-references:**
+- **Pattern #13 Autonomy-Framing Spectrum (CANDIDATE):** orthogonal — autonomy is org-design choice; this is resource-enforcement. <70% overlap.
+- **Pattern #18 Agent Runtime Standardization (CONFIRMED):** no cost dimension. <70%.
+- **gsd-2 v54 `token_profile`:** optimization, not enforcement — distinct mechanism class.
+
+**Provenance flag:** FIRST product-sourced observation in corpus — introduces a new evidence-provenance class (corpus-subject vs operator-product). Flag for routine v2.2 if a 2nd product-sourced observation appears.
+
+**Stale-risk tracking:** Non-corpus N=1 + verified corpus-absence. Per v2.1 N=1 stale-risk-flagging discipline (from post-v62 baseline): +5-wiki corroboration check at **v67** / +10-wiki retirement review at **v72**. Corroboration-driven (any corpus spend-cap-enforcement subject) rather than age-driven.
+
 #### 🟡 #63 Format-Scoped Optional Dependencies (NEW v28)
 **Status:** Single observation.
 **Evidence:** markitdown v28 — `pip install 'markitdown[pdf,docx,pptx]'` per-format extras. 10+ format-specific extras available. `[all]` installs everything.

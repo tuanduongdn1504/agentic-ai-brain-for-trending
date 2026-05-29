@@ -8,7 +8,7 @@
 - **Active candidates:** 17 (UNCHANGED post-audit)
 - **Stale candidates:** **1** (only #52 Extreme-Viral-Velocity; OBSERVATIONAL FLAG preserved at v60 audit per pre-registered Item 12 decision-criteria — mattpocock/skills first-commit 2026-02-03 falls in 90d<x<12mo "preserve flag" band; re-evaluate v63)
 - **Retired:** 9
-- **Observation-tracks:** 6 (Pattern #57 BIDIRECTIONAL-ABSENCE OT REJECTED via audit-layer fact-verification — corpus-grep falsified v59 absence claim with 53 files / 17+ wikis citing AutoGPT; downgraded to FORWARD-ABSENCE-only documentation; 3rd audit-layer fact-verification correction in corpus history)
+- **Observation-tracks:** 7 (+1 at 2026-05-29: NEW "Cost-Discipline Enforcement Primitive" OT — first wiki←product contribution, non-corpus N=1 + verified corpus-absence; see `_patterns/03-active-candidates.md`. Prior: Pattern #57 BIDIRECTIONAL-ABSENCE OT REJECTED via audit-layer fact-verification — corpus-grep falsified v59 absence claim with 53 files / 17+ wikis citing AutoGPT; downgraded to FORWARD-ABSENCE-only documentation; 3rd audit-layer fact-verification correction in corpus history)
 - **Total:** **74 full / 58 active**
 - **Ratio:** 17:41 = **0.415:1** — NEW LARGEST in corpus history (post-audit drop from 0.436:1)
 - **Buffer:** **0.535 below 0.95:1 mini-audit trigger — NEW LARGEST in corpus history**
