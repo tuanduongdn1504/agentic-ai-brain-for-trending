@@ -24,9 +24,22 @@
 
 ---
 
+## Anthropic Cowork first-party documentation + setup-cowork skill
+
+- **Query:** `Anthropic Cowork official documentation setup announcement onboarding`
+- **Anchors:**
+  - (none yet — see Notes below for non-YouTube path)
+- **Notes:** **Closes surviving gap #1 from 2026-05-29 claude-cowork drain** (loop-log `(C) 2026-05-29-11-autopilot-overnight.md`, Phase 5 surviving gap #1 — Anthropic first-party documentation absent from YouTube corpus). yt-pipeline will surface Anthropic-channel YouTube content if available (announcement videos / DevRel walkthroughs). **PARALLEL non-queue action recommended** (drain script is YouTube-only): operator should ALSO run Path 3 single-URL ingest via `notebooklm source add` for `claude.com/cowork` documentation pages + ingest the `setup-cowork` Anthropic-skill content (from skill registry) via Path 6 custom-scraper if needed. The full gap-closure is yt-pipeline + manual Path 3/6 ingest — queue-driven drain alone is insufficient. Compile target: extend existing `wiki/claude-cowork/` with `anthropic-first-party-positioning.md` + revisions to `overview.md` (taxonomy) + `mcp-connectors-landscape.md` (canonical connector list).
+- **Queued:** 2026-05-29
+- **Status:** pending
+
 ## Completed
 
 
+### Claude Cowork — Anthropic scheduled-agent feature ✅
+- **Drained:** 2026-05-29 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-29-claude-cowork-anthropic-scheduled-agent-feature.md`
+- **NotebookLM:** `f851b538-c0cb-405f-9a8b-c46837464930`
 ### Autonomous Loops with HITL — anchor-injection re-run ✅
 - **Drained:** 2026-05-23 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-23-autonomous-loops-with-hitl-anchor-injection-re-run.md`
