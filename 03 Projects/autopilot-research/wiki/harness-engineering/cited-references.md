@@ -78,3 +78,40 @@ If running `/loop autopilot research` next, queue these in order — see [[resea
 3. **Symphony-adjacent material** — Elixir/Beam for agent orchestration, Alex Kotliarskyi posts if discoverable
 4. **Datadog + Temporal "vendoring ceiling" investigation** — bounds claim #7
 5. **Rich Sutton "The Bitter Lesson" essay** — foundational citation, should be its own wiki entry
+
+---
+
+## Speakers + frameworks from sibling drains (added 2026-05-30)
+
+People, channels, and proprietary framework names surfaced via the 2026-05-30 harness-engineering-getting-started drain ([[getting-started-consensus-and-divergences]]). Each is a candidate next-ingest if their specific work warrants a focused drain.
+
+### Individual practitioners
+
+| Speaker | Channel | Context | Priority |
+|---|---|---|---|
+| **John Kim** | John Kim (YouTube) | Meta Staff Engineer position; anti-MCP stance ([[contrarian-stances#11]]); 300-line `claude.md` ceiling | MED — separate focused drain on his Meta tips video (435K views) |
+| **AI with Avthar** | AI with Avthar (YouTube) | PSB system creator (Plan-Setup-Build); link-to-specialist-docs convention | MED — has companion course material worth surfacing |
+| **Productive Dude** | Productive Dude (YouTube) | GCAO + DBS framework creator; 112-min full beginner course | LOW-MED — content is broadly covered elsewhere |
+| **Maddy Zhang** | Maddy Zhang (YouTube) | Senior SWE 100-200-line `claude.md` ceiling (tightest in corpus); validation-hooks advocate | LOW — short video, content already absorbed |
+| **Caleb Writes Code** | Caleb Writes Code (YouTube) | 8-min "Agent Harness explained" — meta-explainer | LOW — content already absorbed |
+| **Tù Bà Khuỳm V2** | Tù Bà Khuỳm (YouTube) | V2 harness with SQLite-as-memory; same Vietnamese practitioner as V1 from 2026-05-13 bundle | HIGH — corpus-first SQLite contribution merits sustained tracking; [[personal-repo-tu-ba-khuym-getting-started]] is anchor |
+
+### Proprietary framework acronyms
+
+| Framework | Creator | Scope | Article reference |
+|---|---|---|---|
+| **GCAO** | Productive Dude | Goal · Context · Action · Output (prompts) | [[personal-repo-patterns#8]] |
+| **DBS** | Productive Dude | Direction · Blueprints · Solutions (skills) | [[personal-repo-patterns#9]] |
+| **PSB** | AI with Avthar | Plan · Setup · Build (project lifecycle) | [[personal-repo-patterns#10]] |
+| **PRD-first** | Multiple (Caleb, Tù Bà Khuỳm, Avthar) | Production Requirement Document precedes any code | Standard methodology — not creator-branded but worth tracking adoption |
+
+### Specific quantitative constraints worth tracking
+
+| Constraint | Speaker | Quote |
+|---|---|---|
+| `claude.md` ≤ 200 lines | **Maddy Zhang** | "100 to 200 lines max" — tightest documented |
+| `claude.md` ≤ 300 lines | **John Kim** | "around 300 lines is a decent target" |
+| Session cycling every 30-45 min | Jack Roberts (Cowork sibling drain) | Prevents context-rot inflation |
+| Plan mode duration ~15 min | **AI with Avthar** | "spends 15 minutes planning before any coding" |
+
+These are testable thresholds — operator could measure context-bloat at each value to find the empirical sweet spot for their workflow.

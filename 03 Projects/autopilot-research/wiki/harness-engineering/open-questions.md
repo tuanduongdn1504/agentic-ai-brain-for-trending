@@ -76,6 +76,42 @@ Skepticism of tools where agents propose a plan for human approval. Lopopolo fla
 - *podcast [08:00]*
 - **Where it'd resolve:** frameworks for encoding non-functional requirements for agents; possibly Anthropic Skills, possibly proprietary
 
+---
+
+## Open questions from 2026-05-30 sibling drain (SQLite-as-memory cluster)
+
+Surfaced by Tù Bà Khuỳm's V2 harness ([[personal-repo-tu-ba-khuym-getting-started]] §Production-readiness gaps). Each is unaddressed in the source video and represents a real production-deployment concern.
+
+## 11. SQLite schema migration for evolving harness memory
+
+When operator changes the SQLite trace schema (adds columns / renames tables / changes types), what happens to the agent's existing memory? Markdown is forgiving (free-text changes); SQL schema is strict.
+- *Source: Tù Bà Khuỳm 2026-05-30 V2 harness*
+- **Where it'd resolve:** SQLite-specific migration tooling (Alembic, sqitch, etc.) integrated with the agent's tool calls; pattern for backward-compatible schema evolution
+- **Why this matters:** Markdown's loose schema is feature, not bug — agent can read partial / malformed / outdated entries gracefully. SQLite's strictness means schema changes can BREAK agent reads until migration runs. Without explicit pattern, SQLite memory becomes brittle.
+
+## 12. Multi-machine sync for SQLite memory
+
+Tù Bà Khuỳm's SQLite memory lives on a single laptop. Markdown memory composes with git (cheap sync across machines). SQLite + git is awkward (binary file, merge conflicts, large diffs).
+- *Source: Tù Bà Khuỳm 2026-05-30 V2 harness — implicitly assumed single-machine*
+- **Where it'd resolve:** Litestream / Rclone for SQLite replication; or hybrid Markdown-text-for-instructions + SQLite-for-traces split where only Markdown syncs
+- **Why this matters:** operator using multiple machines (laptop + desktop + cloud agent) cannot share SQLite memory cleanly. The pattern degrades to single-device unless explicit sync layer is added.
+
+## 13. Cross-project memory sharing under SQLite-per-project assumption
+
+One SQLite per project means **no shared learnings across operator's portfolio**. If operator learns a tactic in Project A, that tactic does NOT propagate to Project B's SQLite.
+- *Source: Tù Bà Khuỳm 2026-05-30 V2 harness — single-project-scoped*
+- **Where it'd resolve:** layered memory architecture — per-project SQLite + cross-project shared SQLite (like global git config); or central memory MCP server queryable from any project
+- **Why this matters:** the value of SQLite-as-memory (precision, schema-enforced correctness) is offset by **per-project siloing**. Operators with many small projects pay the silo cost; operators with one big project don't.
+
+## 14. Version control for agent memory (specifically SQLite + Markdown both)
+
+Neither corpus addresses **how to roll back agent memory state** if the agent learned incorrect information. Markdown gets git history for free; SQLite needs `.db` snapshots + restore procedure.
+- *Source: 2026-05-30 sibling drains (both [[personal-repo-tu-ba-khuym-getting-started]] §Production-readiness AND [[../claude-cowork/production-readiness-gaps]] §Gap 3)*
+- **Where it'd resolve:** temporal-versioning-of-memory frameworks; possibly Dolt (versioned SQLite-like) or similar
+- **Why this matters:** memory poisoning is a real attack/error mode in production agent systems. Without rollback, a single bad ingest corrupts the agent's memory permanently.
+
+---
+
 ## How to extend
 
 Each future research ingest that touches an open question should:

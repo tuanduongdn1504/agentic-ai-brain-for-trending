@@ -84,6 +84,34 @@
 - Pattern: not every task needs human attendance; the harness is what makes unattended work safe
 - This is the personal-scale prefiguration of org-scale autonomous agents — the operating principle ("the harness keeps the agent safe when no human is watching") is identical
 
+## 13. PSB system (Plan → Setup → Build) (added 2026-05-30)
+
+- **AI with Avthar's** project-lifecycle framework — a 3-phase discipline applied before each new project / feature [Source: getting-started drain 2026-05-30]
+- **Plan** — force the agent to outline logic, identify technical risks, ask clarifying questions before touching code (~15 min)
+- **Setup** — scaffold the project structure, install dependencies, prepare context files
+- **Build** — actual coding phase, now bounded by Plan + Setup decisions
+- More project-scoped than GCAO (which is per-prompt) — PSB is per-project-or-feature
+- **Compose with:** [[#2-use-plan-mode-before-any-non-trivial-feature|pattern #2 Plan Mode]] (Plan phase) + [[#1-bootstrap-claudemd-via-init|pattern #1 CLAUDE.md bootstrap]] (Setup phase). PSB is the umbrella; patterns 1+2 are mechanisms inside the Plan + Setup phases.
+
+## 14. DBS framework (Direction → Blueprints → Solutions) for Skill creation (added 2026-05-30)
+
+- **Productive Dude's** skill-authoring framework — distinct from GCAO (which is for individual prompts) [Source: getting-started drain 2026-05-30]
+- **Direction** — what the Skill is for; one-line purpose
+- **Blueprints** — structure templates / scaffolding the Skill should follow
+- **Solutions** — concrete worked examples the agent learns from
+- Compatible with [[../claude-cowork/skills-vs-plugins-hierarchy]]'s Skill = recipe framing — DBS provides authoring discipline for the recipe content itself
+- **Compose with:** Ross Mike's build-via-failure recipe ([[../ai-operating-system/skills-architecture-progressive-disclosure]]) — failure produces Solutions content; Direction + Blueprints come from the operator's initial framing
+
+## 15. SQLite-trace pattern for project memory (added 2026-05-30)
+
+- **Tù Bà Khuỳm's** V2 harness contribution — local SQLite database stores: project decisions, agent action traces, friction logs [Source: getting-started drain 2026-05-30; full article: [[personal-repo-tu-ba-khuym-getting-started]]]
+- **Corpus-first non-Markdown approach** to project memory across the 22-article harness-engineering topic + 14-article claude-cowork sister-topic
+- Closed loop: traces → identify friction → backlog for harness refinement → improved harness reduces future friction
+- **Rationale:** SQLite is more precise + less prone to being ignored or filled incorrectly by the agent compared to a text file
+- **Trade-offs vs Markdown:** lower token cost (agent reads via tool calls, not context inclusion) + schema enforces correctness; harder for operator to eyeball + requires SQLite-capable MCP server or scripts
+- **Composition with [[#1-bootstrap-claudemd-via-init|pattern #1]]:** SQLite REPLACES the `CLAUDE.md` brain for state; operator can keep `CLAUDE.md` for instructions and use SQLite for state/traces
+- **Unaddressed:** schema migration / multi-machine sync / cross-project memory / version control (see [[open-questions]] §11-14 for the 4 specific open questions)
+
 ## Compositional pattern: the full personal stack
 
 A maximalist personal harness composes most of the above:
