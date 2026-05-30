@@ -24,18 +24,17 @@
 
 ---
 
-## Anthropic Cowork first-party documentation + setup-cowork skill
-
-- **Query:** `Anthropic Cowork official documentation setup announcement onboarding`
-- **Anchors:**
-  - (none yet — see Notes below for non-YouTube path)
-- **Notes:** **Closes surviving gap #1 from 2026-05-29 claude-cowork drain** (loop-log `(C) 2026-05-29-11-autopilot-overnight.md`, Phase 5 surviving gap #1 — Anthropic first-party documentation absent from YouTube corpus). yt-pipeline will surface Anthropic-channel YouTube content if available (announcement videos / DevRel walkthroughs). **PARALLEL non-queue action recommended** (drain script is YouTube-only): operator should ALSO run Path 3 single-URL ingest via `notebooklm source add` for `claude.com/cowork` documentation pages + ingest the `setup-cowork` Anthropic-skill content (from skill registry) via Path 6 custom-scraper if needed. The full gap-closure is yt-pipeline + manual Path 3/6 ingest — queue-driven drain alone is insufficient. Compile target: extend existing `wiki/claude-cowork/` with `anthropic-first-party-positioning.md` + revisions to `overview.md` (taxonomy) + `mcp-connectors-landscape.md` (canonical connector list).
-- **Queued:** 2026-05-29
-- **Status:** pending
-
 ## Completed
 
 
+### Harness Engineering — getting started / beginner introduction (Vietnamese anchor) ✅
+- **Drained:** 2026-05-30 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-30-harness-engineering-getting-started-beginner-intro.md`
+- **NotebookLM:** `4c7d51e4-b450-4504-933b-3bb4be28b393`
+### Anthropic Cowork first-party documentation + setup-cowork skill ✅
+- **Drained:** 2026-05-30 by overnight orchestrator
+- **Raw analysis:** `raw/2026-05-30-anthropic-cowork-first-party-documentation-setup-c.md`
+- **NotebookLM:** `b05d3444-6dbb-4955-a8fb-be9b021a0350`
 ### AI Operating System — 5-skills framework ✅
 - **Drained:** 2026-05-29 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-29-ai-operating-system-5-skills-framework.md`
