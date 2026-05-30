@@ -24,6 +24,19 @@ Three speakers offer three definitions of how Chat / Code / Cowork relate:
 
 → The disagreement is itself evidence: Anthropic's product positioning is still settling. None of the speakers cite an official Anthropic taxonomy.
 
+### Taxonomy refinement from 2026-05-30 follow-up drain
+
+**Eliot Prince** ([Claude Cowork Plugins Explained, 135K views](https://www.youtube.com/watch?v=1GZYNyuL6Lg)) adds a brain-vs-hands framing that complements the 3-mode taxonomy:
+
+- **LLM as "brain"** — the reasoning engine; what Chat exposes
+- **Skills + Plugins as "hands"** — the action surfaces; what Cowork adds on top of the brain
+
+Under this framing, Cowork is **not** a competitor to Code — it's a **higher-level packaging** that exposes Skills + Plugins + Connectors above Code's primitives, while still using the same underlying brain. Compatible with Jack Roberts's "rebrand" framing.
+
+The Prince framing is corpus-first and resolves some of the 3-way disagreement: Code and Cowork share the brain; they differ in what hands are pre-built.
+
+See [[skills-vs-plugins-hierarchy]] for the two-tier hierarchy within "hands" (Skills = single-task recipes; Plugins = job-function bundles).
+
 ## Pricing posture
 
 - **Subscription required** to use Cowork at all (no free tier mentioned in any of the 6 sources)

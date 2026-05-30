@@ -67,6 +67,26 @@ These three are the **table stakes** Cowork-vs-Connector integration set.
 - Speakers don't sharply distinguish — both are "tools Claude can call"
 - No speaker discusses the **security model differences** between Anthropic-vetted Connectors and operator-installed MCP servers
 
+## Read-only Connectors vs write-capable MCP plugins (added 2026-05-30)
+
+**Source:** 2026-05-30 follow-up drain on Anthropic Cowork docs (NotebookLM `b05d3444-6dbb-4955-a8fb-be9b021a0350`), §Trends-6. Darrel Wilson explicitly distinguishes the two integration tiers in a way the original 2026-05-29 drain did NOT capture:
+
+| Tier | Capability | Use case |
+|---|---|---|
+| **Standard Connectors** | Often **READ-ONLY** access | Pull emails / docs / calendars into context for analysis |
+| **MCP plugins** | **WRITE-capable** action authority | Send emails / create calendar events / move tasks |
+
+This is the **single most-actionable security primitive** in either Cowork drain. The intuition:
+
+- A read-only Connector minimizes the attack surface — even if compromised, the agent can't send malicious emails or move customer data outbound
+- A write-capable MCP plugin elevates the risk — agent can take real-world actions; needs sandboxing ([[sandboxing-and-workspace-structure]] + [[../ai-operating-system/security-philosophies-and-sandboxing]] NemoClaw)
+
+**Practical implication:** start every Cowork integration as a Connector (read-only). Only upgrade to MCP plugin (write-capable) when the workflow genuinely requires Claude to *act*, not just *read*. Many "automation" workflows are actually "read + summarize + present to operator" — Connector-only is sufficient.
+
+**Compose with security posture:** if using write-capable MCP plugins, infrastructure-level sandboxing (NemoClaw or equivalent) becomes essential — not optional. See [[../ai-operating-system/security-philosophies-and-sandboxing]] §School 2.
+
+**Open question:** can a single MCP server expose BOTH read-only and write-capable surfaces, with the operator controlling which the agent can use per-task? Corpus does not address. Worth a future drain.
+
 ## What the corpus doesn't cover
 
 - **Rate limiting / 429 handling** when running parallel sub-agents against the same connector (see [[production-readiness-gaps]])

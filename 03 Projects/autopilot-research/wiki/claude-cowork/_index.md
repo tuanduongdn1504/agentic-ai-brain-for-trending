@@ -9,12 +9,13 @@
 
 ## Articles
 
-- [[overview]] — what Claude Cowork is, Cowork-vs-Code-vs-Chat taxonomy disagreements, pricing positioning
+- [[overview]] — what Claude Cowork is, Cowork-vs-Code-vs-Chat taxonomy disagreements, pricing positioning (**Eliot Prince's brain-vs-hands framing added 2026-05-30**)
 - [[contextual-engineering]] — persistent `.md` "brain" file patterns (minimalist vs specialist vs automated)
 - [[sandboxing-and-workspace-structure]] — dedicated workspace folder + permission discipline + the irreversibility caveat
-- [[mcp-connectors-landscape]] — which MCP servers + Connectors recur (Google / Notion / Linear / Playwright / Fireflies / Mercury / custom Context-OS)
+- [[mcp-connectors-landscape]] — which MCP servers + Connectors recur (**read-only Connectors vs write-capable MCP plugins distinction added 2026-05-30**)
 - [[scheduling-and-the-app-open-constraint]] — the hardware constraint everyone hits + Kenny Liao's cron-tool workaround + Jack Roberts's Railway alternative
 - [[skills-to-plugins-pipeline]] — codify-after-success pattern + the "handover test" + skills vs plugins
+- [[skills-vs-plugins-hierarchy]] — **added 2026-05-30**: two-tier hierarchy (Skills = single-task "recipe" / Plugins = job-function "chef"-level bundles). Prince + Wilson N=2 corpus-first explicit articulation. Reconciles Camp A vs Camp B distribution debate from sister [[../ai-operating-system/off-the-shelf-vs-handbuilt-skills]]
 - [[token-and-cost-management]] — Sonnet-for-most / Opus-for-hard, script-vs-agentic, 30-45-min session cycling
 - [[production-readiness-gaps]] — what the YouTube layer doesn't cover (resilience, PII, version control, telemetry, eval suites)
 - [[takeaways]] — 9 actionable rules consolidated
@@ -41,7 +42,8 @@
 
 ## Status
 
-- **Compiled:** 2026-05-29
+- **First compiled:** 2026-05-29 (initial 9-article wiki from 6-source bundle)
+- **Extended:** 2026-05-30 (follow-up drain on Anthropic-Cowork-docs query — 4 sources: Eliot Prince + Fireship + Darrel Wilson + Greg Isenberg; added 1 new article [[skills-vs-plugins-hierarchy]] + refinements to [[overview]] taxonomy + [[mcp-connectors-landscape]] read-only-vs-write distinction)
 - **Stub articles:** 0
-- **Gaps:** (none — initial compile)
-- **Promotion candidate?** Not yet — 1 source bundle (this corpus), <5 articles in a single drain. Re-evaluate after 2+ sibling topics or audit cycle.
+- **Gaps:** Anthropic first-party docs STILL not surfaced (follow-up drain hit creator-economy content, not official Anthropic channels). Path 3 (`notebooklm source add`) on claude.com/cowork would close this.
+- **Promotion candidate?** Approaching — 2 drains, 10 articles, but still 100% creator-economy sources. Need a first-party-docs ingest before promotion. Re-evaluate after Path 3 drain on official Anthropic Cowork docs OR at next mini-audit (whichever first).
