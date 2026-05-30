@@ -1428,3 +1428,21 @@ Pattern #84 Cross-Vendor Ecosystem-Tolerance (top-level; PROMOTED v72)
 **Audit document**: `04 Reviews/(C) 2026-05-28 Pattern Library mini-audit v101 ...md`
 
 ---
+
+## Promoted at v120 mini-audit (Pattern #18 sub-archetype #8 "Multi-Source LLM Aggregator")
+
+**Promotion:** Pattern #18 **sub-archetype #8 "Multi-Source LLM Aggregator"** → **CONFIRMED N=3** (was PROVISIONAL N=2 since the v115 audit).
+
+**Definition:** a tool whose core function is to put *multiple* LLM/coding-agent providers behind a single point of control, by one of two mechanisms:
+- **8a — config-switcher:** rewrites a runtime config to switch the single *active* provider. Anchors: **v73 cc-switch** (Tauri-2 desktop; switches Claude Code providers) + **v117 CodexPlusPlus** (Tauri-2 desktop; rewrites `~/.codex/config.toml` to point Codex at a custom OpenAI-compatible endpoint). N=2.
+- **8b — live-routing-proxy:** all providers live behind one endpoint with fallover/routing. Anchor: **v112 freellmapi** (headless OpenAI-compatible proxy aggregating ~12 free-tier providers). N=1.
+
+**Evidence (N=3):** v73 (8a) + v112 (8b) + v117 (8a) — 3 authors, 2 sub-variants, 2 deployment models (desktop GUI vs headless proxy), 2 target agents (Claude Code vs Codex). Genuine cross-instance spread at the top-level "multi-source aggregation" claim.
+
+**Honest caveat (recorded, does NOT block promotion):** both **8a** instances (v73 + v117) are **Tauri-2 desktop apps** — the *8a sub-variant* may be narrowing toward "Tauri-desktop config-switcher" (a possible stack-coincidence; tracked separately in the Library-vocab registry LV-C7 as the "Tauri-Desktop-Management-GUI" N=2 sub-claim). The **top-level #8** promotion is justified independently because 8b (v112, headless) supplies genuine mechanism + deployment diversity. If a 3rd 8a instance is again Tauri-desktop, revisit whether 8a should be relabeled. Promotion is at the #8 (sub-archetype) layer within the already-CONFIRMED Pattern #18 — **top-level confirmed-pattern count UNCHANGED at 46.**
+
+**Relieves:** the v2.4-deferred "multi-runtime-aggregator (v73 N=1 only)" item (cleared at v115 → N=2; CONFIRMED here at N=3).
+
+**Audit document**: `04 Reviews/(C) 2026-05-30 Pattern Library mini-audit v120 ...md`
+
+---
