@@ -9,6 +9,7 @@
 
 ## Articles
 
+- [[anthropic-first-party-positioning]] — **added 2026-05-30 Path 4** • THE CANONICAL ANCHOR. Closes claude-cowork wiki surviving gap #1. Path 4 manual ingest of 2 first-party Anthropic URLs (claude.com/docs/cowork/overview + support.claude.com get-started). **First-party confirms:** (1) app-must-be-open constraint is OFFICIAL ANTHROPIC POSITION (not workaround for bug); (2) Skill/Plugin two-tier hierarchy is OFFICIAL Anthropic taxonomy at N=3 — Plugins explicitly bundle Skills + Connectors + sub-agents (NEW detail); (3) Cowork = "knowledge work beyond coding" is Anthropic's own framing; (4) Cowork costs more usage allocation than chat (first-party confirmation of token-and-cost-management guidance).
 - [[overview]] — what Claude Cowork is, Cowork-vs-Code-vs-Chat taxonomy disagreements, pricing positioning (**Eliot Prince's brain-vs-hands framing added 2026-05-30**)
 - [[contextual-engineering]] — persistent `.md` "brain" file patterns (minimalist vs specialist vs automated)
 - [[sandboxing-and-workspace-structure]] — dedicated workspace folder + permission discipline + the irreversibility caveat
@@ -43,7 +44,9 @@
 ## Status
 
 - **First compiled:** 2026-05-29 (initial 9-article wiki from 6-source bundle)
-- **Extended:** 2026-05-30 (follow-up drain on Anthropic-Cowork-docs query — 4 sources: Eliot Prince + Fireship + Darrel Wilson + Greg Isenberg; added 1 new article [[skills-vs-plugins-hierarchy]] + refinements to [[overview]] taxonomy + [[mcp-connectors-landscape]] read-only-vs-write distinction)
+- **Extended 2026-05-30 (a):** follow-up drain on Anthropic-Cowork-docs query (4 sources: Eliot Prince + Fireship + Darrel Wilson + Greg Isenberg); added [[skills-vs-plugins-hierarchy]] + refined [[overview]] taxonomy + [[mcp-connectors-landscape]]
+- **Extended 2026-05-30 (b):** **Path 4 manual ingest of 2 first-party Anthropic URLs** (claude.com/docs/cowork/overview + support.claude.com get-started). Added [[anthropic-first-party-positioning]] as the topic's canonical anchor. **Closes original gap #1.**
 - **Stub articles:** 0
-- **Gaps:** Anthropic first-party docs STILL not surfaced (follow-up drain hit creator-economy content, not official Anthropic channels). Path 3 (`notebooklm source add`) on claude.com/cowork would close this.
-- **Promotion candidate?** Approaching — 2 drains, 10 articles, but still 100% creator-economy sources. Need a first-party-docs ingest before promotion. Re-evaluate after Path 3 drain on official Anthropic Cowork docs OR at next mini-audit (whichever first).
+- **Original gap (Anthropic first-party docs absent):** **CLOSED 2026-05-30.** First-party confirmation now in [[anthropic-first-party-positioning]].
+- **New finer-grained gaps surfaced by closing gap #1:** (a) API/SDK Cowork docs not yet ingested; (b) `setup-cowork` Anthropic-skill content not ingested; (c) specific connector inventory not ingested; (d) pricing/usage-allocation specifics not enumerated. Each is closure path documented in [[anthropic-first-party-positioning#what-this-article-does-not-cover-carry-forward-gaps]].
+- **Promotion candidate?** YES — now meets criteria: 10 articles + 2 drains + 1 first-party-confirmed canonical anchor + cross-cohort sources (creator-economy + Anthropic-official). Recommend audit at next mini-audit (v66+).
