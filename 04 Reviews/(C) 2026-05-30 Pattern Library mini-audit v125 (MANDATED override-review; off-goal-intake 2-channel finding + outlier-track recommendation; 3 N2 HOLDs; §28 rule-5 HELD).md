@@ -48,7 +48,9 @@ The asymmetry is the problem: the override channel is honest about being off-goa
 
 ---
 
-## C. RECOMMENDATION — corpus-knowledge-outlier track (2-tier INCLUDE) — ⚠️ operator sign-off pending
+## C. RECOMMENDATION — corpus-knowledge-outlier track (2-tier INCLUDE) — ✅ ADOPTED 2026-05-30
+
+> **UPDATE 2026-05-30 — ADOPTED.** Operator signed off on this recommendation; codified as **routine v2.5** (`05 Skills/llm-wiki-routine-v2.5.md`, §31–§34) with the recommended defaults: **forward-only** (no retroactive re-tag; "49+3\*" frozen @v125) + **streak-split going forward** (GA goal-aligned / OG off-goal-capture from v126). No Phase-0.9 STRICT criteria change. The "operator's call" items in this section are now decided per the recommended defaults below.
 
 Proposed resolution (a v2.5 codification candidate; **flagged for operator decision** because it changes verdict semantics + streak accounting):
 
