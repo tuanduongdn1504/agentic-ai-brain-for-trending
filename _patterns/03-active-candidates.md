@@ -1702,3 +1702,11 @@ Ships as SEPARATE executables. Dispatcher resolves and spawns `deepseek-tui` as 
 - Pattern #84 84c — cross-vendor tolerance; OC-Q is sponsor-relationships, not vendor-tolerance
 
 ---
+
+---
+
+## v134–v135 mini-audit additions (2026-06-02)
+
+**Corpus-Foundation-Methodology Productization (generate/maintain vector) — PROVISIONAL N=2** (v118 OpenHuman + v134 obsidian-second-brain). A corpus subject that productizes/embodies the corpus's OWN foundational **Karpathy-LLM-wiki methodology** as an installable tool that *builds/maintains a self-rewriting knowledge vault*. **RELABELED away from "Pattern #57"** at the v134–v135 audit: the v50-confirmed Pattern #57 = corpus-internal *citation* topology (subject → prior *corpus subject*); this thread is methodology-*embodiment* of the corpus's *upstream* foundation — structurally distinct, not #57. **v94 Understand-Anything = ADJACENT consume/understand instance N=1** (build-a-codebase-knowledge-graph ≠ build/maintain-a-personal-wiki), NOT counted toward the generate vector. **PROMOTION-ELIGIBLE at N=3** (a genuine 3rd build/maintain-the-wiki instance). NO promotion this audit (split, anti-inflation). Full reasoning: `04 Reviews/(C) 2026-06-02 … v134-v135 …`.
+
+**Pattern #85 Platform-Primitive Foundation — CANDIDATE N=1 → N=2** (v66 agentmemory + v132 supermemory). Verified against the #85 definition (a foundational platform-primitive enabling one-binary-many-clients cheaply; here an agent-memory engine + SDK + MCP that many agents build on). Promotion-eligible at N=3. (The v132 "verify-vs-def" flag is discharged: it holds.)
