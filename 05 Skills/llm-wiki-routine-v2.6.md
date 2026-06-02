@@ -49,4 +49,57 @@ The ceiling **clears automatically** once the rolling 3-ship window again holds 
 - Pattern Library state UNCHANGED: 46 confirmed / ~25 active / 8 Library-vocab CONFIRMED.
 - Cadence: next natural audit ~v134-v135.
 
-**Routine now v2.6 CURRENT** (supersedes v2.5). v2.5 §31–§34 unchanged; v2.6 adds §35 (ceiling) + §36 (state). NO Phase-0.9 STRICT criteria change (v125 cleared the criteria; v2.6 is an intake-governor, not a rubric change).
+**Routine now v2.6 CURRENT** (supersedes v2.5). v2.5 §31–§34 unchanged; v2.6 adds §35 (ceiling) + §36 (state) + §37/§38 (fact-provenance + audit-checklist addendum, added 2026-06-02 from the v134 READ pilot). NO Phase-0.9 STRICT criteria change (v125 cleared the criteria; v2.6 is an intake-governor + documentation-discipline layer, not a rubric change).
+
+---
+
+## §37 — Fact-Provenance Discipline (wiki-ship checklist) — added 2026-06-02
+
+**Source:** borrowed by hand from the v134 obsidian-second-brain READ pilot (`03 Projects/obsidian-second-brain - Beginner Analysis/01 Analysis/(C) PILOT-borrow-by-hand-bitemporal-reconcile-synthesize.md`, Borrow 1). It keeps the vault's hand-curation gate — this is a **writing convention**, not automation. NO Phase-0.9 criteria change.
+
+### §37.1 The rule
+Every **volatile external fact** in a project entry / wiki index / shim carries an inline **recency marker + source + confidence tag**.
+
+### §37.2 Format
+`<claim> (as of YYYY-MM, <source> — confidence: <level>)`
+e.g. `4.4k★ (as of 2026-06, github.com/1weiho/open-slide repo page — confidence: stated, NOT API-verified)`.
+
+### §37.3 Confidence vocabulary (maps onto the vault's existing inferred-vs-declared discipline)
+- `stated` — quoted verbatim from the source / repo page, or operator-declared
+- `high` — multiple independent sources agree
+- `medium` — single plausible source / reasonable inference
+- `speculation` — Claude's inference (e.g. "Taiwan-inferred", "inferred China-Mainland")
+
+The Phase-0.9 (a)-axis inferred-vs-declared call already uses this distinction informally (v89/v90 "inferred" ≈ speculation/medium; v119/v135 "declared" ≈ stated); §37 formalizes the vocabulary.
+
+### §37.4 API-unverifiable metrics (the sandbox constraint)
+This environment **mocks the GitHub API**, so stars / forks / `created_at` fetched via `curl` are NOT authoritative. Any such metric MUST carry `NOT API-verified` + its actual provenance (repo page / README / releases list). This replaces the ad-hoc caveat written by hand at v134/v135.
+
+### §37.5 Scope — "volatile" =
+star/fork counts, funding, version numbers, release dates, author role/affiliation/location, "X in Y weeks" velocity claims. Stable structural facts (license SPDX, file tree, language %) need provenance only when contested.
+
+## §38 — Audit-Checklist Additions (reconcile + synthesize disciplines, human-gated) — added 2026-06-02
+
+**Source:** Borrows 3 + 4 of the same pilot. The vault's mini-audits already ARE the reconcile/synthesize pass; §38 borrows the *structure* and keeps the operator as the write-gate (the source auto-resolves + auto-writes; the vault flags-for-operator + routes mints through §28).
+
+### §38.1 Contradiction pass (reconcile)
+At each audit, for flagged contradictions:
+- **Classify** each: **clear-winner** (one fact supersedes — log the supersession + date) / **ambiguous** (both plausible — open it) / **evolution** (a position/verdict legitimately changed over time — log as history, NOT a contradiction).
+- **contradiction ≠ evolution:** a verdict that changed across versions (e.g. open-slide "not yet corpus-relevant" v91 → subject v135) is evolution, not conflict.
+- **Source-authority rank** when facts conflict: declared/primary > repo page > inferred.
+- **Default outcome = flagged-for-operator.** The vault does NOT auto-resolve (the "ask before editing my notes" rule). Auto-resolution is explicitly NOT borrowed.
+- **Track ambiguous ones** in `04 Reviews/(C) OPEN-CONFLICTS.md` with `status: open` so they don't evaporate in prose.
+- **Report** the contradiction tally as `X found / Y resolved-with-operator / Z flagged-for-operator`.
+
+### §38.2 Synthesis pass (synthesize) — routed through §28
+Run these scan dimensions as audit prompts. The source auto-writes synthesis pages; the vault does NOT — every candidate routes through the §28 ≤2-new-standalones cap + clustering-first + auto-retire (the over-generation guard the source lacks):
+- **cross-source** — a concept/pattern in 2+ unrelated subjects
+- **entity-convergence** — authors/orgs recurring across subjects with no connection page (current gap: rohitg00 ×2 v66+v113, nexu-io ×2 v83+v91, cited-to-subject v91→v135 — candidates for a lightweight `entities/` index)
+- **concept-evolution** — an idea with 3+ updates across wikis
+- **orphan-rescue** — project entries with no inbound cross-reference
+
+### §38.3 Discipline
+§38 adds NO automation and NO scheduled agents. It is an audit *checklist*; the operator remains the write-gate. Rejected-as-incompatible (documented in the pilot): auto-rewrite-5–15-pages, scheduled headless agents, the Two-Output Rule, auto-resolution.
+
+### §38.4 Not-yet-applied (deferred from the pilot's 5-item proposal)
+Two proposed items are NOT in this addendum — the operator scoped the apply to Borrow 1 + the audit-checklist + the registry correction: **per-fact `History:` line on revision** (Borrow 2) and **`## For future Claude` preamble standardization** (Borrow 5). Both remain available to adopt later.
