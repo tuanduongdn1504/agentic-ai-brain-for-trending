@@ -103,3 +103,11 @@ Run these scan dimensions as audit prompts. The source auto-writes synthesis pag
 
 ### §38.4 Not-yet-applied (deferred from the pilot's 5-item proposal)
 Two proposed items are NOT in this addendum — the operator scoped the apply to Borrow 1 + the audit-checklist + the registry correction: **per-fact `History:` line on revision** (Borrow 2) and **`## For future Claude` preamble standardization** (Borrow 5). Both remain available to adopt later.
+
+---
+
+## §39. Time-aware auto-retire window (mini-codification, v151 audit 2026-06-04, operator sign-off)
+
+Amends §28.3. The standalone-N=1 auto-retire window is now **time-aware**: a standalone N=1 is auto-retired at the next audit only once it has gone **both ≥15 wikis AND ≥30 days** without strengthening (retire on whichever threshold is satisfied *later* — "15 wikis OR 30 days, whichever is longer"). Re-registerable on a genuine 2nd instance.
+
+**Why:** the wiki-count-only rule mis-fires under burst cadence. The v126–v151 window shipped 25 wikis in ~3 calendar days; the old rule would have mechanically retired days-old CORPUS-FIRST standalones (e.g. v132 "Open Comparative Benchmark Framework," ~19 wikis but ~3 days old) as "stale." The 30-day floor protects recent items during bursts; the 15-wiki ceiling continues to retire genuinely-stale items under slow cadence. Authoritative rule text updated in `llm-wiki-routine-v2.4.md §28.3`. This is the ONLY change adopted from the v151 audit's three recommendations — the off-goal-intake lever and the (a)-rescue tightening remain PENDING operator sign-off.

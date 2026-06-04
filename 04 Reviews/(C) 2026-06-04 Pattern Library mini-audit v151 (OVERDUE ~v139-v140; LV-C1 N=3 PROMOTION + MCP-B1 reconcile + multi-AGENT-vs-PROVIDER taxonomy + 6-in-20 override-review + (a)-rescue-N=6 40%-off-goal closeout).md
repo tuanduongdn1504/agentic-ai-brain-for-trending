@@ -158,6 +158,8 @@ I recommend **(ii)** as the cleaner path — it stops the override door doubling
 
 **Flagged, NOT retired — burst-cadence calibration finding.** The 15-wiki rule is **wiki-count-based** and is **mis-calibrated for the current burst cadence** (v126–v151 = 25 ships in ~3 calendar days). Recent N=1 standalones — e.g. "Open Comparative Benchmark Framework" (v132, 19 wikis but only ~3 days old), and everything v137+ — are past or near the 15-*count* window despite being *days* old. Mechanically retiring a 3-day-old CORPUS-FIRST item is a measurement artifact, not real staleness. **RECOMMEND (sign-off):** change the auto-retire window to **"15 wikis OR 30 days, whichever is longer"** (time-aware). Until then, I retire only the items stale by *both* measures (the four above) and explicitly do **not** retire v132+ N=1 standalones.
 
+> **✅ ADOPTED 2026-06-04 (operator sign-off, same session).** The time-aware window is codified — retire an N=1 standalone only after it has gone **both ≥15 wikis AND ≥30 days** without strengthening. Authoritative rule: `05 Skills/llm-wiki-routine-v2.4.md §28.3` (amended) + `05 Skills/llm-wiki-routine-v2.6.md §39` (mini-codification) + registry `06` §E rule 3 + §D note. This is the ONLY one of the three §H recommendations adopted; (i) and (ii) remain pending.
+
 **Stale N=2 watch (no action, noted):** "Brand-Named Third-Party Repo + Disclaimer" (v98+v119) and "Pure-Markdown-MEGA-Viral Single-Purpose Skill" (v87+v108) have sat at N=2 with no 3rd for 30+ wikis. N=2 is not subject to the N=1 auto-retire; left in place, flagged for the next audit.
 
 **Streak:** UNCHANGED — audit ≠ ship. Forward **GA:15 · OG:10 [6 ov]**; historical "49+3\*" frozen @v125.
@@ -177,9 +179,9 @@ I recommend **(ii)** as the cleaner path — it stops the override door doubling
 
 1. **Off-goal-intake lever** (§D): re-baseline the override trigger **(i)** OR outlier-track-by-default **(ii)** — I recommend (ii).
 2. **(a)-rescue tightening** (§E): require a *solid* (a) signal (declared/located or (a)-7), not name-heritage inference, for (a)-rescue INCLUDE. Phase-0.9 (a) criterion change.
-3. **Auto-retire window** (§F): make it time-aware ("15 wikis OR 30 days, whichever is longer") to fix the burst-cadence artifact.
+3. **Auto-retire window** (§F): make it time-aware ("15 wikis OR 30 days, whichever is longer") to fix the burst-cadence artifact. **✅ ADOPTED 2026-06-04 (operator sign-off, same session)** — codified at `v2.4 §28.3` + `v2.6 §39` + registry §E rule 3 / §D. The remaining two ((1) off-goal-intake lever, (2) (a)-rescue tightening) remain PENDING.
 
-All three are routine-criteria/governance changes → operator's call. The Pattern-Library state changes (§G items 1–4) are within audit authority and are applied.
+All three were routine-criteria/governance changes → operator's call. **(3) is now ADOPTED; (1) and (2) remain pending.** The Pattern-Library state changes (§G items 1–4) are within audit authority and were applied at the audit.
 
 ---
 
