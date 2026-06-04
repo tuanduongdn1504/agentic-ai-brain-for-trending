@@ -1099,7 +1099,7 @@ At N=2 multi-surface saturation, this is registered as a Pattern #83 SUB-ARCHETY
 
 **3 protocol-variant formal definitions (registered at promotion):**
 
-- **B1 MCP variant** — one-binary-many-CLIENTS via Model Context Protocol; one MCP server binary serves multiple agent platforms as MCP clients via stdio or SSE transport. N=2 evidence: agentmemory v66 (51 tools / 15+ platforms), codegraph v70 (8 tools / 4 platforms). v72 stale-check: not applicable (already at promotion); v76 N=3 within-variant check.
+- **B1 MCP variant** — one-binary-many-CLIENTS via Model Context Protocol; one MCP server binary serves multiple agent platforms as MCP clients via stdio or SSE transport. **N RECONCILED 2 → 7 at the v151 audit (2026-06-04).** Clean instances: agentmemory v66 (51 tools / 15+ platforms) + codegraph v70 (8 tools / 4 platforms) + nature-skills v119 (bundled `nature-academic-search` MCP) + supermemory v132 (Claude/Cursor/Windsurf/VS Code) + google_workspace_mcp v140 (50+ tools / 12 services) + financial-services v141 (11 MCP data connectors — densest connector surface in corpus) + Scrapling v149 (built-in MCP server). *Adjacent / not credited as clean B1:* obsidian-second-brain v134 (cross-CLI skill, MCP not its primary deliverable) + headroom v144 (MCP is one of 5 surfaces). **Audit note (bookkeeping finding):** the formal N sat frozen at 2 from the v72 promotion while ship narratives logged "B1 N+1" at v119/v132/v134/v140/v141/v144/v149 without ever tallying them in — the **Pattern-layer repeat of the v120 §28-rule-5 "filing is an act, not a claim"** issue. Tallied now (N=7); going forward, Pattern-layer N+1 notes are filing acts. **Sub-observation (recorded, NOT minted):** within B1, the "capability/data-source MCP server exposed to agents" is now the corpus's single most common new-subject type of the v140–v149 window; a dedicated "MCP Integration Server" sub-archetype mint was **DECLINED** at the v151 audit (B1 already captures the shape; minting would relabel, not add content — anti-inflation). Top-level pattern count UNCHANGED at 46.
 
 - **B2 CDP variant** — one-binary-many-CLIENTS via Chrome DevTools Protocol; one browser binary serves multiple framework clients via CDP endpoint (HTTP/WebSocket). N=1 evidence: CloakBrowser v69 (Playwright Python + Playwright npm + native CDP). v75 N=2 within-variant stale-check.
 
@@ -1443,6 +1443,34 @@ Pattern #84 Cross-Vendor Ecosystem-Tolerance (top-level; PROMOTED v72)
 
 **Relieves:** the v2.4-deferred "multi-runtime-aggregator (v73 N=1 only)" item (cleared at v115 → N=2; CONFIRMED here at N=3).
 
-**Audit document**: `04 Reviews/(C) 2026-05-30 Pattern Library mini-audit v120 ...md`
+**LAYER-TAXONOMY LINE (added at the v151 audit, 2026-06-04 — routing cross-ref so aggregator/orchestrator/MCP subjects classify correctly):**
+> Three distinct layers; do **not** conflate them by "scale":
+> - **PROVIDER layer** — multiplex model *endpoints* (OpenAI/Anthropic/Groq…) behind one point of control → **Pattern #18 sub-archetype #8** (8a config-switcher / 8b live-routing-proxy).
+> - **AGENT layer** — orchestrate whole *coding agents* (Claude Code/Codex/Copilot/OpenCode/Pi), each itself a full agent, as units → the **v150 Paseo standalone** "Cross-Device Multi-Vendor Coding-Agent Orchestration Platform" (Library-vocab §C, N=1). An agent sits *above* a provider; Paseo orchestrates the layer above what #8 aggregates. **Paseo is correctly NOT a #8 instance.**
+> - **MCP-server layer** — expose a *capability/data-source* to agents via MCP → **Pattern #18 sub-mechanism B / protocol-variant B1** (N=7).
+>
+> Emerging "AI-agent orchestration" theme (v150 Paseo + v99 cmux [session-hosting, human-driven — adjacent] + v131 harness [team-architecture *generator* — adjacent]) is **HETEROGENEOUS → HELD, not minted**; the Paseo standalone stays N=1, promotion-eligible at N=2 (a 2nd heterogeneous-vendor agent-orchestration platform).
+
+**Audit document**: `04 Reviews/(C) 2026-05-30 Pattern Library mini-audit v120 ...md` (promotion); `04 Reviews/(C) 2026-06-04 ... v151 ...md` (layer-taxonomy line).
+
+---
+
+## v151 mini-audit summary (2026-06-04 — the overdue ~v139–v140 audit)
+
+Window: v135 → v151 (post-v134–v135-audit accumulation). Routine v2.6. Branch `wiki/audit-v151`. **Fact-verification LIGHT** — environment mocks the GitHub API (§37.4); reasoning/bookkeeping audit only; clean-fact-verification streak HELD, not advanced.
+
+**Pattern-layer outcomes (recorded here):**
+1. **Pattern #18 B1 MCP variant — N reconciled 2 → 7** (bookkeeping; see the B1 block above). Pattern-layer repeat of the v120 §28-rule-5 "filing is an act" finding (ship-time N+1 notes never tallied). **"MCP Integration Server" sub-archetype mint DECLINED** (B1 already covers it).
+2. **Layer-taxonomy line added to #8** (PROVIDER vs AGENT vs MCP-server). v150 Paseo agent-orchestration standalone HELD N=1 (heterogeneous theme, not minted).
+3. **Override-frequency review (MANDATED, §7) — DISCHARGED.** 9 lifetime overrides (6 forward: v127/v139/v142/v145/v146/v148); both 2-in-20 and 3-in-30 massively exceeded; 2 consecutive `[ceiling-override]` (v146/v148). Common-cause RE-CONFIRMED (4th time: v120/v125/v134–v135/now) = intake-channel off-goal capture via the override door, **NOT a Phase-0.9 STRICT criteria defect** (criteria correctly 0/4-SKIP all 9). **NO criteria redesign. NO 4th governor** (per v134–v135). Blunt finding: three audits + two governors have not slowed intake because every instrument is operator-overridable and the operator elects override every time — the lever is upstream subject-selection + piloting, not accounting.
+4. **(a)-rescue N=6 / 40% off-goal-rate closeout.** 10/25 v2.5/v2.6 ships are off-goal (6 override-door + 4 (a)-rescue-door); (a)-rescue lineage v80+v123+v128+v129+v133+v151. v151's (a) was the weakest (heritage-inferred, location-undeclared). The (a)-rescue door is a genuine *criteria-permeability* that CAN be tightened (unlike the operator-elected override door).
+
+**Library-vocab-layer outcome (recorded in `06-library-vocab-registry.md`):** CONFIRMED **8 → 9** — #21 "Vendor-Official Agent-Tooling for Own Product/Offering" PROMOTED (broad-class, N=3 v114+v126+v149; not split). 4 stale N=1 standalones auto-retired (v111/v113/v121×2).
+
+**Top-level pattern count UNCHANGED at 46. Streak UNCHANGED (audit ≠ ship): GA:15·OG:10 [6 ov].**
+
+**Pending operator sign-off (NOT auto-adopted):** (i) off-goal-intake lever — re-baseline the override trigger OR make the corpus-knowledge-outlier track the default for off-goal subjects (recommended); (ii) (a)-rescue tightening — require a *solid* (a) signal (declared/located or registered (a)-7), not a name-heritage inference; (iii) time-aware auto-retire window ("15 wikis OR 30 days, whichever is longer") to fix the burst-cadence artifact.
+
+**Audit document:** `04 Reviews/(C) 2026-06-04 Pattern Library mini-audit v151 (OVERDUE ~v139-v140; ...).md`
 
 ---

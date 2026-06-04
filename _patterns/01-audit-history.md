@@ -1410,4 +1410,30 @@ This chapter file holds per-audit detail through v41 era. v42 onward, audit narr
 
 **State:** 46 confirmed UNCHANGED / ~25 active / 0.543 ratio UNCHANGED / Library-vocab CONFIRMED 8 UNCHANGED / streak "40+1*" UNCHANGED. Pattern #88 scope generalized; T2 Observability/Metering N=2; 83f.4 N=2. v110 = AUDIT not deferred (clean). Next ship = v111 hello-agents.
 
+> *(Note: the v115 / v120 / v125 / v130 / v134–v135 audits were documented in `04 Reviews/` but not appended to this history file. The v151 entry below resumes the log; the intervening audit docs remain the authoritative record for that window.)*
+
+---
+
+## v151 mini-audit (2026-06-04) — OVERDUE NATURAL-CADENCE + MANDATED-OVERRIDE-REVIEW + OFF-GOAL-CLOSEOUT (the "~v139–v140" audit)
+
+Window v135→v151 (16 ships since the v134–v135 audit). Routine v2.6. Branch `wiki/audit-v151` off main. Full doc: `04 Reviews/(C) 2026-06-04 Pattern Library mini-audit v151 (OVERDUE ~v139-v140; ...).md`. **Fact-verification LIGHT** (environment mocks the GitHub API §37.4) — reasoning/bookkeeping audit; clean-fact-verification streak HELD, not advanced.
+
+**Promotions/formalizations:** **CONFIRMED Library-vocab 8 → 9** — **#21 "Vendor-Official Agent-Tooling for Own Product/Offering" PROMOTED** (broad-class, N=3 v114 gsap + v126 Every + v149 Scrapling; cross-author + cross-vertical + cross-scale PASS; library-vendor / methodology-editorial-vendor recorded as internal sub-flavors, NOT split — anti-inflation, #8 8a/8b precedent). · **Pattern #18 B1 MCP variant N reconciled 2 → 7** (bookkeeping; v66/v70/v119/v132/v140/v141/v149 clean; v134/v144 adjacent) — Pattern-layer repeat of the v120 §28-rule-5 "filing is an act" finding. · **Layer-taxonomy line added to #8** (PROVIDER vs AGENT vs MCP-server).
+
+**Declines/HOLDs (anti-inflation):** "MCP Integration Server" sub-archetype mint **DECLINED** (B1 covers it). · v150 Paseo agent-orchestration standalone **HELD N=1** (heterogeneous theme v150+v99-adjacent+v131-adjacent, not minted). · Stale-N=2 watch (Brand-Named-Repo+Disclaimer v98+v119; Pure-Markdown-MEGA-Viral v87+v108) — no action.
+
+**Mandated override review — DISCHARGED:** 9 lifetime overrides (6 forward v127/v139/v142/v145/v146/v148); 2-in-20 + 3-in-30 both massively exceeded; 2 consecutive `[ceiling-override]` (v146/v148). Common-cause RE-CONFIRMED (4th time) = intake-channel off-goal capture, **NOT a criteria defect** (all 9 correctly 0/4-SKIP). **NO criteria redesign; NO 4th governor.**
+
+**Off-goal closeout:** 40% off-goal rate (10/25 v2.5/v2.6 ships); (a)-rescue lineage N=6 (v80+v123+v128+v129+v133+v151); v151's (a) weakest in the series. Both intake doors active.
+
+**Auto-retire (§28.3):** 4 stale N=1 standalones forced-retired (v111 + v113 T3-education candidates; v121 Codex-Native + v121 Multi-Domain). **Burst-cadence calibration finding:** the wiki-count-based 15-wiki rule mis-fires during the v126–v151 burst (25 ships / ~3 days); v132+ N=1 standalones NOT retired.
+
+**Pressure-tests / fact-verification:** Explore-agent "NOT FOUND" on #18 #8 / #84 84c.1+84d / #85-v132 was verified to be excerpt-reading error (all present in `02b`); records clean. No live metadata re-verification possible (API mocked). **Clean-streak HELD, not advanced.**
+
+**State:** **46 confirmed UNCHANGED** / CONFIRMED Library-vocab **8 → 9** / tracked PROVISIONAL surface ≈25 → ≈21 / **streak UNCHANGED GA:15·OG:10 [6 ov]** (audit ≠ ship). Cadence reset: next natural audit ~v156–v157.
+
+**Pending operator sign-off (NOT auto-adopted):** (i) off-goal-intake lever (re-baseline override trigger OR outlier-track-by-default — recommended) · (ii) (a)-rescue tightening (require solid (a) signal, not name-heritage inference) · (iii) time-aware auto-retire window ("15 wikis OR 30 days, whichever is longer").
+
+**Spillover to ~v156–v157:** the 3 sign-off items above · LV-C7 Tauri-Management-GUI N=2 (v73+v117) + LV-C2 Cost-Attribution-via-External-Service N=2 (v89+v109) + Brand-Named-Repo+Disclaimer N=2 (v98+v119) + voice-calibration N=2 (v108+v138) + Own-Trained-Bundled-Model N=2 (v97+v144) + Cited-to-Subject-Elevation N=2 (v93+v135) + LV-C3 Self-Referential-Methodology N=3-SOFT (v87+v126+v131) — all N=2/N=3-watch, none promoted this audit (no clean new instance) · Pattern #85 Platform-Primitive CANDIDATE N=2 (v66+v132) N=3-watch · the v150 Paseo agent-orchestration N=2-watch.
+
 **Spillover to ~v115:** Library-vocab CONSOLIDATION (dedicated v2.4 session, CRITICAL #1) · 88-text/prose N=2 · T2 Observability/Metering N=3 · v107 Enforced-Gate sub-archetype N=2 · (a)-8 ≈v112-retire · Pattern #28 N=3 · Pattern #85 Memory-System N=3 · Pattern #57 57k 9th-implementer.
