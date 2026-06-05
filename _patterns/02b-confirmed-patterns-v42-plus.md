@@ -1498,8 +1498,10 @@ Window: v135 → v151 (post-v134–v135-audit accumulation). Routine v2.6. Branc
 | v156 | clawd-on-desk | run-state + permission bubble | (b) ambient/affective | Electron + hooks |
 
 **Two formal internal sub-flavors (recorded INSIDE the sub-archetype, NOT split):**
-- **(a) Metering / quota / usage-logs** — numeric/dashboard surfacing of usage/cost/quota/logs. **N=4** (v89+v109+v157+v158).
+- **(a) Metering / quota / usage-logs** — numeric/dashboard surfacing of usage/cost/quota/logs. **N=4 at audit → N=5 at the v159 CodexBar ship** (v89+v109+v157+v158+**v159 CodexBar**; sub-archetype overall N=7 → **N=8**).
 - **(b) Ambient / affective status-surface** — a reactive desktop-pet/avatar whose state tracks aggregate agent run-state as the *primary* display (affective signal, not a dashboard). **N=3** (v154+v155+v156).
+
+**v159 CodexBar post-audit ship (2026-06-05):** clean instance-strengthening of sub-flavor (a) → N=5 / sub-archetype → N=8 (`steipete/CodexBar`, native-macOS Swift menu-bar monitor for 40+ providers = the broadest-coverage + most-mature/popular member; near-twin of v157 ClaudeBar). **0 new mints** — exactly the honest outcome the v158-audit forward-note predicted for a 7th-in-niche subject. (a) FAIL (steipete = a notable author, NOT a cultural-peer/NOT (a)-7 → no axis minted, v139 discipline); observability OBSERVES (not LV-C7 #22, which CONTROLS). Recorded; top-level count UNCHANGED at 46, CONFIRMED Library-vocab UNCHANGED at 10.
 
 **Double-count reconcile (the load-bearing audit call):** the Library-vocab §C standalone "Ambient/Affective Multi-Agent Status Surface (reactive desktop-pet UI)" (N=3, v154+v155+v156) is the SAME subject-set as sub-flavor (b). It is **RECLASSIFIED INTO this sub-archetype as sub-flavor (b)** and removed as a separate §C standalone — one subject-set must not support two parallel N=3 promotions. Precedent: 8a/8b inside #18 #8 (v120); library/methodology sub-flavors inside Library-vocab #21 (v151). v156's permission-approve/deny bubble = a watch-vs-watch+control sub-feature within (b), not a separate entry.
 
