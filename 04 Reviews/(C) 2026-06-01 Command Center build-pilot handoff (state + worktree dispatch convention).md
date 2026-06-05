@@ -56,8 +56,10 @@ Mechanisms: the `Agent` tool supports `isolation: "worktree"`; a fresh Claude Co
 - `is_error` success-detection (v0.7.4, in CHANGELOG) — dispatcher trusts returncode only; should parse the stream `result` line's `is_error`
 - multi-account UUID config — `~/.command-centre/data/accounts.json` has `uuids:[]` empty since v0.6.3; operator UUID `6374a372-fd9a-4d06-9183-3fe7af57e289`
 - bridge restart-quietness — `Connection refused` spam during deploys (server down while bridge polls); add retry/backoff
-- review-gate (v0.7.0) + accept (v0.7.1) flows not yet phone-exercised (smoke-only: 69/69, 43/43)
-- push v0.7.x hotfixes to remote (currently local-only)
+- review-gate (v0.7.0) + accept (v0.7.1) flows — **(updated 2026-06-02, session 2)** ✅ **accept (v0.7.1) VALIDATED on real phone** (escalation→ping msg 24→`/accept 5`→`done`+`review_overridden=1`+output preserved+audit row); ⏸ **reviewer-spawn (v0.7.0 `_run_review`) DEFERRED** — code-confirmed it shares the v0.7.2/3 hardened spawn, but the empirical run is blocked by an account usage-limit 429 (Finding 1); retry in a free quota window
+- ~~push v0.7.x hotfixes to remote (currently local-only)~~ — **DONE** (already on `origin/main` at `ebbbc80`; confirmed via read-only `git fetch` 2026-06-02)
+- 🆕 **Finding 1 — dispatcher terminal-`fail`s a transient usage-limit 429** (should re-queue/retry, not `failed`). Tasks #4+#6 both died `rc=1`/`cost=0` on `apiErrorStatus:429`. Extends item #2 (v0.7.4 `is_error`): classify rate-limit as retryable. Same gap in `_run_review` (429→`MANUAL_VERIFY_REQUIRED`). Detail → `04 Reviews/(C) 2026-06-02 Command Center build-pilot session 2 — findings (429 terminal-fail + env inheritance).md`
+- 🆕 **Finding 2 — dispatched tasks inherit the full interactive env** (Telegram MCP + Cron/Task/WebFetch tools under `--dangerously-skip-permissions`). `_build_env` (dispatcher.py:80) copies `os.environ`, no config isolation. Fix: `CLAUDE_CONFIG_DIR` / `--strict-mcp-config`. Detail → same session-2 findings doc
 
 ## 7. Working rules (Storm Bear vault CLAUDE.md)
 
