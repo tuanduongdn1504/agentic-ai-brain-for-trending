@@ -1474,3 +1474,56 @@ Window: v135 → v151 (post-v134–v135-audit accumulation). Routine v2.6. Branc
 **Audit document:** `04 Reviews/(C) 2026-06-04 Pattern Library mini-audit v151 (OVERDUE ~v139-v140; ...).md`
 
 ---
+
+## CONFIRMED at v158 mini-audit (2026-06-04→05): tier sub-archetype "AI-Agent Observability / Status-Surface Tool" + Library-vocab #22 LV-C7 (cross-ref) + B1 no-change + 5th override-review discharge
+
+**Type:** the overdue ~v156–v157 natural-cadence audit (window v152→v158, 7 ships). Reasoning/bookkeeping audit — environment mocks the GitHub API (§37.4), so the clean-fact-verification streak is HELD not advanced (git ship-log v152→v158 verified to match state). Full doc: `04 Reviews/(C) 2026-06-05 … v158 …`.
+
+### ✅ NEW CONFIRMED tier sub-archetype: "AI-Agent Observability / Status-Surface Tool"
+
+**Status:** PROMOTED from PROVISIONAL (registered v89) to CONFIRMED at the v158 audit. **Tier-sub-archetype layer — top-level confirmed-pattern count UNCHANGED at 46** (like the T1 Domain-Vertical-Skill-Collection and Pattern #18 #8 confirmations).
+
+**Definition:** a tool whose primary purpose is to **observe and surface the state of one or more AI coding agents** (usage, cost, quota, logs, or live run-state) — it READS agent state; it does not control the agent.
+
+**N=7 evidence (cross-author + cross-mechanism + cross-scale all PASS):**
+
+| Wiki | Subject | Surfaces | Sub-flavor | Stack |
+|---|---|---|---|---|
+| v89 | VibeCodingTracker | usage / cost (log-parse) | (a) metering | — |
+| v109 | cclog-cli | logs / metrics | (a) metering | CLI |
+| v157 | ClaudeBar | real-time quota (10 tools) | (a) metering/quota | native-Swift menu-bar |
+| v158 | ai-token-monitor | token/cost (+ social layer) | (a) metering/quota | Tauri tray |
+| v154 | agentpet | live multi-agent run-state | (b) ambient/affective | native-Swift + socket |
+| v155 | openpets | agent activity reactions | (b) ambient/affective | Electron + MCP |
+| v156 | clawd-on-desk | run-state + permission bubble | (b) ambient/affective | Electron + hooks |
+
+**Two formal internal sub-flavors (recorded INSIDE the sub-archetype, NOT split):**
+- **(a) Metering / quota / usage-logs** — numeric/dashboard surfacing of usage/cost/quota/logs. **N=4** (v89+v109+v157+v158).
+- **(b) Ambient / affective status-surface** — a reactive desktop-pet/avatar whose state tracks aggregate agent run-state as the *primary* display (affective signal, not a dashboard). **N=3** (v154+v155+v156).
+
+**Double-count reconcile (the load-bearing audit call):** the Library-vocab §C standalone "Ambient/Affective Multi-Agent Status Surface (reactive desktop-pet UI)" (N=3, v154+v155+v156) is the SAME subject-set as sub-flavor (b). It is **RECLASSIFIED INTO this sub-archetype as sub-flavor (b)** and removed as a separate §C standalone — one subject-set must not support two parallel N=3 promotions. Precedent: 8a/8b inside #18 #8 (v120); library/methodology sub-flavors inside Library-vocab #21 (v151). v156's permission-approve/deny bubble = a watch-vs-watch+control sub-feature within (b), not a separate entry.
+
+**Boundary lines (anti-conflation, recorded for routing future subjects):**
+- **vs Library-vocab #22 "Tauri-Desktop Management-GUI for a Coding Agent":** this sub-archetype **OBSERVES** (reads/surfaces agent state); #22 **CONTROLS** (manages provider/account/config). The observe-vs-control line was drawn at v154 (agentpet observes; the management-GUIs control) and v158 (ai-token-monitor is "Tauri-but-NOT-LV-C7 — observes, doesn't control"). ai-switcher v153 is #22 (control); the pets+monitors are observability (observe). **No subject sits in both.**
+- **vs Pattern #18 #8 Multi-Source LLM Aggregator (PROVIDER layer):** observability tools route nothing; they read state. Not #8.
+- **vs the v158 social-leaderboard standalone:** that is the orthogonal *shared-backend social* property of v158 (Library-vocab §C, N=1), not double-counted against v158's membership in sub-flavor (a).
+
+This completes the corpus's "tools to operate coding agents" map: **provider-aggregation** (#18 #8) / **agent-orchestration** (v150 Paseo standalone) / **account-management** (Library-vocab #22 LV-C7) / **agent-observability** (this sub-archetype).
+
+### ✅ Library-vocab #22 "Tauri-Desktop Management-GUI for a Coding Agent" PROMOTED (cross-ref; full record in `06` §A)
+
+N=3 (v73 cc-switch + v117 CodexPlusPlus + v153 ai-switcher) — broad-class promotion, satisfies the v120 honest-downgrade bar ("a genuine 3rd *management-GUI*, not just a 3rd Tauri app"). CONFIRMED Library-vocab 9 → 10. Recorded at the **Library-vocab** layer (`06` §A), not the Pattern layer; cross-referenced here for the observe-vs-control boundary.
+
+### Pattern #18 sub-mechanism B / B1 MCP — NO CHANGE (confirmed at v158)
+
+B1 was reconciled to **N=7** at the v151 audit and a dedicated "MCP Integration Server" sub-archetype mint was DECLINED. **v152–v158 added no new clean B1 server instances** (openpets v155 = MCP client/consumer, not a one-binary-many-clients server; clawd-on-desk v156 = hooks + log-polling, not MCP; the observability monitors parse JSONL / CLIs/APIs). **B1 stays N=7.** The standing "MCP-server tier-sub-archetype review" flag is CLOSED.
+
+### Override-frequency review (MANDATED §7) — DISCHARGED, 5th confirmation
+
+v152 Expensify/App = 10th lifetime operator override (0/4 SKIP) + 3rd `[ceiling-override]`. Forward overrides = 7 (v127+v139+v142+v145+v146+v148+v152); last-20-window holds 6. Common-cause RE-CONFIRMED (5th time after v120/v125/v134–135/v151) = **deliberate operator off-goal cataloguing via the override door, NOT a Phase-0.9 STRICT criteria defect** (all 10 overrides correctly 0/4-SKIP). **NO criteria redesign; NO 4th governor.** Sharpened note: v152 carried the richest internal Claude-Code dev-exhaust stack in the corpus yet correctly stayed off-goal (the product is finance, not the build process — v122 discipline; the tempting (b)-MODERATE §35-dodge was refused). **Positive signal:** v153→v158 = 6 consecutive GOAL-ALIGNED ships, zero overrides — when subject-selection is goal-aligned, no governor fires. v151's two recommendations (off-goal-intake lever; (a)-rescue tightening) remain PENDING operator sign-off.
+
+**Top-level pattern count UNCHANGED at 46. CONFIRMED Library-vocab 9 → 10 (#22). +1 CONFIRMED tier sub-archetype. Streak UNCHANGED (audit ≠ ship): GA:21·OG:11 [7 ov]; §35 CLEAR.**
+
+**Audit document:** `04 Reviews/(C) 2026-06-05 Pattern Library mini-audit v158 (OVERDUE ~v156-v157; T2 observability sub-archetype CONFIRM + 2 sub-flavors + double-count reconcile, LV-C7 N=3 PROMOTE #22, override DISCHARGE).md`
+
+---

@@ -1437,3 +1437,27 @@ Window v135→v151 (16 ships since the v134–v135 audit). Routine v2.6. Branch 
 **Spillover to ~v156–v157:** the 3 sign-off items above · LV-C7 Tauri-Management-GUI N=2 (v73+v117) + LV-C2 Cost-Attribution-via-External-Service N=2 (v89+v109) + Brand-Named-Repo+Disclaimer N=2 (v98+v119) + voice-calibration N=2 (v108+v138) + Own-Trained-Bundled-Model N=2 (v97+v144) + Cited-to-Subject-Elevation N=2 (v93+v135) + LV-C3 Self-Referential-Methodology N=3-SOFT (v87+v126+v131) — all N=2/N=3-watch, none promoted this audit (no clean new instance) · Pattern #85 Platform-Primitive CANDIDATE N=2 (v66+v132) N=3-watch · the v150 Paseo agent-orchestration N=2-watch.
 
 **Spillover to ~v115:** Library-vocab CONSOLIDATION (dedicated v2.4 session, CRITICAL #1) · 88-text/prose N=2 · T2 Observability/Metering N=3 · v107 Enforced-Gate sub-archetype N=2 · (a)-8 ≈v112-retire · Pattern #28 N=3 · Pattern #85 Memory-System N=3 · Pattern #57 57k 9th-implementer.
+
+---
+
+## v158 mini-audit (2026-06-05) — the overdue ~v156–v157 natural-cadence audit (window v152→v158, 7 ships)
+
+**Triggers (3 converge):** overdue natural cadence (v151 set ~v156–v157; ran at v158) + 5 ripe promotion calls + mandated §7 override-review (v152 = 10th lifetime override). **Operator-elected to run BEFORE shipping v159 CodexBar** so v159 ships into a confirmed Pattern Library. Reasoning/bookkeeping audit (API mocked §37.4 → fact-verification streak HELD not advanced; git ship-log v152→v158 verified). Branch `wiki/audit-v158`.
+
+**Outcomes — all 5 ripe calls cleared:**
+1. **CONFIRMED tier sub-archetype "AI-Agent Observability / Status-Surface Tool"** (N=7; sub-flavors (a) metering N=4 v89+v109+v157+v158 / (b) ambient-pet N=3 v154+v155+v156). Recorded in `02b`.
+2. **Library-vocab #22 "Tauri-Desktop Management-GUI for a Coding Agent" PROMOTED** (N=3 v73+v117+v153; broad-class; promoted-out of cluster LV-C7). CONFIRMED Library-vocab **9 → 10**.
+3. **Double-count RECONCILED** — the §C "Ambient/Affective desktop-pet" standalone (N=3) = the SAME subjects as sub-flavor (b) → reclassified INTO the sub-archetype, removed from §C (one subject-set ≠ two N=3 promotions).
+4. **Social-leaderboard standalone (v158, N=1) VERIFIED clean + HELD** (corpus-first, promotion-eligible at N=2).
+5. **MCP-B1 CLOSED** (reconciled to N=7 at v151; no new clean B1 server in v152–v158; stays N=7).
+6. **Override-review DISCHARGED (5th confirmation)** — common-cause = operator off-goal cataloguing via the override door, NOT a criteria defect; NO criteria redesign, NO 4th governor. Positive signal: v153→v158 = 6 consecutive GA / zero overrides.
+
+**Hygiene:** NO retires (time-aware §28.3 — nothing crosses both ≥15 wikis AND ≥30 days). N=2 stale-watches (Brand-Named-Repo+Disclaimer v98+v119; Pure-Markdown-MEGA v87+v108) noted, no action.
+
+**Niche-saturation finding (banked):** v153–v158 = 6 consecutive "manage/monitor AI coding tools" ships, ZERO piloted → this audit converts that into 2 confirmations + 1 verified mint (the legitimate payoff); the operator-lever (pilot / vary domain) is unchanged. **⚠️ v159 CodexBar (next ship) = a clean instance of sub-flavor (a) → metering N=5 / sub-archetype N=8; expected to mint NOTHING new.**
+
+**Counts after:** top-level patterns **46 (UNCHANGED)** · CONFIRMED Library-vocab **9 → 10** · +1 CONFIRMED tier sub-archetype · tracked PROVISIONAL surface ≈24 → **≈23** · 15th audit; fact-verification streak HELD not advanced. **Streak UNCHANGED (audit ≠ ship): GA:21·OG:11 [7 ov]; §35 CLEAR. Cadence reset: next natural audit ~v164–v165.**
+
+**Pending operator sign-off (carried from v151, NOT auto-adopted):** (i) off-goal-intake lever (re-baseline override trigger OR outlier-track-by-default — recommended) · (ii) (a)-rescue tightening (require solid (a) signal, not name-heritage inference). [(iii) time-aware auto-retire window was ADOPTED at v151.]
+
+**Audit document:** `04 Reviews/(C) 2026-06-05 Pattern Library mini-audit v158 (OVERDUE ~v156-v157; T2 observability sub-archetype CONFIRM + 2 sub-flavors + double-count reconcile, LV-C7 N=3 PROMOTE #22, override DISCHARGE).md`
