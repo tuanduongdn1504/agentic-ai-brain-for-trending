@@ -21,7 +21,13 @@ Storm Bear vault uses Anthropic Claude Code as primary harness, but vault conten
 
 All of these find vault context by reading `AGENTS.md` first. This shim redirects them to `CLAUDE.md` (the authoritative source) without duplicating content.
 
+## Context Parity Guidelines (Startup Rules)
+
+Because only Claude Code natively reads the full 543KB `CLAUDE.md` at startup, Codex and Antigravity (Gemini) must be manually primed:
+- **Rule:** When starting a session in Codex or Antigravity, request the agent to read [CLAUDE.md](file:///Users/cvtot/Agentic/agentic-ai-brain-for-trending/CLAUDE.md) first to load vault etiquette rules, current routine (v2.6), and Pattern Library states.
+
 ## Vault state architecture
+
 
 Refactored 2026-04-27 session 67 — bulk content moved to chapter files:
 

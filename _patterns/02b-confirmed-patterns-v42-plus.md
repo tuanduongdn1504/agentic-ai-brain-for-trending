@@ -1451,6 +1451,8 @@ Pattern #84 Cross-Vendor Ecosystem-Tolerance (top-level; PROMOTED v72)
 >
 > Emerging "AI-agent orchestration" theme (v150 Paseo + v99 cmux [session-hosting, human-driven — adjacent] + v131 harness [team-architecture *generator* — adjacent]) is **HETEROGENEOUS → HELD, not minted**; the Paseo standalone stays N=1, promotion-eligible at N=2 (a 2nd heterogeneous-vendor agent-orchestration platform).
 
+**v161 CodePilot instance note (2026-06-05):** CodePilot aggregates **17+ providers** behind one GUI client with mid-conversation model switching = a clean **#8 N+1 instance** at the **PROVIDER layer** (it routes model *endpoints*; it does NOT orchestrate whole coding agents as units — so NOT the AGENT layer / v150 Paseo, despite being a "client"). It is a *GUI-client* aggregator (vs 8a config-switcher v73/v117 / 8b headless live-routing-proxy v112) — a possible **8c "GUI-client aggregator" sub-variant flagged for the next audit, NOT minted now** (anti-inflation; one instance). Filed here per the v151 "ship-time N+1 notes must be tallied" lesson; **#8 stays CONFIRMED N=3 + this instance; top-level count UNCHANGED at 46.** CodePilot's PRIMARY Pattern-Library contribution is its own §C standalone "Desktop GUI Client / Visual Front-End for a CLI Coding Agent" (registry `06`), NOT this aggregator dimension; its T4c messaging-bridge (Telegram/Feishu/Discord/QQ/WeChat = remote *control*) is an N+1 on the v88 teleport bridge (tracked in the chapter + registry §F). op7418=歸藏/Guizang = a declared recurring corpus cultural-peer (v105+v83+v161 → (a) PASS).
+
 **Audit document**: `04 Reviews/(C) 2026-05-30 Pattern Library mini-audit v120 ...md` (promotion); `04 Reviews/(C) 2026-06-04 ... v151 ...md` (layer-taxonomy line).
 
 ---
