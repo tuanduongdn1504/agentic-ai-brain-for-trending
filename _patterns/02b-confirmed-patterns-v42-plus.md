@@ -1536,3 +1536,54 @@ v152 Expensify/App = 10th lifetime operator override (0/4 SKIP) + 3rd `[ceiling-
 **Audit document:** `04 Reviews/(C) 2026-06-05 Pattern Library mini-audit v158 (OVERDUE ~v156-v157; T2 observability sub-archetype CONFIRM + 2 sub-flavors + double-count reconcile, LV-C7 N=3 PROMOTE #22, override DISCHARGE).md`
 
 ---
+
+## v162 mini-audit (2026-06-15) — session-multiplexer species N=2 DECOMPOSE+REGISTER+RENAME + standing-calls reconcile + ACP-as-#18-B3 + 6th override-review
+
+**Type:** operator-requested, immediately after the v162 agent-of-empires ship. Window v159→v162. **Fact-verification LIGHT** (env mocks the GitHub API §37.4) — reasoning/bookkeeping audit; clean-fact-verification streak HELD not advanced. Full doc: `04 Reviews/(C) 2026-06-15 … v162 …`.
+
+### ✅ NEW PROVISIONAL tier sub-archetype REGISTERED + RENAMED: "Session-Hosting Multiplexer for AI Coding Agents (human-driven)" — N=2
+
+**Status:** REGISTERED PROVISIONAL at the v162 audit (was a lone N=1 parenthetical "[session-hosting, human-driven — adjacent]" in the v151/v158 orchestration-theme line). **Tier-sub-archetype layer — top-level confirmed-pattern count UNCHANGED at 46.** **PROMOTION-ELIGIBLE at N=3** (the corpus bar; NOT confirmed at N=2).
+
+**Definition:** a tool whose primary purpose is to **host + multiplex N parallel AI-coding-agent sessions that a HUMAN drives** — one session per branch/worktree, a terminal-multiplexer underneath, with an attention-signaling UI. It RUNS/ORCHESTRATES the sessions (the human is the orchestrator); it does not merely observe them, does not aggregate LLM providers, and is not an agent-of-agents platform.
+
+**N=2 evidence + two internal sub-flavors (recorded INSIDE, NOT split — the 8a/8b-inside-#8 precedent):**
+
+| Wiki | Subject | Delivery sub-flavor | Stack |
+|---|---|---|---|
+| v99 | cmux (manaflow-ai) | native-desktop | Swift + AppKit + embedded libghostty |
+| v162 | agent-of-empires (njbrake/Mozilla.ai) | cross-platform TUI + web/PWA | Rust + tmux + ratatui + React serve-feature |
+
+**RENAME (legitimate, not generalize-to-fit):** cmux's working label "Native-Desktop Terminal Multiplexer for AI Coding Agents" → **"Session-Hosting Multiplexer for AI Coding Agents (human-driven)"** (delivery-agnostic). "native-desktop" was an N=1-instance descriptor; AoE is a genuine 2nd instance with a different delivery (cross-platform TUI+web), proving the species isn't desktop-bound. Broadening a name when a 2nd instance proves the generalization is standard (the v158 "Observability" broadening). The two deliveries = sub-flavors, not a split.
+
+### ✅ DECOMPOSED the v151/v158 "AI-agent orchestration theme HELD heterogeneous" finding
+
+With AoE as a clean 2nd session-multiplexer, the theme decomposes into three distinct things (the v151 layer-taxonomy line is hereby refined):
+- **Session-Hosting Multiplexer (human-driven)** — N=2 (v99 cmux + v162 AoE), above. PROMOTION-ELIGIBLE at N=3.
+- **Cross-Device Multi-Vendor Coding-Agent Orchestration PLATFORM (agent-of-agents)** — Library-vocab §C standalone, **N=1 (v150 Paseo), STAYS N=1.** Load-bearing distinction = the `/paseo-*` agent-of-agents skill suite. **AoE is the INVERSE** (a thing TO BE orchestrated via its HTTP API, "integrates with OpenClaw"), not an orchestrator → AoE is NOT a 2nd Paseo.
+- **Agent-Team-Architecture Generator** — v131 harness (adjacent; generates a team's architecture, doesn't run sessions).
+
+### ✅ ACP (Agent Client Protocol) registered as a Pattern #18 sub-mechanism-B protocol-variant CANDIDATE (B3-candidate), PROVISIONAL N=1
+
+AoE (v162) is the first corpus subject to make ACP architecturally first-class (`acp-worker/` dir + an ACP-driven structured view: plan panels / tool-call cards / swipe-to-approve, mobile-first, with raw-tmux fallback). ACP = the editor↔agent open standard (Zed-ecosystem, Apache 2.0, crates.io `agent-client-protocol`, 5-language SDKs), distinct from **B1 MCP** (agent↔tool/data) + **B2 CDP** (browser control). It is **NOT corpus-first** (recurs incidentally at v60 free-claude-code "JetBrains ACP" + goclaw + get-shit-done) and **NOT a §C standalone** (the corpus routes protocols to #18 sub-mechanism B). Registered as a **B3-CANDIDATE PROVISIONAL N=1** (consistent with B2-CDP registered at N=1 at the v70 codegraph audit); promotion to a *formalized* B-variant at a 2nd architecturally-first-class ACP subject.
+
+### Standing post-v158 calls — reconciled (mostly HOLD; no manufactured promotions)
+- **Observability sub-archetype** (CONFIRMED v158): N=7 → **N=9** (v159 metering → N=5; v160 attention-routing (c) → N=1). Sub-flavor **(c) HELD N=1**, promotion-eligible at N=2 (external "Dynamic Island for agents" genre NOT counted).
+- **CodePilot "Desktop GUI Client / Visual Front-End for a CLI Coding Agent"** (§C, v161): **HOLD N=1.** AoE is NOT a 2nd instance (multiplexer ≠ single-agent GUI front-end).
+- **#18 #8 "GUI-client aggregator" (8c?)** (flagged v161): **mint DECLINED** (1 instance). #18 #8 stays CONFIRMED N=3 (8a/8b); CodePilot's 17-provider aggregation = a #8 N+1 instance only.
+- **MCP-server / B1**: **CLOSED, stays N=7** (AoE is not a B1 server — it's a session manager).
+- **Social/Competitive Leaderboard for AI-Coding Usage** (§C, v158): **HOLD N=1.**
+- **LV-C7 #22 Tauri-Desktop Management-GUI** (CONFIRMED v158): no new instance (AoE is NOT #22 — not Tauri, manages session/execution not provider/account config).
+- **§28.3 time-aware auto-retire**: **NO retires** — every live N=1 §C standalone is from the v126–v162 June burst (<30 days); the 30-day floor protects them.
+
+### Override-frequency / off-goal-intake review (running) — DISCHARGED, 6th confirmation
+v153→v162 = **10 consecutive GOAL-ALIGNED ships, ZERO overrides** (last override was v152). Common-cause RE-CONFIRMED (6th time: v120/v125/v134-135/v151/v158/now) = operator off-goal cataloguing via the override door, an intake-channel matter, **NOT a Phase-0.9 STRICT criteria defect.** 7-in-20 / 10-lifetime are trailing. **NO criteria redesign; NO 4th governor.** v151 recommendations (off-goal-intake lever; (a)-rescue tightening) remain PENDING operator sign-off. **⚠️ Standing lever unchanged + louder: 10 consecutive operating-agents ships, ZERO piloted — pilot one (AoE is the most pilotable) or vary the domain.**
+
+### Shim reconcile (live pointers fixed; stale append-log flagged-not-rewritten)
+`03c-projects-v61-v151.md` → `v162` (4 live "detail lives in" pointers); projects-index + Goals "Current state" given currency banners (stale ~v85/v78-era append-log snapshots — flagged, not rewritten; authoritative current content = the chapter + `04 Reviews/`). NEW recommendation (iii): a dedicated shim-rebuild housekeeping session for a full reconcile (out of mini-audit scope).
+
+**Top-level pattern count UNCHANGED at 46. CONFIRMED Library-vocab UNCHANGED at 10. +1 PROVISIONAL tier sub-archetype (session-multiplexer N=2) + ACP B3-candidate N=1. Streak UNCHANGED (audit ≠ ship): GA:25 · OG:11 [7 ov]; §35 CLEAR. Next natural audit ~v167–v168.**
+
+**Audit document:** `04 Reviews/(C) 2026-06-15 Pattern Library mini-audit v162 (session-multiplexer species N=2 DECOMPOSE+RENAME + standing-calls reconcile + ACP-as-#18-B3 + 6th override-review + shim reconcile).md`
+
+---
