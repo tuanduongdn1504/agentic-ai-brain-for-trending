@@ -2,6 +2,8 @@
 
 > **Operator-requested related topic** (alongside the `Trusera/ai-bom` subject). **Headline finding: no dedicated native macOS app to manage AI-BOMs exists** (as of 2026-06). The space is **CLI tools + commercial web platforms**, all runnable *on* macOS but none *native* to it. So this page is a **landscape + gap analysis**, not a wiki of an existing product. Honest framing throughout.
 
+> **↪ See also — broader landscape + ranking:** [`00 Notes/(C) AIBOM-tool-landscape.md`](../../../../00%20Notes/(C)%20AIBOM-tool-landscape.md) — a verified ranking of ~10 AIBOM tools (cdxgen, snyk/agent-scan, Cisco aibom, OWASP generator, Trusera/ai-bom, msaad00/agent-bom, …) + the definitive macOS-app verdict (still none) + a best-Mac-front-end-substrate ranking. Built 2026-06-05 from a 20-repo verification sweep (74 candidates).
+
 ## 1. What an AI-BOM is (the concept)
 An **AI Bill of Materials (AI-BOM / AIBOM)** is a complete, structured inventory of every component in an AI system: **models, training datasets, prompts, software dependencies, agent frameworks, MCP servers, model configs, version history, pipelines, and third-party services**. It is the AI-specific extension of the software SBOM.
 
