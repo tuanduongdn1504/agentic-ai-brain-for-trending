@@ -287,6 +287,51 @@ def select_videos(videos: list[dict], n: int = SOURCES_PER_TOPIC) -> list[dict]:
 
 
 # ----------------------------------------------------------------------
+# Anchor-validation grader (code-based eval; added 2026-06-16)
+# ----------------------------------------------------------------------
+# Source: wiki/prompt-evaluation/ (Anthropic "Grading with AI" lesson) — a
+# deterministic CODE grader returning an objective signal (overlap ratio +
+# PASS/WARN/FAIL), wired as a fail-loud quality gate per CLAUDE.md Rule 12.
+#
+# Why this exists: force-inclusion (drain_topic step 0) ADDS declared anchors
+# to the bundle, but an unreachable / age-restricted / region-blocked anchor is
+# dropped SILENTLY at probe time (the "✗ anchor unreachable, skipping" line) and
+# the drain still ingests. That is the residual of the 2026-05-14 anchor-miss
+# incident. This grader is the regression test that proves the mechanism worked
+# on THIS run, and halts ingest if too many declared anchors went missing.
+
+def _video_id(url: str) -> str:
+    """Extract the 11-char YouTube video ID from any common URL form, so anchor
+    comparison is robust to watch?v= / youtu.be/ / shorts / embed / &-params."""
+    m = re.search(r"(?:v=|/shorts/|/embed/|youtu\.be/)([A-Za-z0-9_-]{11})", url)
+    return m.group(1) if m else url.strip()
+
+
+def validate_anchors(declared: list[str], picked: list[dict], threshold: float = 0.5) -> dict:
+    """Assert every queue-declared anchor URL actually survived into `picked`.
+
+    Returns {declared, included, dropped, overlap, verdict}; verdict is
+    'n/a' (no anchors declared), 'PASS' (all included), 'WARN' (>=threshold
+    included), or 'FAIL' (<threshold). Deterministic, zero-cost, no network.
+    """
+    if not declared:
+        return {"declared": 0, "included": 0, "dropped": [], "overlap": 1.0, "verdict": "n/a"}
+    declared_ids = {_video_id(u) for u in declared}
+    picked_ids = {_video_id(v["url"]) for v in picked}
+    present = declared_ids & picked_ids
+    dropped = [u for u in declared if _video_id(u) not in picked_ids]
+    overlap = len(present) / len(declared_ids)
+    verdict = "PASS" if overlap >= 1.0 else ("WARN" if overlap >= threshold else "FAIL")
+    return {
+        "declared": len(declared_ids),
+        "included": len(present),
+        "dropped": dropped,
+        "overlap": round(overlap, 3),
+        "verdict": verdict,
+    }
+
+
+# ----------------------------------------------------------------------
 # NotebookLM CLI wrappers
 # ----------------------------------------------------------------------
 
@@ -425,6 +470,23 @@ def drain_topic(topic: dict, dry_run: bool = False) -> dict | None:
     for i, v in enumerate(picked, 1):
         tag = " [ANCHOR]" if v.get("anchor") else ""
         log(f"      {i}.{tag} [{v['upload_date']}] {v['title'][:60]} — {v['channel']} ({v['view_count']:,} views)")
+
+    # Anchor-validation grader — fail loud if declared anchors went missing.
+    # Runs in dry-run too (reports only); only halts ingest in a real drain.
+    av = validate_anchors(anchors, picked)
+    if av["verdict"] == "n/a":
+        log("  anchor validation: n/a (no anchors declared)")
+    else:
+        log(f"  anchor validation: {av['verdict']} "
+            f"({av['included']}/{av['declared']} declared anchors in bundle, "
+            f"overlap={av['overlap']:.0%})")
+        for url in av["dropped"]:
+            log(f"    ✗ DROPPED anchor (declared but not in bundle): {url}")
+        if av["verdict"] == "FAIL" and not dry_run:
+            log("  ABORT: anchor validation FAILED (<50% of declared anchors made "
+                "the bundle) — refusing to ingest an off-target bundle. Fix/replace "
+                "the dead anchor URLs in topics-queue.md and re-run.")
+            return None
 
     if dry_run:
         log("  DRY RUN — stopping here")
