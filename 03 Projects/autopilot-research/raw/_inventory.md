@@ -21,6 +21,7 @@
 
 | Date | Slug | Path | Source(s) | Size | NotebookLM ID | Status | Wiki link |
 |---|---|---|---|---|---|---|---|
+| 2026-06-29 | claude-code-skills-stack | 5 yt-dlp-only | YouTube Va-U1dqhwzk (Eric Tech, 32:52) + 10 originals via WebFetch/gh-api + adversarial verify wf_04da379d-ca9 | 8K transcript | — (no NotebookLM; primary-source + gh-api ground-check) | compiled | [wiki/claude-code-skills-stack/](../wiki/claude-code-skills-stack/_index.md) |
 | 2026-06-20 | claude-code-memory-systems | 5 yt-dlp-only | YouTube UHVFcUzAGlM (Simon Scrapes, 41:21) + 6 primary repos/articles via WebFetch | 49K | — (no NotebookLM; primary-source-first) | compiled | [wiki/claude-code-memory-systems/](../wiki/claude-code-memory-systems/_index.md) |
 | 2026-05-07 | claude-code-hooks | 1 yt-pipeline | YouTube ×5 | 16K | (in raw file) | compiled | [wiki/claude-code-hooks/](../wiki/claude-code-hooks/_index.md) |
 | 2026-05-07 | workflow-ai-coding | 1 yt-pipeline | YouTube ×6 | 20K | `ec93ea09-b589-4103-95a9-3fb2c13d5a2e` | compiled | [wiki/workflow-ai-coding/](../wiki/workflow-ai-coding/_index.md) |
