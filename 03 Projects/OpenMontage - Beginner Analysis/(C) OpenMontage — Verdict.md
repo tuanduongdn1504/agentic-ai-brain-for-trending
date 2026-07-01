@@ -1,0 +1,73 @@
+# (C) OpenMontage — Verdict (v188, routine v2.6)
+
+> Produced **INLINE + hand-verified** per `feedback_wiki_verify_independently_check_collisions` (the 3-lens+critic workflow confabulates corpus facts). A **14-agent read-only workflow** (`wf_326fd3eb-f01`, ~1.04M subagent-tokens, ~28 min) did **source-reading + upstream research ONLY** (safe/factual — repo mechanics, architecture, upstream tech/domain). **All corpus-fact / collision / identity claims were verified by hand** (grep over `_state/` + `_patterns/` + `03 Projects/`; independent WebFetch of the GitHub profile).
+
+**Subject.** `calesthio/OpenMontage` — *"the first open-source, agentic video production system."* AGPL-3.0; Python 63.3% / HTML 24.8% / TS 6.2%; 30.3k★ / 3.4k forks / 55 open issues (page-stated §37.4); pinned `1188e1b` (2026-06-30). An **agent-first** system that turns a coding assistant (Claude Code / Cursor / Copilot / Windsurf / Codex) into a video studio: **8-stage pipeline**, **12 production pipelines**, **~87–102 deterministic tools**, **153 original skills** (+561 federated + a `.claude` mirror ≈ 1,035 total), a **Remotion / HyperFrames / FFmpeg** rendering substrate, **estimate→reserve→reconcile** budget governance, a **7-dimension** provider selector, **checkpoint/resume**, a **16-category decision-audit log**, and a **reviewer meta-skill + framework-smoke CI harness**. Author = **calesthio ("Calesthio")**, a pseudonymous individual (bio: "Building open source AI Assisted and Agentic Tools"; **Company Microsoft, Location Seattle WA** per GitHub profile only; X `@calesthioailabs`, YouTube `@OpenMontage`); a **serial builder** (OpenMontage 30.3k★ + Crucix 10.4k★ + 5 repos). **Operator-requested.**
+
+---
+
+## GOAL-ALIGNED INCLUDE 3/4 · [(a) FAIL · (b) STRONG · (c) STRONG · (d) STRONG]
+
+### (a) FAILS cleanly
+`calesthio` is a **pseudonymous individual** whose profile lists employer **Microsoft** + location **Seattle WA** — **not Anthropic** ((a)-7 is Anthropic-only). This is **NOT a `microsoft/` org repo** (distinct from **SkillOpt v178** `microsoft/SkillOpt` = Microsoft Research *org*): OpenMontage is a Microsoft *employee's* **personal, pseudonymous side-project**, unaffiliated with Microsoft the org (the profile employer is not corroborated by Microsoft). A Seattle/Microsoft-employee inference is **not an (a)-rescue** (the v159→v187 discipline: a declared employer ≠ a cultural-peer axis; a pseudonymous handle ≠ a disclosed personal identity). First `calesthio` author → a **#19 19a** data-point. The **disclosed-builder (a)-axis** (held operator-reviewable at N=3 per v182 — Waishnav v171 / Neo Reid v174 / Jack Le v181) is *touched* (calesthio discloses employer + location + a serial portfolio, more than a bare handle) but **reinforces-not-reopens** — GOAL-ALIGNED via (b) regardless (§31).
+
+### (b) STRONG — keys the tier (⚠️ MODERATE on the domain — operator-reviewable)
+OpenMontage is a **Claude-Code-first agent-skill + tool + pipeline system** = the exact agent substrate the vault studies, and one of the **richest exemplars of on-goal agent-engineering** the corpus has seen. It bundles, in one working 30.3k★ artifact, essentially every mechanic on the operator's live pilot threads:
+- **agent-first architecture** (intelligence in Markdown skills + YAML manifests; code only for deterministic offload + schema validation + state) → the **CC-memory-systems / how-we-Claude-Code** threads;
+- **YAML-pipeline-as-orchestration-spec** + **checkpoint/resume** + **meta skill-creator** → **multi-agent-orchestration**;
+- **estimate→reserve→reconcile budget governance** + a scored provider selector → **claude-api-cost-optimization**;
+- a **reviewer meta-skill with CHAI + scored gates** + a **16-category decision-audit log** + a **framework-smoke CI harness** → **agent-skills / prompt-eval / observability**;
+- **cross-harness thin-pointer distribution** across 5 harnesses → **#84 84c**.
+
+STRONG-not-STRONGEST: third-party + Claude one-of-5 harnesses + the **domain is video production, not software development**. The domain-weighted **(b) MODERATE** reading is recorded operator-reviewable — but either way **GOAL-ALIGNED per §31** (the Domain-Vertical-Skill-Collection instances SEO v64 / academic v90 / cybersecurity v98 / finance v187 were all goal-aligned INCLUDEs *regardless of vertical*). Arguably a **STRONGER (b) than ai-berkshire v187's**: the transferable agent-engineering surface is broader and more directly stealable into a software workflow (YAML-pipeline orchestration + budget-guard + checkpoint/resume + decision-audit + reviewer gates + framework-smoke — all on-goal).
+
+### (c) STRONG
+~87–102 deterministic Python tools + 12 production pipelines + 153 original skills (+561 federated + a `.claude` mirror) + a Remotion React composer + HyperFrames + JSON schemas + a cost-tracker + a 3-layer knowledge architecture + ~30 providers + a fully-free/local $0 path + real cost-tracked demos + 30.3k★ + a "#1 Repo of the Day" badge. Real, substantial engineering. **Caveats foregrounded:** the *hard* generative work is upstream models (Veo/Kling/fal.ai/Suno) and the *hard* composition is upstream too (Remotion + **HeyGen's HyperFrames**, which OpenMontage merely orchestrates); the domain-craft knowledge is packaged (Muller/Mayer/Murch), not invented; the 561 Layer-3 skills are vendored external docs; doc-vs-code count nuances (README *understates* tools at "52" vs ~87–102; "400+/500+ skills" conflates 3 layers vs 153 original); cost examples unverified vs current pricing; the "agentic" is **architecture, not autonomy**.
+
+### (d) STRONG
+Skill-collection genre (ai-berkshire v187 / karpathy v63 / mattpocock v57 / CodexKit v121 / agent-skills v184 / agency-agents v185); Domain-Vertical-Skill-Collection anchors (SEO v64 / academic v90 / cybersecurity v98 / finance v187); deterministic-offload (ai-berkshire v187 `financial_rigor.py`); cross-harness #84 84c; the media-model neighbor **fish-speech v20** (TTS); the OUTSIDE-SCOPE video-tutorial neighbor **automate-faceless-content**; meta-skill-creation (SkillOpt v178 / book-to-skill v137); quality-gate reviewer (agent-skills v184 doubt-driven-dev / 4 personas + the vault's own `feedback_wiki_verify` rule); cost governance (claude-api-cost-optimization thread); retrieve-then-compose (codebase-memory-mcp v172 / RAG); AGPL-license neighbor (PilotDeck v175 / cortex-hub v181).
+
+---
+
+## Pattern outcome — 1 NEW §C standalone at N=1 (CORPUS-FIRST for the generative-media-production surface)
+
+**Mint:** *"Agent-First End-to-End Generative-Media (Video) Production System — a coding agent orchestrates research→script→asset-gen→edit→compose→render into a finished video FILE, via a deterministic tool + YAML-pipeline + multi-runtime rendering-composer substrate, with a multi-provider generative-media abstraction and a zero-API-key free/local path."* **N=1.**
+
+**The defining CONJUNCTION:** (agent-**FIRST** — the coding agent *is* the runtime, no Python orchestrator) × (**end-to-end media-production pipeline**, output = a rendered **video file**) × (a **deterministic tool + YAML-pipeline-orchestration + multi-runtime rendering-composer substrate** that offloads all non-LLM work) × (a **multi-provider generative-media abstraction with a $0 free/local path**).
+
+**Why this is a real boundary, not "minting on the domain"** (the crux; the ai-berkshire v187 consistency test): the CONFIRMED **Domain-Vertical-Skill-Collection** instances (SEO/academic/cybersecurity/finance) are **knowledge-work** collections — the agent applies its *reasoning* to a domain and **outputs text/analysis** (reports, memos, findings), with a few calculator tools. OpenMontage is categorically different: the agent's role shifts from **expert reasoner → production director**, conducting a **manufacturing pipeline** (generative-asset + deterministic-composition + rendering) whose **deliverable is a rendered media file**, not analysis. Different **output type** (media file vs text) + different **tool substrate** (an 87–102-tool + React-composer + FFmpeg + generative-model + CLIP-retrieval production pipeline vs a handful of calculators). This is the corpus's **first creative / generative-media agentic system** (every prior subject operates on code, text, knowledge, or agent-infra; **fish-speech v20** was a TTS *model* = a component, not a production system). This is exactly the **agency-agents v185 / Kilo-Code v177 precedent**: mint N=1 for the **corpus-first, world-class exemplar** of a **recurring-but-corpus-unrepresented** class (AI video is a large commercial space — HeyGen/Synthesia/Runway/Pika + the open HyperFrames — none in-corpus; OpenMontage is the 30.3k★ / "#1 repo of day" flagship OSS agentic-orchestration instance).
+
+**Scope honestly bounded:** **corpus-first for the generative-media-production surface**, NOT a world-first (commercial AI-video + HeyGen's open HyperFrames composition-engine peers exist). DISTINCT from — knowledge-skill collections (ai-berkshire v187 etc — output text); the agent-OS/self-contained-platform families (PilotDeck v175 — general agent runtime; cortex-hub v181 — MCP hub); browser/capability layers (Agent-Reach v174 / camofox v179 / serve-sim v183 — perceive/act, not *produce* media); fish-speech v20 (a component model).
+
+⚠️ **Operator/audit-reviewable alternative (NO-MINT framing, recorded honestly):** the disciplined-alternative reading is *"video = a 5th vertical of the Domain-Vertical-Skill-Collection sub-archetype (it IS delivered as skills for a coding agent) → NO mint, the ai-berkshire v187 precedent."* I judged the **output-type + production-substrate boundary load-bearing** (the agency-agents subagent-vs-skill precedent) and **minted**, but flag this as the single reviewable judgment. Either way: **counts UNCHANGED 46/11** (no new top-level pattern; not one of the 11 CONFIRMED Library-vocab). The Domain-Vertical genre membership is recorded as a **within-family cross-reference, NOT double-counted** with the §C mint. Audit note: whether the media-production §C standalone should ever fold into the Domain-Vertical genre — it should **NOT yet** (the output/substrate boundary is the load-bearing claim).
+
+### SECONDARY (NOT minted)
+- **#19 19a** — first `calesthio` author + a **serial ecosystem-portfolio-builder** data-point (OpenMontage 30.3k★ + Crucix 10.4k★ + 5 repos; MS-employed Seattle pseudonym).
+- **#84 84c** provider-agnostic cross-harness (5 harnesses via thin `AGENT_GUIDE.md`-delegating pointer files; a contract-test *string-check* but **NO semantic drift-checking**). **NO N-bump** per v86; explicitly **NOT** the v168 ponytail "14-platform native-rule-file *generator*" mechanism — these are **hand-maintained thin pointers**, not generated.
+- **#12 LLM-routing-artifacts** high-density (CLAUDE.md + AGENTS.md + AGENT_GUIDE.md + CODEX.md + COPILOT.md + CURSOR.md + PROJECT_CONTEXT.md + `.cursor/rules` + `.windsurfrules` + `.github/copilot-instructions.md` + `.claude/skills` + `.agents/skills`). **NO N-bump.**
+- **Deterministic-tool-offload** cross-ref — 87–102 tools = a large-scale instance of the pattern (the ai-berkshire v187 `financial_rigor.py` analog). Cross-ref.
+- **YAML-pipeline-as-orchestration-spec** — a distinctive declarative agent-workflow-spec mechanic → recorded as a **DEFERRED watch axis** (distinct from spec-driven-*dev* spec-kit v17 / cc-sdd v61; this is a runtime declarative pipeline the agent reads-and-executes). Watch for a 2nd instance.
+- **Estimate→reserve→reconcile budget governance** + observe/warn/cap + per-action approval → **claude-api-cost-optimization** thread; **Library-vocab #20 Token-Economy QUALIFIED-ADJACENT** (USD cost-governance, not token quantification; **N stays 4**).
+- **Reviewer meta-skill + CHAI + scored gates + decision-audit log** → cross-ref agent-skills v184 (doubt-driven-dev / 4 review personas) + the vault's own verify rule.
+- **#66 supply-chain / dual-use / license** — install **benign** (no `curl|bash`/postinstall/sudo/telemetry; empty `publishers/` = **no auto-posting**; subprocess-safe); **two real risks: AGPL-3.0 network copyleft** (a hireui-productization blocker; the PilotDeck v175 / cortex-hub v181 license-flag class) + **cloud-API cost-runaway** (local, non-atomic budget enforcement).
+
+### NON-claims
+- **NOT a new top-level pattern** (max stays **#85**).
+- **NOT #52** (30.3k★/3.4k forks page-stated §37.4 → velocity unestablishable; "#1 Repo of the Day" badge = page-stated, recorded not a verified-velocity claim).
+- **NOT #57** (targets Claude Code/Cursor/Copilot/Windsurf/Codex as **harnesses it provisions** + **uses** HeyGen's HyperFrames + Remotion as render runtimes + cites craft sources Muller/Mayer/Murch — all non-corpus; mentions/dependencies ≠ influence-citation of corpus subjects).
+- **NOT #18 B1-MCP** (skills + tools + pipeline-defs consumed by an agent host; **no MCP server**).
+- **NOT corpus-first at AI video generation globally** (commercial + open HyperFrames peers precede; claim scoped to open-source *agentic end-to-end orchestration*).
+- **NOT a Domain-Vertical-Skill-Collection double-count** (the §C mint's claim is the media-production-system shape; the vertical-membership is a secondary lens only).
+
+---
+
+## Classification & tallies
+- **Tier:** **T1 Skill/Methodology Collection (Generative-Media-Production System flavor)** — installed as skills + tools + pipeline-defs for a coding agent, agent-first, no standalone server (the ai-berkshire v187 / CodexKit v121 tier), with a substantial Python-tool + Remotion-composer substrate noted (T2-adjacent).
+- **Counts UNCHANGED 46/11** (46 confirmed top-level patterns; 11 CONFIRMED Library-vocab).
+- **§C live standalones 31 → 32** (+1, N=1); tracked PROVISIONAL surface ≈38 → **≈39** (7 clusters + 32 standalones).
+- **Streak: GA:48 → GA:49** (⚠️ per operator direction on v176/v186; under their OFF-GOAL reading → GA:47·OG:13). **34 consecutive goal-aligned ships v153→v188** (GA reading).
+- **§35 CLEAR** — rolling-3-ship window {v186 GA, v187 GA, **v188 GA**} = 0 OFF-GOAL.
+- **§28 ≤2-new-standalones cap honored** (1 mint).
+
+## inflation_check — discipline HELD
+1 mint ≤ 2 cap; filed at honest **N=1**, corpus-first **scoped to the media-production surface** (NOT a world-first); no new top-level pattern (max #85); **counts UNCHANGED 46/11**; no double-count with the Domain-Vertical genre; NO N-bumps on #84/#12/#20; the disciplined NO-MINT alternative recorded operator/audit-reviewable; doc-vs-code count discrepancies caught + reported fairly (README *under*-claims tools; "500+ skills" conflates layers); the "world's first" claim scoped-down honestly; the "auto-posting" dual-use fear source-checked + disproven.

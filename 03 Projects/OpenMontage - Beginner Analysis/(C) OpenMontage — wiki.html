@@ -1,0 +1,241 @@
+<style>
+  :root {
+    --ground: #0C0E12;
+    --panel: #14171E;
+    --panel-2: #1B1F28;
+    --line: #2A2F3A;
+    --ink: #EDEFF3;
+    --slate: #8A93A3;
+    --slate-dim: #626B79;
+    --amber: #E8A34D;
+    --amber-dim: #B57F3C;
+    --teal: #5FB6A8;
+    --rose: #D9736A;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  .om { background: var(--ground); color: var(--ink); font-family: var(--sans);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .om-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* letterbox frame */
+  .om-bar { height: 10px; background: repeating-linear-gradient(90deg, #000 0 22px, #101216 22px 24px); }
+
+  /* eyebrow / timecode labels */
+  .tc { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--amber); font-weight: 600; }
+  .tc-slate { color: var(--slate); }
+
+  /* hero */
+  .hero { padding: 78px 0 56px; border-bottom: 1px solid var(--line); position: relative; }
+  .hero h1 { font-family: var(--sans); font-weight: 800; font-size: clamp(38px, 7vw, 76px);
+    line-height: 0.98; letter-spacing: -0.03em; margin: 18px 0 0; text-wrap: balance; }
+  .hero h1 .grade { color: var(--amber); }
+  .hero .lede { max-width: 60ch; color: var(--slate); font-size: clamp(16px, 2.1vw, 20px); margin: 22px 0 0; }
+  .hero .repo { font-family: var(--mono); font-size: 13px; color: var(--slate-dim); margin-top: 26px; }
+  .hero .repo b { color: var(--ink); font-weight: 600; }
+
+  /* stat strip */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 40px; }
+  .stat { background: var(--panel); padding: 20px 18px; }
+  .stat .n { font-family: var(--mono); font-size: 27px; font-weight: 700; color: var(--ink);
+    font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .stat .n small { color: var(--amber); font-size: 15px; }
+  .stat .k { font-size: 12px; color: var(--slate); margin-top: 4px; }
+
+  section { padding: 54px 0; border-bottom: 1px solid var(--line); }
+  section h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; letter-spacing: -0.02em;
+    margin: 12px 0 6px; text-wrap: balance; }
+  section .sub { color: var(--slate); max-width: 68ch; margin: 0 0 26px; }
+  p { max-width: 72ch; }
+  a { color: var(--amber); text-underline-offset: 3px; }
+  strong { color: var(--ink); }
+  .amber { color: var(--amber); }
+  .teal { color: var(--teal); }
+  .rose { color: var(--rose); }
+
+  /* pipeline timeline filmstrip */
+  .film { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 1fr);
+    gap: 2px; background: var(--line); border: 1px solid var(--line); border-radius: 10px;
+    overflow-x: auto; }
+  .frame { background: var(--panel); padding: 16px 14px; min-width: 150px; position: relative; }
+  .frame .stage { font-weight: 700; font-size: 14px; margin-top: 6px; }
+  .frame .desc { font-size: 11.5px; color: var(--slate); margin-top: 5px; line-height: 1.45; }
+  .frame.paid { background: linear-gradient(180deg, var(--panel) 0%, #211a12 100%); }
+  .frame .gate { font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;
+    margin-top: 9px; color: var(--slate-dim); }
+  .frame .gate.hard { color: var(--amber); }
+
+  /* layer table */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+  th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--slate); background: var(--panel-2); font-weight: 600; }
+  tbody tr:last-child td { border-bottom: none; }
+  td .big { font-family: var(--mono); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  td.claim { color: var(--slate); font-family: var(--mono); font-size: 12.5px; }
+
+  /* cards */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+  .card h3 { margin: 6px 0 8px; font-size: 17px; font-weight: 700; }
+  .card p { font-size: 14px; color: var(--slate); margin: 0; }
+  .card ul { margin: 8px 0 0; padding-left: 18px; }
+  .card li { font-size: 13.5px; color: var(--slate); margin: 5px 0; }
+  .card li b { color: var(--ink); font-weight: 600; }
+
+  /* verdict axes */
+  .axes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 6px 0 24px; }
+  .axis { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .axis .g { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--slate); }
+  .axis .v { font-weight: 800; font-size: 20px; margin-top: 3px; }
+  .axis .v.pass { color: var(--teal); }
+  .axis .v.fail { color: var(--rose); }
+  .axis .why { font-size: 12px; color: var(--slate); margin-top: 6px; line-height: 1.45; }
+
+  .mint { background: linear-gradient(180deg, #1d1913, var(--panel)); border: 1px solid var(--amber-dim);
+    border-radius: 12px; padding: 24px; margin-top: 6px; }
+  .mint .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+  .mint h3 { margin: 8px 0 10px; font-size: 19px; }
+  .mint p { font-size: 14.5px; color: var(--slate); }
+
+  /* pilot ladder */
+  .ladder { display: grid; gap: 12px; counter-reset: rung; }
+  .rung { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .rung .num { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--amber);
+    font-variant-numeric: tabular-nums; }
+  .rung h4 { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+  .rung p { margin: 0; font-size: 13.5px; color: var(--slate); }
+  .rung code { font-family: var(--mono); font-size: 12px; color: var(--teal); background: var(--panel-2);
+    padding: 1px 6px; border-radius: 4px; }
+
+  .callout { background: var(--panel-2); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0;
+    padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--slate); }
+  .callout b { color: var(--ink); }
+  .fence { border-left-color: var(--rose); }
+
+  footer { padding: 40px 0 64px; color: var(--slate-dim); font-size: 12.5px; font-family: var(--mono); }
+  footer a { color: var(--slate); }
+
+  @media (max-width: 720px) {
+    .stats, .axes { grid-template-columns: repeat(2, 1fr); }
+    .grid2 { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .frame, .stat, .axis, .rung { animation: rise .5s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+
+<div class="om">
+  <div class="om-bar"></div>
+
+  <div class="om-wrap">
+    <header class="hero">
+      <div class="tc">LLM-Wiki · v188 · ship 2026-07-01 · commit 1188e1b</div>
+      <h1>Your coding agent,<br>as a <span class="grade">video studio</span>.</h1>
+      <p class="lede">OpenMontage turns Claude Code (or Cursor / Copilot / Windsurf / Codex) into an end-to-end video production system. You write a brief in plain language; the agent researches, scripts, generates assets, edits, and renders — through 12 pipelines and ~90 deterministic tools. There is no Python orchestrator: <strong>the coding agent <em>is</em> the runtime.</strong></p>
+      <div class="repo">calesthio/OpenMontage &nbsp;·&nbsp; <b>AGPL-3.0</b> &nbsp;·&nbsp; Python 63% / HTML 25% / TS 6% &nbsp;·&nbsp; author <b>@calesthioailabs</b> (pseudonymous · Seattle · Microsoft-per-profile)</div>
+
+      <div class="stats">
+        <div class="stat"><div class="n">30.3<small>k★</small></div><div class="k">stars · #1 repo of the day (page-stated)</div></div>
+        <div class="stat"><div class="n">12<small>+1</small></div><div class="k">production pipelines (+ smoke test)</div></div>
+        <div class="stat"><div class="n">~87<small>–102</small></div><div class="k">deterministic Python tools</div></div>
+        <div class="stat"><div class="n">153<small>+561</small></div><div class="k">original skills · + federated packs</div></div>
+      </div>
+    </header>
+
+    <section>
+      <div class="tc tc-slate">00:00 · THE THESIS</div>
+      <h2>Intelligence in Markdown &amp; YAML. Code only for the deterministic work.</h2>
+      <p class="sub">The single most transferable idea here — and why this repo matters to a software developer, quite apart from video.</p>
+      <p>Every prior corpus subject that "orchestrates" bakes its logic into code. OpenMontage does the opposite: the agent reads a <strong>YAML pipeline manifest</strong> → reads a <strong>Markdown "stage-director" skill</strong> → calls a <strong>Python tool</strong> → checkpoints <strong>JSON state</strong> → advances. Python does only what LLMs can't: deterministic tool execution, schema validation, state persistence, cost arithmetic. The creative and policy logic lives in readable, version-controllable text. That is <span class="amber">your own LLM-Wiki pattern, generalized to industrial scale</span> — which is exactly why its patterns steal cleanly into your Claude Code workflow.</p>
+    </section>
+
+    <section>
+      <div class="tc tc-slate">00:01 · THE PIPELINE</div>
+      <h2>Eight stages, human-gated, cost-governed</h2>
+      <p class="sub">A plain-language brief becomes a rendered file. Paid execution starts only at <span class="amber">assets</span> — after a mandatory human approval at <span class="amber">proposal</span>.</p>
+      <div class="film" role="list" aria-label="production pipeline stages">
+        <div class="frame" role="listitem"><div class="tc">00:01</div><div class="stage">Research</div><div class="desc">Web-grounded facts, stats, references.</div><div class="gate">free · optional gate</div></div>
+        <div class="frame" role="listitem"><div class="tc">00:02</div><div class="stage">Proposal</div><div class="desc">Cost estimate · 2–3 concepts · lock render runtime.</div><div class="gate hard">free · APPROVAL REQUIRED</div></div>
+        <div class="frame" role="listitem"><div class="tc">00:03</div><div class="stage">Script</div><div class="desc">Narration @ 150–160 WPM, beat structure.</div><div class="gate">free · optional gate</div></div>
+        <div class="frame" role="listitem"><div class="tc">00:04</div><div class="stage">Scene plan</div><div class="desc">Shot list, timing, visual brief.</div><div class="gate">free · optional gate</div></div>
+        <div class="frame paid" role="listitem"><div class="tc">00:05</div><div class="stage">Assets ▲</div><div class="desc">Media gen · or CLIP-retrieved real footage.</div><div class="gate hard">PAID · reserve + reconcile</div></div>
+        <div class="frame" role="listitem"><div class="tc">00:06</div><div class="stage">Edit</div><div class="desc">Timeline, TTS, music · templated vs atelier.</div><div class="gate">free · atelier = gate</div></div>
+        <div class="frame paid" role="listitem"><div class="tc">00:07</div><div class="stage">Compose ▲</div><div class="desc">Remotion / HyperFrames / FFmpeg render.</div><div class="gate hard">PAID · 5-check review</div></div>
+        <div class="frame" role="listitem"><div class="tc">00:08</div><div class="stage">Publish</div><div class="desc">Export metadata. No auto-posting.</div><div class="gate">free · human review</div></div>
+      </div>
+      <div class="callout"><b>Budget governance:</b> every tool declares <code style="font-family:var(--mono)">estimate_cost()</code>; the system <b>estimates → reserves</b> (with a $0.50 per-action approval gate) <b>→ reconciles</b> actual spend, in <span class="teal">observe / warn / cap</span> modes. A fully <b>free/local path</b> (Piper TTS + free stock + Remotion + FFmpeg) renders a finished video at <span class="teal">$0</span>. Real demos: a 60s animated short = <b>$1.33</b>; a 70s atelier elegy = <b>$0.02</b>.</div>
+    </section>
+
+    <section>
+      <div class="tc tc-slate">00:02 · THE ARCHITECTURE</div>
+      <h2>Four layers — with the marketing reconciled against the code</h2>
+      <p class="sub">A doc-vs-code audit, reported honestly: the README <em>under</em>-claims tools; "500+ skills" conflates three layers with the original 153.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>What it is</th><th>Verified</th><th>Marketing claim</th></tr></thead>
+          <tbody>
+            <tr><td><b>Tools</b> <code style="font-family:var(--mono);font-size:11px;color:var(--slate)">tools/</code></td><td>Python <span class="big">BaseTool</span> subclasses — deterministic execution</td><td><span class="big">~87–102</span></td><td class="claim">"52 production tools" — a subset / under-claim</td></tr>
+            <tr><td><b>Skills L2</b> <code style="font-family:var(--mono);font-size:11px;color:var(--slate)">skills/</code></td><td>OpenMontage-<b>original</b> stage-director + meta skills</td><td><span class="big">153</span></td><td class="claim">the real original skill count</td></tr>
+            <tr><td><b>Skills L3</b> <code style="font-family:var(--mono);font-size:11px;color:var(--slate)">.agents/skills/</code></td><td><b>Federated</b> external-tech knowledge (Remotion/FFmpeg/GSAP…)</td><td><span class="big">561</span></td><td class="claim">"400+/500+" counts all layers (~1,035)</td></tr>
+            <tr><td><b>Pipelines</b> <code style="font-family:var(--mono);font-size:11px;color:var(--slate)">pipeline_defs/</code></td><td>Declarative YAML orchestration specs</td><td><span class="big">12<span style="color:var(--slate)"> +1</span></span></td><td class="claim">"12 pipelines" — TRUE</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="tc tc-slate">00:03 · THE DISCIPLINE</div>
+      <h2>The quality machinery is the gold</h2>
+      <p class="sub">A dual-layer model — readable governance in Markdown/YAML, thin Python only for schema + state. Every mechanic here transfers to a software team.</p>
+      <div class="grid2">
+        <div class="card"><div class="tc">reviewer.md</div><h3>Scored review meta-skill</h3><p>CHAI findings — <b>A</b>ccurate (cite the exact field) · <b>C</b>omplete (pattern-scan the class) · Constructive (propose a fix). A 6-dimension "slideshow-risk" score with a <b>fail ≥ 4.0</b> threshold.</p></div>
+        <div class="card"><div class="tc">decision_log.schema.json</div><h3>Decision audit trail</h3><p>16 decision categories; every material choice logs <b>options_considered</b> (with scores + why-rejected), the selection, a reason, and a confidence. ADRs, for agents.</p></div>
+        <div class="card"><div class="tc">checkpoint-protocol.md</div><h3>Checkpoint &amp; resume</h3><p>JSON state with <b>in_progress + partial_progress</b> markers — a long run resumes without redoing work, and gates on human approval at creative stages.</p></div>
+        <div class="card"><div class="tc">framework-smoke.yaml</div><h3>Cheap CI contract harness</h3><p>A 2-stage, <b>no-tool-execution</b> pipeline that validates manifest/schema/checkpoint contracts in CI without spending on renders. Catches breakage early.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="tc tc-slate">00:04 · THE VERDICT</div>
+      <h2>Goal-aligned include · routine v2.6</h2>
+      <p class="sub">Produced inline + hand-verified. A 14-agent read-only workflow (~1.04M tokens) did source-reading only; all corpus/collision/identity claims verified by hand.</p>
+      <div class="axes">
+        <div class="axis"><div class="g">(a) origin</div><div class="v fail">FAIL</div><div class="why">Pseudonymous individual, Microsoft-per-profile, not Anthropic. Not a microsoft/ org repo.</div></div>
+        <div class="axis"><div class="g">(b) goal-fit</div><div class="v pass">STRONG</div><div class="why">Keys the tier. Claude-Code-first agent substrate; richest on-goal pattern set of the run. ⚠️ MODERATE on the video domain.</div></div>
+        <div class="axis"><div class="g">(c) substance</div><div class="v pass">STRONG</div><div class="why">~90 tools + 12 pipelines + composer + governance + $0 path. Caveat: hard gen/compose is upstream.</div></div>
+        <div class="axis"><div class="g">(d) corpus ties</div><div class="v pass">STRONG</div><div class="why">Skill-collection genre + deterministic-offload + cross-harness + fish-speech + AGPL neighbors.</div></div>
+      </div>
+      <div class="mint">
+        <div class="tag">Pattern outcome · 1 new §C standalone · N=1 · corpus-first</div>
+        <h3>Agent-First End-to-End Generative-Media (Video) Production System</h3>
+        <p>A coding agent orchestrates research→script→asset-gen→edit→compose→<b>render into a finished media file</b>, via a deterministic tool + YAML-pipeline + multi-runtime composer substrate, with a $0 free/local path. The corpus's <b>first creative / generative-media agentic system</b> — a real boundary from the knowledge-skill collections (which output text), not "minting on the domain." Scoped corpus-first for the media surface, <b>not</b> a world-first. Counts unchanged <b>46 / 11</b>; §C standalones 31 → <b>32</b>; streak <b>GA:49</b>.</p>
+      </div>
+      <div class="callout fence"><b>The reviewable judgment (flagged honestly):</b> the disciplined alternative is "video = a 5th vertical of the Domain-Vertical-Skill-Collection genre → no mint" (the ai-berkshire v187 precedent). The mint stands on the <b>output-type + production-substrate boundary</b> being load-bearing — but it's the one operator/audit-reviewable call.</div>
+    </section>
+
+    <section>
+      <div class="tc tc-slate">00:05 · APPLY IT</div>
+      <h2>How to pilot it into your flow</h2>
+      <p class="sub">Weighted deliberately: the video capability is off your software goal — the <span class="amber">architecture</span> is the payoff. Full 24-method menu in the Pilot Methods doc.</p>
+      <div class="ladder">
+        <div class="rung"><div class="num">1</div><div><h4>Read the spine (zero risk, ~1–2h)</h4><p><code>AGENT_GUIDE.md</code> + <code>reviewer.md</code> + one pipeline YAML. You'll see your own LLM-Wiki pattern reflected back at scale.</p></div></div>
+        <div class="rung"><div class="num">2</div><div><h4>Steal B1 + B6 into hireui (an <code>agent-*</code> branch)</h4><p>A <code>workflow.yaml</code> orchestration spec for a real hireui flow + the <b>estimate→reserve→reconcile</b> budget guard wired into your claude-api-cost-optimization spec = your first completed Goal-#2 pilot artifact since v153.</p></div></div>
+        <div class="rung"><div class="num">3</div><div><h4>Port the review discipline</h4><p>A 4-dimension code-review meta-skill with a scored gate (B4) + a decision-log (B5) + a framework-smoke contract test (B8). Senior-engineering discipline, as agent skills.</p></div></div>
+        <div class="rung"><div class="num">4</div><div><h4>Optional, off-goal: make a real video</h4><p>Free/local smoke test → a hireui product-demo video via the <code>screen-demo</code> pipeline. A usable marketing artifact at $0.</p></div></div>
+      </div>
+      <div class="callout fence"><b>Fence:</b> install-snapshot + inspect <code>Makefile</code>/<code>.env.example</code> · scratch machine · $0 free path or <b>CAP</b> mode + provider-side spend limits (cloud-cost runaway is the real risk) · never <code>--dangerously-skip-permissions</code> · <b>AGPL-3.0 blocks hireui productization</b> (fine for internal use + pattern-stealing) · pin <code>1188e1b</code>.</div>
+    </section>
+
+    <footer>
+      Storm Bear vault · LLM-Wiki v188 · OpenMontage · GOAL-ALIGNED INCLUDE 3/4 · NO new top-level pattern (max #85) · counts 46/11 unchanged<br>
+      Docs: (C) OpenMontage — Deep Dive · Verdict · Pilot Methods Menu &nbsp;·&nbsp; source-verified at commit 1188e1b &nbsp;·&nbsp; stats page-stated (§37.4), not API-verified.
+    </footer>
+  </div>
+</div>
