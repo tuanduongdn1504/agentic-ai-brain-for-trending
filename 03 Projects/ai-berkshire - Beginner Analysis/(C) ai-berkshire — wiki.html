@@ -1,0 +1,280 @@
+<title>AI Berkshire — Wiki v187</title>
+<style>
+  :root{
+    --paper:#F4F5F2; --card:#FBFCFA; --ink:#16211C; --ink-soft:#4A554F; --ink-faint:#79837D;
+    --rule:#DBDFD9; --rule-strong:#C3C9C1;
+    --moat:#1E5C43; --moat-deep:#123B2B; --brass:#8C6E2A;
+    --pass:#2E7D57; --gray:#B08526; --fail:#B23A34;
+    --band:#EDF0EB;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  .col{max-width:70ch}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;text-wrap:balance;line-height:1.16;letter-spacing:-.01em}
+  a{color:var(--moat);text-underline-offset:2px}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* ---- masthead ---- */
+  header.mast{border-bottom:2px solid var(--ink);background:var(--card)}
+  .mast .wrap{padding-top:40px;padding-bottom:26px}
+  .tickertape{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--brass);
+    border:1px solid var(--rule-strong);border-radius:2px;padding:6px 12px;display:inline-flex;gap:14px;flex-wrap:wrap;background:var(--paper)}
+  .tickertape b{color:var(--ink)}
+  h1{font-size:clamp(2.1rem,5.4vw,3.4rem);margin:20px 0 6px}
+  .subtitle{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--ink-soft);margin:0;max-width:60ch}
+  .metaline{margin-top:18px;font-size:13.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+  .metaline .mono{color:var(--ink)}
+
+  /* ---- verdict banner ---- */
+  .verdict{background:var(--moat-deep);color:#EAF1EC}
+  .verdict .wrap{padding:26px 24px}
+  .verdict .eyebrow{color:#9DBFAE}
+  .verdict h2{color:#fff;font-size:1.5rem;margin:.35em 0 .1em}
+  .verdict p{margin:.4em 0 0;color:#CFE0D5;max-width:70ch;font-size:15.5px}
+  .scorecard{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.14);border-radius:4px;margin-top:20px;overflow:hidden}
+  .scorecard div{background:var(--moat-deep);padding:13px 14px}
+  .scorecard .ax{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8FB3A1}
+  .scorecard .val{font-family:var(--serif);font-size:1.35rem;margin-top:3px;color:#fff}
+  .scorecard .val.fail{color:#F0A9A3}
+  .scorecard small{display:block;color:#A9C3B4;font-size:11.5px;margin-top:4px;line-height:1.4}
+  @media(max-width:620px){.scorecard{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---- sections ---- */
+  section{padding:44px 0;border-bottom:1px solid var(--rule)}
+  section > .wrap > .eyebrow{display:block;margin-bottom:10px}
+  h2.sec{font-size:1.7rem;margin:0 0 4px}
+  .lede{color:var(--ink-soft);font-size:1.02rem;margin:.2em 0 1.4em;max-width:66ch}
+  p{margin:0 0 1em}
+  .col p, section p{max-width:70ch}
+  strong{color:var(--ink)}
+
+  /* pills */
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:2px 8px;border-radius:999px;border:1px solid;vertical-align:middle}
+  .pill.pass{color:var(--pass);border-color:#B8D8C6;background:#EAF5EF}
+  .pill.gray{color:var(--gray);border-color:#E6D6AC;background:#FBF4E0}
+  .pill.fail{color:var(--fail);border-color:#E7BEBB;background:#FBEDEC}
+  .pill.on{color:var(--moat);border-color:#BAD3C7;background:#EAF2ED}
+
+  /* master cards */
+  .masters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+  @media(max-width:780px){.masters{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:440px){.masters{grid-template-columns:1fr}}
+  .m{background:var(--card);border:1px solid var(--rule-strong);border-radius:5px;padding:16px 15px}
+  .m .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+  .m h3{font-size:1.12rem;margin:5px 0 2px}
+  .m .lens{font-size:12.5px;color:var(--ink-faint);font-style:italic;margin-bottom:9px}
+  .m ul{margin:0;padding-left:16px;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .m li{margin-bottom:3px}
+
+  /* pattern list */
+  .pat{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:6px}
+  .pat dt{font-family:var(--serif);font-weight:600;font-size:1.05rem;grid-column:1/-1;padding-top:14px;border-top:1px solid var(--rule);margin-top:6px}
+  .pat dt:first-child{border-top:none;padding-top:0;margin-top:0}
+  .pat dd{grid-column:1/-1;margin:2px 0 0;color:var(--ink-soft);font-size:14.5px;max-width:74ch}
+
+  /* tables */
+  .tblwrap{overflow-x:auto;margin:4px 0 2px;border:1px solid var(--rule-strong);border-radius:5px}
+  table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card)}
+  th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--rule)}
+  thead th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);background:var(--band)}
+  tbody tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  caption{caption-side:bottom;font-size:12px;color:var(--ink-faint);padding-top:8px;text-align:left}
+  .warn{color:var(--fail);font-weight:600}
+
+  /* callout */
+  .call{background:var(--band);border-left:3px solid var(--moat);border-radius:0 5px 5px 0;padding:15px 18px;margin:18px 0;font-size:14.5px}
+  .call.caveat{border-left-color:var(--fail);background:#FBF1F0}
+  .call .lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--moat)}
+  .call.caveat .lab{color:var(--fail)}
+  .call p{margin:.35em 0 0;color:var(--ink);max-width:none}
+
+  /* ladder */
+  ol.ladder{counter-reset:step;list-style:none;padding:0;margin:8px 0 0}
+  ol.ladder li{position:relative;padding:14px 0 14px 52px;border-top:1px solid var(--rule)}
+  ol.ladder li:first-child{border-top:none}
+  ol.ladder li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:13px;
+    font-family:var(--serif);font-size:1.15rem;color:#fff;background:var(--moat);width:32px;height:32px;border-radius:50%;
+    display:grid;place-items:center}
+  ol.ladder b{font-size:1.02rem}
+  ol.ladder .k{font-family:var(--mono);font-size:12px;color:var(--brass)}
+
+  footer{padding:34px 0 60px;color:var(--ink-faint);font-size:13px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade{opacity:0;transform:translateY(8px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+    section:nth-child(2){animation-delay:.05s}
+    @keyframes rise{to{opacity:1;transform:none}}
+  }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="tickertape mono">
+      <span>NYSE:<b>DISCIPLINE</b></span><span>MOAT <b>WIDE</b></span><span>MARGIN&nbsp;OF&nbsp;SAFETY <b>50%</b></span><span>VERDICT <b>PASS·GRAY·FAIL</b></span>
+    </div>
+    <h1>AI&nbsp;Berkshire</h1>
+    <p class="subtitle">“One person + Claude Code / Codex = an entire investment-research team.” A value-investing skill collection — read here for the <em>agent engineering</em>, not the stock tips.</p>
+    <div class="metaline">
+      <span class="eyebrow">Wiki v187</span>
+      <span><span class="mono">xbtlin/ai-berkshire</span> · MIT · <span class="mono">7.7k★ / 973 forks</span> (page-stated)</span>
+      <span>clone <span class="mono">@0222260</span> · 2026-07-01</span>
+    </div>
+  </div>
+</header>
+
+<div class="verdict fade">
+  <div class="wrap">
+    <span class="eyebrow">Routine Verdict — LLM Wiki v2.6</span>
+    <h2>Goal-Aligned Include 3/4 · No Mint</h2>
+    <p>A clean instance of the confirmed <strong>Domain-Vertical Skill-Collection</strong> sub-archetype (finance/value-investing vertical, joining SEO&nbsp;v64 · academic&nbsp;v90 · cybersecurity&nbsp;v98). Counts unchanged <span class="mono">46/11</span>. Not corpus-first — Anthropic’s <span class="mono">financial-services v141</span> precedes it in the finance domain.</p>
+    <div class="scorecard">
+      <div><span class="ax">(a) Connection</span><span class="val fail">FAIL</span><small>Bare handle, not Anthropic — clean fail, no rescue</small></div>
+      <div><span class="ax">(b) Goal-relevance</span><span class="val">STRONG</span><small>Rich agent-engineering exemplar; keys the tier</small></div>
+      <div><span class="ax">(c) Substance</span><span class="val">STRONG</span><small>18 skills · 8 tools · real multi-agent orchestration</small></div>
+      <div><span class="ax">(d) Corpus fit</span><span class="val">STRONG</span><small>skill-collection genre + v141 / v184 / v185</small></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap col">
+    <span class="eyebrow">What it is</span>
+    <h2 class="sec">A research team, expressed as skills</h2>
+    <p class="lede">AI Berkshire systematizes four value-investing masters into an installable Claude Code / Codex skill collection — 18 skills, 8 Python tools, and a documented three-layer architecture.</p>
+    <p>Its thesis is a jab at vanilla prompting: ask an LLM “should I buy this?” and you get a both-sides hedge that ends in “do your own research.” AI Berkshire forces the opposite — a <strong>Pass / Gray / Fail</strong> verdict with concrete price ranges and tiered recommendations. The engine that produces it is worth studying whether or not you ever buy a share.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Job</th><th>Artifacts</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Skill</strong></td><td>18 scenario-named entry points</td><td class="mono">skills/*.md → /investment-team, /quality-screen …</td></tr>
+          <tr><td><strong>Agent</strong></td><td>fan out N persona-agents; a lead synthesizes</td><td class="mono">TeamCreate · Task(run_in_background)</td></tr>
+          <tr><td><strong>Tool</strong></td><td>exact math &amp; audit so every number is checkable</td><td class="mono">financial_rigor.py · report_audit.py</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">The original resource</span>
+    <h2 class="sec">Four masters, engineered as an adversarial panel</h2>
+    <p class="lede col">The flagship <span class="mono">/investment-team</span> runs four agents in parallel — same data, different lens — so divergence reflects perspective, not information asymmetry. Designed to collide, not to agree.</p>
+    <div class="masters">
+      <div class="m">
+        <div class="role">Business model</div><h3>Duan Yongping</h3>
+        <div class="lens">段永平 — the right business</div>
+        <ul><li>本分 / integrity</li><li>“buy a stock = buy a business”</li><li>No margin · stop-doing list</li><li>毛估估 — rough beats false-precise</li></ul>
+      </div>
+      <div class="m">
+        <div class="role">Valuation</div><h3>Warren Buffett</h3>
+        <div class="lens">the moat &amp; margin of safety</div>
+        <ul><li>Circle of competence</li><li>Economic moat</li><li>Owner earnings · DCF</li><li>“price is what you pay…”</li></ul>
+      </div>
+      <div class="m">
+        <div class="role">Risk / inversion</div><h3>Charlie Munger</h3>
+        <div class="lens">“how could it die?”</div>
+        <ul><li>Invert, always invert</li><li>Latticework of models</li><li>25 misjudgment biases</li><li>Concentration &gt; diversification</li></ul>
+      </div>
+      <div class="m">
+        <div class="role">10-yr certainty</div><h3>Li Lu</h3>
+        <div class="lens">李录 — civilizational trend</div>
+        <ul><li>Himalaya Capital</li><li>“exists &amp; thrives in 10 yrs?”</li><li>Deep concentration</li><li>Three sell rules</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">The transferable part <span class="pill on">on-goal</span></span>
+    <h2 class="sec">Six agent-engineering patterns worth stealing</h2>
+    <p class="lede col">The reason this belongs in your wiki: it’s a concrete, readable blueprint for the multi-agent workflows you’re already piloting. The finance domain is incidental.</p>
+    <dl class="pat">
+      <dt>1 · Persona-differentiated parallel orchestration</dt>
+      <dd>Four <span class="mono">general-purpose</span> subagents launched in one message, each a lens, reporting to a synthesizing lead. Same input, different framing. Your <em>multi-agent-orchestration</em> pilot thread, made concrete.</dd>
+      <dt>2 · Deterministic-tool-offload</dt>
+      <dd>LLMs can’t be trusted with a P/E to one decimal — so arithmetic is handed to <span class="mono">decimal.Decimal</span> Python as a <em>mandatory</em> gate. The single most portable idea here: make the model call code for what it guesses wrong.</dd>
+      <dt>3 · A verification / exit gate before “publish”</dt>
+      <dd><span class="mono">report_audit.py</span> samples 15% of a report’s numbers, re-verifies each at 1% tolerance, and returns PASS/FAIL with a CI exit code. Your own verify-rule, productized.</dd>
+      <dt>4 · Cross-harness distribution from one source</dt>
+      <dd>One canonical <span class="mono">skills/*.md</span> → generated Codex skills + prompts via a sync script with a <span class="mono">--check</span> drift mode. Never hand-edit generated files.</dd>
+      <dt>5 · Forced-verdict discipline</dt>
+      <dd>The output shape (scorecards, decision memos, price tiers) is built into the skill so the model can’t hedge. The “mirror test”: can’t state it in 5 sentences → don’t buy.</dd>
+      <dt>6 · Structured anti-bias mechanisms</dt>
+      <dd>A/B/C information-richness rating · Munger inversion · quick-kill vetoes · banned phrases (“I think”, “obviously”) · honest “I don’t know” over speculation.</dd>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="wrap col">
+    <span class="eyebrow">The knowledge</span>
+    <h2 class="sec">Kelly, moats, and the mirror test</h2>
+    <p>The durable frameworks (the stock picks are time-bound; these aren’t). The Kelly formula is the spine — the math of <em>survival</em>, not maximum growth:</p>
+    <div class="tblwrap">
+      <table>
+        <caption>Kelly sizing — overbetting kills you even when every bet has positive expected value.</caption>
+        <thead><tr><th>Bet size</th><th class="num">Long-run growth</th><th class="num">Volatility</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td>Half-Kelly (0.5×)</td><td class="num">~75%</td><td class="num">~50%</td><td>the practitioner’s choice</td></tr>
+          <tr><td>Full Kelly (1.0×)</td><td class="num">100%</td><td class="num">100%</td><td>brutal drawdowns</td></tr>
+          <tr><td>1.5× Kelly</td><td class="num">~75%</td><td class="num">150%</td><td>same growth, 3× the pain</td></tr>
+          <tr><td>2× Kelly</td><td class="num">0%</td><td class="num">200%+</td><td class="warn">growth gone</td></tr>
+          <tr><td>&gt; 2× Kelly</td><td class="num">&lt; 0</td><td class="num">extreme</td><td class="warn">certain ruin</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="call">
+      <span class="lab">The mirror test</span>
+      <p>Complete each in one clear sentence or don’t buy: <strong>(1)</strong> I understand the cash machine · <strong>(2)</strong> the moat is ___, widening/stable · <strong>(3)</strong> management is trustworthy because ___ · <strong>(4)</strong> price = ___% of fair value · <strong>(5)</strong> if I’m wrong, downside is controllable because ___.</p>
+    </div>
+    <p><strong>The moat test:</strong> “If I gave a competitor $10B, could they replicate this in five years?” Yes → the moat is too narrow. The five buckets: brand/pricing-power · switching costs · network effects · scale/cost · tech/patents. Screen by <em>exclusion</em>, not by ranking — kill the definitely-not-first-tier, deep-dive the rest.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap col">
+    <span class="eyebrow">Read before you act</span>
+    <h2 class="sec">Honest caveats</h2>
+    <div class="call caveat">
+      <span class="lab">Unverified</span>
+      <p>The <strong>+69.29% / +66.38% / ¥1.46M</strong> returns have no trade logs — only brokerage screenshots. The repo’s own memory file admits the README’s sample outputs are <em>illustrative/fictional</em>. Treat performance as unproven; this is not investment advice (the repo says so — DYOR).</p>
+    </div>
+    <p><strong>“Four masters arguing” is framing</strong> — it’s four parallel persona-instructions synthesized by a fifth, not a true debate. <strong>Li Lu’s long-run alpha is overstated</strong> in retail lore (the disclosed Munger investment ≈ 10–11% CAGR ≈ the S&amp;P; BYD was the real home-run). <strong>Footgun:</strong> the README suggests <span class="mono">claude --dangerously-skip-permissions</span> — don’t; approve tool calls.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">How to apply it — the ladder</span>
+    <h2 class="sec">Where to start</h2>
+    <p class="lede col">Full 24-method menu in the companion doc. The shortest path from “interesting repo” to “artifact on your goal”:</p>
+    <ol class="ladder">
+      <li><b>Install to a scratch dir, read the 3 flagship skills.</b> <span class="k">A1 · ~20 min · zero risk</span><br>Internalize how a domain-vertical skill collection is structured.</li>
+      <li><b>Build a 4-persona code-review team + a PR/spec audit gate.</b> <span class="k">B4 + B6 · strongest on-goal play</span><br>Correctness / Security / Performance / Maintainability on a hireui PR — a concrete multi-agent-orchestration artifact.</li>
+      <li><b>Build an “AI Hiring Committee” for hireui.</b> <span class="k">C10 · domain-transfer masterstroke</span><br>The exact four-masters architecture maps onto candidate evaluation — a real recruitment feature.</li>
+      <li><b>Then: the investing knowledge itself, if you want it.</b> <span class="k">D14–D18 · personal, off-goal</span><br>Kelly sizing, the mirror test, the checklist — durable across markets.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Storm Bear vault · LLM Wiki v187 · <span class="mono">03 Projects/ai-berkshire - Beginner Analysis/</span></span>
+    <span>Verdict inline + hand-verified · source @0222260 · not investment advice</span>
+  </div>
+</footer>
