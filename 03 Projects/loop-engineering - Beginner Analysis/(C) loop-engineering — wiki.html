@@ -1,0 +1,181 @@
+<title>loop-engineering — LLM Wiki v189</title>
+<style>
+  :root{
+    --ink:#0e1621; --panel:#141f2b; --panel2:#182634; --line:#24384a;
+    --text:#d9e4ec; --muted:#8ba0ae; --mint:#3ee8c5; --mint-dim:#2aa892;
+    --amber:#e0b34c; --red:#e07a6a;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  html{background:var(--ink)}
+  body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;margin:0}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+  h1,h2,h3{font-family:var(--mono);text-wrap:balance;line-height:1.25}
+  h1{font-size:1.9rem;margin:.2rem 0 .4rem;color:#fff}
+  h2{font-size:1.15rem;margin:2.6rem 0 .8rem;color:var(--mint);letter-spacing:.02em}
+  h2::before{content:"◌ ";color:var(--mint-dim)}
+  h3{font-size:1rem;margin:1.4rem 0 .5rem;color:var(--text)}
+  p{margin:.6rem 0;max-width:70ch}
+  a{color:var(--mint);text-decoration:none;border-bottom:1px solid var(--mint-dim)}
+  a:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .sub{color:var(--muted);max-width:74ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .chip{font-family:var(--mono);font-size:.72rem;padding:3px 10px;border:1px solid var(--line);border-radius:3px;background:var(--panel);color:var(--muted);white-space:nowrap}
+  .chip b{color:var(--text);font-weight:600}
+  .chip.hot{border-color:var(--mint-dim);color:var(--mint)}
+  blockquote{margin:1rem 0;padding:.7rem 1rem;border-left:3px solid var(--mint);background:var(--panel);color:var(--text);max-width:72ch}
+  blockquote .who{display:block;margin-top:.4rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .loop{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+  .loop .st{font-family:var(--mono);font-size:.74rem;padding:5px 10px;border-radius:3px;background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+  .loop .st.k{border-color:var(--mint-dim);color:var(--mint)}
+  .loop .ar{color:var(--mint-dim);font-family:var(--mono);font-size:.8rem}
+  .tablewrap{overflow-x:auto;margin:.8rem 0;border:1px solid var(--line);border-radius:6px}
+  table{border-collapse:collapse;width:100%;font-size:.86rem}
+  th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left}
+  th,td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  td:first-child{white-space:nowrap;font-family:var(--mono);font-size:.8rem;color:var(--mint)}
+  .num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.8rem}
+  ul{margin:.5rem 0;padding-left:1.2rem;max-width:72ch}
+  li{margin:.3rem 0}
+  li::marker{color:var(--mint-dim)}
+  code{font-family:var(--mono);font-size:.84em;background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:1px 5px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:.8rem 0}
+  .card{border:1px solid var(--line);border-radius:6px;background:var(--panel);padding:14px 16px}
+  .card h3{margin:.1rem 0 .4rem;font-size:.9rem;color:var(--mint)}
+  .card p,.card ul{font-size:.88rem}
+  .caveat{border-left:3px solid var(--amber)}
+  .caveat h3{color:var(--amber)}
+  .verdict{border:1px solid var(--mint-dim);border-radius:6px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:18px 20px;margin:1rem 0}
+  .vrow{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0}
+  .vrow .chip{background:var(--ink)}
+  .lvl{display:flex;flex-wrap:wrap;gap:0;margin:.9rem 0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .lvl div{flex:1 1 140px;padding:10px 12px;border-right:1px solid var(--line);background:var(--panel);font-size:.82rem}
+  .lvl div:last-child{border-right:none}
+  .lvl b{display:block;font-family:var(--mono);color:var(--mint);font-size:.78rem;margin-bottom:2px}
+  .ladder{counter-reset:rung;margin:.6rem 0;padding:0;list-style:none;max-width:72ch}
+  .ladder li{counter-increment:rung;margin:.45rem 0;padding:.55rem .8rem .55rem 2.6rem;position:relative;background:var(--panel);border:1px solid var(--line);border-radius:5px;font-size:.9rem}
+  .ladder li::before{content:counter(rung);position:absolute;left:.8rem;top:.55rem;font-family:var(--mono);color:var(--mint);font-size:.8rem}
+  .foot{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;font-family:var(--mono)}
+  @media (prefers-reduced-motion:no-preference){ h2{scroll-margin-top:24px} }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">LLM Wiki · v189 · shipped 2026-07-02 · Storm Bear corpus</p>
+  <h1>loop-engineering</h1>
+  <p class="sub"><b>“Stop prompting. Design the loop. Get a score.”</b> — practical patterns, starters &amp; CLI tools for <i>loop engineering</i> with AI coding agents: designing the scheduled, stateful, verified control systems that prompt your agents, instead of prompting them yourself.</p>
+  <div class="meta">
+    <span class="chip"><b>cobusgreyling/loop-engineering</b></span>
+    <span class="chip">MIT · v1.5.0</span>
+    <span class="chip">pinned <b>f18df04</b> · 2026-07-01</span>
+    <span class="chip">first commit <b>2026-06-09</b> (clone-verified)</span>
+    <span class="chip">4.7k★ / 596 forks <i>(page-stated, NOT API-verified)</i></span>
+    <span class="chip hot">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="chip hot">+1 §C standalone · N=1</span>
+    <span class="chip">counts 46/11 unchanged</span>
+  </div>
+
+  <h2>The thesis, in its sources’ words</h2>
+  <blockquote>“I don’t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.”
+    <span class="who">Boris Cherny — Head of Claude Code, Anthropic (quoted in README; <code>/loop</code>, <code>/goal</code>, <code>/schedule</code> cited as first-class Claude Code primitives)</span></blockquote>
+  <blockquote>“Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go.”
+    <span class="who">Addy Osmani — whose June-2026 “Loop Engineering” essay the repo credits as “the most complete written synthesis of the concept” · Osmani = corpus subject v184 (agent-skills) → a genuine #57 forward-citation</span></blockquote>
+  <p class="sub">Lineage (web-verified): Steinberger’s viral framing post (2026-06-07) → Osmani’s essay + X thread (06-07/06-08) → Cherny/Anthropic’s loop primitives → <b>this repo (first commit 06-09) as the codification layer</b>: “we aim to turn the abstract framework into practical, copyable patterns, templates, and tool-specific guidance.” Author: <b>Cobus Greyling</b> — Chief Evangelist at Kore AI, South Africa; serial “X-engineering” builder (goal-engineering, fleet-engineering). Not Anthropic.</p>
+
+  <h2>Anatomy of a loop</h2>
+  <div class="loop" role="img" aria-label="Loop anatomy: schedule, triage skill, state, worktree, implementer, verifier, MCP and git, human gate, then back to schedule">
+    <span class="st k">schedule</span><span class="ar">→</span>
+    <span class="st">triage skill</span><span class="ar">→</span>
+    <span class="st k">STATE.md</span><span class="ar">→</span>
+    <span class="st">worktree</span><span class="ar">→</span>
+    <span class="st">implementer</span><span class="ar">→</span>
+    <span class="st k">verifier · REJECT-first</span><span class="ar">→</span>
+    <span class="st">MCP / git</span><span class="ar">→</span>
+    <span class="st k">human gate</span><span class="ar">⟲</span>
+  </div>
+  <p><b>Five primitives + memory:</b> Automations/Scheduling (“the heartbeat”) · Worktrees (safe parallelism) · Skills (“persistent memory of intent”) · MCP connectors (least-privilege) · Sub-agents (maker/checker — “the single most important structural pattern for reliable loops”) · + durable State outside any conversation.</p>
+  <div class="lvl">
+    <div><b>L0 · Draft</b>intent documented only</div>
+    <div><b>L1 · Report</b>triage → state; <i>no auto-action</i>. “Week one rule: report only.”</div>
+    <div><b>L2 · Assisted</b>small fixes + independent verifier</div>
+    <div><b>L3 · Unattended</b>score ≥78 + verifier + cost observability + proven activity</div>
+  </div>
+
+  <h2>Seven patterns (registry-validated in CI)</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>pattern</th><th>cadence</th><th>week 1</th><th>token model (noop / report / action · daily cap)</th></tr></thead>
+    <tbody>
+      <tr><td>daily-triage</td><td>1d–2h</td><td>L1 report</td><td class="num">5k / 50k / 200k · 100k</td></tr>
+      <tr><td>pr-babysitter</td><td>5–15m</td><td>L1 watch</td><td class="num">3k / 80k / 250k · 2M · early-exit required</td></tr>
+      <tr><td>ci-sweeper</td><td>5–15m</td><td>L2 cautious</td><td class="num">very high — see the kill story</td></tr>
+      <tr><td>dependency-sweeper</td><td>6h–1d</td><td>L2 patch-only</td><td class="num">medium</td></tr>
+      <tr><td>changelog-drafter</td><td>1d / tag</td><td>L1 draft</td><td class="num">low</td></tr>
+      <tr><td>post-merge-cleanup</td><td>1d–6h</td><td>L1 off-peak</td><td class="num">low</td></tr>
+      <tr><td>issue-triage</td><td>2h–1d</td><td>L1 propose-only</td><td class="num">low</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub">Each pattern encodes goal, risk, skills, state file, phases, <b>human gates</b> (security / payments / auth / max-fix-attempts) and a per-run token cost model. 16 starters + ~46 hand-translated examples across Grok · <b>Claude Code</b> · Codex · OpenClaw · Opencode · GitHub Actions; primitives matrix covers 7 environments.</p>
+
+  <h2>The tooling — “get a score”</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>tool</th><th>what it does</th></tr></thead>
+    <tbody>
+      <tr><td>loop-audit</td><td>Loop-Readiness <b>0–100 → L0–L3</b> from 17 weighted signals (state 18 · triage 14 · skills 14 · verifier 14 …). Thresholds L1≥38 / L2≥58 / L3≥78; <b>L3 hard-gates</b> on verifier + budget/run-log docs + <i>proven</i> loop activity. Badge output; 12 tests.</td></tr>
+      <tr><td>loop-init</td><td>Scaffolds a pattern per tool (<code>--tool grok|claude|codex|opencode</code>): LOOP.md + STATE.md + skills + budget files, then prints your score.</td></tr>
+      <tr><td>loop-cost</td><td>Token-spend estimator from the registry cost model (cadence × level).</td></tr>
+      <tr><td>loop-sync</td><td><b>Drift detection</b> between STATE.md ↔ LOOP.md ↔ skills ↔ configs.</td></tr>
+      <tr><td>goal-audit</td><td>Companion G0–G3 scorer for the sibling goal-engineering repo (“loops discover, goals finish”).</td></tr>
+      <tr><td>mcp-server</td><td>Read-only MCP lookup of registry, LOOP.md, budget, run-log, safety docs, skills, state (repo v1; npm pending).</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub">Root skills carry the discipline: <b>loop-verifier</b> (“Default stance: REJECT until proven otherwise. Do not trust the implementer’s claim that tests passed — run them.”) · <b>minimal-fix</b> (one problem, smallest diff, never mark your own work done) · <b>loop-triage</b> (High-Priority / Watch / Noise / State-Updates — “signal, not invention”) · <b>loop-budget</b> (≥80% of daily cap → report-only; ≥100% or <code>loop-pause-all</code> → exit; JSON run-log append) · <b>loop-constraints</b> (binding plain-English guardrails read before every action).</p>
+
+  <h2>It runs on itself (commit-verified)</h2>
+  <p>Root <code>LOOP.md</code>: <i>“It eats its own dogfood aggressively.”</i> Live <code>STATE.md</code> (last run 2026-07-01, score 100/L3) · <b>15 real JSON run-log entries</b> with GitHub Actions run IDs · automated <code>chore(loop): daily triage…</code> PRs in the git history · <code>audit.yml</code> posts the readiness score on every PR — and, per the workflow’s own comment, <i>“the loop cannot mark its own change green unless the real gates passed.”</i></p>
+
+  <h2>The transferable wisdom — failures first-class</h2>
+  <div class="grid2">
+    <div class="card"><h3>why-we-killed-ci-sweeper</h3><p><code>/loop 5m</code> on red main → <b>~8M tokens in 48h</b>, 11 PRs, one broke prod config. Root causes: no L1 phase · verifier in the same session · no branch allowlist · no daily budget. The 4-point cascade is the pre-flight checklist for any auto-fix loop.</p></div>
+    <div class="card"><h3>Verifier parity</h3><p>A verifier APPROVEd a dependency patch after cached <code>npm test</code>; CI’s <code>npm ci</code> failed on a peer conflict. Lesson: <b>the verifier must run the exact same install path as CI.</b></p></div>
+    <div class="card"><h3>Multi-loop collision</h3><p>Two loops fixed the same PR five minutes apart — ~400k tokens vs a normal ~80k. Fix: branch locks + an <code>acting_on</code> collision check across state files.</p></div>
+    <div class="card"><h3>L1→L2 graduation bar</h3><p>Two weeks at L1 · &lt;20% noise · verifier proven manually first · denylist documented · loop-audit ≥58. “Report-only is not wasted time — it calibrates triage.”</p></div>
+  </div>
+  <p class="sub">9 failure modes (infinite fix loop, state rot, <b>verifier theater</b>, token burn, parallel collision…) + 10 anti-patterns (same agent verifies own work · no attempt cap · L3 before L1 · no kill switch · auto-merge without allowlist · no run log…).</p>
+
+  <h2>Verdict (v189)</h2>
+  <div class="verdict">
+    <div class="vrow">
+      <span class="chip hot">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="chip">(a) FAIL — Kore AI evangelist, not Anthropic</span>
+      <span class="chip">(b) STRONG — keys the tier</span>
+      <span class="chip">(c) STRONG</span>
+      <span class="chip">(d) STRONG</span>
+    </div>
+    <p><b>Pattern outcome: 1 NEW §C standalone at N=1 — “Loop-Engineering Codification Kit”</b> (named-methodology pattern collection + starters + readiness-scoring CLIs for scheduled <i>unattended</i> agent loops; maker/checker · LOOP/STATE/budget/run-log conventions · L0→L3 ladder · token-budget governance). <b>Corpus-first for the loop-operations-methodology surface only</b> — the domain has platform-layer precedent (gh-aw v48, credited) and the concept is Osmani/Cherny/Steinberger’s (credited). NO-MINT alternative recorded operator-reviewable. Counts unchanged 46/11; §C standalones 32→33; streak GA:50; §35 clear.</p>
+    <p class="sub">Secondary (not minted): #57 forward-citation of corpus subject Osmani v184 · #19 19a first Greyling author · #84 84c cross-harness (no bump) · #81 drift-family data-point (loop-sync) · #83 honest-disclosure · LV-C3 dogfooding · LV#20 qualified-adjacent (N stays 4) · #12 new artifact-types LOOP.md/STATE.md/loop-constraints.md · #66 install benign (zero postinstall/network). Non-claims: NOT #52 (stars page-stated) · NOT world-first · NOT gh-aw N=2 · NOT #18 B1-MCP.</p>
+  </div>
+
+  <h2>Apply it — the recommended ladder (24-method menu in the vault)</h2>
+  <ol class="ladder">
+    <li><b>A1–A4</b> Read the spine + the two origin essays; gap-map your existing loops (autopilot, wiki routine, scheduled tasks) against schedule/triage/state/checker/budget/run-log; pre-mortem via the failure stories. Zero risk, ~2h.</li>
+    <li><b>B5</b> Score the vault: <code>node tools/loop-audit/dist/cli.js . --suggest</code> from the pinned clone — zero install, read-only.</li>
+    <li><b>C9+C11+C12</b> Borrow by hand: STATE.md spine · JSON run-log · loop-budget with the 80% report-only / 100% kill-switch rule (composes with the v188 budget-guard steal, claude-api-cost-optimization thread).</li>
+    <li><b>C14</b> Port the REJECT-first loop-verifier into <code>05 Skills/</code> (composes with doubt-driven-development v184).</li>
+    <li><b>D16</b> hireui PR-Babysitter at <b>L1 report-only</b> on an <code>agent-*</code> branch — a completed week = the first Goal-#2 pilot artifact since v153.</li>
+    <li><b>D18</b> Only then graduate ONE loop to L2 patch-only, per the repo’s own bar (2 weeks L1, &lt;20% noise, verifier proven, loop-audit ≥58).</li>
+  </ol>
+  <p class="sub"><b>Fence:</b> pin <code>f18df04</code> · run CLIs from the clone (or npm-security-check + install-snapshot first) · never start above L1 · budget + kill switch before any schedule · hireui per its CONSTITUTION (I-2 / I-8 / GitNexus-first) · never <code>--dangerously-skip-permissions</code>. Supply chain verified benign at this commit.</p>
+
+  <div class="card caveat" style="margin-top:1.2rem">
+    <h3>Honest caveats</h3>
+    <ul>
+      <li>~22 days old; adoption evidence = self-dogfood + stories explicitly labeled “anonymized production-style narrative.”</li>
+      <li>loop-audit measures <i>scaffolding presence</i> (files/regex), not loop quality — a well-scaffolded bad loop can score L2.</li>
+      <li>README names Cursor; no Cursor starter exists. ci-sweeper starter lacks its LOOP.md. Root budget file diverges from its own template.</li>
+      <li>Cost figures are estimates/budgets, not metered bills. npm packages badge/tag-stated (registry fetch blocked).</li>
+    </ul>
+  </div>
+
+  <p class="foot">v189 · corpus docs: 03 Projects/loop-engineering — Beginner Analysis/ (Deep Dive · Verdict · Pilot Methods Menu) · verified: 13-agent read-only workflow wf_fbe77308-374 (~1.96M tok) for source/upstream only; all corpus/collision/identity claims hand-verified · branch wiki/v189-loop-engineering · not auto-merged</p>
+</div>
