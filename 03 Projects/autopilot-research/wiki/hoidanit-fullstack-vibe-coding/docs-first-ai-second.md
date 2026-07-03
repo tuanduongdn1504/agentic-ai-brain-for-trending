@@ -3,7 +3,8 @@
 > The label "docs-first-AI-second" is ours; the position is Eric's, stated on camera (video #4, 13:06–13:34 + 22:14–22:46 + 44:30–52:25; video #3 restates it with a third reason).
 
 ## Source
-- Video #4 tD0Uve-0Ltk, chapters "Lý do chọn Nestjs" (13:43), "Tài liệu Nestjs" (16:05), "Fix lỗi typescript" (43:00); video #3 osISSsyTJJ8 (Vite init segment) — raw: `raw/2026-07-04-hoidanit-fullstack-vibe-coding.md`
+- Video #4 tD0Uve-0Ltk, chapters "Lý do chọn Nestjs" (13:43), "Tài liệu Nestjs" (16:05), "Fix lỗi typescript" (43:00) — raw: `raw/2026-07-04-hoidanit-fullstack-vibe-coding.md`
+- Video #3 osISSsyTJJ8 [00:33:04–00:35:15 + 01:02:41] — the series' most complete statement of the rule, now fully transcribed: `raw/2026-07-04-hoidanit-ep3-mvp-frontend.md`
 - Verbatim anchor [00:13:06]: *"Bởi vì không phải cái gì AI nó cũng biết. AI thì nó phụ thuộc vào data, nó training."* — "AI doesn't know everything. AI depends on its data, its training."
 
 ## The rule as taught
@@ -14,6 +15,7 @@
 - **Error fixing → AI is welcome**, with discipline: paste the exact error, apply one suggestion, re-run, repeat. On camera the TypeScript failure took *multiple* AI iterations with partial/wrong fixes (baseUrl/dist detours) before the version-pin resolution — the instructor narrates this as normal: **"AI is helper, not oracle"; every suggestion is verified empirically by re-running.**
 - **Upgrades → docs Migration section** (e.g., NestJS 11's Express-5 change), not AI summaries.
 - Complement: **read docs at your project's version** (version dropdown), because real jobs maintain old versions — see [[version-pinning-discipline]].
+- **Ep-3 nuance (full transcript):** docs-first is the *learning* rule; for the *cohort*, students download his frozen scaffold instead of re-running create-vite ("Download dự án init FE tại đây — KHÔNG tự coding phần này") — the demo teaches the thinking, the frozen artifact carries the course. See [[vite-react-init-workflow]].
 - Scope boundary from ep 1: the human also owns **what to build** — "bây giờ các bạn muốn xây sản phẩm gì?"; product scope is never delegated to AI ([[beginner-pedagogy-model]]).
 
 ## Why this matters beyond beginners

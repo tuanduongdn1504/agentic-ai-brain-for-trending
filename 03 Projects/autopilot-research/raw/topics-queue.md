@@ -109,4 +109,4 @@
 - **Wiki output:** [[../wiki/10x-claude-code/_index]] — 5 articles + index
 - **NotebookLM:** `d1d18b0b-ab85-4773-a999-98f36fb39cf5`
 
-- TODO: hoidanit fullstack-vibe-coding series — re-drain playlist PLPTXD_6Mbmh4 when episode >=5 lands (check: yt-dlp --flat-playlist); PRIORITY when the AI-consult-agent episode ships (wiki/hoidanit-fullstack-vibe-coding gap)
+- TODO: hoidanit fullstack-vibe-coding series — re-drain playlist PLPTXD_6Mbmh4 when episode >=5 lands; **cadence now deterministic (ep-3 deepening 2026-07-04): live Mondays 19:30 ICT, VOD Wednesdays → ep-5 (React fundamentals) expected ~Wed 2026-07-08**; PRIORITY when the AI-consult-agent episode ships (wiki/hoidanit-fullstack-vibe-coding gap)

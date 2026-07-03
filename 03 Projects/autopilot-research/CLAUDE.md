@@ -176,6 +176,16 @@ When ANY fetch (WebFetch / curl / Playwright / NotebookLM ingest) returns 403 / 
 
 This rule exists because re-trying same approach after block = repeating the same mistake. The escalation skill ensures monotonic progress through tiers + minimal-install discipline. See [(C) bypass-403-escalation.md](skills/(C)%20bypass-403-escalation.md) for full phase structure.
 
+### Discard-as-garble guard (added 2026-07-04 after the Vite×Cloudflare overturned discard)
+
+When a digest/lens/verify agent (or the main loop) is about to DISCARD a claim as caption-garble, confabulation, or "plausible-magnitude do-not-quote":
+
+1. **If the claim is date-sensitive news** (acquisition, release, pricing change, shutdown, hiring/joining), run **ONE search** before discarding. Discard only after the search comes back empty. Rationale: the 2026-07-04 ep-4 ship discarded "Vite acquired by Cloudflare" as garble — it was a real acquisition (Cloudflare acquired VoidZero 2026-06-04, 18 days before the source video). Fresh true claims look exactly like garble to a training-data-bounded skeptic.
+2. **If the claim is a checkable number** (stars, versions, ports), prefer a 1-call ground-truth check (GitHub API / registry JSON) over a do-not-quote flag — the check is usually cheaper than the hedge.
+3. **When a later pass proves a discarded claim TRUE**, log it in the topic's caveats file under a `⚠️ OVERTURNED` section, as loudly as a correction (prime directive: don't repeat the same mistake twice — in either direction).
+
+Include rule 1 verbatim in digest-agent and skeptic prompt templates for date-sensitive topics.
+
 ### Coverage discipline (CRITICAL — added 2026-05-08 after silent-gap incident)
 
 When the user asks anything about coverage — "what's done", "what topics exist", "what's been ingested", "status of X" — you MUST reconcile **all three** sources before answering:

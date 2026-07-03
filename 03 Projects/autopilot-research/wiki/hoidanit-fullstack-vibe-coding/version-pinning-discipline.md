@@ -10,6 +10,9 @@
 - **Read-old-docs skill** [21:18–21:46]: the docs version dropdown is a first-class tool; *"most jobs are maintaining old projects on old versions, not greenfield latest"* — the skill of reading version-matched docs beats reflexive upgrading.
 - **Editor-vs-project versions** [55:18]: VS Code bundles its own TypeScript (6.0.x line, real — 6.0.2 stable 2026-03-23) while the project pins 5.9.3; the mismatch warning is cosmetic. Root-cause literacy: *"máy không lỗi — phần mềm vênh version"* (the machine isn't broken; the versions disagree).
 
+## The procedure behind the pins
+- Ep-3 (full transcript, 2026-07-04 deepening) contains the mechanical workflow that *produces* these pins — git baseline → `ncu` → strip `^`/`~` → `ncu -u` → diff review → install. See [[version-pinning-procedure]].
+
 ## Corpus placement
 - Same instinct as the **committed Claude auto-memory as version-ledger** sighting in [[jsm-practical-vibe-coding/_index]] (pinning post-cutoff API knowledge for the agent) — here pinned for humans+AI in a teaching cohort.
 - Composes with [[docs-first-ai-second]]: docs give the procedure, pins freeze the substrate, AI operates inside that frozen frame.

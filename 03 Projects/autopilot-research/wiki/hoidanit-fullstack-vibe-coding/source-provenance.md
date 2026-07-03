@@ -34,9 +34,17 @@
 3. `verify:mysql` — "beginner standard" refutation sourced largely from a competitor's blog; downgraded to contested.
 4. WebFetch summarizer on docs.nestjs.com returned only the page title (SPA, no SSR body) — routed around via GitHub raw + search; no verdict was based on the empty fetch.
 
+## Ep-3 full treatment (2026-07-04 deepening)
+- **Ingest:** VN auto-subs for osISSsyTJJ8 (`--sleep-requests 2`) → 1.13MB VTT → 2,631-line / ~131K-char timestamped transcript — **read in full in the main loop** (not a digest agent). Raw: `raw/2026-07-04-hoidanit-ep3-mvp-frontend.md`.
+- **Workflow `wf_f3c7237f-4c4`** — 27 agents (10 original-resource dives + 16 refute-first skeptics [2 lenses × 8 pre-registered high-risk claims] + completeness critic), ~1.09M subagent tokens, 471 tool calls, ~3.6 min.
+- **Verdicts:** Vite→Cloudflare acquisition CONFIRMED (press release 2026-06-04 + voidzero.dev + vite.dev banner) · vite 8.0.16-latest-at-live-date CONFIRMED (8.1.0 landed the day after) · react-compiler-ts-as-2nd-variant CONFIRMED (create-vite src) · rolldown+lightningcss deps CONFIRMED (registry; one dive misfired, overridden) · typescript-eslint 8.59/8.61 timeline CONFIRMED · Tailwind economics PARTIAL (real, worse than told: −80% revenue + 75% layoffs Jan 2026) · shadcn-yes/AntD-no/Chakra-no Tailwind matrix CONFIRMED · live-Monday/VOD-Wednesday CONFIRMED (deterministic calendar) · Node v24.14.0+v24.16.0+v26.3.0 all real, npm-11-with-Node-24, even=LTS policy quotes · nvm 94,012★ · nvm-windows (coreybutler) active · ncu behavior exact · npm→GitHub(2020)→Microsoft(2018) chain · MVP lineage Robinson-2001/Ries-2011 · Magento 2.4.3 = 411 tables · COD-VN 60–85% · exactly **4 vibe-coding courses** on hoidanit.vn (ChatGPT&Codex / Claude Code / Claude AI Zero / Antigravity) · "Git Zero" free course page found.
+- **Main-loop overrides (misfire ledger additions):** lightningcss-absent dive verdict (WebFetch-summarizer miss; registry override) · Node-26-"odd" parity error + Node-24-"Maintenance-LTS" phase error (both corrected against the policy text the agent itself quoted) · critic's spurious "npm-security-check plugin" reference (nothing in the video) + redundant Copilot-pricing re-check (already ground-truthed in ep-4 pass).
+- **Course-doc agent honesty:** this pass's mobilebasic fetch returned AI-processed summary (not verbatim); it confirmed the Node-24 pin + v24.14.0 link + Drive starter + git links; the "Copilot (15$)" and "Mon 19:30" verbatim pins remain sourced from the ep-4 pass's fetches.
+- **Notable meta-result:** two prior-ship skeptical discards were OVERTURNED as true (Vite×Cloudflare; Vite-81K stars) — logged in [[caveats-and-corrections]] as the "discard-as-garble" misfire class.
+
 ## Honesty inventory
 - Transcript is Vietnamese ASR: tool names/version numbers systematically garbled; every number quoted in this topic was re-verified outside the captions or explicitly flagged ([[caveats-and-corrections]]).
-- Videos #1–#3 were ingested as metadata + doc recap only (transcripts not read) at first compile; series-level claims lean on the doc + #4's recap chapter.
+- Videos #1–#2 were ingested as metadata + doc recap + digest-grade transcripts; **video #3 upgraded to full first-party treatment 2026-07-04**; series-level claims lean on the doc + #4's recap chapter + #3's full transcript.
 - The "Claude Code on screen" observation is caption-derived (95% digest confidence), not visually confirmed.
 - Sub count 74.6K: yt-dlp figure, search-corroborated; not browser-confirmed.
 
