@@ -9,14 +9,15 @@ Last run: 2026-07-02 (manual — C-block adoption, pilot/v189-loop-a3-b5)
 ## High Priority (loop is acting or waiting on human)
 
 - [ ] MERGE-PENDING: `pilot/v189-loop-a3-b5` (A3+B5 pilot doc + this C-block commit) — operator merges.
+- [ ] MERGE-PENDING: `wiki/v190-strix` (v190 Strix ship — off main `2cdda3c`; (C) Deep Dive + Verdict + 24-method Pilot Methods Menu + wiki.html + `_state/03c` v190 entry + `_patterns/06` §C-row-N=2 + §F log + shim sync; HTML artifact published) — operator reviews + merges.
 - [ ] D16 week one IN FLIGHT: hireui PR-Babysitter L1 report-only on branch `agent-loop-pr-babysitter` (installed + **first run DONE 2026-07-02**, commit `270e0326`) — operator continues with `/loop 15m` in hireui-rooted Claude Code sessions during work hours; graduation decision after ~1 week (bar: <20% noise · verifier proven · loop-audit ≥58).
 - [ ] ESCALATION from D16 run 1 → operator: **hireui PR #744** ([TA-1594] Referral Program UI, hrf-henry) is stalled — 15 days idle, 0 reviews, no CI checks on its branch, 58 files. Assign a reviewer or park it; check why CI didn't trigger on `TA-1594-*`.
 
 ## Watch List
 
 - E20 pending: score the LLM-wiki routine against the 10-section loop-design checklist.
-- Next audit (~v192): §F recount in `_patterns/06` (v188 late-sync flag) + the v189 mint review (NO-MINT alternative recorded) + #57/#81/LV-C3 tallies from v189.
-- Shim's standing PILOT-lever line ("zero piloted") goes stale when D16 completes — update at next ship/audit.
+- Next audit (~v192): §F recount in `_patterns/06` (v188 late-sync flag + the running-count line) + the v189 **and v190** mint reviews (both NO-MINT alternatives recorded operator-reviewable) + **the v190 §C N=2 mint "Autonomous Multi-Agent Offensive AI Penetration-Testing System" crediting shannon v45's un-registered priority + the T5 AI-pentester tier → N=2 (shannon v45 + Strix v190)** + #57/#81/LV-C3 tallies from v189 + #28/#66 from v190.
+- Shim's standing PILOT-lever line ("zero piloted") is now doubly stale: v189 D16 (loops) is IN FLIGHT + v190 Strix opens a 2nd Goal-#2 track (authorized hireui security-testing — the first corpus subject natively pilotable as a security tool against a real app you own) — update at next ship/audit.
 
 ## Recent Noise (ignored this run)
 

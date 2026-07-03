@@ -1,0 +1,202 @@
+<style>
+  :root{
+    --ink:#0e1319; --panel:#141b23; --panel2:#1b2531; --line:#26313d;
+    --fg:#e6edf3; --mut:#9bacbd; --dim:#6b7c8d;
+    --accent:#4c93f7; --accent-dim:#2b5b9e;
+    --crit:#e5484d; --high:#f07830; --med:#e0a020; --low:#3fb865; --info:#4c93f7;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 72px;color:var(--fg);
+    font-family:var(--sans);font-size:16px;line-height:1.62;
+    background:var(--ink);}
+  .wrap ::selection{background:var(--accent-dim);color:#fff}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:var(--accent)}
+  h1,h2,h3{text-wrap:balance;line-height:1.2;margin:0}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+  /* hero */
+  .hero{padding:56px 0 34px;border-bottom:1px solid var(--line)}
+  .owl{font-size:40px;line-height:1;filter:grayscale(.15)}
+  .badge{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+    color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:3px 11px;margin-bottom:18px}
+  h1{font-size:clamp(38px,7vw,64px);font-weight:800;letter-spacing:-.02em;margin:10px 0 6px}
+  .tag{font-size:clamp(17px,2.4vw,21px);color:var(--mut);max-width:42ch;font-weight:400}
+  .verdict{margin-top:24px;font-family:var(--mono);font-size:13.5px;color:var(--fg);
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--low);
+    border-radius:8px;padding:13px 16px;display:inline-block}
+  .verdict b{color:var(--low)}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:30px 0 4px}
+  .stat{background:var(--panel);padding:15px 16px}
+  .stat .k{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums}
+  .stat .l{font-size:11.5px;color:var(--dim);letter-spacing:.03em;margin-top:3px}
+
+  section{padding:40px 0 4px;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  h2{font-size:13px;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  h3{font-size:18px;font-weight:700;margin:24px 0 8px}
+  p{margin:0 0 14px;color:#d3dde6}
+  .lead{font-size:17.5px;color:var(--fg)}
+  strong{color:#fff;font-weight:650}
+  code{font-family:var(--mono);font-size:.87em;background:var(--panel2);color:#c7d6e6;padding:1.5px 6px;border-radius:5px}
+
+  /* agent graph */
+  .graph{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 20px;margin:8px 0 20px;overflow-x:auto}
+  .chain{font-family:var(--mono);font-size:13.5px;white-space:nowrap;padding:6px 0;color:var(--mut)}
+  .chain .node{color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 10px;display:inline-block}
+  .chain .arrow{color:var(--accent);padding:0 8px}
+  .chain .g{color:var(--accent)}
+  .glyphkey{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .glyphkey b{color:var(--mut);font-weight:600}
+
+  /* layers */
+  .layers{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .layer{background:var(--panel);padding:16px 18px;display:grid;grid-template-columns:26px 1fr;gap:14px}
+  .layer .n{font-family:var(--mono);color:var(--accent);font-size:13px;padding-top:2px}
+  .layer .t{font-weight:650;color:#fff}
+  .layer .d{font-size:14.5px;color:var(--mut);margin-top:2px}
+
+  /* coverage chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+  .chip{font-family:var(--mono);font-size:12px;padding:5px 11px;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel);color:var(--mut)}
+  .chip::before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:8px;vertical-align:middle;background:var(--dim)}
+  .chip.c::before{background:var(--crit)} .chip.h::before{background:var(--high)}
+  .chip.m::before{background:var(--med)} .chip.l::before{background:var(--low)} .chip.i::before{background:var(--info)}
+
+  /* positioning row */
+  .pos{display:grid;grid-template-columns:1fr;gap:12px;margin-top:6px}
+  @media(min-width:640px){.pos{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .card .h{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.04em}
+  .card .m{font-size:15px;color:#fff;font-weight:650;margin:6px 0 4px}
+  .card .s{font-size:13.5px;color:var(--mut)}
+  .card.self{border-color:var(--accent-dim);box-shadow:inset 0 0 0 1px var(--accent-dim)}
+
+  /* warning */
+  .warn{background:#1e1512;border:1px solid #4a2a20;border-left:3px solid var(--high);border-radius:10px;padding:18px 20px;margin:6px 0}
+  .warn h3{color:var(--high);margin:0 0 8px;font-size:15px}
+  .warn ul{margin:0;padding-left:18px;color:#e8d3c6;font-size:14.5px}
+  .warn li{margin:5px 0}
+
+  /* ladder */
+  .rung{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .rung:last-child{border-bottom:none}
+  .rung .L{font-family:var(--mono);font-weight:700;color:var(--accent);font-size:15px}
+  .rung .rt{font-weight:650;color:#fff;font-size:15px}
+  .rung .rd{font-size:14px;color:var(--mut);margin-top:2px}
+
+  footer{padding-top:34px;color:var(--dim);font-size:12.5px;font-family:var(--mono);line-height:1.7}
+  footer b{color:var(--mut);font-weight:600}
+  .note{font-size:13px;color:var(--dim);font-style:italic;margin-top:8px}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="owl">🦉</div>
+    <div class="badge">LLM WIKI · v190 · usestrix/strix</div>
+    <h1>Strix</h1>
+    <p class="tag">The open-source AI pentesting tool — autonomous AI hackers that find, prove, and fix your app's vulnerabilities.</p>
+    <div class="verdict mono">GOAL-ALIGNED INCLUDE 3/4 &nbsp;·&nbsp; (a) FAIL · <b>(b) STRONG</b> · (c) STRONG · (d) STRONG</div>
+
+    <div class="stats">
+      <div class="stat"><div class="k">32.3k★</div><div class="l">stars · 3.4k forks</div></div>
+      <div class="stat"><div class="k">45</div><div class="l">skill files</div></div>
+      <div class="stat"><div class="k">~20</div><div class="l">agent tools</div></div>
+      <div class="stat"><div class="k">96%</div><div class="l">XBEN (100/104)</div></div>
+      <div class="stat"><div class="k">N=2</div><div class="l">AI-pentester (after shannon v45)</div></div>
+    </div>
+    <p class="note">Apache-2.0 · Python 91% · PyPI <code>strix-agent</code> v1.0.4 (still classified "Alpha") · source-verified at commit <code>e6ca4d2</code>. Stars/releases page-stated (§37.4).</p>
+  </header>
+
+  <section>
+    <h2>The pitch</h2>
+    <p class="lead">Point it at a URL, a domain, a repo, or a local codebase. It spins up a <strong>graph of specialized AI agents</strong> that run inside an isolated Kali Docker sandbox stocked with ~60 real pentest tools — and each agent <em>thinks, calls a tool, reads the output, and iterates like a human attacker.</em></p>
+    <p>The discipline that makes it worth trusting: <strong>a finding is only reported once a separate validation agent proves it with a working proof-of-concept.</strong> No exploit, no report — so it claims <strong>zero false positives by construction</strong> ("if the PoC works, the vulnerability is real"). In white-box mode it also writes the fix as a code diff.</p>
+  </section>
+
+  <section>
+    <h2>Graph of Agents · the crown jewel</h2>
+    <p>The root agent is an <strong>orchestrator, not a tester</strong> — it delegates, tracks todos, monitors results, and spawns specialist children <em>reactively</em> as attack surface is discovered. Nested trees, one job per agent, mandatory independent validation.</p>
+    <div class="graph">
+      <div class="chain"><span class="g">black-box</span> &nbsp; <span class="node">Discovery</span><span class="arrow">→</span><span class="node">Validation · PoC</span><span class="arrow">→</span><span class="node">Reporting</span></div>
+      <div class="chain"><span class="g">white-box</span> &nbsp; <span class="node">Discovery</span><span class="arrow">→</span><span class="node">Validation · PoC</span><span class="arrow">→</span><span class="node">Reporting</span><span class="arrow">→</span><span class="node">Fixing · diff</span></div>
+      <div class="glyphkey">
+        <span><b>◈</b> spawn</span><span><b>→</b> message</span><span><b>◆</b> finish</span><span><b>○</b> wait</span><span><b>◼</b> stop (cascade)</span>
+      </div>
+    </div>
+    <p class="note">Built on the OpenAI Agents SDK + LiteLLM (not the Claude Agent SDK). Async parent/child coordinator · inbox messaging · graceful cascade-cancel · <code>max_turns=500</code> · optional <code>--max-budget-usd</code> dollar cap. The "validation is mandatory — never trust scanner output" rule is a maker/checker pattern, mirroring the vault's own loop-verifier (v189).</p>
+  </section>
+
+  <section>
+    <h2>Five layers</h2>
+    <div class="layers">
+      <div class="layer"><div class="n">01</div><div><div class="t">Agent loop &amp; coordinator</div><div class="d">Think→act→observe→iterate; a live parent/child agent tree; a tool-call-or-terminate contract (a text-only turn ends the run — the same durable-state lesson as loop-engineering v189).</div></div></div>
+      <div class="layer"><div class="n">02</div><div><div class="t">Tool surface (~20)</div><div class="d">Caido HTTP-interception proxy (capture / inspect / replay-with-mods) · CVSS-3.1 vuln-report writer with PoC-required + fix diffs + LLM dedup · Perplexity research · notes/todos/think.</div></div></div>
+      <div class="layer"><div class="n">03</div><div><div class="t">Skills (progressive disclosure)</div><div class="d">45 Markdown skill files — the Anthropic-style SKILL.md pattern applied to a security vertical. <code>create_agent(skills=[...])</code> + <code>load_skill</code>. Scan modes (quick/standard/deep) are themselves skills.</div></div></div>
+      <div class="layer"><div class="n">04</div><div><div class="t">Kali Docker sandbox</div><div class="d">Per-scan ephemeral container + in-container Caido MITM sidecar + ~60 tools (nmap, nuclei, sqlmap, ffuf, semgrep, a headless browser…). Isolates the <em>tools</em> from your machine — not the <em>target</em> from the agent.</div></div></div>
+      <div class="layer"><div class="n">05</div><div><div class="t">Delivery</div><div class="d">CLI + live-agent-graph TUI · CI diff-scope gate (exit 2 fails a PR) · resume · 8 LLM providers · reports as Markdown/CSV/JSON · a commercial hosted twin at app.strix.ai.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Vulnerability coverage · 21 skills</h2>
+    <p>OWASP Top 10 and beyond — each an agent-loadable skill (attack surface → methodology → validation → false-positives):</p>
+    <div class="chips">
+      <span class="chip c">RCE</span><span class="chip c">SQL injection</span><span class="chip c">SSTI</span>
+      <span class="chip h">SSRF</span><span class="chip h">XXE</span><span class="chip h">IDOR</span><span class="chip h">Broken access control</span><span class="chip h">Auth / JWT</span>
+      <span class="chip m">XSS</span><span class="chip m">CSRF</span><span class="chip m">Race conditions</span><span class="chip m">Business logic</span><span class="chip m">Mass assignment</span><span class="chip m">NoSQL injection</span>
+      <span class="chip l">Path traversal</span><span class="chip l">Open redirect</span><span class="chip l">File uploads</span>
+      <span class="chip i">Subdomain takeover</span><span class="chip i">Info disclosure</span><span class="chip i">Header injection</span><span class="chip i">Request smuggling</span>
+    </div>
+    <p class="note">Plus tooling skills (nmap/nuclei/sqlmap/ffuf/semgrep…), frameworks (FastAPI/NestJS/Next.js), technologies (Supabase/Firebase), and GraphQL.</p>
+  </section>
+
+  <section>
+    <h2>Where it sits in the corpus</h2>
+    <div class="pos">
+      <div class="card"><div class="h">v45 · N=1</div><div class="m">shannon</div><div class="s">The corpus-first autonomous AI pentester (white-box, TypeScript, Keygraph). Un-registered priority — credited.</div></div>
+      <div class="card self"><div class="h">v190 · N=2 · this</div><div class="m">Strix</div><div class="s">The 2nd instance — Python, black+white-box + auto-fix, Caido MITM, CI gate. Directly pilotable against hireui.</div></div>
+      <div class="card"><div class="h">v169 · defensive</div><div class="m">SkillSpector</div><div class="s">The counterpart — scans agent-skill packages. Offensive/defensive book-ends "AI security tooling."</div></div>
+    </div>
+    <p class="note" style="margin-top:16px">Pattern outcome: <strong>1 new §C standalone at N=2</strong> — "Autonomous Multi-Agent Offensive AI Penetration-Testing System" — minted crediting shannon v45's priority (the camofox v179 / codebase-memory-mcp v172 precedent). A NO-MINT alternative (clean N=2 of the T5 AI-pentester sub-archetype) is recorded operator-reviewable. Counts unchanged <strong>46 / 11</strong>.</p>
+  </section>
+
+  <section>
+    <h2>Dual-use · read before piloting</h2>
+    <div class="warn">
+      <h3>⚠ This is an offensive tool with no built-in authorization guard</h3>
+      <ul>
+        <li><strong>Only test what you own / are authorized to test.</strong> The OSS CLI has zero enforcement — a README warning is the only guard. Running exploits elsewhere risks CFAA / cybercrime / GDPR exposure.</li>
+        <li><strong>Telemetry is opt-out, default-ON</strong> → <code>export STRIX_TELEMETRY=0</code>. (README says it never collects vuln details; the code does send severity counts + token spend.)</li>
+        <li><strong>Set <code>--max-budget-usd</code></strong> — it's off by default. ~$3.37/challenge on the benchmark; a deep scan runs into real money.</li>
+        <li><strong>Never against production</strong> — aggressive scans can DoS the target (independently observed: DB pool exhaustion).</li>
+        <li>Prefer <code>pip install strix-agent</code> over <code>curl|bash</code> (no digest pin / no signature); run <code>install-snapshot</code> first.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pilot ladder · security-test hireui</h2>
+    <p>The load-bearing delta from shannon v45 (which was low-pilot only because the vault was markdown-only): <strong>you now own hireui — a real, authorized, testable app.</strong></p>
+    <div class="rung"><div class="L">A</div><div><div class="rt">Read &amp; learn</div><div class="rd">The system prompt as an orchestration masterclass; the agent-graph tools; the skill format.</div></div></div>
+    <div class="rung"><div class="L">B</div><div><div class="rt">Borrow patterns into your own work · highest ROI, zero risk</div><div class="rd">Maker/checker → your loop-verifier · the SKILL.md format → your <code>05 Skills/</code> · a "security-sweeper" 8th loop pattern · the USD-budget guard → your cost-opt spec.</div></div></div>
+    <div class="rung"><div class="L">C</div><div><div class="rt">Low-risk scratch trials</div><div class="rd">Install snapshot → run against OWASP Juice Shop (quick mode, budget $3, telemetry off) → read a full report.</div></div></div>
+    <div class="rung"><div class="L">D</div><div><div class="rt">Authorized hireui testing · the real payoff</div><div class="rd">White-box quick scan of a scratch clone, focused on IDOR / broken-access-control / auth (multi-tenant PII risk). A report-only PR sweep for 2 weeks before it blocks. Route the backend at Claude Sonnet 4.6.</div></div></div>
+    <div class="rung"><div class="L">E</div><div><div class="rt">Meta / vault</div><div class="rd">Compare its Graph-of-Agents to your workflow fan-outs; feed the ai-berkshire "AI Hiring Committee" idea with its specialist-spawn model.</div></div></div>
+    <p class="note" style="margin-top:18px"><strong>One-thing path:</strong> B5+B7 (borrow, ~1 hr) → C12 (Juice Shop smoke test) → D15/D16 (quick white-box scan of hireui's API on a scratch clone, <code>agent-*</code> branch, budget $5, telemetry off) = your first completed Goal-#2 security artifact.</p>
+  </section>
+
+  <footer>
+    <b>Ship v190</b> · usestrix/strix · GOAL-ALIGNED INCLUDE 3/4 · 1 new §C standalone (N=2, pentester) · counts 46 / 11 unchanged · streak GA:51 · 36 consecutive goal-aligned ships v153→v190.<br>
+    <b>Verified</b> INLINE + by hand per feedback_wiki_verify_independently_check_collisions · 12-agent read-only workflow did source + upstream only · pinned <code>e6ca4d2</code>.<br>
+    <b>Docs</b> · (C) Strix — Deep Dive · (C) Strix — Verdict · (C) Strix — Pilot Methods Menu.
+  </footer>
+
+</div>
