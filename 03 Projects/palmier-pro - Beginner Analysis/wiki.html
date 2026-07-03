@@ -1,0 +1,493 @@
+<title>palmier-pro — LLM Wiki Entry (v192)</title>
+<style>
+  :root{
+    --ground:#15171b;
+    --panel:#1c1f24;
+    --panel-2:#20242a;
+    --line:#2b2f36;
+    --text:#e9e6dd;
+    --muted:#93958f;
+    --muted-2:#6f716c;
+    --amber:#d6a344;
+    --amber-dim:#8a713a;
+    --teal:#5ba79c;
+    --teal-dim:#3f5f59;
+    --fail:#8a5555;
+    --serif: "Iowan Old Style","Palatino Linotype","Hoefler Text",Georgia,ui-serif,serif;
+    --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono: ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --max: 760px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ground);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);text-decoration-color:var(--teal-dim);text-underline-offset:2px;}
+  a:hover{text-decoration-color:var(--teal);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  ::selection{background:var(--amber-dim);color:var(--ground);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px 96px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    padding:56px 24px 36px;
+    border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(214,163,68,0.06), transparent 60%),
+      var(--panel);
+  }
+  .masthead-inner{max-width:var(--max);margin:0 auto;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 14px;
+  }
+  h1.title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.1;
+    margin:0 0 8px;
+    text-wrap:balance;
+    color:var(--text);
+  }
+  .tagline{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:19px;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+  .slate{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .slate div{
+    background:var(--panel-2);
+    padding:12px 14px;
+  }
+  .slate .k{
+    display:block;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted-2);
+    margin-bottom:4px;
+  }
+  .slate .v{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--text);
+    font-variant-numeric:tabular-nums;
+    word-break:break-word;
+  }
+
+  /* ---------- Timeline ruler divider ---------- */
+  .ruler{
+    height:22px;
+    margin:52px 0 32px;
+    background-image:
+      repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 8px),
+      repeating-linear-gradient(90deg, var(--muted-2) 0 1px, transparent 1px 40px);
+    background-position:0 100%, 0 100%;
+    background-repeat:repeat-x;
+    background-size:100% 8px, 100% 14px;
+    position:relative;
+  }
+  .ruler::after{
+    content:attr(data-label);
+    position:absolute;
+    left:0; top:-4px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted-2);
+    background:var(--ground);
+    padding-right:10px;
+  }
+
+  section{margin-top:8px;}
+  h2{
+    font-family:var(--serif);
+    font-size:26px;
+    font-weight:600;
+    margin:0 0 16px;
+    text-wrap:balance;
+    color:var(--text);
+  }
+  h3{
+    font-family:var(--sans);
+    font-size:14px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin:28px 0 10px;
+  }
+  p{margin:0 0 14px;max-width:66ch;color:var(--text);}
+  p.lead{font-size:17.5px;color:var(--muted);}
+  ul,ol{margin:0 0 14px;padding-left:1.15em;max-width:66ch;}
+  li{margin-bottom:6px;}
+  strong{color:var(--text);font-weight:650;}
+  code{
+    font-family:var(--mono);
+    font-size:0.86em;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:0.1em 0.4em;
+    border-radius:4px;
+    color:#f0e6c8;
+  }
+  blockquote{
+    margin:0 0 14px;
+    padding:2px 0 2px 16px;
+    border-left:2px solid var(--teal-dim);
+    color:var(--muted);
+    font-style:italic;
+  }
+
+  /* ---------- Verdict scorecard ---------- */
+  .scorecard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    margin:18px 0 22px;
+  }
+  .score{background:var(--panel);padding:18px 16px;border-top:3px solid var(--muted-2);}
+  .score.strong{border-top-color:var(--teal);}
+  .score.fail{border-top-color:var(--fail);}
+  .score .letter{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted-2);
+    letter-spacing:0.06em;
+  }
+  .score .verdict{
+    font-family:var(--serif);
+    font-size:20px;
+    margin-top:4px;
+    color:var(--text);
+  }
+  .score.strong .verdict{color:var(--teal);}
+  .score.fail .verdict{color:var(--fail);}
+  .score p{font-size:13.5px;margin:8px 0 0;color:var(--muted);max-width:none;}
+
+  /* ---------- Architecture diagram ---------- */
+  .arch{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:14px;
+    margin:18px 0 8px;
+  }
+  @media (max-width:620px){.arch{grid-template-columns:1fr;}}
+  .arch .box{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px;
+  }
+  .arch .box .name{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--amber);
+    margin-bottom:6px;
+  }
+  .arch .box p{font-size:13.5px;color:var(--muted);margin:0;max-width:none;}
+  .arch .join{
+    text-align:center;
+    color:var(--muted-2);
+    font-family:var(--mono);
+    font-size:18px;
+    align-self:center;
+  }
+  @media (max-width:620px){.arch .join{transform:rotate(90deg);}}
+
+  /* ---------- Pattern outcome callout ---------- */
+  .mint{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-left:3px solid var(--amber);
+    border-radius:0 8px 8px 0;
+    padding:20px 22px;
+    margin:18px 0 22px;
+  }
+  .mint .tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ground);
+    background:var(--amber);
+    padding:3px 9px;
+    border-radius:3px;
+    margin-bottom:10px;
+  }
+  .mint h4{
+    font-family:var(--serif);
+    font-size:19px;
+    margin:0 0 10px;
+    color:var(--text);
+  }
+  .no-mint{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+    font-size:13.5px;
+    color:var(--muted);
+  }
+  .no-mint .tag{background:var(--muted-2);}
+
+  /* ---------- Pricing table ---------- */
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;}
+  th{font-family:var(--mono);font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted-2);font-weight:500;}
+  td.num{font-variant-numeric:tabular-nums;color:var(--text);}
+  .table-wrap{overflow-x:auto;}
+
+  /* ---------- Pilot methods ---------- */
+  .pilot-groups{display:flex;flex-direction:column;gap:22px;margin-top:4px;}
+  .pgroup{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:18px 20px;}
+  .pgroup .ghead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+  .pgroup .glabel{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ground);
+    background:var(--teal);
+    border-radius:4px;
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .pgroup .gname{font-family:var(--sans);font-size:14.5px;color:var(--text);font-weight:650;}
+  .pgroup ul{margin:0;padding-left:1.1em;max-width:none;}
+  .pgroup li{font-size:14.5px;color:var(--muted);margin-bottom:8px;}
+  .pgroup li strong{color:var(--text);}
+  .one-thing{
+    background:var(--panel);
+    border:1px solid var(--amber-dim);
+    border-radius:8px;
+    padding:16px 18px;
+    margin-bottom:22px;
+    font-size:14.5px;
+  }
+  .one-thing .k{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
+  .chip{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:4px 12px;
+  }
+
+  footer{
+    margin-top:64px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted-2);
+  }
+  footer p{max-width:none;font-size:12px;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .masthead, section{animation:fade-up 0.5s ease-out both;}
+    section:nth-of-type(2){animation-delay:0.03s;}
+  }
+  @keyframes fade-up{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+</style>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">LLM Wiki · Storm Bear vault · ship v192</p>
+    <h1 class="title">palmier-pro</h1>
+    <p class="tagline">&ldquo;The video editor built for AI&rdquo; &mdash; a native macOS timeline editor that ships its own MCP server.</p>
+    <div class="slate">
+      <div><span class="k">Author</span><span class="v">Palmier, Inc.</span></div>
+      <div><span class="k">Founded</span><span class="v">2024 &middot; YC S24</span></div>
+      <div><span class="k">License</span><span class="v">GPLv3 (+ closed AI)</span></div>
+      <div><span class="k">Language</span><span class="v">Swift 6.2</span></div>
+      <div><span class="k">Platform</span><span class="v">macOS 26, Apple Silicon</span></div>
+      <div><span class="k">Verified commit</span><span class="v">9a3ae502&hellip;3b8d2</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section aria-label="What it is">
+  <div class="ruler" data-label="00:00 — orientation"></div>
+  <h2>Not what the name suggested</h2>
+  <p class="lead">This vault's history is full of <em>code</em>-context and <em>code</em>-graph MCP servers &mdash; graphify, GitNexus, codegraph, codebase-memory-mcp. Given the MCP angle, that was the first guess for palmier-pro. It's wrong.</p>
+  <p>Palmier Pro is a <strong>native macOS video editor</strong>. Its &ldquo;for AI&rdquo; tagline means two distinct things at once: generative video/image/audio models (Seedance&nbsp;2, Kling&nbsp;3, Nano Banana Pro, Veo, Suno) are wired directly into the timeline, <em>and</em> the app ships its own MCP server so an external coding agent &mdash; Claude Code, Claude Desktop, Codex, or Cursor &mdash; can open a real editing session and drive the timeline directly: read state, add or trim clips, generate media, grade color, export.</p>
+  <p>A different, older product from the same two-person team is also called &ldquo;Palmier&rdquo; &mdash; a GitHub code-review tool, YC S24 2024. It's a separate repo and not the subject requested here.</p>
+
+  <h3>Company, verified by hand</h3>
+  <p>Palmier, Inc. is San&nbsp;Francisco-based, incorporated 2024, a Y&nbsp;Combinator S24 company with two disclosed founders: <strong>Marcos Rico Peng</strong> (CEO, UC&nbsp;Berkeley EECS, ex-LinkedIn infrastructure) and <strong>Harrison Tin</strong> (CTO, UC&nbsp;Berkeley EECS, ex-Microsoft). ~$500K raised from YC, Immeasurable, Interlace Ventures, Scale&nbsp;Asia Ventures and two named angels. No Anthropic affiliation &mdash; Claude, Codex and Cursor get equal billing as MCP clients.</p>
+
+  <h3>Open-core, cleanly disclosed</h3>
+  <p>GPLv3 covers the editor, the MCP server, and the in-app agent chat. The one closed-source piece is the generative-AI processing backend, gated behind a subscription.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Feature</th><th>Free</th><th>Pro &middot; $29/mo</th><th>Max &middot; $69/mo</th></tr></thead>
+    <tbody>
+      <tr><td>Editing, timeline tools, MP4/XML export</td><td class="num">&check;</td><td class="num">&check;</td><td class="num">&check;</td></tr>
+      <tr><td>AI generation (video / image / audio / upscale)</td><td class="num">&mdash;</td><td class="num">&check;</td><td class="num">&check;</td></tr>
+      <tr><td>Palmier chat</td><td class="num">&mdash;</td><td class="num">&check;</td><td class="num">&check;</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-label="Architecture">
+  <div class="ruler" data-label="00:08 — architecture"></div>
+  <h2>Three subsystems, one dispatcher</h2>
+  <p>~325 Swift files, SwiftUI + AppKit, Metal shaders for compositing. Read at the source (clone verified, not just the README):</p>
+  <div class="arch">
+    <div class="box"><div class="name">Editor</div><p>Timeline &amp; preview &mdash; ripple/overwrite engines, snapping, keyframes, color grading, frame-accurate AVFoundation compositing.</p></div>
+    <div class="join">&rarr;</div>
+    <div class="box"><div class="name">Agent / MCP</div><p>HTTP MCP server on <code>127.0.0.1:19789</code>. A single <code>ToolExecutor</code> dispatches <strong>51 tools</strong> &mdash; <code>get_timeline</code>, <code>add_clips</code>, <code>generate_video</code>, <code>apply_color</code>, <code>export_project</code>&hellip;</p></div>
+    <div class="join">&rarr;</div>
+    <div class="box"><div class="name">Generation</div><p>Multi-provider video/image/audio abstraction, per-model cost estimate, async submit&rarr;poll&rarr;auto-import.</p></div>
+  </div>
+  <p>The MCP tool layer is the single best-tested part of the codebase &mdash; 1,885 lines in <code>ToolExecutorTests.swift</code> alone, out of 13.9K test lines total. Distribution is a signed &amp; notarized DMG with Sparkle auto-update; no <code>curl&#124;bash</code>, no postinstall scripts. Honest gaps: no published benchmarks, an undisclosed Sentry telemetry-consent flow (opt-out, default-on), no checksum published for the DMG itself.</p>
+</section>
+
+<section aria-label="Verdict">
+  <div class="ruler" data-label="00:16 — verdict"></div>
+  <h2>Verdict &mdash; GOAL-ALIGNED INCLUDE 3/4</h2>
+  <div class="scorecard">
+    <div class="score fail">
+      <span class="letter">(a) Anthropic axis</span>
+      <div class="verdict">FAIL</div>
+      <p>Disclosed, funded startup &mdash; not Anthropic. Claude is one of three equally-billed agents.</p>
+    </div>
+    <div class="score strong">
+      <span class="letter">(b) Goal relevance</span>
+      <div class="verdict">STRONG</div>
+      <p>Not strongest &mdash; keys the tier. A real template for making a product &ldquo;agent-native.&rdquo;</p>
+    </div>
+    <div class="score strong">
+      <span class="letter">(c) Substance</span>
+      <div class="verdict">STRONG</div>
+      <p>325 files, 13.9K test lines, real CI &mdash; with honest early-product caveats.</p>
+    </div>
+    <div class="score strong">
+      <span class="letter">(d) Cross-refs</span>
+      <div class="verdict">STRONG</div>
+      <p>Clean contrasts against OpenMontage v188, serve-sim v183, and the code-graph MCP family.</p>
+    </div>
+  </div>
+
+  <div class="mint">
+    <span class="tag">Pattern outcome &middot; 1 new §C standalone, N=1</span>
+    <h4>&ldquo;Product-First Native Application Retrofitted with a First-Party MCP Server&rdquo;</h4>
+    <p>Every prior MCP server in this corpus was built <em>to be</em> an agent tool &mdash; the MCP surface <em>is</em> the product (the code-graph family, <code>google_workspace_mcp</code>, <code>devspace</code>, <code>cortex-hub</code>). Palmier Pro inverts that: it's a complete, sellable product first, and MCP-nativity is a bolt-on feature &mdash; the same move now spreading across Figma-, Notion-, and Linear-class tools.</p>
+    <div class="no-mint">
+      <span class="tag">recorded, not resolved</span>
+      <span> A NO-MINT reading is logged for the next audit: &ldquo;this is simply the video-editing vertical of the already-represented MCP-server family.&rdquo; Either way, counts stay <strong>46 patterns / 11 Library-vocab</strong>, unchanged.</span>
+    </div>
+  </div>
+
+  <div class="chips">
+    <span class="chip">§C standalones 34&nbsp;&rarr;&nbsp;35</span>
+    <span class="chip">tracked surface &asymp;41&nbsp;&rarr;&nbsp;&asymp;42</span>
+    <span class="chip">streak GA:53&middot;OG:11</span>
+    <span class="chip">38 consecutive goal-aligned ships</span>
+  </div>
+</section>
+
+<section aria-label="Pilot methods">
+  <div class="ruler" data-label="00:24 — apply it"></div>
+  <h2>24 ways to apply this ship</h2>
+  <div class="one-thing">
+    <span class="k">One-thing path</span>
+    Spec a hireui MCP server using palmier-pro's <code>ToolExecutor</code> as the template (B1) &rarr; prototype the single smallest read-only tool on an <code>agent-*</code> branch (D2). No install required.
+  </div>
+
+  <div class="pilot-groups">
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">A</span><span class="gname">Read &amp; learn &mdash; zero risk</span></div>
+      <ul>
+        <li><strong>A1.</strong> Read <code>ToolExecutor.swift</code> as a case study in a clean, well-tested MCP tool dispatcher.</li>
+        <li><strong>A2.</strong> Read the <code>AGENTS.md</code> + <code>CLAUDE.md</code> pairing &mdash; a worked <em>#12 LLM-routing-artifacts</em> example.</li>
+        <li><strong>A3.</strong> Read the FAQ's one-line open-core disclosure as a model sentence for future licensing write-ups.</li>
+        <li><strong>A4.</strong> Read the async submit&rarr;poll&rarr;auto-import pattern as a generic long-running-job UI reference.</li>
+        <li><strong>A5.</strong> Read the dependency list (Clerk, Convex, Sentry, Sparkle) as a fast SaaS-building-blocks reference.</li>
+      </ul>
+    </div>
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">B</span><span class="gname">Borrow the patterns &mdash; highest ROI, no install</span></div>
+      <ul>
+        <li><strong>B1. ★</strong> Spec a hireui MCP server using the <code>ToolExecutor</code> dispatcher as the direct structural template.</li>
+        <li><strong>B2.</strong> Borrow cost-estimation-before-generation into any hireui metered-API feature.</li>
+        <li><strong>B3.</strong> Borrow the skills-folder-reads-in-app-chat idea for a future hireui assistant.</li>
+        <li><strong>B4.</strong> Borrow &ldquo;test the tool layer hardest&rdquo; into the vault's own skill/MCP work.</li>
+        <li><strong>B5.</strong> Reuse the exact MCP-config JSON as a template for wiring any future in-house server.</li>
+        <li><strong>B6.</strong> Note the GPLv3-not-AGPL choice as a licensing data point for binary-distributed tools.</li>
+      </ul>
+    </div>
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">C</span><span class="gname">Low-risk hands-on trial</span></div>
+      <ul>
+        <li><strong>C1.</strong> <code>install-snapshot</code>, then try the free editor on a scratch clip &mdash; no login, no spend.</li>
+        <li><strong>C2.</strong> Connect Claude Code to the local MCP server and call <code>get_timeline</code> &mdash; free, read-only.</li>
+        <li><strong>C3.</strong> Ask the agent to trim/reorder clips on a throwaway timeline; read the tool-call transcript.</li>
+        <li><strong>C4.</strong> If trying paid generation, cap spend to one small clip on Pro, deliberately.</li>
+      </ul>
+    </div>
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">D</span><span class="gname">hireui-specific &mdash; the Goal&nbsp;#2 payoff</span></div>
+      <ul>
+        <li><strong>D1.</strong> Write the B1 spec as a one-pager on an <code>agent-*</code> branch &mdash; objects &rarr; tools &rarr; auth &rarr; read/write split.</li>
+        <li><strong>D2. ★</strong> Prototype one read-only tool (e.g. <code>get_candidate_summary</code>), tested tool-layer-first.</li>
+        <li><strong>D3.</strong> Use &ldquo;agent as optional peripheral, not the whole product&rdquo; when scoping AI features with stakeholders.</li>
+        <li><strong>D4.</strong> Extend to a second read tool, then one guarded write tool, only once both are proven.</li>
+      </ul>
+    </div>
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">E</span><span class="gname">Off-goal, named honestly</span></div>
+      <ul>
+        <li><strong>E1.</strong> A free option for a real edit &mdash; a hireui demo clip, or a personal project.</li>
+        <li><strong>E2.</strong> Try the in-app agent chat as UX research into a first-party embedded Claude integration.</li>
+      </ul>
+    </div>
+    <div class="pgroup">
+      <div class="ghead"><span class="glabel">F</span><span class="gname">Vault-meta follow-ups</span></div>
+      <ul>
+        <li><strong>F1.</strong> Revisit the recorded NO-MINT alternative at the next audit with fresh eyes.</li>
+        <li><strong>F2.</strong> Watch for a 2nd &ldquo;product-first app + first-party MCP&rdquo; instance &mdash; PROMOTION-ELIGIBLE at N=2.</li>
+        <li><strong>F3.</strong> Re-check if a future release ships benchmarks or documents the telemetry-consent flow.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Shipped on branch <code>wiki/v192-palmier-pro</code> off the v191 tip &middot; not auto-merged &middot; source-verified at commit <code>9a3ae5028&hellip;</code> &middot; full detail in <code>03 Projects/palmier-pro - Beginner Analysis/</code></p>
+</footer>
+
+</div>
