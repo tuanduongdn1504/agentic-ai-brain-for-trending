@@ -1,0 +1,335 @@
+<title>fff — file search for AI agents · wiki v194</title>
+<style>
+  :root{
+    --paper:#F4F3F0; --panel:#FBFAF8; --ink:#1C1712; --ink-soft:#5A5148; --ink-faint:#8A8073;
+    --accent:#D9480F; --accent-bright:#FF8A3D; --term:#201A13; --term-fg:#ECE4D6; --term-dim:#B7A98F;
+    --good:#2F9E44; --warn:#9A6A00; --line:#E4E0D8; --line-soft:#EDEAE3;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --measure:70ch;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 22px}
+  .bleed{width:100%}
+  a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
+  h1,h2,h3{line-height:1.12;text-wrap:balance;font-weight:680;letter-spacing:-.012em}
+  h2{font-size:1.62rem;margin:0 0 .2em}
+  h3{font-size:1.12rem;margin:1.7em 0 .35em}
+  p{margin:.7em 0}
+  strong{font-weight:660;color:var(--ink)}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:600}
+  .muted{color:var(--ink-soft)}
+  .faint{color:var(--ink-faint)}
+
+  /* section rhythm */
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+
+  /* hero */
+  .hero{padding:64px 0 46px;border-top:none}
+  .wordmark{display:flex;align-items:baseline;gap:.5rem;font-family:var(--mono);font-weight:700;
+    font-size:2.9rem;letter-spacing:-.04em;color:var(--ink);margin:0}
+  .wordmark .dot{color:var(--accent)}
+  .tagline{font-size:1.28rem;font-weight:560;margin:.5rem 0 .1rem;letter-spacing:-.01em;max-width:60ch}
+  .subline{color:var(--ink-soft);max-width:64ch;margin:.4rem 0 0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+  .chip{font-family:var(--mono);font-size:.74rem;letter-spacing:.02em;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);white-space:nowrap}
+  .chip b{color:var(--ink);font-weight:640}
+  .chip.pass{border-color:#BFE3C6;background:#EFF8F0;color:#1F6B2E}
+  .chip.pass b{color:#175724}
+  .chip.accent{border-color:#F3C7AC;background:#FCEFE7;color:#9A3407}
+  .chip.accent b{color:#8A2E06}
+
+  .metaline{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);margin-top:22px;
+    padding-top:16px;border-top:1px dashed var(--line)}
+
+  /* lede */
+  .lede{font-size:1.16rem;line-height:1.55;color:var(--ink)}
+
+  /* benchmark strip */
+  .bench{background:var(--term);color:var(--term-fg);border-radius:12px;padding:22px 22px 18px;
+    font-family:var(--mono);margin:20px 0 8px}
+  .bench h4{margin:0 0 14px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--term-dim);font-weight:600}
+  .bar-row{display:grid;grid-template-columns:118px 1fr auto;align-items:center;gap:12px;margin:10px 0}
+  .bar-label{font-size:.82rem;color:var(--term-fg)}
+  .bar-track{height:16px;background:#3a3122;border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;width:0;border-radius:4px;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+  .bar-fill.slow{background:linear-gradient(90deg,#6b5228,#B8860B)}
+  .bar-fill.fast{background:linear-gradient(90deg,var(--accent),var(--accent-bright))}
+  .bar-val{font-size:.82rem;color:var(--term-dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .bench .note{font-size:.72rem;color:var(--term-dim);margin:12px 0 0}
+
+  /* result-row motif (fff's own output style) */
+  .results{background:var(--term);color:var(--term-fg);border-radius:12px;padding:16px 18px;
+    font-family:var(--mono);font-size:.86rem;overflow-x:auto}
+  .results .r{display:flex;flex-wrap:wrap;gap:.5ch;padding:3px 0;white-space:nowrap}
+  .results .path{color:var(--term-fg)}
+  .results .lab{color:#7fd68f}
+  .results .git{color:var(--accent-bright)}
+  .results .cmt{color:var(--term-dim)}
+  .results .arrow{color:var(--accent-bright);font-weight:600}
+
+  /* verdict cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  .card{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:16px 17px}
+  .card .k{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .card .lb{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+  .verdict{font-family:var(--mono);font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:6px;letter-spacing:.04em}
+  .verdict.strong{background:#EFF8F0;color:#1F6B2E;border:1px solid #BFE3C6}
+  .verdict.fail{background:#FBEDE8;color:#9A3407;border:1px solid #F3C7AC}
+  .card h4{margin:0;font-size:1.02rem;font-weight:640}
+  .card p{margin:.35em 0 0;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+
+  /* mechanism comparison table */
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  tbody tr:last-child td{border-bottom:none}
+  td .subj{font-weight:620}
+  .tag-me{color:var(--accent);font-weight:700}
+
+  /* callouts */
+  .call{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 10px 10px 0;
+    padding:14px 18px;margin:18px 0}
+  .call.one{border-left-color:var(--good);background:#F1F8F2}
+  .call .t{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin-bottom:4px}
+  .call.one .t{color:var(--good)}
+  .caveats{background:#FBF6EC;border:1px solid #ECD9AE}
+  .caveats .eyebrow{color:var(--warn)}
+  .caveats li{margin:.5em 0}
+
+  /* pilot ladder */
+  .ladder{list-style:none;padding:0;margin:12px 0 0}
+  .rung{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line-soft)}
+  .rung:first-child{border-top:none}
+  .rung .id{font-family:var(--mono);font-weight:700;color:var(--accent);flex:0 0 auto;width:2.6em;font-size:.9rem}
+  .rung .bd{flex:1}
+  .rung .bd b{font-weight:640}
+  .rung .bd .d{color:var(--ink-soft);font-size:.94rem}
+  .band-lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-faint);margin:26px 0 2px;font-weight:600}
+  .band-lbl:first-child{margin-top:8px}
+
+  ul.tight{margin:.5em 0;padding-left:1.2em}
+  ul.tight li{margin:.3em 0}
+  hr.soft{border:none;border-top:1px solid var(--line);margin:0}
+
+  footer{padding:40px 0 60px;font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);line-height:1.7}
+  footer b{color:var(--ink-soft)}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .wordmark{font-size:2.2rem}
+    .grid{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:96px 1fr auto}
+    h2{font-size:1.4rem}
+  }
+  .reveal{opacity:0;transform:translateY(10px);animation:up .6s ease forwards}
+  .reveal:nth-child(2){animation-delay:.05s}
+  @keyframes up{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none;opacity:1;transform:none}
+    .bar-fill{transition:none}
+  }
+</style>
+
+<header class="hero wrap">
+  <div class="reveal">
+    <div class="eyebrow">Storm Bear · LLM Wiki · v194 · T2 Service</div>
+    <h1 class="wordmark">fff<span class="dot">.</span></h1>
+    <p class="tagline">A file search toolkit for humans and AI agents. Really&nbsp;fast.</p>
+    <p class="subline">A resident, in-process <strong>Rust search library</strong> — not a CLI — giving coding agents typo-resistant fuzzy path &amp; content search, frecency ranking, and a live index, over an MCP server. <span class="mono faint">dmtrKovalenko/fff · MIT · v0.9.6</span></p>
+    <div class="chips">
+      <span class="chip pass">GOAL-ALIGNED INCLUDE <b>3/4</b></span>
+      <span class="chip accent">1 NEW §C standalone <b>N=1</b></span>
+      <span class="chip">counts <b>46 / 11</b> unchanged</span>
+      <span class="chip">streak <b>GA:55</b></span>
+      <span class="chip">stars <b>~9.5k</b> <span class="faint">·page-stated</span></span>
+    </div>
+    <div class="metaline">source-verified @ <b>1cd8d31</b> (2026-07-02) · author <b>Dmitriy Kovalenko</b> (indie OSS; not Anthropic) · corpus-first for the local-file-search-SDK-for-agents surface</div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="eyebrow">The thesis</div>
+  <h2>Pay the walk-and-index cost once, not per query</h2>
+  <p class="lede">ripgrep and fzf are command-line programs: every call forks a process, re-reads <span class="mono">.gitignore</span>, re-stats directories, and rebuilds its state before it can answer. Fine for one grep from a shell — wasteful when an <strong>AI agent runs hundreds of searches per session</strong>. fff keeps the index and file cache resident in one long-lived process, so every search after the first hits warm memory.</p>
+
+  <div class="bench" role="img" aria-label="Author-stated benchmark: ripgrep spawn 3 to 9 seconds versus fff sub-10 milliseconds per query on a 500k-file Chromium checkout">
+    <h4>500k-file Chromium checkout · per query</h4>
+    <div class="bar-row">
+      <span class="bar-label">ripgrep spawn</span>
+      <span class="bar-track"><span class="bar-fill slow" data-w="100%"></span></span>
+      <span class="bar-val">3–9 s</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">fff (warm)</span>
+      <span class="bar-track"><span class="bar-fill fast" data-w="4%"></span></span>
+      <span class="bar-val">&lt; 10 ms</span>
+    </div>
+    <p class="note">⚠ Author-stated · warm-cache vs cold-spawn · methodology unpublished · not a viral-velocity claim. The README itself: "if you run one grep from bash, <span style="color:var(--accent-bright)">rg</span> is still the right tool."</p>
+  </div>
+  <p class="muted">For a coding agent the payoff is two-sided: <strong>latency</strong> (warm queries) and <strong>tokens</strong> — <em>"fewer grep roundtrips, less wasted context."</em> That second half is why fff sits on the vault's <span class="mono">claude-api-cost-optimization</span> thread.</p>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow">The agent-facing surface</div>
+  <h2>Three MCP tools + a search-discipline prompt</h2>
+  <p><span class="mono">fff-mcp</span> (stdio) holds one resident <span class="mono">FilePicker</span> for the process lifetime, discovers the git root, runs a background watcher, and answers with three tools. It also hands the agent a system prompt that is, in effect, a portable "how to search a codebase" skill — <strong>you can steal it without installing anything</strong>.</p>
+
+  <div class="results" aria-label="The three fff MCP tools rendered as search-result rows">
+    <div class="r"><span class="path">grep</span><span class="cmt"># DEFAULT — file contents · auto regex-detect · 3-stage fallback on 0 hits</span></div>
+    <div class="r"><span class="path">find_files</span><span class="cmt"># fuzzy file names · frecency-aware · auto-retry shorter query</span></div>
+    <div class="r"><span class="path">multi_grep</span><span class="cmt"># OR across literal patterns · SIMD Aho-Corasick</span></div>
+    <div class="r"><span class="cmt">&nbsp;</span></div>
+    <div class="r"><span class="cmt"># the README's ffgrep/fffind names are the Pi extension's — MCP registers the above</span></div>
+  </div>
+
+  <h3>The system prompt (borrow this verbatim)</h3>
+  <ul class="tight">
+    <li><strong>Search bare identifiers only</strong> — <span class="mono">InProgressQuote</span> finds the definition <em>and</em> every usage; <span class="mono">struct ActorAuth</span> narrows and misses enums/traits.</li>
+    <li><strong>Never use regex unless you truly need alternation</strong> — <span class="mono">.*</span>/<span class="mono">\d+</span> almost always return 0 within single lines.</li>
+    <li><strong>Stop after 2 greps → READ the code.</strong> "More greps != better understanding." <span class="muted">(token-spend discipline, encoded in the tool)</span></li>
+    <li><strong>multi_grep for name variants</strong> — one call for <span class="mono">['ActorAuth','actor_auth']</span>, not three greps.</li>
+  </ul>
+  <p class="muted">Output is shaped for tokens too: frecency labels <span class="mono lab">hot</span>/<span class="mono lab">warm</span>/<span class="mono lab">frequent</span>, a "(NNKB — use offset)" coaching tag on big files, and def-body auto-expansion so results often answer <em>without</em> a follow-up Read.</p>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow">The verdict · 4 criteria</div>
+  <h2>Goal-aligned include, 3/4</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="k"><span class="lb">(a) cultural-peer</span><span class="verdict fail">FAIL</span></div>
+      <h4>Notable indie dev, not Anthropic</h4>
+      <p>Dmitriy Kovalenko (date-io, odiff, fframes; member of LightSourceAI). "Notable framework author" isn't a registered axis. First <span class="mono">dmtrKovalenko</span> author → #19 19a.</p>
+    </div>
+    <div class="card">
+      <div class="k"><span class="lb">(b) goal-relevance</span><span class="verdict strong">STRONG</span></div>
+      <h4>Agent search + token substrate</h4>
+      <p>Claude-Code-first-class; cheaper, frecency/git-aware search than built-in Grep. On the cost-optimization thread; directly pilotable into the vault &amp; hireui. Keys the tier.</p>
+    </div>
+    <div class="card">
+      <div class="k"><span class="lb">(c) engineering</span><span class="verdict strong">STRONG</span></div>
+      <h4>Production Rust, caveats in view</h4>
+      <p>7-crate workspace + 4-lang SDK; SIMD Smith-Waterman/Aho-Corasick; LMDB frecency; mimalloc; mmap arena. ⚠ "No traditional test suite" (author's words).</p>
+    </div>
+    <div class="card">
+      <div class="k"><span class="lb">(d) connectivity</span><span class="verdict strong">STRONG</span></div>
+      <h4>The lexical member of a triad</h4>
+      <p>Agent-Reach v174 (search-reach layer) · the §C#23 code-graph family · claude-context v40 (vector) · #18 B1-MCP · Token-Economy #20.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow">Pattern outcome</div>
+  <h2>Corpus-first for the surface — a new §C standalone</h2>
+  <p>By-hand collision grep is decisive: <strong>no prior fff / Kovalenko / file-search / fuzzy-finder / fzf / frecency subject exists</strong> anywhere in the corpus. The nearest neighbors are each a <em>different mechanism</em> — so fff earns a mint at N=1, scoped honestly (corpus-first for the surface, <strong>not</strong> world-first: fzf/ripgrep/frizbee precede as tools).</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Subject</th><th>Mechanism</th><th>Surface</th><th>Deps</th></tr></thead>
+      <tbody>
+        <tr><td class="subj"><span class="tag-me">fff · v194</span></td><td><strong>lexical + fuzzy + frecency</strong>, resident library</td><td>local filesystem</td><td>zero external</td></tr>
+        <tr><td class="subj">§C#23 graph family</td><td>AST / graph / FTS5</td><td>local codebase (indexed graph)</td><td>SQLite (+embeddings)</td></tr>
+        <tr><td class="subj">claude-context v40</td><td>vector / embedding + BM25</td><td>local codebase</td><td>embedding provider + vector DB</td></tr>
+        <tr><td class="subj">Agent-Reach v174</td><td>read + search</td><td>external web / social</td><td>per-platform backends</td></tr>
+        <tr><td class="subj">ripgrep / fzf</td><td>exact regex / interactive fuzzy</td><td>local — but CLIs (subprocess)</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">The landscape check found <strong>no direct peer</strong> at fff's positioning — "the only in-process library for fuzzy file discovery with frecency ranking, delivered to agents." Its bet — that agents benefit from fuzzy + frecency over exact grep — is plausible but not yet settled by public research. Counts stay <strong>46 / 11</strong>; §C live standalones 35 → 36. A NO-MINT alternative (file as a lexical variant of "agent code-search") is recorded operator-reviewable.</p>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow">The knowledge · under the hood</div>
+  <h2>Why it's genuinely fast</h2>
+  <ul class="tight">
+    <li><strong>Fuzzy path matching</strong> — <span class="mono">neo_frizbee</span> (the SIMD Smith-Waterman matcher behind blink.cmp, ~6× fzf), a 16-byte SIMD-chunk arena with cross-corpus chunk dedup, and an ~11-component score (base + frecency + git + distance + filename + combo + alignment).</li>
+    <li><strong>Content grep, 3 modes</strong> — plain (SIMD <span class="mono">memmem</span>), regex (Rust <span class="mono">regex</span>, ripgrep's engine), fuzzy (Smith-Waterman per line → typo-resistant: <span class="mono">shcema</span> finds <span class="mono">schema</span>).</li>
+    <li><strong>multi-pattern OR</strong> — SIMD Aho-Corasick: any of N patterns in one linear pass.</li>
+    <li><strong>Frecency</strong> (Firefox 2008 idea) — LMDB store, 128 timestamps/file, exponential decay: 10-day half-life for humans, a sharper <strong>3-day half-life in AI mode</strong>; git-touch warm-up.</li>
+    <li><strong>Memory for speed</strong> — mimalloc, contiguous arena string storage, mmap content cache (~360 B/file → ~36 MB per 100k files). The RAM tradeoff <em>is</em> the mechanism.</li>
+    <li><strong>Live index</strong> — a debounced background watcher (FSEvents/inotify/ReadDirectoryChangesW) talking to libgit2 directly, not spawning <span class="mono">git</span>.</li>
+  </ul>
+  <p class="muted">One core, many surfaces: a stable C ABI, Node/Bun (<span class="mono">Result&lt;T&gt;</span>), Python (PyO3, abi3), Neovim (mlua) — with a real <span class="mono">aiMode</span> flag that switches grep parsing, decay, and output shaping for agents.</p>
+</section>
+
+<section class="wrap caveats">
+  <div class="eyebrow">Read before piloting · honest caveats</div>
+  <h2 style="color:var(--ink)">The gaps, in plain view</h2>
+  <ul class="tight">
+    <li><strong>"No traditional test suite"</strong> — the author's own AGENTS.md (limited unit + integration coverage) — a real gap for a correctness-critical library.</li>
+    <li><strong>Benchmark is warm-vs-cold + author-stated</strong>, methodology unpublished, not independently replicated. Directionally fair for the resident-process case; treat the numbers as marketing.</li>
+    <li><strong>Adoption is author-stated</strong> — README says "powers opencode, nushell"; a web check found <em>community</em> opencode plugins and <em>no</em> nushell reference.</li>
+    <li><strong>RAM bites</strong> — cache accumulation (issue #437), scan-blocking (#477). Cap it with <span class="mono">--max-cached-files</span>.</li>
+    <li><strong>Maturity</strong> — v0.9.x, nightly cadence, ~40% crate docs. A startup update-check network call (<span class="mono">--no-update-check</span> to disable). Pin a tag.</li>
+    <li><strong>Correction (my own):</strong> Kovalenko authored <span class="mono">date-io</span>, not the MUI-X date pickers or react-imask (unconfirmed) — attribute only the confirmed projects.</li>
+  </ul>
+  <p class="muted" style="margin-top:14px">Install is <strong>responsibly built</strong>, though: <span class="mono">install-mcp.sh</span> is pinned to v0.9.6 <em>and SHA-256-checksums every platform binary</em> before install, no sudo. Not a blind curl|bash.</p>
+</section>
+
+<section class="wrap">
+  <div class="eyebrow">Apply it · 24-method pilot menu</div>
+  <h2>How to put this in your working flow</h2>
+  <p class="muted">One of the most directly-pilotable subjects in the corpus — your Claude Code searches this vault's files constantly, and the highest-ROI move needs zero install.</p>
+
+  <div class="call one">
+    <div class="t">⭐ one-thing path</div>
+    <strong>B7 → C11 → C13.</strong> Steal the search discipline into your <span class="mono">CLAUDE.md</span> free today; install <span class="mono">fff-mcp</span> against a scratch clone of the vault; then run 3 real searches with fff on vs off and <strong>measure the tool-call + token delta</strong>. Promote only if the delta is real.
+  </div>
+
+  <div class="band-lbl">A · read + learn (zero risk)</div>
+  <ul class="ladder">
+    <li class="rung"><span class="id">A1–4</span><span class="bd"><b>Internalize the internals.</b> <span class="d">Why agent grep costs tokens; the search-discipline prompt as a distilled skill; output-shaping as steer-the-next-action design; frecency + decay as a reusable ranking idea.</span></span></li>
+  </ul>
+  <div class="band-lbl">B · borrow by hand (zero install — highest ROI)</div>
+  <ul class="ladder">
+    <li class="rung"><span class="id">B5–6</span><span class="bd"><b>Adopt "bare identifiers" + "stop after 2 greps → READ".</b> <span class="d">Free token savings on the vault's huge chapters; composes with the cost-optimization spec.</span></span></li>
+    <li class="rung"><span class="id">B7</span><span class="bd"><b>Paste the whole search discipline into CLAUDE.md.</b> <span class="d">Zero install, works immediately, applies to every session over the vault + hireui. The single highest-ROI move.</span></span></li>
+    <li class="rung"><span class="id">B8–9</span><span class="bd"><b>Reuse the output-shaping + frecency ideas.</b> <span class="d">For hireui's first MCP tool (relevance labels, offset-coaching, just-enough context); a vault "hot pages" surface by git-touch.</span></span></li>
+  </ul>
+  <div class="band-lbl">C · low-risk trial (read-only search = safe)</div>
+  <ul class="ladder">
+    <li class="rung"><span class="id">C10–12</span><span class="bd"><b>Install fff-mcp, wire to Claude Code against a scratch vault clone.</b> <span class="d">Read-only search over your own big markdown corpus — the ideal first test. Compare vs built-in Grep on one gnarly query.</span></span></li>
+    <li class="rung"><span class="id">C13</span><span class="bd"><b>Measure the delta.</b> <span class="d">3 real search tasks, fff off then on; record tool-calls + tokens + wall-clock (pair with your ccusage/OTel pilot). Turns "faster" into a number for your repos.</span></span></li>
+    <li class="rung"><span class="id">C14–15</span><span class="bd"><b>Try it on a scratch hireui clone + test the failure modes.</b> <span class="d">Gauge frecency on an unfamiliar codebase; reproduce the RAM-fill / scan-block edges before a real session.</span></span></li>
+  </ul>
+  <div class="band-lbl">D · hireui / Goal-#2 (per its CONSTITUTION)</div>
+  <ul class="ladder">
+    <li class="rung"><span class="id">D16–17</span><span class="bd"><b>Operator-install for hireui's Claude Code; measure on a real ticket.</b> <span class="d">Search-heavy Candidate-Detail refactor on an agent-* branch = a concrete Goal-#2 artifact.</span></span></li>
+    <li class="rung"><span class="id">D18</span><span class="bd"><b>Pair fff with GitNexus, don't replace it.</b> <span class="d">GitNexus for structure/graph; fff for fast lexical reach. Orthogonal — spec them that way.</span></span></li>
+    <li class="rung"><span class="id">D19–20</span><span class="bd"><b>Fold the discipline into hireui's CLAUDE.md; optionally build a typed in-app search from the Node SDK.</b></span></li>
+  </ul>
+  <div class="band-lbl">E · off-goal · F · vault-meta</div>
+  <ul class="ladder">
+    <li class="rung"><span class="id">E21–22</span><span class="bd"><b>fff.nvim (if you use Neovim); odiff for visual-regression diffing.</b> <span class="d">The polished origin + a same-author SIMD image-diff (cross-ref your Figma-drift work).</span></span></li>
+    <li class="rung"><span class="id">F23–24</span><span class="bd"><b>Watch for an N=2 instance; write the "graph vs vector vs lexical" synthesis.</b> <span class="d">Three orthogonal agent-code-search mechanisms now in the corpus — a genuinely useful when-to-use-which note.</span></span></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <hr class="soft" style="margin-bottom:24px">
+  <div><b>fff</b> · dmtrKovalenko/fff · MIT · v0.9.6 · source-verified @ 1cd8d31 (2026-07-02)</div>
+  <div><b>Corpus:</b> Storm Bear LLM Wiki v194 · Tier T2 Service · GOAL-ALIGNED INCLUDE 3/4 · 1 NEW §C standalone (N=1, corpus-first for the surface) · counts 46 / 11 unchanged · streak GA:55</div>
+  <div><b>Verified:</b> inline + by hand (collision grep + source reads) per feedback_wiki_verify_independently_check_collisions · research workflow wf_6be03459-b4f (8 agents, read-only, ~1.36M tok)</div>
+  <div class="faint" style="margin-top:10px">Companion docs: (C) fff — Deep Dive · (C) fff — Verdict · (C) fff — Pilot Methods Menu</div>
+</footer>
+
+<script>
+  window.addEventListener('load',function(){
+    requestAnimationFrame(function(){
+      document.querySelectorAll('.bar-fill').forEach(function(el){
+        el.style.width = el.getAttribute('data-w');
+      });
+    });
+  });
+</script>
