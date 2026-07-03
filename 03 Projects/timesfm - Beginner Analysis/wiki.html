@@ -1,0 +1,372 @@
+<title>TimesFM — LLM Wiki v193</title>
+<style>
+  :root{
+    --ground:#FAFBFC; --panel:#FFFFFF; --ink:#0F1B2D; --ink-soft:#3A4759;
+    --muted:#6B7A90; --line:#E3E8EF; --line-soft:#EEF1F6;
+    --accent:#2563C9; --accent-ink:#1B4D9E; --band:#9DBEEB; --band-soft:#DCE8F8;
+    --hist:#6B7A90; --crit:#C2533A; --crit-bg:#FBEEEA; --pos:#0E8A6B; --pos-bg:#E7F4EF;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;margin:0}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px 96px}
+  .col{max-width:720px}
+  h1,h2,h3{text-wrap:balance;line-height:1.18;letter-spacing:-.012em}
+  p{max-width:68ch}
+  a{color:var(--accent-ink);text-underline-offset:2px}
+  code{font-family:var(--mono);font-size:.86em;background:var(--line-soft);
+    padding:.09em .36em;border-radius:4px;border:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted)}
+  /* ---- hero ---- */
+  header.hero{padding:46px 22px 30px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#F4F8FF 0%,var(--ground) 82%)}
+  .hero .col{margin:0 auto}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .badge{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--ink-soft);
+    background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .badge b{color:var(--accent-ink);font-weight:600}
+  h1{font-size:clamp(31px,5.6vw,46px);font-weight:680;margin:.1em 0 .12em}
+  .tagline{font-size:19px;color:var(--ink-soft);font-weight:450;margin:.2em 0 22px;max-width:60ch}
+  .tagline b{color:var(--ink);font-weight:600}
+  figure.chart{margin:8px 0 4px;border:1px solid var(--line);border-radius:12px;
+    background:var(--panel);overflow:hidden;box-shadow:0 1px 2px rgba(15,27,45,.04)}
+  figure.chart canvas{display:block;width:100%;height:auto}
+  figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);
+    padding:8px 14px;border-top:1px solid var(--line-soft);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .legend{display:flex;gap:14px;flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .swatch{width:16px;height:3px;border-radius:2px;display:inline-block}
+  .swatch.band{height:9px;background:var(--band-soft);border:1px solid var(--band)}
+  /* ---- body sections ---- */
+  main .col{margin:0 auto}
+  section{padding:34px 0 4px;border-top:1px solid var(--line-soft)}
+  section:first-child{border-top:0}
+  h2{font-size:23px;font-weight:640;margin:6px 0 4px;display:flex;align-items:baseline;gap:11px}
+  h2 .num{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600;
+    letter-spacing:.02em}
+  h3{font-size:16px;font-weight:640;margin:22px 0 4px;color:var(--ink)}
+  .lede{color:var(--ink-soft);font-size:16px}
+  ul{padding-left:20px;margin:.5em 0}li{margin:.28em 0;max-width:66ch}
+  strong{font-weight:640}
+  /* ---- verdict rail ---- */
+  .verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:20px 0 6px}
+  .verdict>div{background:var(--panel);padding:14px 16px}
+  .verdict .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .verdict .v{font-size:20px;font-weight:680;margin-top:3px;letter-spacing:-.01em}
+  .verdict .v.pass{color:var(--pos)} .verdict .v.fail{color:var(--crit)} .verdict .v.mod{color:var(--accent-ink)}
+  .verdict .note{font-size:12px;color:var(--muted);margin-top:2px}
+  /* ---- callouts ---- */
+  .call{border-radius:11px;padding:15px 18px;margin:18px 0;font-size:14.5px;border:1px solid}
+  .call p{max-width:none;margin:.35em 0}
+  .call.warn{background:var(--crit-bg);border-color:#E8C9BF}
+  .call.warn .lab{color:var(--crit)}
+  .call.good{background:var(--pos-bg);border-color:#BFE3D6}
+  .call.good .lab{color:var(--pos)}
+  .call.blue{background:#EEF4FE;border-color:#CFE0F8}
+  .call.blue .lab{color:var(--accent-ink)}
+  .call .lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:600;display:block;margin-bottom:5px}
+  /* ---- tables ---- */
+  .tblwrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:440px}
+  th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);background:#F6F8FB;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:0}
+  td.num,th.num{font-variant-numeric:tabular-nums;text-align:right}
+  .tag{font-family:var(--mono);font-size:10.5px;padding:1px 7px;border-radius:999px;font-weight:600;white-space:nowrap}
+  .tag.hi{background:var(--pos-bg);color:var(--pos)} .tag.mid{background:#FDF6E3;color:#9A6B08}
+  .tag.lo{background:var(--crit-bg);color:var(--crit)}
+  /* ---- code ---- */
+  pre{background:#0F1B2D;color:#DCE6F5;font-family:var(--mono);font-size:12.5px;line-height:1.55;
+    padding:15px 17px;border-radius:10px;overflow-x:auto;margin:14px 0}
+  pre .c{color:#7C8CA8} pre .k{color:#8FB6FF} pre .s{color:#A5D6B0}
+  /* ---- pilot ladder ---- */
+  .ladder{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+  .rung{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;
+    border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:var(--panel)}
+  .rung .id{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent);
+    background:#EEF4FE;border-radius:7px;padding:6px 0;text-align:center;letter-spacing:.02em}
+  .rung .id.star{background:var(--accent);color:#fff}
+  .rung h4{margin:0 0 3px;font-size:14.5px;font-weight:640}
+  .rung p{margin:0;font-size:13.3px;color:var(--ink-soft);max-width:none}
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.8}
+  @media (max-width:560px){ h2{font-size:20px} .rung{grid-template-columns:44px 1fr} }
+</style>
+
+<header class="hero">
+  <div class="col">
+    <div class="badge-row">
+      <span class="badge">LLM Wiki <b>v193</b></span>
+      <span class="badge"><b>google-research/timesfm</b></span>
+      <span class="badge">Apache-2.0</span>
+      <span class="badge">commit <b>4a6c5cd</b></span>
+      <span class="badge">~26.5k★ <span style="color:var(--muted)">page-stated</span></span>
+    </div>
+    <div class="eyebrow">Time Series Foundation Model · Google Research</div>
+    <h1>TimesFM</h1>
+    <p class="tagline">A pretrained <b>decoder-only foundation model for time-series forecasting</b>. Feed it (almost) any series → get a zero-shot forecast with calibrated prediction intervals, <b>no training</b>. LLM pretraining, transplanted to numbers-over-time.</p>
+    <figure class="chart">
+      <canvas id="fc" width="1120" height="380" aria-label="Illustrative TimesFM-style forecast: a historical line extended by a point forecast inside a shaded q10–q90 prediction band"></canvas>
+      <figcaption>
+        <span class="legend">
+          <span><i class="swatch" style="background:var(--hist)"></i> history</span>
+          <span><i class="swatch" style="background:var(--accent)"></i> point forecast (median)</span>
+          <span><i class="swatch band"></i> q10–q90 band</span>
+        </span>
+        <span>illustrative · shape only</span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="col">
+
+    <section>
+      <p class="lede"><b>Honest framing.</b> TimesFM's <em>domain</em> — time-series forecasting — is <b>off Goal&nbsp;#1</b> ("master Claude + autonomous agents for software development"). It is not Claude, not an agent, not agent infrastructure. It's the <b>GLM-5 / DeepSpec situation</b>: a Google model that's <em>goal-adjacent</em>, built at operator request. But there are two real on-goal bridges — and a sharp <b>Goal-#2 (hireui)</b> payoff.</p>
+
+      <div class="verdict" role="group" aria-label="Four-criteria verdict">
+        <div><div class="k">(a) Anthropic</div><div class="v fail">FAIL</div><div class="note">Google Research · #19 19a</div></div>
+        <div><div class="k">(b) Goal-fit</div><div class="v mod">MODERATE</div><div class="note">keys tier · OFF-GOAL defensible</div></div>
+        <div><div class="k">(c) Substance</div><div class="v pass">STRONG</div><div class="note">real FM · honest caveats</div></div>
+        <div><div class="k">(d) Corpus</div><div class="v pass">STRONG</div><div class="note">model-substrate + skills</div></div>
+        <div><div class="k">Pattern</div><div class="v" style="color:var(--ink)">NO MINT</div><div class="note">counts 46 / 11 unchanged</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">01</span> The two on-goal bridges</h2>
+      <p class="lede">Why this isn't <em>purely</em> off-goal — and where the pilot value hides.</p>
+      <h3>1 · It ships a first-party Claude Code Agent Skill</h3>
+      <p>The repo carries <code>AGENTS.md</code> + <code>timesfm-forecasting/SKILL.md</code> — a genuine, well-built <b>Agent Skill</b> (<code>cp -r timesfm-forecasting/ ~/.claude/skills/</code>), auto-discovered by any agent on the open <a href="https://agentskills.io">agentskills.io</a> standard. It lands on the exact agent-skills substrate the vault studies. Same meta-move as <b>v192 palmier-pro</b> — a product retrofitted to be <em>agent-native</em> (palmier-pro bolted on MCP; TimesFM bolts on a skill + a Vertex "dockerized endpoint for agentic calling").</p>
+      <h3>2 · The realistic use is agent-orchestrated</h3>
+      <p>TimesFM isn't a tool an agent "calls" like a calculator. The real pattern: <b>Claude Code orchestrates the pipeline</b> — read schema → write query → forecast → backtest (MASE/MAPE) → gate on accuracy → open a PR. <em>That</em> is an autonomous-agent-for-software task, with TimesFM as one component.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> Architecture — TimesFM 2.5</h2>
+      <p class="lede">200M-param decoder-only transformer. Source-verified from <code>src/timesfm/</code>.</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Dimension</th><th>Value</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Parameters</td><td class="num">200M</td><td>down from 2.0's 500M</td></tr>
+            <tr><td>Layers · dims · heads</td><td class="num">20 · 1280 · 16</td><td>head dim 80</td></tr>
+            <tr><td>Positional / norm</td><td>RoPE · RMSNorm</td><td>pre-LN, QK-norm, fused QKV</td></tr>
+            <tr><td>Input patch</td><td class="num">32</td><td>one patch = one "token"</td></tr>
+            <tr><td>Output patch</td><td class="num">128</td><td>&gt; input → fewer autoregressive steps</td></tr>
+            <tr><td>Context limit</td><td class="num">16,384</td><td>8× the 2.0 window</td></tr>
+            <tr><td>Quantiles</td><td class="num">10</td><td>deciles q10–q90 + mean (idx 0 = mean)</td></tr>
+            <tr><td>Backends</td><td>PyTorch · Flax</td><td>+ a HF <code>-transformers</code> checkpoint</td></tr>
+            <tr><td>Covariates</td><td>XReg</td><td>in-context linear reg. (dynamic/static)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>History → 32-point patches → residual-block tokenizer → 20 transformer layers (KV-cache) → point head + quantile head. Long horizons come from <b>autoregressive decode in 128-point output patches</b>. <b>Reversible instance-norm</b> scales each series by its own mean/std. Property: <code>TimesFM(aX+b) = a·TimesFM(X)+b</code>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> The API you'll actually use</h2>
+      <p class="lede">Source-verified 2.5 API — not third-party approximations.</p>
+<pre><span class="k">import</span> torch, numpy <span class="k">as</span> np, timesfm
+torch.set_float32_matmul_precision(<span class="s">"high"</span>)
+
+<span class="c"># load a pretrained checkpoint (~800MB, cached in ~/.cache/huggingface)</span>
+model = timesfm.TimesFM_2p5_200M_torch.from_pretrained(<span class="s">"google/timesfm-2.5-200m-pytorch"</span>)
+
+model.compile(timesfm.ForecastConfig(
+    max_context=<span class="k">1024</span>, max_horizon=<span class="k">256</span>,
+    normalize_inputs=<span class="k">True</span>,              <span class="c"># always True</span>
+    use_continuous_quantile_head=<span class="k">True</span>,  <span class="c"># calibrated PIs</span>
+    infer_is_positive=<span class="k">True</span>,             <span class="c"># clamp >=0 for counts</span>
+    fix_quantile_crossing=<span class="k">True</span>,
+))
+point, quantiles = model.forecast(horizon=<span class="k">24</span>, inputs=[series_a, series_b])
+<span class="c"># point.shape     == (2, 24)      median / point forecast</span>
+<span class="c"># quantiles.shape == (2, 24, 10)  idx 0 = mean, 1 = q10, ... 9 = q90</span></pre>
+      <div class="call warn"><span class="lab">footgun</span><p><code>quantiles[..., 0]</code> is the <b>mean</b>, not q0. q10 = index 1, median = index 5, q90 = index 9.</p></div>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span> Versions</h2>
+      <p class="lede">README update-log is authoritative — secondary-source dates conflicted and were discarded.</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Version</th><th class="num">Params</th><th class="num">Context</th><th>Quantiles</th><th>Launched</th></tr></thead>
+          <tbody>
+            <tr><td>1.0</td><td class="num">200M</td><td class="num">512</td><td>uncalibrated</td><td>paper Oct 2023 · ICML 2024</td></tr>
+            <tr><td>2.0</td><td class="num">500M</td><td class="num">2,048</td><td>uncalibrated</td><td>+ LOTSA data</td></tr>
+            <tr><td><b>2.5</b> (latest)</td><td class="num">200M</td><td class="num">16,384</td><td><b>calibrated</b> + XReg</td><td><b>Sept 15, 2025</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>PyPI <code>timesfm 2.0.2</code> (Jul 2 2026) loads the 2.5 model. HF monthly downloads (page-stated): 1.0-pytorch ~19.8k · 2.0-500m ~28k · 2.5-transformers ~202.7k.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> Where it stands — competitive #2, not the leader</h2>
+      <p class="lede">Leaderboard-stated + time-sensitive. TimesFM 2.5 led GIFT-Eval on release (Sept 2025); now a strong #2.</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Model</th><th>Org</th><th>Edge</th></tr></thead>
+          <tbody>
+            <tr><td><b>Chronos-2</b></td><td>Amazon</td><td>current GIFT-Eval leader · native multivariate</td></tr>
+            <tr><td><b>TimesFM 2.5</b></td><td>Google</td><td>longest context (16k) · param-efficient · Cloud integration</td></tr>
+            <tr><td>Moirai-2.0</td><td>Salesforce</td><td>native any-variate multivariate</td></tr>
+            <tr><td>IBM TTM / Granite</td><td>IBM</td><td>1M-scale · CPU / edge</td></tr>
+            <tr><td>Toto</td><td>Datadog</td><td>observability-metrics specialist</td></tr>
+            <tr><td>TimeGPT</td><td>Nixtla</td><td>the only closed / API-only model</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Wins:</b> long univariate context, efficiency, Google Cloud distribution. <b>Loses:</b> multivariate (→ Moirai-2.0), raw accuracy (→ Chronos-2), edge/CPU (→ IBM TTM). Paper zero-shot: Monash scaled-MAE <b>0.6846</b> vs supervised N-BEATS 0.7005; ETT <b>~0.36</b> ≈ supervised PatchTST 0.37 (paper-stated).</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> Honest caveats</h2>
+      <p class="lede">All source- or issue-verified. Mostly install-fragility, not security.</p>
+      <ul>
+        <li><b>Univariate at heart</b> — multivariate is a workaround (per-series models or XReg); Moirai-2.0 does it natively, TimesFM doesn't.</li>
+        <li><b>Needs contiguous, regularly-sampled history, no gaps</b> — interpolate first, and bring enough of it. Short/sparse series are a poor fit.</li>
+        <li><b><code>jax[cuda]</code> is hardcoded</b> in the <code>flax</code>/<code>xreg</code> extras → CPU-only installs break (issue #443). On <b>Apple Silicon</b>, torch has lingvo/ARM issues → use the <b>Flax</b> backend.</li>
+        <li><b>CI is build-only</b> — the 6 <code>tests/</code> files exist but aren't run in <code>main.yml</code>.</li>
+        <li><b>2 of 3 bundled skill examples are stale</b> — the anomaly + covariates demos import the legacy 1.x API the current package no longer exports; only <code>global-temperature</code> uses the 2.5 API.</li>
+        <li>No in-repo training code (weights + inference + a LoRA fine-tune example). <em>"Not an officially supported Google product."</em></li>
+      </ul>
+      <div class="call good"><span class="lab">supply chain</span><p><b>Benign.</b> Apache-2.0, no <code>postinstall</code> / <code>curl|bash</code> / telemetry; ~800MB weight download from HuggingFace on first use. The real risks are install-fragility, not security.</p></div>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span> Pilot — apply it to your flow</h2>
+      <p class="lede">Honestly weighted. Highest value = a Goal-#2 hireui data feature + borrowing the engineering patterns. Only <b>application/candidate volume</b> is a HIGH-fit recruitment metric.</p>
+
+      <h3>Recruitment-metric fit (be blunt)</h3>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Fit</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Application volume</td><td><span class="tag hi">HIGH</span></td><td>regular cadence, long history, seasonality</td></tr>
+            <tr><td>Candidate source volume</td><td><span class="tag mid">MED-HI</span></td><td>regular, batch-forecastable</td></tr>
+            <tr><td>Pipeline velocity / headcount</td><td><span class="tag mid">MEDIUM</span></td><td>process-sensitive; forecast breaks on workflow change</td></tr>
+            <tr><td>Time-to-fill · offer-accept · no-show</td><td><span class="tag lo">LOW</span></td><td>too sparse/noisy — use Prophet/regression instead</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The ladder</h3>
+      <div class="ladder">
+        <div class="rung"><div class="id">B5–B7</div><div><h4>Steal the patterns (zero install, pure win)</h4><p>The mandatory-preflight gate, quantile-as-anomaly-detector, and the backtest gate (<code>MASE&lt;1.0</code> before trusting) → into your own agent skills + your loop-engineering v189 "verify before ship" discipline.</p></div></div>
+        <div class="rung"><div class="id">C11–C12</div><div><h4>Feel the surfaces (scratch, ~1h)</h4><p>Run free <b>BigQuery ML <code>AI.FORECAST</code></b> (built-in, no training) on a public dataset; install the Agent Skill into a scratch <code>~/.claude/skills/</code> and let Claude Code drive a forecast. On Mac use <code>[flax]</code>, not <code>[torch]</code>.</p></div></div>
+        <div class="rung"><div class="id star">D13</div><div><h4>⭐ Forecast hireui application volume</h4><p>Via BigQuery ML <code>AI.FORECAST</code> — zero training, ~1–2h if data's in BQ. The single lowest-effort, highest-fit application. (Confirm arg names against the live BigQuery doc.)</p></div></div>
+        <div class="rung"><div class="id star">D16</div><div><h4>⭐ Gate it</h4><p>Hold out the last 13 weeks, require <code>MASE&lt;1.0</code> + PI coverage ≥75%. If a series fails → fall back to naive/Prophet or hide the forecast. The difference between a feature and a demo.</p></div></div>
+        <div class="rung"><div class="id star">D18</div><div><h4>⭐ Let Claude Code orchestrate the build</h4><p>The genuine Goal-#1 bridge: agent reads schema (GitNexus-first) → writes query → forecasts → computes the gate → opens a PR with numbers + chart. TimesFM is one component; the <em>agent running a gated pipeline</em> is the on-goal part. On an <code>agent-*</code> branch = first real Goal-#2 artifact of this thread.</p></div></div>
+      </div>
+
+      <div class="call blue"><span class="lab">fence</span><p>Pin <code>4a6c5cd</code> · <code>install-snapshot</code> before <code>pip install</code> · scratch venv first · Linux/Colab or Flax-on-Mac · application/source-volume only (don't force sparse metrics) · backtest gate before trusting any number · hireui per its CONSTITUTION (I-2 <code>agent-*</code> branch · I-8 · GitNexus-first). hireui has no LLM spend yet → build-it-right, not a retrofit.</p></div>
+    </section>
+
+    <footer>
+      LLM Wiki v193 · google-research/timesfm @ 4a6c5cd · Apache-2.0<br>
+      Verdict: (a) FAIL · (b) MODERATE · (c) STRONG · (d) STRONG → NO MINT · counts 46 / 11 unchanged · streak GA:54 (OFF-GOAL reading GA:50·OG:15)<br>
+      Verified inline + by hand per feedback_wiki_verify_independently_check_collisions · read-only 8-agent research workflow (source + upstream only)<br>
+      Docs: (C) TimesFM — Deep Dive · (C) TimesFM — Verdict · (C) TimesFM — Pilot Methods Menu
+    </footer>
+  </div>
+</main>
+
+<script>
+(function(){
+  var cv = document.getElementById('fc'); if(!cv) return;
+  var ctx = cv.getContext('2d'); var W = cv.width, H = cv.height;
+  var css = getComputedStyle(document.documentElement);
+  var C = {
+    accent: css.getPropertyValue('--accent').trim() || '#2563C9',
+    hist: css.getPropertyValue('--hist').trim() || '#6B7A90',
+    band: '#B7D0F0', bandF: 'rgba(157,190,235,0.28)',
+    grid: '#E9EEF5', ink:'#0F1B2D'
+  };
+  var padL=44, padR=28, padT=26, padB=34;
+  var nH=64, nF=28, n=nH+nF;                 // history + forecast points
+  // deterministic-ish synthetic series: trend + seasonal + gentle noise (no Math.random for reproducibility)
+  var hist=[], i;
+  for(i=0;i<nH;i++){
+    var t=i;
+    var v = 100 + 0.9*t + 22*Math.sin(t/5.3) + 10*Math.sin(t/2.1+1) + 6*Math.sin(t*1.7);
+    hist.push(v);
+  }
+  var last=hist[nH-1], slope=0.9;
+  var fc=[], q10=[], q90=[];
+  for(i=0;i<nF;i++){
+    var t=nH+i;
+    var base = 100 + slope*t + 22*Math.sin(t/5.3) + 10*Math.sin(t/2.1+1); // smooth continuation (no high-freq noise)
+    fc.push(base);
+    var spread = 6 + i*1.15;                 // widening band
+    q10.push(base-spread); q90.push(base+spread);
+  }
+  var all=hist.concat(fc).concat(q10).concat(q90);
+  var lo=Math.min.apply(null,all), hi=Math.max.apply(null,all);
+  lo-=6; hi+=6;
+  function X(idx){ return padL + (W-padL-padR) * (idx/(n-1)); }
+  function Y(val){ return padT + (H-padT-padB) * (1-(val-lo)/(hi-lo)); }
+
+  function grid(){
+    ctx.strokeStyle=C.grid; ctx.lineWidth=1; ctx.font='11px ui-monospace,monospace';
+    ctx.fillStyle='#9AA7B8'; ctx.textAlign='right'; ctx.textBaseline='middle';
+    for(var g=0; g<=4; g++){
+      var yy=padT + (H-padT-padB)*g/4;
+      ctx.beginPath(); ctx.moveTo(padL,yy); ctx.lineTo(W-padR,yy); ctx.stroke();
+    }
+    // divider between history and forecast
+    ctx.strokeStyle='#C7D2E0'; ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(X(nH-1),padT); ctx.lineTo(X(nH-1),H-padB); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#8A98AB'; ctx.textAlign='left';
+    ctx.fillText('forecast →', X(nH-1)+6, padT+8);
+    ctx.textAlign='right'; ctx.fillText('← history', X(nH-1)-6, padT+8);
+  }
+  function band(p){
+    ctx.beginPath();
+    ctx.moveTo(X(nH-1),Y(hist[nH-1]));
+    for(var i=0;i<Math.floor(nF*p);i++) ctx.lineTo(X(nH+i),Y(q90[i]));
+    for(var j=Math.floor(nF*p)-1;j>=0;j--) ctx.lineTo(X(nH+j),Y(q10[j]));
+    ctx.closePath(); ctx.fillStyle=C.bandF; ctx.fill();
+  }
+  function line(arr,offset,color,w,p){
+    ctx.strokeStyle=color; ctx.lineWidth=w; ctx.lineJoin='round'; ctx.beginPath();
+    var count=Math.max(2,Math.floor(arr.length*p));
+    for(var i=0;i<count;i++){ var xx=X(offset+i), yy=Y(arr[i]); if(i===0)ctx.moveTo(xx,yy); else ctx.lineTo(xx,yy); }
+    ctx.stroke();
+  }
+  function frame(ph,pf){
+    ctx.clearRect(0,0,W,H); grid();
+    line(hist,0,C.hist,2.2,ph);
+    if(ph>=1){
+      band(pf);
+      // connector + forecast line starts at last history point
+      var fcFull=[hist[nH-1]].concat(fc);
+      line(fcFull,nH-1,C.accent,2.4,pf);
+      // endpoint dot
+      var k=Math.max(0,Math.floor(nF*pf)-1);
+      ctx.fillStyle=C.accent; ctx.beginPath(); ctx.arc(X(nH+k),Y(fc[k]),3.4,0,7); ctx.fill();
+    }
+  }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ frame(1,1); return; }
+  var start=null, D1=650, D2=750;
+  function step(ts){
+    if(!start) start=ts; var e=ts-start;
+    if(e<D1){ frame(Math.min(1,e/D1),0); requestAnimationFrame(step); }
+    else if(e<D1+D2){ frame(1,Math.min(1,(e-D1)/D2)); requestAnimationFrame(step); }
+    else { frame(1,1); }
+  }
+  requestAnimationFrame(step);
+})();
+</script>
