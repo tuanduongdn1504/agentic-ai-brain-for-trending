@@ -108,3 +108,5 @@
 - **Drained:** 2026-05-07 by autopilot loop `(C) 2026-05-07-15-autopilot-loop.md`
 - **Wiki output:** [[../wiki/10x-claude-code/_index]] — 5 articles + index
 - **NotebookLM:** `d1d18b0b-ab85-4773-a999-98f36fb39cf5`
+
+- TODO: hoidanit fullstack-vibe-coding series — re-drain playlist PLPTXD_6Mbmh4 when episode >=5 lands (check: yt-dlp --flat-playlist); PRIORITY when the AI-consult-agent episode ships (wiki/hoidanit-fullstack-vibe-coding gap)
