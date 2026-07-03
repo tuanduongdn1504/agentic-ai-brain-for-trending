@@ -23,4 +23,4 @@ Token caps + kill switch (loop-engineering v189 convention, adapted from `templa
 
 ## Alerts This Period
 
-—
+- 2026-07-03 · wiki-ship v191 (AI-For-Beginners): crossed the 80% line of the 3M soft cap (~2.5–2.7M est., workflow 2.08M + main loop) during doc-writing → self-throttled per the binding rule: no further fan-outs; the optional loop-verifier agent SKIPPED (inline hand-verification stands — every corpus claim hand-grepped); ship completed as the operator-requested deliverable under the 3M soft cap. Re-check the v191 claim set at the ~v192 audit.

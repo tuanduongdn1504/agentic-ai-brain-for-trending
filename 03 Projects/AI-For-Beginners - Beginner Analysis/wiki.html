@@ -1,0 +1,101 @@
+<title>v191 · AI-For-Beginners — LLM Wiki</title>
+<style>
+  :root{
+    --ground:#f7f8fa; --cell:#ffffff; --ink:#202a37; --muted:#5b6672;
+    --indigo:#3b4fa0; --indigo-soft:#e8ebf6; --amber:#b7791f; --amber-soft:#fdf3e0;
+    --line:#dce1e8; --good:#2f7d4f;
+  }
+  body{background:var(--ground);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:0 20px 80px;}
+  main{max-width:76ch;margin:0 auto;}
+  h1,h2{font-family:Charter,Georgia,"Times New Roman",serif;text-wrap:balance;line-height:1.2;}
+  h1{font-size:2.1rem;margin:.2em 0 .3em;}
+  h2{font-size:1.35rem;margin:2.2em 0 .5em;color:var(--indigo);}
+  .eyebrow{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35em;font-family:-apple-system,sans-serif;font-weight:600;}
+  header{border-bottom:3px double var(--line);padding:48px 0 24px;margin-bottom:8px;}
+  .meta{color:var(--muted);font-size:.9rem;}
+  .meta code{background:var(--indigo-soft);border-radius:3px;padding:.05em .35em;}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;}
+  .verdict{background:var(--cell);border:1px solid var(--line);border-left:4px solid var(--indigo);border-radius:6px;padding:18px 22px;margin:26px 0;}
+  .verdict strong.tier{color:var(--indigo);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none;font-size:.82rem;}
+  .chips li{background:var(--indigo-soft);color:var(--indigo);border-radius:999px;padding:2px 12px;font-weight:600;}
+  .chips li.warn{background:var(--amber-soft);color:var(--amber);}
+  .tablewrap{overflow-x:auto;background:var(--cell);border:1px solid var(--line);border-radius:6px;margin:14px 0;}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;}
+  th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;}
+  th,td{padding:8px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .errata td:first-child{color:var(--amber);font-weight:700;}
+  blockquote{margin:14px 0;padding:10px 18px;background:var(--cell);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;color:var(--ink);font-family:Charter,Georgia,serif;font-style:italic;}
+  blockquote .src{display:block;font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:.75rem;color:var(--muted);margin-top:6px;}
+  ul{padding-left:1.2em;}
+  li{margin:.3em 0;}
+  .ladder li{margin:.55em 0;}
+  .ladder b{color:var(--indigo);}
+  a{color:var(--indigo);}
+  a:focus-visible{outline:2px solid var(--indigo);outline-offset:2px;}
+  .foot{margin-top:44px;border-top:1px solid var(--line);padding-top:14px;font-size:.82rem;color:var(--muted);}
+</style>
+<main>
+<header>
+  <span class="eyebrow">Storm Bear vault · LLM Wiki v191 · 2026-07-03</span>
+  <h1>AI for Beginners</h1>
+  <p class="meta"><code>microsoft/AI-For-Beginners</code> · MIT · Jupyter · 51.3k★ / 10.3k forks <em>(page-stated)</em> · pinned <code>3662ce1</code> (2026-07-02) · primary author Dmitry Soshnikov, PhD · editor Jen Looper, PhD</p>
+</header>
+
+<p><strong>Microsoft's free 12-week, 24-lesson curriculum on classical AI and deep-learning fundamentals</strong> — symbolic AI → neural networks (from-scratch + TensorFlow/PyTorch) → computer vision → NLP through transformers, BERT and a short LLM/prompting lesson → genetic algorithms, deep RL, multi-agent systems → AI ethics. It is the <strong>foundations floor of the "-for-Beginners" franchise</strong> whose upper floors (Generative-AI, <strong>AI-Agents = corpus v6</strong>, MCP) are squarely on this vault's goal. It teaches <em>what Claude is made of</em> — and contains <strong>zero Claude/Anthropic content</strong> (grep-verified).</p>
+
+<div class="verdict">
+  <span class="eyebrow">Phase 0.9 verdict</span>
+  <strong>GOAL-ALIGNED INCLUDE 3/4</strong> per operator direction — (a) FAIL · <strong>(b) MODERATE</strong> · (c) STRONG · (d) STRONG · <strong>NO MINT</strong> · counts <strong>46/11 unchanged</strong> · <strong class="tier">Tier T3 Education</strong> (structured-curriculum flavor; instance-strengthening of the v6 shape).
+  <ul class="chips">
+    <li>#19 19a returning-Microsoft (4th: v6 · v28 · v178)</li>
+    <li>1st same-franchise subject pair (v6 ↔ v191)</li>
+    <li>#12 data-point: root AGENTS.md, agent-maintained</li>
+    <li class="warn">OFF-GOAL reading defensible (v176/v186 template)</li>
+    <li class="warn">NOT #52 · NOT #57 · NOT #18</li>
+  </ul>
+</div>
+
+<h2><span class="eyebrow">The map</span>Seven sections, 42 notebooks, 12 labs</h2>
+<div class="tablewrap"><table>
+  <tr><th>§</th><th>Section</th><th>Lessons</th><th>2026 read</th></tr>
+  <tr><td>I–II</td><td>Intro · Symbolic AI</td><td>01–02 history, expert systems, ontologies</td><td>the half modern curricula skip — durable</td></tr>
+  <tr><td>III</td><td>Neural Networks</td><td>03–05 perceptron · <strong>build-your-own framework</strong> · TF/PyTorch</td><td>the from-scratch layer (v74's sibling)</td></tr>
+  <tr><td>IV</td><td>Computer Vision</td><td>06–12 OpenCV, CNNs, transfer, VAE, GAN, detection, segmentation</td><td>CNN-era; ViT only in Extras</td></tr>
+  <tr><td>V</td><td>NLP</td><td>13–20 BoW → embeddings → RNN → <strong>transformers/BERT</strong> → <strong>LLMs + prompting</strong></td><td><strong>the "what Claude is made of" spine</strong></td></tr>
+  <tr><td>VI</td><td>Other AI</td><td>21–23 genetic algos · deep RL (Gym) · <strong>multi-agent systems</strong></td><td>the pre-LLM vocabulary of today's orchestration</td></tr>
+  <tr><td>VII</td><td>Ethics</td><td>24 Responsible AI + RAI Toolbox</td><td><strong>flagship fairness example = hiring bias</strong></td></tr>
+  <tr><td>X</td><td>Extras</td><td>X1 CLIP, VQGAN, DALL-E</td><td>only post-2021 generative content</td></tr>
+</table></div>
+<p>Verified lesson template (from L03): <em>pre-lecture quiz → content → 🚀 challenge → post-lecture quiz → review &amp; self-study → lab</em>. Machinery: dual-framework parallel notebooks, Vue-2 quiz app (ff-quizzes.netlify.app), sketchnotes (Tomomi Imura), <strong>50-language automated translation</strong> (Azure/co-op-translator, incl. Vietnamese), Codespaces/Binder/devcontainer paths, CodeQL + Scorecard CI. Install risk audited <strong style="color:var(--good)">very low</strong>.</p>
+
+<h2><span class="eyebrow">The two surprises</span>Hiring bias is the ethics lesson's own example — and agents now maintain the repo</h2>
+<blockquote>"when we try to predict the probability of getting a <strong>software developer job</strong> for a person, the model is likely to give higher [preference to males]"
+<span class="src">lessons/7-Ethics/README.md:15 — six RAI principles + InterpretML / Fairlearn / EconML / DiCE</span></blockquote>
+<p>That page converts almost line-for-line into a <strong>responsible-AI gate for hireui's future LLM features</strong> (pilot D13). And the repo itself: a root <code>AGENTS.md</code> onboarding doc, Copilot Autofix + Dependabot commits, and the pinned HEAD is a merged <code>copilot/fix-review-comments</code> PR — <strong>a pre-LLM curriculum, agent-operated in 2026</strong>.</p>
+
+<h2><span class="eyebrow">Errata</span>Read with the 2026 lens</h2>
+<div class="tablewrap"><table class="errata">
+  <tr><th></th><th>Caveat</th></tr>
+  <tr><td>①</td><td><strong>"GPT-4 … 100T parameters" stated unhedged</strong> (<code>5-NLP/20-LangModels/README.md:32</code>, hand-verified) — folklore, wrong, uncorrected</td></tr>
+  <tr><td>②</td><td>NLP arc is BERT/RNN-era: no RLHF, tokenizers-as-concept, context windows, RAG, tool calling, agent loops</td></tr>
+  <tr><td>③</td><td>Maintenance is automation-heavy (translation bots + Copilot); content architecture frozen ~2022 — though dependency pins are current (TF 2.17, Keras 3.13)</td></tr>
+  <tr><td>④</td><td>README's own quiz arithmetic inconsistent; MS Learn links sparser than implied; some labs GPU-preferred</td></tr>
+</table></div>
+
+<h2><span class="eyebrow">Pilot</span>Top three moves, then the ladder</h2>
+<ul class="ladder">
+  <li><b>A2 · Gap-map yourself</b> against all 24 lessons (KNOW/FUZZY/BLANK) → a personal syllabus of ~6–8 lessons, likely L13–20 + L22–24 — then <b>A3</b>, the 7-lesson "what Claude is made of" spine.</li>
+  <li><b>B8 + D13 · The Goal-#2 artifact:</b> L24's six RAI principles × candidate screening → a hireui responsible-AI gate spec on an <code>agent-*</code> branch (composes with the cost-optimization spec and the v187 AI-Hiring-Committee design; hireui has no LLM yet — build-it-right).</li>
+  <li><b>E17 · Team AI-literacy workshop</b> (Scrum-coach leverage): 4 sessions — history → embeddings (live demo) → transformers/LLMs (with errata) → RAI-for-hiring (with a Fairlearn demo). Stolen lesson template: quiz → content → challenge → quiz.</li>
+</ul>
+<p>Follow-through: <b>F20</b> queue <code>generative-ai-for-beginners</code> (113k★, the LLM-era layer this course lacks) → <b>F21</b> a corpus-recursive <strong>revisit of v6</strong> <code>ai-agents-for-beginners</code> (10+4 → 15 lessons since Apr 2026) → <b>F22</b> targeted <code>mcp-for-beginners</code> modules. Full 24-method menu in the Pilot Methods doc.</p>
+<p><strong>Fence:</strong> pin <code>3662ce1</code> · notebooks in scratch conda/Codespaces only · treat L20's scale claims as errata · VN translation is machine-generated, spot-check before teaching · hireui per its CONSTITUTION (I-2 / I-8 / GitNexus-first).</p>
+
+<h2><span class="eyebrow">Verification</span>Six confabulating readers caught</h2>
+<p>15-agent read-only workflow (~2.08M tok) over a per-file pinned snapshot (169 text files via raw.githubusercontent — the v6 WebFetch-first precedent; full clone infeasible at ~1.1 GB+ pack on git 2.19). <strong>Six readers returned zero-tool-call parametric-memory notes</strong> — fake paths, a fake <code>for-teachers/</code> directory, fake OpenAI/Azure notebooks, a reworded "100T" quote — caught via per-agent tool-call metadata + snapshot greps and discarded. Everything load-bearing above is hand-read or hand-grepped in the pinned source; corpus claims hand-grepped in <code>_state/</code> + <code>_patterns/</code> per the standing verification rule. Streak → <strong>GA:52</strong> (alt reading GA:49·OG:14); §35 CLEAR; 37 consecutive goal-aligned ships v153→v191.</p>
+
+<p class="foot">Docs: <code>03 Projects/AI-For-Beginners - Beginner Analysis/</code> — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Shipped on branch <code>wiki/v191-ai-for-beginners</code> off the v190 tip (<code>3bb2740</code>, itself unmerged). Not auto-merged — operator reviews &amp; merges.</p>
+</main>
