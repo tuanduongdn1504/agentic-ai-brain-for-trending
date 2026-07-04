@@ -1,0 +1,302 @@
+<style>
+  :root{
+    --paper:#F4F6F8; --card:#FFFFFF; --ink:#1A2230; --ink-soft:#48566B;
+    --accent:#2F6F6A; --accent-deep:#245853; --diff:#3A7D44; --amber:#B0740F;
+    --hair:#D9DFE6; --hair-soft:#E7ECF1; --mono-bg:#141A24; --mono-ink:#D6E0EA;
+    --add:#E4F1E6; --add-ink:#256A34;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .read{max-width:720px}
+  a{color:var(--accent-deep);text-underline-offset:2px}
+  h1,h2,h3{text-wrap:balance;line-height:1.18;letter-spacing:-.01em}
+  code,.mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-deep);font-weight:600}
+  .muted{color:var(--ink-soft)}
+
+  /* header */
+  header.top{border-bottom:1px solid var(--hair);background:rgba(244,246,248,.9);
+    backdrop-filter:blur(6px);position:sticky;top:0;z-index:10}
+  .top .wrap{display:flex;align-items:center;gap:14px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .glyph{font-family:var(--mono);font-weight:700;color:var(--accent);border:1.5px solid var(--accent);
+    border-radius:7px;padding:4px 9px;font-size:14px;letter-spacing:.02em;white-space:nowrap}
+  .top .sep{flex:1}
+  .vtag{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+
+  /* hero */
+  .hero{padding:64px 0 40px}
+  .hero .eyebrow{margin-bottom:18px}
+  .hero h1{font-size:clamp(32px,5.2vw,52px);margin:0 0 20px;font-weight:750}
+  .hero .lede{font-size:clamp(18px,2.4vw,22px);color:var(--ink-soft);max-width:760px;margin:0}
+  .hero .lede b{color:var(--ink);font-weight:650}
+  .metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .chip{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:999px;
+    border:1px solid var(--hair);background:var(--card);color:var(--ink-soft)}
+  .chip.solid{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .chip.good{background:var(--add);color:var(--add-ink);border-color:#BFE0C6}
+  .chip.warn{background:#FBF1DE;color:var(--amber);border-color:#EBD9AE}
+
+  section{padding:40px 0;border-top:1px solid var(--hair-soft)}
+  h2{font-size:clamp(22px,3vw,29px);margin:0 0 6px;font-weight:720}
+  .sub{color:var(--ink-soft);margin:0 0 24px;font-size:15px}
+  p{margin:0 0 16px}
+  .read p:last-child{margin-bottom:0}
+
+  /* one-breath quote */
+  .thesis{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:0 0 8px;
+    font-size:19px;color:var(--ink)}
+  .thesis .src{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+    margin-top:8px;letter-spacing:.02em}
+
+  /* pipeline */
+  .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:8px 0 4px}
+  .node{flex:1 1 150px;background:var(--card);border:1px solid var(--hair);border-radius:10px;
+    padding:14px 15px}
+  .node .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent-deep);font-weight:600}
+  .node .v{font-size:14.5px;margin-top:5px;color:var(--ink)}
+  .node .d{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+  .arrow{align-self:center;font-family:var(--mono);color:var(--accent);font-weight:700;font-size:18px}
+
+  /* diff block */
+  .terminal{background:var(--mono-bg);border-radius:12px;overflow:hidden;margin:20px 0 8px;
+    border:1px solid #26303f}
+  .terminal .bar{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid #26303f}
+  .terminal .bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .terminal .bar .t{font-family:var(--mono);font-size:12px;color:#8ea1b6;margin-left:8px;align-self:center}
+  .terminal pre{margin:0;padding:16px 18px;overflow-x:auto;font-family:var(--mono);
+    font-size:13px;line-height:1.7;color:var(--mono-ink)}
+  .terminal .add{color:#8fd39c}
+  .terminal .cm{color:#7f93a8}
+  .terminal .kw{color:#7fd3c9}
+
+  /* cards grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:6px}
+  .cardbox{background:var(--card);border:1px solid var(--hair);border-radius:11px;padding:18px}
+  .cardbox h3{font-size:15px;margin:0 0 7px;font-weight:680}
+  .cardbox p{font-size:13.5px;color:var(--ink-soft);margin:0}
+
+  /* verdict criteria */
+  .crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:8px}
+  .crit .c{background:var(--card);border:1px solid var(--hair);border-radius:11px;padding:16px 17px;
+    border-top:3px solid var(--accent)}
+  .crit .c.fail{border-top-color:#B84A4A}
+  .crit .c .lab{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+  .crit .c .lab .g{font-family:var(--mono);font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;
+    background:var(--add);color:var(--add-ink)}
+  .crit .c .lab .g.f{background:#F6E2E2;color:#9E3B3B}
+  .crit .c .lab .n{font-weight:680;font-size:14.5px}
+  .crit .c p{font-size:13px;color:var(--ink-soft);margin:0}
+
+  /* table */
+  .tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:11px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+  th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--hair-soft);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;background:#FBFCFD}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--ink)}
+
+  /* pilot ladder */
+  .ladder{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .rung{display:flex;gap:16px;background:var(--card);border:1px solid var(--hair);border-radius:11px;
+    padding:16px 18px}
+  .rung .tier{font-family:var(--mono);font-weight:700;color:#fff;background:var(--accent-deep);
+    border-radius:8px;min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+    font-size:15px;flex-shrink:0}
+  .rung .body h3{margin:0 0 4px;font-size:15px;font-weight:680}
+  .rung .body p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+  .rung .body .star{color:var(--accent);font-weight:700}
+
+  /* fence */
+  .fence{background:#FBF6EC;border:1px solid #EBD9AE;border-radius:12px;padding:20px 22px}
+  .fence h2{color:var(--amber);margin-bottom:12px}
+  .fence ul{margin:0;padding-left:20px}
+  .fence li{margin-bottom:8px;font-size:14px;color:#5c4a25}
+  .fence li:last-child{margin-bottom:0}
+  .fence code{background:#F1E7d0;padding:1px 5px;border-radius:4px;font-size:12.5px;color:#6b5418}
+
+  footer{border-top:1px solid var(--hair);padding:28px 0 48px;color:var(--ink-soft);font-size:13px}
+  footer .mono{font-size:12px}
+  .kfacts{list-style:none;padding:0;margin:8px 0 0}
+  .kfacts li{padding:9px 0;border-bottom:1px solid var(--hair-soft);display:flex;gap:14px;font-size:14px}
+  .kfacts li:last-child{border-bottom:none}
+  .kfacts .kk{font-family:var(--mono);font-size:12px;color:var(--ink-soft);min-width:118px;flex-shrink:0;
+    text-transform:uppercase;letter-spacing:.05em;padding-top:1px}
+  @media (max-width:640px){ .hero{padding:44px 0 30px} .kfacts .kk{min-width:96px} }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <span class="glyph">openwiki</span>
+    <span class="vtag">LLM Wiki · v195</span>
+    <span class="sep"></span>
+    <span class="vtag">source-verified @ <code>58b4bd3</code></span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero read">
+    <div class="eyebrow">langchain-ai/openwiki · T2 Service · MIT</div>
+    <h1>The wiki that maintains itself — for agents, not humans.</h1>
+    <p class="lede">OpenWiki is a CLI that runs an <b>autonomous documentation agent</b>: it inspects your codebase and git history, writes an agent-readable wiki into your repo, wires it into <b>AGENTS.md / CLAUDE.md</b>, and keeps it current via a <b>daily human-review PR</b>. It is a productized, code-scoped version of this vault's own founding pattern.</p>
+    <div class="metarow">
+      <span class="chip solid">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="chip good">1 NEW §C standalone · N=1</span>
+      <span class="chip">corpus-first for the surface</span>
+      <span class="chip warn">NOT world-first</span>
+      <span class="chip">counts unchanged 46/11</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="read">
+      <div class="eyebrow">what it is</div>
+      <h2>One breath</h2>
+      <p class="thesis">“OpenWiki is a CLI that writes and maintains documentation for your codebase, built specifically for agents.”
+        <span class="src">— README, verbatim · author: LangChain, Inc. (≈$1.25B; NOT Anthropic) · launched ~2026-07-01</span></p>
+      <p>The thesis: agents write better code when they understand the repo — but you don't want the whole repo in one giant instruction file. OpenWiki maintains a separate, linkable, <b>agent-consumable knowledge layer</b> that the instruction file merely points to. It is the closest commercial mirror of what this vault does by hand (Karpathy's LLM-Wiki pattern), pointed at source code instead of curated knowledge.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">how it works</div>
+    <h2>The engine is DeepAgents + LangGraph</h2>
+    <p class="sub">~30 files. The intelligence lives in a <b>system prompt</b> and a <b>dependency</b> — not a big codebase. <code>createDeepAgent({ tools: [], … })</code> — it ships zero custom tools; every capability comes from the harness.</p>
+    <div class="flow">
+      <div class="node"><div class="k">Provider</div><div class="v">5 providers</div><div class="d">default GLM 5.2 (cheap); Claude one of five; OpenRouter 5xx-fallback route</div></div>
+      <span class="arrow">→</span>
+      <div class="node"><div class="k">Harness</div><div class="v">DeepAgents v1.10.5</div><div class="d">LocalShellBackend · write_todos planning · task subagents · virtual FS</div></div>
+      <span class="arrow">→</span>
+      <div class="node"><div class="k">Grounding</div><div class="v">git evidence</div><div class="d">status · HEAD · log since last gitHead · diff — explain WHY, not just what</div></div>
+      <span class="arrow">→</span>
+      <div class="node"><div class="k">Output</div><div class="v">openwiki/ + AGENTS.md</div><div class="d">navigable prose wiki + a section appended to your instruction files</div></div>
+    </div>
+    <div class="read" style="margin-top:26px">
+      <p><b>The system prompt IS the product.</b> A ~130-line doc-authoring doctrine encoding grounding (“ground every claim in source or git evidence”), read-only subagents (default 1–2), a temporary plan file, git-heavy discovery, no-thin-pages, and a <b>surgical update mode</b> (a soft diff budget; may be a no-op). It's the single most borrowable artifact in the repo — liftable straight into a vault skill with zero install.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">the maintenance loop</div>
+    <h2>Diff-scoped updates, human-gated, no churn</h2>
+    <p class="sub">A GitHub Action turns OpenWiki into a scheduled, unattended, human-review loop — the exact shape of the loop-engineering v189 discipline. It opens a PR; it never auto-commits to your default branch.</p>
+    <div class="terminal">
+      <div class="bar"><i style="background:#e06c60"></i><i style="background:#e0b23e"></i><i style="background:#69b578"></i><span class="t">.github/workflows/openwiki-update.yml</span></div>
+<pre><span class="cm"># daily cron → inspect the diff since last run → open a review PR</span>
+<span class="kw">on:</span> { schedule: [ cron: <span class="add">"0 8 * * *"</span> ] }
+<span class="kw">run:</span> openwiki --update --print   <span class="cm"># model: z-ai/glm-5.2 (cheap)</span>
+<span class="kw">then:</span> create-pull-request → branch <span class="add">openwiki/update</span>
+
+<span class="cm"># the anti-churn guard (src/agent/utils.ts):</span>
+<span class="cm"># SHA-256(openwiki/) before == after  →  no metadata write, no PR</span>
+<span class="add">+ metadata written ONLY if the docs actually changed</span></pre>
+    </div>
+    <div class="read" style="margin-top:8px">
+      <p>The <b>content-snapshot no-op guard</b> is the reusable gem: hash the whole <code>openwiki/</code> tree before and after; write metadata (and open a PR) only if it changed. That is the concrete answer to “how do I run an agent on a daily cron without daily noise” — portable to any scheduled loop, including this vault's autopilot.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">verdict · phase 0.9 strict</div>
+    <h2>GOAL-ALIGNED INCLUDE 3/4</h2>
+    <p class="sub">Verdict produced inline + hand-verified; a 6-agent read-only workflow (0 empty, all toolCalls&gt;0) did source + landscape research only. The tier keys on (b).</p>
+    <div class="crit">
+      <div class="c fail">
+        <div class="lab"><span class="g f">FAIL</span><span class="n">(a) author</span></div>
+        <p>LangChain, Inc. — declared-non-Anthropic institution; first <code>langchain-ai</code> ORG subject (#19 19a). No heritage rescue.</p>
+      </div>
+      <div class="c">
+        <div class="lab"><span class="g">STRONG</span><span class="n">(b) relevance · keys tier</span></div>
+        <p>An autonomous doc agent producing the exact artifact class the vault studies; on four live threads; a productized mirror of the vault's own pattern. Not STRONGEST: Claude is one of five providers.</p>
+      </div>
+      <div class="c">
+        <div class="lab"><span class="g">STRONG</span><span class="n">(c) substance</span></div>
+        <p>DeepAgents backend + LangGraph checkpointing + 5-provider fallback + content-snapshot guard + a real prompt doctrine. Caveats: v0.0.1, thin layer, no tests.</p>
+      </div>
+      <div class="c">
+        <div class="lab"><span class="g">STRONG</span><span class="n">(d) connectivity</span></div>
+        <p>The doc-authoring member of the agent-code-context family; ties to §C#23, claude-context v40, fff v194, GLM-5 v176, loop-engineering v189, AGENTS.md thread.</p>
+      </div>
+    </div>
+    <div class="read" style="margin-top:22px">
+      <p><b>Mint:</b> 1 NEW §C standalone (N=1) — <i>“Agent-First Codebase-Documentation Generator/Maintainer.”</i> The conjunction (agent authors+maintains prose docs × agent-first × writes into your repo + instruction files × git-diff-scoped human-gated CI loop × multi-provider) is corpus-first for the surface — but <b>NOT world-first</b>: DeepWiki, Context7, Mintlify, Swimm, Komment and GitBook AI precede on individual axes. A NO-MINT alternative (a doc variant of the agent-code-context family) is recorded, operator-reviewable. Either way counts stay 46/11.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">landscape · is it new?</div>
+    <h2>A well-built entrant, differentiated on the conjunction</h2>
+    <p class="sub">No tool in the analyzed set combines agent-native + self-hosted-CLI-in-repo + CI-maintained + AGENTS.md-aware into one product. That intersection — plus the LangChain/DeepAgents pedigree — is the story.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tool</th><th>What it is</th><th>How OpenWiki differs</th></tr></thead>
+        <tbody>
+          <tr><td><b>DeepWiki</b> (Cognition/Devin)</td><td>Hosted SaaS wiki for any GitHub repo</td><td>Self-hosted; writes into <b>your</b> repo as git commits, not an external site</td></tr>
+          <tr><td><b>Context7</b> (Upstash)</td><td>MCP docs for <b>public</b> libraries</td><td>Documents your <b>private</b> repo, self-hosted</td></tr>
+          <tr><td><b>Mintlify</b></td><td>Managed docs platform + AI agent</td><td>Updates land <b>in-repo</b> as reviewable PRs, not platform-hosted</td></tr>
+          <tr><td><b>Swimm</b></td><td>IDE docs, static-analysis primary</td><td>Agent-first (LLM primary), CLI + CI, not IDE-bound</td></tr>
+          <tr><td><b>Komment / GitBook AI</b></td><td>Delta-triggered / reactive SaaS</td><td>Schedule-driven, proactive, <b>AGENTS.md-aware</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="read" style="margin-top:18px">
+      <p class="muted"><code>AGENTS.md</code> is a Linux-Foundation open standard (~22.7k★). Claude Code reads <code>CLAUDE.md</code> natively, <b>not</b> <code>AGENTS.md</code> — OpenWiki correctly writes both. A tool that auto-generates <i>and safely maintains</i> these files is the notable part.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">pilot · show me many methods</div>
+    <h2>Apply it to your flow — 24 methods, laddered</h2>
+    <p class="sub">The highest-ROI move is <b>B (borrow the prompt/loop patterns, zero install)</b> — real value regardless of whether OpenWiki earns a slot. The install value (C/D) is real for hireui specifically, behind the fence.</p>
+    <div class="ladder">
+      <div class="rung"><div class="tier">A</div><div class="body"><h3>Read &amp; learn — zero install</h3><p>The system prompt as a doc-authoring doctrine (A1); its own dogfooded output as a template (A2); DeepAgents as the "Claude Code alternative that works with any model" (A3); map it against the vault's own pattern (A4).</p></div></div>
+      <div class="rung"><div class="tier">B</div><div class="body"><h3>Borrow patterns — highest ROI, zero install</h3><p><span class="star">⭐ B5</span> lift the doc-agent prompt into a vault <code>05 Skills/</code> skill · B6 steal the content-snapshot no-op guard for your loops · B7 the surgical soft-diff-budget rule · B8 the AGENTS.md/CLAUDE.md dual-write template · B10 model-tiering (cheap model for the bulk pass).</p></div></div>
+      <div class="rung"><div class="tier">C</div><div class="body"><h3>Scratch trials — install, scratch repo only</h3><p><span class="star">⭐ C11</span> <code>--init</code> a scratch clone on the cheap default &amp; read the output · C12 test the surgical <code>--update</code> · C13 GLM-5.2-vs-Claude cost bake-off · C15 MEASURE the downstream token delta with vs without the docs (the number that justifies it).</p></div></div>
+      <div class="rung"><div class="tier">D</div><div class="body"><h3>hireui / Goal-#2 — per its CONSTITUTION</h3><p><span class="star">⭐ D17</span> generate hireui's agent docs on a scratch clone (I-8 operator-installs, I-2 <code>agent-*</code> branch) · D18 pair OpenWiki (prose) WITH GitNexus (structure) · D19 install the daily update-PR loop feeding the v189 PR-babysitter you already run.</p></div></div>
+      <div class="rung"><div class="tier">E</div><div class="body"><h3>Off-goal / personal</h3><p>Run it on a side-project (E22); contribute a provider/model PR to an official LangChain repo (E23).</p></div></div>
+      <div class="rung"><div class="tier">F</div><div class="body"><h3>Vault-meta capstone</h3><p><span class="star">⭐ F24</span> write the "four ways to give an agent code context" synthesis — graph (§C#23) vs vector (claude-context v40) vs lexical (fff v194) vs <b>prose docs (openwiki v195)</b>; when to use which; they compose. Flag the DeepAgents-harness watch axis for the overdue audit.</p></div></div>
+    </div>
+    <p class="read" style="margin-top:22px"><b>⭐ One-thing path: B5 → C11 → D17.</b> Lift the prompt into a vault skill (today, zero install) → run OpenWiki on a scratch hireui clone with the cheap default → if the docs are good, install the daily loop on an <code>agent-*</code> branch and let it feed the v189 PR-babysitter.</p>
+  </section>
+
+  <section>
+    <div class="fence">
+      <h2>Fence — read before any install</h2>
+      <ul>
+        <li><code>install-snapshot</code> first, then <code>npm install -g openwiki@0.0.1</code>. Install is benign (first-party LangChain deps, no postinstall).</li>
+        <li><b>Runtime is the risk, not the install:</b> the DeepAgents <code>LocalShellBackend</code> can execute arbitrary shell — <code>virtualMode</code> sandboxes filesystem-tool <em>paths</em> but NOT the shell tool. Run on a <b>scratch clone</b>, review the diff/PR (output is always reviewable — the safety net).</li>
+        <li>Pin the model; start on the cheap GLM 5.2 default; don't hand it secrets.</li>
+        <li><b>hireui = per its CONSTITUTION</b> (I-8 operator-installs, I-2 <code>agent-*</code> branch, GitNexus-first). No LLM spend yet — build-it-right, not a retrofit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">reference</div>
+    <h2>Key facts</h2>
+    <ul class="kfacts">
+      <li><span class="kk">Repo</span><span>github.com/langchain-ai/openwiki · source-verified @ <code>58b4bd3</code></span></li>
+      <li><span class="kk">Author</span><span>LangChain, Inc. — ≈$1.25B valuation, ~325 employees (press/page-stated); NOT Anthropic</span></li>
+      <li><span class="kk">Stack</span><span>TypeScript 54.6% / JavaScript 45.4% · built on <code>deepagents</code> v1.10.5 + LangGraph</span></li>
+      <li><span class="kk">Scale</span><span>~1.8k★ / 146 forks / 0 releases / v0.0.1 (page-stated §37.4 — NOT a velocity claim)</span></li>
+      <li><span class="kk">Providers</span><span>OpenRouter (default GLM 5.2) · Anthropic · OpenAI · Fireworks · Baseten</span></li>
+      <li><span class="kk">Tier</span><span>T2 Service — self-hosted CLI documentation agent (the fff v194 / SkillSpector v169 family)</span></li>
+      <li><span class="kk">Streak</span><span>GA:56 · 42 consecutive goal-aligned ships v153→v195 · §35 CLEAR</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap read">
+    <p class="mono">Storm Bear LLM Wiki · v195 · openwiki · 2026-07-04</p>
+    <p>Verdict produced inline + hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code>. Collision grep clean; identity + landscape corroborated by independent WebSearch (LangChain blog + X post); source hand-read at <code>58b4bd3</code>. Full detail: the (C) Deep Dive, (C) Verdict, and (C) Pilot Methods Menu in the project folder.</p>
+  </div>
+</footer>
