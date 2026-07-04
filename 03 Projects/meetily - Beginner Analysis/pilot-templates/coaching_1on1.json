@@ -1,0 +1,37 @@
+{
+  "name": "Coaching 1:1",
+  "description": "A Scrum-coach 1:1 template — wins, blockers, feedback both ways, commitments, and the next check-in. Growth-oriented, action-tracking.",
+  "sections": [
+    {
+      "title": "Context",
+      "instruction": "One line: who the 1:1 was with (role) and its focus (career, delivery, blocker, general check-in)",
+      "format": "string"
+    },
+    {
+      "title": "Wins & Progress",
+      "instruction": "Summarize progress, wins, or things going well since the last session as short factual bullets",
+      "format": "list"
+    },
+    {
+      "title": "Blockers & Challenges",
+      "instruction": "List the blockers, frustrations, or challenges raised, with enough context to act on each",
+      "format": "list"
+    },
+    {
+      "title": "Feedback Exchanged",
+      "instruction": "Capture feedback given AND received during the session, kept factual and constructive. Separate 'gave' from 'received' if both occurred",
+      "format": "list"
+    },
+    {
+      "title": "Commitments",
+      "instruction": "List concrete commitments made in the session, with owner and due date, and a reference segment + timestamp for traceability",
+      "format": "list",
+      "item_format": "| **Owner** | Commitment | Due | Reference Segment | Timestamp |\n| --- | --- | --- | --- | --- |"
+    },
+    {
+      "title": "Next Check-in",
+      "instruction": "State when the next 1:1 is and any specific topic to revisit. If not set, write 'To be scheduled'",
+      "format": "paragraph"
+    }
+  ]
+}

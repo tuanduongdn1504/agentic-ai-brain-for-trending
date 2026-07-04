@@ -1,0 +1,37 @@
+{
+  "name": "Confidential Session",
+  "description": "A privacy-conscious template for confidential client / coaching / 1:1 meetings — outcomes and actions, no verbatim quotes of sensitive personal detail.",
+  "sections": [
+    {
+      "title": "Context",
+      "instruction": "In one or two sentences, state the purpose of the session and who it was with (roles, not full names if names are sensitive). Do not include any personal, medical, financial, or legal detail beyond what is needed to understand the purpose",
+      "format": "paragraph"
+    },
+    {
+      "title": "Key Discussion Points",
+      "instruction": "Summarize the main topics discussed as neutral, factual bullets. Avoid direct quotes of sensitive personal statements; paraphrase at a professional level",
+      "format": "list"
+    },
+    {
+      "title": "Decisions",
+      "instruction": "List the concrete decisions or agreements reached during the session. If none were reached, write 'No formal decisions'",
+      "format": "list"
+    },
+    {
+      "title": "Action Items",
+      "instruction": "List every agreed action with its owner and a due date. Add the reference transcript segment and timestamp so each item is traceable",
+      "format": "list",
+      "item_format": "| **Owner** | Action | Due | Reference Segment | Timestamp |\n| --- | --- | --- | --- | --- |"
+    },
+    {
+      "title": "Risks & Concerns",
+      "instruction": "Note any risks, blockers, or concerns raised, and who owns following up. Keep it factual and non-attributory where the concern is sensitive",
+      "format": "list"
+    },
+    {
+      "title": "Follow-up",
+      "instruction": "State the next check-in or follow-up commitment (what, who, when). If none was set, write 'No follow-up scheduled'",
+      "format": "paragraph"
+    }
+  ]
+}
