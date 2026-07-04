@@ -64,6 +64,10 @@ Each candidate scored on:
 - **Why:** Symphony is internal at OpenAI. Open-source attempts (e.g., Inngest, Temporal-for-agents, LangGraph) are the comparison surface — even though Lopopolo dismisses scaffolds, the question is whether a non-OpenAI team can reproduce his throughput claim.
 - **Method:** Path 1 yt-pipeline "agent orchestration framework Symphony".
 
+### Completed 2026-07-04 (partial, from the builder side)
+- **Archon ingest** ([[archon-harness-builder-anchor]] + 3 siblings) — the first open-source *harness-builder* platform: YAML DAG workflows, worktree-isolated parallel runs, deterministic nodes, approval gates, per-node model routing, 6 platform adapters. Answers the "can a non-OpenAI team build the orchestration layer" half of #9; the *throughput reproduction* half remains open (Cole's "Sonnet+Archon > Opus alone" is self-reported, uncorroborated — same status as Lopopolo claim #4).
+- **New follow-up candidates surfaced:** (a) Cole's **Omnigent** "meta-harness for every coding agent" video (oGE_Dwz-rMk, 2026-06-15) — possible 4th layer above harness builders; (b) `coleam00/dark-factory-experiment` repo watch (does the no-human-gate experiment actually run?); (c) **The Book of Archon** (archon.diy/book/, 10 chapters) as a pedagogy-tier source; (d) measure the `persist_session` cache-economics vs fresh-context-bias trade (nobody in corpus has data — pairs with [[external|claude-api-cost-optimization/_index]]).
+
 ### 10. "Frontier"-class enterprise governance for AI agents
 - **Why:** Frontier wraps Symphony with safety + governance. Enterprise adoption of agentic workflows is the deployment ceiling — RBAC, audit, FinOps, compliance posture are the gating items.
 - **Method:** Path 4 multi-bundle (enterprise AI governance reports + SOC2-for-agents discussions).

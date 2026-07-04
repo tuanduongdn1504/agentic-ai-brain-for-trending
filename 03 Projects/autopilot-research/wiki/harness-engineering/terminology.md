@@ -42,6 +42,7 @@ Architectural principle: structure code, packages, and documentation so AI model
 
 Internal nickname for OpenAI teams operating with **zero human-written code AND no human pre-merge review**. Evocative of unstaffed manufacturing floors. Distinct from "lights-out" because humans still steer at the system-design layer.
 - *talk · synthesis*
+- **Attribution timeline (added 2026-07-04, verified in `wf_8a0f2da5-1d0`):** manufacturing sense = 1980s lights-out (Fanuc; fictional precursor Philip K. Dick "Autofac" 1955). **Codebase sense coined by Dan Shapiro, "The Five Levels: from Spicy Autocomplete to the Dark Factory" (2026-01-23)**, amplified by Simon Willison (2026-01-28); Lopopolo's Feb-2026 blog/talk usage came after — he did not originate it. Now ≥3 independent 2026 usages: Shapiro (levels framing) / Lopopolo (OpenAI internal teams) / **Cole Medin** (planned public Archon-managed experiment, `coleam00/dark-factory-experiment` — see [[archon-harness-builder-anchor]]). Flagship real-world instance: **StrongDM software factory** (32,200 production lines, zero human review, Feb 2026).
 
 ## Ralph loop
 

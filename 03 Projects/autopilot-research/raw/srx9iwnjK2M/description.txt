@@ -1,0 +1,9 @@
+Archon is the first open-source harness builder for AI coding - and in this stream I'm walking through the entire thing from start to finish.
+
+Archon is the AI command center I have been working on for a while and this is the next evolution!
+
+We'll cover what harness engineering actually is and why it's the next evolution after prompt and context engineering, then get hands-on with Archon. Setup, running workflows from the CLI and Web UI, building custom YAML workflows from scratch, and all the power features like loops, approval gates, and per-node model selection.
+
+Whether you want to follow along or just watch - by the end of this stream you'll know how to encode any AI coding workflow as a repeatable, version-controlled harness.
+
+Archon GitHub: https://github.com/coleam00/archon
