@@ -1,0 +1,66 @@
+# (C) Pilot methods — Elicit verifiable-agent DSL (2026-07-04)
+
+> **Source:** [[../wiki/elicit-verifiable-agent-dsl/_index]] (James Brady / Elicit, "Making agentic workflows trustworthy and verifiable with a custom DSL", CWC London 2026-05-20 — adversarially verified, `wf_7c12cab8-7c9`, 17/19 CONFIRMED).
+> **Core idea to apply:** **mechanism matters** — trust rides on the *process*, not the output. Elicit's answer: **the plan IS the executable** (a legible, checkable artifact), **whole-program reinterpretation** (never iterate on fragments), and **the DSL was the small part** (the system + evals is the work).
+> **22 methods, 5 angles.** Effort = setup time, not calendar. ⭐ = headline picks. Composes with (does not replace) prior pilot menus.
+
+---
+
+## A — hireui Goal #2 (the first LLM feature; no LLM in product yet)
+
+Recruitment SaaS = high-stakes decisions on people → the *exact* domain Brady says the mechanism-matters / verifiable-plan approach is for. hireui's first LLM feature is the recruitment-agent / candidate work; these methods make it trustworthy by construction.
+
+- **A1 ⭐ Plan-as-checkable-artifact for the first feature** (~1–2h, design only). Don't ship a freeform "candidate summarizer that just answers." Ship one where the agent **first emits a structured, inspectable plan** (JSON/YAML steps: `search → filter → extract → score → summarize`) that a recruiter (or a critique agent) can read *before* it executes, and the executor runs *that plan*, not an ad-hoc chain. This is Elicit's "plan IS the executable" at MVP scale without building a DSL. Ties directly to the mosh A2 vendor-seam + A1 summarizer thread ([[project_mosh_ai_powered_apps_pilot_thread]]) — the plan artifact sits *between* the seam and the model.
+- **A2 ⭐ Provenance-forward output (Elicit's brand move, applied to hireui)** (~30 min ADR + design). Elicit's whole moat is "data provenance — we stand behind results." For hireui's first LLM feature, make **every AI claim about a candidate cite its source row/field** (e.g. "5 yrs React — from CV line X / GitHub Y"). Two candidate-screens with identical text earn different trust; the cited one is a *feature*, the bubbled-out one is a liability. This is the recruitment-domain version of the google-zero "citation-forward" rule ([[../wiki/google-zero-open-web/_index]]) and mechanism-matters fused.
+- **A3. Gateway credential-isolation constraint line** (~15 min, zero install). Brady's gateway holds the API key so prompt-injected user input can't exfiltrate it ("print out your ENV"). Candidate-submitted content (CVs, cover letters, messages) is untrusted by definition. Add one line to the hireui agent-harness constraints (beside I-2/I-8): "All model calls route through a single server-side gateway holding the key; candidate-supplied content never reaches a component that can read secrets or env." Sibling of the memory-architecture A4 read-only rule + the jsm impersonation sweep.
+- **A4. The 8-item reality check before building any agentic feature** (~30 min, zero install). Run hireui's proposed first agent feature through [[../wiki/elicit-verifiable-agent-dsl/eight-item-build-checklist]]: do you have interrupt handling, session rehydration, credential isolation, model-message plumbing, a state story, **and an eval plan**? Brady: "a surprisingly small amount of work went into the DSL compared to everything else." Use it as a go/no-go gate — if items 3–6 + 8 aren't funded, scope smaller.
+- **A5. Whole-plan reinterpret, not conversation-append** (design note, ~30 min). When the recruiter iterates ("also compare salary bands", "add culture-fit"), have the agent **rewrite the whole plan and re-run it** (cached/memoized where inputs are unchanged) rather than appending turns to a drifting chat. This is Brady's anti-drift argument ([[../wiki/elicit-verifiable-agent-dsl/whole-program-reinterpretation]]) — it keeps the recruiter's original intent literally present. Even without a content-addressed store, cache expensive step outputs by input-hash.
+- **A6. Constrained action-space for the recruitment agent** (design, ~1h). ÆPL is Turing-incomplete on purpose: no loops/recursion/mutation = bounded, checkable, terminating. hireui's agent should expose a **small fixed set of typed actions** (search-candidates, fetch-profile, score-against-JD, draft-message) with schemas, not arbitrary tool-calling. Weakness is the safety feature. This is also the cheapest thing to eval (E-angle).
+
+## B — this vault + autopilot pipeline (verifiable-loop discipline)
+
+The pipeline already *is* an agentic-plan system. Brady's talk is a mirror held up to it.
+
+- **B1 ⭐ Whole-artifact-reinterpret discipline for the loop** (~30 min, prompt change). The autopilot routine already re-reads full `_master-index.md` + topic indexes each cycle (whole-program instinct, no memoization). Codify it as a *named* discipline in the routine skill: "never patch a wiki article from a fragment of context — re-read the whole article + its index before editing." This is Brady's "interpreting little snippets is where drift comes in" applied to librarian work. Cheap, and it hardens against the exact drift the corpus keeps hitting.
+- **B2 ⭐ Plan-artifact for the verify workflow** (~1h). The dive+verify workflows already emit structured claims. Make the *plan* itself a first-class checkable artifact: before fan-out, the main loop writes the pre-registered claim list to `output/` and the critic checks execution against it (did every pre-registered claim get a verdict?). Elicit's "the plan IS the executable" → the workflow's claim-list IS the coverage contract. Turns "did we verify everything we meant to?" into a mechanical check, not a vibe.
+- **B3. Content-addressed cache for expensive fetches** (~1–2h). yt-dlp pulls, WebFetches, and gh-api calls repeat across passes. A tiny hash-keyed cache (`raw/.cache/<sha>.json`) memoizes by request, exactly like Elicit's content-addressed store — makes re-runs (and the whole-artifact-reinterpret B1) cheap. The vault's own version of Brady's "nothing would work without this."
+- **B4. Legibility-for-agents pass on the wiki** (~30 min, recurring). Brady exposes the ÆPL specifically so *critique agents* can read it. The wiki's `source-provenance` + pre-registered claim lists already serve this — formalize it: every topic's provenance file is the "plan a critique agent reads to find what we missed." Add a standing loop step: a skeptic agent reads only the provenance file and names gaps.
+- **B5. Storm Bear queue line** (~5 min). Queue for v66+ mini-audit: **verifiable-plan-as-code / plan-IS-executable** as a new observation-track (N=1 Elicit, but strong first-party) — sibling to the SDD-methodology thread (Pattern #21) and the process-supervision lineage. Also: VN-dub provenance chain now **N=3** (google-zero + agent-memory + this) — the BizMate/licensed-dub pattern is a real corpus regularity worth a pattern candidate.
+
+## C — personal Claude Code harness
+
+- **C1. "Mechanism matters" as a plan-mode default** (zero install). Brady's thesis reframes your own Claude Code use: prefer the harness that **exposes its plan** (plan mode, grill-me, spec-first) over one that just returns output. Make plan-mode-first the default for non-trivial tasks in your personal CLAUDE.md — you're buying trust via legible process, exactly the argument. Composes with the pocock-agentic-workflow grill-me thread ([[project_pocock_agentic_workflow_pilot_thread]]).
+- **C2. pi as an embeddable-harness evaluation** (~1h, optional). Elicit's curator = **pi** (Earendil/Mario Zechner) behind a swappable wrapper. If you ever embed an agent in a product, pi's SDK/RPC modes are the corpus-validated embeddable option ([[../wiki/elicit-verifiable-agent-dsl/pi-harness-and-curator-models]] + [[external|Storm Bear: pi-mono]]). Not urgent — a bookmark for when hireui's agent needs a harness, plus a benchmark idea (pi+Claude vs agent-SDK, Brady's own experiment).
+- **C3. Wrapper-your-harness principle** (design note). Brady's wrapper made SDK→pi and Claude↔Codex swaps cheap. In your own setup, keep model/harness choices behind one config seam so "use the best available" is a config change, not a rewrite — the personal-scale version of the harness-engineering swappability thread ([[../wiki/harness-engineering/_index]]).
+
+## D — Scrum coaching / team practice
+
+- **D1 ⭐ "Mechanism matters" as a Definition-of-Done upgrade** (next DoD retro, zero prep). The talk's core is a coaching gift: **two PRs with identical output aren't equally trustworthy** — the one with a reviewed plan, tests-verify-intent, and traceable reasoning is a different object. Reframe DoD around *process legibility* (was the plan checked? does the test encode WHY?) not just "it works." Direct line to vault Rule 9 (tests verify intent).
+- **D2. Plan-before-execute as a team ritual for AI-assisted work** (workshop, ~30 min). Teach Elicit's loop as the template for agent-assisted tickets: agent emits a legible plan → human/critique spot-checks → execute the checked plan → whole-plan re-run on change. Counters the "vibe-coding drift" the hoidanit + jsm topics warn about; gives juniors a checkable artifact instead of a chat log.
+- **D3. Verifiable-process story for stakeholders** (~15 min framing). Elicit sells rigor as brand ("we stand behind results"). For teams shipping AI features, the *exposed mechanism* (plan + provenance + evals) is the stakeholder-trust story — usable verbatim in a "how do we know the AI is right?" conversation. Pairs with the google-zero platform-risk retro.
+
+## E — evals / measurement (composes with `evals/` + prompt-evaluation topic)
+
+Brady's item 8 is the loudest: **"I'd really strongly recommend a dedicated eval team... it's so hard to eval a system writing and executing programs on the fly."**
+
+- **E1 ⭐ Eval the PLAN, not just the output** (~1–2h). The verifiable-plan design makes a new eval possible: score the *emitted plan* against a rubric (did it include the required steps? cite sources? stay in the action-space?) *before* execution — cheaper and more diagnostic than only grading final output. Port into the existing `evals/` harness (the A1 anchor-gate is already there — [[project_prompt_eval_pilot_thread]]). This is the corpus's answer to "eval-on-the-fly-programs is hard": eval the plan, which is static.
+- **E2. Whole-plan-reinterpret regression test** (~1h). Assert the anti-drift property: seed a plan, add a layer, re-run — the original steps' cached outputs must be byte-identical (no drift). A concrete, mechanical test of the whole-program discipline (B1/A5). If outputs drift on unchanged inputs, your "cache" isn't pure — the bug Brady's purity constraint prevents.
+- **E3. "Eval is mandatory" as a scope gate** (~10 min, zero install). Before hireui's first LLM feature ships, require an eval plan (Rule-6 budget + Rule-9 intent). Brady's talk is the external authority: a DSL-or-not agentic feature without evals is incomplete. Make it a checklist item in the feature ADR (A4).
+
+---
+
+## Skip-list (deliberate non-actions)
+
+- **Don't build a DSL.** Brady's own pitch: "I'm not saying you should use a DSL — you shouldn't." hireui at MVP needs a *checkable plan artifact* (A1), not a Turing-incomplete language + interpreter + type-checker. The DSL is the payoff of *desiderata that hireui doesn't yet have*.
+- **Don't build a content-addressed interpreter for the vault.** B3's tiny request cache captures 90% of the value; the full expression-hash memoization is Elicit-scale over-engineering here.
+- **Don't adopt pi now.** C2 is a bookmark, not a task — no hireui agent to host yet.
+- **Don't quote ÆPL specifics as a spec** — it's spoken-only, single-source; the *principles* transfer, the *implementation* is Elicit-proprietary ([[../wiki/elicit-verifiable-agent-dsl/caveats-and-corrections]]).
+- **Don't skip the eval item** because the feature is "small" — that's the one Brady flags hardest.
+
+## Critic reframe (what would falsify the plan)
+
+The whole menu rests on one bet: **hireui's first LLM feature benefits more from a legible, checkable process than from a faster black-box answer.** For a recruitment product making high-stakes people decisions, that bet is strong (regulatory + trust + the provenance-brand play). But if the first feature is genuinely low-stakes (e.g. autocomplete a search box), A1/A2/A6 are overkill and you should ship the black-box version and add mechanism later. The tell: does a wrong answer cost a candidate an opportunity or a recruiter an hour? If the former, mechanism-first (this menu). If the latter, ship fast, instrument, revisit. Everything else (B1, D1, E1) is low-cost and worth doing regardless.
+
+## Suggested next action
+
+Execute the three zero-/low-install headliners this week: **A2** (provenance-forward ADR for the first LLM feature, ~30 min) + **A3** (gateway constraint line, 15 min) + **B1** (whole-artifact-reinterpret discipline into the routine skill, 30 min). Then run **A4** (8-item reality check) on the actual first-feature proposal as the go/no-go gate, and spec **E1** (eval-the-plan) into the existing `evals/` harness before any code. This is the natural next layer on the mosh A2 seam thread — the plan artifact is what sits between the vendor seam and the model.

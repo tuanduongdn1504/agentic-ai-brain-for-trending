@@ -47,6 +47,10 @@ Source pair: BizMate VN dub b1qgIGwBUEI → Anthropic EN original geUv4CjPpxI ("
 | D10 | VN dub fidelity | ✅ HIGH | No dub-added claims found. Garbles: "Ciberry memory"→"CWC memory", "session.mb"→"sessions.md", stray "Anthropic Sonnet of GPT" caption artifact, "code với code"→"Code with Claude" |
 | D11 | BizMate dub authorization | ⚠️ ATTRIBUTED, AUTHORIZATION UNVERIFIED | Description links the original + states free-localization mission (Skool community: 648 members, free). No public licensing evidence either way |
 
+### 2026-07-04 (later same day) — recording-venue hedge RESOLVED
+
+- The provenance chain's "venue unconfirmed; London most consistent" hedge for geUv4CjPpxI is now **CONFIRMED London**: during the [[../elicit-verifiable-agent-dsl/_index|elicit-verifiable-agent-dsl]] pass (same London Extended event), two independent verifiers fetched `claude.com/code-with-claude/session/ldn-ext-agents-that-remember` (Kevin Chen, 12:00–12:45, 2026-05-20) and `claude.com/code-with-claude/san-francisco-extended` (SF-Ext 2026-05-07 instance taught by **Tina Vachovsky** — the repo seed data's "with Tina" now has a full name). Upload 2026-05-23 = London +3 days. The hedging discipline worked: nothing to retract, only to upgrade. Note: those verifiers framed this as a "critical correction to the wiki" — over-read; the wiki had hedged correctly, only coarse commit-message shorthand said "CWC-SF".
+
 ### Excluded dive claim (Rule 12 — fail loud)
 
 - A dive agent asserted an official Anthropic certification **"Claude Certified Architect (CCA-F)"** ($99, 60-question proctored, "launched 2026-03-12") on anthropic.skilljar.com. This **collides with the corpus pin** from [[../multi-agent-orchestration/_index]] (CCA-F = ExamPro **third-party** construct; don't re-fabricate). Main-loop fetch of anthropic.skilljar.com (2026-07-04): official Anthropic Academy, 20+ courses, **no named certification program on the page** (only course "completion certificates"). Claim EXCLUDED from the wiki; logged as a corpus-pin-catches-agent-confabulation instance.
