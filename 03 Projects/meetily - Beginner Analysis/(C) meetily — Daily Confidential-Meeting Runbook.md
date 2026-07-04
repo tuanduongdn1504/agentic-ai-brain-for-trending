@@ -28,7 +28,9 @@ cp "/Users/Cvtot/KJ OS Template/03 Projects/meetily - Beginner Analysis/pilot-te
    ~/Library/Application\ Support/Meetily/templates/
 ```
 
-Restart meetily → they appear in the template picker as **"Confidential Session"** and **"Coaching 1:1"** (alongside the built-in Daily Standup / Standard Meeting).
+Restart meetily → they appear in the template picker as **"Confidential Session"**, **"Coaching 1:1"**, and **"Biên bản sinh hoạt chi bộ thường kỳ"** (alongside the built-in Daily Standup / Standard Meeting).
+
+> **The biên bản template** (`bien_ban_chi_bo.json`, added 2026-07-04 from the operator's official .docx form "FORM MẪU BIÊN BẢN SH THƯỜNG KỲ CHI BỘ") mirrors the monthly chi bộ meeting-minutes form section-for-section: Thông tin cuộc họp → Thành phần tham dự → Nội dung → Ý kiến đóng góp → Giải trình của chủ trì → Biểu quyết và kết luận → Kết thúc. Section instructions are **in Vietnamese** so the summary comes out in Vietnamese, and anything not spoken aloud in the recording (attendance counts, times) is left as `.....` for the thư ký to fill by hand. **Use Whisper (not Parakeet) for these meetings — they're Vietnamese** (§1). Note: meetily produces the *content* as markdown; the official header ("ĐẢNG CỘNG SẢN VIỆT NAM"), form number, and the Thư ký/Chủ trì signature block stay in the .docx form — paste meetily's output into the form, don't replace it. For a formal record, read attendance counts and the closing time **aloud** during the meeting so they land in the transcript.
 
 > **Naming waiver (like the v189 loop-file waiver):** the template files keep clean machine-read names (`confidential_session.json`, `coaching_1on1.json`) — no `(C)` prefix — because the filename *is* the template ID meetily loads. They're Claude-authored; provenance is recorded here.
 

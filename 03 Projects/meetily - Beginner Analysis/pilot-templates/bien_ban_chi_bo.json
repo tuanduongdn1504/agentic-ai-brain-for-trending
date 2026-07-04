@@ -1,0 +1,41 @@
+{
+  "name": "Biên bản sinh hoạt chi bộ thường kỳ",
+  "description": "Biên bản họp chi bộ hàng tháng theo mẫu chuẩn (chi bộ Đông Trà 1) — thông tin cuộc họp, thành phần tham dự, nội dung, ý kiến đóng góp, giải trình, biểu quyết. Nội dung xuất ra bằng tiếng Việt, dán được vào form biên bản chính thức.",
+  "sections": [
+    {
+      "title": "Thông tin cuộc họp",
+      "instruction": "Ghi bằng tiếng Việt: thời gian bắt đầu, ngày/tháng/năm, địa điểm họp (tại nhà đồng chí nào, địa chỉ nếu được nhắc đến), và đơn vị tổ chức (mặc định: Chi ủy chi bộ Đông Trà 1 tổ chức sinh hoạt chi bộ thường kỳ tháng .../202...). Thông tin nào không có trong nội dung ghi âm thì để dấu '.....' cho thư ký điền tay",
+      "format": "paragraph"
+    },
+    {
+      "title": "Thành phần tham dự",
+      "instruction": "Liệt kê bằng tiếng Việt các dòng sau, trích từ nội dung cuộc họp nếu được đọc to, nếu không có thì để '.....': Tổng số Đảng viên (chính thức / dự bị), Có mặt, Vắng, Vắng lý do, Chủ trì (họ tên), Thư ký (họ tên)",
+      "format": "list"
+    },
+    {
+      "title": "Nội dung cuộc họp",
+      "instruction": "Tóm tắt bằng tiếng Việt các nội dung chính được trình bày và thảo luận trong cuộc họp, theo thứ tự thời gian, mỗi nội dung một gạch đầu dòng với đủ chi tiết để đưa vào biên bản chính thức",
+      "format": "list"
+    },
+    {
+      "title": "Ý kiến đóng góp",
+      "instruction": "Liệt kê bằng tiếng Việt từng ý kiến đóng góp của các đồng chí tham dự: ai phát biểu (nếu xác định được) và nội dung ý kiến, tóm tắt trung thực, không thêm bớt. Nếu không có ý kiến nào, ghi 'Không có ý kiến đóng góp'",
+      "format": "list"
+    },
+    {
+      "title": "Giải trình của chủ trì",
+      "instruction": "Tóm tắt bằng tiếng Việt phần chủ trì giải trình, trả lời các ý kiến đóng góp. Nếu không có, ghi 'Không có nội dung giải trình'",
+      "format": "paragraph"
+    },
+    {
+      "title": "Biểu quyết và kết luận",
+      "instruction": "Ghi bằng tiếng Việt kết quả biểu quyết của chi bộ về nội dung biên bản (ví dụ: chi bộ biểu quyết thống nhất 100% đồng ý với nội dung biên bản) và các kết luận/nghị quyết được thông qua. Nếu tỷ lệ biểu quyết không được đọc to trong cuộc họp thì để '.....%'",
+      "format": "paragraph"
+    },
+    {
+      "title": "Kết thúc",
+      "instruction": "Ghi bằng tiếng Việt giờ kết thúc cuộc họp (ví dụ: Cuộc họp kết thúc vào lúc ..... cùng ngày). Nếu không nghe được giờ thì để '.....'",
+      "format": "string"
+    }
+  ]
+}
