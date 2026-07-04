@@ -1,0 +1,336 @@
+<style>
+  :root{
+    --ground:#12161C; --surface:#1A2029; --surface-2:#202834;
+    --ink:#E8E6E0; --muted:#8A93A0; --faint:#5A626E;
+    --line:#2A313C; --line-soft:#232A34;
+    --amber:#E0A458; --amber-dim:#8f6a3c;
+    --teal:#5FB8A0; --rose:#D98A82;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased;
+    padding:0 0 6rem;margin:0;}
+  .col{max-width:720px;margin:0 auto;padding:0 24px;}
+  .wide{max-width:920px;}
+
+  /* ---- hero ---- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#0E1116 0%,var(--ground) 100%);}
+  .hero .col{padding-top:72px;padding-bottom:52px;position:relative;z-index:2;}
+  canvas#vu{position:absolute;inset:auto 0 0 0;width:100%;height:130px;z-index:1;
+    opacity:.5;display:block;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin:0 0 20px;
+    display:flex;align-items:center;gap:10px;}
+  .reclight{width:9px;height:9px;border-radius:50%;background:var(--amber);
+    box-shadow:0 0 0 0 rgba(224,164,88,.55);animation:pulse 2.6s ease-out infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,164,88,.5)}70%{box-shadow:0 0 0 9px rgba(224,164,88,0)}100%{box-shadow:0 0 0 0 rgba(224,164,88,0)}}
+  h1{font-size:clamp(38px,6vw,60px);line-height:1.02;letter-spacing:-.028em;
+    font-weight:800;margin:0 0 18px;text-wrap:balance;}
+  h1 .lede{display:block;color:var(--muted);font-size:clamp(17px,2.4vw,21px);
+    font-weight:500;letter-spacing:-.01em;margin-top:16px;line-height:1.45;max-width:60ch;}
+  .kicker{font-family:var(--mono);font-size:12.5px;color:var(--faint);
+    margin-top:26px;letter-spacing:.02em;}
+  .kicker b{color:var(--muted);font-weight:600;}
+
+  /* ---- verdict banner ---- */
+  .verdict{background:var(--surface);border:1px solid var(--line);
+    border-left:3px solid var(--amber);border-radius:10px;padding:22px 24px;
+    margin:40px auto;display:flex;flex-direction:column;gap:14px;}
+  .verdict .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tag{font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    padding:5px 10px;border-radius:6px;border:1px solid var(--line);
+    background:var(--surface-2);color:var(--muted);white-space:nowrap;}
+  .tag.pass{color:var(--teal);border-color:#2f4a44;}
+  .tag.mod{color:var(--amber);border-color:var(--amber-dim);}
+  .tag.fail{color:var(--rose);border-color:#5a3a37;}
+  .verdict .headline{font-size:19px;font-weight:700;letter-spacing:-.01em;}
+  .verdict p{margin:0;color:var(--muted);font-size:15.5px;}
+
+  h2{font-size:15px;font-family:var(--mono);text-transform:uppercase;
+    letter-spacing:.12em;color:var(--amber);margin:64px 0 6px;font-weight:600;}
+  h2 + .sub{color:var(--faint);font-size:14px;margin:0 0 22px;
+    border-bottom:1px solid var(--line-soft);padding-bottom:18px;}
+  h3{font-size:21px;letter-spacing:-.015em;margin:34px 0 10px;font-weight:700;}
+  p{margin:0 0 18px;}
+  a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber-dim);}
+  strong{color:#F3F1EC;font-weight:650;}
+  em{color:var(--ink);font-style:italic;}
+  .muted{color:var(--muted);}
+
+  /* ---- fact table ---- */
+  .facts{width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0 8px;
+    font-variant-numeric:tabular-nums;}
+  .facts td{padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+  .facts tr td:first-child{font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    white-space:nowrap;width:34%;letter-spacing:.01em;}
+  .facts tr:last-child td{border-bottom:none;}
+  .tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);
+    border-radius:10px;margin:22px 0;}
+
+  /* ---- routing diagram ---- */
+  .router{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:26px;margin:26px 0;}
+  .router .title{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+  .fn{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;
+    padding:12px 14px;font-family:var(--mono);font-size:13px;color:var(--ink);
+    display:flex;align-items:center;}
+  .fnwrap{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0;}
+  .branch{display:flex;flex-direction:column;gap:9px;padding-left:22px;
+    border-left:2px solid var(--line);margin-left:12px;}
+  .prov{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;}
+  .prov .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+  .prov.shared .dot{background:var(--muted);}
+  .prov.claude .dot{background:var(--amber);}
+  .prov.local .dot{background:var(--teal);}
+  .prov .path{color:var(--faint);font-size:11.5px;}
+  .arrow{color:var(--faint);font-family:var(--mono);align-self:center;padding:0 14px;font-size:18px;}
+  .rnote{font-size:13px;color:var(--muted);margin-top:18px;padding-top:16px;
+    border-top:1px solid var(--line-soft);}
+
+  /* ---- callouts ---- */
+  .note{border-radius:10px;padding:16px 20px;margin:22px 0;font-size:15px;
+    border:1px solid var(--line);background:var(--surface);}
+  .note.warn{border-left:3px solid var(--rose);}
+  .note.good{border-left:3px solid var(--teal);}
+  .note .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;margin-bottom:7px;display:block;}
+  .note.warn .lbl{color:var(--rose);}
+  .note.good .lbl{color:var(--teal);}
+
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 24px;}
+  .chip{font-family:var(--mono);font-size:12px;padding:6px 11px;border-radius:20px;
+    border:1px solid var(--line);background:var(--surface);color:var(--muted);}
+  .chip.on{color:var(--teal);border-color:#2f4a44;}
+  .chip.off{color:var(--faint);}
+
+  /* pilot ladder */
+  .rung{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;margin:16px 0;}
+  .rung .head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .rung .letter{font-family:var(--mono);font-weight:700;font-size:22px;color:var(--amber);
+    line-height:1;}
+  .rung .name{font-weight:700;font-size:18px;letter-spacing:-.01em;}
+  .rung .risk{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto;
+    letter-spacing:.04em;}
+  .rung ul{margin:12px 0 0;padding:0;list-style:none;}
+  .rung li{padding:9px 0;border-top:1px solid var(--line-soft);font-size:15px;color:var(--muted);}
+  .rung li:first-child{border-top:none;}
+  .rung li b{color:var(--ink);font-family:var(--mono);font-size:13px;font-weight:600;margin-right:8px;}
+  .rung li .star{color:var(--amber);}
+
+  .pathline{font-family:var(--mono);font-size:14px;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:20px 0;
+    color:var(--ink);text-align:center;letter-spacing:.02em;}
+  .pathline .star{color:var(--amber);}
+
+  footer{margin-top:70px;border-top:1px solid var(--line);padding-top:26px;
+    font-family:var(--mono);font-size:12.5px;color:var(--faint);line-height:1.8;}
+  footer .col{padding-top:0;}
+  hr.soft{border:none;border-top:1px solid var(--line-soft);margin:40px 0;}
+  @media (prefers-reduced-motion:reduce){
+    .reclight{animation:none;}
+    canvas#vu{opacity:.32;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <canvas id="vu" aria-hidden="true"></canvas>
+    <div class="col">
+      <p class="eyebrow"><span class="reclight"></span> LLM Wiki · v196 · privacy-first meeting assistant</p>
+      <h1>meetily
+        <span class="lede">A desktop app that hears your meetings and sends nothing to the cloud — records mic + system audio, transcribes on-device (Whisper / Parakeet), summarizes with the LLM of <em>your</em> choice.</span>
+      </h1>
+      <p class="kicker"><b>Zackriya-Solutions/meetily</b> · MIT + commercial PRO · Tauri 2 (Rust + Next.js) · v0.4.0 · source-verified @ <b>0281737</b> · author <b>Zackriya Solutions</b> (Bengaluru IN) — <b>not Anthropic</b></p>
+    </div>
+  </header>
+
+  <div class="col">
+
+    <div class="verdict">
+      <div class="row">
+        <span class="tag">GOAL-ALIGNED INCLUDE · 3/4</span>
+        <span class="tag fail">(a) FAIL</span>
+        <span class="tag mod">(b) MODERATE</span>
+        <span class="tag pass">(c) STRONG</span>
+        <span class="tag pass">(d) STRONG</span>
+        <span class="tag">NO MINT · 46 / 11</span>
+      </div>
+      <div class="headline">The notetaker domain is off-goal. The architecture underneath is the prize.</div>
+      <p>A consumer meeting-notetaker sits outside the vault's agent-substrate — so no §C mint (the TimesFM v193 / GLM-5 v176 off-domain-goal-adjacent discipline). But its <strong>provider-agnostic LLM client</strong> and <strong>templated map-reduce summarizer</strong> are a near-perfect blueprint for hireui's first LLM feature, and the app itself is a genuine privacy-first Scrum / recruitment notetaker.</p>
+    </div>
+
+    <h2>What it is</h2>
+    <p class="sub">One concrete subject, its audience, its single job.</p>
+    <p>Most meeting-AI tools send a <strong>bot</strong> into your call and upload everything to <em>their</em> cloud. meetily refuses both moves. It runs as a native desktop app, records the audio your machine already hears (microphone <strong>and</strong> system output, mixed), runs speech-to-text <strong>on-device</strong>, and only touches a network if <em>you</em> point the summary step at a cloud LLM — and even that's optional, since Ollama summarizes locally too. The pitch is <strong>data sovereignty</strong>: your sensitive discussions shouldn't live on servers you don't control.</p>
+
+    <div class="chips">
+      <span class="chip on">✓ 100% local transcription</span>
+      <span class="chip on">✓ no meeting bot</span>
+      <span class="chip on">✓ mic + system mix</span>
+      <span class="chip on">✓ your LLM, your key</span>
+      <span class="chip off">✗ no MCP server</span>
+      <span class="chip off">✗ no CLI / API</span>
+    </div>
+
+    <div class="tablewrap">
+      <table class="facts">
+        <tr><td>Repo</td><td>github.com/Zackriya-Solutions/meetily (canonical)</td></tr>
+        <tr><td>Author</td><td>Zackriya Solutions — AI-automation agency, Bengaluru IN + Atlanta US · <strong>not Anthropic</strong></td></tr>
+        <tr><td>License</td><td>MIT (Community Edition) · commercial PRO ~$10/user/mo · Enterprise</td></tr>
+        <tr><td>Version</td><td>v0.4.0 (2026-06-05)</td></tr>
+        <tr><td>History</td><td>556 commits · first commit 2024-12-26 · ~18 months <span class="muted">(hand-verified — an agent's "50 commits / 3 mo" was wrong)</span></td></tr>
+        <tr><td>Stack</td><td>Rust ~46% · TypeScript ~30% · C++ ~10% · Tauri 2.6</td></tr>
+        <tr><td>Stars</td><td>~9.5k–14k page-stated across sources <span class="muted">(§37.4, not API-verified → no #52 claim)</span></td></tr>
+      </table>
+    </div>
+
+    <h2>The pilot gold</h2>
+    <p class="sub">Why this wiki is worth building for a developer / Scrum coach — the LLM subsystem, not the audio.</p>
+    <h3>One dispatcher, seven providers</h3>
+    <p>The whole reason to read the source: <span style="font-family:var(--mono);font-size:14px;color:var(--ink)">generate_summary()</span> in <span style="font-family:var(--mono);font-size:13px;color:var(--muted)">summary/llm_client.rs</span> fans out to 7 providers through one clean <span style="font-family:var(--mono);font-size:14px">match</span> — the exact "vendor seam" pattern hireui's first LLM feature needs.</p>
+
+    <div class="router">
+      <div class="title">generate_summary( provider, model, prompt… )</div>
+      <div class="flow">
+        <div class="fnwrap">
+          <div class="prov shared"><span class="dot"></span> OpenAI <span class="path">· /v1/chat/completions</span></div>
+          <div class="prov shared"><span class="dot"></span> Groq <span class="path">· groq.com/openai</span></div>
+          <div class="prov shared"><span class="dot"></span> OpenRouter <span class="path">· openrouter.ai</span></div>
+          <div class="prov shared"><span class="dot"></span> Ollama <span class="path">· localhost:11434</span></div>
+          <div class="prov shared"><span class="dot"></span> CustomOpenAI <span class="path">· your endpoint</span></div>
+          <div class="prov claude"><span class="dot"></span> Claude <span class="path">· /v1/messages · x-api-key</span></div>
+          <div class="prov local"><span class="dot"></span> BuiltInAI <span class="path">· local llama sidecar</span></div>
+        </div>
+      </div>
+      <div class="rnote"><span style="color:var(--muted)">■</span> 5 providers share <strong>one OpenAI-chat code path</strong> (URL + Bearer header differ) &nbsp;·&nbsp; <span style="color:var(--amber)">■</span> Claude gets its <strong>own shape</strong> (the 10% that's genuinely different) &nbsp;·&nbsp; <span style="color:var(--teal)">■</span> local sidecar bails out before any HTTP. Abstract the 90%, special-case the 10%. That's the discipline.</div>
+    </div>
+
+    <h3>A summarizer that survives long transcripts</h3>
+    <p>Cloud + short transcripts get a <strong>single pass</strong>; local + long transcripts get a <strong>3-pass map-reduce</strong> (summarize each chunk → synthesize → fill the template). Chunks reserve 300 tokens for prompt overhead and keep a 100-token overlap so nothing's cut mid-thought. A <strong>content fingerprint</strong> skips re-summarizing unchanged input; an <strong>English-summary cache</strong> means switching output language <em>translates</em> rather than re-summarizes. Templates are just JSON sections — <span style="font-family:var(--mono);font-size:13px">daily_standup</span>, <span style="font-family:var(--mono);font-size:13px">retrospective</span>, <span style="font-family:var(--mono);font-size:13px">standard_meeting</span> ship in the box.</p>
+
+    <div class="note warn">
+      <span class="lbl">Doc-vs-code nuances caught by hand</span>
+      Timeout is <strong>300s</strong> but the error string still says "60 seconds." Claude's <strong>max_tokens is hardcoded to 2048</strong> regardless of transcript size. <span class="muted">Both minor, both real — worth knowing before a 2-hour meeting.</span>
+    </div>
+
+    <h2>Verification</h2>
+    <p class="sub">A 7-agent read-only research fan-out; every corpus / collision / identity claim hand-checked.</p>
+    <p>Collision grep across the corpus is clean — meetily is the <strong>first AI-meeting-assistant subject</strong> and the <strong>2nd speech-domain subject</strong> after fish-speech v20 (TTS there, STT here). Two agent overclaims were corrected:</p>
+
+    <div class="note good">
+      <span class="lbl">Corrected — "analytics on by default"</span>
+      An agent flagged <span style="font-family:var(--mono);font-size:13px">enabled: true</span> as a critical privacy discrepancy. Wrong: <span style="font-family:var(--mono);font-size:13px">init_analytics()</span> only fires when the frontend opt-in store is true, and it <strong>defaults to false</strong> with a forced-off migration. "Off by default" is accurate. The real (low) finding: the PostHog <em>write-key</em> is exposed in the public repo — standard for client SDKs, and meeting titles / paths / device names are stripped before send.
+    </div>
+
+    <h2>Landscape</h2>
+    <p class="sub">Leader on Windows + simplicity; not the one to wire into an agent loop.</p>
+    <p>No single open-source winner. meetily leads on <strong>Windows parity, zero-setup, bot-free capture, MIT</strong>. <strong>Hyprnote / Anarlog</strong> leads on developer integration — it ships a <strong>CLI + REST API + MCP server</strong>; if you ever wanted a meeting assistant <em>inside</em> a Claude Code loop, that's the one, because meetily exposes no MCP. <strong>Screenpipe</strong> (SSPL) does broader 24/7 capture. Cloud tools (Otter, Fireflies, Fathom, tl;dv) win on convenience, lose on privacy.</p>
+
+    <h2>Apply it — 24 methods, laddered</h2>
+    <p class="sub">"Show me many methods to apply into my working flow." The architecture is the on-goal prize; the app is the personal win.</p>
+
+    <div class="pathline"><span class="star">★</span> One-thing path &nbsp;→&nbsp; A1 read the vendor-seam &nbsp;→&nbsp; B5 borrow it &nbsp;→&nbsp; D16 build hireui's first LLM feature on it</div>
+
+    <div class="rung">
+      <div class="head"><span class="letter">A</span><span class="name">Read + learn</span><span class="risk">zero install · zero risk</span></div>
+      <ul>
+        <li><b>A1 <span class="star">★</span></b>The 7-provider dispatcher (<span style="font-family:var(--mono);font-size:12px">llm_client.rs</span>) — abstract-90/special-case-10.</li>
+        <li><b>A2</b>The map-reduce summarizer (<span style="font-family:var(--mono);font-size:12px">processor.rs</span>) — chunk-overlap, English-cache.</li>
+        <li><b>A3</b>Templates-as-JSON-sections + the shipped Scrum templates.</li>
+        <li><b>A4</b>The two-path audio pipeline as a one-source-two-consumers case study.</li>
+      </ul>
+    </div>
+    <div class="rung">
+      <div class="head"><span class="letter">B</span><span class="name">Borrow patterns</span><span class="risk">zero-to-low install</span></div>
+      <ul>
+        <li><b>B5 <span class="star">★</span></b>Steal the vendor-seam as hireui's first-LLM-feature template (the mosh-ai A2 seam).</li>
+        <li><b>B6</b>Steal the map-reduce chunking + token budget for candidate dossiers / transcripts.</li>
+        <li><b>B7</b>Steal template-as-JSON for hireui report formats (interview notes, one-pagers).</li>
+        <li><b>B8 · B9 · B10</b>English-cache-for-translation · content-fingerprint no-op guard · provider-parity honesty.</li>
+      </ul>
+    </div>
+    <div class="rung">
+      <div class="head"><span class="letter">C</span><span class="name">Hands-on trial</span><span class="risk">install the app · scratch use</span></div>
+      <ul>
+        <li><b>C11 <span class="star">★</span></b>Fully-local smoke test (Ollama, no cloud key) — watch the network, prove local-first.</li>
+        <li><b>C12</b>Verify analytics stays opt-in-off; read the privacy policy against reality.</li>
+        <li><b>C13 <span class="star">★</span></b>Record a real standup / retro with the shipped template — a direct Scrum pilot.</li>
+        <li><b>C14 · C15</b>Measure token/cost per summary · import & re-transcribe an interview (Parakeet vs Whisper).</li>
+      </ul>
+    </div>
+    <div class="rung">
+      <div class="head"><span class="letter">D</span><span class="name">hireui · Goal #2</span><span class="risk">agent-* branch · GitNexus-first</span></div>
+      <ul>
+        <li><b>D16 <span class="star">★</span></b>Build hireui's first LLM feature (interview-notes summarizer) on meetily's blueprint.</li>
+        <li><b>D17</b>Prototype a hireui interview-summary template (Summary / Strengths / Concerns / Fit / Follow-ups).</li>
+        <li><b>D18</b>Compose with the ai-berkshire v187 "AI Hiring Committee" (4-persona eval → templated summary).</li>
+        <li><b>D19 · D20</b>Data-sovereignty model for candidate PII · an eval gate on the summarizer (verify-before-trust).</li>
+      </ul>
+    </div>
+    <div class="rung">
+      <div class="head"><span class="letter">E</span><span class="name">Personal use</span><span class="risk">off-goal · real win</span></div>
+      <ul>
+        <li><b>E21</b>Your actual daily notetaker for client coaching sessions — local = client-confidential-safe.</li>
+        <li><b>E22</b>Author your own coaching templates (retro variants, 1:1 notes, sprint review) as JSON.</li>
+      </ul>
+    </div>
+    <div class="rung">
+      <div class="head"><span class="letter">F</span><span class="name">Vault-meta</span><span class="risk">synthesis</span></div>
+      <ul>
+        <li><b>F23</b>Write the "provider-agnostic LLM-client patterns across the corpus" note (meetily + freellmapi v112 + cc-switch v73 + OpenHuman v118).</li>
+        <li><b>F24</b>Log the "consumer-app-whose-architecture-is-the-goal-relevant-part" tier for the ~v192 audit.</li>
+      </ul>
+    </div>
+
+    <div class="note warn">
+      <span class="lbl">Fence — before any install</span>
+      install-snapshot first · signed .dmg or build-from-source (pin <span style="font-family:var(--mono);font-size:13px">0281737</span>) · no published checksum → verify via Gatekeeper · run fully-local first · keep analytics opt-in-off · the auto-updater still points at the old <span style="font-family:var(--mono);font-size:13px">meeting-minutes</span> repo name (staleness note) · hireui borrows are <strong>design-only</strong> per its CONSTITUTION — build hireui's own seam, don't bolt meetily in.
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="col wide">
+      Storm Bear LLM Wiki · v196 meetily · shipped 2026-07-04 on <span style="color:var(--muted)">wiki/v196-meetily</span> · GOAL-ALIGNED INCLUDE 3/4 · NO MINT · counts 46 patterns / 11 Library-vocab UNCHANGED · streak GA:57 · §35 CLEAR · source @ 0281737<br>
+      Companion docs: (C) meetily — Deep Dive · (C) meetily — Verdict · (C) meetily — Pilot Methods Menu
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var c=document.getElementById('vu');if(!c)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var ctx=c.getContext('2d');var dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){c.width=c.clientWidth*dpr;c.height=c.clientHeight*dpr;}
+  size();window.addEventListener('resize',size);
+  var t=0;var bars=[];
+  function draw(){
+    var w=c.width,h=c.height;ctx.clearRect(0,0,w,h);
+    var n=Math.floor(w/(7*dpr));var bw=5*dpr;var gap=(w/n);
+    for(var i=0;i<n;i++){
+      // calm, low-amplitude VU baseline — a device quietly listening
+      var base=Math.sin(i*0.35+t)*0.5+Math.sin(i*0.13-t*0.6)*0.5;
+      var amp=(0.18+0.30*Math.abs(base))*(0.55+0.45*Math.sin(i*0.7+t*1.3));
+      var bh=Math.max(2*dpr,amp*h*0.72);
+      var x=i*gap+(gap-bw)/2;var y=h-bh;
+      var g=ctx.createLinearGradient(0,y,0,h);
+      g.addColorStop(0,'rgba(224,164,88,0.55)');
+      g.addColorStop(1,'rgba(224,164,88,0.06)');
+      ctx.fillStyle=g;
+      ctx.fillRect(x,y,bw,bh);
+    }
+    if(!reduce){t+=0.028;requestAnimationFrame(draw);}
+  }
+  draw();
+})();
+</script>
