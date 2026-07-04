@@ -29,6 +29,21 @@
 7. **One video-claims verifier couldn't find the video/channel** and marked identity UNVERIFIABLE → superseded by the sean-identity dimension's direct fetches (video ID + channel confirmed). Fetch-failure ≠ refutation, correctly handled.
 8. **Critic's "missing originals" list contained garbled attributions** (HippoRAG "Chen et al.", A-Mem "Gur et al.", "Gemini 2.0 Advanced native Memories (June 2026)") → names/versions not corroborated; excluded from wiki claims, noted in [[caveats-and-corrections]].
 
+## 2026-07-04 deepening pass (Anthropic Memory Stores + Dreaming)
+
+1. **Ingest (path 5, yt-dlp):** operator-submitted VN dub b1qgIGwBUEI (BizMate AI Official) → description revealed the EN original geUv4CjPpxI (official Claude channel). Both auto-caption tracks deduped and **read in full in the main loop** (~26K + ~37K chars) → `raw/2026-07-04-anthropic-dreaming-memory-stores.md`.
+2. **Main-loop primary fetches (before agent fan-out):** platform.claude.com managed-agents `/memory` + `/dreams` **in full**; later `/overview`, claude.com/blog CWC-SF recap, anthropic.skilljar.com, and `gh api` + raw fetches of `anthropics/cwc-workshops` (`agents-that-remember/` README + `bootstrap.sh` in full).
+3. **Deep-dive + adversarial verify:** Workflow **`wf_c3719baa-7f2`** — **18 agents** = 7 dives (repo / event / announcement / cma-platform / cc-autodream / bizmate / models) + 10 refute-first verifiers on pre-registered claims (with the discard-as-garble guard verbatim in prompts) + completeness critic; **~989K subagent tokens, 281 tool calls, ~5.3 min**. 3 dives died on structured-output failures (repo, event, cma-platform) — all three closed by main-loop fetches instead.
+4. **Source tiers:** T1 = platform docs, claude.com blogs, anthropics/cwc-workshops, anthropic.com model announcements, yt-dlp metadata; T2 = Simon Willison CWC liveblog, SiliconANGLE; T3 = letsdatascience/mindstudio/buildfastwithai explainers (echo-chain risk), claudefa.st/tessl.io AutoDream posts.
+
+### Misfire log (this pass)
+
+1. **BizMate-nonexistence misfire:** dive + critic declared the dub video/channel "404 / possible confabulation" and the critic demanded the dub verdict be "retracted" — the main loop had **already fetched the video's metadata, captions, and description via yt-dlp** (1,467 views, 7,320 subs). US-search-index blindness to a small VN channel ≠ nonexistence. Overridden. (Recurring fetch-failure-≠-refutation class.)
+2. **V18 index-file over-reach:** verifier correctly found docs-absence but escalated to "no evidence the feature exists at all" — the feature is on camera in the transcript the verifier couldn't access. Downgraded to demo-observed/not-guaranteed, not refuted.
+3. **V1/V2/V6 transcript-blindness:** verifiers marked workshop quotes "unlocatable" — all three quotes are in the main-loop transcript. Closed with ground truth; docs-absence findings retained.
+4. **CCA-F re-fabrication echo:** bizmate dive asserted an official "CCA-F" certification — caught by the corpus pin (multi-agent-orchestration: ExamPro third-party) + main-loop skilljar fetch showing no named cert. EXCLUDED. First observed instance of a **memory pin functioning as a confabulation tripwire**.
+5. **Announcement-dive scope miss (minor):** declared Harvey absent from "the official blog" — it checked the May-12 recap post; Harvey is in the May-6 `new-in-claude-managed-agents` post (V9 verifier had the exact quote). Rule 7 resolved with both URLs on the table.
+
 ## Fabrication-stripping note
 
 No dive fabricated sources outright this run; the failure surface shifted to (a) stale third-party comparison blogs entering as "fetched-primary" and (b) the critic over-flagging real things. The countermeasure that worked: **main-loop primary-source fetches on the highest-risk claims before synthesis**, plus the misfire-class warnings embedded in every verifier prompt.

@@ -29,6 +29,28 @@
 - **HippoRAG / A-Mem / RecMem attributions** — papers exist in the space, but the workflow critic's author attributions were garbled ("Chen et al." for HippoRAG, "Gur et al." for A-Mem — fetch before citing authors). RecMem (arXiv:2605.16045) and "Anatomy of Agentic Memory" (arXiv:2602.19320) were verifier-fetched and safe to cite by title.
 - **The video's whiteboard-simplification pattern**: presents design guidance ("20 conversations", "cheaper model") in the same voice as facts — fine as pedagogy, needs this table before entering any design doc.
 
+## 2026-07-04 deepening pass — Dreaming workshop claims, graded
+
+Source pair: BizMate VN dub b1qgIGwBUEI → Anthropic EN original geUv4CjPpxI ("Agents that remember", Kevin Chen). Verified via `wf_c3719baa-7f2` + main-loop docs/repo/blog fetches ([[source-provenance]]).
+
+| # | Claim | Verdict | Detail |
+|---|---|---|---|
+| D1 | Dream models = "Opus 4.7 or Sonnet 4.6" | ✅ CONFIRMED for its date | Opus 4.7 released 2026-04-16, Sonnet 4.6 2026-02-17; **Opus 4.8 released 2026-05-28 — after the video** — docs now list all three. VN dub disambiguated the EN caption garble ("Opus 47/Sonnet 46") |
+| D2 | ~95% cache hit rate expected on dream sessions | ⚠️ WORKSHOP-SPOKEN ONLY | In the transcript (main-loop ground truth); in **zero** written sources — docs, official blogs, press all silent. Don't quote as documented spec |
+| D3 | Batch-style ~50% discount for scheduled dreams | ⚠️ EXPLORATORY | Speaker said "exploring"; Batch API 50% is real+documented; **no dreaming discount shipped** as of 2026-07-04. Billing = standard token rates |
+| D4 | Orchestrator + 1 sub-agent per transcript, "exhaustive by design" | ⚠️ WORKSHOP-SPOKEN | Demonstrated on camera (dream session observable); not doc-specified — implementation may change without notice |
+| D5 | Non-destructive input→output store; partial output persists on failure; mid-run deletion errors | ✅ CONFIRMED | Verbatim in dreams docs |
+| D6 | Duration "couple minutes to hours" | ⚠️ CONFLICTS with docs | Docs: "minutes to **tens of minutes**". Surfaced per Rule 7; docs presumed current |
+| D7 | Index-file generation by dreams | ⚠️ DEMO-OBSERVED, NOT GUARANTEED | On camera in the workshop; absent from docs as a contract. A verifier's REFUTED verdict over-reached (treated transcript-inaccessibility as nonexistence) — overridden by main-loop transcript ground truth |
+| D8 | Harvey ~6x task completion | ⚠️ VENDOR-REPORTED | Verbatim in Anthropic's own blog (new-in-claude-managed-agents, 2026-05-06): "Completion rates went up ~6x in their tests." No independent audit. Same tier as OpenAI's Dreaming-V3 metrics |
+| D9 | "Dreaming is scheduled/automatic" (press + even Anthropic's recap wording) | ⚠️ CONFLICT — docs win | Documented API is explicit-invocation only (create+poll, no scheduler endpoint); CMA has separate cron scheduled-deployments for sessions. Read "scheduled" as usage pattern |
+| D10 | VN dub fidelity | ✅ HIGH | No dub-added claims found. Garbles: "Ciberry memory"→"CWC memory", "session.mb"→"sessions.md", stray "Anthropic Sonnet of GPT" caption artifact, "code với code"→"Code with Claude" |
+| D11 | BizMate dub authorization | ⚠️ ATTRIBUTED, AUTHORIZATION UNVERIFIED | Description links the original + states free-localization mission (Skool community: 648 members, free). No public licensing evidence either way |
+
+### Excluded dive claim (Rule 12 — fail loud)
+
+- A dive agent asserted an official Anthropic certification **"Claude Certified Architect (CCA-F)"** ($99, 60-question proctored, "launched 2026-03-12") on anthropic.skilljar.com. This **collides with the corpus pin** from [[../multi-agent-orchestration/_index]] (CCA-F = ExamPro **third-party** construct; don't re-fabricate). Main-loop fetch of anthropic.skilljar.com (2026-07-04): official Anthropic Academy, 20+ courses, **no named certification program on the page** (only course "completion certificates"). Claim EXCLUDED from the wiki; logged as a corpus-pin-catches-agent-confabulation instance.
+
 ## Cross-check flags into the corpus
 
 - The mosh-topic pin "never tiktoken for Claude — use `count_tokens`" applies to any memory-budget code this topic inspires.

@@ -12,7 +12,7 @@ The video's most valuable 90 seconds is the consolidation gate ("don't save twic
 | **Time-based** | claude.ai: memory synthesis "updated every 24 hours" — [[how-claude-memory-works]] | Predictable cost; may consolidate nothing-days |
 | **Continuous / async** | ChatGPT Dreaming V3: "a single asynchronous background process… updates existing memories as circumstances change" — [[how-chatgpt-memory-works]] | Freshest; opaque cost profile |
 | **Configurable frequency** | Letta sleep-time agents: frequency setting, "higher frequency = more tokens" — [[memgpt-letta-sleep-time]] | The tunable version |
-| **Explicit / operator-invoked** | Anthropic Managed Agents **Dreams** (API call); the vault's `consolidate-memory` skill | Auditable; human-gated |
+| **Explicit / operator-invoked** | Anthropic Managed Agents **Dreams** (API call: 1–100 sessions/dream, `instructions` ≤4,096 chars, Opus 4.8/4.7 or Sonnet 4.6, standard token rates); the vault's `consolidate-memory` skill | Auditable; human-gated; non-destructive input→output store + reviewable diff — [[anthropic-memory-stores-and-dreaming]] |
 | **Count-based ("after N chats")** | The video's teaching device | No verified production system uses a bare count; folklore "50–200 episodes" is secondary-sourced only ([[langmem-and-industry-patterns]]) |
 
 ## The model axis (who does the distilling)
@@ -27,6 +27,7 @@ The video's most valuable 90 seconds is the consolidation gate ("don't save twic
 - **Append summaries** (naive) → the failure Letta names: memories go "generic and lossy after repeated refinements."
 - **Reflect** (Generative Agents): questions → retrieval → insights **with evidence citations** — inference, not compression.
 - **Reorganize** (Anthropic Dreams): "duplicates merged, stale or contradicted entries **replaced with the latest value**, new insights surfaced" — consolidation as garbage collection + dedup + supersession.
+- **Enrich / backfill** (Anthropic Dreams, workshop-demonstrated): dreams also **add** information — backfilled dates and identifiers, new synthesis files, an index file for retrieval — under the stance "write more down; Dreaming can always remove what's no longer needed" ([[anthropic-memory-stores-and-dreaming]]). Consolidation ≠ compression here; it's re-organization toward *future-agent retrievability*.
 - **Update-in-place** (Dreaming V3): "You're going to Singapore in July" → "You went to Singapore in July 2026" — tense/state maintenance, the hardest part (OpenAI's own time-sensitive accuracy was 9.4% before the rewrite).
 
 ## The destination axis
