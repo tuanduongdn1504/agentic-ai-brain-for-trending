@@ -1,40 +1,55 @@
 {
-  "name": "Biên bản sinh hoạt chi bộ thường kỳ",
-  "description": "Biên bản họp chi bộ hàng tháng theo mẫu chuẩn (chi bộ Đông Trà 1) — thông tin cuộc họp, thành phần tham dự, nội dung, ý kiến đóng góp, giải trình, biểu quyết. Nội dung xuất ra bằng tiếng Việt, dán được vào form biên bản chính thức.",
+  "name": "Biên bản sinh hoạt chi bộ (v2)",
+  "description": "Biên bản họp/sinh hoạt chi bộ theo cấu trúc thực tế (Đông Trà 1) — phủ cả sinh hoạt thường kỳ lẫn hội nghị có ra mắt/đại biểu cấp trên. Nội dung tiếng Việt, dán vào form Word chính thức. KỶ LUẬT CHUNG: chỉ trích từ bản ghi, KHÔNG bịa; sao chép chính xác họ tên và số liệu; mục nào không có trong bản ghi thì để dấu '.....' cho thư ký điền tay; không suy diễn thêm.",
   "sections": [
     {
       "title": "Thông tin cuộc họp",
-      "instruction": "Ghi bằng tiếng Việt: thời gian bắt đầu, ngày/tháng/năm, địa điểm họp (tại nhà đồng chí nào, địa chỉ nếu được nhắc đến), và đơn vị tổ chức (mặc định: Chi ủy chi bộ Đông Trà 1 tổ chức sinh hoạt chi bộ thường kỳ tháng .../202...). Thông tin nào không có trong nội dung ghi âm thì để dấu '.....' cho thư ký điền tay",
-      "format": "paragraph"
-    },
-    {
-      "title": "Thành phần tham dự",
-      "instruction": "Liệt kê bằng tiếng Việt các dòng sau, trích từ nội dung cuộc họp nếu được đọc to, nếu không có thì để '.....': Tổng số Đảng viên (chính thức / dự bị), Có mặt, Vắng, Vắng lý do, Chủ trì (họ tên), Thư ký (họ tên)",
+      "instruction": "Ghi bằng tiếng Việt, chỉ từ bản ghi: thời gian bắt đầu (giờ, ngày/tháng/năm), địa điểm, nội dung/tên hội nghị, người chủ trì (họ tên + chức vụ), người ghi biên bản (họ tên + chức vụ), tài liệu sử dụng. Trường nào không được nói trong cuộc họp thì ghi '.....'. KHÔNG bịa tên hay giờ",
       "format": "list"
     },
     {
-      "title": "Nội dung cuộc họp",
-      "instruction": "Tóm tắt bằng tiếng Việt các nội dung chính được trình bày và thảo luận trong cuộc họp, theo thứ tự thời gian, mỗi nội dung một gạch đầu dòng với đủ chi tiết để đưa vào biên bản chính thức",
+      "title": "Thành phần tham dự",
+      "instruction": "Ghi bằng tiếng Việt, chỉ từ bản ghi. (1) Đại biểu chính thức: tổng số / có mặt / vắng + tỷ lệ nếu được nêu; danh sách vắng mặt kèm lý do (đúng tên). (2) Đại biểu mời dự: họ tên + chức vụ/đơn vị. Số hoặc tên nào không nghe rõ thì ghi '.....', TUYỆT ĐỐI không bịa tên người vắng hay khách mời",
+      "format": "list"
+    },
+    {
+      "title": "Diễn biến hội nghị",
+      "instruction": "Ghi bằng tiếng Việt, theo thứ tự thời gian, mỗi mục một gạch đầu dòng: các quyết định/nội dung được thông qua đầu hội nghị; nếu có phần ra mắt (ra mắt chi ủy, chia sẻ của bí thư, phát biểu của đại diện nguyên chi ủy...) thì ghi lại. Chỉ những gì thực sự diễn ra trong bản ghi",
+      "format": "list"
+    },
+    {
+      "title": "Nội dung sinh hoạt thường kỳ",
+      "instruction": "Tóm tắt bằng tiếng Việt các nội dung chính (ví dụ: thời sự/văn bản cấp trên; đánh giá công tác tháng trước; phương hướng/công tác tháng tới), mỗi nội dung một gạch đầu dòng, đủ chi tiết cho biên bản chính thức. Giữ nguyên số liệu và văn bản được trích dẫn (số chỉ thị, kế hoạch, số hộ, số chi bộ...). Nếu một số liệu không rõ thì ghi '.....' chứ không đoán",
       "format": "list"
     },
     {
       "title": "Ý kiến đóng góp",
-      "instruction": "Liệt kê bằng tiếng Việt từng ý kiến đóng góp của các đồng chí tham dự: ai phát biểu (nếu xác định được) và nội dung ý kiến, tóm tắt trung thực, không thêm bớt. Nếu không có ý kiến nào, ghi 'Không có ý kiến đóng góp'",
+      "instruction": "Liệt kê bằng tiếng Việt TỪNG ý kiến: nêu rõ ai phát biểu (đúng tên trong bản ghi) và nội dung ý kiến, tóm tắt TRUNG THỰC theo lời họ nói. TUYỆT ĐỐI không gán ý kiến sai người, không thêm ý kiến không có trong bản ghi. Nếu không xác định được người phát biểu, ghi 'một đồng chí (chưa rõ tên)'. Nếu không có ý kiến, ghi 'Không có ý kiến đóng góp'",
       "format": "list"
     },
     {
-      "title": "Giải trình của chủ trì",
-      "instruction": "Tóm tắt bằng tiếng Việt phần chủ trì giải trình, trả lời các ý kiến đóng góp. Nếu không có, ghi 'Không có nội dung giải trình'",
-      "format": "paragraph"
+      "title": "Kết luận",
+      "instruction": "Ghi bằng tiếng Việt phần kết luận/tiếp thu của chủ trì đối với từng ý kiến, và kết quả biểu quyết nếu có (ví dụ: thống nhất 100%). Chỉ ghi kết luận thực sự được nêu; tỷ lệ biểu quyết không được đọc thì ghi '.....%'",
+      "format": "list"
     },
     {
-      "title": "Biểu quyết và kết luận",
-      "instruction": "Ghi bằng tiếng Việt kết quả biểu quyết của chi bộ về nội dung biên bản (ví dụ: chi bộ biểu quyết thống nhất 100% đồng ý với nội dung biên bản) và các kết luận/nghị quyết được thông qua. Nếu tỷ lệ biểu quyết không được đọc to trong cuộc họp thì để '.....%'",
+      "title": "Phương hướng và kiện toàn",
+      "instruction": "Ghi bằng tiếng Việt phương hướng/nhiệm vụ được chốt và nội dung kiện toàn bộ máy (phân công, chức danh còn khuyết...) nếu có trong bản ghi. Nếu không đề cập, ghi 'Không có'",
+      "format": "list"
+    },
+    {
+      "title": "Ý kiến chỉ đạo của cấp trên",
+      "instruction": "Nếu có đại biểu cấp trên/mời dự phát biểu chỉ đạo, tóm tắt bằng tiếng Việt theo từng ý, giữ nguyên các số liệu và văn bản trích dẫn. Nêu rõ tên + chức vụ người chỉ đạo. Nếu không có, ghi 'Không có ý kiến chỉ đạo'",
+      "format": "list"
+    },
+    {
+      "title": "Thủ tục khác",
+      "instruction": "Ghi bằng tiếng Việt các đề xuất/thủ tục khác được nêu cuối hội nghị (nếu có). Nếu không có, ghi 'Không có'",
       "format": "paragraph"
     },
     {
       "title": "Kết thúc",
-      "instruction": "Ghi bằng tiếng Việt giờ kết thúc cuộc họp (ví dụ: Cuộc họp kết thúc vào lúc ..... cùng ngày). Nếu không nghe được giờ thì để '.....'",
+      "instruction": "Ghi giờ kết thúc hội nghị bằng tiếng Việt (ví dụ: Hội nghị kết thúc vào hồi ..... giờ ..... cùng ngày). Nếu không nghe được giờ thì để '.....'",
       "format": "string"
     }
   ]
