@@ -1,0 +1,212 @@
+<style>
+  :root {
+    --paper: #f7f8fa; --ink: #16202b; --muted: #5a6b7a; --faint: #8496a6;
+    --line: #dde3ea; --card: #ffffff; --rail: #eef1f5;
+    --crimson: #a31f34; --crimson-soft: #c65468; --cyan: #1f6e8f; --amber: #9a6a12;
+    --good: #2f7d5b;
+    --serif: ui-serif, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0d1520; --ink: #e7edf3; --muted: #9fb0bf; --faint: #6b7d8c;
+      --line: #223140; --card: #131f2c; --rail: #101a25;
+      --crimson: #e5647a; --crimson-soft: #f08096; --cyan: #6cc0dd; --amber: #d6a84a;
+      --good: #6dc79c;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #f7f8fa; --ink: #16202b; --muted: #5a6b7a; --faint: #8496a6;
+    --line: #dde3ea; --card: #ffffff; --rail: #eef1f5;
+    --crimson: #a31f34; --crimson-soft: #c65468; --cyan: #1f6e8f; --amber: #9a6a12; --good: #2f7d5b;
+  }
+  :root[data-theme="dark"] {
+    --paper: #0d1520; --ink: #e7edf3; --muted: #9fb0bf; --faint: #6b7d8c;
+    --line: #223140; --card: #131f2c; --rail: #101a25;
+    --crimson: #e5647a; --crimson-soft: #f08096; --cyan: #6cc0dd; --amber: #d6a84a; --good: #6dc79c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans);
+    line-height: 1.62; font-size: 16.5px; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 24px 96px; }
+  .col { max-width: var(--measure); }
+  a { color: var(--cyan); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  /* ---- masthead ---- */
+  header.mast { border-bottom: 2px solid var(--crimson); padding: 56px 0 26px; margin-bottom: 8px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.1rem, 5vw, 3.15rem);
+    line-height: 1.06; margin: 14px 0 6px; text-wrap: balance; letter-spacing: -.01em; }
+  .sub { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--muted); margin: 0 0 20px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 10px; font-family: var(--mono); font-size: 12px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--muted);
+    background: var(--card); }
+  .chip.k { border-color: var(--crimson); color: var(--crimson); }
+  .chip.g { border-color: var(--good); color: var(--good); }
+
+  /* ---- thesis pull ---- */
+  .thesis { font-family: var(--serif); font-size: 1.5rem; line-height: 1.32; margin: 30px 0 8px;
+    padding-left: 20px; border-left: 3px solid var(--crimson); color: var(--ink); text-wrap: balance; max-width: var(--measure); }
+  .thesis span { color: var(--crimson); }
+
+  /* ---- sections ---- */
+  section { padding: 34px 0 4px; }
+  h2 { font-family: var(--serif); font-size: 1.62rem; margin: 0 0 4px; display: flex; align-items: baseline; gap: 12px; }
+  h2 .n { font-family: var(--mono); font-size: .85rem; color: var(--crimson); font-weight: 600; }
+  h3 { font-family: var(--sans); font-size: 1.02rem; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--muted); margin: 22px 0 8px; }
+  p { max-width: var(--measure); }
+  .lead { color: var(--muted); }
+  strong { color: var(--ink); font-weight: 650; }
+  em.term { font-style: normal; color: var(--crimson); font-weight: 600; }
+
+  /* ---- law cards ---- */
+  .laws { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 12px; margin: 16px 0; }
+  .law { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+    border-radius: 7px; padding: 13px 15px; }
+  .law .t { font-family: var(--sans); font-weight: 650; font-size: .93rem; margin: 0 0 4px; }
+  .law .f { font-family: var(--mono); font-size: .82rem; color: var(--cyan); line-height: 1.5;
+    font-variant-numeric: tabular-nums; word-break: break-word; }
+  .law .d { font-size: .84rem; color: var(--muted); margin: 5px 0 0; }
+
+  /* ---- tables ---- */
+  .scroll { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 520px; }
+  th, td { text-align: left; padding: 9px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); font-weight: 600; background: var(--rail); }
+  tr:last-child td { border-bottom: none; }
+  td code { font-family: var(--mono); font-size: .82em; color: var(--crimson); }
+  .lic { font-family: var(--mono); font-size: .78rem; color: var(--muted); white-space: nowrap; }
+
+  /* ---- callouts ---- */
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 9px; padding: 18px 20px; margin: 16px 0; max-width: var(--measure); }
+  .box.hire { border-left: 3px solid var(--crimson); }
+  .box.verd { border-left: 3px solid var(--good); }
+  .box h4 { margin: 0 0 8px; font-family: var(--sans); font-size: .96rem; letter-spacing: .02em; }
+  ul { max-width: var(--measure); padding-left: 20px; }
+  li { margin: 5px 0; }
+  .pil { list-style: none; padding: 0; display: grid; gap: 9px; }
+  .pil li { display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: baseline; }
+  .pil .tag { font-family: var(--mono); font-size: .78rem; color: var(--crimson); font-weight: 600; }
+  .foot { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 12px; color: var(--faint); max-width: var(--measure); line-height: 1.7; }
+  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 3px; }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">Storm Bear vault · LLM Wiki v197 · T3 Education</div>
+    <h1>Machine Learning Systems</h1>
+    <p class="sub">Principles &amp; Practices of Engineering Artificially Intelligent Systems — Harvard's open textbook + curriculum</p>
+    <div class="meta">
+      <span class="chip k">harvard-edge/cs249r_book</span>
+      <span class="chip">Vijay Janapa Reddi · Harvard</span>
+      <span class="chip">MIT Press hardcopy 2026</span>
+      <span class="chip">mlsysbook.ai</span>
+      <span class="chip g">GOAL-ALIGNED 3/4 · NO MINT · 46/11</span>
+    </div>
+  </header>
+
+  <p class="thesis">"The world is rushing to build AI systems. <span>It is not engineering them.</span>"</p>
+  <p class="col lead" style="margin-top:14px">The mission: establish <em class="term">AI engineering</em> — building efficient, reliable, safe, robust <em>intelligent systems that operate in the real world</em>, not just models in isolation — as a discipline alongside software and computer engineering. A <strong>physics-first, quantitative-reasoning</strong> textbook in the Hennessy &amp; Patterson tradition: it teaches the layer <em>underneath</em> the tools — <em>why</em> an LLM feature costs what it costs, stalls where it stalls, and fails how it fails.</p>
+
+  <section>
+    <h2><span class="n">01</span> The organizing insight</h2>
+    <p class="col"><strong>Constraints drive architecture.</strong> The same model, algorithm, and data demand radically different engineering on a data center vs. a phone vs. a microcontroller — not by preference, but because <strong>different physics governs each environment</strong> (speed of light, thermodynamics, memory-movement energy). The lens is <em class="term">D·A·M</em>: <em>"AI capability is not a software feature; it is an emergent property of the co-design of Data, Algorithm, and Machine under statistical and computational constraints."</em></p>
+    <p class="col"><strong>Four deployment paradigms</strong> span <strong>nine orders of magnitude</strong> in power and memory: Cloud (≈3&nbsp;MW / TB) → Edge (≈200&nbsp;W) → Mobile (≈5&nbsp;W) → TinyML (≈50&nbsp;mW / KB). "The engineering principles governing one end of the spectrum barely apply at the other."</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> The repository <em>is</em> the curriculum</h2>
+    <p class="col lead">One integrated repo, not a pile of projects. Learning loop: <strong>Read → Explore → Build → Model → Deploy → Practice → Teach.</strong></p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Component</th><th>What it is</th><th>License</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Textbook</strong></td><td>Two volumes — Vol I single-machine (1–8 GPUs); Vol II distributed at scale</td><td class="lic">CC-BY-NC-SA-4.0</td></tr>
+          <tr><td><strong>TinyTorch</strong></td><td>Build your own ML framework across ~20 progressive modules</td><td class="lic">MIT</td></tr>
+          <tr><td><strong>MLSys·im</strong></td><td>Systems simulator (memory / network / scheduling limits) — embedded in the chapters</td><td class="lic">Apache-2.0</td></tr>
+          <tr><td><strong>StaffML</strong></td><td>9,000+ physics-grounded interview questions · Bloom L1–L6+ · 1,000+ depth chains</td><td class="lic">AGPL-v3</td></tr>
+          <tr><td><strong>Labs / Kits</strong></td><td>Marimo notebooks; deploy to Arduino / Pi / Seeed hardware</td><td class="lic">CC-BY-NC-SA-4.0</td></tr>
+          <tr><td><strong>SocratiQ</strong></td><td>Embedded AI tutor — multi-agent, 8-provider fallback, keys server-side <em>(experimental)</em></td><td class="lic">own</td></tr>
+          <tr><td><strong>design-grammar</strong></td><td>Formal grammar of ML-systems design: 90 primitives + rewrite rules <em>(experimental)</em></td><td class="lic">own</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> The double deep dive — knowledge that transfers</h2>
+
+    <h3>What makes ML systems different</h3>
+    <ul class="col">
+      <li><strong>Software 2.0 / data-as-code</strong> — the dataset <em>is</em> the source code; training is "compilation." Debugging moves from stack traces to dataset inspection.</li>
+      <li><strong>Failures are silent, not loud</strong> — models degrade as the world drifts (code unchanged) → continuous monitoring + retraining is <em>mandatory infrastructure</em>.</li>
+      <li><strong>The 5–95 rule</strong> — ML code is ~5% of a production system; data pipelines, serving, and monitoring are ~95% (and where it fails). <em>"ML is easy; ML Systems are hard."</em></li>
+      <li><strong>The Verification Gap</strong> — a 224×224 image has 256^150,528 configurations; ImageNet covers ~1.4M. Exhaustive pre-deployment testing is impossible.</li>
+      <li><strong>Iteration velocity beats initial accuracy;</strong> constraints found at launch cost orders of magnitude more than at day 1 → propagate them backward.</li>
+    </ul>
+
+    <h3>The quantitative laws (the physics)</h3>
+    <div class="laws">
+      <div class="law"><p class="t">Iron Law of training</p><p class="f">T = O / (R_peak × η_hw)</p><p class="d">Peak FLOP/s is marketing; realized MFU is the binding constraint (GPT-3 ≈ 0.45).</p></div>
+      <div class="law"><p class="t">The memory wall</p><p class="f">move a bit ≈ 100–10⁶× compute-a-bit</p><p class="d">"Arithmetic is nearly free; memory access is expensive." Cost rises as data leaves the chip.</p></div>
+      <div class="law"><p class="t">Amdahl / acceleration wall</p><p class="f">Speedup = 1 / ((1−p) + p/G)</p><p class="d">10% serial work caps an infinite accelerator at 10× total speedup.</p></div>
+      <div class="law"><p class="t">KV-cache is the LLM serving wall</p><p class="f">Llama-3-8B ≈ 128 KB/token → 16.8 GB @128k ctx</p><p class="d">More than the 16 GB of weights — a 24 GB GPU OOMs. Cache grows linearly with ctx × batch.</p></div>
+      <div class="law"><p class="t">Serving dominates training</p><p class="f">~$2M train vs ~$18M/yr serve @1M DAU</p><p class="d">100–1000×. Every 1% efficiency saves ongoing cost for the model's life.</p></div>
+      <div class="law"><p class="t">Little's Law headroom</p><p class="f">p99 explodes above ~70% utilization</p><p class="d">Keep 40–60% headroom; don't saturate accelerators.</p></div>
+      <div class="law"><p class="t">INT8 is co-design</p><p class="f">4× throughput — only on Tensor Cores / NPUs</p><p class="d">~1.5–2× on a generic CPU. The gain materializes only when both layers were designed together.</p></div>
+      <div class="law"><p class="t">Fleet MTBF cascade</p><p class="f">100 nodes ≈ 10 hr · 25K GPUs ≈ 2 hr</p><p class="d">At scale, failure is routine operational state — checkpoint, timeout barriers, watchdog.</p></div>
+    </div>
+
+    <h3>Governance &amp; sustainability</h3>
+    <p class="col"><strong>Fairness is a system constraint on a Pareto frontier</strong> (a measurable ~4pp accuracy tax), not a model property. <strong>Energy is a hard ceiling:</strong> GPT-3 training ≈ 1,287 MWh ≈ 120 US-household-years; carbon intensity varies ~40× by region → <em>when and where you run</em> is a first-class optimization lever.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> Why this lands on hireui</h2>
+    <div class="box hire">
+      <h4>The sharpest Goal-#2 content: responsible-AI-for-hiring</h4>
+      <p style="margin:0 0 8px"><strong>Amazon's recruiting tool</strong> learned to penalize résumés with <em>"women's"</em> because training data was male-dominated — and removing explicit gender <strong>didn't fix it</strong>: <strong>proxy variables (college, activities, career gaps) reconstructed gender silently.</strong> <strong>COMPAS</strong> was perfectly calibrated yet violated equalized-odds. <strong>Obermeyer</strong> showed cost-as-a-proxy inherits the bias of the system that made the proxy.</p>
+      <p style="margin:0"><strong>Lesson for hireui:</strong> removing protected attributes is insufficient — <em>disaggregated per-group outcome monitoring</em> is the only real defense. This is a textbook that is <em>literally about your product's domain.</em></p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Pilot — how to apply it (24 methods)</h2>
+    <p class="col lead">Knowledge subject → payoff is <strong>mental models + borrowable disciplines</strong>, not installable tooling. Everything is free &amp; mostly zero-install. <strong>⭐ One-thing path: A1 → B7 → D14.</strong></p>
+    <ul class="pil col">
+      <li><span class="tag">A1</span><span>Read the <strong>Introduction → ML Systems → Serving → Benchmarking → Responsible Engineering</strong> spine (~4–6 h) = "what an LLM feature really is."</span></li>
+      <li><span class="tag">A3</span><span>Make ~10 <strong>quantitative-law flashcards</strong> (KV-cache, Iron Law, serving-dominates, Little's-Law headroom) — the napkin math for design reviews.</span></li>
+      <li><span class="tag">B5</span><span>Adopt the <strong>D·A·M design checklist</strong> + a constraint-propagation-backward rule in your Definition-of-Ready.</span></li>
+      <li><span class="tag">B7 ⭐</span><span>Convert the recruitment-bias content into a hireui <strong>Fairness Gate ADR</strong> (disaggregated monitoring; pick calibration vs equalized-odds; budget the accuracy tax).</span></li>
+      <li><span class="tag">C9</span><span><strong>MLSys·im</strong> (Apache-2.0, scratch venv): reproduce the KV-cache calc + a serving-cost estimate for hireui's traffic — 30 min → a real roadmap number.</span></li>
+      <li><span class="tag">D13</span><span>Compute hireui's first-feature <strong>serving-cost + KV-cache budget</strong> before writing code (serving, not training, is your economics).</span></li>
+      <li><span class="tag">D14 ⭐</span><span>Build the Fairness Gate into <strong>CandidateDetail / Match-Explain</strong> on an <code>agent-*</code> branch — a real recruitment feature implementing the book's lessons.</span></li>
+      <li><span class="tag">D16</span><span>Design the <strong>vendor seam + provider fallback</strong> (SocratiQ's Cloudflare-keys-server-side + meetily's <code>generate_summary()</code> = your two reference implementations).</span></li>
+      <li><span class="tag">E17</span><span>Drill <strong>StaffML</strong> yourself + with the team (free) — the napkin-math + common-mistake structure is the reasoning you want in reviews.</span></li>
+      <li><span class="tag">E18</span><span>Steal the StaffML <strong>question template</strong> (scenario → solution → pitfall → napkin-math, Bloom L1–L6) for hireui's own technical-interview bank.</span></li>
+      <li><span class="tag">F21 ⭐</span><span>Steal <strong>design-grammar</strong>'s formalism (primitives + <code>composition_links</code> + rewrite rules) into the vault's Pattern Library.</span></li>
+      <li><span class="tag">…</span><span>Full 24-method ladder (A–F) in the Pilot Methods Menu.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span> Verdict</h2>
+    <div class="box verd">
+      <h4>GOAL-ALIGNED INCLUDE 3/4 · T3 Education · NO MINT · counts 46/11 UNCHANGED</h4>
+      <p style="margin:0 0 8px"><strong>(a) FAIL</strong> — Harvard / Reddi, not Anthropic (first <code>harvard-edge</code> org → #19 19a). <strong>(b) MODERATE keys the tier</strong> — an ML-systems curriculum, on-goal-adjacent via LLM-feature systems knowledge + responsible-AI-for-hiring + SocratiQ agents + design-grammar; STRONG &amp; OFF-GOAL both defensible; GOAL-ALIGNED per §31 + operator direction. <strong>(c) STRONG</strong> · <strong>(d) STRONG</strong>.</p>
+      <p style="margin:0"><strong>No mint:</strong> corpus-first for a <em>domain</em> (ML-systems education) ≠ a mintable capability class — the AI-For-Beginners v191 / TimesFM v193 discipline. Collision-clean; DeepTutor v38 = the prior AI-tutor precedent; T3 education cluster (v6/v39/v74/v77/v191) confirmed. SocratiQ / design-grammar / integrated-ecosystem mints all declined per §28.</p>
+    </div>
+    <p class="col" style="font-size:.9rem;color:var(--muted)"><strong>Honest caveats:</strong> <code>dev</code> branch, active development (Vol II + several components early-release; SocratiQ / MLPerf-EDU / design-grammar experimental). Quantitative examples are pedagogical scalings, not universal laws. Stars/adoption page-stated only (§37.4) → no viral-velocity claim.</p>
+  </section>
+
+  <p class="foot">
+    (C) Storm Bear vault — LLM Wiki v197 · 2026-07-07 · GOAL-ALIGNED INCLUDE · T3 Education · NO MINT (46/11)<br>
+    Verdict + every corpus/collision claim hand-verified; knowledge via a read-only research workflow (source-reading only). Shipped on <code>wiki/v197-mlsysbook</code>, not auto-merged.
+  </p>
+</div>
