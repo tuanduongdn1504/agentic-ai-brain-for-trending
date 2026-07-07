@@ -52,6 +52,7 @@ Operator elected to trial cloud Gemini for higher summary quality (vs the local 
   ```
 
   JSON reply ⇒ key+model+URL all good (meetily will work with the same values). 401/403 ⇒ key/billing. 400 "model not found" ⇒ wrong model name → list models: `curl "https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_KEY"`.
+- **meetily UI path (verified from `ModelSettingsModal.tsx`):** open the **Summarization Model** settings → provider dropdown = **"Custom Server (OpenAI)"** → **Endpoint URL \*** = `https://generativelanguage.googleapis.com/v1beta/openai` · **Model Name \*** = `gemini-2.5-flash` · **API Key (optional)** = your Gemini key. ⚠️ The key field is LABELED "(optional)" (because local custom servers may not need one) — **for Gemini it is REQUIRED**; leaving it blank → HTTP 400. The **Test Connection** button only enables once Endpoint + Model are filled; success shows a "Connection successful!" toast → then Save. (Transcription/Whisper settings are a separate screen — leave those on Whisper.)
 - **Ready-to-run harness** (does the connectivity test + auto-diagnoses HTTP codes + runs the synthetic-transcript fidelity comparison in one command; key via env var, never stored): `~/Documents/test-gemini-meetily.sh` (vault copy in `pilot-templates/`). Run: `GEMINI_KEY=your_key bash ~/Documents/test-gemini-meetily.sh`. Verified working against a bogus key (extracts Google's real error message + points to the cause).
 
 **⚠️ Trial scope fence (non-negotiable):** Gemini = cloud → transcript leaves the machine to Google.
