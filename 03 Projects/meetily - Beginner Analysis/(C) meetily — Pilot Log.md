@@ -34,6 +34,39 @@ Before any real meeting, I ran a **fake sample chi bộ Đông Trà 1 transcript
 
 **Conclusion / model recommendation (BLUNT):** the `bien_ban_chi_bo` template works — factual fields extract cleanly — but **qwen3.5 is NOT trustworthy for the biên bản content sections; it drifts into generic Party-meeting boilerplate and fabricates ý kiến + giải trình.** For a Party-cell record where fidelity is procedurally critical, that is disqualifying **unless every summary is cross-checked against the transcript before use.** Before the real meeting: (1) try a **non-reasoning model** — `qwen2.5:7b` or larger (`qwen2.5:14b`/`32b` if RAM allows), or `llama3.1:8b` — which won't have the thinking-drift; (2) always keep + review the full transcript (meetily stores it); (3) a real, longer meeting *may* ground the model better than this terse synthetic script, but treat the ý kiến/giải trình sections as draft-to-verify, never final. Raw dry-run outputs: this session's scratchpad (`dryrun_output.md` = run A, `dryrun2_output.md` = run B); not committed (synthetic/throwaway).
 
+## Gemini trial (Cách 1 — Custom OpenAI → Gemini direct) — started 2026-07-05
+
+Operator elected to trial cloud Gemini for higher summary quality (vs the local qwen3.5 that fabricated). Setup path + verification:
+
+- **Provider:** meetily → Settings → Custom (OpenAI-compatible).
+  - **Base URL:** `https://generativelanguage.googleapis.com/v1beta/openai` (meetily auto-appends `/chat/completions` — verified in `llm_client.rs:177`; do NOT include the suffix).
+  - **API key:** operator's Gemini key (from `aistudio.google.com/apikey`). **Enable billing (paid tier)** — free tier lets Google use the data.
+  - **Model:** `gemini-2.5-pro` (quality) or `gemini-2.5-flash` (fast/cheap) — confirm current names.
+- **URL verified reachable** 2026-07-05 (POST → HTTP 400 not 404 = valid endpoint; a Test-connection failure ⇒ key/model/billing, not URL).
+- **Standalone pre-test** (run in Terminal with your key before touching meetily):
+
+  ```bash
+  curl https://generativelanguage.googleapis.com/v1beta/openai/chat/completions \
+    -H "Authorization: Bearer YOUR_GEMINI_KEY" -H "Content-Type: application/json" \
+    -d '{"model":"gemini-2.5-pro","messages":[{"role":"user","content":"Trả lời một câu tiếng Việt."}]}'
+  ```
+
+  JSON reply ⇒ key+model+URL all good (meetily will work with the same values). 401/403 ⇒ key/billing. 400 "model not found" ⇒ wrong model name → list models: `curl "https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_KEY"`.
+
+**⚠️ Trial scope fence (non-negotiable):** Gemini = cloud → transcript leaves the machine to Google.
+- **NON-sensitive meetings ONLY** (personal, internal coaching). **NEVER chi bộ / mật content** — those stay 100% local (gemma2:27b / qwen2.5-instruct + verify).
+- Paid tier (no-training) even for non-sensitive.
+
+**What to measure each trial meeting** (decide keep/drop after ~3–5):
+
+| # | Date | Meeting (non-sensitive) | Model | Fidelity: ý kiến/giải trình invented? | Names/numbers correct? | Edit effort (1=none…5=heavy) | Cost/summary | Keep? |
+|---|------|------------------------|-------|----------------------------------------|------------------------|------------------------------|-------------|-------|
+| G1 | | | gemini-2.5-pro | | | | | |
+| G2 | | | | | | | | |
+| G3 | | | | | | | | |
+
+**Decision gate:** keep Gemini if — no fabrication in ý kiến/giải trình across ≥3 meetings AND edit effort ≤2 AND cost acceptable. Otherwise revert to local model + controlled-prompt drafting. **Apples-to-apples anchor:** run the same synthetic chi bộ transcript (the qwen3.5 dry-run one) through Gemini once — if it does NOT fabricate the ý kiến/giải trình sections that qwen3.5 invented, that's the clearest quality signal.
+
 ## Run log (fill one row per recorded meeting)
 
 | # | Date | Meeting type | Template | STT engine | Lang | Summary model | Usable? (1–5) | Notes / edits needed |
