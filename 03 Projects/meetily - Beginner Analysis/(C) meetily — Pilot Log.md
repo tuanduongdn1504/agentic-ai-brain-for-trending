@@ -52,6 +52,7 @@ Operator elected to trial cloud Gemini for higher summary quality (vs the local 
   ```
 
   JSON reply ⇒ key+model+URL all good (meetily will work with the same values). 401/403 ⇒ key/billing. 400 "model not found" ⇒ wrong model name → list models: `curl "https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_KEY"`.
+- **Ready-to-run harness** (does the connectivity test + auto-diagnoses HTTP codes + runs the synthetic-transcript fidelity comparison in one command; key via env var, never stored): `~/Documents/test-gemini-meetily.sh` (vault copy in `pilot-templates/`). Run: `GEMINI_KEY=your_key bash ~/Documents/test-gemini-meetily.sh`. Verified working against a bogus key (extracts Google's real error message + points to the cause).
 
 **⚠️ Trial scope fence (non-negotiable):** Gemini = cloud → transcript leaves the machine to Google.
 - **NON-sensitive meetings ONLY** (personal, internal coaching). **NEVER chi bộ / mật content** — those stay 100% local (gemma2:27b / qwen2.5-instruct + verify).
