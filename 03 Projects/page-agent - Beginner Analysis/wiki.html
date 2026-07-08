@@ -1,0 +1,235 @@
+<title>page-agent — LLM Wiki v199</title>
+<style>
+  :root {
+    --bg: #fbfcfd; --panel: #ffffff; --ink: #17202b; --muted: #5a6b73;
+    --line: #e4e9ec; --accent: #0d9488; --accent-soft: #d7f0ec;
+    --coral: #d94a34; --coral-soft: #fbe4de; --code-bg: #f4f7f8; --code-ink: #24303a;
+    --good: #0d9488; --warn: #b7791f; --crit: #c0392b;
+    --shadow: 0 1px 2px rgba(20,40,50,.05), 0 8px 24px rgba(20,40,50,.05);
+    --maxw: 72ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --panel: #151b23; --ink: #e6edf3; --muted: #8ea0aa;
+      --line: #232d38; --accent: #2dd4bf; --accent-soft: #123733;
+      --coral: #ff7a63; --coral-soft: #3a1f1a; --code-bg: #0f151c; --code-ink: #c9d6de;
+      --good: #2dd4bf; --warn: #e0b martial; --warn: #e6b450; --crit: #f0685a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1117; --panel: #151b23; --ink: #e6edf3; --muted: #8ea0aa;
+    --line: #232d38; --accent: #2dd4bf; --accent-soft: #123733;
+    --coral: #ff7a63; --coral-soft: #3a1f1a; --code-bg: #0f151c; --code-ink: #c9d6de;
+    --good: #2dd4bf; --warn: #e6b450; --crit: #f0685a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfcfd; --panel: #ffffff; --ink: #17202b; --muted: #5a6b73;
+    --line: #e4e9ec; --accent: #0d9488; --accent-soft: #d7f0ec;
+    --coral: #d94a34; --coral-soft: #fbe4de; --code-bg: #f4f7f8; --code-ink: #24303a;
+    --good: #0d9488; --warn: #b7791f; --crit: #c0392b;
+    --shadow: 0 1px 2px rgba(20,40,50,.05), 0 8px 24px rgba(20,40,50,.05);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.62; font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px 96px; }
+  header.hero { max-width: var(--maxw); margin: 0 auto; padding: 60px 22px 30px; }
+  .eyebrow {
+    font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin: 0 0 14px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.08; margin: 0 0 18px;
+    font-weight: 800; letter-spacing: -.02em; text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 22px; text-wrap: pretty; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip {
+    font-size: 12.5px; padding: 4px 11px; border-radius: 999px;
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .chip strong { color: var(--ink); font-weight: 700; }
+  .verdict-chip { background: var(--accent-soft); border-color: transparent; color: var(--ink); font-weight: 600; }
+  h2 {
+    font-size: 24px; margin: 52px 0 6px; font-weight: 800; letter-spacing: -.015em;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font: 700 13px/1 ui-monospace, monospace; color: var(--accent);
+    vertical-align: middle; margin-right: 10px;
+  }
+  h3 { font-size: 17.5px; margin: 30px 0 4px; font-weight: 700; }
+  p { margin: 12px 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  .rule { height: 1px; background: var(--line); border: 0; margin: 8px 0 0; }
+  strong { font-weight: 700; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .88em; background: var(--code-bg); color: var(--code-ink);
+    padding: 1.5px 6px; border-radius: 5px; border: 1px solid var(--line);
+  }
+  /* The signature panel: what the agent actually sees */
+  .dom {
+    background: var(--code-bg); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; margin: 22px 0; overflow-x: auto; box-shadow: var(--shadow);
+  }
+  .dom .caption {
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .dom .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 3px var(--coral-soft); }
+  .dom pre {
+    margin: 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13.5px; line-height: 1.85; color: var(--code-ink); white-space: pre;
+  }
+  .ix { color: var(--coral); font-weight: 700; }
+  .tag { color: var(--accent); }
+  .newmark { color: var(--coral); font-weight: 700; }
+  .cmt { color: var(--muted); }
+  /* verdict scorecard */
+  .grid { display: grid; gap: 12px; margin: 22px 0; }
+  .grid.two { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .card .k { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .card .v { font-size: 15px; margin: 0; }
+  .score { display: flex; align-items: baseline; gap: 10px; }
+  .score .letter { font: 800 20px/1 ui-monospace, monospace; }
+  .pass { color: var(--good); } .fail { color: var(--crit); } .strong { color: var(--good); }
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-soft);
+    padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 22px 0;
+  }
+  .callout.warn { border-left-color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, var(--panel)); }
+  .callout .lbl { font-weight: 800; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); }
+  .callout.warn .lbl { color: var(--warn); }
+  ul.clean { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px; }
+  ul.clean li { padding-left: 26px; position: relative; }
+  ul.clean li::before { content: "›"; position: absolute; left: 6px; color: var(--accent); font-weight: 800; }
+  ol.ladder { list-style: none; counter-reset: rung; padding: 0; margin: 18px 0; display: grid; gap: 12px; }
+  ol.ladder li {
+    counter-increment: rung; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 16px 14px 56px; position: relative; box-shadow: var(--shadow);
+  }
+  ol.ladder li::before {
+    content: counter(rung); position: absolute; left: 14px; top: 14px;
+    width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent);
+    font: 800 14px/28px ui-monospace, monospace; text-align: center;
+  }
+  ol.ladder .rh { font-weight: 700; }
+  .tag-inline { color: var(--muted); font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 14.5px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  footer { max-width: var(--maxw); margin: 40px auto 0; padding: 22px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+  .footpath code { background: transparent; border: 0; padding: 0; color: var(--accent); }
+</style>
+
+<header class="hero">
+  <p class="eyebrow">LLM Wiki · v199 · 2026-07-08</p>
+  <h1>page-agent — the GUI agent that lives <em>inside</em> your web page</h1>
+  <p class="lede">Every other web-agent in this vault drives a browser from the <em>outside</em>. <code>alibaba/page-agent</code> inverts it: one <code>&lt;script&gt;</code> tag makes any web page carry its own natural-language agent — driving the app's real DOM as indexed text, no extension, no headless browser, no backend, no screenshots.</p>
+  <div class="meta">
+    <span class="chip verdict-chip">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="chip"><strong>MIT</strong> · TS 82.6%</span>
+    <span class="chip"><strong>v1.11.0</strong> · 34 releases</span>
+    <span class="chip">~25k★ <span class="tag-inline">(page-stated)</span></span>
+    <span class="chip">Author <strong>Simon</strong> · Alibaba</span>
+    <span class="chip mono">@ 35ff6d4</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h2><span class="num">01</span>The one-sentence thesis</h2>
+  <hr class="rule">
+  <p><strong>browser-use v41 / Skyvern v24 / crawl4ai v29</strong> are external tools: a Python or Playwright process drives a headless or remote browser, <em>for a developer or a coding agent</em>. page-agent is a ~50–100&nbsp;KB client-side JavaScript library that a <strong>web-app owner</strong> drops into their <strong>own</strong> site — which then gives that site's <strong>end users</strong> an agent that reads and drives the app's own DOM.</p>
+  <p>The README draws the line itself: <em>“PageAgent is designed for <strong>client-side web enhancement</strong>, not server-side automation.”</em> In a phrase: <strong>browser-use, but living inside the page instead of driving it from outside.</strong></p>
+
+  <h2><span class="num">02</span>What the agent actually sees</h2>
+  <hr class="rule">
+  <p>The heart of the deep dive: page-agent never sends a screenshot. It walks the live DOM, keeps only the interactive elements, gives each a <strong>stable integer</strong>, and <strong>“dehydrates”</strong> the page into token-lean text the model reasons over — then the model acts <em>by integer</em>, never by CSS selector. (This DOM-as-text technique is inherited from browser-use, not invented here — the industry has converged on it.)</p>
+  <div class="dom">
+    <div class="caption"><span class="dot"></span>Dehydrated DOM — the model's entire view of the page</div>
+<pre><span class="ix">[33]</span><span class="tag">&lt;div&gt;</span>Candidates<span class="tag">&lt;/div&gt;</span>
+	<span class="ix">[34]</span><span class="tag">&lt;input</span> aria-label='Search'<span class="tag">&gt;</span>Search…<span class="tag">&lt;/input&gt;</span>
+	<span class="newmark">*[35]</span><span class="tag">&lt;button&gt;</span>Filter: Hanoi<span class="tag">&lt;/button&gt;</span>   <span class="cmt">← appeared since last step</span>
+<span class="ix">[36]</span><span class="tag">&lt;a&gt;</span>Nguyen T. — React, 6y<span class="tag">&lt;/a&gt;</span>
+<span class="cmt">data-scrollable='top=0,bottom=1840'  ← 1840px of room below</span></pre>
+  </div>
+  <p>The model replies with one forced structured call — <code>{ evaluation_previous_goal, memory, next_goal, action: {click_element_by_index: {index: 36}} }</code> — and the controller dispatches a full W3C pointer sequence so it behaves like a real user click.</p>
+
+  <h2><span class="num">03</span>The loop, honestly built</h2>
+  <hr class="rule">
+  <p>A ReAct loop in a clean 8-package monorepo (headless <code>core</code> · <code>llms</code> client · <code>page-controller</code> DOM engine · <code>ui</code> · <code>mcp</code> · Chrome <code>extension</code>). Details that reveal the taste of the author:</p>
+  <ul class="clean">
+    <li><strong>One MacroTool per step.</strong> All tools merge into a single forced <code>AgentOutput</code> call carrying reflection <em>and</em> the chosen action — cheap and auditable.</li>
+    <li><strong>Two separated streams.</strong> Persistent <em>History</em> (in the model's context) vs transient <em>Activity</em> (UI only) — and transient errors are kept <em>out</em> of the model's reasoning.</li>
+    <li><strong>Human-in-the-loop is first-class.</strong> An <code>ask_user</code> tool and a <code>user_takeover</code> memory event when a person grabs the wheel.</li>
+    <li><strong>Honesty over success theatre</strong> (verbatim system prompt): <em>“It is ok to fail the task… Trying too hard can be harmful… Never assume an action succeeded.”</em></li>
+    <li><strong><code>autoFixer</code></strong> repairs malformed model output (JSON-in-content, double-stringified args, missing-action → <code>wait</code>) so even weak local models can drive a UI.</li>
+    <li><strong>Safe-to-embed levers:</strong> <code>execute_javascript</code> off by default · a <code>transformPageContent</code> redaction hook · per-route <code>getPageInstructions(url)</code>.</li>
+  </ul>
+  <p>Claude is first-class and tested: v1.9.0 shipped <em>“Claude Opus 4.8 support”</em>; v1.11.0 rewrote per-model patching “for GPT, <strong>Claude</strong>, Qwen, Gemini, and DeepSeek.” It is otherwise LLM-agnostic (BYOK incl. local Ollama).</p>
+
+  <h2><span class="num">04</span>The verdict</h2>
+  <hr class="rule">
+  <div class="grid two">
+    <div class="card"><p class="k">(a) Anthropic-adjacency</p><p class="v"><span class="score"><span class="letter fail">FAIL</span></span> Alibaba + Simon, not Anthropic. First <code>alibaba/</code> org subject (#19 19a).</p></div>
+    <div class="card"><p class="k">(b) Goal-relevance</p><p class="v"><span class="score"><span class="letter strong">STRONG</span></span> An autonomous GUI agent + MCP server + Claude-first-class; the sharpest hireui <em>product</em> pilot since serve-sim v183. <span class="tag-inline">(MODERATE-on-domain reading recorded.)</span></p></div>
+    <div class="card"><p class="k">(c) Substance</p><p class="v"><span class="score"><span class="letter strong">STRONG</span></span> Real 8-package engineering, DOM dehydration, provider-quirk hardening, 34 releases. Tests thin outside <code>llms</code>; MCP Beta.</p></div>
+    <div class="card"><p class="k">(d) Cross-references</p><p class="v"><span class="score"><span class="letter strong">STRONG</span></span> Direct upstream browser-use v41 (a genuine #57); the “structured-surface-not-raw-dump” perception thread.</p></div>
+  </div>
+  <div class="callout">
+    <span class="lbl">Pattern outcome — 1 new §C standalone, N=1</span>
+    <p style="margin:8px 0 0"><strong>“In-Page / Embedded End-User GUI Agent.”</strong> Corpus-first for the surface — the first corpus subject that lives <em>inside</em> the page, embedded by the site owner for its end users, vs every prior external developer-automation tool. <strong>NOT world-first:</strong> CopilotKit (+ EmbedAI, Copilot Studio, GitHub Copilot SDK) populate this space commercially. Counts unchanged <strong>46 / 11</strong>; §C live standalones 38→39; streak <strong>GA:60</strong> (46 consecutive goal-aligned ships).</p>
+  </div>
+  <div class="callout warn">
+    <span class="lbl">The genuine #57</span>
+    <p style="margin:8px 0 0">page-agent openly <strong>derives its DOM-processing + system prompt from browser-use v41</strong> (credited © Gregor Zunic; source-tagged <code>@note Adapted from browser-use</code>). A real recursion — a corpus subject building on <em>another</em> corpus subject. (Distinct from v198 video-use, whose browser-use tie was the same org's self-reference.)</p>
+  </div>
+
+  <h2><span class="num">05</span>Apply it — the pilot ladder</h2>
+  <hr class="rule">
+  <p>Because hireui is a recruitment SaaS web app and page-agent is literally <em>“ship an AI copilot in your product, no backend rewrite,”</em> this is an unusually direct product pilot. The <strong>⭐ one-thing path</strong> is <strong>A1 → C11 → D16</strong>. Full 24-method menu lives in the project folder.</p>
+  <ol class="ladder">
+    <li><span class="rh">A1 · Read the loop + dehydration engine.</span> <span class="tag-inline">Zero install. Internalize “give the model a compact indexed surface, let it act by integer.”</span></li>
+    <li><span class="rh">B5–B9 · Borrow patterns, zero install.</span> <span class="tag-inline">The MacroTool call, <code>autoFixer</code> repair layer, the two-stream state model, a <code>transformPageContent</code>-style redaction seam — into hireui's LLM-feature spec.</span></li>
+    <li><span class="rh">C11 · Drive a scratch hireui clone with your own Claude key.</span> <span class="tag-inline">BYOK, not the demo proxy. Prove the observe→think→act loop; read <code>usage</code> to measure the token economy (C13).</span></li>
+    <li><span class="rh">D16 · A read-only recruiter copilot on an <code>agent-*</code> branch.</span> <span class="tag-inline">“Find candidates in Hanoi with React, open the top match.” No writes. The first real Goal-#2 product artifact.</span></li>
+    <li><span class="rh">D17 · Wire PII redaction first.</span> <span class="tag-inline">Candidate data lives in the dehydrated DOM — redact + pick a no-training provider before anything real.</span></li>
+  </ol>
+
+  <div class="callout warn">
+    <span class="lbl">The fence (load-bearing)</span>
+    <p style="margin:8px 0 0"><strong>BYOK, never the free demo proxy</strong> (it egresses page HTML to Alibaba Cloud China — tech-eval only, EU do-not-use). <strong>HTML dehydration does not guarantee PII removal</strong> → redact candidate data + no-training provider. <strong>Never inline a real API key</strong> in a shipped browser bundle. Leave <code>execute_javascript</code> off. Scratch clone before real hireui. Pin <code>page-agent@1.11.0</code>. On hireui, follow its CONSTITUTION (I-2 <code>agent-*</code> branch, I-8 operator-installs, GitNexus-first).</p>
+  </div>
+
+  <h2><span class="num">06</span>Where it sits</h2>
+  <hr class="rule">
+  <table>
+    <tr><th>Subject</th><th>Vector</th><th>For whom</th></tr>
+    <tr><td>browser-use <span class="tag-inline">v41</span></td><td>External Playwright/CDP automation</td><td>Developers / coding agents</td></tr>
+    <tr><td>Skyvern <span class="tag-inline">v24</span></td><td>External vision + form-filling</td><td>Developers</td></tr>
+    <tr><td>serve-sim <span class="tag-inline">v183</span></td><td>Mobile-simulator perception+control</td><td>Coding agents</td></tr>
+    <tr><td>Agent-Reach <span class="tag-inline">v174</span></td><td>Web/social read + search</td><td>Coding agents</td></tr>
+    <tr><td><strong>page-agent</strong> <span class="tag-inline">v199</span></td><td><strong>In-page, drives the app's own DOM</strong></td><td><strong>The site's end users</strong></td></tr>
+  </table>
+  <p>page-agent joins the vault's recurring <strong>“structured-surface-not-raw-dump”</strong> perception thread: browser-use's DOM-not-screenshot → codebase-memory-mcp's graph-not-file-reads → fff's resident-index → video-use's transcript-not-frames → page-agent's indexed-DOM-not-pixels. The move each time: <em>hand the model a compact structured surface and a stable handle, never the raw bytes.</em></p>
+
+</main>
+
+<footer>
+  <p class="footpath">Source-verified at <code>35ff6d4</code>. Verdict + all corpus / collision / identity claims done by hand; a read-only 8-agent workflow did source-reading + upstream research only. Full docs: <code>03 Projects/page-agent - Beginner Analysis/</code> — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu.</p>
+  <p>Storm Bear LLM Wiki · Karpathy wiki-maintainer pattern · counts 46 / 11 · streak GA:60.</p>
+</footer>
