@@ -1,0 +1,282 @@
+<style>
+  /* video-use v198 — visual identity grounded in the skill's OWN stated palette:
+     near-black film-leader ground, #FF5A00 orange accent, dim-gray labels, Menlo mono.
+     (SKILL.md "Example palette": bg (10,10,10) / accent #FF5A00 / labels (110,110,110) / Menlo Bold.) */
+  :root {
+    --bg: #0a0a0a;
+    --panel: #131313;
+    --panel-2: #1a1917;
+    --ink: #f2efe9;
+    --ink-dim: #a5a099;
+    --label: #6e6e6e;
+    --rule: #2a2825;
+    --accent: #ff5a00;
+    --accent-soft: #ff8a45;
+    --teal: #4bb3a6;      /* warm_cinematic's split-tone counter-hue, used only for "verified/ok" */
+    --warn: #e6b04a;
+    --crit: #ff5a4a;
+    --mono: ui-monospace, "Menlo", "SF Mono", "Cascadia Code", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --maxw: 62rem;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f2ec; --panel: #fffdf8; --panel-2: #f0ebe1;
+      --ink: #1b1815; --ink-dim: #55504a; --label: #8a8378;
+      --rule: #e0d8ca; --accent: #d8460a; --accent-soft: #b5390a;
+      --teal: #2f7d72; --warn: #9a6b12; --crit: #c0392b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0a0a0a; --panel: #131313; --panel-2: #1a1917; --ink: #f2efe9;
+    --ink-dim: #a5a099; --label: #6e6e6e; --rule: #2a2825; --accent: #ff5a00;
+    --accent-soft: #ff8a45; --teal: #4bb3a6; --warn: #e6b04a; --crit: #ff5a4a;
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f2ec; --panel: #fffdf8; --panel-2: #f0ebe1; --ink: #1b1815;
+    --ink-dim: #55504a; --label: #8a8378; --rule: #e0d8ca; --accent: #d8460a;
+    --accent-soft: #b5390a; --teal: #2f7d72; --warn: #9a6b12; --crit: #c0392b;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.62; font-size: 17px;
+    -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.4rem 5rem; }
+
+  /* ---------- hero: a film-strip / timeline ---------- */
+  .hero { padding: 3.4rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .eyebrow { font-family: var(--mono); font-size: .74rem; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; }
+  .eyebrow .dim { color: var(--label); }
+  h1 { font-family: var(--mono); font-weight: 700; font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: .98; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+  h1 .use { color: var(--accent); }
+  .tagline { font-size: 1.16rem; color: var(--ink-dim); margin: 1.1rem 0 0; max-width: 46ch; }
+
+  .filmstrip { display: flex; gap: 4px; margin: 2rem 0 .5rem; overflow-x: auto;
+    padding-bottom: .5rem; }
+  .frame { flex: 0 0 auto; width: 92px; height: 58px; border-radius: 3px;
+    border: 1px solid var(--rule); background: var(--panel-2); position: relative;
+    display: flex; align-items: flex-end; padding: 4px; }
+  .frame::before { content: ""; position: absolute; inset: 4px 6px auto 6px; height: 3px;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 3px, transparent 3px 7px); }
+  .frame span { font-family: var(--mono); font-size: .58rem; color: var(--label); }
+  .frame.cut { border-color: var(--accent); }
+  .frame.cut span { color: var(--accent-soft); }
+  .strip-note { font-family: var(--mono); font-size: .72rem; color: var(--label);
+    letter-spacing: .04em; }
+  .strip-note b { color: var(--teal); font-weight: 400; }
+
+  /* ---------- verdict chips ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2rem 0 0; }
+  .chip { font-family: var(--mono); font-size: .78rem; padding: .34rem .7rem;
+    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--ink-dim); }
+  .chip b { color: var(--ink); font-weight: 600; }
+  .chip.ok { border-color: color-mix(in oklab, var(--teal) 55%, var(--rule)); }
+  .chip.ok b { color: var(--teal); }
+  .chip.no { border-color: color-mix(in oklab, var(--crit) 45%, var(--rule)); }
+  .chip.no b { color: var(--crit); }
+  .chip.acc { border-color: color-mix(in oklab, var(--accent) 55%, var(--rule)); }
+  .chip.acc b { color: var(--accent); }
+
+  /* ---------- sections ---------- */
+  section { padding: 2.6rem 0 0; }
+  h2 { font-family: var(--mono); font-size: 1.32rem; font-weight: 700; letter-spacing: -.005em;
+    margin: 0 0 .3rem; display: flex; align-items: baseline; gap: .7rem; }
+  h2 .n { font-size: .8rem; color: var(--accent); letter-spacing: .1em; }
+  .lead { color: var(--ink-dim); margin: .2rem 0 1.3rem; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  strong { color: var(--ink); }
+  code { font-family: var(--mono); font-size: .86em; background: var(--panel-2);
+    padding: .08em .35em; border-radius: 3px; color: var(--accent-soft); }
+  .divider { height: 1px; background: var(--rule); margin: 2.8rem 0 0; }
+
+  /* pipeline */
+  .pipe { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+    font-family: var(--mono); font-size: .82rem; margin: .5rem 0 1.4rem; }
+  .pipe .step { padding: .4rem .7rem; border: 1px solid var(--rule); border-radius: 4px;
+    background: var(--panel); color: var(--ink); }
+  .pipe .step.eval { border-color: var(--accent); color: var(--accent-soft); }
+  .pipe .arw { color: var(--label); }
+
+  /* cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem; margin: 1rem 0; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 1.1rem 1.2rem; }
+  .card h3 { font-family: var(--mono); font-size: .96rem; margin: 0 0 .4rem; color: var(--ink); }
+  .card p { font-size: .93rem; color: var(--ink-dim); margin: 0; }
+  .card .k { font-family: var(--mono); font-size: .72rem; color: var(--accent);
+    letter-spacing: .08em; text-transform: uppercase; }
+
+  /* table */
+  .scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 8px; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 34rem; }
+  th, td { text-align: left; padding: .6rem .9rem; border-bottom: 1px solid var(--rule);
+    vertical-align: top; }
+  th { font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--label); background: var(--panel-2); }
+  tr:last-child td { border-bottom: none; }
+  td code { font-size: .82em; }
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* callout */
+  .note { border-left: 3px solid var(--accent); background: var(--panel);
+    padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1.2rem 0; }
+  .note.warn { border-left-color: var(--warn); }
+  .note.crit { border-left-color: var(--crit); }
+  .note .tag { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .3rem; }
+  .note.warn .tag { color: var(--warn); }
+  .note.crit .tag { color: var(--crit); }
+
+  /* pilot ladder */
+  .ladder { display: grid; gap: .6rem; margin: 1rem 0; }
+  .rung { display: grid; grid-template-columns: 3.2rem 1fr; gap: .9rem; align-items: start;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: .85rem 1rem; }
+  .rung .code { font-family: var(--mono); font-weight: 700; color: var(--accent); font-size: .92rem;
+    padding-top: .05rem; }
+  .rung .body b { color: var(--ink); }
+  .rung .body { color: var(--ink-dim); font-size: .95rem; }
+  .rung.star { border-color: color-mix(in oklab, var(--accent) 50%, var(--rule)); }
+
+  .foot { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+    font-family: var(--mono); font-size: .76rem; color: var(--label); line-height: 1.8; }
+  @media (prefers-reduced-motion: no-preference) {
+    .frame { transition: border-color .2s ease; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">LLM Wiki <span class="dim">v198</span> · Storm Bear vault · 2026-07-08</p>
+    <h1>video-<span class="use">use</span></h1>
+    <p class="tagline">Edit videos with Claude Code. The LLM never <em>watches</em> the footage — it <strong>reads</strong> it, through a word-level transcript. <span style="color:var(--accent-soft)">Browser-use, but for video.</span></p>
+
+    <div class="filmstrip" aria-hidden="true">
+      <div class="frame"><span>00:02.5</span></div>
+      <div class="frame"><span>00:05.4</span></div>
+      <div class="frame cut"><span>✂ cut</span></div>
+      <div class="frame"><span>00:06.1</span></div>
+      <div class="frame"><span>00:06.7</span></div>
+      <div class="frame cut"><span>✂ cut</span></div>
+      <div class="frame"><span>00:14.3</span></div>
+      <div class="frame"><span>00:21.0</span></div>
+      <div class="frame"><span>00:28.9</span></div>
+    </div>
+    <p class="strip-note">30,000 frames × 1,500 tokens = 45M tokens of noise &nbsp;→&nbsp; <b>video-use: 12KB text + a handful of PNGs.</b></p>
+
+    <div class="chips">
+      <span class="chip acc">GOAL-ALIGNED INCLUDE <b>3/4</b></span>
+      <span class="chip no">(a) <b>FAIL</b></span>
+      <span class="chip ok">(b) <b>STRONG</b></span>
+      <span class="chip ok">(c) <b>STRONG</b></span>
+      <span class="chip ok">(d) <b>STRONG</b></span>
+      <span class="chip">Tier <b>T1 Skill</b></span>
+      <span class="chip">§C <b>+1 · N=1</b></span>
+      <span class="chip">counts <b>46 / 11</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="n">01</span> What it is</h2>
+    <p class="lead">A free, MIT Claude-Code (Codex / Hermes / OpenClaw) <strong>agent skill</strong> that edits <em>existing raw footage</em> by conversation.</p>
+    <p>Drop raw takes in a folder → run <code>claude</code> there → say <em>“edit these into a launch video”</em> → get <code>edit/final.mp4</code>. It cuts filler and dead space, color-grades, burns captions, generates overlay animations, and <strong>self-evaluates the render before showing you anything</strong>. By <strong>Browser Use, Inc.</strong> (YC W25, makers of the browser-use agent — corpus subject <strong>v41</strong>). Source-verified at commit <code>92c2b34</code>.</p>
+    <div class="grid">
+      <div class="card"><span class="k">License</span><h3>MIT © Browser Use</h3><p>Python 76% / HTML 23%. No releases, git-clone-only. Zero tests, no CI. ~15.9k★ (page-stated).</p></div>
+      <div class="card"><span class="k">Not</span><h3>Not a generator</h3><p>Edits footage you shot — contrast OpenMontage v188, which <em>produces</em> a video from a brief. Not a GUI, not an MCP server.</p></div>
+      <div class="card"><span class="k">Cost</span><h3>~$0.11 / 30-min take</h3><p>ElevenLabs Scribe transcription. ffmpeg + PIL are free; premium renderers optional.</p></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2><span class="n">02</span> The idea: read the video, don't watch it</h2>
+    <p class="lead">The one genuinely novel thing here — and the reason it's the same org that built browser-use.</p>
+    <p>Two layers give the LLM word-boundary precision from <em>text</em>. <strong>Layer 1 (always loaded):</strong> one ElevenLabs Scribe call per source → word-level timestamps + speaker diarization + audio-event tags, packed into a single ~12KB <code>takes_packed.md</code>. <strong>Layer 2 (on demand):</strong> a filmstrip+waveform+word-labels PNG rendered only at decision points. Same thesis as browser-use giving an LLM a structured DOM instead of a screenshot — transplanted to a new modality.</p>
+    <div class="pipe">
+      <span class="step">Transcribe</span><span class="arw">→</span>
+      <span class="step">Pack ~12KB</span><span class="arw">→</span>
+      <span class="step">LLM reasons</span><span class="arw">→</span>
+      <span class="step">EDL</span><span class="arw">→</span>
+      <span class="step">Render (ffmpeg)</span><span class="arw">→</span>
+      <span class="step eval">Self-eval ⟲ max 3</span>
+    </div>
+    <p>The self-eval loop runs the visual composite on the <em>rendered output</em> at every cut boundary — catching visual jumps, audio pops, and hidden captions — and fixes + re-renders before you see a preview. A maker/checker discipline baked into a skill.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2><span class="n">03</span> Production correctness is real code</h2>
+    <p class="lead">The SKILL.md's "12 Hard Rules" are code invariants, not aspirations — verified in <code>render.py</code> (659 LOC).</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Invariant</th><th>Verified at</th></tr></thead>
+        <tbody>
+          <tr><td>Per-segment extract → lossless <code>-c copy</code> concat</td><td class="tnum">render.py:214–283</td></tr>
+          <tr><td>30ms audio fades at every cut (<code>afade</code>)</td><td class="tnum">render.py:188–189</td></tr>
+          <tr><td>Overlays <code>setpts=PTS-STARTPTS+T/TB</code></td><td class="tnum">render.py:524</td></tr>
+          <tr><td>Subtitles applied <strong>LAST</strong> in the filter chain</td><td class="tnum">render.py:538–543</td></tr>
+          <tr><td>Master SRT = output-timeline offsets</td><td class="tnum">render.py:360–363</td></tr>
+          <tr><td><em>Undocumented:</em> default loudnorm (−14 LUFS) + HDR→SDR tonemap</td><td class="tnum">render.py:95–132, 387–490</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.92rem;color:var(--ink-dim)">Honest doc-vs-code notes: <code>--preview</code> is 1080p <code>medium</code>, not "720p fast" (that's <code>--draft</code>); subtitle <code>MarginV=90</code>, not the README's 35; the transcript cache is keyed on filename only (re-shoot with the same name → stale transcript). SKILL.md frames its numbers as "worked examples, not mandates" — the Hard Rules are the authority, and they all hold.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2><span class="n">04</span> The verdict</h2>
+    <div class="grid">
+      <div class="card"><span class="k">(a) FAIL</span><h3>Returning org, not Anthropic</h3><p>Browser Use, Inc. (Müller + Zunic, YC W25) — <code>browser-use</code> is corpus v41 → #19 19a returning-institution.</p></div>
+      <div class="card"><span class="k">(b) STRONG · keys the tier</span><h3>The agent-skill substrate</h3><p>Claude-Code-first skill on the cost-optimization + multi-agent-orchestration threads; directly pilotable. MODERATE-on-domain recorded reviewable (the v188 precedent).</p></div>
+      <div class="card"><span class="k">(c) STRONG</span><h3>Production-grade code</h3><p>659-LOC render engine, vendored manim sub-skill. Caveats: zero tests, no releases, stale-cache footgun, ElevenLabs privacy.</p></div>
+      <div class="card"><span class="k">(d) STRONG</span><h3>Dense cross-refs</h3><p>browser-use v41 (same org + design lineage), OpenMontage v188 (produce vs edit), fish-speech v20 / meetily v196 (speech cluster).</p></div>
+    </div>
+
+    <div class="note">
+      <span class="tag">1 NEW §C standalone · N=1 · corpus-first for the surface, NOT world-first</span>
+      <strong>“Agent-First Transcript-Driven Video-EDITING Layer for Coding Agents.”</strong> The conjunction — transcript-as-primary-surface perception (dodging the 45M-token frame dump) × EDIT existing footage × coding-agent-skill delivery × self-eval/re-render loop. Descript (2017) precedes transcript-editing; the novelty is the conjunction + the token-efficient perception layer. <strong>DISTINCT from OpenMontage v188</strong> (which <em>produces</em> from a brief) — so NOT filed as N=2-of-v188.
+    </div>
+    <div class="note warn">
+      <span class="tag">NO-MINT alternative recorded (operator/audit-reviewable)</span>
+      "video-use is simply the video-EDITING vertical of the OpenMontage v188 generative-media family." Leaned MINT (edit-vs-produce is a real task boundary; the transcript-as-DOM mechanism is corpus-first). Either way <strong>counts UNCHANGED 46/11</strong>. Audit flag: the video-adjacent §C cluster is now three rows (v188 produce / v192 MCP-retrofit / v198 edit) — confirm at the overdue ~v192 audit.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2><span class="n">05</span> Pilot: apply it to your flow</h2>
+    <p class="lead">You run Claude Code, you build hireui, you ship product / recruitment / Scrum content. Two routes: borrow the patterns free, or install it and edit real footage.</p>
+    <div class="ladder">
+      <div class="rung star"><span class="code">B5 ⭐</span><span class="body"><b>Steal the perception principle into <code>CLAUDE.md</code></b> (zero install): "give agents a compact structured surface + on-demand detail, never the raw bytes." Closes the arc with browser-use v41 / codebase-memory-mcp v172 / fff v194.</span></div>
+      <div class="rung star"><span class="code">C11 ⭐</span><span class="body"><b>Install + edit one real screen-recording</b> into a 60-sec hireui product demo (~$0.02 of Scribe). Proves the whole loop. <code>install-snapshot</code> + pin <code>92c2b34</code> first.</span></div>
+      <div class="rung star"><span class="code">D16 ⭐</span><span class="body"><b>Employer-branding / job-post videos</b> — your own or consented footage → polished recruitment clips. A real Goal-#2 content artifact, no privacy fence needed.</span></div>
+      <div class="rung"><span class="code">B6</span><span class="body">Adopt the self-eval-before-showing loop as a vault discipline — same shape as your loop-verifier + doubt-driven-dev.</span></div>
+      <div class="rung"><span class="code">D18</span><span class="body">Sprint-review highlight reels + retro/training recaps (Scrum-coach leverage).</span></div>
+      <div class="rung"><span class="code">F24</span><span class="body">Write the "structured-surface-not-raw-dump" synthesis across five subjects — the deepest thing this ship teaches.</span></div>
+    </div>
+    <div class="note crit">
+      <span class="tag">The load-bearing fence — privacy</span>
+      Every source file's audio is uploaded to <strong>ElevenLabs</strong>, which retains it ~3 years and <strong>trains on it by default</strong> (future-only opt-out; Zero-Retention is enterprise-only). Fine for your own footage. <strong>A GDPR + consent problem for candidate interviews or any third-party PII — default answer: no.</strong> The install itself is benign (MIT, no <code>curl|bash</code>, no postinstall, zero telemetry in the repo).
+    </div>
+  </section>
+
+  <div class="foot">
+    <div>video-use v198 · GOAL-ALIGNED INCLUDE 3/4 · +1 §C standalone (N=1) · counts 46/11 unchanged · streak GA:59 · 45 consecutive goal-aligned ships v153→v198</div>
+    <div>Verdict produced INLINE + hand-verified per feedback_wiki_verify_independently_check_collisions · 8-agent read-only research workflow (0 errors / 0 empty / all toolCalls&gt;0) · source-verified at commit 92c2b34 · GitHub metrics page-stated §37.4, not velocity-verified (not #52)</div>
+    <div>Docs: (C) video-use — Deep Dive · (C) video-use — Verdict · (C) video-use — Pilot Methods Menu (24 methods)</div>
+  </div>
+
+</div>
