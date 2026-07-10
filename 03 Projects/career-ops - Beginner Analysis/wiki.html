@@ -1,0 +1,173 @@
+<title>career-ops — LLM Wiki v200</title>
+<style>
+  :root{
+    --paper:#f4f5f7; --card:#ffffff; --ink:#171a21; --slate:#5a6270; --faint:#8b93a1;
+    --line:#e2e5ea; --gold:#9a6a12; --gold-soft:#f4ead2; --teal:#0f6e63; --rail:#c8a24a;
+    --fail:#a23b2e; --strong:#0f6e63;
+    --mono:ui-monospace,"SF Mono",Menlo,"Cascadia Code",Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --measure:65ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#12141a; --card:#191c24; --ink:#e9ebef; --slate:#a2aab8; --faint:#727a89;
+      --line:#282c36; --gold:#d8b45f; --gold-soft:#2a2418; --teal:#4fc7b6; --rail:#d8b45f;
+      --fail:#e08573; --strong:#4fc7b6;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f4f5f7; --card:#ffffff; --ink:#171a21; --slate:#5a6270; --faint:#8b93a1;
+    --line:#e2e5ea; --gold:#9a6a12; --gold-soft:#f4ead2; --teal:#0f6e63; --rail:#c8a24a;
+    --fail:#a23b2e; --strong:#0f6e63;
+  }
+  :root[data-theme="dark"]{
+    --paper:#12141a; --card:#191c24; --ink:#e9ebef; --slate:#a2aab8; --faint:#727a89;
+    --line:#282c36; --gold:#d8b45f; --gold-soft:#2a2418; --teal:#4fc7b6; --rail:#d8b45f;
+    --fail:#e08573; --strong:#4fc7b6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;font-size:17px}
+  .wrap{max-width:calc(var(--measure) + 4rem);margin:0 auto;padding:clamp(1.25rem,4vw,3.5rem) clamp(1rem,4vw,2rem)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 .5rem}
+  h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.05;margin:.2rem 0 .6rem;letter-spacing:-.02em;text-wrap:balance;font-weight:800}
+  h2{font-size:1.5rem;margin:2.6rem 0 .3rem;letter-spacing:-.01em;text-wrap:balance;font-weight:750}
+  h3{font-size:1.05rem;margin:1.4rem 0 .2rem;font-weight:700}
+  p,li{color:var(--ink);max-width:var(--measure)}
+  .lede{font-size:1.24rem;color:var(--slate);max-width:var(--measure)}
+  a{color:var(--gold)}
+  .thesis{border-left:3px solid var(--rail);padding:.1rem 0 .1rem 1.1rem;margin:1.6rem 0;font-size:1.15rem}
+  .thesis strong{color:var(--ink)}
+  section{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:.4rem}
+  .meta{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin:1.2rem 0 .4rem}
+  .chip{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;padding:.28rem .55rem;border:1px solid var(--line);
+    border-radius:999px;color:var(--slate);background:var(--card);white-space:nowrap}
+  .chip b{color:var(--ink);font-weight:700}
+  .pass{color:var(--strong);border-color:color-mix(in srgb,var(--strong) 40%,var(--line))}
+  .neg{color:var(--fail);border-color:color-mix(in srgb,var(--fail) 40%,var(--line))}
+  .gold{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 45%,var(--line));background:var(--gold-soft)}
+  .pipe{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0;font-family:var(--mono);font-size:.82rem}
+  .pipe .st{flex:1 1 120px;min-width:120px;background:var(--card);border:1px solid var(--line);border-top:2px solid var(--rail);
+    border-radius:6px;padding:.6rem .7rem}
+  .pipe .st b{display:block;color:var(--ink);font-size:.78rem;letter-spacing:.04em}
+  .pipe .st span{color:var(--faint);font-size:.72rem}
+  .scorewrap{overflow-x:auto;margin:1rem 0}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:340px}
+  th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  td.g{font-family:var(--mono);color:var(--gold);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .crit{display:grid;gap:.6rem;margin:1rem 0}
+  .crit .row{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.75rem .9rem;
+    display:grid;grid-template-columns:auto 1fr;gap:.15rem .8rem;align-items:baseline}
+  .crit .k{font-family:var(--mono);font-size:.78rem;font-weight:700}
+  .crit .v{grid-column:2;color:var(--slate);font-size:.92rem}
+  .ladder{list-style:none;padding:0;margin:1rem 0;counter-reset:step}
+  .ladder li{position:relative;padding:.5rem 0 .5rem 2.4rem;border-bottom:1px solid var(--line)}
+  .ladder li::before{content:counter(step);counter-increment:step;position:absolute;left:0;top:.5rem;
+    font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--gold);
+    width:1.7rem;height:1.7rem;display:grid;place-items:center;border:1px solid var(--rail);border-radius:50%}
+  .ladder b{color:var(--ink)}
+  .foot{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1rem;color:var(--faint);font-size:.82rem;font-family:var(--mono)}
+  .warn{color:var(--fail)}
+  strong{font-weight:700}
+  code{font-family:var(--mono);font-size:.86em;background:var(--gold-soft);color:var(--gold);padding:.05rem .3rem;border-radius:4px}
+  @media (prefers-reduced-motion:no-preference){a{transition:opacity .15s}}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">LLM Wiki · v200 · the 200th ship · routine v2.6</p>
+  <h1>career-ops</h1>
+  <p class="lede">An open-source, local-first job-search command center that runs inside your AI coding CLI — and the domain-exact <em>inverse</em> of the operator's own recruitment product.</p>
+
+  <div class="meta">
+    <span class="chip"><b>santifer/career-ops</b></span>
+    <span class="chip">MIT · v1.18.0</span>
+    <span class="chip">JS 70% · TS 20% · Go 7%</span>
+    <span class="chip">@ <b>e9bacc48</b></span>
+    <span class="chip">Santiago Fernández de Valderrama · Head of Applied AI @ Zinkee · <b>not Anthropic</b></span>
+  </div>
+
+  <p class="thesis"><em>"Companies use AI to filter candidates.</em> <strong>I just gave candidates AI to <em>choose</em> companies."</strong> — README. That inversion is why it matters: hireui scores candidates <em>for employers</em>; career-ops scores employers, and beats their ATS filters, <em>for candidates</em>.</p>
+
+  <section>
+    <h2>What it actually is</h2>
+    <p>The README markets "A-F scoring, 10 weighted dimensions." The <strong>code</strong> is more honest, and this wiki documents the code: the evaluation "brain" is <strong>Markdown prompt files</strong> (<code>modes/_shared.md</code>, <code>modes/oferta.md</code>) executed by whichever AI coding CLI you point at the repo — <strong>the coding agent IS the runtime</strong>, no orchestrator. The mechanics are ~50 single-job, mostly zero-LLM Node scripts; the surfaces are an optional Go TUI and an alpha web UI. The accurate label: an <strong>agent-first, end-to-end, candidate-side job-search / career-operations pipeline</strong> — the OpenMontage v188 shape applied to job search.</p>
+  </section>
+
+  <section>
+    <h2>The pipeline</h2>
+    <div class="pipe">
+      <div class="st"><b>1 · DISCOVER</b><span>scan.mjs + ~53 provider modules — zero Claude tokens (pure HTTP), --verify does a Playwright liveness pass</span></div>
+      <div class="st"><b>2 · SCORE</b><span>modes/_shared.md + oferta.md + your cv.md — 1–5, reasoning not keyword-match</span></div>
+      <div class="st"><b>3 · GENERATE</b><span>ATS-safe PDF CV + cover letter (defensive, not injective)</span></div>
+      <div class="st"><b>4 · TRACK</b><span>data/applications.md is canonical; SQLite is a derived index; strict data contract</span></div>
+      <div class="st"><b>5 · UPDATE</b><span>update-system.mjs refreshes system files, never touches your data</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The scoring rubric (code-authoritative)</h2>
+    <p>A <strong>1–5 global</strong> score, by default the <em>average of the block scores</em> (<code>oferta.md:404</code>), user-overridable. Five weighted dimensions; seven report blocks A–G; Block G checks posting legitimacy but <strong>does not affect the score</strong>.</p>
+    <div class="scorewrap"><table>
+      <tr><th>Score</th><th>Meaning (code, not the README's "&lt;4.0")</th></tr>
+      <tr><td class="g">4.5+</td><td>Strong match — apply immediately</td></tr>
+      <tr><td class="g">4.0–4.4</td><td>Good match — worth applying</td></tr>
+      <tr><td class="g">3.5–3.9</td><td>Decent — only with a specific reason</td></tr>
+      <tr><td class="g">&lt; 3.5</td><td>Recommend against applying</td></tr>
+    </table></div>
+    <p style="color:var(--slate);font-size:.9rem">Dimensions: CV-match · North-Star alignment · Comp · Cultural signals · Red flags. Archetypes (customizable): LLMOps · Agentic · Tech-PM · Solutions-Architect · Forward-Deployed · Transformation. <span class="warn">A workflow agent's "25/20/15/15/15/10% + a 6th 'intuition' dimension" and "Block G caps the score at 3.5" were both Haiku confabulations — contradicted by the source, not cited.</span></p>
+  </section>
+
+  <section>
+    <h2>The transferable gold</h2>
+    <p>The genuinely excellent, directly-portable parts — an ethics-forward, anti-hallucination system:</p>
+    <ul>
+      <li><strong>Anti-fabrication:</strong> "NEVER claim the user authored X unless attributed — tool-of-trade conflation (user uses X → user built X) is the most common fabrication pattern and is forbidden."</li>
+      <li><strong>Honest reformulation:</strong> "Keywords get reformulated, never fabricated … silence beats manufactured detail."</li>
+      <li><strong>Exclusive Sources-of-Truth boundary</strong> — only your own documents; no auto-memory, no cross-session inference.</li>
+      <li><strong>Subagent cost guardrail:</strong> "single-pass workers, never nest, never call recursive research — can burn tens of millions of tokens."</li>
+      <li><strong>Files are canonical, databases are derived</strong> (RFC #918) — the vault's own LLM-Wiki philosophy, shipped as product design.</li>
+      <li><strong>Never auto-submit</strong> — baked into code (<code>prepare-application.mjs</code> "never POSTs"), not just the disclaimer.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Verdict — goal-aligned include 3/4</h2>
+    <div class="meta">
+      <span class="chip neg">a · FAIL</span>
+      <span class="chip pass">b · STRONG</span>
+      <span class="chip pass">c · STRONG</span>
+      <span class="chip pass">d · STRONG</span>
+      <span class="chip gold">1 NEW §C standalone · N=1</span>
+      <span class="chip">counts 46/11 UNCHANGED</span>
+      <span class="chip">streak GA:61</span>
+    </div>
+    <div class="crit">
+      <div class="row"><span class="k neg">a · FAIL</span><span class="v">Disclosed indie builder (Head of Applied AI @ Zinkee, ex-founder), not Anthropic. First <code>santifer</code> → #19 19a; reinforces, doesn't reopen, the disclosed-builder axis.</span></div>
+      <div class="row"><span class="k pass">b · STRONG</span><span class="v">Claude-Code-first agent-native operational system (Goal #1) + the domain-exact inverse of hireui (Goal #2). Keys the tier. Not STRONGEST: third-party, candidate-side, one of 8+ harnesses.</span></div>
+      <div class="row"><span class="k pass">c · STRONG</span><span class="v">~50 scripts + ~53 providers + Go TUI + 513+ test assertions + a strict data contract + a self-updater + 4 model backends + v1.18.0. Caveats: the hard AI is the underlying model; case-study metrics self-stated; one active maintainer.</span></div>
+      <div class="row"><span class="k pass">d · STRONG</span><span class="v">OpenMontage v188 (mint boundary) · ai-berkshire v187 (the NO-MINT foil) · agent-skills v184 · the agentskills.io standard · #84 84c · files-as-brain (vault-meta) · cost + orchestration threads · the Playwright browser family.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The mint</h2>
+    <p><strong>1 NEW §C standalone at N=1 — "Agent-First End-to-End Candidate-Side Job-Search / Career-Operations Pipeline."</strong> Collision-clean (hand-verified): no prior corpus subject in the job-search / career / résumé / ATS space. <strong>Corpus-first for the surface, NOT world-first</strong> (Jobscan/Teal SaaS + LazyApply/ApplyPilot bots populate the space; no direct peer for the inside-the-CLI + local-OSS + filter-not-spray + never-submit conjunction). Minted on the OpenMontage v188 boundary (agent-first operational pipeline, deliverable = artifacts) — not the ai-berkshire v187 reasoning-collection shape. <span class="warn">NO-MINT alternative recorded (operator/audit-reviewable): "the job-search vertical of the Domain-Vertical-Skill-Collection tier."</span> Either reading: counts 46/11 unchanged. Tier T1.</p>
+  </section>
+
+  <section>
+    <h2>Apply it — the pilot ladder</h2>
+    <p>24 methods in the Pilot Methods Menu. The one-thing path:</p>
+    <ol class="ladder">
+      <li><b>B5 — steal the anti-fabrication + Sources-of-Truth rules</b> into <code>CLAUDE.md</code> and any hireui LLM-feature spec. Zero install, highest ROI.</li>
+      <li><b>C11 — one scratch evaluation.</b> install-snapshot → <code>npx @santifer/career-ops init</code> in a throwaway dir → paste one job URL → watch the loop.</li>
+      <li><b>D16 — mirror the rubric into hireui's first LLM feature</b> (a Match-Explain / candidate-scoring engine) on an <code>agent-*</code> branch = the first completed Goal-#2 pilot artifact since v153.</li>
+    </ol>
+    <p style="color:var(--slate);font-size:.92rem">Also: red-team hireui's screening (D17), draft its EU-AI-Act responsible-AI gate from career-ops's ethics mirror (D18), or just run your own job search through it (E22). Fence: install-snapshot + npm-security-check + scratch dir + BYO key + review every generated line + pin <code>e9bacc48</code> + hireui per its CONSTITUTION.</p>
+  </section>
+
+  <p class="foot">
+    Source-verified at commit e9bacc48 · verdict inline + hand-verified (7 confabulations caught) · workflow wf_045c237d-fb8 (11/13 agents, source+web only) · GitHub stats page/web-stated only (§37.4 mocks the API) → no #52 claim · not auto-merged, operator reviews + merges.
+  </p>
+</div>
