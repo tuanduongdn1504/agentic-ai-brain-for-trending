@@ -4,6 +4,7 @@
 > **Source video:** [You Can Learn AI Agent Memory System In 12 Min | Semantic & Episodic Memory, RAG, Vector Database](https://www.youtube.com/watch?v=mY3bR9qjZr4) (mY3bR9qjZr4, Sean's AI Stories, 2026-06-19, 12:05, ~16.6K views, 12,342 subs at launch — **FIRST-PARTY** whiteboard design, no code/repo)
 > **Compiled:** 2026-07-03 (path 5 yt-dlp + workflow `wf_4356f040-686`, 28 agents = 10 dives + 17 adversarial verifiers + critic; ~1.65M tokens, 555 tool calls + main-loop ground-checks)
 > **Deepened:** 2026-07-04 — first-party Anthropic treatment of Memory Stores + Dreaming via the "Agents that remember" CWC-2026 workshop (VN dub b1qgIGwBUEI → EN original geUv4CjPpxI) + full docs/repo/announcement deep-dive (workflow `wf_c3719baa-7f2`, 18 agents; both transcripts + both docs pages read in full in main loop)
+> **Deepened again:** 2026-07-13 — direct video sequel `GrNbuWWJYiI` ("...Agent Harness & Loop Engineering In 19 Min") extends the whiteboard into harness/loop-engineering/LLMOps; scouted first against all existing articles (~90% already covered), so this pass is narrow — Langfuse first-party dive + LangGraph/LangChain/PydanticAI status check (workflow, 5 agents, ~195K tokens)
 
 ## Articles
 
@@ -18,6 +19,8 @@
 - [[anthropic-memory-stores-and-dreaming]] — **(2026-07-04 deepening)** the first-party deep treatment of surface #3: CWC-2026 workshop + docs + `anthropics/cwc-workshops` repo — limits tables, dream API lifecycle, harness internals (orchestrator + 1 sub-agent per transcript), index-file demo, cost economics, Harvey 6x, press-vs-docs conflicts
 - [[rag-vector-stores-and-context-limits]] — top-k RAG, the vector-store-universality correction, real context-window numbers (2026), and the context-rot evidence base (Lost-in-the-Middle, Chroma, NoLiMa)
 - [[consolidation-gate-design]] — the design space of consolidation triggers (count vs time vs importance vs continuous-async) and the cheaper-vs-stronger summarizer-model decision
+- [[harness-loop-llmops-sequel]] — **(2026-07-13 deepening)** the video sequel's harness/loop-engineering/LLMOps framing, cross-linked to where each piece is already covered in depth (autonomous-loops, claude-code-hooks, LangSmith, LLM-as-judge) + the "harness" variant-definition note
+- [[langfuse-and-harness-tools]] — **(2026-07-13 deepening)** Langfuse first-party deep-dive (founding, YC W23, ClickHouse acquisition Jan 2026, pricing, tracing+eval features, a corrected feature claim) + verified 2026 status of LangGraph/LangChain/PydanticAI (incl. a caught fabricated GA date)
 - [[caveats-and-corrections]] — every video claim graded + creator ground-check (Sean Chen, AutoManus, repo renames) + reported-only flags
 - [[source-provenance]] — pipeline, workflow stats, verdicts, verifier-misfire log (incl. a critic that wrongly declared LangMem "confabulated")
 

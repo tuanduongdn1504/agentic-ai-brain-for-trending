@@ -8,6 +8,10 @@ The discipline of optimizing an entire codebase, workflow, and organizational st
 - *anchor: synthesis "Concepts & terminology"*
 - Adjacent (not synonym): "agent infrastructure", "agentic harness", "scaffolding" (which Lopopolo positions AGAINST — see [[contrarian-stances]])
 
+### Variant definitions
+
+- **Sean Chen's usage** (added 2026-07-13, [[external|agent-memory-architecture/harness-loop-llmops-sequel]]): "harness" = the surrounding **memory + tool-calling-loop machinery** needed to control an LLM's output randomness, via the literal metaphor of a horse harness — narrower and product-level, vs. Lopopolo's codebase/org-level scope. Both are legitimate, non-overlapping senses of the same word; don't conflate a video teaching agent memory/loop design with this topic's codebase-restructuring thesis.
+
 ## Token billionaire
 
 An engineer (or team) operating at ~1B tokens/day in agent inference, treating token-cost as commodity rather than scarce resource. Lopopolo argues this throughput is **the operating point** where harness engineering becomes effective; below it, gains are illusory.

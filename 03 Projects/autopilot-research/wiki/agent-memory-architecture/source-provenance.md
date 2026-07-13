@@ -47,3 +47,21 @@
 ## Fabrication-stripping note
 
 No dive fabricated sources outright this run; the failure surface shifted to (a) stale third-party comparison blogs entering as "fetched-primary" and (b) the critic over-flagging real things. The countermeasure that worked: **main-loop primary-source fetches on the highest-risk claims before synthesis**, plus the misfire-class warnings embedded in every verifier prompt.
+
+## 2026-07-13 deepening pass 3 (harness/loop/LLMOps sequel + Langfuse)
+
+1. **Ingest (path 5, yt-dlp):** operator-submitted direct video sequel `GrNbuWWJYiI` (Sean's AI Stories, 2026-06-26, one week after this topic's primary source `mY3bR9qjZr4`) → EN auto-captions only (no manual track), VTT deduped, **read in full in the main loop** (~7K words) → `raw/2026-07-13-sean-agent-harness-loop-llmops.md`.
+2. **Main-loop scouting pass (before any agent fan-out) — the key move this pass:** read all 14 existing articles in this topic plus four adjacent topics (`agent-development-lifecycle/langchain-interrupt-26-anchor`, `claude-code-hooks/`, `prompt-evaluation/`, `harness-engineering/terminology`) to establish what was already verified. Result: ~90% of the new video's content (memory taxonomy, Sean-identity/AutoManus/Character-VC, consolidation-gate mechanics, Claude Code hooks, LLM-as-judge, and LangSmith at deep detail) was already on file. This pass was scoped to the narrow remainder rather than re-running a full mega-workflow.
+3. **Deep-dive + adversarial verify:** Workflow (5 agents = 2 dives [Langfuse; LangGraph/LangChain/PydanticAI status] + 2 refute-first verifiers + 1 completeness critic); **~195K subagent tokens, 72 tool calls, ~75 min wall-clock** (one verifier ran long — 2 tool calls short of 35 min — but completed cleanly). 0 agent deaths, 0 empty results.
+4. **Source tiers:** T1 = langfuse.com (handbook, pricing, docs, blog), GitHub API (langfuse, langgraph, pydantic-ai repos), PyPI (pydantic-ai); T2 = Simon Willison's PydanticAI launch post (independent, consistent with GitHub dates).
+
+### Misfire log (2026-07-13 pass)
+
+1. **Dive-agent investor-list error:** the Langfuse dive drafted "Lightspeed, General Catalyst/La Famiglia" as seed investors — the refute-first verifier checked langfuse.com/handbook directly and found the actual list is **Lightspeed, La Famiglia, and Y Combinator** (no General Catalyst). Corrected in [[langfuse-and-harness-tools]]. This error originated in this pass's own research, not in the video.
+2. **Dive-agent fabricated date:** the harness-tools dive drafted "LangGraph reached GA on October 22, 2025" — the verifier checked the GitHub releases API and found zero releases in October 2025 (earliest visible: January 2026). REFUTED; excluded from the wiki. Same stale/hallucinated-date failure class this corpus has caught in prior topics (Rule 12 — verify layer working as designed, not a corpus gap).
+3. **Dive-agent overstated feature:** the Langfuse dive implied dataset-version-locked experiments are live — the verifier found Langfuse's own docs say this is "coming soon." Corrected in [[langfuse-and-harness-tools]].
+4. **Completeness critic:** found no new independently-checkable claims beyond confirming the video's "every 2,000 conversations" consolidation framing is a repeat of the already-flagged teaching-fiction simplification (see [[consolidation-gate-design]], [[caveats-and-corrections]] claim #6) — not a new or contradicting claim. Also confirmed the "Clockwork"/"clock code"/"cloud code" auto-caption garbles all read as "Claude Code" given context.
+
+## Fabrication-stripping note (2026-07-13 pass)
+
+Unlike the 2026-07-03 and 2026-07-04 passes (which caught mostly *critic* over-flagging of real things), this pass's misfires were the inverse: the **dive agents themselves introduced two wrong specifics** (an investor name, a fabricated date) into their own draft findings, both caught cleanly by the refute-first verify stage before reaching the wiki. This is the adversarial-verify architecture working exactly as designed — no correction required past the verify stage, and nothing reached [[caveats-and-corrections]] as a "video error" because the errors were never the video's; the video only named the tools, not these details.

@@ -55,6 +55,23 @@ Source pair: BizMate VN dub b1qgIGwBUEI → Anthropic EN original geUv4CjPpxI ("
 
 - A dive agent asserted an official Anthropic certification **"Claude Certified Architect (CCA-F)"** ($99, 60-question proctored, "launched 2026-03-12") on anthropic.skilljar.com. This **collides with the corpus pin** from [[../multi-agent-orchestration/_index]] (CCA-F = ExamPro **third-party** construct; don't re-fabricate). Main-loop fetch of anthropic.skilljar.com (2026-07-04): official Anthropic Academy, 20+ courses, **no named certification program on the page** (only course "completion certificates"). Claim EXCLUDED from the wiki; logged as a corpus-pin-catches-agent-confabulation instance.
 
+## 2026-07-13 deepening pass 3 — sequel video claims, graded
+
+Source: `GrNbuWWJYiI`, direct video sequel (see [[harness-loop-llmops-sequel]], [[langfuse-and-harness-tools]]).
+
+| # | Claim | Verdict | Detail |
+|---|---|---|---|
+| S1 | "Harness" = memory+loop control tools for an LLM | ⚠️ VARIANT DEFINITION | Real and internally consistent, but a different scope than this corpus's `harness-engineering` topic (codebase/org restructuring) — see [[../harness-engineering/terminology]] Variant definitions note |
+| S2 | LangGraph/LangChain/Pydantic as harness tools | ✅ CONFIRMED (with correction) | All three real and current; "Pydantic" almost certainly means PydanticAI. A researched-not-video-stated "LangGraph GA Oct 2025" date is fabricated — see [[langfuse-and-harness-tools]] |
+| S3 | Loop engineering + "end loop guardrails" | ✅ CONFIRMED, not new mechanism | Standard agentic tool-calling loop + stopping condition, already covered generically in [[../autonomous-loops-human-in-the-loop/overview]] |
+| S4 | Claude Code permission-prompt notification hook | ✅ CONFIRMED | Matches existing [[../claude-code-hooks/core-patterns]] hook mechanics; auto-captions garble "Claude Code" as "Clockwork"/"clock code"/"cloud code" throughout — same tool, not new ones |
+| S5 | LangFuse + LangSmith as tracing tools | ✅ CONFIRMED | LangSmith already deep in [[../agent-development-lifecycle/langchain-interrupt-26-anchor]]; Langfuse newly dived — see [[langfuse-and-harness-tools]] (incl. new fact: ClickHouse acquired Langfuse Jan 2026) |
+| S6 | LLM-as-judge for eval | ✅ CONFIRMED, not new | Already covered in depth in [[../prompt-evaluation/llm-as-judge-methodology]] |
+| S7 | Consolidation "every 2,000 conversations" | ⚠️ REPEAT of claim #6 above | Not a new claim — same count-based teaching simplification already flagged; real triggers remain importance-sum/24h-timer/continuous-async/explicit |
+| S8 | AutoManus.io named as example CRM | ✅ CONFIRMED, not new | Already verified in the "Creator ground-check" section above (real product, Character Capital pre-seed, "4 pilots/2 contracts" self-reported-only) |
+
+**Note on S1/S2:** the two corrections in [[langfuse-and-harness-tools]] (wrong Langfuse investor name; fabricated LangGraph GA date) were errors introduced by this pass's own dive agents, not claims made by the video — the video only named the tools, nothing more specific. Logged in [[source-provenance]], not counted against the video's scorecard.
+
 ## Cross-check flags into the corpus
 
 - The mosh-topic pin "never tiktoken for Claude — use `count_tokens`" applies to any memory-budget code this topic inspires.
