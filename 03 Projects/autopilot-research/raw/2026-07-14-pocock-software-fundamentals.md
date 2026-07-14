@@ -1,6 +1,8 @@
+<!-- compiled: 2026-07-14 -->
 # Matt Pocock — "Software Fundamentals Matter More Than Ever" (AI Engineer conference talk)
 
-> **Status:** RAW — transcript captured, NOT yet compiled. Session-limit interruption 2026-07-14 ~15:20 ICT; verification workflow NOT yet run. Resume after limit reset.
+> **Status:** COMPILED 2026-07-14 (same day, post-interruption resume) → `wiki/pocock-software-fundamentals/` (11 files). Verified via wf_75a9c75d-7e4 (32 agents) + main-loop ground-checks; scorecard 13/2 speaker + 1/2 description, 0 false/fabricated.
+> **⚠️ Event correction (post-verification):** the talk is from **AI Engineer Europe 2026 (London, QEII Centre, April 8–10)** — NOT the World's Fair (the description's WF promo advertises the *next* event). Confirmed via tldrecap.tech same-day recap + upload-date logic. The 12 flags below were pre-registered BEFORE verification; their resolutions live in `wiki/pocock-software-fundamentals/claims-scorecard.md` + `caveats-and-corrections.md`.
 > **Video:** https://www.youtube.com/watch?v=v4F1gFy-hqg
 > **Title:** "Software Fundamentals Matter More Than Ever" — Matt Pocock
 > **Channel:** AI Engineer (conference channel — same channel as github-copilot-cli-agents' Chris Noring talk GdvKNwMcfd0)
