@@ -44,7 +44,7 @@
 
 ## Who's who (verified)
 
-- **Cole Medin** (@ColeMedin, **214K subs** by yt-dlp ground truth 2026-07-04 — a verify agent's "204K, inflated" verdict OVERRIDDEN by primary data; 200K milestone ~2026-04-10 self-reported on stream). Channel tagline since 2024: "Join me as I push the limits of what is possible with AI." Runs the paid **Dynamous** community (AI Agent Mastery + Agentic Coding courses + second-brain bootcamp). Also the walkthrough presenter of our [[anthropic-large-codebases-anchor]] (2026-05-21) — same person now anchors two layers of this topic.
+- **Cole Medin** (@ColeMedin, **214K subs** by yt-dlp ground truth 2026-07-04 — a verify agent's "204K, inflated" verdict OVERRIDDEN by primary data; 200K milestone ~2026-04-10 self-reported on stream; 216K by 2026-07-14). Channel tagline since 2024: "Join me as I push the limits of what is possible with AI." Runs the paid **Dynamous** community (AI Agent Mastery + Agentic Coding courses + second-brain bootcamp). Also the walkthrough presenter of our [[anthropic-large-codebases-anchor]] (2026-05-21) and, later, the presenter behind [[../pydantic-ai-2/_index|pydantic-ai-2]] (2026-07-14) — same person now anchors three layers of this topic across the wiki.
 - **Rasmus = Wirasm (Rasmus Widing) — the #1 contributor at 971 contributions vs Cole's 417.** The "solo creator" impression the video gives is wrong in commit terms; Cole says on stream "I'm not the one that's built everything."
 - **Thomas = leex279 (GitHub display name literally "DIY Smart Code", 45 contributions)** — verify agent missed this; main-loop `gh api users/leex279` override.
 

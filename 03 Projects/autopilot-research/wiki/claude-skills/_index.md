@@ -46,6 +46,7 @@ Ranked methods to apply the 8 skills to the operator's flows: `output/(C) 2026-0
 - [[prompt-evaluation/_index]] — Fact Checker vs grading/eval rigor
 - [[claude-api-cost-optimization/_index]] — progressive disclosure as token discipline
 - [[harness-engineering/_index]] · [[multi-agent-orchestration/_index]] · [[cowork-third-party-inference/_index]]
+- [[../teach-skill-ai-tutor/matt-pocock-provenance]] — Matt Pocock's second corpus appearance: his public `mattpocock/skills` "teach" skill surfaces unattributed in a VN community video (his `grill-me` was the first, feeding Process Interviewer above)
 
 ## Source provenance (headline)
 

@@ -43,6 +43,7 @@ OpenAI **Codex** has, by May 2026, evolved into a long-running, terminal-residen
 
 ## Related topics
 
+- [[../teach-skill-ai-tutor/codex-skills-feature-verified]] — Codex CLI's Skills feature (not covered by this topic's original 6-video bundle): a real, official folder-drop Skills system shipped 2025-12-19 on the same `agentskills.io` spec as Claude Code + GitHub Copilot CLI, canonical path `~/.agents/skills`, invoked via `$skillname`
 - [[../harness-engineering/_index]] — Lopopolo's harness-engineering discipline (Codex is OpenAI's flagship long-running harness; same category, different vendor)
 - [[../claudekit/_index]] — Claude-Code-side framework comparison
 - [[../workflow-ai-coding/_index]] — practitioner workflow context (Codex shares vocabulary: planning mode, memory files, parallelism)

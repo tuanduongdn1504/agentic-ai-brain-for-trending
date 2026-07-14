@@ -24,5 +24,14 @@ Both halves of the claim are true, and the second half is *more* true than a cas
 
 Every skills-based pattern already banked from this corpus (`.claude/skills/` folders, `SKILL.md` frontmatter) is portable to a shared open spec, not a Claude-only bet. If hireui or a teammate ever needs a Copilot-side agent to read the same skill definitions, the folder-and-frontmatter shape should transfer largely unchanged.
 
+## Update (2026-07-14) — a fourth vendor that converged independently, not on the spec
+
+[[../pydantic-ai-2/progressive-disclosure-and-skills-lineage|pydantic-ai-2]] adds a useful contrast point: Pydantic AI's v2.0 "capability" primitive supports the same progressive-disclosure UX (brief description loads first, full instructions load on demand) and its own docs even cite Anthropic's Agent Skills by name as the inspiration — but it does **not** implement the `agentskills.io` spec itself (a third-party adapter, `pydantic-ai-skills`, exists specifically to bridge the gap). So the fuller picture is: **GitHub + Claude share one literal spec; Pydantic AI independently converged on the same UX pattern without adopting the spec.** Same convergence signal, two different depths of convergence.
+
+## Update (2026-07-14, session 3) — OpenAI Codex CLI confirmed as a third vendor on the literal spec
+
+[[../teach-skill-ai-tutor/codex-skills-feature-verified|teach-skill-ai-tutor]] adds a genuine third data point, and unlike Pydantic AI (independent convergence on the *pattern*, not the spec — see the update above), **Codex CLI is confirmed on the literal `agentskills.io` spec itself**: same `SKILL.md` + YAML-frontmatter folder shape, shipped 2025-12-19, and OpenAI's own docs state plainly that "the same SKILL.md files that work in Claude Code and OpenClaw work in Codex CLI." One wrinkle: Codex's *canonical* discovery path is the shared cross-vendor `$HOME/.agents/skills` location, not a Codex-specific folder — reinforcing that `.agents/skills` is emerging as the common convergence point across vendors, alongside each vendor's own historical path (`.claude/skills/`, `.github/skills/`).
+
 ## See also
+
 [[_index]] · [[agents-md-guardrail]] · [[custom-agents-vs-subagents]] · [[claims-scorecard]]
