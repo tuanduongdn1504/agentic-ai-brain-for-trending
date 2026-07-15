@@ -1,0 +1,198 @@
+<style>
+  :root{
+    --ground:#FCFCFB; --panel:#F4F3EF; --ink:#1B1C22; --muted:#6B6B76;
+    --rule:#E4E2DC; --accent:#B5701E; --accent-soft:#F0E4D3; --accent-2:#356870;
+    --good:#2E7D5B; --good-soft:#DCEBE2; --warn:#9A6A1E;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,"Cascadia Code",Consolas,monospace;
+    --maxw:74ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#131419; --panel:#1C1D24; --ink:#E9E8EC; --muted:#9C9CA8;
+      --rule:#2B2C34; --accent:#E0A34F; --accent-soft:#33281A; --accent-2:#6FB2BC;
+      --good:#5FBF92; --good-soft:#1B2E24; --warn:#D9A94F;
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#FCFCFB; --panel:#F4F3EF; --ink:#1B1C22; --muted:#6B6B76;
+    --rule:#E4E2DC; --accent:#B5701E; --accent-soft:#F0E4D3; --accent-2:#356870;
+    --good:#2E7D5B; --good-soft:#DCEBE2; --warn:#9A6A1E;
+  }
+  :root[data-theme="dark"]{
+    --ground:#131419; --panel:#1C1D24; --ink:#E9E8EC; --muted:#9C9CA8;
+    --rule:#2B2C34; --accent:#E0A34F; --accent-soft:#33281A; --accent-2:#6FB2BC;
+    --good:#5FBF92; --good-soft:#1B2E24; --warn:#D9A94F;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;margin:0;-webkit-font-smoothing:antialiased;font-size:16.5px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 96px}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:clamp(2.3rem,7vw,3.4rem);line-height:1.02;letter-spacing:-.02em;
+    margin:.35rem 0 .2rem;font-weight:800;text-wrap:balance}
+  h1 .mono{font-family:var(--mono);font-weight:700;letter-spacing:-.03em}
+  h2{font-size:1.32rem;letter-spacing:-.01em;margin:2.6rem 0 .3rem;font-weight:750;
+    text-wrap:balance;padding-top:1.4rem;border-top:1px solid var(--rule)}
+  h3{font-size:1rem;margin:1.4rem 0 .3rem;font-weight:700}
+  p{margin:.7rem 0}
+  a{color:var(--accent);text-underline-offset:2px}
+  .lede{font-size:1.12rem;color:var(--ink);margin:1rem 0 0}
+  .sub{color:var(--muted)}
+  strong{font-weight:700}
+  code,.k{font-family:var(--mono);font-size:.86em;background:var(--panel);
+    padding:.06em .38em;border-radius:5px;border:1px solid var(--rule)}
+  /* header */
+  header{padding:56px 0 8px}
+  .authorline{color:var(--muted);font-size:.95rem;margin-top:.5rem}
+  /* verdict band */
+  .verdict{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:1.5rem 0 .2rem}
+  .badge{font-family:var(--mono);font-size:.8rem;font-weight:600;letter-spacing:.02em;
+    padding:.4em .7em;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+  .badge.ga{background:var(--good-soft);color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent)}
+  .badge.nomint{background:var(--accent-soft);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+  .badge.tier{background:var(--panel);color:var(--muted);border-color:var(--rule)}
+  /* metrics strip */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;
+    overflow:hidden;margin:1.8rem 0}
+  .metric{background:var(--ground);padding:.85rem 1rem}
+  .metric .n{font-family:var(--mono);font-size:1.28rem;font-weight:700;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums}
+  .metric .l{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.15rem}
+  /* criteria */
+  .crit{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1rem;margin:1rem 0}
+  .crit .tag{font-family:var(--mono);font-weight:700;font-size:.9rem;white-space:nowrap;padding-top:.05rem}
+  .crit .tag.pass{color:var(--good)} .crit .tag.fail{color:var(--muted)} .crit .tag.mid{color:var(--warn)}
+  .crit .body{font-size:.98rem}
+  /* cards */
+  .cards{display:grid;grid-template-columns:1fr;gap:14px;margin:1.2rem 0}
+  @media(min-width:640px){.cards{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:1rem 1.1rem}
+  .card h3{margin-top:0}
+  .card .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent-2);font-weight:600}
+  .card p{font-size:.9rem;margin:.4rem 0 0;color:var(--ink)}
+  /* skill taxonomy */
+  .grp{margin:1rem 0}
+  .grp .h{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--muted);
+    text-transform:uppercase;margin-bottom:.4rem}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--mono);font-size:.78rem;background:var(--panel);border:1px solid var(--rule);
+    border-radius:6px;padding:.22em .5em;color:var(--ink)}
+  .chip.f{border-color:color-mix(in srgb,var(--accent) 55%,transparent);color:var(--accent);font-weight:600}
+  /* callout */
+  .callout{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-radius:12px;padding:1rem 1.2rem;margin:1.4rem 0}
+  .callout .star{color:var(--accent);font-weight:700}
+  .callout.mint{background:var(--good-soft);border-color:color-mix(in srgb,var(--good) 35%,transparent)}
+  /* note */
+  .note{border-left:3px solid var(--accent-2);padding:.5rem 0 .5rem 1rem;margin:1.2rem 0;
+    color:var(--muted);font-size:.92rem}
+  ul{padding-left:1.15rem}
+  li{margin:.32rem 0}
+  .kv{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+  footer{margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--rule);
+    color:var(--muted);font-size:.86rem}
+  @media (prefers-reduced-motion:no-preference){a,.chip{transition:color .15s ease,border-color .15s ease}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Storm Bear · LLM Wiki · v202 · 2026-07-15</div>
+    <h1><span class="mono">marketingskills</span></h1>
+    <p class="lede">The largest, most-used <strong>marketing-vertical agent-skill collection</strong> — 47 Claude-Code-first skills across the whole marketing/GTM funnel, plus a <span class="k">tools/</span> layer wiring ~100 real marketing platforms.</p>
+    <p class="authorline">by <strong>Corey Haines</strong> (<span class="k">coreyhaines31</span>) — Swipe Files · Conversion Factory · Magister &nbsp;·&nbsp; <span class="sub">not Anthropic; not the software-crafter "Corey Haines"</span></p>
+    <div class="verdict">
+      <span class="badge ga">GOAL-ALIGNED INCLUDE&nbsp;·&nbsp;3/4</span>
+      <span class="badge nomint">NO MINT</span>
+      <span class="badge tier">T1 · Skill Collection · Domain-Vertical (marketing)</span>
+    </div>
+  </header>
+
+  <div class="metrics">
+    <div class="metric"><div class="n">47</div><div class="l">skills (verified)</div></div>
+    <div class="metric"><div class="n">~100</div><div class="l">platforms wired</div></div>
+    <div class="metric"><div class="n">v2.8.10</div><div class="l">changelog latest</div></div>
+    <div class="metric"><div class="n">MIT</div><div class="l">license</div></div>
+    <div class="metric"><div class="n">~39.3k★</div><div class="l">page-stated §37.4</div></div>
+    <div class="metric"><div class="n">GA:63</div><div class="l">streak · 49 in a row</div></div>
+  </div>
+
+  <p><strong>a (FAIL) · b (STRONG, keys the tier) · c (STRONG) · d (STRONG).</strong> Included on the <em>substrate</em> — a Claude-Code-first agentskills.io collection is dead-center on the agent-skills thread the vault studies — with a real TalentAxis-GTM pilot angle. <strong>The v187 ai-berkshire precedent to the letter:</strong> a domain-vertical skill collection, keyed on the substrate, not the vertical.</p>
+
+  <div class="note">Verification: the read-only 9-agent deep-dive workflow <em>failed</em> — every agent hit "prompt too long" cloning the JS-heavy <span class="k">tools/</span> tree (~1.78M tokens, zero yield). So <strong>100% of this wiki is hand-verified</strong> (targeted fetches + collision grep + WebSearch) — the strongest posture under the vault's independent-verification rule. Two page-read errors were caught + corrected by hand (see below).</div>
+
+  <h2>The four criteria</h2>
+  <div class="crit">
+    <div class="tag fail">(a) FAIL</div>
+    <div class="body">Corey Haines = a notable SaaS marketer/educator (Swipe Files, Conversion Factory), <strong>not Anthropic</strong> — and not the software-crafter "Corey Haines" (<span class="k">coreyhaines31</span> ≠ <span class="k">coreyhaines</span>, hand-distinguished). #19 19a. Disclosed-builder axis reinforces, doesn't reopen (v182).</div>
+    <div class="tag pass">(b) STRONG</div>
+    <div class="body"><strong>Keys the tier.</strong> A Claude-Code-first agentskills.io collection on the exact substrate the vault studies + a real Goal-#2 (TalentAxis/hireui GTM) hook. STRONG-not-STRONGEST: third-party, marketing ≠ software, Claude one-of-several harnesses. <span class="sub">⚠️ MODERATE-on-domain reading recorded operator-reviewable; GOAL-ALIGNED either way per §31 (the SEO/academic/cybersecurity/finance precedent).</span></div>
+    <div class="tag pass">(c) STRONG</div>
+    <div class="body">47 skills · a real collection architecture (foundation doc, persona council, marketing-loops) · a genuine ~100-platform execution layer (Composio-MCP + zero-dep CLIs) · cross-harness + plugin manifest · MIT · a maintained changelog to v2.8.10. <span class="sub">Caveat: the marketing knowledge is Corey's expertise packaged; depth varies across the long tail.</span></div>
+    <div class="tag pass">(d) STRONG</div>
+    <div class="body">Domain-Vertical family (SEO v64 / academic v90 / cybersecurity v98 / finance v187) · skill-collection genre (karpathy v63 / mattpocock v57 / CodexKit v121 / agent-skills v184) · agentskills.io ecosystem · the persona-council thread (v187 / v185) · OSS-under-hosted-product (Magister; cf. meetily v196).</div>
+  </div>
+
+  <h2>Architecture — three ideas worth stealing</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="kicker">hub &amp; spoke</div>
+      <h3>Shared-context foundation</h3>
+      <p><span class="k">product-marketing</span> writes <span class="k">.agents/product-marketing.md</span> — a 12-area context doc (ICP, personas, JTBD four-forces, verbatim customer language, proof) that <em>every other skill checks first</em>. Strict validate-before-advance + "do-not" rules + red flags.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">orchestration</div>
+      <h3>The persona council</h3>
+      <p><span class="k">marketing-council</span> seats a simulated board of 12 legendary marketers — always a dissenter, disagreement-map → synthesis, no fabricated quotes. <em>"A council that agrees is a mirror, not a board."</em> The ai-berkshire v187 <span class="k">/investment-team</span> pattern, again.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">the JS 93.9%</div>
+      <h3>The execution layer</h3>
+      <p><span class="k">tools/</span> = zero-dep Node CLIs (ga4/hunter/stripe) + a Composio-MCP wrapper to 500+ tools + integration guides across ~100 platforms. Wired with keys, skills can act — <strong>but no auto-execution; explicit API-key/OAuth setup required.</strong></p>
+    </div>
+  </div>
+
+  <h2>The 47 skills — one professional domain, many sub-functions</h2>
+  <div class="grp"><div class="h">foundation · orchestration</div><div class="chips">
+    <span class="chip f">product-marketing</span><span class="chip f">marketing-council</span>
+    <span class="chip">marketing-plan</span><span class="chip">marketing-ideas</span><span class="chip">marketing-loops</span><span class="chip">marketing-psychology</span>
+  </div></div>
+  <div class="grp"><div class="h">conversion (CRO)</div><div class="chips">
+    <span class="chip">cro</span><span class="chip">signup</span><span class="chip">onboarding</span><span class="chip">popups</span><span class="chip">paywalls</span>
+  </div></div>
+  <div class="grp"><div class="h">copy &amp; content</div><div class="chips">
+    <span class="chip">copywriting</span><span class="chip">copy-editing</span><span class="chip">cold-email</span><span class="chip">emails</span><span class="chip">sms</span><span class="chip">social</span><span class="chip">image</span><span class="chip">content-strategy</span>
+  </div></div>
+  <div class="grp"><div class="h">SEO &amp; discovery</div><div class="chips">
+    <span class="chip">seo-audit</span><span class="chip">ai-seo</span><span class="chip">programmatic-seo</span><span class="chip">site-architecture</span><span class="chip">schema</span><span class="chip">competitors</span><span class="chip">aso</span>
+  </div></div>
+  <div class="grp"><div class="h">paid · measurement · retention/growth</div><div class="chips">
+    <span class="chip">ads</span><span class="chip">ad-creative</span><span class="chip">directory-submissions</span><span class="chip">co-marketing</span><span class="chip">analytics</span><span class="chip">ab-testing</span><span class="chip">churn-prevention</span><span class="chip">referrals</span><span class="chip">lead-magnets</span><span class="chip">free-tools</span>
+  </div></div>
+  <div class="grp"><div class="h">strategy/monetization · sales/RevOps · PR/community</div><div class="chips">
+    <span class="chip">launch</span><span class="chip">pricing</span><span class="chip">offers</span><span class="chip">revops</span><span class="chip">sales-enablement</span><span class="chip">prospecting</span><span class="chip">customer-research</span><span class="chip">competitor-profiling</span><span class="chip">public-relations</span><span class="chip">community-marketing</span>
+  </div></div>
+
+  <h2>Pattern outcome — NO MINT</h2>
+  <div class="callout mint">
+    <p style="margin-top:0"><strong>Instance-strengthening of the CONFIRMED Domain-Vertical-Skill-Collection sub-archetype</strong> (registry: "N=4, one vertical each"). <strong>Marketing = a new vertical</strong>, joining SEO v64 / academic v90 / cybersecurity v98 / finance (ai-berkshire) v187. Exact N-tally = audit bookkeeping, recorded not self-incremented (the v187 handling).</p>
+    <p><strong>Counts UNCHANGED: 46 top-level patterns / 11 CONFIRMED Library-vocab.</strong> §C surface unchanged ≈47 (40 live standalones). No §C mint: corpus-first for a <em>domain</em> ≠ a mintable capability class (the TimesFM v193 / meetily v196 discipline), and it's not world-first (populated peers: realjaymes/marketingagentskills, agentkits, alirezarezvani/claude-skills).</p>
+  </div>
+  <p class="kv">Single-vertical, not §C #4 "Multi-Domain (Cross-Functional)": CRO/copy/SEO/ads/RevOps are sub-functions <em>within</em> marketing (like cybersecurity v98's recon/exploit/defend), not separate professional domains. The §C #4 reading is recorded as the reviewable NO-MINT alternative and loses.</p>
+  <p><strong>Secondary (not minted):</strong> #19 19a first Corey-Haines · #84 84c provider-agnostic distribution (5 install paths, no N-bump) · persona-council thread → N≥3 (v187 / v185 / here), deferred to the ~v192 audit · shared-context-foundation-skill · OSS-under-hosted-product (Magister) · #12 routing artifacts · #66 install BENIGN / runtime MODERATE (dual-use execution layer, keys-gated). <strong>Not:</strong> #52 (page-stated) · #18 B1-MCP (it <em>consumes</em> Composio's MCP) · #57 · a new top-level pattern (max #85).</p>
+
+  <h2>Pilot — steal the architecture</h2>
+  <div class="callout">
+    <p style="margin-top:0"><span class="star">⭐ One-thing path: A1 → B5 → F22.</span> Read how the 47-skill single-vertical collection is architected → steal the foundation-context-doc + persona-council patterns into the vault's own <span class="k">05 Skills/</span> → use it as the template to build the operator's OWN recruitment / hireui domain-vertical collection. That's the Goal-#1 substrate transfer <em>and</em> a Goal-#2 artifact in one line.</p>
+    <p>Real business path: <strong>C10 → D13</strong> — run <span class="k">product-marketing</span> in a scratch dir to produce a TalentAxis positioning/ICP doc. 24 methods (A read → B borrow → C scratch → D TalentAxis GTM → E personal → F vault-meta) in the Pilot Methods Menu.</p>
+    <p class="kv">Fence: install-snapshot · npm-security-check the external <span class="k">skills</span>/<span class="k">skillkit</span> CLI · inspect <span class="k">tools/</span> before wiring any real key · BYO keys, never a live account first-run · keep TalentAxis GTM separate from hireui's engineering CONSTITUTION · pin v2.8.10.</p>
+  </div>
+
+  <footer>
+    <p><strong>Errors caught by hand:</strong> the rendered repo page reported "50 skills" (→ 47, directory-verified) and "latest v2.6.0" (→ v2.8.10, changelog). Metrics are page-stated (§37.4 — the GitHub API is mocked) and carry no velocity claim. inflation_check = HELD (0 mints; §C #4 reading recorded as the reviewable alternative; counts 46/11 unchanged).</p>
+    <p class="sub">Storm Bear LLM-Wiki v202 · shipped on <span class="k">wiki/v202-marketingskills</span> off the v201 tip · not auto-merged. Companion docs: (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu.</p>
+  </footer>
+</div>
