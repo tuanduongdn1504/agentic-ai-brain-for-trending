@@ -1,0 +1,258 @@
+<title>hallmark — LLM Wiki v204</title>
+<style>
+  :root{
+    --paper:#F2F4F7; --card:#FFFFFF; --ink:#171C24; --muted:#5F6A78;
+    --line:#D8DEE7; --cobalt:#2A4E9C; --cobalt-ink:#294C97; --cobalt-soft:#E6ECF7;
+    --verm:#B8412A; --verm-soft:#F5E6E1;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0F131A; --card:#161C25; --ink:#E8EBF1; --muted:#98A1B0;
+      --line:#262E3A; --cobalt:#82A3EE; --cobalt-ink:#93B0F2; --cobalt-soft:#182640;
+      --verm:#E37B60; --verm-soft:#2C1C17;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#F2F4F7; --card:#FFFFFF; --ink:#171C24; --muted:#5F6A78;
+    --line:#D8DEE7; --cobalt:#2A4E9C; --cobalt-ink:#294C97; --cobalt-soft:#E6ECF7;
+    --verm:#B8412A; --verm-soft:#F5E6E1;
+  }
+  :root[data-theme="dark"]{
+    --paper:#0F131A; --card:#161C25; --ink:#E8EBF1; --muted:#98A1B0;
+    --line:#262E3A; --cobalt:#82A3EE; --cobalt-ink:#93B0F2; --cobalt-soft:#182640;
+    --verm:#E37B60; --verm-soft:#2C1C17;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:812px;margin:0 auto;padding:0 24px 96px;}
+  a{color:var(--cobalt-ink);text-underline-offset:2px;text-decoration-thickness:1px;}
+  a:hover{text-decoration-color:var(--verm);}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--cobalt-ink);font-weight:600;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;font-style:normal;text-wrap:balance;line-height:1.14;}
+  h2{font-size:27px;margin:0 0 4px;letter-spacing:-.01em;}
+  h3{font-size:19.5px;margin:0 0 6px;}
+  p{margin:0 0 14px;}
+  strong{font-weight:650;}
+
+  /* Masthead */
+  header.mast{border-bottom:2px solid var(--ink);padding:40px 0 26px;margin-bottom:36px;}
+  .toprow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;}
+  h1{font-size:clamp(44px,9vw,76px);letter-spacing:-.025em;margin:14px 0 2px;line-height:.98;}
+  .tagline{font-family:var(--serif);font-size:clamp(19px,3.4vw,24px);color:var(--ink);
+    max-width:34ch;margin:10px 0 20px;}
+  .tagline .cut{color:var(--verm);}
+  .stamp{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px dashed var(--line);
+    border-radius:2px;padding:7px 11px;display:inline-block;background:var(--card);}
+  .stamp b{color:var(--cobalt-ink);font-weight:600;}
+  .metarow{display:flex;flex-wrap:wrap;gap:8px 8px;margin-top:22px;}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;padding:5px 10px;border-radius:2px;
+    border:1px solid var(--line);background:var(--card);color:var(--muted);}
+  .chip b{color:var(--ink);font-weight:600;}
+  .chip.go{border-color:var(--cobalt);color:var(--cobalt-ink);background:var(--cobalt-soft);}
+  .chip.no{border-color:var(--verm);color:var(--verm);background:var(--verm-soft);}
+
+  /* theme toggle */
+  .toggle{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:2px;
+    padding:6px 10px;cursor:pointer;}
+  .toggle:hover{border-color:var(--cobalt);color:var(--cobalt-ink);}
+  .toggle:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;}
+
+  section{margin:0 0 44px;}
+  .lead-in{display:flex;align-items:center;gap:14px;margin:0 0 18px;}
+  .lead-in .eyebrow{white-space:nowrap;}
+  .lead-in .rule{height:1px;background:var(--line);flex:1;}
+
+  /* verb grid */
+  .verbs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+  .verb{background:var(--card);padding:18px 18px 16px;transition:background .15s ease;}
+  .verb:hover{background:var(--cobalt-soft);}
+  .verb .k{font-family:var(--mono);font-size:12px;color:var(--cobalt-ink);font-weight:600;}
+  .verb h3{margin:8px 0 5px;font-size:18px;}
+  .verb p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.5;}
+  @media (max-width:560px){.verbs{grid-template-columns:1fr;}}
+
+  /* specimen / gate block */
+  .specimen{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+  .specimen .head{display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;
+    color:var(--muted);flex-wrap:wrap;}
+  .specimen .head b{color:var(--ink);}
+  .gate{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:11px 16px;
+    border-bottom:1px solid var(--line);font-size:14.5px;}
+  .gate:last-child{border-bottom:0;}
+  .gate .n{font-family:var(--mono);font-size:12.5px;color:var(--verm);font-weight:600;padding-top:1px;}
+  .gate .q{color:var(--ink);}
+  .crit{font-family:var(--mono);font-size:13px;color:var(--cobalt-ink);background:var(--cobalt-soft);
+    padding:12px 16px;border-radius:2px;margin:16px 0 0;overflow-x:auto;}
+
+  ul.disc{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px;}
+  ul.disc li{padding-left:20px;position:relative;font-size:15px;line-height:1.45;}
+  ul.disc li::before{content:"·";position:absolute;left:4px;color:var(--verm);font-weight:700;}
+  @media (max-width:560px){ul.disc{grid-template-columns:1fr;}}
+
+  /* verdict table */
+  table.spec{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px;}
+  table.spec td,table.spec th{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;vertical-align:top;}
+  table.spec th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;}
+  table.spec td.c{font-family:var(--mono);font-weight:600;white-space:nowrap;}
+  td.pass{color:var(--verm);} td.strong{color:var(--cobalt-ink);}
+  table.spec td.crit-col{font-family:var(--serif);font-weight:600;color:var(--ink);white-space:nowrap;}
+
+  .callout{border-left:3px solid var(--cobalt);background:var(--card);padding:14px 18px;border-radius:0 3px 3px 0;margin:16px 0;}
+  .callout.warn{border-left-color:var(--verm);}
+  .callout .eyebrow{margin-bottom:5px;display:block;}
+  .callout.warn .eyebrow{color:var(--verm);}
+  .callout p{margin:0;font-size:15px;}
+
+  .cluster{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0;}
+  .node{font-family:var(--mono);font-size:12px;padding:5px 9px;border:1px solid var(--line);border-radius:2px;
+    background:var(--card);color:var(--muted);}
+  .node b{color:var(--ink);font-weight:600;}
+  .node.self{border-color:var(--verm);color:var(--verm);background:var(--verm-soft);}
+
+  .path{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:18px;}
+  .path .steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;margin-bottom:12px;}
+  .path .steps .s{padding:5px 10px;border:1px solid var(--cobalt);color:var(--cobalt-ink);background:var(--cobalt-soft);border-radius:2px;font-weight:600;}
+  .path .steps .arr{color:var(--muted);}
+  .path p{font-size:15px;margin:0;color:var(--ink);}
+
+  footer{border-top:1px solid var(--line);padding-top:20px;margin-top:8px;font-size:13px;color:var(--muted);}
+  footer .eyebrow{display:block;margin-bottom:8px;}
+  code{font-family:var(--mono);font-size:.9em;background:var(--cobalt-soft);color:var(--cobalt-ink);padding:1px 5px;border-radius:2px;}
+  .small{font-size:13.5px;color:var(--muted);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="toprow">
+      <span class="eyebrow">LLM Wiki · v204 · 2026-07-16</span>
+      <button class="toggle" id="tg" aria-pressed="false">Theme</button>
+    </div>
+    <h1>hallmark</h1>
+    <p class="tagline">A design skill for Claude&nbsp;Code, Cursor, and Codex that refuses to look <span class="cut">AI-generated</span>.</p>
+    <span class="stamp">/* hallmark v1.1.0 · pre-emit critique: <b>P5&nbsp;H5&nbsp;E5&nbsp;S5&nbsp;R5&nbsp;V5</b> */</span>
+    <div class="metarow">
+      <span class="chip go"><b>GOAL-ALIGNED</b> · INCLUDE 3/4</span>
+      <span class="chip no"><b>NO MINT</b> · Pattern&nbsp;#88 88c</span>
+      <span class="chip"><b>Together&nbsp;AI</b> · not Anthropic</span>
+      <span class="chip">MIT · <b>v1.1.0</b> · 0 releases</span>
+      <span class="chip">CSS/HTML/MD · ~8.2k★<sup>†</sup></span>
+      <span class="chip">counts <b>46 / 11</b> unchanged</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">What it is</span><span class="rule"></span></div>
+    <p>Hallmark is a <strong>markdown design skill</strong> — a <code>SKILL.md</code> plus a folder of reference rule-files — that a coding agent installs so the pages it produces, audits, redesigns, or reverse-engineers avoid the generic "AI slop" aesthetic. Install with <code>npx skills add nutlope/hallmark</code> (the agentskills.io verb) or copy it into a Claude Code / Cursor / Codex skill directory. Built by <strong>Together AI</strong>; author <strong>Hassan El&nbsp;Mghari</strong> (<code>@nutlope</code>), a DevRel lead there and a prolific indie AI-app builder (RoomGPT, LlamaCoder, BlinkShot). It is a design-taste layer, <em>not</em> a framework or an MCP server — the repo is CSS/HTML/markdown assets plus a static demo at <a href="https://www.usehallmark.com">usehallmark.com</a>.</p>
+  </section>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">Four verbs</span><span class="rule"></span></div>
+    <div class="verbs">
+      <div class="verb"><div class="k">default</div><h3>Generate</h3><p>Pick one of 21 macrostructures, apply the rule-sets, self-critique, then a 57-gate sweep. Catalog theme unless the brief signals custom. Each build must differ from the last.</p></div>
+      <div class="verb"><div class="k">audit ‹target›</div><h3>Score</h3><p>Grade existing code against the anti-patterns and return a ranked punch-list. <strong>Read-only</strong> — no edits.</p></div>
+      <div class="verb"><div class="k">redesign ‹target›</div><h3>Rebuild</h3><p>Replace the visual and interaction layer; preserve routes, information architecture, brand, and copy. <code>--mood</code> picks a direction.</p></div>
+      <div class="verb"><div class="k">study ‹url|shot›</div><h3>Extract DNA</h3><p>Read macrostructure, archetypes, type-pairing, and colour from a reference; diagnose; optionally export a portable <code>design.md</code>.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">The machinery</span><span class="rule"></span></div>
+    <p>The enforcement is a <strong>57-gate slop-test</strong> (<code>#1–#57</code>) across six axes, preceded by a <strong>pre-emit self-critique</strong>: the skill scores its own planned output 1–5 on six named axes and anything under 3 triggers a revision pass <em>before</em> the gate sweep. Sampled verbatim from <code>references/slop-test.md</code>:</p>
+    <div class="specimen">
+      <div class="head"><span>slop-test.md</span><span><b>57</b> enumerated gates · <b>6</b> axes</span></div>
+      <div class="gate"><span class="n">#2</span><span class="q">Is there a purple-to-blue (or cyan-to-magenta) gradient anywhere — including a <code>background-clip:text</code> gradient headline?</span></div>
+      <div class="gate"><span class="n">#6</span><span class="q">Is the hero <code>min-height:100vh</code> with the eyebrow, title, lede, and CTA all stacked on one centred vertical axis?</span></div>
+      <div class="gate"><span class="n">#22</span><span class="q">Does any neutral / surface colour use <code>oklch(… 0 …)</code> — zero chroma?</span></div>
+      <div class="gate"><span class="n">#34</span><span class="q">Does the page scroll horizontally on any viewport between 320px and 1920px?</span></div>
+      <div class="gate"><span class="n">#42</span><span class="q">Is the nav the AI default — wordmark-left, 4–5 inline links centred, button-right?</span></div>
+      <div class="gate"><span class="n">#46</span><span class="q">Does the page state any quantitative claim the user didn't supply and the model fabricated?</span></div>
+    </div>
+    <p class="crit">/* pre-emit: score 1–5 on Philosophy · Hierarchy · Execution · Specificity · Restraint · Variety — anything &lt;3 triggers a revision pass */</p>
+    <h3 style="margin-top:26px;">Six universal disciplines</h3>
+    <ul class="disc">
+      <li>Pre-emit self-critique (P/H/E/S/R/V, stamped in the artifact)</li>
+      <li>Honest copy — no fabricated metrics, testimonials, or logos</li>
+      <li>Locked tokens — named CSS variables only; no inline OKLCH/hex</li>
+      <li>No re-drawn chrome — no fake browser / phone / IDE frames</li>
+      <li>Mobile at 320 / 375 / 414 / 768px — a non-negotiable floor</li>
+      <li>Typography purity — italic headers banned; emphasis via weight / colour / underline</li>
+    </ul>
+    <p class="small" style="margin-top:16px;">Also: 20 named themes (Specimen, Terminal, Midnight, Riso, Cobalt, Aurora, Editorial…), 21 macrostructures, 46 component archetypes, 10 rule-files (typography, OKLCH colour, 4pt layout, motion, copy, anti-patterns, responsive…), and a token-efficiency rule: <em>"never load the whole index plus more than one per-macro file in a single build."</em></p>
+  </section>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">Verdict</span><span class="rule"></span></div>
+    <table class="spec">
+      <thead><tr><th>Criterion</th><th>Call</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td class="crit-col">(a) Anthropic?</td><td class="c pass">FAIL</td><td>Hassan El&nbsp;Mghari / Together AI — a competitor infra vendor, not Anthropic. A famous app author is no rescue (§41).</td></tr>
+        <tr><td class="crit-col">(b) Goal-relevance</td><td class="c strong">STRONG</td><td>A Claude-Code-first design skill — dead-centre on the agent-skills substrate + pilotable into hireui's frontend. Keys the tier → GOAL-ALIGNED.</td></tr>
+        <tr><td class="crit-col">(c) Substance</td><td class="c strong">STRONG</td><td>57 gates + pre-emit critique + 21 macros + 20 themes + 4 verbs + a hosted demo. Caveat: packaged design taste; 0 releases.</td></tr>
+        <tr><td class="crit-col">(d) Pattern-fit</td><td class="c strong">STRONG</td><td>The design-skill cluster + Pattern #88 + the shared Anthropic frontend-design-skill upstream + hireui Candidate-Detail.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <span class="eyebrow">Pattern outcome — NO MINT</span>
+      <p>A clean instance of the CONFIRMED top-level <strong>Pattern #88 "Anti-Slop-Curation"</strong> (88-design, <strong>88c machinery-with-enforcement</strong> flavor) — the strongest, most-productized 88c instance yet, but "most-polished instance" ≠ a new pattern. The <strong>marketingskills v202 / ai-berkshire v187</strong> handling. Counts unchanged <strong>46 / 11</strong>; §C surface unchanged (40 live standalones). Tier T1 design-language.</p>
+    </div>
+    <div class="callout warn">
+      <span class="eyebrow">Caught by hand</span>
+      <p>The README markets <strong>"fifty-seven"</strong> gates; <code>slop-test.md</code> enumerates exactly 57 (#1–#57); the SKILL.md summary and one internal line say <strong>"58"</strong> — the pre-emit critique counted as an implicit 58th pass. Authoritative: <strong>57 enumerated + a 6-axis critique</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">Where it sits</span><span class="rule"></span></div>
+    <p>The anti-slop-design-skill space is crowded and Anthropic-anchored: Anthropic's own <strong>frontend-design skill</strong> (~300k installs) is the upstream hallmark cites, <strong>Claude Design</strong> ships Anthropic's own guardrails, and a marketplace of rival skills exists. In this vault's corpus, an entire design-skill lineage precedes it — hallmark is <strong>not corpus-first and not world-first</strong>, but it is the most enforcement-heavy member.</p>
+    <div class="cluster">
+      <span class="node">impeccable <b>v75</b></span>
+      <span class="node">taste-skill <b>v81</b></span>
+      <span class="node">huashu-design <b>v82</b></span>
+      <span class="node">open-design <b>v83</b></span>
+      <span class="node">ui-ux-pro-max <b>v85</b></span>
+      <span class="node self">hallmark <b>v204</b></span>
+    </div>
+    <p class="small" style="margin-top:14px;">Shared upstream: hallmark <em>and</em> impeccable v75 both build on Anthropic's frontend-design skill + the Claude frontend-aesthetics cookbook. That is a cross-reference, not a Pattern #57 recursion — a mention of Anthropic material is not one corpus subject citing another.</p>
+  </section>
+
+  <section>
+    <div class="lead-in"><span class="eyebrow">Pilot — one-thing path</span><span class="rule"></span></div>
+    <div class="path">
+      <div class="steps"><span class="s">A1 read</span><span class="arr">→</span><span class="s">C11 scratch</span><span class="arr">→</span><span class="s">D16 audit hireui</span></div>
+      <p>Read the SKILL.md + the 57 gates + the pre-emit critique (zero install) → install into a throwaway page and run <code>generate</code>+<code>audit</code> → run the <strong>read-only <code>audit</code></strong> over hireui's current Candidate-Detail on an <code>agent-*</code> branch = a zero-risk slop punch-list that <strong>composes with, never overrides,</strong> the Figma Source-of-Truth plan. Also steal the 57-gate list + the pre-emit-critique discipline into design-review (B5/B6). Fence: install-snapshot · npm-security-check the external <code>skills</code> CLI (hallmark itself is BENIGN — zero deps, no postinstall) · pin the commit · hireui per its CONSTITUTION.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="eyebrow">Verification &amp; provenance</span>
+    <p>Verdict + all corpus / collision / identity / mint claims produced <strong>inline and hand-verified</strong>. The 10-agent read-only deep-dive workflow failed prompt-too-long on every agent (~204.7k &gt; 200k — the oversized project shim snapshotted into each subagent) and was not re-run; no workflow output was relied on. Sources hand-fetched: README, SKILL.md, slop-test.md, package.json, recipes.md; identity + landscape via search; corpus collision + Pattern #88 + the registry read by hand. Collision-clean: no prior hallmark / Nutlope / Together-AI subject.</p>
+    <p class="small"><sup>†</sup> Stars / forks are page-stated (the GitHub API is mocked in this environment, §37.4) → not a viral-velocity claim. Streak: GA:63 → <strong>GA:64</strong> · 50 consecutive goal-aligned ships v153→v204 · §35 clear.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var btn=document.getElementById('tg');
+    var root=document.documentElement;
+    function cur(){var t=root.getAttribute('data-theme'); if(t) return t;
+      return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+    btn.addEventListener('click',function(){
+      var next=cur()==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      btn.setAttribute('aria-pressed', next==='dark'?'true':'false');
+      btn.textContent = next==='dark'?'Light':'Dark';
+    });
+  })();
+</script>
