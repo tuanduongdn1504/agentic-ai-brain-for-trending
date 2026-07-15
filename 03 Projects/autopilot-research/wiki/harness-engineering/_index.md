@@ -71,6 +71,7 @@ This topic is the autopilot wiki's research thread on **harness engineering** �
 - [[external|claude-code-hooks/_index]] — Lopopolo's "Skills" pattern is conceptually adjacent
 - [[external|claude-md-12-rules/_index]] — Mnilax's individual-scale rules vs Lopopolo's org-scale harness; see [[external|claude-md-12-rules/comparison-harness-engineering]] for 8 agreement + 4 conflict axes + compound-posture decision rules
 - [[external|claudekit/_index]] — vividkit's ClaudeKit framework, the "middle rung" between Mnilax (rules-only) and Lopopolo (org-scale infrastructure); see [[external|claudekit/vs-harness-engineering-and-12-rules]] for 3-way decision matrix
+- ⭐ [[external|adaptive-engineering-beyond-harness/_index]] — **the counter-thesis to this entire thread.** Rajiv Chandegra (AI Engineer Europe 2026) argues the *fixed* harness (everything above) is "Taylorism for AI" — right for **complicated** problems but brittle for the **complex** real world — and proposes **adaptive engineering** where the harness *emerges at runtime* from constrained multi-agent interaction ("harness = output, not input"). Same harness definition, opposite prescription. Verdict: prescriptively unproven / frontier-watch (no working implementation; legibility-collapse risk) — but the sharpest articulation of *why fixed harnesses might not be the end state*. See [[external|adaptive-engineering-beyond-harness/vs-harness-engineering-corpus]] for the head-to-head.
 
 ## Sources
 
