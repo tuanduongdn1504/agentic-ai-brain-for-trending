@@ -1,0 +1,219 @@
+<style>
+  :root{
+    --bg:#f5f6f9; --panel:#ffffff; --panel-2:#eef0f6;
+    --ink:#191c24; --ink-soft:#4a4f5c; --ink-faint:#7b8291;
+    --line:#dfe2ec; --line-soft:#e9ebf2;
+    --accent:#4f52d8; --accent-soft:#e7e8fb;
+    --amber:#c67d15; --amber-soft:#f6ebd6;
+    --good:#1f8a53; --good-soft:#dcefe3;
+    --bad:#c0392f; --bad-soft:#f4dcd9;
+    --warn:#a9791b; --warn-soft:#f5ecd3;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:70rem;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0f1218; --panel:#161a22; --panel-2:#1c2130;
+      --ink:#e9ecf3; --ink-soft:#b3b9c7; --ink-faint:#7f8698;
+      --line:#282f3e; --line-soft:#20262f;
+      --accent:#8b8df6; --accent-soft:#20233b;
+      --amber:#e0a445; --amber-soft:#2c2415;
+      --good:#5fca8f; --good-soft:#16281e;
+      --bad:#e8837a; --bad-soft:#2c1917;
+      --warn:#dcb765; --warn-soft:#282013;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f5f6f9; --panel:#ffffff; --panel-2:#eef0f6; --ink:#191c24; --ink-soft:#4a4f5c; --ink-faint:#7b8291;
+    --line:#dfe2ec; --line-soft:#e9ebf2; --accent:#4f52d8; --accent-soft:#e7e8fb; --amber:#c67d15; --amber-soft:#f6ebd6;
+    --good:#1f8a53; --good-soft:#dcefe3; --bad:#c0392f; --bad-soft:#f4dcd9; --warn:#a9791b; --warn-soft:#f5ecd3;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1218; --panel:#161a22; --panel-2:#1c2130; --ink:#e9ecf3; --ink-soft:#b3b9c7; --ink-faint:#7f8698;
+    --line:#282f3e; --line-soft:#20262f; --accent:#8b8df6; --accent-soft:#20233b; --amber:#e0a445; --amber-soft:#2c2415;
+    --good:#5fca8f; --good-soft:#16281e; --bad:#e8837a; --bad-soft:#2c1917; --warn:#dcb765; --warn-soft:#282013;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(1.2rem,4vw,3rem) clamp(1rem,4vw,2.2rem) 4rem}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{text-wrap:balance;line-height:1.15;margin:0}
+  code{font-family:var(--mono);font-size:.86em;background:var(--panel-2);padding:.1em .38em;border-radius:5px;border:1px solid var(--line-soft)}
+
+  /* masthead */
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .masthead{border-bottom:2px solid var(--ink);padding-bottom:1.3rem;margin-bottom:2rem}
+  .masthead h1{font-family:var(--mono);font-size:clamp(1.8rem,5vw,3rem);font-weight:700;letter-spacing:-.02em;margin:.5rem 0 .4rem}
+  .masthead h1 .dim{color:var(--ink-faint)}
+  .tagline{color:var(--ink-soft);font-size:1.05rem;max-width:60ch}
+  .pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+  .pill{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;padding:.32em .7em;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);display:inline-flex;gap:.4em;align-items:center}
+  .pill b{color:var(--ink);font-weight:600}
+  .pill.good{background:var(--good-soft);border-color:transparent;color:var(--good)}
+  .pill.bad{background:var(--bad-soft);border-color:transparent;color:var(--bad)}
+  .pill.warn{background:var(--warn-soft);border-color:transparent;color:var(--warn)}
+  .pill.accent{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+
+  section{margin-top:2.4rem}
+  h2{font-family:var(--mono);font-size:1.28rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:baseline;gap:.6rem}
+  h2 .n{font-size:.8rem;color:var(--accent);font-weight:600}
+  .lead{color:var(--ink-soft);margin:.6rem 0 1.1rem;max-width:68ch}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem}
+  .panel + .panel{margin-top:1rem}
+
+  /* verdict grid */
+  .verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.8rem}
+  .axis{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.95rem 1.05rem}
+  .axis .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+  .axis .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;margin:.25rem 0 .4rem}
+  .axis .v.pass{color:var(--good)} .axis .v.fail{color:var(--bad)}
+  .axis p{margin:0;font-size:.88rem;color:var(--ink-soft)}
+
+  /* category gallery */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:.7rem}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.28rem}
+  .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+  .card .name{font-weight:600;font-size:.96rem}
+  .card .cnt{font-family:var(--mono);font-size:.74rem;color:var(--accent);background:var(--accent-soft);padding:.1em .5em;border-radius:6px;white-space:nowrap}
+  .card .ex{font-size:.82rem;color:var(--ink-faint);line-height:1.45}
+  .card.hi{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+
+  ul.tight{margin:.2rem 0 0;padding-left:1.1rem}
+  ul.tight li{margin:.35rem 0;color:var(--ink-soft)}
+  ul.tight li b{color:var(--ink)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:640px){.split{grid-template-columns:1fr}}
+  .callout{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:.85rem 1.05rem;font-size:.92rem;color:var(--ink)}
+  .callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .tag{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)}
+
+  table{width:100%;border-collapse:collapse;font-size:.86rem}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  td.mono,th.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .ladder{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-family:var(--mono);font-size:.85rem}
+  .ladder .step{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.4rem .7rem}
+  .ladder .step.star{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .ladder .arw{color:var(--ink-faint)}
+
+  footer{margin-top:3rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--ink-faint);font-size:.82rem}
+  .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem}
+  .foot-grid .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint)}
+  .foot-grid .v{color:var(--ink-soft);margin-top:.2rem;font-size:.86rem}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">LLM Wiki · v201 · Storm Bear vault · 2026-07-15</div>
+    <h1>awesome&#8209;llm&#8209;apps <span class="dim">/ Shubhamsaboo</span></h1>
+    <p class="tagline">A multi&#8209;framework, multi&#8209;model gallery of ~129 <em>full runnable</em> LLM / agent / RAG / MCP apps — <span style="font-family:var(--mono)">"clone it, ship it, sell it."</span> The largest, most canonical instance of the runnable&#8209;AI&#8209;app&#8209;gallery genre.</p>
+    <div class="pills">
+      <span class="pill accent">GOAL&#8209;ALIGNED INCLUDE <b>3/4</b></span>
+      <span class="pill bad">a · FAIL</span>
+      <span class="pill good">b · STRONG</span>
+      <span class="pill good">c · STRONG</span>
+      <span class="pill good">d · STRONG</span>
+      <span class="pill">Pattern outcome <b>NO MINT</b></span>
+      <span class="pill">counts <b>46 / 11</b></span>
+      <span class="pill">streak <b>GA:62</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="n">§1</span> The verdict at a glance</h2>
+    <div class="verdict">
+      <div class="axis"><div class="k">(a) authorship</div><div class="v fail">FAIL</div><p>Shubham Saboo — AI DevRel / educator (Unwind AI; Tenstorrent / Google; 3× AI author). <b>Not Anthropic.</b> "Notable author" isn't a registered (a) axis.</p></div>
+      <div class="axis"><div class="k">(b) goal-relevance</div><div class="v pass">STRONG</div><p>Learn-by-example + build-from-template for Claude + agents + RAG + MCP; directly pilotable into hireui. Keys the tier. STRONG-not-STRONGEST: Claude is one-of-many, defaults skew OpenAI/Gemini.</p></div>
+      <div class="axis"><div class="k">(c) substance</div><div class="v pass">STRONG</div><p>~129 runnable apps · 15 categories · 9 frameworks · Apache-2.0 · ~1,080 commits. Caveat: each app is a thin Streamlit-demo wrapper; hard AI is upstream.</p></div>
+      <div class="axis"><div class="k">(d) cross-refs</div><div class="v pass">STRONG</div><p>Pattern #68 awesome-genre · v102 claude-cookbooks · agentskills.io (<code>npx skills add</code>) · demonstrates corpus subjects headroom v144 + browser-use v41.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">§2</span> What it actually is</h2>
+    <p class="lead">It calls itself "awesome-" but it is <strong>not a links list</strong> — Python 54.6% / TS 21.6% / JS 16.4% = it is mostly <em>code</em>. Every entry is a self-contained runnable app (its own README + <code>requirements.txt</code> + a Streamlit UI, ~3–4 files) demonstrating one pattern. That places it in a specific genre, distinct from the corpus's prior curated collections:</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Genre</th><th>Corpus members</th><th>awesome-llm-apps?</th></tr></thead>
+      <tbody>
+        <tr><td>Vendor cookbooks (single-vendor notebooks)</td><td class="mono">claude-cookbooks v102 · OpenAI Cookbook</td><td>✗ multi-vendor, full apps</td></tr>
+        <tr><td>Framework templates (one framework)</td><td class="mono">LangChain / CrewAI examples</td><td>✗ framework-agnostic</td></tr>
+        <tr><td>Awesome-genre links lists (Pattern #68)</td><td class="mono">v8 · v25 · v31 · v50 · v170</td><td>~ borrows the name, carries code not links</td></tr>
+        <tr><td>Runnable-app galleries</td><td class="mono">— (none) · Together / E2B (non-corpus)</td><td>✓ largest / most canonical</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lead" style="margin-top:1rem"><strong>Landscape:</strong> corpus-first <em>and</em> world-canonical/largest for "multi-framework, multi-model, full-runnable-app gallery organized by capability category" — but <strong>not world-first</strong> (Together demos, CrewAI examples, E2B cookbook populate the genre).</p>
+  </section>
+
+  <section>
+    <h2><span class="n">§3</span> The gallery — 15 capability categories</h2>
+    <p class="lead">Highlighted cards are the goal-#1 / hireui-relevant cores.</p>
+    <div class="grid">
+      <div class="card hi"><div class="top"><span class="name">🧩 Agent Skills</span><span class="cnt">~3</span></div><div class="ex">Claude-Code-first · <code>npx skills add</code> · Project Graveyard, Advisor-Orchestrator-Worker, Self-Improving</div></div>
+      <div class="card"><div class="top"><span class="name">🌱 Starter AI Agents</span><span class="cnt">~12</span></div><div class="ex">Blog-to-Podcast, Data Analysis, Reasoning Agent, Web Scraping…</div></div>
+      <div class="card hi"><div class="top"><span class="name">🚀 Advanced AI Agents</span><span class="cnt">~22</span></div><div class="ex">Deep Research, VC Due Diligence, <b>AI Recruitment</b>, Self-Evolving…</div></div>
+      <div class="card"><div class="top"><span class="name">🛰️ Always-on Agents</span><span class="cnt">~1</span></div><div class="ex">Always-on Hacker News Briefing</div></div>
+      <div class="card hi"><div class="top"><span class="name">🤝 Multi-agent Teams</span><span class="cnt">~13</span></div><div class="ex"><b>AI Recruitment</b>, AI Legal Agent Team, Services Agency, Real Estate…</div></div>
+      <div class="card"><div class="top"><span class="name">🗣️ Voice AI Agents</span><span class="cnt">~5</span></div><div class="ex">Audio Tour, Customer Support Voice, Voice RAG, Dictation</div></div>
+      <div class="card"><div class="top"><span class="name">🖼️ Generative UI / Frontends</span><span class="cnt">~7</span></div><div class="ex">Dashboard Canvas, MCP App Builder, Shadcn Generator</div></div>
+      <div class="card"><div class="top"><span class="name">🎮 Game-Playing Agents</span><span class="cnt">~3</span></div><div class="ex">3D Pygame, Chess, Tic-Tac-Toe</div></div>
+      <div class="card hi"><div class="top"><span class="name">♾️ MCP AI Agents</span><span class="cnt">~5</span></div><div class="ex">Browser, GitHub, Notion, Travel-Planner, <b>Multi-MCP Router (Claude-primary)</b></div></div>
+      <div class="card hi"><div class="top"><span class="name">📀 RAG</span><span class="cnt">~20</span></div><div class="ex">Corrective, Hybrid-Search, Local (DeepSeek/Llama), Vision, KG-RAG-with-Citations…</div></div>
+      <div class="card hi"><div class="top"><span class="name">💾 LLM Apps with Memory</span><span class="cnt">~6</span></div><div class="ex">Mem0 + Qdrant · Personalized-Memory · Stateful Chat</div></div>
+      <div class="card hi"><div class="top"><span class="name">💬 Chat with X</span><span class="cnt">~6</span></div><div class="ex">GitHub, Gmail, PDF, Research Papers, Substack, YouTube</div></div>
+      <div class="card"><div class="top"><span class="name">🎯 LLM Optimization Tools</span><span class="cnt">~2</span></div><div class="ex">Toonify · <b>Headroom Context Optimization = corpus v144</b></div></div>
+      <div class="card"><div class="top"><span class="name">🔧 LLM Fine-tuning</span><span class="cnt">~2</span></div><div class="ex">Gemma 3 · Llama 3.2</div></div>
+      <div class="card"><div class="top"><span class="name">🧑‍🏫 Framework Crash Courses</span><span class="cnt">~2</span></div><div class="ex">Google ADK · OpenAI Agents SDK</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">§4</span> Pattern outcome — NO MINT, with a real alternative</h2>
+    <div class="split">
+      <div class="panel">
+        <div class="tag">PRIMARY · what was filed</div>
+        <h3 style="margin:.4rem 0 .5rem;font-size:1.05rem">NO MINT — Pattern #68 instance-strengthening</h3>
+        <p style="margin:0;color:var(--ink-soft);font-size:.92rem">A <b>curated collection of others' example apps</b> — an aggregation / learn-by-example artifact, <b>not a tool/capability</b>. The corpus consistently does <em>not</em> mint these: v102 cookbook, v170 awesome-list, v50/v31/v25/v8, v191/v196/v197 curricula. It's the <b>fully-code-carrying / runnable-app form-factor sub-variant</b> of Pattern #68 (extending v50's code-bundling), with strong T3-Education character.</p>
+      </div>
+      <div class="panel">
+        <div class="tag">ALTERNATIVE · operator/audit-reviewable</div>
+        <h3 style="margin:.4rem 0 .5rem;font-size:1.05rem">§C MINT — "Multi-Framework Runnable AI-App Gallery" N=1</h3>
+        <p style="margin:0;color:var(--ink-soft);font-size:.92rem">Genuinely defensible: landscape-confirmed corpus-first-for-surface + world-canonical, no direct peer. Follows the agency-agents v185 / loop-engineering v189 "mint the corpus-first exemplar" precedent. <b>Loses to NO-MINT</b> because it's a new <em>form-factor within an existing genre</em>, not a new <em>primitive</em> — and the v102-cookbook precedent is directly on point.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:1rem"><b>Either reading:</b> counts UNCHANGED — <b>46 confirmed patterns / 11 CONFIRMED Library-vocab</b>; §C surface unchanged (40 live standalones). Both flagged to the badly-overdue ~v192 audit.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">§5</span> The honest (b) calibration — Claude is one of many</h2>
+    <div class="callout warn"><b>Despite "Works with Claude," the gallery skews OpenAI/Gemini.</b> In a 4-app hand-sample (RAG→Gemini · multi-agent→GPT-4o · memory→GPT-4o+Mem0 · starter→Ollama) <b>none defaulted to Claude</b>; of 6 MCP agents <b>only 2 support Claude</b> (Multi-MCP Router primary; Browser-MCP fallback). Claude is a <em>supported option, not the default</em> — the <b>Agent Skills sub-section is the Claude-Code-first exception</b> (<code>npx skills add</code>, security+eval CI gate).</div>
+  </section>
+
+  <section>
+    <h2><span class="n">§6</span> Pilot — strong for Goal #1 &amp; hireui</h2>
+    <p class="lead">A free, Apache-2.0, learn-by-example + build-from-template gallery. Most value = <em>read the pattern, re-implement on Claude</em>. 24-method menu in the companion doc.</p>
+    <div class="ladder">
+      <span class="step star">A1 browse RAG+MCP+teams</span><span class="arw">→</span>
+      <span class="step">B5 steal RAG + recruitment-team patterns</span><span class="arw">→</span>
+      <span class="step">C11 clone one app, scratch venv, BYO key</span><span class="arw">→</span>
+      <span class="step star">D16 hireui candidate-search / Match-Explain (agent-* branch)</span><span class="arw">→</span>
+      <span class="step">E20 one low-stakes skill</span>
+    </div>
+    <div class="callout warn" style="margin-top:1rem"><b>Fence:</b> clone from the author URL only · scratch venv + pinned lockfile per app · BYO keys in <code>.env</code>, never a shared Streamlit UI · <code>npm-security-check</code> before any <code>npx skills add</code> · hireui = DESIGN-only per its CONSTITUTION (I-2 / I-8 / GitNexus-first; no LLM spend yet).</div>
+  </section>
+
+  <footer>
+    <div class="foot-grid">
+      <div><div class="k">Provenance §37.4</div><div class="v">~121k★ · 17.9k forks · Apache-2.0 · 0 releases · ~1,080 commits — PAGE-STATED (GitHub API mocked), NOT a #52 velocity claim.</div></div>
+      <div><div class="k">Author</div><div class="v">Shubham Saboo · AI DevRel/educator · Unwind AI · Tenstorrent / Google · NOT Anthropic.</div></div>
+      <div><div class="k">Verification</div><div class="v">Read-only 8-agent Haiku workflow for source+web; verdict + all corpus/collision/identity/mint claims BY HAND. 5 Haiku over-claims caught + corrected.</div></div>
+      <div><div class="k">Tier</div><div class="v">Pattern #68 (code-carrying variant) × T3-Education learn-by-example gallery. GOAL-ALIGNED (b STRONG).</div></div>
+    </div>
+    <p style="margin-top:1.2rem">Docs: <code>03 Projects/awesome-llm-apps - Beginner Analysis/</code> — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Shipped on <code>wiki/v201-awesome-llm-apps</code> off main (v200). Not auto-merged — operator reviews + merges.</p>
+  </footer>
+</div>
