@@ -1,0 +1,241 @@
+<title>OfficeCLI — LLM Wiki v206</title>
+<style>
+  :root{
+    --paper:#f7f8fb; --card:#ffffff; --ink:#1b2030; --muted:#5b6478; --faint:#8a92a6;
+    --line:#e4e7ee; --line2:#eef0f5;
+    --accent:#4f46e5; --accent-soft:#eceafe; --accent-ink:#3730a3;
+    --ok:#15803d; --ok-soft:#e7f4ec; --fail:#b04141; --fail-soft:#f6eaea; --warn:#a15c00; --warn-soft:#fbf1df;
+    --word:#2563eb; --excel:#15803d; --ppt:#c2410c;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --measure:66ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0f1117; --card:#161a23; --ink:#e7eaf2; --muted:#9aa3b8; --faint:#6b7488;
+      --line:#252b38; --line2:#1d222d;
+      --accent:#818cf8; --accent-soft:#20233a; --accent-ink:#c4c9ff;
+      --ok:#54d187; --ok-soft:#132a1d; --fail:#e08585; --fail-soft:#2c1a1a; --warn:#e0b566; --warn-soft:#2c2312;
+      --word:#5b9dff; --excel:#54d187; --ppt:#f08a4b;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f7f8fb; --card:#ffffff; --ink:#1b2030; --muted:#5b6478; --faint:#8a92a6;
+    --line:#e4e7ee; --line2:#eef0f5;
+    --accent:#4f46e5; --accent-soft:#eceafe; --accent-ink:#3730a3;
+    --ok:#15803d; --ok-soft:#e7f4ec; --fail:#b04141; --fail-soft:#f6eaea; --warn:#a15c00; --warn-soft:#fbf1df;
+    --word:#2563eb; --excel:#15803d; --ppt:#c2410c;
+  }
+  :root[data-theme="dark"]{
+    --paper:#0f1117; --card:#161a23; --ink:#e7eaf2; --muted:#9aa3b8; --faint:#6b7488;
+    --line:#252b38; --line2:#1d222d;
+    --accent:#818cf8; --accent-soft:#20233a; --accent-ink:#c4c9ff;
+    --ok:#54d187; --ok-soft:#132a1d; --fail:#e08585; --fail-soft:#2c1a1a; --warn:#e0b566; --warn-soft:#2c2312;
+    --word:#5b9dff; --excel:#54d187; --ppt:#f08a4b;
+  }
+
+  *{box-sizing:border-box}
+  .wrap{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;padding:clamp(20px,5vw,64px) clamp(16px,4vw,32px);}
+  .doc{max-width:820px;margin:0 auto;}
+  .doc > * + *{margin-top:0}
+
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 .5rem;}
+  h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.06;letter-spacing:-.025em;font-weight:800;
+    margin:0;text-wrap:balance;}
+  h1 .repo{font-family:var(--mono);font-weight:700;font-size:.42em;letter-spacing:-.01em;color:var(--accent);
+    display:block;margin-top:.7rem;}
+  .tagline{color:var(--muted);font-size:1.08rem;max-width:var(--measure);margin:1rem 0 0;text-wrap:pretty;}
+
+  h2{font-size:1.28rem;letter-spacing:-.015em;font-weight:750;margin:2.8rem 0 0;padding-top:1.6rem;
+    border-top:1px solid var(--line);}
+  h2 .n{font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:.1em;
+    display:block;margin-bottom:.35rem;font-weight:600;}
+  p{max-width:var(--measure);margin:.9rem 0 0;}
+  .lead{max-width:var(--measure)}
+  strong{font-weight:680}
+  code{font-family:var(--mono);font-size:.86em;background:var(--line2);padding:.08em .38em;border-radius:4px;
+    border:1px solid var(--line);}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{border-bottom-color:var(--accent)}
+
+  /* spec panel */
+  .spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:1.6rem;}
+  .spec div{background:var(--card);padding:.85rem 1rem;}
+  .spec dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+  .spec dd{margin:.28rem 0 0;font-weight:650;font-size:.98rem;font-variant-numeric:tabular-nums;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
+  .chip{font-family:var(--mono);font-size:.74rem;font-weight:600;padding:.3em .7em;border-radius:999px;
+    border:1px solid;letter-spacing:.01em;}
+  .chip.word{color:var(--word);border-color:color-mix(in srgb,var(--word) 40%,transparent);background:color-mix(in srgb,var(--word) 8%,transparent)}
+  .chip.excel{color:var(--excel);border-color:color-mix(in srgb,var(--excel) 40%,transparent);background:color-mix(in srgb,var(--excel) 8%,transparent)}
+  .chip.ppt{color:var(--ppt);border-color:color-mix(in srgb,var(--ppt) 40%,transparent);background:color-mix(in srgb,var(--ppt) 8%,transparent)}
+
+  /* verdict banner */
+  .verdict{margin-top:1.6rem;border:1px solid var(--line);border-radius:12px;background:var(--card);
+    padding:1.1rem 1.2rem;display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:baseline;}
+  .verdict .big{font-family:var(--mono);font-weight:700;font-size:1.02rem;color:var(--accent-ink);
+    background:var(--accent-soft);padding:.25em .6em;border-radius:6px;}
+  .verdict .sub{color:var(--muted);font-size:.95rem}
+
+  /* tables */
+  .tbl-wrap{overflow-x:auto;margin-top:1.1rem;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:520px}
+  th,td{text-align:left;padding:.7rem .95rem;border-bottom:1px solid var(--line2);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);
+    background:color-mix(in srgb,var(--paper) 60%,var(--card));}
+  tbody tr:last-child td{border-bottom:none}
+  td .axis{font-family:var(--mono);font-weight:700}
+  .pass{color:var(--ok)} .no{color:var(--fail)} .cav{color:var(--warn)}
+  .pill{font-family:var(--mono);font-size:.7rem;font-weight:700;padding:.16em .5em;border-radius:5px;white-space:nowrap}
+  .pill.pass{background:var(--ok-soft)} .pill.fail{background:var(--fail-soft)} .pill.warn{background:var(--warn-soft)}
+
+  /* callout */
+  .mint{margin-top:1.4rem;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));border-radius:12px;
+    background:linear-gradient(180deg,var(--accent-soft),transparent 90%);padding:1.1rem 1.25rem;}
+  .mint .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .mint h3{margin:.4rem 0 0;font-size:1.06rem;letter-spacing:-.01em;line-height:1.3}
+  .mint p{margin-top:.6rem}
+
+  ul{max-width:var(--measure);margin:.9rem 0 0;padding-left:0;list-style:none}
+  ul li{position:relative;padding-left:1.35rem;margin-top:.55rem}
+  ul li::before{content:"";position:absolute;left:.15rem;top:.62em;width:6px;height:6px;border-radius:2px;
+    background:var(--accent);transform:rotate(45deg)}
+  ul.plain li::before{background:var(--faint)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1rem}
+  @media(max-width:620px){.two{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:1rem 1.15rem}
+  .box h4{margin:0 0 .3rem;font-size:.8rem;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .box ul{margin-top:.5rem}.box li{font-size:.9rem}
+
+  .path{font-family:var(--mono);font-size:.95rem;font-weight:650;margin-top:1rem;
+    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;
+    display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+  .path .arw{color:var(--accent)}
+
+  .foot{margin-top:2.8rem;padding-top:1.4rem;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:.76rem;color:var(--faint);line-height:1.8}
+  .foot b{color:var(--muted);font-weight:600}
+  .note{font-size:.85rem;color:var(--muted);background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);
+    border-radius:10px;padding:.8rem 1rem;margin-top:1.2rem;max-width:var(--measure)}
+</style>
+
+<div class="wrap">
+<article class="doc">
+
+  <p class="eyebrow">LLM Wiki · v206 · 2026-07-16 · Storm Bear / TalentAxis vault</p>
+  <h1>OfficeCLI<span class="repo">iOfficeAI/OfficeCLI</span></h1>
+  <p class="tagline">“The world's first and the best Office suite designed for AI agents.” A single self-contained binary that gives any AI agent full <strong>create / read / modify</strong> control over Word, Excel &amp; PowerPoint — no Microsoft Office installed — with a rendering engine so the agent can <em>see</em> its output.</p>
+
+  <div class="chips">
+    <span class="chip word">.docx — Word</span>
+    <span class="chip excel">.xlsx — Excel · 350+ formulas · pivots</span>
+    <span class="chip ppt">.pptx — PowerPoint</span>
+  </div>
+
+  <dl class="spec">
+    <div><dt>License</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Language</dt><dd>C# 94.6%</dd></div>
+    <div><dt>Version</dt><dd>v1.0.136</dd></div>
+    <div><dt>Releases</dt><dd>130</dd></div>
+    <div><dt>Stars</dt><dd>~18.1k*</dd></div>
+    <div><dt>Author</dt><dd>iOfficeAI</dd></div>
+    <div><dt>Tier</dt><dd>T2 Service</dd></div>
+    <div><dt>Counts</dt><dd>46 / 11</dd></div>
+  </dl>
+
+  <div class="verdict">
+    <span class="big">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="sub">(a) FAIL · (b) STRONG · (c) STRONG · (d) STRONG — the tier keys on (b)</span>
+  </div>
+
+  <h2><span class="n">§ 01 — What it is</span>Agent-first Office documents</h2>
+  <p class="lead">Point an AI agent at OfficeCLI and it authors real <code>.docx</code>/<code>.xlsx</code>/<code>.pptx</code> files. The distinctives that separate it from the field of thin Python MCP wrappers: a <strong>built-in HTML/PNG rendering engine</strong> (render-and-verify — the maker/checker loop applied to documents), a <strong>real Excel formula evaluator</strong> (350+ functions, auto-computed on write) + native pivot tables, a <strong>three-layer</strong> command surface, resident mode, and <strong>deterministic JSON</strong> I/O. It is delivered as an agent capability three ways at once.</p>
+
+  <div class="two">
+    <div class="box">
+      <h4>Three-layer surface</h4>
+      <ul class="plain">
+        <li><strong>L1 Read</strong> — <code>view · get · query · validate</code></li>
+        <li><strong>L2 DOM</strong> — <code>set · add · move · remove · batch</code> · path-addressed <code>/slide[1]/shape[2]</code></li>
+        <li><strong>L3 Raw XML</strong> — <code>raw · raw-set</code> (XPath fallback)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>Delivered as an agent capability</h4>
+      <ul class="plain">
+        <li><strong>MCP server</strong> — Claude Code · Cursor · VS Code · LM Studio</li>
+        <li><strong>Auto-installed SKILL.md</strong> — Claude Code · Cursor · Windsurf · Copilot</li>
+        <li><strong>SDKs</strong> — <code>pip install officecli-sdk</code> · <code>npm i @officecli/sdk</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="n">§ 02 — Verdict</span>Goal-alignment, four axes</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="axis">(a) author</td><td><span class="pill fail">FAIL</span></td><td>iOfficeAI = an anonymous, independent, <strong>non-Anthropic</strong> org (no public members). §41: no Anthropic affiliation, no (a)-7 vendor source; Chinese-language README is not a rescue. First iOfficeAI author → #19 19a.</td></tr>
+        <tr><td class="axis">(b) relevance</td><td><span class="pill pass">STRONG</span></td><td><strong>keys the tier.</strong> Gives agents (Claude Code first-class) a genuinely new, high-value capability — full Office-doc authoring with render-and-verify — <em>and</em> is directly pilotable into hireui (CVs in; offer letters / reports / decks out). STRONG-not-STRONGEST: third-party, capability-augmentation, Claude one of several harnesses.</td></tr>
+        <tr><td class="axis">(c) substance</td><td><span class="pill pass">STRONG</span></td><td>C# single-binary + rendering engine + formula/pivot eval + three-channel agent delivery + 130 releases. <span class="cav">Caveat:</span> internals are page/doc-stated, <strong>not source-cloned</strong>; “world's first/best” is marketing; star counts conflict (18.1k vs 8.4k).</td></tr>
+        <tr><td class="axis">(d) connectedness</td><td><span class="pill pass">STRONG</span></td><td>The agent-capability-layer §C cluster · MCP family (#18 B1-MCP) · agent-skills ecosystem (#84 84c) · markitdown v28 (direction contrast) · Anthropic's own docx/xlsx/pptx skills (conceptual peer) · the render-and-verify discipline.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="n">§ 03 — Pattern outcome</span>One new standalone, N=1</h2>
+  <div class="mint">
+    <span class="tag">+1 §C standalone · N=1 · corpus-first for the surface</span>
+    <h3>Agent-First Office-Document (Word/Excel/PowerPoint) Creation+Manipulation Capability Layer</h3>
+    <p>A single self-contained binary + built-in MCP server + auto-installed cross-harness SKILL.md + SDKs that gives an AI agent full create/read/modify control over <code>.docx</code>/<code>.xlsx</code>/<code>.pptx</code> — with a rendering engine so the agent can <strong>see</strong> and verify output, a formula/pivot evaluator, and deterministic JSON — no Office install.</p>
+  </div>
+  <ul>
+    <li><strong>CORPUS-FIRST for the Office-document surface</strong> — collision grep clean; the closest neighbor <code>markitdown v28</code> is document→markdown <em>conversion</em> (the opposite direction); the §C capability-layer cluster (Agent-Reach v174 · serve-sim v183 · camofox v179 · page-agent v199 · browser-use v41 · fff v194) has no Office surface.</li>
+    <li><strong>NOT world-first</strong> — a populated MCP-server space precedes it (office-mcp, pptx-xlsx-mcp, macos-office365-mcp, ai-office-mcp, openpyxl-MCP…), mostly single-format Python wrappers. OfficeCLI's distinctive is the C# single-binary + rendering + formula/pivot + cross-harness bundle. “World's first” is a tagline.</li>
+    <li><strong>Mint at N=1</strong> per the serve-sim v183 / fff v194 / page-agent v199 precedent. §28 ≤2 cap honored.</li>
+    <li class="cav"><strong>NO-MINT alternative recorded (reviewable):</strong> “an Office-document vertical within the agent-capability-layer family; a new target, not a new mechanism.” Leaned MINT on the surface-boundary logic (serve-sim/page-agent precedent). <strong>Either reading counts UNCHANGED 46/11.</strong></li>
+  </ul>
+
+  <h2><span class="n">§ 04 — Accounting</span>Secondary &amp; non-claims</h2>
+  <div class="two">
+    <div class="box">
+      <h4>Secondary (not minted)</h4>
+      <ul class="plain">
+        <li>#18 B1-MCP instance → N≈12 (one server, 4 clients)</li>
+        <li>#84 84c cross-harness SKILL.md + SDKs (no N-bump)</li>
+        <li>#19 19a first iOfficeAI author (serial builder — AionUi 30k★)</li>
+        <li>#66 install / attack-surface: curl|bash + auto-provisioning SDKs + auto-writes agent configs → fence</li>
+        <li>render-and-verify / maker-checker cross-ref</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>Non-claims</h4>
+      <ul class="plain">
+        <li>NOT #52 (stars page-stated + conflicting, §37.4)</li>
+        <li>NOT world-first (populated competitor space)</li>
+        <li>NOT #57 (no corpus subjects cited as influences)</li>
+        <li>NOT a new top-level pattern (max #85)</li>
+        <li>NOT source-verified at the C# level (flagged)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="n">§ 05 — Apply it</span>The sharpest hireui pilot since serve-sim v183</h2>
+  <p class="lead">Recruiting <em>is</em> document I/O — résumés in; offer letters, candidate reports, pipeline spreadsheets and client decks out. Start read-only and template-driven; keep free-text LLM out of the legal/offer path; let the render-and-verify gate be the safety net.</p>
+  <div class="path"><span>A1 read the SKILL.md</span><span class="arw">→</span><span>C12 scratch offer-letter <code>{{key}}</code> merge</span><span class="arw">→</span><span>D17 hireui offer-letter slice on an <code>agent-*</code> branch</span></div>
+  <p class="note">⚠️ Fence: install-snapshot → prefer a manual binary / pinned package over <code>curl|bash</code> → npm-security-check the SDKs → scratch dir before real data → review what it writes into your agent configs → candidate PII stays local pending a residency ADR → hireui per its CONSTITUTION (I-2 / I-8 / GitNexus-first) → pin v1.0.136.</p>
+
+  <div class="foot">
+    <b>Method:</b> INLINE + hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow relied on (the ~205K shim overflows subagent context → prompt-too-long, the v200/v202/v204/v205 self-throttle precedent). Source hand-fetched (repo · raw README · DeepWiki · SKILL.md · org page); identity + landscape by WebSearch; collision by file-routed hand-grep (markitdown sanity = 6 hits confirms the grep works → OfficeCLI/iOfficeAI = 0 hits = clean).<br>
+    <b>Streak:</b> GA:65 → GA:66 · 52 consecutive goal-aligned ships v153→v206 · §35 CLEAR {v204 GA, v205 GA, v206 GA}.<br>
+    <b>Ship:</b> branch <code>wiki/v206-officecli</code> off the v205 tip <code>18a5043</code> — not auto-merged; operator reviews + merges the v204→v205→v206 chain.<br>
+    <b>*</b> stars/forks/dates are page-stated (§37.4 mocks the GitHub API) → no viral-velocity claim.
+  </div>
+
+</article>
+</div>
