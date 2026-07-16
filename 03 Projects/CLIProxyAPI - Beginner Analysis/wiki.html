@@ -1,0 +1,215 @@
+<title>CLIProxyAPI — LLM Wiki v207</title>
+<style>
+  :root {
+    --ink: #0d1417;
+    --paper: #f5f7f7;
+    --card: #ffffff;
+    --muted: #56666b;
+    --hair: #dbe3e3;
+    --wire: #0e9e8c;
+    --wire-soft: #d3efeb;
+    --caution: #b5761a;
+    --caution-bg: #fbf1de;
+    --caution-hair: #ecd3a3;
+    --good: #2f8f5b;
+    --bad: #c0503f;
+    --code-bg: #eef2f2;
+    --shadow: 0 1px 2px rgba(13,20,23,.05), 0 8px 24px rgba(13,20,23,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e7edee; --paper: #0c1214; --card: #131b1e; --muted: #8fa2a6;
+      --hair: #223034; --wire: #35c9b4; --wire-soft: #12312d; --caution: #e0a84e;
+      --caution-bg: #241d0f; --caution-hair: #493a1c; --good: #4fb37b; --bad: #e0715f;
+      --code-bg: #182225; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --ink: #0d1417; --paper: #f5f7f7; --card: #ffffff; --muted: #56666b; --hair: #dbe3e3;
+    --wire: #0e9e8c; --wire-soft: #d3efeb; --caution: #b5761a; --caution-bg: #fbf1de;
+    --caution-hair: #ecd3a3; --good: #2f8f5b; --bad: #c0503f; --code-bg: #eef2f2;
+    --shadow: 0 1px 2px rgba(13,20,23,.05), 0 8px 24px rgba(13,20,23,.05);
+  }
+  :root[data-theme="dark"] {
+    --ink: #e7edee; --paper: #0c1214; --card: #131b1e; --muted: #8fa2a6; --hair: #223034;
+    --wire: #35c9b4; --wire-soft: #12312d; --caution: #e0a84e; --caution-bg: #241d0f;
+    --caution-hair: #493a1c; --good: #4fb37b; --bad: #e0715f; --code-bg: #182225;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6; font-size: 16px;
+  }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, "Cascadia Code", monospace; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 40px 22px 72px; }
+  header.hd { border-bottom: 1px solid var(--hair); padding-bottom: 22px; margin-bottom: 30px; }
+  .eyebrow { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--wire); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--wire); display: inline-block; }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.08; margin: 14px 0 8px;
+    letter-spacing: -.01em; text-wrap: balance; }
+  h1 .slug { font-family: ui-monospace, Menlo, monospace; font-weight: 600; }
+  .sub { color: var(--muted); font-size: 1.05rem; max-width: 62ch; margin: 0; text-wrap: balance; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip { font-family: ui-monospace, Menlo, monospace; font-size: 12px; padding: 4px 9px;
+    border: 1px solid var(--hair); border-radius: 999px; color: var(--muted); background: var(--card); }
+  .chip b { color: var(--ink); font-weight: 600; }
+  h2 { font-size: 1.02rem; letter-spacing: .04em; text-transform: uppercase;
+    font-family: ui-monospace, Menlo, monospace; color: var(--wire); margin: 40px 0 14px;
+    display: flex; align-items: baseline; gap: 10px; }
+  h2 .n { color: var(--muted); font-size: .85em; }
+  p { margin: 0 0 14px; }
+  a { color: var(--wire); text-underline-offset: 3px; }
+  .thesis { font-size: 1.12rem; border-left: 3px solid var(--wire); padding: 4px 0 4px 18px; color: var(--ink); }
+  code, .tag { font-family: ui-monospace, Menlo, monospace; font-size: .88em; background: var(--code-bg);
+    padding: 1px 6px; border-radius: 5px; }
+  /* verdict scorecard */
+  .verdict { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--hair);
+    border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
+  .vrow { display: grid; grid-template-columns: 62px 1fr; gap: 0; border-bottom: 1px solid var(--hair); }
+  .vrow:last-child { border-bottom: 0; }
+  .vk { font-family: ui-monospace, Menlo, monospace; font-weight: 700; padding: 14px 12px;
+    border-right: 1px solid var(--hair); display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 4px; }
+  .vk .lab { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .vk .grade { font-size: 1.05rem; }
+  .grade.pass { color: var(--wire); }
+  .grade.fail { color: var(--bad); }
+  .vv { padding: 13px 16px; font-size: .96rem; }
+  .vv b { color: var(--ink); }
+  .banner { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin: 18px 0 4px;
+    font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  .verdict-line { font-weight: 700; font-size: 1.05rem; letter-spacing: -.01em; margin-bottom: 4px;
+    font-family: ui-monospace, Menlo, monospace; }
+  /* callouts */
+  .callout { border-radius: 12px; padding: 16px 18px; margin: 22px 0; border: 1px solid var(--hair);
+    background: var(--card); box-shadow: var(--shadow); }
+  .callout .lead { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .callout.caution { background: var(--caution-bg); border-color: var(--caution-hair); }
+  .callout.caution .lead { color: var(--caution); }
+  .callout.wire { background: var(--wire-soft); border-color: var(--wire); }
+  .callout.wire .lead { color: var(--wire); }
+  .callout p:last-child { margin-bottom: 0; }
+  .prov { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 4px; }
+  .prov .p { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; padding: 5px 10px;
+    border-radius: 8px; border: 1px solid var(--hair); background: var(--card); }
+  .prov .p .m { color: var(--muted); }
+  .prov .p.blocked { border-color: var(--caution-hair); background: var(--caution-bg); }
+  ul.tight { margin: 4px 0 14px; padding-left: 20px; }
+  ul.tight li { margin-bottom: 7px; }
+  .path { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-family: ui-monospace, Menlo, monospace;
+    font-size: 14px; margin: 8px 0 4px; }
+  .path .step { padding: 6px 11px; border: 1px solid var(--wire); border-radius: 8px; background: var(--wire-soft); }
+  .path .arr { color: var(--muted); }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--hair); color: var(--muted);
+    font-size: 13px; font-family: ui-monospace, Menlo, monospace; }
+  .kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; font-size: .95rem; }
+  .kv dt { color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  .kv dd { margin: 0; }
+  table.nbr { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 6px 0 4px; }
+  table.nbr th, table.nbr td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  table.nbr th { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .scroll { overflow-x: auto; }
+</style>
+
+<div class="wrap">
+  <header class="hd">
+    <div class="eyebrow"><span class="dot"></span> LLM Wiki · v207 · 2026-07-16 · Tier T2 Service</div>
+    <h1><span class="slug">router-for-me/CLIProxyAPI</span></h1>
+    <p class="sub">A self-hosted Go proxy that wraps the OAuth logins of AI <em>CLI</em> tools — Claude Code, Codex, Gemini CLI, Grok, Kimi — and re-exposes those subscriptions as OpenAI/Gemini/Claude/Codex-compatible <em>API</em> endpoints.</p>
+    <div class="facts">
+      <span class="chip"><b>Go</b> 100%</span>
+      <span class="chip"><b>MIT</b></span>
+      <span class="chip">~<b>42.4k</b>★ <span class="mono">(page-stated)</span></span>
+      <span class="chip"><b>761</b> releases</span>
+      <span class="chip"><b>v7.2.80</b></span>
+      <span class="chip">Docker <b>eceasy/cli-proxy-api</b></span>
+    </div>
+  </header>
+
+  <p class="thesis">"Wrap Antigravity, ChatGPT Codex, Claude Code, Grok Build as an OpenAI/Gemini/Claude/Codex compatible API service, allowing you to enjoy the free … Claude model through API." — the word doing the work is <strong>free</strong>: use the models bundled in your <em>subscription</em> through a generic <em>API</em>. That is also exactly what makes it a terms-of-service gray zone.</p>
+
+  <h2>Verdict <span class="n">// hand-verified, no workflow</span></h2>
+  <div class="verdict-line">GOAL-ALIGNED INCLUDE · 3/4</div>
+  <div class="banner">
+    <span>counts <b>46/11</b> unchanged</span>
+    <span>§C <b>41 → 42</b></span>
+    <span>streak <b>GA:67</b></span>
+    <span>§35 CLEAR</span>
+  </div>
+  <div class="verdict" style="margin-top:12px">
+    <div class="vrow"><div class="vk"><span class="lab">a</span><span class="grade fail">FAIL</span></div>
+      <div class="vv"><b>Author.</b> <code>router-for-me</code> / "Router-For.ME" — a bare org, no disclosed individual, not Anthropic (§41). The DeusData v172 / Jo-Inc v179 / iOfficeAI v206 bare-org situation. #19 19a first router-for-me author.</div></div>
+    <div class="vrow"><div class="vk"><span class="lab">b</span><span class="grade pass">STRONG</span></div>
+      <div class="vv"><b>Keys the tier.</b> Canonical LLM-access / provider-routing infrastructure on the exact substrate the vault studies (cc-switch v73 / freellmapi v112 / CodexPlusPlus v117 / ai-switcher v153) + dead-center on the <em>claude-api-cost-optimization</em> thread + a load-bearing dependency of cortex-hub v181. STRONG-not-STRONGEST: third-party gray-zone infra, and its Claude path is ToS-blocked → <b>pilot-AVOID-for-Claude</b>.</div></div>
+    <div class="vrow"><div class="vk"><span class="lab">c</span><span class="grade pass">STRONG</span></div>
+      <div class="vv"><b>Substance.</b> Go, MIT, ~42.4k★, <b>761 releases</b>, multi-provider OAuth + full multi-protocol endpoints + load-balancing + Go SDK + Management API + an ecosystem (EasyCLI GUI / WebUI / 20+ community projects). Caveats: <em>not source-cloned</em>; page-stated stars; the ToS gray-zone; the docs' own "model name ≠ backend" footgun.</div></div>
+    <div class="vrow"><div class="vk"><span class="lab">d</span><span class="grade pass">STRONG</span></div>
+      <div class="vv"><b>Connections.</b> cc-switch v73 · freellmapi v112 · CodexPlusPlus v117 · ai-switcher v153 · <b>opencode-antigravity-auth v67</b> (closest cousin) · Pattern #18 #8 · cortex-hub v181 (bundled it) · EasyCLI.</div></div>
+  </div>
+
+  <h2>The corpus link <span class="n">// hand-verified</span></h2>
+  <div class="callout wire">
+    <div class="lead">◆ cortex-hub v181 bundled this</div>
+    <p>cortex-hub v181's LLM gateway was the Docker image <code>eceasy/cli-proxy-api:latest</code> on <code>:8317</code> — which <strong>is</strong> this project. So cortex-hub v181 silently bundled <strong>two</strong> now-corpus subjects: <b>GitNexus v33</b> (code-intel) and <b>CLIProxyAPI v207</b> (LLM gateway). A corpus-recursive <em>dependency</em> data-point — <b>not #57</b> (silent bundling, not an influence-citation).</p>
+  </div>
+
+  <h2>The ToS gray zone <span class="n">// fence-defining</span></h2>
+  <div class="callout caution">
+    <div class="lead">▲ pilot-AVOID for Claude — account-ban risk</div>
+    <p><b>Jan 2026:</b> Anthropic enforced its ToS against tools that intercept the Claude Code OAuth flow, extract the token, and impersonate Claude Code — tokens blocked, accounts suspended. <b>April 4 2026:</b> Anthropic blocked third-party harnesses from using Claude Max subscription limits, so the Claude subscription path is reported no longer viable. CLIProxyAPI's core mechanism is precisely this class. Other providers carry the same exposure.</p>
+    <p style="margin-top:8px"><b>Do not run it against your Claude/Anthropic account.</b> The legitimate path is official, paid API keys.</p>
+  </div>
+
+  <h2>Providers wrapped <span class="n">// README-stated</span></h2>
+  <div class="prov">
+    <span class="p blocked">Claude <span class="m">Opus/Sonnet/Fable · OAuth · ToS-blocked</span></span>
+    <span class="p">OpenAI <span class="m">GPT-5.6/5.5 · Codex OAuth</span></span>
+    <span class="p">Gemini <span class="m">3.1 Pro/3.5 Flash · CLI/Antigravity</span></span>
+    <span class="p">Grok <span class="m">4.5 · Grok Build OAuth</span></span>
+    <span class="p">Kimi <span class="m">K2.7/K2.6</span></span>
+    <span class="p">OpenAI-compat <span class="m">e.g. OpenRouter · API key</span></span>
+  </div>
+  <p style="margin-top:10px">Front-end speaks all protocols at once: <code>/v1/chat/completions</code>, OpenAI Responses, <code>/v1beta/models/…</code> (Gemini), <code>/v1/messages</code> (Claude), Codex, plus path-based routing <code>/api/provider/{provider}/…</code>.</p>
+
+  <h2>Pattern outcome <span class="n">// 1 new §C standalone, N=1</span></h2>
+  <p><b>MINT:</b> "Self-Hosted Multi-Provider API Gateway that Re-Exposes CLI-Tool OAuth Subscriptions as OpenAI/Gemini/Claude/Codex-Compatible Endpoints" — N=1. <b>CORPUS-FIRST for the surface, NOT world-first</b> (populated flagship: <code>claude-proxy</code> peer + <code>CliRelay</code>/<code>kur4ge</code>/<code>ai-cli-proxy-api</code> forks — CLIProxyAPI is the world-canonical, most-forked instance). Mint at N=1 per the serve-sim v183 / OfficeCLI v206 + ai-switcher v153 neighborhood precedent.</p>
+  <div class="callout">
+    <div class="lead" style="color:var(--muted)">⇄ two reviewable boundary alternatives (recorded, not self-resolved)</div>
+    <ul class="tight" style="margin-bottom:0">
+      <li><b>N=2-not-N=1:</b> if "reverse-engineer a CLI-tool's OAuth to use its subscription" is the class, <b>opencode-antigravity-auth v67</b> (single-provider bridge) is the un-registered N=1 → this is N=2. <em>Lean N=1-for-the-gateway-surface</em> (v67 = a bridge plugin T4; v207 = a gateway service T2).</li>
+      <li><b>NO-MINT:</b> just an instance of Pattern #18 #8 (Multi-Source LLM Aggregator) + LV-C2 economics, with subscription-OAuth as a source-variant. <em>Lean MINT</em> (canonical flagship + corpus dependency + distinct mechanism/ToS-profile).</li>
+    </ul>
+  </div>
+  <p><b>Secondary (not minted):</b> #19 19a · corpus-recursive dependency (v181) · Pattern #18 #8 instance-strengthening · LV-C2 cost-economics cross-ref · v67 OAuth cousin · EasyCLI → LV#22 adjacency · #66 supply-chain/ToS/dual-use. <b>Non-claims:</b> NOT #18 B1-MCP (ships no MCP server) · NOT #52 · NOT #57 · NOT world-first · NOT a new top-level pattern (max #85) · NOT source-verified at the Go level.</p>
+
+  <h2>Corpus neighborhood</h2>
+  <div class="scroll">
+  <table class="nbr">
+    <tr><th>Subject</th><th>Does</th><th>vs CLIProxyAPI</th></tr>
+    <tr><td class="mono">cc-switch v73</td><td>rewrites Claude Code's provider config</td><td>points a client <em>at</em> an endpoint; this <em>is</em> the endpoint</td></tr>
+    <tr><td class="mono">freellmapi v112</td><td>free-tier stacking</td><td>no subscription-OAuth; different source</td></tr>
+    <tr><td class="mono">CodexPlusPlus v117</td><td>points an agent at reseller relays</td><td>relays sell access; this uses <em>your own</em> subscriptions</td></tr>
+    <tr><td class="mono">ai-switcher v153</td><td>multi-account rotation on quota</td><td>no unified-API front</td></tr>
+    <tr><td class="mono">opencode-antigravity-auth v67</td><td>single-provider OAuth-credential bridge</td><td>★ closest cousin — same idea, bridge-not-gateway</td></tr>
+    <tr><td class="mono">Pattern #18 #8</td><td>Multi-Source LLM Aggregator</td><td>an instance — but the subscription-OAuth source is the distinctive</td></tr>
+  </table>
+  </div>
+
+  <h2>Pilot <span class="n">// ⭐ one-thing path</span></h2>
+  <div class="path">
+    <span class="step">A1 read the landscape</span><span class="arr">→</span>
+    <span class="step">A3 read the ToS boundary</span><span class="arr">→</span>
+    <span class="step">B7 write the guardrail ADR</span>
+  </div>
+  <p style="margin-top:10px">On-goal as a <b>landscape/knowledge</b> subject; the value is read-and-learn + borrow the multi-protocol provider-routing <em>architecture</em> as a reference for hireui's future vendor-seam — implemented with <b>official API keys</b>, never subscription-OAuth reverse-engineering. Full 24-method menu in the pilot doc.</p>
+
+  <footer>
+    (C) Storm Bear vault · LLM Wiki v207 · shipped on <span class="mono">wiki/v207-cliproxyapi</span> off the v206 tip · not auto-merged.<br>
+    Provenance: INLINE + hand-verified (repo / README / help.router-for.me / landscape + ToS search + hand-grep). Not source-cloned. Stars/releases page-stated §37.4 → not #52.
+  </footer>
+</div>
