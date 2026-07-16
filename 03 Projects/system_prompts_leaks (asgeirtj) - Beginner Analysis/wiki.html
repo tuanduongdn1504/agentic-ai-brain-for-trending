@@ -1,0 +1,212 @@
+<style>
+  :root{
+    --paper:#f6f4ef; --ink:#1c1a17; --muted:#6b655c; --faint:#8f887d;
+    --rule:#e2ddd3; --card:#fffefb; --accent:#b8801f; --accent-soft:#f0e4c8;
+    --good:#3f7d4e; --good-bg:#e6f0e6; --bad:#a6462f; --bad-bg:#f4e5df;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:74ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#141310; --ink:#eceae4; --muted:#a49c8f; --faint:#7c756a;
+      --rule:#2b2823; --card:#1c1a16; --accent:#e0a93a; --accent-soft:#3a3220;
+      --good:#7fc08c; --good-bg:#1e2c20; --bad:#e0917a; --bad-bg:#33211a;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f6f4ef; --ink:#1c1a17; --muted:#6b655c; --faint:#8f887d;
+    --rule:#e2ddd3; --card:#fffefb; --accent:#b8801f; --accent-soft:#f0e4c8;
+    --good:#3f7d4e; --good-bg:#e6f0e6; --bad:#a6462f; --bad-bg:#f4e5df;
+  }
+  :root[data-theme="dark"]{
+    --paper:#141310; --ink:#eceae4; --muted:#a49c8f; --faint:#7c756a;
+    --rule:#2b2823; --card:#1c1a16; --accent:#e0a93a; --accent-soft:#3a3220;
+    --good:#7fc08c; --good-bg:#1e2c20; --bad:#e0917a; --bad-bg:#33211a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 96px}
+  a{color:var(--accent);text-underline-offset:2px}
+
+  /* hero — leaked-file header */
+  header{max-width:var(--maxw);margin:0 auto;padding:52px 22px 34px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .eyebrow .dot{color:var(--accent)}
+  .filepath{font-family:var(--mono);font-size:15px;color:var(--muted);
+    background:var(--card);border:1px solid var(--rule);border-radius:8px;
+    padding:9px 13px;display:inline-block;margin:0 0 22px;word-break:break-all}
+  .filepath b{color:var(--accent);font-weight:600}
+  h1{font-family:var(--mono);font-weight:600;font-size:clamp(29px,5.4vw,44px);line-height:1.08;
+    margin:0 0 16px;letter-spacing:-.01em;text-wrap:balance}
+  .lede{font-size:19px;color:var(--muted);margin:0;text-wrap:pretty;max-width:64ch}
+  .lede .hl{color:var(--ink);background:linear-gradient(transparent 62%,var(--accent-soft) 62%);
+    padding:0 1px;font-weight:600}
+
+  /* the "revealed" verdict chip row */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+  .chip{font-family:var(--mono);font-size:12.5px;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--rule);background:var(--card);color:var(--muted)}
+  .chip.ga{color:var(--good);background:var(--good-bg);border-color:transparent}
+  .chip.ac{color:var(--accent);border-color:var(--accent)}
+
+  section{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  h2{font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent);margin:52px 0 4px;padding-top:26px;border-top:1px solid var(--rule)}
+  h2 .n{color:var(--faint)}
+  h3{font-size:19px;margin:26px 0 6px;font-weight:650}
+  p{margin:12px 0}
+  strong{font-weight:650}
+  .mono{font-family:var(--mono);font-size:.9em}
+
+  /* callout — styled like a highlighted system-prompt block */
+  .callout{border:1px solid var(--rule);border-left:3px solid var(--accent);background:var(--card);
+    border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0}
+  .callout.warn{border-left-color:var(--bad)}
+  .callout .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--faint);display:block;margin-bottom:6px}
+  .callout p:first-of-type{margin-top:0}.callout p:last-child{margin-bottom:0}
+
+  /* tables */
+  .scroll{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card)}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);background:transparent}
+  tbody tr:last-child td{border-bottom:none}
+  td.k{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
+  .verdict-cell{font-family:var(--mono);font-weight:600;font-size:13px}
+  .v-pass{color:var(--good)}.v-fail{color:var(--bad)}
+  .axis{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+  ul{margin:12px 0;padding-left:22px}li{margin:7px 0}
+  .contrast td.k{color:var(--ink);font-family:var(--sans);font-weight:600;white-space:normal}
+
+  footer{max-width:var(--maxw);margin:56px auto 0;padding:24px 22px 0;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;color:var(--faint);line-height:1.7}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:rise .5s ease both}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+
+<header class="reveal">
+  <p class="eyebrow"><span>LLM Wiki</span><span class="dot">·</span><span>v205</span><span class="dot">·</span><span>2026-07-16</span><span class="dot">·</span><span>Storm Bear vault</span></p>
+  <div class="filepath">github.com/<b>asgeirtj</b>/system_prompts_leaks</div>
+  <h1>The hidden rules behind AI, in the open.</h1>
+  <p class="lede">The canonical, continuously-updated, <span class="hl">public-domain (CC0)</span> archive of the <span class="hl">real production system prompts</span> of every major AI product — Claude Opus&nbsp;4.8, Sonnet&nbsp;5, Fable&nbsp;5, Claude&nbsp;Code, Design, Cowork, Mobile, plus ChatGPT, Gemini, Grok, Copilot, Cursor, Perplexity and ~40 more. Maintained by a named person, covered by <em>The Washington Post</em>.</p>
+  <div class="chips">
+    <span class="chip ga">GOAL-ALIGNED INCLUDE · 3/4</span>
+    <span class="chip">NO MINT</span>
+    <span class="chip">counts 46 / 11 unchanged</span>
+    <span class="chip ac">Pattern #38 38a · N=1→N=2</span>
+    <span class="chip">streak GA:65</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="callout warn reveal">
+    <span class="tag">⚠ Not a revisit — read this first</span>
+    <p>The vault already has a <span class="mono">system-prompts-leaks</span> wiki at <strong>v21</strong> — but that is a <strong>different repo and a different author</strong>: <span class="mono">x1xhlol/system-prompts-and-models-of-ai-tools</span> (pseudonymous, GPL-3.0, crypto-funded, rated OUTSIDE-SCOPE + pilot-AVOID). This one — <span class="mono">asgeirtj/system_prompts_leaks</span> — is a <strong>genuine cross-author 2nd instance</strong> of the same genre, and the <strong>accountable / legitimate pole</strong> of it. Distinct project folder; the v21 docs are untouched.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">01 ·</span> Verdict — GOAL-ALIGNED INCLUDE 3/4</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Criterion</th><th>Call</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="k">(a) Anthropic / (a)-7</td>
+          <td class="verdict-cell v-fail">FAIL</td>
+          <td>Ásgeir Thor Johnson — a disclosed individual in Iceland, not Anthropic. Per §41, no name/heritage/locale/notability rescue; the disclosed-individual axis is answered NO.</td>
+        </tr>
+        <tr>
+          <td class="k">(b) Goal-relevance <span class="axis">keys the tier</span></td>
+          <td class="verdict-cell v-pass">STRONG <span class="axis">⚠ MODERATE reviewable</span></td>
+          <td>The <span class="mono">/Anthropic</span> folder is a current archive of Claude's real instructions across every surface → a premier way to <strong>master Claude</strong> (Goal #1) + a reference for hireui's own LLM prompts &amp; injection defenses (Goal #2). The exact understanding-agent-internals value that made <strong>v65 INCLUDE (b) STRONG</strong> — broader here. Not STRONGEST: a passive multi-vendor reference, third-party-extracted.</td>
+        </tr>
+        <tr>
+          <td class="k">(c) Substance</td>
+          <td class="verdict-cell v-pass">STRONG</td>
+          <td>Canonical, most-referenced multi-vendor archive; continuously updated (640 commits); every current Claude surface; CC0; WaPo-covered. Caveats: authenticity unguaranteed, staleness, undisclosed extraction, gray-zone genre.</td>
+        </tr>
+        <tr>
+          <td class="k">(d) Pattern-fit</td>
+          <td class="verdict-cell v-pass">STRONG</td>
+          <td>Clean home in Pattern #38 (Prompt-Leak-Archive) + #21 + the understanding-agent-internals thread (v65 / v173 / v21) + a rich contrast pair with x1xhlol v21.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">02 ·</span> Two archives, opposite poles</h2>
+  <p>asgeirtj is the near-perfect contrast to the corpus's v21 twin on almost every axis — the reason it earns its own entry rather than being a duplicate.</p>
+  <div class="scroll">
+    <table class="contrast">
+      <thead><tr><th>Axis</th><th>v21 · x1xhlol</th><th>v205 · asgeirtj</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Identity</td><td>Pseudonymous (3 handles)</td><td>Disclosed real person · Iceland</td></tr>
+        <tr><td class="k">License</td><td>GPL-3.0 on non-owned content</td><td>CC0-1.0 (public domain)</td></tr>
+        <tr><td class="k">Monetization</td><td>6-channel crypto + ZeroLeaks</td><td>None</td></tr>
+        <tr><td class="k">Positioning</td><td>"LeaksLab" · leak-framing</td><td>"document the prompts" · WaPo · PRs Welcome</td></tr>
+        <tr><td class="k">Cadence</td><td>One-time leak</td><td>Continuously updated</td></tr>
+        <tr><td class="k">Scope call</td><td>OUTSIDE-SCOPE · AVOID</td><td>GOAL-ALIGNED INCLUDE</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">03 ·</span> Why it's on-goal (Goal #1: master Claude)</h2>
+  <p>The <span class="mono">/Anthropic</span> folder is a comprehensive, current archive of Claude's production instructions — the reason this is INCLUDE and not OUTSIDE-SCOPE:</p>
+  <ul>
+    <li><strong>Frontier models</strong> — <span class="mono">claude-opus-4.8.md</span>, <span class="mono">claude-sonnet-5.md</span>, <span class="mono">claude-fable-5.md</span> (+ 4.6/4.7 for diffing)</li>
+    <li><strong>Product surfaces</strong> — <span class="mono">claude-code/</span>, <span class="mono">claude-design.md</span>, <span class="mono">claude-cowork.md</span>, <span class="mono">claude-mobile-ios.md</span>, <span class="mono">claude-for-excel/word</span>, <span class="mono">claude-in-chrome/powerpoint</span></li>
+    <li><strong>Injected context &amp; tools</strong> — <span class="mono">anthropic_reminders.md</span> (the same class of long-conversation reminders you can see in a live session), <span class="mono">default-styles.md</span>, <span class="mono">visualize.md</span>, <span class="mono">research_instructions.md</span></li>
+  </ul>
+  <p>Reading these teaches how Claude is actually instructed, gives a cross-vendor prompt-engineering masterclass (diff Claude vs GPT vs Gemini vs Grok), and doubles as a <strong>prompt-injection-defense reference</strong> for your own LLM features. This is the same thread that made <strong>v65 claude-code-system-prompts</strong> an INCLUDE — asgeirtj is the broader, multi-vendor sibling.</p>
+</section>
+
+<section>
+  <h2><span class="n">04 ·</span> Honest caveats</h2>
+  <div class="callout">
+    <span class="tag">Trust, but verify</span>
+    <p><strong>Authenticity is not vendor-guaranteed.</strong> These are extracted prompts; the only validation shown is a screenshot of "Claude confirming a prompt is authentic" — a model confirming its own leaked prompt is weak evidence. <strong>Assume staleness</strong> (snapshots drift the moment a vendor ships). <strong>Extraction method undisclosed</strong> + crowd-sourced ("PRs Welcome") → per-file provenance varies. <strong>Gray-zone genre</strong> — fine to read/learn; don't build a product on it or copy vendor prompt <em>text</em> verbatim. It's a passive archive: nothing to install, no capability added.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05 ·</span> Pattern outcome — NO MINT</h2>
+  <ul>
+    <li><strong>Pattern #38 38a (multi-tool-prompt-archive): N=1 → N=2</strong> — a clean cross-author 2nd instance (x1xhlol v21 + asgeirtj v205). N-tally is audit bookkeeping; #38 is already CONFIRMED → top-level count unchanged.</li>
+    <li><strong>Pattern #21 (System Prompts Leaks): N=1 → N=2</strong> — continuous cadence straddles 21a one-time / 21b continuous-extraction.</li>
+    <li><strong>No new §C standalone</strong> — the genre is captured at the top-level Pattern layer; a mint would be the "draw-the-circle" over-claim (camofox v179 / marketingskills v202 discipline).</li>
+    <li><strong>Anti-instances</strong> — bounds #36 (pseudonymity not required), bounds #37 (monetization not required), contrasts #39 (CC0 vs GPL). <strong>Does NOT un-stale #79</strong> (no compiled-source parsing, no latency disclosure — fails 2 of 3 criteria).</li>
+    <li><strong>Counts UNCHANGED: 46 top-level / 11 CONFIRMED Library-vocab.</strong> §C surface ≈47 (40 live standalones). <strong>Streak GA:64 → GA:65</strong> (51 consecutive GA v153→v205); §35 CLEAR.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">06 ·</span> Apply it — the one-thing path</h2>
+  <p><strong>A1 → B7 → D16.</strong> Read Claude's real Opus&nbsp;4.8 + Claude&nbsp;Code + Design + <span class="mono">anthropic_reminders</span> prompts → distil a system-prompt structure + injection-defense checklist into the vault (zero install) → use it when writing <strong>hireui's first LLM feature's system prompt</strong> (Match-Explain / candidate-summariser) on an <span class="mono">agent-*</span> branch, per hireui's CONSTITUTION.</p>
+  <div class="callout">
+    <span class="tag">Fence · content-trust, not supply-chain</span>
+    <p>Trust-but-verify each file · assume staleness, re-fetch before relying · <strong>borrow STRUCTURE, never vendor TEXT</strong> · gray-zone genre → read/learn only · hireui use behind its CONSTITUTION + the candidate-LLM legibility ADR · nothing to install (read-only).</p>
+  </div>
+  <p>Full 24-method menu (A read+learn → B borrow → C scratch → D hireui → E personal → F vault-meta) in <span class="mono">(C) system_prompts_leaks (asgeirtj) — Pilot Methods Menu.md</span>.</p>
+</section>
+
+<footer>
+  <div>system_prompts_leaks (asgeirtj) · LLM Wiki v205 · Storm Bear vault · 2026-07-16</div>
+  <div>Verdict inline + hand-verified · counts 46/11 unchanged · Pattern #38 38a N=2 (recorded, not self-incremented) · stars/forks page-stated §37.4, sources conflict → not a #52 claim</div>
+</footer>
+
+</div>
