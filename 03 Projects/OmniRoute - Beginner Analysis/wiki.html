@@ -1,0 +1,305 @@
+<style>
+  :root{
+    --paper:#f5f8f8; --panel:#ffffff; --ink:#12201f; --muted:#5c6b6a;
+    --line:#dbe4e3; --line-strong:#c3d0cf;
+    --accent:#0d9488; --accent-ink:#0b7a70; --accent-soft:#e3f2f0;
+    --caution:#a8690f; --caution-soft:#faf0dc; --caution-line:#e6cf9c;
+    --avoid:#a83a2c; --avoid-soft:#f8e6e2; --avoid-line:#e6b8ae;
+    --code:#0f2b28; --code-bg:#eef4f3;
+    --shadow:0 1px 2px rgba(16,40,38,.06),0 6px 20px rgba(16,40,38,.05);
+    --measure:70ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0c1413; --panel:#111d1c; --ink:#e6efee; --muted:#8ea3a1;
+      --line:#22322f; --line-strong:#2e4340;
+      --accent:#2dd4bf; --accent-ink:#5ee7d6; --accent-soft:#122a27;
+      --caution:#e0a94a; --caution-soft:#241c0e; --caution-line:#4a3a1a;
+      --avoid:#f08a78; --avoid-soft:#2a1310; --avoid-line:#4d241d;
+      --code:#c7ded9; --code-bg:#0f1e1c;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f5f8f8; --panel:#ffffff; --ink:#12201f; --muted:#5c6b6a;
+    --line:#dbe4e3; --line-strong:#c3d0cf;
+    --accent:#0d9488; --accent-ink:#0b7a70; --accent-soft:#e3f2f0;
+    --caution:#a8690f; --caution-soft:#faf0dc; --caution-line:#e6cf9c;
+    --avoid:#a83a2c; --avoid-soft:#f8e6e2; --avoid-line:#e6b8ae;
+    --code:#0f2b28; --code-bg:#eef4f3;
+  }
+  :root[data-theme="dark"]{
+    --paper:#0c1413; --panel:#111d1c; --ink:#e6efee; --muted:#8ea3a1;
+    --line:#22322f; --line-strong:#2e4340;
+    --accent:#2dd4bf; --accent-ink:#5ee7d6; --accent-soft:#122a27;
+    --caution:#e0a94a; --caution-soft:#241c0e; --caution-line:#4a3a1a;
+    --avoid:#f08a78; --avoid-soft:#2a1310; --avoid-line:#4d241d;
+    --code:#c7ded9; --code-bg:#0f1e1c;
+  }
+
+  .or-root{
+    background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; font-size:16px;
+    -webkit-font-smoothing:antialiased; letter-spacing:.002em;
+  }
+  .or-wrap{max-width:960px;margin:0 auto;padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px);}
+  .or-root :where(h1,h2,h3){text-wrap:balance;line-height:1.15;letter-spacing:-.02em;font-weight:800;}
+  .or-mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+  .or-label{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;font-weight:600;color:var(--accent-ink);
+  }
+  .or-root p{max-width:var(--measure);}
+  .or-root a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid var(--line-strong);}
+  .or-root a:hover{border-color:var(--accent);}
+  .or-root a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;}
+  code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em;background:var(--code-bg);color:var(--code);padding:.08em .38em;border-radius:4px;}
+
+  /* header */
+  .or-eyebrow{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px;}
+  .or-v{font-family:ui-monospace,monospace;font-weight:700;font-size:13px;color:var(--accent-ink);
+    border:1px solid var(--line-strong);border-radius:999px;padding:3px 11px;background:var(--panel);}
+  .or-date{font-family:ui-monospace,monospace;font-size:12.5px;color:var(--muted);letter-spacing:.03em;}
+  .or-h1{font-size:clamp(30px,6vw,52px);margin:.1em 0 .12em;}
+  .or-repo{font-family:ui-monospace,monospace;font-size:15px;color:var(--muted);}
+  .or-lead{font-size:clamp(17px,2.3vw,20px);color:var(--ink);margin-top:18px;font-weight:450;}
+  .or-lead b{font-weight:700;}
+
+  /* chips */
+  .or-chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px;}
+  .or-chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;
+    border:1px solid var(--line-strong);background:var(--panel);border-radius:8px;padding:6px 11px;}
+  .or-chip .k{font-family:ui-monospace,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;}
+  .or-chip.pass{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));background:var(--accent-soft);}
+  .or-chip.pass .k{color:var(--accent-ink);}
+
+  /* caution banner */
+  .or-banner{display:flex;gap:14px;align-items:flex-start;margin:26px 0;padding:16px 18px;
+    background:var(--avoid-soft);border:1px solid var(--avoid-line);border-left:4px solid var(--avoid);border-radius:10px;}
+  .or-banner .ico{font-size:22px;line-height:1;flex:none;margin-top:1px;}
+  .or-banner h3{font-size:15px;margin:0 0 4px;color:var(--avoid);letter-spacing:0;}
+  .or-banner p{margin:0;font-size:14px;color:var(--ink);max-width:none;}
+
+  /* diagram */
+  .or-fig{margin:30px 0;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-shadow:var(--shadow);overflow-x:auto;}
+  .or-fig svg{display:block;width:100%;height:auto;min-width:520px;}
+  .or-fig figcaption{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center;}
+
+  /* sections */
+  .or-sec{margin-top:44px;}
+  .or-sec > h2{font-size:clamp(20px,3vw,26px);margin:0 0 4px;padding-top:18px;border-top:1px solid var(--line);}
+  .or-sec .or-label{display:block;margin-bottom:14px;}
+  .or-root h3{font-size:17px;margin:22px 0 6px;letter-spacing:-.01em;}
+
+  /* callout rail */
+  .or-note{margin:18px 0;padding:12px 16px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;}
+  .or-note p{margin:0;font-size:14.5px;max-width:none;}
+  .or-note.warn{border-left-color:var(--caution);background:var(--caution-soft);}
+
+  /* tables */
+  .or-tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);}
+  table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel);}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  thead th{font-family:ui-monospace,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--accent-soft) 55%,var(--panel));}
+  tbody tr:last-child td{border-bottom:none;}
+  td.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,monospace;white-space:nowrap;}
+  .yes{color:var(--accent-ink);font-weight:700;}
+  .no{color:var(--muted);}
+
+  /* criteria grid */
+  .or-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:18px 0;}
+  .or-card{border:1px solid var(--line);border-radius:11px;padding:16px 17px;background:var(--panel);box-shadow:var(--shadow);}
+  .or-card .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
+  .or-card .cr{font-family:ui-monospace,monospace;font-weight:700;font-size:13px;}
+  .or-verdict{font-family:ui-monospace,monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:6px;}
+  .or-verdict.f{color:var(--avoid);background:var(--avoid-soft);border:1px solid var(--avoid-line);}
+  .or-verdict.s{color:var(--accent-ink);background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));}
+  .or-card p{font-size:13.5px;margin:0;color:var(--ink);max-width:none;}
+
+  ul.or-list{max-width:var(--measure);padding-left:1.1em;}
+  ul.or-list li{margin:7px 0;}
+  .or-path{font-family:ui-monospace,monospace;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);
+    border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:8px;padding:2px 10px;display:inline-block;}
+
+  .or-foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+  .or-foot code{font-size:.85em;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+
+<div class="or-root">
+<div class="or-wrap">
+
+  <header>
+    <div class="or-eyebrow">
+      <span class="or-v">LLM-WIKI v208</span>
+      <span class="or-date">2026-07-16 · Storm Bear vault · inline + hand-verified</span>
+    </div>
+    <h1 class="or-h1">OmniRoute</h1>
+    <div class="or-repo">github.com/diegosouzapw/OmniRoute</div>
+    <p class="or-lead">A free, self-hosted <b>TypeScript "AI gateway"</b> — one <code>/v1</code> endpoint fanning a coding agent out across ~250 LLM providers with stacked token-compression, a Subscription→API→Cheap→Free fallback, 18 routing strategies, an MCP server + A2A protocol, and web/desktop/mobile delivery. It is, in its own words, a <b>TypeScript port of CLIProxyAPI</b> — the corpus's own <b>v207</b> subject — built into a much larger platform.</p>
+
+    <div class="or-chips">
+      <span class="or-chip pass"><span class="k">verdict</span> GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="or-chip"><span class="k">a·b·c·d</span> FAIL · STRONG · STRONG · STRONG</span>
+      <span class="or-chip"><span class="k">pattern</span> N=2 of the v207 §C standalone — no new mint</span>
+      <span class="or-chip"><span class="k">counts</span> 46 / 11 unchanged</span>
+      <span class="or-chip"><span class="k">tier</span> T2 Service</span>
+      <span class="or-chip"><span class="k">streak</span> GA:68 · §35 clear</span>
+    </div>
+  </header>
+
+  <div class="or-banner">
+    <span class="ico">⛔</span>
+    <div>
+      <h3>Pilot-AVOID for Claude — the ToS gray-zone</h3>
+      <p>OmniRoute's flagship "connect Claude Code to <b>FREE Claude</b>" path is the same subscription-OAuth reverse-engineering as its parent CLIProxyAPI (v207): it violates Anthropic's ToS, was <b>blocked by Anthropic on April 4 2026</b>, and carries account-ban risk. On-goal as a landscape/knowledge subject; do <b>not</b> run the Claude path against your account. Gray-zone ≠ off-goal (still GOAL-ALIGNED per §31) — the genuinely usable borrows are architectural, with <b>official API keys</b>.</p>
+    </div>
+  </div>
+
+  <figure class="or-fig" aria-label="OmniRoute gateway diagram">
+    <svg viewBox="0 0 720 210" role="img" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--line-strong)"/>
+        </marker>
+      </defs>
+      <!-- agents -->
+      <g font-family="ui-monospace,monospace" font-size="12" fill="var(--ink)">
+        <rect x="8" y="16" width="150" height="26" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="22" y="33">Claude Code</text>
+        <rect x="8" y="52" width="150" height="26" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="22" y="69">Codex · Cursor</text>
+        <rect x="8" y="88" width="150" height="26" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="22" y="105">Cline · Copilot</text>
+        <rect x="8" y="124" width="150" height="26" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="22" y="141">Antigravity</text>
+      </g>
+      <!-- lines to gateway -->
+      <g stroke="var(--line-strong)" fill="none" stroke-width="1.4" marker-end="url(#ar)">
+        <path d="M158 29 C 220 29, 240 90, 292 100"/>
+        <path d="M158 65 C 220 65, 250 95, 292 104"/>
+        <path d="M158 101 C 220 101, 250 105, 292 108"/>
+        <path d="M158 137 C 220 137, 240 120, 292 112"/>
+      </g>
+      <!-- gateway -->
+      <rect x="292" y="70" width="140" height="80" rx="12" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+      <text x="362" y="102" text-anchor="middle" font-family="ui-monospace,monospace" font-weight="700" font-size="15" fill="var(--accent-ink)">OmniRoute</text>
+      <text x="362" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="var(--accent-ink)">one /v1 endpoint</text>
+      <text x="362" y="134" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="var(--muted)">route · compress · fallback</text>
+      <!-- lines to providers -->
+      <g stroke="var(--line-strong)" fill="none" stroke-width="1.4" marker-end="url(#ar)">
+        <path d="M432 92 C 500 92, 520 34, 560 34"/>
+        <path d="M432 100 C 500 100, 520 74, 560 74"/>
+        <path d="M432 110 C 500 110, 520 114, 560 114"/>
+        <path d="M432 120 C 500 120, 520 154, 560 154"/>
+      </g>
+      <g font-family="ui-monospace,monospace" font-size="12" fill="var(--ink)">
+        <rect x="560" y="22" width="152" height="24" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="573" y="38">Anthropic · OpenAI</text>
+        <rect x="560" y="62" width="152" height="24" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="573" y="78">Google · xAI · DeepSeek</text>
+        <rect x="560" y="102" width="152" height="24" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="573" y="118">Groq · Qwen · Mistral</text>
+        <rect x="560" y="142" width="152" height="24" rx="6" fill="var(--panel)" stroke="var(--line-strong)"/><text x="573" y="158">~250 providers (90+ free)</text>
+      </g>
+    </svg>
+    <figcaption>Many coding agents → one gateway → ~250 providers. The router picks per policy (priority / cost-optimized / fallback), compresses the context, and speaks OpenAI/Gemini/Claude/Codex on both sides.</figcaption>
+  </figure>
+
+  <section class="or-sec">
+    <h2>What it is</h2>
+    <span class="or-label">the subject, from source</span>
+    <p><b>Tagline (verbatim):</b> <em>"Never stop coding. Free AI gateway: one endpoint, 231+ providers (50+ free), connect Claude Code, Codex, Cursor, Cline &amp; Copilot to FREE Claude/GPT/Gemini."</em> You run it locally (<code>npm install -g omniroute</code> → dashboard <code>localhost:20128</code>, API <code>/v1</code>; also Docker / pnpm / AUR / Nix), point your agents at its endpoint, and it routes each request to the best provider under your policy — with a 4-tier <code>Subscription → API → Cheap → Free</code> fallback "in milliseconds."</p>
+    <p>Author: <b>Diego Rodrigues de Sa e Souza</b> (<code>diegosouzapw</code>), São Paulo BR, CDWA Solutions — a <b>disclosed individual, not Anthropic</b>. TypeScript ~100% (Next.js 16 + React 19 + Node); MIT.</p>
+  </section>
+
+  <section class="or-sec">
+    <h2>Lineage &amp; corpus-recursion</h2>
+    <span class="or-label">verified from OmniRoute's own README</span>
+    <div class="or-note">
+      <p><em>"OmniRoute stands on the shoulders of giants. It started as a fork of 9router and a <b>TypeScript port of the Go project CLIProxyAPI</b> — and from there, every subsystem below was inspired by an open-source project that got there first."</em> It even offers <em>"one-click account import from CLIProxyAPI (<code>~/.cli-proxy-api/</code>)"</em>.</p>
+    </div>
+    <p>OmniRoute openly credits — and builds on — <b>two prior corpus subjects</b>, making it <b>doubly corpus-recursive (genuine #57 ×2)</b>:</p>
+    <div class="or-tablewrap">
+      <table>
+        <thead><tr><th>Credited upstream</th><th>Corpus?</th><th>Relationship</th></tr></thead>
+        <tbody>
+          <tr><td><code>router-for-me/CLIProxyAPI</code></td><td class="yes">v207</td><td>OmniRoute <b>is a TypeScript port of it</b> → genuine #57 (the strongest lineage kind)</td></tr>
+          <tr><td><code>headroomlabs-ai/headroom</code> → <code>chopratejas/headroom</code></td><td class="yes">v144</td><td>its <code>headroom</code> engine + <code>ccr</code> retrieve-marker are inspired by it (SmartCrusher/CCR; author Tejas Chopra, Netflix) → genuine #57</td></tr>
+          <tr><td>9router (<code>decolua</code>)</td><td class="no">no</td><td>non-corpus fork-parent</td></tr>
+          <tr><td>RTK · Caveman · LLMLingua-2 · Troglodita</td><td class="no">no</td><td>non-corpus compression inspirations</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted)">Distinguish from v181 cortex-hub's <em>silent</em> bundling of GitNexus/CLIProxyAPI (not #57) — OmniRoute's are open influence-citations.</p>
+  </section>
+
+  <section class="or-sec">
+    <h2>Architecture</h2>
+    <span class="or-label">page/README-stated — not source-cloned</span>
+    <div class="or-grid">
+      <div class="or-card"><div class="hd"><span class="cr">Providers</span></div><p>~250 providers, 90+ free tiers, 11 "free forever"; badge claims ~1.6B free tokens/month.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">Routing</span></div><p>18 strategies: priority, weighted, p2c, least-used, cost-optimized, headroom, context-relay, lkgp, auto (12-factor), fusion (panel+judge), pipeline.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">Compression</span></div><p>10-engine stack (Session-Dedup / CCR / RTK / Headroom / Relevance / Caveman / LLMLingua-2 / Lite / Aggressive / Ultra); 15–95% savings claimed.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">Fallback</span></div><p>4-tier Subscription → API → Cheap → Free; circuit breakers, connection cooldown, model lockout, quota-sharing.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">MCP + A2A</span></div><p>MCP server (94 tools, stdio/HTTP/SSE); A2A JSON-RPC 2.0 at <code>/.well-known/agent.json</code>.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">Surface</span></div><p>OpenAI-compatible <code>/v1</code>: chat, completions, embeddings, images, audio, OCR; web / Electron / Android / PWA; 42 locales.</p></div>
+    </div>
+    <div class="or-note warn"><p><b>Caveats:</b> NOT source-cloned/verified at the TS level (WebFetch/README-verified only — the ~205K shim overflows subagent context → no workflow). The big feature/metric claims (250 providers, 18 strategies, 94 MCP tools, 21,000+ tests, 15–95% savings) are page-stated + marketing-flavored → not independently verified. TLS-fingerprint stealth (<code>wreq-js</code>) is anti-detection dual-use. No prominent ToS disclaimer surfaced.</p></div>
+  </section>
+
+  <section class="or-sec">
+    <h2>The four criteria</h2>
+    <span class="or-label">routine v2.7 §31 — the tier keys on (b)</span>
+    <div class="or-grid">
+      <div class="or-card"><div class="hd"><span class="cr">(a) Author</span><span class="or-verdict f">Fail</span></div><p>Diego Souza — a disclosed individual, not Anthropic. §41: no Anthropic/(a)-7 signal; heritage/locale is no rescue. #19 19a first <code>diegosouzapw</code> author.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">(b) Goal-fit</span><span class="or-verdict s">Strong</span></div><p>Canonical LLM-access / routing / compression infra on the exact substrate the vault studies; a TS port of v207; integrates headroom v144; dead-center on the cost-optimization thread. Not STRONGEST: gray-zone + Claude 1-of-250.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">(c) Substance</span><span class="or-verdict s">Strong</span></div><p>Full TS platform: ~250 providers, 18 strategies, 10-engine compression, MCP+A2A, multimodal /v1, desktop/PWA. Caveats: not source-verified; metrics page-stated + conflicting.</p></div>
+      <div class="or-card"><div class="hd"><span class="cr">(d) Connectivity</span><span class="or-verdict s">Strong</span></div><p>The LLM-access-tooling neighborhood (cc-switch v73 / freellmapi v112 / CodexPlusPlus v117 / ai-switcher v153 / CLIProxyAPI v207 / opencode-antigravity-auth v67) + headroom v144 + #18 #8 + the cost thread.</p></div>
+    </div>
+  </section>
+
+  <section class="or-sec">
+    <h2>Pattern outcome — N=2, no new mint</h2>
+    <span class="or-label">counts unchanged 46 / 11</span>
+    <p>OmniRoute IS the surface v207 minted (re-exposes CLI-tool subscription-OAuth as OpenAI/Gemini/Claude/Codex endpoints, Subscription→…→Free fallback, OAuth-refresh, driving Claude Code/Codex/Cursor/Cline/Copilot). Different author, different language, materially broader platform → a genuine <b>N=2</b>:</p>
+    <ul class="or-list">
+      <li><b>§C standalone → N=1 (CLIProxyAPI v207) + N=2 (OmniRoute v208)</b> — the clean-2nd-instance precedent (camofox v179 / codebase-memory-mcp v172 / Strix v190); satisfies the "PROMOTION-ELIGIBLE at N=2" note already on the registry row, and resolves v207's boundary-alternative (the surface IS a recurring class → the v207 mint was correct).</li>
+      <li><b>No new §C standalone</b> — OmniRoute's extra platform features are within-species richness on the same core capability, not a new primitive (the camofox v179 "don't draw the circle" discipline). No new top-level pattern (max #85).</li>
+      <li><b>⚠️ Reviewable nuance for the ~v212 audit:</b> OmniRoute is a <em>port of</em> the N=1 anchor. Recommend the audit require a fully-independent (non-port) 3rd instance — kRouter / one-api / new-api candidates — before promoting the standalone to CONFIRMED. N=2 recorded, promotion DEFERRED.</li>
+    </ul>
+    <h3>Secondary (not minted)</h3>
+    <ul class="or-list">
+      <li><b>#57 genuine ×2</b> — openly cites CLIProxyAPI v207 (port-parent) + headroom v144 (compression engine).</li>
+      <li><b>Pattern #18 #8</b> (Multi-Source LLM Aggregator, CONFIRMED N=3) instance-strengthening — different axis from the §C standalone, no double-count.</li>
+      <li><b>#18 B1-MCP</b> — ships an MCP server (94 tools); note v207 ships none, so OmniRoute is <em>more</em> than a port on this axis.</li>
+      <li><b>token-compression cluster</b> (headroom v144 / distill v97 / OmniRoute v208) — the densest stack yet; LV #20 Token-Economy QUALIFIED-ADJACENT (savings page-stated → N stays 4).</li>
+      <li><b>LV-C2 cost-economics</b> (free-tier stacking + cost-routing; subscription-arbitrage watch axis) · <b>A2A protocol</b> (plausible corpus-first, DEFERRED) · #84 84c (no N-bump) · #19 19a · #12 · <b>#66 supply-chain/ToS/dual-use</b>.</li>
+    </ul>
+  </section>
+
+  <section class="or-sec">
+    <h2>Metrics &amp; provenance</h2>
+    <span class="or-label">§37.4 — page-stated, conflicting → NOT #52</span>
+    <div class="or-tablewrap">
+      <table>
+        <thead><tr><th>Source</th><th>Stars</th><th>Forks</th><th>Providers</th><th>Version</th></tr></thead>
+        <tbody>
+          <tr><td>GitHub repo page (rendered)</td><td class="num">~18k</td><td class="num">~2.7k</td><td class="num">250</td><td class="num">v3.8.49</td></tr>
+          <tr><td>ecosyste.ms</td><td class="num">5,174</td><td class="num">884</td><td class="num">177</td><td class="num">—</td></tr>
+          <tr><td>GitHub description / compare pages</td><td class="num">—</td><td class="num">—</td><td class="num">231+</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted)">This environment mocks the GitHub API — all counts page-stated, and OmniRoute's snapshots conflict (fast-moving repo + heavy README churn). <b>~5.2k–18k★ → not a Pattern #52 claim</b> (velocity unestablishable here, though Trendshift tracks it as repo #23589). MIT · TypeScript ~100% · ~5,032 commits page-stated.</p>
+  </section>
+
+  <section class="or-sec">
+    <h2>Pilot posture</h2>
+    <span class="or-label">on-goal knowledge · pilot-AVOID for Claude</span>
+    <p>The two genuinely on-goal borrows — with <b>official, paid API keys</b>, never subscription-OAuth: (1) the <b>token-compression architecture</b> as a reference for the vault's own context-compression + the headroom pilot; (2) the <b>multi-protocol provider-routing architecture</b> as a reference for hireui's future vendor-seam (the mosh-ai A2 thread).</p>
+    <p style="margin-top:16px">⭐ One-thing path &nbsp;<span class="or-path">A1 → A3 → B7</span></p>
+    <p style="font-size:14.5px">Read the compression + routing landscape and the ToS boundary (zero install) → reinforce hireui's <em>"official API keys, never subscription-OAuth reverse-engineering / CLI-token extraction"</em> ADR (already written for v207) and record <b>OmniRoute v208 as the confirming 2nd instance</b> of that anti-pattern. Full 24-method menu in the Pilot Methods doc.</p>
+  </section>
+
+  <footer class="or-foot">
+    <p><b>Provenance.</b> Verdict produced inline + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow relied on (the ~205K CLAUDE.md shim overflows every subagent > 200K; the v200–v207 self-throttle). Collision-clean (no prior OmniRoute / diegosouzapw subject); the v207-port + headroom-v144 links verified from OmniRoute's own README + hand-grep of <code>_state/</code> + <code>_patterns/</code>; lineage/identity/landscape by WebSearch.</p>
+    <p style="margin-top:8px">Shipped on branch <code>wiki/v208-omniroute</code> off the v207 tip (<code>842ee72</code>) — the chain v204 → v205 → v206 → v207 → v208 merges in order. Not auto-merged; operator reviews + merges. Tier T2 Service · counts 46/11 · streak GA:68.</p>
+  </footer>
+
+</div>
+</div>
