@@ -1,0 +1,84 @@
+# This Tool Solves Pokémon Stat Spreads In Seconds — Scoriox (Vlh3n3WwQZI, 2026-07-16, 11:14)
+
+
+> Source: pokesynergy.en-orig.vtt
+> Converted: vtt-to-md.py
+> Format: `[MM:SS] line` — verbatim auto-sub, deduplicated, word-timing tags stripped
+
+---
+
+## Ingest metadata
+
+- **Video:** [This Tool Solves Pokémon Stat Spreads In Seconds](https://www.youtube.com/watch?v=Vlh3n3WwQZI) (`Vlh3n3WwQZI`)
+- **Channel:** Scoriox ([`@Scoriox`](https://www.youtube.com/@Scoriox)) — competitive-Pokémon creator who vibe-codes gaming tools
+- **Uploaded:** 2026-07-16 · **Duration:** 11:14 · **Views at ingest:** ~336 · **Category:** Gaming
+- **Ingest path:** 5 (operator-submitted single URL; `yt-dlp` `en-orig` auto-captions → `bin/vtt-to-md.py` → 356 unique cue lines / 25 timestamped paragraphs; full transcript read in main loop; `notebook_id: none`)
+- **Subject:** PokéSynergy (https://pokesynergy.app) — a free competitive-Pokémon "Pokémon Champions" (VGC 2026 Doubles) team builder + interactive EV/stat-spread optimizer & damage calculator
+- **Operator payload:** studied as a **NICHE-BUSINESS-TOOL ARCHETYPE** — a transferable playbook for building one's own business tools (Goal #2) — NOT as Pokémon trivia.
+
+### Video description (verbatim, for provenance)
+
+> Create perfect Pokemon stat spreads for any competitive team in seconds. Stop guessing your EVs and use this tool to optimise your Pokemon stats.
+> Check out the tool today: https://pokesynergy.app
+> …join here: https://discord.com/invite/88zqNjVnuU
+> Whether you run the Big Six or a custom roster, building a competitive Pokemon team requires precise math. I built this tool to help players calculate their Pokemon stat spreads efficiently, removing the guesswork from training your team… If you have been struggling to get your EVs right, this tool provides the exact numbers you need to succeed in Season 4 and beyond.
+
+### Main-loop verified anchors (independent of the verification workflow)
+
+- ✅ **pokesynergy.app loads** — a *free* Pokémon Champions team builder (VGC 2026 Doubles). Features: team builder (Showdown-style import/export), damage calculator, speed tiers, weakness checker, type coverage, EV/nature/ability editing, meta-threat analysis with current usage data. **Completely free — no premium tier, no ads, no Patreon, no login.** Built on **Next.js** (`/_next/*`). Tagline: *"a free Pokemon Champions team builder for players who want fast, explainable team checks instead of a blank roster grid"*; positioning = every weakness/threat/suggestion/damage label should have *"a short reason you can act on"* (explainability-first, not opaque scores).
+- ✅ **Scoriox** = real channel ([youtube.com/@Scoriox](https://www.youtube.com/@Scoriox)); creator "vibe codes useful tools and apps for gaming communities," competitive-Pokémon/VGC focus; multiple PokéSynergy promo videos ("The Best Tool in Competitive Pokemon", "The ONLY App Beginners Should Use…", etc.). PokéSynergy is his own independent fan-made tool.
+- ✅ **Pokémon Champions** = real The-Pokémon-Company game (Nintendo Switch, launched **2026-04-08**); official software for the 2026 Pokémon World Championships; separate Singles/Doubles ranked ladders + seasons (Regulation Sets M-A → M-B from **2026-06-17**). ⚠️ Video's "season 1…season 4" vs official "M-1/M-2/M-3 regulation sets" — numbering nuance to reconcile (workflow `dive:market`).
+
+---
+
+## Transcript
+
+**[00:02]** This is the big six. This is the team that has been terrorizing ladder ever since season 1 of Pokémon Champions and now we'll be doing the exact same thing heading into season 4. But, I don't want to tell you how to build the big six or how to make it better or worse or anything like that. I'm going to show you how you can take a team like this, any team you find online or any Pokémon you want to use or whatever, and you can make incredibly perfect stat spreads for it in a matter of seconds. I have built
+
+**[00:30]** this tool right here to help you do just that and it has never been easier. Previous iterations of my thing, you could do it, but it is now easier than ever. And why is that important? This is the rank 10 player from season 3. He came 10th on the Champions Doubles VGC ladder or whatever in season 3. Now, tournament's a little bit different, but on the rank ladder he came 10th. Now, what do you notice here is that outside of two or three really key threats, and you don't need to do this for every Pokémon. You don't need really do it at
+
+**[00:58]** all. I personally think you do absolutely fine on ladder building teams and things like that without going crazy with the stats, but if you want to learn how to do that, you want to practice doing that, I've built systems that make this insanely easy for you. You'll notice that Garchomp is jolly, max attack, max speed. Pretty standard for a Garchomp and it's the most popular Pokémon in the format right now by far, okay? Like, it's insanely popular, but you'll notice that the Charizard has
+
+**[01:25]** 16 in defense, I think. I can't read Japanese. 16 in defense, 24 in speed, four in HP, and 22 in special attack. That's probably hitting a breakpoint for the the SP thing where if you have the nature boosting and things like that. And I'll add that into my app very soon. But, you'll notice it has a very interesting spread. How do they make these spreads? How do you learn how to make these spreads? These things can be really overwhelming for people that are new to the game and things like that, but I'm going to show you exactly how to
+
+**[01:54]** do it. Let's start with Mega Florges, okay? Now, a lot of ruin is going to confuse us a little bit, but maybe you want to focus on dazzling gleam. So, we're just going to take that and have dazzling gleam in here. Now, we can go and we can make sure that we add an item that has flow it tight, obviously. And now, we can go here and we can go Here's a really common spread that is currently being used in the format. Let's just do that. So, max special attack, max speed, max HP, or whatever like that. &gt;&gt; [snorts] &gt;&gt; But now, we can get really interesting.
+
+**[02:20]** So, it's showing light of ruin here. Um so, maybe we should add it back in. I didn't realize it's going to do that. An interesting bug, I will fix out. So, it's showing light of ruin here. And so, we can see how much we might want to have the damage do. Now, light of ruin is a little bit odd. We're already max special attack. So, we don't necessarily need to look at the offense section, but we can come back to here in a second. If we look at the speed section, we can go to where our speed is and we can see
+
+**[02:47]** what we might want to out speed. What I added here is I added a toggle for threats. Now, it will only show up Pokémon that are particularly threatening to mega flow it. Excadrill is a really obvious example. One iron head is going to absolutely cook. Make it [snorts] gloom more a modest max speed glim mora is going to be out sped by flow it by one point as long as we're modest. And so, I think it's definitely worth keeping flow it at this speed. So, we don't need to mess with that too much. However, we now if we go to defense, we
+
+**[03:16]** can see certain things that might be actually taking out our flow it. A poison jab from Garchomp has a chance to KO. If I click that, it's automatically going to shift points away from special attack and put it in defense and HP. Now, we saw that our speed was perfect. So, I can lock that right there. I can just lock the speed. It's now whenever I click any of these, it's not going to move the speed around. If I want to survive a wave crash, I can click that. It's going to take even more points away from special attack. If I then go to
+
+**[03:44]** offense, I can see that I'm still one shotting enough things, but I really want to make sure that I'm taking out Basculegion male. Doesn't look like it's ever actually possible. Uh but I'm [snorts] taking out pretty much all of the threats that matter right here and so really it's pretty good right here. You can see that I'm living some really good things. I don't think I'm ever truly going to live a King's Gambit nor should I want to calculate for that and you'll have to figure that out for yourself but it's really interesting where like Sylveon's Hyper Beam has like
+
+**[04:11]** the tiniest chance to KO. Probably not worth the calc for it. I'm living Arcalidon. I'm living the Mega Swampert Wavecrash although it's not calculating in uh uh rain so I might need to add a little toggle for that for people but you can do that more properly elsewhere in the app. Um and there's some really interesting stuff. So but the other thing you can do is you can switch to two hit KO. You be like, "Okay, I want to live two Mega Raichu Zap Cannons." So you click that right there and it doesn't look like it's possible but maybe we click like Turtonator and now
+
+**[04:40]** we live two eruptions from a Turtonator and things like that. So it makes it really easy to calc your spreads. So we've got all that. We've got all of our moves and everything and bam, Mega Florges is done. So let's take a look at some of the other ones. So we go to Charizard. Uh we make sure the items are good but it's Mega. So we go to speed first. Um and then we can see if we just do a spread, it's really good to start with a spread and then lock in what you want as you're going. But if we have a look at our speeds, we can see that we're outspeeding a fast Glimmora but not a
+
+**[05:07]** Mega Glimmora. I don't think that's that big of a deal honestly personally and we can see that he didn't go max speed either. So if we look at just threats, we really want to outspeed some of these. Rotom-Heat, I I don't think they're too common that I want to worry about it too much. So we can actually reduce the amount of meta threats so it's like maybe the top 70 available on the field. So we can see that Mega Charizard Y um outspeeding some of these. Mega Garchomp, I don't really see it too much. We can probably drop this even more. Um and we can see that I'm really slow
+
+**[05:33]** now. Um but really I'm outspeeding a whole lot of things. Arcalidon is kind of the main thing I still want to make sure I'm outspeeding. That's the bottom of the list it looks like. And so that's really really good. So we can bring that back up. We go over to offense instead uh and then we can make sure we're taking out certain things. So a heat wave already nukes pretty much everything with max special attack. We're going to lock speed now because I'm pretty happy with where that's sitting at the moment. Mega Charizard Pelipper. So really we're
+
+**[06:00]** already maxed we don't really need to worry about that too much. We want to live the Garchomp rock slide maybe too much effort though it's already doing so much damage to us. We can definitely live the Sneasel rock slide so we can take some points away there and make sure we're surviving that. We live ancient power from Mega the 50 50 on the ancient power living electro shot which is really really good. Uh we're living final gambit which is pretty important as well. And then is there anything else that we want to like look at and probably not
+
+**[06:26]** we're pretty good. Mega Mawile killing us rock slide no matter what. Population bomb we could die to it's becoming more popular maybe want to click that get a little bit more points into my defense. And now I'm surviving pretty much everything that I want to survive. I go back to offense just to double check I can kill certain things. I wasn't [snorts] killing Sinister anyways. I do want to make sure I'm killing Kingambit. If I lock maybe defense I think it's fine. I can't do it while locking defense. You got to kind
+
+**[06:53]** of pick one or the other and really that is up to you. But pretty happy with that. If we go to Kingambit you also have this auto build button. It's going to replace all of the moves add the ability item stats and things like that based on the top spreads that people are using. Defense wise looks like we're living most things. We do not survive the low kick. I don't think that's that so important though. But we're we're living a heat wave for example. So totally fine right there. I'm going to
+
+**[07:19]** leave that as is. &gt;&gt; [snorts] &gt;&gt; And then we go Whimsicott we can probably auto build that one as well. Very very easy. We've got special attack speed. Now offense we can see that we're not killing a Garchomp with moonblast. So if we maybe go and make sure we're modest we still cannot take it out with a moonblast. So we're not going to worry about that too much. But it could be really good to look at defensively and see what we're dying to. Now poison jab always killing us, Flare Blitz is always killing us. Whimsicott
+
+**[07:47]** isn't as actually bulky. I don't think we're going to be surviving a whole lot of things. Like, you could tech so that you live two Psychics. Pretty sure you can. Yeah, you can live two Psychics. Oh, but then you're losing out on speed and you might not want that. You go max first attack or you go max HP. You're living out So, if you hit two hit KO, you can click Psychic and now you're living out two Psychics. We're living Flash Cannon now. If I Sorry, if I go to one hit KO
+
+**[08:15]** and I click that, I'm living Flash Cannon. The problem is I really wanted to keep max on speed. So, let's just double check if I can, okay? If I go to max on speed and I put HP up and I hit that and I survive Flash Cannon by rejigging the special defense, my nature, and things like that. And now I'm living a Flash Cannon every time. Now, I don't know if that's good for your team, right? That's for you to decide. My Moonblast is only doing 30%, but I don't think it would take it out anyways. We can do the same two hit KO thing in the other direction for like a
+
+**[08:42]** Pal Por or something like that, maybe. And you click that [snorts] and now we make sure we do over 50% of its health to it. And so, we've just teched for our Whimsicott right there. Okay. Next up, we go to Basculegion Male. Maybe we auto build that. We can see max attack speed's pretty good. If we drop down the number of threats and we only look at the threats, and now we have a look at how Basculegion is handling its speed tier. It's out speeding Meowscarada. Oh, because it's got the scarf on,
+
+**[09:08]** right? So, it's out speeding Meowscarada with the scarf. I don't know if that's necessarily too relevant. I might want to out speed Maushold cuz it's a bit threatening to me or Sceptile or Zoroark. I mean, I think it's pretty good, but like as the small win, we can see now that if we click Meowscarada, we lose some of the speed. We gain it elsewhere and now we are one point faster than it, which is perfect. We want to We can't adjust any of those
+
+**[09:35]** offense just yet. I should probably swap the order of those two tabs. We want to be taking out a Basculegion male, but I don't think we can with the I think it's got two KOs by default. Uh and then so we want to be living last respects, which you already are. King Gambit Catch Out Leaf. Can we live a black glasses Catch Out Leaf? Like this is supposed to be just really rapid, really simple, okay? If you want to do more intense analysis, right? If we we're still on big six. If you want to do more intense analysis, you can
+
+**[10:02]** actually go in here, right? It's very easy. I could click King Gambit and go to my Basculegion male, very very easy. Um and now I can actually click to leave a certain thing. Now maybe I want to leave sucker punch. If I just click sucker punch there, I'm going to lock whatever I want. Maybe I want to lock my attack, apply spread, and it's going to shift it, save it to my team, and things like that. Very, very easy. I can change what item it has. Maybe it has the second most popular item in black glasses, and I can try and survive that. But if I hold my
+
+**[10:31]** attack stat, I'm not going to be able to. So now I can leave a black glasses sucker punch guaranteed by going &gt;&gt; [laughter] &gt;&gt; 30 points in defense and six in HP. It's going to maximize certain things, but maybe you've done that and you're like, "Okay, I know I need that defense and HP to be locked down." So when I'm doing other things, you can lock it and things like that. Anyways, I hope if you're new to the game, you're trying to practice and learn these spreads and things like that. This is a great stepping stone and gives you all the tools you need to get
+
+**[10:59]** from eat from point A to B and then to C, become the best possible competitive Pokémon player you can be. Oh, and don't forget to subscribe and like. I really want to hit 10K uh subs this year, and 97% or something are not subscribed. I'd really appreciate it. It means a lot.
