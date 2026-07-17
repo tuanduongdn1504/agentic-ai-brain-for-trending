@@ -1,0 +1,194 @@
+<title>AIRI — LLM Wiki v210</title>
+<style>
+  :root{
+    --paper:#faf7fb; --card:#ffffff; --ink:#1b1622; --muted:#6d6478;
+    --line:#e7dfea; --rose:#d92e70; --rose-soft:#fbe7f0; --teal:#0e938c;
+    --teal-soft:#e0f5f2; --gold:#b7791f; --shadow:0 1px 2px rgba(27,22,34,.06),0 8px 24px rgba(217,46,112,.06);
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#141019; --card:#1d1726; --ink:#f2ecf4; --muted:#a89bb2;
+      --line:#332a3e; --rose:#ff6ea3; --rose-soft:#2a1622; --teal:#3fd6cc;
+      --teal-soft:#0f2926; --gold:#e6b566; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#faf7fb; --card:#ffffff; --ink:#1b1622; --muted:#6d6478;
+    --line:#e7dfea; --rose:#d92e70; --rose-soft:#fbe7f0; --teal:#0e938c;
+    --teal-soft:#e0f5f2; --gold:#b7791f; --shadow:0 1px 2px rgba(27,22,34,.06),0 8px 24px rgba(217,46,112,.06);
+  }
+  :root[data-theme="dark"]{
+    --paper:#141019; --card:#1d1726; --ink:#f2ecf4; --muted:#a89bb2;
+    --line:#332a3e; --rose:#ff6ea3; --rose-soft:#2a1622; --teal:#3fd6cc;
+    --teal-soft:#0f2926; --gold:#e6b566; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  .col{max-width:860px;margin:0 auto;padding:48px 22px 72px}
+  a{color:var(--rose)}
+  h1,h2,h3{text-wrap:balance;line-height:1.15;letter-spacing:-.02em}
+  h2{font-size:1.5rem;margin:56px 0 6px;display:flex;align-items:baseline;gap:.6rem}
+  h2 .num{font-family:var(--mono);font-size:.85rem;color:var(--rose);letter-spacing:0}
+  h3{font-size:1.06rem;margin:26px 0 4px}
+  p{margin:.5rem 0}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal);font-weight:600}
+  /* hero */
+  .hero{border:1px solid var(--line);border-radius:18px;background:
+    linear-gradient(135deg,var(--rose-soft),transparent 60%),var(--card);
+    padding:30px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero h1{font-size:2.5rem;font-weight:800;margin:.35rem 0 .1rem}
+  .hero .repo{font-family:var(--mono);font-size:.92rem;color:var(--muted)}
+  .tag{font-size:1.05rem;color:var(--ink);opacity:.92;margin:.7rem 0 0;
+    border-left:3px solid var(--rose);padding-left:.9rem;font-style:italic}
+  .oneliner{margin-top:1rem;font-size:1.02rem}
+  .hearts{position:absolute;top:16px;right:20px;font-size:1.4rem;opacity:.5;letter-spacing:.15em}
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{font-family:var(--mono);font-size:.74rem;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--line);background:var(--card);color:var(--muted);white-space:nowrap}
+  .chip b{color:var(--ink)}
+  .chip.ga{background:var(--teal-soft);border-color:transparent;color:var(--teal);font-weight:700}
+  .chip.no{background:var(--rose-soft);border-color:transparent;color:var(--rose);font-weight:700}
+  /* fact strip */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin:22px 0 8px}
+  .facts div{background:var(--card);padding:12px 14px}
+  .facts .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .facts .v{font-weight:700;font-size:.98rem;margin-top:2px;font-variant-numeric:tabular-nums}
+  /* scorecard */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.94rem}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .sc td:first-child{font-weight:700;white-space:nowrap}
+  .badge{font-family:var(--mono);font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:6px}
+  .b-strong{background:var(--teal-soft);color:var(--teal)}
+  .b-mod{background:var(--rose-soft);color:var(--gold)}
+  .b-fail{background:var(--rose-soft);color:var(--rose)}
+  /* arch grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:16px 0}
+  .acard{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:16px 17px;box-shadow:var(--shadow)}
+  .acard h3{margin:0 0 .3rem;font-size:1rem}
+  .acard .ic{font-size:1.3rem}
+  .acard p{font-size:.9rem;color:var(--muted);margin:.2rem 0 0}
+  /* callout */
+  .call{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:12px;
+    background:var(--teal-soft);padding:16px 18px;margin:18px 0}
+  .call.rose{border-left-color:var(--rose);background:var(--rose-soft)}
+  .call h3{margin:0 0 .3rem;color:var(--ink)}
+  .call p{font-size:.94rem;margin:.35rem 0}
+  .path{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--rose)}
+  ul{margin:.4rem 0;padding-left:1.15rem}
+  li{margin:.28rem 0;font-size:.95rem}
+  .fence li::marker{color:var(--rose)}
+  code{font-family:var(--mono);font-size:.86em;background:var(--rose-soft);
+    padding:1px 5px;border-radius:5px;color:var(--ink)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:.82rem;color:var(--muted)}
+  .warn{color:var(--gold);font-weight:600}
+  @media (prefers-reduced-motion:no-preference){
+    .acard{transition:transform .15s ease}
+    .acard:hover{transform:translateY(-2px)}
+  }
+</style>
+
+<div class="wrap"><div class="col">
+
+  <div class="hero">
+    <div class="hearts">💖🧸</div>
+    <div class="eyebrow">LLM Wiki · v210 · 2026-07-17</div>
+    <h1>AIRI</h1>
+    <div class="repo">moeru-ai/airi · MIT · TypeScript/Vue · ~42.8k★ · v0.11.0</div>
+    <p class="tag">"Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings … wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing."</p>
+    <p class="oneliner">An open-source, self-hosted, real-time <b>AI companion / AI VTuber</b> — a browser-first "digital life form" with a Live2D/VRM avatar, voice, memory, and game-playing agents, driven by <b>any of 30+ LLM providers behind one seam (<code>xsAI</code>)</b>.</p>
+    <div class="chips">
+      <span class="chip ga">GOAL-ALIGNED · INCLUDE 3/4</span>
+      <span class="chip no">NO MINT</span>
+      <span class="chip"><b>a</b> FAIL</span>
+      <span class="chip"><b>b</b> MODERATE</span>
+      <span class="chip"><b>c</b> STRONG</span>
+      <span class="chip"><b>d</b> STRONG</span>
+      <span class="chip">counts <b>46/11</b> unchanged</span>
+      <span class="chip">streak <b>GA:70</b></span>
+      <span class="chip">Tier <b>T5</b></span>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div><div class="k">Author</div><div class="v">moeru-ai / Neko</div></div>
+    <div><div class="k">Anthropic?</div><div class="v">No</div></div>
+    <div><div class="k">Domain</div><div class="v">AI companion</div></div>
+    <div><div class="k">Releases</div><div class="v">79 · v0.11.0</div></div>
+    <div><div class="k">Corpus-first</div><div class="v">the domain</div></div>
+    <div><div class="k">Speech subject</div><div class="v">3rd (v20/v196/v210)</div></div>
+  </div>
+
+  <h2><span class="num">01</span> What it actually is</h2>
+  <p><b>Domain: AI companionship / entertainment / VTuber — off both goals.</b> AIRI gives a person a persistent, embodied, conversational AI character they own and self-host: not a livestream you watch (Neuro-sama), not a walled product (Character.AI), but a digital being that talks, emotes through an avatar, remembers, and plays games alongside you.</p>
+  <p>What makes it a worthwhile subject anyway is its <b>architecture</b> — a large, mature (~42.8k★), production-grade agentic system whose engineering touches four live goal threads. <b>The domain is off-goal; the architecture is the prize.</b> This is the exact shape of <b>meetily v196</b> and <b>OpenMontage v188</b>.</p>
+
+  <h2><span class="num">02</span> Architecture — Brain / Ears / Mouth / Body</h2>
+  <div class="grid">
+    <div class="acard"><div class="ic">🧠</div><h3>Brain</h3><p>LLM reasoning via <code>xsAI</code>; game-playing agents (Minecraft · Factorio WIP · KSP planned); Telegram/Discord; in-browser DB (DuckDB-WASM + pglite); Memory Alaya (WIP); WebGPU local inference.</p></div>
+    <div class="acard"><div class="ic">👂</div><h3>Ears</h3><p>Browser + Discord audio input; client-side speech recognition; voice-activity detection — fronted by <code>unspeech</code>, a universal ASR/TTS proxy.</p></div>
+    <div class="acard"><div class="ic">👄</div><h3>Mouth</h3><p>Multi-provider TTS: ElevenLabs · Azure · OpenAI-compatible · Alibaba Cloud + local <b>Kokoro</b> TTS.</p></div>
+    <div class="acard"><div class="ic">🧍</div><h3>Body</h3><p>VRM (3D) + Live2D (2D) avatars via Three.js; auto-blink, auto-lookaround, idle eye movement.</p></div>
+  </div>
+  <p style="font-size:.9rem;color:var(--muted)">Delivered as <code>stage-web</code> (browser) · <code>stage-tamagotchi</code> (Electron desktop, native CUDA/Metal) · <code>stage-pocket</code> (mobile PWA). Web-first: WebGPU/WASM/Workers/WebSocket + HuggingFace Candle.</p>
+
+  <div class="call">
+    <h3>⭐ The on-goal prize: <code>xsAI</code> — a provider-agnostic LLM seam</h3>
+    <p>A standalone TS SDK abstracting <b>30+ LLM providers</b> (OpenAI · <b>Anthropic Claude</b> · Gemini · DeepSeek · Qwen · Ollama · vLLM · OpenRouter · many Chinese providers …) behind one interface. This is the <b>vendor-seam blueprint</b> — meetily v196's <code>generate_summary()</code>, the mosh-ai A2 seam, hireui's future first-LLM-feature seam. Claude is <b>one of 30+</b> here → the reason (b) is MODERATE, not STRONG.</p>
+  </div>
+
+  <h2><span class="num">03</span> Scorecard</h2>
+  <div class="scroll"><table class="sc">
+    <tr><th>Criterion</th><th>Score</th><th>Why</th></tr>
+    <tr><td>(a) Author</td><td><span class="badge b-fail">FAIL</span></td><td>moeru-ai OSS collective; founder Neko (<code>nekomeowww</code>), not Anthropic. §41: no name/heritage/locale/notability rescue. First moeru-ai author (#19 19a).</td></tr>
+    <tr><td>(b) Goal-relevance</td><td><span class="badge b-mod">MODERATE</span></td><td><b>Keys the tier.</b> Goal-adjacent via 4 threads — the <code>xsAI</code> seam, MCP-Launcher, memory, perceive→act game agents. §40 → GOAL-ALIGNED per operator direction. Below STRONG: domain is off-goal entertainment, zero hireui/Scrum use. <span class="warn">OFF-GOAL reading recorded as reviewable.</span></td></tr>
+    <tr><td>(c) Substance</td><td><span class="badge b-strong">STRONG</span></td><td>~42.8k★, 79 releases, 4,000+ commits, a real ecosystem (xsAI/unspeech/MCP-Launcher/memory-pgvector), cross-platform. Caveats: much WIP; hard AI is upstream; not source-cloned.</td></tr>
+    <tr><td>(d) Corpus fit</td><td><span class="badge b-strong">STRONG</span></td><td>meetily v196 (exact precedent) · fish-speech v20 · #18 #8 + #84 84c · agentmemory v66 · browser-use v41 / page-agent v199 · OpenMontage v188 (mint-alternative).</td></tr>
+  </table></div>
+
+  <h2><span class="num">04</span> Pattern outcome — NO MINT</h2>
+  <p>AIRI is <b>corpus-first for the AI-companion / VTuber / "digital life" DOMAIN</b> (collision-clean by sanity-anchored hand-grep). But <b>corpus-first-for-a-DOMAIN ≠ a mintable §C capability class</b> — the meetily v196 / TimesFM v193 discipline. Recorded as a knowledge data-point + a DEFERRED watch axis: <em>"self-hosted real-time embodied multimodal AI-companion / VTuber runtime."</em></p>
+  <div class="call rose">
+    <h3>⚠️ MINT alternative (operator/audit-reviewable)</h3>
+    <p>A §C standalone <em>"Self-Hosted Real-Time Embodied Multimodal AI-Companion / VTuber Runtime" (N=1)</em> is defensible on the OpenMontage v188 / agency-agents v185 / Kilo-Code v177 "mint the world-class exemplar" precedent (AIRI is the OSS flagship of the class). It <b>loses</b> to NO-MINT on: (1) meetily v196 domain-not-capability; (2) §28 anti-inflation; (3) §C vocab is capability-shaped; (4) NOT world-first (Neuro-sama / Character.AI / ChatVRM / Amica / Open-LLM-VTuber precede). Either way → counts UNCHANGED <b>46/11</b>.</p>
+  </div>
+  <p style="font-size:.9rem;color:var(--muted)"><b>Secondary (not minted):</b> <code>xsAI</code> → #18 #8 aggregator + #84 84c (SDK-library member vs the gateway-service members cc-switch v73 / CLIProxyAPI v207 / OmniRoute v208) · MCP-Launcher → #18 B1-MCP cross-ref + watch axis · memory → CC-memory thread · game agents → perceive-act cluster (watch axis) · #19 19a · #66 runtime-trust + crypto-scam-impersonation (the "no official token" notice). <b>Not #52</b> (stars page-stated) · <b>not #57</b> (inspirations non-corpus).</p>
+
+  <h2><span class="num">05</span> Pilot — read the seam, borrow the patterns, don't adopt the product</h2>
+  <p>AIRI is a <b>knowledge / architecture</b> subject, not a product to adopt. ⭐ One-thing path:</p>
+  <p class="path">A1 → B5 → D16</p>
+  <ul>
+    <li><b>A1</b> — read the <code>xsAI</code> provider-agnostic seam (zero install): one call shape, N providers, Claude's genuine deltas special-cased.</li>
+    <li><b>B5</b> — distil a "provider-agnostic LLM seam" reference into the vault + hireui's first-LLM-feature spec (composes with meetily v196 + the mosh-ai A2 seam).</li>
+    <li><b>D16</b> — apply it as the vendor-seam for hireui's first LLM feature (Match-Explain / candidate-summariser) on an <code>agent-*</code> branch, per the RATIFIED candidate-LLM legibility ADR.</li>
+  </ul>
+  <p style="font-size:.9rem;color:var(--muted)">Also read-and-borrow: MCP-Launcher (hireui's future MCP server), in-browser memory (DuckDB-WASM), the game-agent perceive→reason→act loop. Off-goal-but-fun: run AIRI as a personal companion. Full 24-method ladder in the Pilot Methods Menu.</p>
+
+  <div class="call rose">
+    <h3>Fence</h3>
+    <ul class="fence">
+      <li>install-snapshot + npm-security-check (the monorepo pulls many packages)</li>
+      <li>BYO-keys, scratch/disposable account — a companion app <b>holds your keys</b></li>
+      <li>verify you cloned the real <code>moeru-ai</code> org (heed the "no official crypto/token" warning — impersonation risk)</li>
+      <li>hireui borrows <b>architecture only</b> per its CONSTITUTION (I-2 agent-* / I-8 operator-installs / GitNexus-first); no companion/avatar scope</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p><b>Bottom line.</b> An impressive, large OSS agentic system — but an AI-companion / VTuber entertainment product, off both goals. Include it for the architecture (the <code>xsAI</code> seam above all), not the product. NO MINT — the meetily v196 shape exactly.</p>
+    <p>Verdict produced <b>inline + fully hand-verified</b> per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows every subagent &gt;200K; the v200→v209 self-throttle precedent). Source hand-fetched; identity + landscape by WebSearch; collision by sanity-anchored hand-grep (meetily=17 / fish-speech=33 anchors confirm grep works; moeru/airi/vtuber/waifu = 0). Package internals page-stated (not source-cloned). Metrics page-stated §37.4 → not #52.</p>
+    <p style="margin-top:10px">Claude · Opus 4.8 · LLM Wiki Routine v2.7 · §40/§41 · 2026-07-17</p>
+  </footer>
+
+</div></div>
