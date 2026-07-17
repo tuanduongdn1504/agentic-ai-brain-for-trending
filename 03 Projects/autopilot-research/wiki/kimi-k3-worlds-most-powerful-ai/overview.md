@@ -23,7 +23,7 @@ Kimi K3 is a **genuine near-frontier release** — the technical facts hold up. 
 **Scorecard (17 checkable claims): 8 CONFIRMED · 3 CORRECT-BUT-INCOMPLETE · 3 MISLEADING · 3 FALSE · 0 FABRICATED-by-the-corpus** (full table in [[claims-scorecard]]). Plus 2 UNVERIFIABLE side-claims (the "2,840 Elo writing #1" figure; parts of the GDPval framing).
 
 - **What's solidly true:** the entire architecture spec, the $3/$15 rate card, the ~$0.94/task cost, the Frontend-Arena #1 result, native multimodal.
-- **What's oversold:** the "beats everything" framing (it's a specialist), the "cost-effective" framing (it's a 5× price *hike* over K2.6), the demos (Moonshot's own marketing).
+- **What's oversold:** the "beats everything" framing (it's a specialist), the "cost-effective" framing (it's a ~3.2–3.8× price *hike* over K2.6), the demos (Moonshot's own marketing).
 - **What's simply wrong:** open-weights availability, the US-export-control story, the win-rate comparison numbers.
 
 The corpus value here isn't "learn about Kimi K3" — it's a clean case study in **how to read a benchmark-hype launch video**: the specs are usually right, the *availability, pricing-context, and competitive-ranking framing* are where these videos break. See [[reception-and-skeptics]] for the neutral technical takes (Simon Willison) that the hype video crowds out.

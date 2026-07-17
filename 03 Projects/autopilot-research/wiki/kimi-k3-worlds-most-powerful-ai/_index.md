@@ -18,7 +18,7 @@
 | [[what-kimi-k3-is]] | The verified spec sheet + release timeline (what's actually true) |
 | [[architecture]] | MoE 16-of-896, Kimi Delta Attention (KDA) + Attention Residuals, the 3:1 hybrid, multimodal — confirmed, with the trade-offs the video skipped |
 | [[benchmarks-fact-vs-hype]] | Every leaderboard the video cited, corrected: AA Index #3–4, Frontend Arena #1 (domain-narrow), text arena #9, GDPval, the wrong win-rates, hallucination, the fabricated "2,840 Elo" writing claim |
-| [[pricing-and-the-end-of-cheap-chinese-ai]] | $3/$15 = a ~5× *increase* over K2.6; the "cost-effective" framing is backwards; verbosity tax |
+| [[pricing-and-the-end-of-cheap-chinese-ai]] | $3/$15 = a ~3.2–3.8× *increase* over K2.6; the "cost-effective" framing is backwards; verbosity tax |
 | [[open-weights-reality]] | **The headline correction** — hosted-only at launch; July 27 weights; the 2.8T self-host hardware wall |
 | [[reception-and-skeptics]] | Rune, Simon Willison (pelican / agentic tool-calling), the debugging-failure critique, Elon (misattributed), the distillation accusation |
 | [[cyber-and-export-control]] | **The other false claim** — the video conflates the Fable/Mythos export controls with K3; CyberGym context |

@@ -9,7 +9,7 @@ The video (~[10:37]–[14:18]) frames pricing as K3's killer feature: "very, ver
 
 ## Why "cost-effective" is misleading (COR2, UPHELD high)
 
-- K3 is a **~5–6× price increase over its own predecessor** Kimi K2.6 (**$0.95 / $4.00** → $3 / $15): **3.16× input, 3.75× output**.
+- K3 is a **~3.2–3.8× price increase over its own predecessor** Kimi K2.6 (**$0.95 / $4.00** → $3 / $15): **3.16× input, 3.75× output**. *(Corrected 2026-07-17: an earlier draft headlined this "~5–6×", which contradicts its own 3.16×/3.75× breakdown; K2.7 Code is also $0.95/$4. See [[speed-pricing-and-local-reality]].)*
 - Multiple outlets frame the release as **"the end of super cheap Chinese AI"** — Moonshot has **abandoned the rock-bottom pricing** that defined earlier Chinese open models and moved to a **frontier tier**.
 - **Same sticker as Claude Sonnet 5** ($3/$15 standard). Note the timing nuance: Sonnet 5 is on **intro pricing $2/$10 through Aug 31, 2026**, then $3/$15 — so *right now* K3 is actually **more expensive than Sonnet 5**, and equal only after Sep 1.
 - Cheaper than **Opus 4.8 ($5/$25)** and **GPT-5.6 Sol ($5/$30)** — so "cheaper than the top closed flagships" is fair; "cheap" or "won't break the bank" is not.
@@ -24,6 +24,6 @@ The video (~[10:37]–[14:18]) frames pricing as K3's killer feature: "very, ver
 
 ## Key Takeaways
 
-- The rate card is real and genuinely competitive **against the top closed flagships** — but against its own lineage it's a **5× hike**, which flips the "cost-effective" story.
+- The rate card is real and genuinely competitive **against the top closed flagships** — but against its own lineage it's a **~3.2–3.8× hike**, which flips the "cost-effective" story.
 - **Verbosity** means the real bill is higher than $3/$15 suggests for generation-heavy tasks.
 - For cost-driven adoption, the honest comparison is **K3 vs Sonnet 5** (same tier), not "K3 vs Opus" — and Sonnet 5 is a Claude model with none of K3's residency/legibility problems ([[hireui-translation]]).

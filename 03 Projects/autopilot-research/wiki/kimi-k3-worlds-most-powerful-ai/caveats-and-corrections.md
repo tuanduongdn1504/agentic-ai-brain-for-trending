@@ -3,7 +3,7 @@
 ## Corrections to the video (verified, UPHELD high)
 
 1. **"Open source — download the weights, do whatever"** → FALSE at video time. Hosted-API-only; weights promised July 27 (Modified MIT). [[open-weights-reality]]
-2. **"Cost-effective / won't break the bank"** → MISLEADING. A ~5–6× price *increase* over K2.6; frontier-tier pricing. [[pricing-and-the-end-of-cheap-chinese-ai]]
+2. **"Cost-effective / won't break the bank"** → MISLEADING. A ~3.2–3.8× price *increase* over K2.6 ($0.95/$4 → 3.16×/3.75×); frontier-tier pricing. *(corrected 2026-07-17 from "~5–6×")* [[pricing-and-the-end-of-cheap-chinese-ai]]
 3. **"Beats the frontier; Fable 5 = 58%, GPT-5.6 = 50%"** → FALSE. Actual arena.ai win-rates Fable 5 **63%** / GPT-5.6 Sol **58%**; AA Index rank **#3–4**. [[benchmarks-fact-vs-hype]]
 4. **Silent on reliability** → hallucination rate **rose 39%→51%**. [[benchmarks-fact-vs-hype]]
 5. **"The US restricted K3 for hacking"** → FALSE. Controls were on Anthropic's Fable 5 / Mythos 5. [[cyber-and-export-control]]

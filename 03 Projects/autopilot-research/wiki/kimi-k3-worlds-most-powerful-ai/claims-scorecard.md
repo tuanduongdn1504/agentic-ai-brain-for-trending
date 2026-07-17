@@ -7,7 +7,7 @@ Every checkable claim the video makes, ruled against primary/multiple sources. V
 | # | Video claim | Verdict | Correction |
 |---|---|---|---|
 | 1 | Kimi K3 is open-source; download the weights now, do whatever | **FALSE** | Hosted-API-only at video time; weights promised **July 27** (Modified MIT). [[open-weights-reality]] |
-| 2 | $3/$15 pricing is cost-effective / won't break the bank | **MISLEADING** | A **~5–6× increase** over K2.6 ($0.95/$4); frontier-tier (= Sonnet 5). "End of cheap Chinese AI." [[pricing-and-the-end-of-cheap-chinese-ai]] |
+| 2 | $3/$15 pricing is cost-effective / won't break the bank | **MISLEADING** | A **~3.2–3.8× increase** over K2.6 ($0.95/$4 → 3.16× in / 3.75× out); frontier-tier (= Sonnet 5). "End of cheap Chinese AI." *(corrected 2026-07-17 from "~5–6×")* [[pricing-and-the-end-of-cheap-chinese-ai]] |
 | 3 | Beats the frontier; Fable 5 win-rate 58%, GPT-5.6 50% | **FALSE** | Actual arena.ai: Fable 5 **63%**, GPT-5.6 Sol **58%**, K3 76%. On AA Index K3 is **#3–4** behind both. [[benchmarks-fact-vs-hype]] |
 | 4 | Accuracy improved (no downside mentioned) | **MISLEADING** | Hallucination rate **rose 39%→51%** — fabricates more. Omitted. [[benchmarks-fact-vs-hype]] |
 | 5 | The US restricted K3 for hacking US systems; Americans-only | **FALSE** | Controls were on Anthropic's **Fable 5/Mythos 5**, not K3; imposed Jun 12, lifted ~Jul 1. [[cyber-and-export-control]] |
