@@ -50,6 +50,8 @@ Make a screen-share that **shows the old pain then the new fix**, aimed at the p
 
 **PokéSynergy fit:** an 11-min demo (336 views — but *alignment beats scale*; every viewer is a target user) → app link → Discord bug reports/feature requests → next video shows the new feature. Multiple videos angle the same tool ("The Best Tool in Competitive Pokemon", "The ONLY App Beginners Should Use…").
 
+> ⭐ **Deepened with measured data (2026-07-17) — [[pokesynergy-niche-business-tool/distribution-deep-dive]]:** ~weekly cadence, **~106K cumulative views** across 9 videos, a **45K breakout** ("Changes How New Players Build" — a *transformation* hook that beat *feature* hooks like "solves stat spreads"), explicit **title A/B tests** ("This **Tool** Solves…" vs "This **App** Solves…"), and the key nuance that Scoriox **pivoted an existing crypto-gaming audience** to Pokémon (he'd built community tools before — the pattern is *creator-audience-first*).
+
 **Port:** find where your niche consumes content (LinkedIn/Slack/Reddit for recruiters), demo the pain, funnel to app + community. ⚠️ This requires being the *builder-in-public voice* — not every founder wants that. And note the survivorship caveat in Move-6 / [[pokesynergy-niche-business-tool/critical-appraisal]].
 
 ---

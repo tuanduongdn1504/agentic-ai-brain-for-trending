@@ -17,6 +17,8 @@ Directly re-verified (main-loop WebFetch of `pokesynergy.app/vs/pokebase` and `/
 
 **Reconciliation:** PokéSynergy is an **integrated, explainable, assisted team-tuning workspace** with live breakpoint feedback. The video's "it automatically shifts points … perfect spreads in seconds" is **marketing gloss / creator enthusiasm** over what is fundamentally *assisted manual tuning*. The interactive live-recompute is real; the "autonomous optimizer that gives you the perfect spread for any team" is not how the product positions itself.
 
+> ⚠️ **Refined by live-app testing (2026-07-17) — this article slightly overcorrected.** Hands-on, the Speed view *does* auto-configure: tapping the "Mega Blaziken" speed tier set **Spe SP 0→31** (final Speed 168, outspeeds 167) and moved **"Your rank" #435→#204 live**; tapping an un-outspeedable threat correctly did nothing. So "click a threat → points shift" **is literally true — per single breakpoint.** The tool is not merely "assisted"; it auto-configures one stat toward one target. The surviving, genuine overclaim is narrower: the *holistic* "perfect spread for **any team** in seconds" (whole-team, all six stats, one click), which does not exist — the human still composes the overall spread. Full walkthrough: [[pokesynergy-niche-business-tool/live-app-teardown]].
+
 > ⚠️ **Verification note (Rule 12 / wiki-verify):** a workflow agent asserted the `/vs/pokebase` page *explicitly states* "No, PokeSynergy does not auto-optimize EVs." Main-loop re-fetch found **no such sentence** — the page simply *doesn't mention* EV auto-optimization at all. That confabulated quote was **excluded**; this article states only what was independently confirmed. Logged in [[pokesynergy-niche-business-tool/caveats-and-corrections]].
 
 ## Is the interaction novel? No.
@@ -30,7 +32,7 @@ The competitive-Pokémon tooling landscape already contains EV optimizers/solver
 | **ChampTeamAI EV Spread Solver** | **Closest to the pitch** — list opponents + mode (Defend/Attack/Outspeed) → solves one 6-stat spread; batch, not click-one-threat |
 | ChampDex / PokeTools / Hohou's Home / PokeStats | Various batch/benchmark EV optimizers |
 | Showdex | Damage calc integrated into Showdown |
-| Pikalytics (16-yr incumbent), ChampTeams, ChampionsLab | Usage data / team hubs |
+| Pikalytics (**~9-yr incumbent, launched Nov 2017** — corrected; the earlier "16-yr" was wrong), ChampTeams, ChampionsLab | Usage data / team hubs |
 
 **Verdict:** an *interactive* "click a threat in a list → watch bars update live" UI may be a nice UX twist, but **automated EV optimization is a solved, commodity capability**. PokéSynergy's real differentiation is **workflow integration + beginner-friendly explainable reasons + live meta context**, riding on the same commodity math (`@smogon/calc`) and public data (LimitlessVGC/Showdown) everyone else uses.
 

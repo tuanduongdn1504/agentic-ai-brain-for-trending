@@ -22,6 +22,13 @@
 - ✅ WebSearch — Scoriox channel identity; Pokémon Champions game + Season M-4 reality.
 - ✅ Independent corpus **collision check** (grep of `wiki/_master-index.md` + `raw/_inventory.md`): **no prior Pokémon / gaming / product-archetype topic** → genuinely corpus-first.
 
+## Deepening pass — additional primary research (2026-07-17, branch `autopilot-research-pokesynergy-deepen`)
+
+- ✅ **Live-app browser walkthrough** (signed out, no PII) — built a team, drove the Stats editor, and **verified the click-threat→auto-configure behavior** (Spe SP 0→31; rank #435→#204). Ground-truthed the real 5-section IA + Analysis/Calcs. → [[pokesynergy-niche-business-tool/live-app-teardown]].
+- ✅ **`yt-dlp` channel extraction** of [@Scoriox](https://www.youtube.com/@Scoriox) — **8,460 subs / 561 videos**; the 9-video PokéSynergy campaign metrics (dates/views/likes); confirmed the **crypto→Pokémon pivot** + prior tool-building. → [[pokesynergy-niche-business-tool/distribution-deep-dive]].
+- ✅ **Background Workflow `wf_adf65593`** — 5 web investigators + 3 adversarial verifiers (refute-first, schema'd). Verifiers **CONFIRMED** two dead tools (VGC-Team-Sheets, Nugget Bridge) and **REFUTED** a false-death (Trainer Tower migrated to NCP). The auto-synthesis step failed on a schema cap; synthesis was hand-built in the main loop (stricter). → [[pokesynergy-niche-business-tool/comparative-niche-tools]].
+- ✅ **Main-loop re-verification** of the two load-bearing corrections: Pikalytics launch **Nov 2017** (WebSearch); VGC-Team-Sheets last push **2021-07-13** (GitHub API — corrected an agent's "2019").
+
 ## Confidence ledger
 
 | Fact | Confidence | Basis |
@@ -34,7 +41,8 @@
 | Monetization = none/deferred | **High** | site + Terms |
 | IP/platform/TAM risk analysis | **Medium-High** | documented enforcement history + niche-size math |
 | Scoriox = real solo AU creator, tool is his | **High** | multiple own promo videos + WebSearch |
-| ABN / email / @kingscoriox / RMIT / "6K subs Aug 2024" / Illuvium | **Low–Medium** | `dive:creator` only; **not** independently re-verified; Illuvium possibly name-collision |
+| **Illuvium crossover / crypto-gaming background** | **High** *(upgraded 2026-07-17)* | [@Scoriox](https://www.youtube.com/@Scoriox) channel has dozens of Illuvium videos — real, not a name-collision |
+| ABN / email / @kingscoriox / RMIT / "6K subs Aug 2024" | **Low–Medium** | `dive:creator` only; **not** independently re-verified (channel now shows **8,460 subs**) |
 
 ## Sources (external)
 

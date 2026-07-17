@@ -2,6 +2,8 @@
 
 *Verified by direct WebFetch of the live site (main loop) + Workflow `dive:product`. Where the video and the site differ, see [[pokesynergy-niche-business-tool/what-it-actually-is-vs-the-pitch]].*
 
+> ⚠️ **Updated by a hands-on live-app walkthrough (2026-07-17).** The app's real navigation is **5 sections — Teams · Team Builder · Speed · Analysis · Calcs** — not 9 separately-named tools. The table below lists capabilities by their `/vs` **marketing-page** names; the product folds them into the 5 sections (e.g. Weakness Checker / Type Coverage / MetaDex / threat analysis all live inside **Analysis**, under a "Synergy Score"). Feature-level detail verified/expanded in [[pokesynergy-niche-business-tool/live-app-teardown]].
+
 ## What it is
 
 A free, no-login, browser-based **team builder for Pokémon Champions (VGC 2026 Doubles)**. Self-description on site:

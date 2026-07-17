@@ -4,7 +4,7 @@
 
 ## The uncomfortable evidence gaps
 
-- **336 views is not a market signal.** It's one creator showing a tool to a tiny, aligned audience. Don't read traction into it. If you pilot this pattern, measure **Discord size / signups / DAU / retention**, never video views.
+- **336 views is not a market signal** *(refined 2026-07-17)*. It's one creator showing a tool to a tiny, aligned audience. Don't read traction into it. If you pilot this pattern, measure **Discord size / signups / DAU / retention**, never video views. ⚠️ **But 336 was the *subject* video at ~1 day old** — the *campaign* is **~106K cumulative views** across 9 weekly videos (one **45K breakout**), measured in [[pokesynergy-niche-business-tool/distribution-deep-dive]]. Read the funnel, not the newest upload.
 - **"Actively maintained" is unquantified.** "Last update ~Jun 29–30 2026" could mean weekly iteration *or* launch-then-stall. No public repo/roadmap to check cadence.
 - **The headline feature is oversold** (see [[pokesynergy-niche-business-tool/what-it-actually-is-vs-the-pitch]]) — you'd be partly studying a feature the live product doesn't claim.
 - **N=1 success, no failure data.** You can't see how many solo Pokémon-tool builders tried and quit. "Solo founder builds niche tool into a business" is not *proven* repeatable from one visible winner.
@@ -40,6 +40,8 @@
 **Inspiration for UX/workflow/distribution patterns — not a business-model template.** The most valuable thing PokéSynergy teaches the operator is a **contrast**: it shows a clean, explainable, well-distributed niche tool *and* demonstrates every structural weakness (IP landlord, expiring platform, tiny TAM, subsidized founder) that hireui **doesn't** have. Borrow the interaction design and the honesty ethos; keep hireui's structurally stronger foundation.
 
 **Before treating "niche tool" as a proven pilot pattern, do the N>1 homework:** a 3-tool comparative study (a winner like PokéSynergy + an incumbent like Pikalytics + a *stalled* tool) to see the pattern *and its failure modes*, not just one survivor.
+
+> ✅ **Homework done (2026-07-17):** [[pokesynergy-niche-business-tool/comparative-niche-tools]] — winner (PokéSynergy) / incumbent (Pikalytics, ~9 yr) / dead (VGC-Team-Sheets, format-locked) + a 15-tool census + a 6-mode failure taxonomy. **Verdict:** the *explainability-in-a-commodity-market* lane is a real, generalizable pattern; but longevity comes from a **sustaining mechanism** (the incumbent's tiny freemium + format-forced data refresh), and the two failure modes that actually threaten PokéSynergy — **subsidy collapse and no-monetization** — are precisely the two hireui structurally avoids.
 
 ## Key Takeaways
 

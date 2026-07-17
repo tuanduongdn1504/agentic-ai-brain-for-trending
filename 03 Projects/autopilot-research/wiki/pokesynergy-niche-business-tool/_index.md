@@ -4,6 +4,7 @@
 > **Video:** [This Tool Solves Pokémon Stat Spreads In Seconds](https://www.youtube.com/watch?v=Vlh3n3WwQZI) (`Vlh3n3WwQZI`, Scoriox, 2026-07-16, 11:14, ~336 views).
 > **Why it's here:** the corpus' **FIRST product-as-business-archetype topic** (and first competitive-gaming subject). The operator submitted it deliberately to *"get inspired and build business tools like this."* So this topic is read as a **niche-business-tool playbook**, not as Pokémon trivia.
 > **Ingested:** 2026-07-17 · path 5 (yt-dlp `en-orig` → full transcript in main loop) · verified via Workflow `wf_038de11d-243` (10 agents) + main-loop anchors.
+> **Deepened:** 2026-07-17 (branch `autopilot-research-pokesynergy-deepen`) — +3 articles across **live-app primary research + N>1 comparative study + content-distribution analysis**; produced 5 corrections logged in [[pokesynergy-niche-business-tool/caveats-and-corrections]] (incl. the ⚠️ Illuvium overturn + the auto-configure behavior verified live).
 
 ## The one-paragraph version
 
@@ -24,6 +25,9 @@ Scoriox — a solo Australian creator who **vibe-codes tools for gaming communit
 | [[pokesynergy-niche-business-tool/caveats-and-corrections]] | Corrections + an agent-confabulation caught in verification (Rule 12 / wiki-verify) |
 | [[pokesynergy-niche-business-tool/critical-appraisal]] | How much is a real template vs one indie demo — DO-apply / DO-NOT-apply |
 | [[pokesynergy-niche-business-tool/source-provenance]] | Video + workflow + anchors + per-claim confidence levels + ASR-garble notes |
+| [[pokesynergy-niche-business-tool/live-app-teardown]] | ⭐ **Deepening (Axis 2):** hands-on live-app walkthrough — real 5-section IA; **verified the click-threat→auto-configure behavior**; explainability on every surface |
+| [[pokesynergy-niche-business-tool/comparative-niche-tools]] | ⭐ **Deepening (Axis 1):** the N>1 study — winner (PokéSynergy) / incumbent (Pikalytics ~9yr) / dead (VGC-Team-Sheets) + a 15-tool census + a 6-mode failure taxonomy |
+| [[pokesynergy-niche-business-tool/distribution-deep-dive]] | ⭐ **Deepening (Axis 3):** Scoriox's *measured* funnel (crypto→Pokémon pivot, ~106K views, 45K breakout, hook A/B) + the recruiter-market content port |
 
 ## Pilot deliverable
 
@@ -35,5 +39,6 @@ Scoriox — a solo Australian creator who **vibe-codes tools for gaming communit
 - **The shape is the lesson, not the domain.** Painful manual optimization + passionate niche + click-to-tune + live explainability + content-led distribution.
 - **The caveats are the other half of the lesson.** Overclaimed headline feature, IP/platform precarity, tiny TAM, subsidized solo founder — all reasons the operator's *recruitment* tool is structurally *stronger* (owns its data, evergreen market, no IP landlord).
 - **Sharpest hireui borrow:** an **interactive constraint-solver with live, explainable tradeoff feedback** for candidate shortlisting — deterministic math, ADR-safe, ships now.
+- **Deepening verdict (2026-07-17):** the *pattern* survives N>1 scrutiny (explainability-in-a-commodity-market is a real lane in a 15-tool field), the *auto-configure* claim is real (verified live: Spe SP 0→31), and the *business model* is confirmed non-portable — hireui structurally avoids the two failure modes (subsidy collapse, no-monetization) that actually threaten PokéSynergy. See [[pokesynergy-niche-business-tool/comparative-niche-tools]] · [[pokesynergy-niche-business-tool/live-app-teardown]] · [[pokesynergy-niche-business-tool/distribution-deep-dive]].
 
 Cross-links: [[jasonlee-claude-mobile-app/_index]] · [[mosh-ai-powered-apps/_index]] · [[miai-cv-matching-agent/_index]] · [[ai-engineering/_index]] · [[google-zero-open-web/_index]] · [[prompt-evaluation/_index]] · [[api-security-7-techniques/_index]] · [[system-thinking-ai-coding/_index]] · [[data-structures-16-in-32-min/_index]] · [[external|Storm Bear: career-ops]]
