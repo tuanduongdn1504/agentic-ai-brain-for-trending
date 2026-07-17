@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gpt-5.6-instruct — LLM Wiki v209 (defensive threat-intel)</title>
+<style>
+  :root{
+    --bg:#f7f7f8; --card:#fff; --ink:#1a1a1c; --mut:#5b5b63; --line:#e3e3e8;
+    --accent:#b4232a; --accent2:#8a6d1f; --ok:#1f7a3d; --code:#f0f0f3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#131316;--card:#1b1b20;--ink:#ececf1;--mut:#a2a2ad;--line:#2c2c34;
+      --accent:#ff6b70;--accent2:#e3c56a;--ok:#5fd08a;--code:#22222a;}
+  }
+  :root[data-theme="dark"]{--bg:#131316;--card:#1b1b20;--ink:#ececf1;--mut:#a2a2ad;--line:#2c2c34;--accent:#ff6b70;--accent2:#e3c56a;--ok:#5fd08a;--code:#22222a;}
+  :root[data-theme="light"]{--bg:#f7f7f8;--card:#fff;--ink:#1a1a1c;--mut:#5b5b63;--line:#e3e3e8;--accent:#b4232a;--accent2:#8a6d1f;--ok:#1f7a3d;--code:#f0f0f3;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:24px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{border-bottom:2px solid var(--accent);padding-bottom:14px;margin-bottom:22px}
+  h1{font-size:1.5rem;margin:0 0 4px}
+  h2{font-size:1.12rem;margin:26px 0 8px;border-left:3px solid var(--accent2);padding-left:10px}
+  .sub{color:var(--mut);font-size:.92rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .warn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--card))}
+  code{background:var(--code);padding:1px 5px;border-radius:5px;font-size:.88em}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;overflow-x:auto;display:block}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:var(--code)}
+  .tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin:2px 4px 2px 0}
+  .grade b{color:var(--accent)}
+  ul{margin:6px 0 6px 0;padding-left:20px}
+  li{margin:3px 0}
+  .ok{color:var(--ok)}
+  .accent{color:var(--accent)}
+  footer{margin-top:28px;border-top:1px solid var(--line);padding-top:12px;color:var(--mut);font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>gpt-5.6-instruct <span class="sub">— LLM Wiki v209 · 2026-07-17</span></h1>
+  <div class="sub"><code>MDX-Tom/gpt-5.6-instruct</code> · Codex CLI jailbreak / safety-bypass prompt pack for <code>gpt-5.6-sol</code> · MIT · Python 100% · ~1.7k★/329 forks (page-stated) · author = bare non-Anthropic handle</div>
+  <div style="margin-top:8px">
+    <span class="tag">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="tag">(a) FAIL</span><span class="tag">(b) MODERATE</span><span class="tag">(c) MODERATE</span><span class="tag">(d) STRONG</span>
+    <span class="tag">NO MINT (46/11 unchanged)</span>
+    <span class="tag accent">pilot-AVOID (offensive) · DEFENSIVE-ONLY</span>
+  </div>
+</header>
+
+<div class="card warn">
+  <b class="accent">Framing.</b> This page is a <b>defensive threat-intelligence catalog entry</b> about an offensive artifact. It documents what the repo is and how to <b>defend against its attack class</b>. It deliberately does <b>not</b> reproduce the jailbreak prompts, the refusal-suppression recipe, the deployment-script internals, or the 360 test cases. The subject is <b>pilot-AVOID for offensive use</b> — installing it violates OpenAI's usage policy, risks account suspension, and leaves a persistent safety-bypass in your Codex config.
+</div>
+
+<h2>1 · What it is</h2>
+<div class="card">
+A versioned set of "unrestricted" system-prompt files (<code>v5</code> recommended, <code>v35</code> specialized), a Python installer (<code>codex-instruct.py</code>) that writes them into Codex CLI's <b>official</b> <code>model_instructions_file</code> config field, and a 360-case harness that measures how reliably the model stops refusing. Stated strategy: reframe disallowed tasks (security research / pentest / reverse-engineering / software cracking / NSFW fiction) as <i>"local sandbox tasks"</i> and suppress refusal rhetoric.
+</div>
+
+<h2>2 · The mechanism (attack class, for defense)</h2>
+<div class="card">
+<ol>
+  <li><b>Config-layer system-prompt override.</b> Codex's <code>model_instructions_file</code> key <i>replaces</i> the CLI's built-in instructions with a user file — a legitimate customization feature, here weaponized.</li>
+  <li><b>Weaponized payload</b> reframes disallowed requests + suppresses refusals.</li>
+  <li><b>One-command install</b> makes every subsequent Codex session silently load the override until restored.</li>
+</ol>
+<b class="ok">Efficacy is bounded</b> (the honest part MDX-Tom's own README omits): a sibling's <code>ANALYSIS.md</code> notes <code>model_instructions_file</code> <b>cannot override OpenAI's true system prompt</b>, and <b>API-layer classifiers operate independently</b> of the prompt. So the pack reshapes the softest layer it controls — the claimed <code>120/120</code> measures refusal-avoidance on a self-selected bank, <b>not</b> true unrestricted capability. <b>Defensive lesson:</b> never put safety-critical logic in a layer an untrusted party can replace; keep an independent gate <i>outside</i> the prompt.
+</div>
+
+<h2>3 · Lineage — NOT world-first, corpus-first</h2>
+<div class="card">
+An established genre: credits upstream <code>yynxxxxx/Codex-5.5-codex-instruct-5.5</code> (author <i>li lingbo</i>, non-corpus → <b>not #57</b>); siblings <code>xsser/codex-jailbreak-guide</code> + forks. <b>Corpus-first</b> for the offensive-jailbreak-prompt-pack surface (hand-verified collision grep, sanity-anchored on v207/v208); the vault's nearest neighbors are all <i>defensive/academic</i> (dive-into-llms jailbreak chapter, get-shit-done injection scanner, SkillSpector v169).
+</div>
+
+<h2>4 · Verdict</h2>
+<table>
+<tr><th>Axis</th><th>Call</th><th>Why</th></tr>
+<tr><td class="grade"><b>(a)</b></td><td>FAIL</td><td>Bare handle, not Anthropic (§41; no name/heritage/locale rescue). #19 19a.</td></tr>
+<tr><td class="grade"><b>(b)</b></td><td>MODERATE → GOAL-ALIGNED</td><td>Defensive threat-intel for hireui + Claude-safety understanding (§40; OFF-GOAL recorded as the reviewable alternative). Below STRONG: offensive-primary, targets Codex/GPT not Claude, not a constructive capability. Gray-zone ≠ off-goal (§31).</td></tr>
+<tr><td class="grade"><b>(c)</b></td><td>MODERATE</td><td>Real installer + 360-case bank + v5/v35 + SHA256; but shallow, self-reported efficacy, NOT source-cloned (deliberate).</td></tr>
+<tr><td class="grade"><b>(d)</b></td><td>STRONG</td><td>Pattern #38 (offensive vs defensive pole) · shannon v45 / Strix v190 · SkillSpector v169 · config-manipulation cluster · injection-defense thread · #66 dual-use.</td></tr>
+</table>
+<div class="card">
+<b>Pattern outcome: NO MINT</b> (corpus-knowledge / threat-intel data-point + a DEFERRED watch axis "weaponized offensive prompt artifact"). §C vocab is capability-shaped; a jailbreak trick is a <i>threat</i> we catalog at the Pattern layer, not a capability we adopt (the Pattern #38 / GLM-5 v176 precedent). Reviewable N=1 §C-MINT alternative recorded — loses on offensive+gray+non-world-first grounds. <b>Counts UNCHANGED 46/11</b>; streak <b>GA:69</b> (55 consecutive GA v153→v209); §35 CLEAR. Tier <b>T1 prompt-artifact collection (offensive flavor)</b>.
+</div>
+
+<h2>5 · Defensive pilot — ⭐ A1 → B7 → D16</h2>
+<div class="card">
+<ul>
+  <li><b>A1</b> — learn the attack class from this wiki (zero install; do <b>not</b> clone the pack).</li>
+  <li><b>B7</b> — write a prompt-injection & config-override defense checklist into hireui's LLM ADR + <code>CLAUDE.md</code>: untrusted-data boundary · no-safety-in-prompt · <b>independent classifier/eval/bias gate outside the prompt</b> · privileged-review for any system-prompt-setting config.</li>
+  <li><b>D16</b> — red-team hireui's first LLM feature (Match-Explain / candidate-scoring) with candidate content that reframes the screening task; verify the independent gate + decision log hold.</li>
+</ul>
+Full 24-method defensive menu in the companion doc.
+</div>
+
+<footer>
+  Verified INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow/subagent (the ~205K shim overflows subagent context). Source hand-fetched; identity + lineage by WebSearch; collision by a sanity-anchored file-listing grep. §37.4: stars/forks page-stated (mocked API) → not a #52 claim. Not source-cloned (deliberate, offensive artifact). · Storm Bear LLM-Wiki v209.
+</footer>
+</div>
+<script>
+// theme toggle stub — respect a data-theme set by a host; default to prefers-color-scheme
+(function(){try{var t=document.documentElement.getAttribute('data-theme');if(!t){}}catch(e){}})();
+</script>
+</body>
+</html>
