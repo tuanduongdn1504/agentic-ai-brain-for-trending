@@ -1,0 +1,280 @@
+<style>
+  :root {
+    --bg: #f6f8f9;
+    --surface: #ffffff;
+    --surface-2: #eef2f4;
+    --ink: #101b22;
+    --ink-soft: #3f545f;
+    --ink-faint: #6b8290;
+    --rule: #d8e0e4;
+    --rule-strong: #c2ced4;
+    --accent: #0f7d8f;
+    --accent-ink: #0a5764;
+    --good: #218a56;
+    --warn: #a6640b;
+    --bad: #bb412a;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c1418;
+      --surface: #111d23;
+      --surface-2: #16242b;
+      --ink: #e4edf1;
+      --ink-soft: #a8bcc6;
+      --ink-faint: #6f8894;
+      --rule: #22333c;
+      --rule-strong: #2f434e;
+      --accent: #38bec9;
+      --accent-ink: #7ad7de;
+      --good: #4ecb86;
+      --warn: #e0a53a;
+      --bad: #f0795c;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f8f9; --surface: #ffffff; --surface-2: #eef2f4;
+    --ink: #101b22; --ink-soft: #3f545f; --ink-faint: #6b8290;
+    --rule: #d8e0e4; --rule-strong: #c2ced4;
+    --accent: #0f7d8f; --accent-ink: #0a5764;
+    --good: #218a56; --warn: #a6640b; --bad: #bb412a;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c1418; --surface: #111d23; --surface-2: #16242b;
+    --ink: #e4edf1; --ink-soft: #a8bcc6; --ink-faint: #6f8894;
+    --rule: #22333c; --rule-strong: #2f434e;
+    --accent: #38bec9; --accent-ink: #7ad7de;
+    --good: #4ecb86; --warn: #e0a53a; --bad: #f0795c;
+  }
+
+  * { box-sizing: border-box; }
+  .wiki {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: clamp(1.1rem, 4vw, 3.5rem) clamp(1rem, 5vw, 2rem);
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; }
+  .wiki p { max-width: 68ch; }
+  .wiki a { color: var(--accent-ink); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 .9rem;
+    display: flex; flex-wrap: wrap; gap: .35rem 1rem;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    margin: 0 0 .5rem;
+    text-wrap: balance;
+    font-weight: 800;
+  }
+  h1 .dot { color: var(--accent); }
+  .tagline {
+    font-size: clamp(1rem, 2.2vw, 1.18rem);
+    color: var(--ink-soft);
+    margin: 0 0 1.4rem;
+    max-width: 60ch;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.2rem; }
+  .badge {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .02em;
+    padding: .3rem .6rem;
+    border-radius: 4px;
+    border: 1px solid var(--rule-strong);
+    background: var(--surface);
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .badge.go { border-color: color-mix(in srgb, var(--good) 45%, var(--rule)); color: var(--good); }
+  .badge.accent { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); color: var(--accent-ink); }
+
+  h2 {
+    font-size: 1.28rem;
+    letter-spacing: -.01em;
+    margin: 2.8rem 0 .3rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: baseline; gap: .6rem;
+  }
+  h2 .n {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  h3 { font-size: 1.02rem; margin: 1.6rem 0 .3rem; letter-spacing: -.01em; }
+
+  .lead { font-size: 1.05rem; color: var(--ink-soft); }
+  code, .m { font-family: var(--mono); font-size: .86em; }
+  .m {
+    background: var(--surface-2);
+    padding: .08rem .34rem;
+    border-radius: 3px;
+    color: var(--accent-ink);
+    white-space: nowrap;
+  }
+  strong { font-weight: 700; }
+  em { color: var(--ink); font-style: italic; }
+
+  .grid { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); margin: 1.2rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  .scroll { overflow-x: auto; }
+  th, td { text-align: left; padding: .7rem .85rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+  thead th {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); background: var(--surface-2); font-weight: 600;
+  }
+  td.k { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); white-space: nowrap; }
+  .v-go { color: var(--good); font-weight: 700; }
+  .v-mid { color: var(--warn); font-weight: 700; }
+  .v-no { color: var(--bad); font-weight: 700; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 1rem 1.15rem;
+    margin: 1.2rem 0;
+  }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout .lbl {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); display: block; margin-bottom: .35rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-direction: column; gap: .55rem; }
+  ul.clean li { padding-left: 1.15rem; position: relative; }
+  ul.clean li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); }
+  .two { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+  @media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+  .col h3 { margin-top: 0; }
+
+  .path { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .9rem; margin: .6rem 0 0; }
+  .path .step { background: var(--surface-2); border: 1px solid var(--rule-strong); border-radius: 5px; padding: .3rem .55rem; color: var(--accent-ink); }
+  .path .arr { color: var(--ink-faint); }
+
+  footer.wf { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-faint); }
+  footer.wf p { max-width: none; }
+</style>
+
+<div class="wiki">
+<div class="wrap">
+
+  <p class="eyebrow"><span>LLM Wiki · v212</span><span>2026-07-17</span><span>routine v2.7</span><span>Storm Bear vault</span></p>
+  <h1>tabularis<span class="dot">.</span></h1>
+  <p class="tagline">An open-source desktop <strong>SQL workspace</strong> whose headline feature is a <strong>built-in first-party MCP server</strong> — so Claude and other coding agents inspect your real schemas and run queries through the same connections you already manage. A database GUI a human uses; an agent bridge bolted on.</p>
+
+  <div class="badges">
+    <span class="badge go">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="badge">a FAIL · b STRONG · c STRONG · d STRONG</span>
+    <span class="badge accent">NO NEW MINT — v192 §C standalone N=1→N=2</span>
+    <span class="badge">counts 46 / 11 unchanged</span>
+    <span class="badge">streak GA:72</span>
+  </div>
+
+  <p class="lead">tabularis (<span class="m">TabularisDB/tabularis</span>) is the corpus's <strong>first database-GUI / SQL-client subject</strong>, and a genuine, fully-independent, cross-domain <strong>second instance</strong> of the palmier-pro v192 pattern <em>"Product-First Native Application Retrofitted with a First-Party MCP Server."</em> Built with Tauri v2 + Rust + React 19; Apache-2.0; ~3,700★ / 59 releases / v0.15.0. Author <strong>Andrea Debernardi</strong> (<span class="m">debba</span>), a freelance dev in Genova, Italy — <strong>not Anthropic</strong> — who vibe-coded it with Claude Code.</p>
+
+  <h2><span class="n">01</span> What it is</h2>
+  <p>A cross-platform desktop database client (DBeaver / TablePlus / DataGrip class) supporting PostgreSQL, MySQL/MariaDB and SQLite built-in, plus 13+ more (DuckDB, ClickHouse, Redis, Firestore, BigQuery, MongoDB, Oracle, SQL Server…) via a <strong>language-agnostic JSON-RPC 2.0 plugin system</strong>. On top of the GUI: SQL notebooks (SQL + Markdown + charts), visual EXPLAIN plan graphs, ER diagrams, a drag-and-drop query builder, SSH tunnelling, keychain secrets, a nine-language UI.</p>
+  <p>The distinctive claim is <em>"the MCP-native database client."</em> You connect databases once in the GUI; your agent reaches them through the <strong>same connection profiles</strong> — <em>"without duplicating config, without pasting secrets, without building your own bridge."</em> Explicitly the opposite of bolt-on AI: it <strong>exposes the database to the agent</strong> rather than putting the agent inside the app.</p>
+
+  <div class="callout">
+    <span class="lbl">The MCP server — 4 tools, gated by design</span>
+    <p style="margin:0"><span class="m">list_connections</span> · <span class="m">list_tables</span> · <span class="m">describe_table</span> · <span class="m">run_query</span>. One-click config for Claude Desktop, Cursor, Windsurf (+ Claude Code, Devin). Credentials stay local; <strong>per-connection read-only mode</strong> + <strong>approval gates with pre-flight <span class="m">EXPLAIN</span></strong> that <em>"fail closed on anything ambiguous — including stacked multi-statement payloads."</em> Text-to-SQL runs over OpenAI / Anthropic / MiniMax / OpenRouter / local Ollama / any OpenAI-compatible endpoint.</p>
+  </div>
+
+  <h2><span class="n">02</span> Verdict scoreboard</h2>
+  <div class="grid scroll"><table>
+    <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td class="k">(a) source</td><td class="v-no">FAIL</td><td>Andrea Debernardi (<span class="m">debba</span>), disclosed freelance dev, Genova IT — not Anthropic. §41: no name/heritage/locale rescue. Built <em>with</em> Claude Code = a Goal-#1 data-point, not authorship. → #19 19a.</td></tr>
+      <tr><td class="k">(b) goal-fit</td><td class="v-go">STRONG</td><td>A first-party MCP server giving agents managed, secret-free, EXPLAIN-gated database access = a real new agent capability on the MCP substrate the vault studies + directly pilotable into hireui's data layer. Cleanly goal-aligned; not STRONGEST (third-party; Claude one of several agents; core product is a dev GUI).</td></tr>
+      <tr><td class="k">(c) substance</td><td class="v-go">STRONG</td><td>Mature Tauri/Rust/React app, 59 releases, 16+ DB drivers, real safety machinery, real sponsors. Caveats: NOT source-cloned (README/site/posts); stars page-stated → not #52; text-to-SQL is model-dependent.</td></tr>
+      <tr><td class="k">(d) links</td><td class="v-go">STRONG</td><td>palmier-pro v192 (direct N=2 anchor) · the agent-tool MCP cluster (v140/v171/v172/v181/OfficeCLI v206) · #18 B1-MCP · the Tauri-desktop cluster · the provider-agnostic seam (meetily v196 / OmniRoute v208 / AIRI v210) · hireui data layer · Kilo Code v177 (a sponsor).</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2><span class="n">03</span> The pattern finding — N=2, not a new mint</h2>
+  <p>tabularis is a <strong>product-first human application</strong> (a full SQL workspace usable entirely without AI) that <strong>also ships its own first-party MCP server</strong> as a secondary, optional agent-access path. That is exactly the v192 palmier-pro §C standalone (row C40). tabularis takes it <strong>N=1 → N=2</strong> — no new §C row (the OmniRoute v208 handling). And it's a <em>stronger</em> N=2 than OmniRoute's: fully independent, cross-author, cross-domain, non-port → the standalone becomes a strong <strong>promotion-to-CONFIRMED candidate for the ~v212 audit</strong> (recorded, not self-promoted).</p>
+  <div class="grid scroll"><table>
+    <thead><tr><th></th><th>palmier-pro · v192 (N=1)</th><th>tabularis · v212 (N=2)</th></tr></thead>
+    <tbody>
+      <tr><td class="k">product</td><td>native macOS video editor</td><td>cross-platform desktop SQL workspace</td></tr>
+      <tr><td class="k">domain</td><td>creative / video (non-coding)</td><td>developer / database (coding-adjacent) ⚠</td></tr>
+      <tr><td class="k">stack</td><td>Swift 98.7%, macOS-native</td><td>TS 66.2% / Rust 32.8%, Tauri cross-platform</td></tr>
+      <tr><td class="k">mcp surface</td><td class="num">51 tools (timeline ops)</td><td class="num">4 tools (connections/tables/schema/query)</td></tr>
+      <tr><td class="k">author</td><td>Palmier, Inc. (YC S24)</td><td>Andrea Debernardi (solo, IT)</td></tr>
+      <tr><td class="k">license</td><td>GPLv3 core + closed backend</td><td>Apache-2.0</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <span class="lbl">One reviewable nuance for the audit</span>
+    <p style="margin:0">The v192 standalone says "in a <em>non-coding</em> domain." tabularis is developer/data-tooling — <em>coding-adjacent</em>. But the clause exists to exclude "the MCP surface IS the product" (agent-tool-first servers), and tabularis is decisively product-first. The load-bearing relationship holds; recommend the audit generalize the clause to <em>"any domain where the product's primary function is not being an agent tool."</em></p>
+  </div>
+
+  <h2><span class="n">04</span> Secondary &amp; non-claims</h2>
+  <div class="two">
+    <div class="col">
+      <h3>Secondary (recorded, not minted)</h3>
+      <ul class="clean">
+        <li><strong>#18 B1-MCP → ≈N=12</strong> — one server, many clients; no double-count with the §C standalone.</li>
+        <li><strong>#84 84c</strong> provider-agnostic text-to-SQL (no N-bump); the meetily v196 / OmniRoute v208 / AIRI v210 seam thread.</li>
+        <li><strong>LV-C7</strong> Tauri-desktop cluster data-point (+tabularis).</li>
+        <li><strong>Kilo Code v177 sponsors it</strong> — corpus-recursive cross-ref, <strong>not #57</strong> (sponsorship ≠ citation).</li>
+        <li>Solo-dev-with-Claude-Code dogfooding — a Goal-#1 case study.</li>
+        <li><strong>#66</strong> agent-with-<span class="m">run_query</span>-rights — mitigated by read-only + approval + EXPLAIN.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>NON-claims</h3>
+      <ul class="clean">
+        <li><strong>NOT #52</strong> — stars page-stated §37.4; velocity unestablishable.</li>
+        <li><strong>NOT #57</strong> — no corpus subject cited as an influence.</li>
+        <li><strong>NOT world-first</strong> — DBeaver/TablePlus + a growing DB-over-MCP space precede; corpus-first-for-the-conjunction only.</li>
+        <li><strong>NOT a new top-level pattern</strong> (max #85).</li>
+        <li><strong>NOT a new §C standalone</strong> (N=2 of v192).</li>
+        <li>NOT the first MCP-server / Tauri-desktop subject.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="n">05</span> Tier · counts · streak</h2>
+  <ul class="clean">
+    <li><strong>Tier:</strong> the palmier-pro v192 provisional tier — <em>"native application with an embedded agent-capability layer (first-party MCP server)"</em> — a T5 Application with a T2-Service MCP facet.</li>
+    <li><strong>Counts UNCHANGED:</strong> 46 top-level patterns / 11 CONFIRMED Library-vocab. §C live standalones 42 (v192 row N 1→2, no new row). Tracked surface ≈49.</li>
+    <li><strong>Streak GA:71 → GA:72</strong> — 58 consecutive goal-aligned ships v153→v212. §35 CLEAR (window {v210, v211, v212} = 0 off-goal).</li>
+  </ul>
+
+  <h2><span class="n">06</span> Pilot — on-goal, but read-only first</h2>
+  <p>tabularis is directly pilotable into hireui's data layer, but the load-bearing risk is that its MCP server gives an <em>agent</em> SQL rights over your <em>real</em> databases — so every hands-on step starts read-only, on a scratch/staging DB.</p>
+  <div class="path">
+    <span class="step">A1 read the bridge + safety model</span><span class="arr">→</span>
+    <span class="step">C11 connect read-only to a scratch DB, drive it with Claude</span><span class="arr">→</span>
+    <span class="step">D16 gated read-only MCP path for hireui staging</span>
+  </div>
+  <div class="callout warn" style="margin-top:1.3rem">
+    <span class="lbl">Fence</span>
+    <p style="margin:0"><span class="m">install-snapshot</span> first (native package install, not <span class="m">curl|bash</span>) · read-only connection + scratch/staging DB first · never a production DB with candidate PII until a residency + PII review passes · local/no-training model for text-to-SQL over sensitive schemas · hireui rungs run behind its CONSTITUTION (I-2 <span class="m">agent-*</span> branch, I-8 operator-installs, GitNexus-first) · pin <span class="m">v0.15.0</span> + review the config it writes into your agent.</p>
+  </div>
+
+  <footer class="wf">
+    <p>Verdict produced <strong>inline + fully hand-verified</strong> per <span class="m">feedback_wiki_verify_independently_check_collisions</span> — no workflow / no subagent (the ~205K shim overflows every subagent's 200K context → the deep-dive workflows fail prompt-too-long; the v200→v211 self-throttle). Source hand-fetched (repo + raw README + tabularis.dev + author posts); identity by WebSearch; collision + domain + the v192 pattern-anchor by sanity-anchored hand-grep of <span class="m">_state/</span> + <span class="m">_patterns/</span> (anchors OfficeCLI v206 / google_workspace_mcp v140 / Kilo Code v177 all hit → the empty tabularis/DBeaver sections are trustworthy). Full analysis: the (C) Deep Dive + (C) Verdict + (C) Pilot Methods Menu alongside this file.</p>
+  </footer>
+
+</div>
+</div>
