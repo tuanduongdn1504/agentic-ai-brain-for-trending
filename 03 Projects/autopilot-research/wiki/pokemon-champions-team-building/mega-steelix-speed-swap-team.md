@@ -45,45 +45,57 @@ So the team fires two spread moves a turn, piling damage on **both** opponents w
 - Big Flyers (Talonflame / Corviknight / Charizard) are handled by **Gravity + Earthquake**, or by a **Rock move** on Steelix as a Gravity-free answer.
 - Watch your own levitators/flyers under Gravity (see above).
 
-## Importable starting teamlist
+## Importable teamlist (PokéSynergy-validated)
 
-Paste into PokéSynergy's **Import** (Showdown format). The **abilities + core moves are verified from the video/tool**; the 4th-move flex slots, items, natures, and spreads are **sensible starting points — tune them in PokéSynergy** (the video doesn't publish exact spreads, so these are not presented as the creator's):
+This is the **canonical export straight from PokéSynergy** — I built the team in the tool and every move + ability + item was **accepted as Champions-legal** (Speed Swap on Emolga, Gravity / Trick Room / Telepathy on Oranguru, Levitate Rotom, Sand Force Mega Steelix), and the tool auto-assigned roles (**Steelix = Offense**, the other three = **Support**). Paste it back into PokéSynergy's **Import**:
 
 ```
-Steelix-Mega @ Steelixite
+Steelix @ Steelixite
 Ability: Sand Force
 Level: 50
+EVs: 32 HP / 32 Atk / 2 SpD
+Brave Nature
 - Earthquake
 - Heavy Slam
 - Protect
-- Stone Edge          ; flex: Rock answer to Charizard (or Body Press / Gyro Ball)
+- Stone Edge
 
 Emolga @ Focus Sash
 Ability: Motor Drive
 Level: 50
+EVs: 4 HP / 32 SpA / 30 Spe
+Timid Nature
 - Speed Swap
 - Helping Hand
-- Nuzzle              ; flex: Thunder Wave for speed control
-- Discharge           ; flex: Air Slash (a real Champions Emolga set uses Air Slash)
+- Nuzzle
+- Discharge
 
 Rotom-Wash @ Sitrus Berry
 Ability: Levitate
 Level: 50
+EVs: 32 HP / 4 SpA / 30 SpD
+Calm Nature
 - Discharge
 - Hydro Pump
 - Protect
-- Thunder Wave        ; flex: Will-O-Wisp
+- Thunder Wave
 
 Oranguru @ Mental Herb
 Ability: Telepathy
 Level: 50
+EVs: 32 HP / 4 Def / 30 SpD
+Sassy Nature
 - Trick Room
 - Gravity
-- Instruct            ; flex: Helping Hand
+- Instruct
 - Protect
 ```
 
-*Spreads to set in the tool:* Steelix — max HP/Atk, **minimum Speed** (it wants to be slowest for TR mode *and* it inherits Emolga's Speed via Speed Swap). Emolga — **max Speed** (it's the donor). Oranguru — max HP/SpD bulk, min Speed (TR setter). Rotom-Wash — bulk + enough Speed to your taste.
+**Two things to know about this export (both learned by round-tripping it through the tool):**
+- ⚠️ **Spreads are in Champions "Stat Points" (max 32/stat), NOT 252-EVs.** PokéSynergy and Champions use the Stat-Point system, so `EVs: 32 HP / 32 Atk` means *fully invested* — not "32 out of 252." Re-import this into **PokéSynergy** (or use it for Champions), not standard Pokémon Showdown, or the numbers won't mean what you expect. (Input 252-EV spreads get down-converted on import.)
+- **Set the min-Speed IVs by hand** — the export omits IVs. For **Trick Room mode**, give Steelix and Oranguru **0 Speed IVs** (they want to be the slowest). In **Speed-Swap mode** Steelix inherits Emolga's Speed, so 0-Spe-IV is fine either way; Emolga stays max Speed as the donor.
+
+*The 4th-slot picks are flexible:* Steelix's **Stone Edge** = a Gravity-free Rock answer to Charizard (or Body Press / Gyro Ball); Emolga's **Discharge** can be Air Slash (a real Champions Emolga set uses it) and **Nuzzle** can be Thunder Wave; Rotom's **Thunder Wave** can be Will-O-Wisp; Oranguru's **Instruct** can be Helping Hand.
 
 ## How PokéSynergy verifies/builds this (the tool loop)
 
