@@ -1,0 +1,192 @@
+<title>LLM Wiki v213 — Intel Geti</title>
+<style>
+  :root{
+    --bg:#f5f6f7; --panel:#ffffff; --panel-2:#eef1f2; --ink:#1a1f24; --ink-soft:#48535d;
+    --line:#d9dee2; --line-soft:#e7ebee;
+    --accent:#0b7d80;            /* vision/OpenVINO teal — grounded in the subject, not the AI-default purple */
+    --accent-ink:#075f61; --accent-wash:#e2f1f1;
+    --good:#1f7a4d; --good-wash:#e3f2ea;
+    --warn:#8a5a12; --warn-wash:#f6ecd9;
+    --bad:#a23b3b; --bad-wash:#f5e3e3;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    --disp:"Segoe UI Semibold","Segoe UI",-apple-system,BlinkMacSystemFont,Helvetica,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#12161a; --panel:#1a2027; --panel-2:#222b33; --ink:#e6ebef; --ink-soft:#9fb0bc;
+      --line:#2c3742; --line-soft:#232c34;
+      --accent:#41c8cb; --accent-ink:#7fdedf; --accent-wash:#14312f;
+      --good:#5cc98a; --good-wash:#13291e; --warn:#e0b466; --warn-wash:#2e2612; --bad:#e08585; --bad-wash:#2e1919;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161a; --panel:#1a2027; --panel-2:#222b33; --ink:#e6ebef; --ink-soft:#9fb0bc;
+    --line:#2c3742; --line-soft:#232c34;
+    --accent:#41c8cb; --accent-ink:#7fdedf; --accent-wash:#14312f;
+    --good:#5cc98a; --good-wash:#13291e; --warn:#e0b466; --warn-wash:#2e2612; --bad:#e08585; --bad-wash:#2e1919;
+  }
+  :root[data-theme="light"]{
+    --bg:#f5f6f7; --panel:#ffffff; --panel-2:#eef1f2; --ink:#1a1f24; --ink-soft:#48535d;
+    --line:#d9dee2; --line-soft:#e7ebee;
+    --accent:#0b7d80; --accent-ink:#075f61; --accent-wash:#e2f1f1;
+    --good:#1f7a4d; --good-wash:#e3f2ea; --warn:#8a5a12; --warn-wash:#f6ecd9; --bad:#a23b3b; --bad-wash:#f5e3e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;
+    font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:830px;margin:0 auto;padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 72px}
+  a{color:var(--accent-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+  h1,h2,h3{font-family:var(--disp);line-height:1.2;text-wrap:balance;font-weight:600}
+  h1{font-size:clamp(1.9rem,5vw,2.7rem);margin:.1em 0 .1em;letter-spacing:-.01em}
+  h2{font-size:1.35rem;margin:2.4em 0 .5em;padding-top:1.1em;border-top:1px solid var(--line)}
+  h3{font-size:1.06rem;margin:1.5em 0 .3em}
+  p{margin:.6em 0;max-width:68ch}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent-ink);font-weight:600}
+  .lede{font-size:1.12rem;color:var(--ink-soft);max-width:60ch}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+  .chip{font-family:var(--mono);font-size:.74rem;padding:4px 10px;border-radius:999px;
+    background:var(--panel-2);border:1px solid var(--line);color:var(--ink-soft);white-space:nowrap}
+  .chip.ok{background:var(--good-wash);border-color:transparent;color:var(--good)}
+  .chip.no{background:var(--bad-wash);border-color:transparent;color:var(--bad)}
+  .chip.mid{background:var(--warn-wash);border-color:transparent;color:var(--warn)}
+  .chip.ac{background:var(--accent-wash);border-color:transparent;color:var(--accent-ink)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:clamp(16px,3vw,26px);margin:22px 0}
+  .panel.flush{padding:0;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:.93rem}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-soft);background:var(--panel-2);font-weight:600}
+  tr:last-child td{border-bottom:none}
+  td.axis{font-family:var(--mono);font-weight:600;white-space:nowrap}
+  .verdict{display:inline-block;font-weight:600;font-family:var(--mono);font-size:.78rem;
+    padding:3px 9px;border-radius:6px}
+  .v-ok{background:var(--good-wash);color:var(--good)} .v-no{background:var(--bad-wash);color:var(--bad)}
+  .v-mid{background:var(--warn-wash);color:var(--warn)}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:16px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .card h4{margin:0 0 4px;font-family:var(--mono);font-size:.8rem;color:var(--accent-ink);
+    letter-spacing:.02em}
+  .card p{margin:0;font-size:.88rem;color:var(--ink-soft);max-width:none}
+  .bucket-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);margin:18px 0 2px}
+  code,.k{font-family:var(--mono);font-size:.86em;background:var(--panel-2);padding:1px 5px;
+    border-radius:5px;border:1px solid var(--line-soft)}
+  ul{padding-left:1.1em;max-width:68ch} li{margin:.28em 0}
+  .callout{border-left:3px solid var(--accent);background:var(--accent-wash);
+    border-radius:0 10px 10px 0;padding:14px 18px;margin:20px 0}
+  .callout.warn{border-left-color:var(--warn);background:var(--warn-wash)}
+  .callout p{margin:.3em 0}
+  .path{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--mono);
+    font-size:.86rem;margin:8px 0}
+  .path .step{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 11px}
+  .path .arrow{color:var(--accent);font-weight:700}
+  .foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:.83rem;color:var(--ink-soft)}
+  .kv{font-variant-numeric:tabular-nums}
+  strong{font-weight:600}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">LLM Wiki · v213 · 2026-07-17</div>
+  <h1>Intel&reg; Geti&trade;</h1>
+  <p class="lede">Intel's formerly-commercial, now open-source <strong>end-to-end computer-vision AI platform</strong> — annotate&nbsp;&rarr; train &rarr; optimize &rarr; deploy a vision model from as few as 10&ndash;20 images, entirely on your own machine. The corpus's <strong>first computer-vision-platform subject</strong> — and it ships a <strong>first-party agent-skill suite</strong> so a coding agent can drive the whole loop.</p>
+
+  <div class="chips">
+    <span class="chip ac">open-edge-platform/geti</span>
+    <span class="chip">Apache-2.0</span>
+    <span class="chip kv">Python 70.5% · TS 27.3%</span>
+    <span class="chip kv">~1.3k&#9733; · 472 forks · 77 releases · v3.0.0</span>
+    <span class="chip no">(a) FAIL — Intel, not Anthropic</span>
+    <span class="chip mid">(b) MODERATE keys the tier</span>
+    <span class="chip ok">GOAL-ALIGNED · NO MINT · 46/11</span>
+  </div>
+
+  <h2>Verdict — GOAL-ALIGNED INCLUDE 3/4 (per &sect;40)</h2>
+  <div class="panel flush scroll">
+    <table>
+      <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="axis">(a) affiliation</td><td><span class="verdict v-no">FAIL</span></td>
+          <td>Author = <strong>Intel</strong> (open-edge-platform), not Anthropic. &sect;41: no name/heritage/notability rescue. First Intel author (#19 19a).</td></tr>
+        <tr><td class="axis">(b) goal-relevance</td><td><span class="verdict v-mid">MODERATE</span></td>
+          <td>Domain (CV MLOps) is off both goals — but it ships a real <strong>first-party agent-skill suite</strong> on the exact agent-skills substrate the vault studies + a template for making a product agent-native. The <strong>TimesFM v193</strong> calibration: off-domain, on-goal agent-interface. STRONG defensible on the skill axis; OFF-GOAL defensible on the domain axis &rarr; GA per &sect;40.</td></tr>
+        <tr><td class="axis">(c) substance</td><td><span class="verdict v-ok">STRONG</span></td>
+          <td>Mature Intel platform; annotate-train-deploy loop; SOTA catalog; OpenVINO; <code>getitune</code> (the OTX successor) + CLI + SDK; a well-authored skill suite. Caveats: not source-cloned; hard AI is upstream; stars page-stated.</td></tr>
+        <tr><td class="axis">(d) connections</td><td><span class="verdict v-ok">STRONG</span></td>
+          <td>TimesFM v193 (direct precedent) · palmier-pro v192 (contrast — MCP vector) · agent-skills v184 / OfficeCLI v206 · #84 84c · #12 · the model/training-substrate tier · the hireui agent-nativity template.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>What it is</h2>
+  <p>Geti is an interactive application that takes you from <em>raw images</em> to a <em>deployed vision model</em> in one place — annotate &rarr; train &rarr; optimize &rarr; run inference &rarr; improve, in a rapid train&ndash;predict&ndash;annotate loop, from as few as 10&ndash;20 labelled images. It runs <strong>locally</strong> (single container or native Windows app, no cloud) and auto-exports every model with <strong>OpenVINO&trade;</strong> for the Intel XPU portfolio (Arc GPUs, Core Ultra) &mdash; NVIDIA CUDA and CPU also supported. SOTA catalog (RF-DETR, DINOv3 DETR, YOLO26, Mask R-CNN), smart annotation via Segment Anything / SAM3, and COCO/VOC/YOLO dataset I/O.</p>
+  <p>The training engine is <code>getitune</code> (PyPI <code>getitune</code>) &mdash; the <strong>successor to Intel's OpenVINO Training Extensions (<code>otx</code>)</strong>, which this repo previously hosted. Geti <strong>v3.0.0</strong> is the Apache-2.0 open-source release of what was a licensed Intel product (part of the Tiber Edge Platform; docs at <span class="k">docs.geti.intel.com</span>).</p>
+
+  <h2>The load-bearing finding — a first-party agent-skill suite</h2>
+  <p>A plain CV platform would be off both goals. Geti is not plain: the repo ships <code>AGENTS.md</code>, <code>CLAUDE.md</code>, and a canonical <code>skills/</code> directory in the open <a href="#">agentskills.io</a> format, mirrored cross-harness by <strong>committed symlinks</strong> into <code>.claude/skills/</code> + <code>.agents/skills/</code> (&ldquo;so a fresh clone works for agents, no setup step&rdquo;), kept honest by a <code>sync</code>&nbsp;then&nbsp;<code>validate</code> pre-commit/CI gate. A coding agent (Claude Code, etc.) can drive the whole vision-ML loop through these skills.</p>
+
+  <div class="callout warn">
+    <p><strong>Verified: there is NO MCP server.</strong> AGENTS.md, <code>skills/README.md</code>, and a full recursive grep of the <code>develop</code> tree return zero MCP references (only the 12 per-skill <code>agents/openai.yaml</code> interface files). Geti is the <strong>TimesFM v193 skill-vector</strong> of &ldquo;make a product agent-native&rdquo; &mdash; <strong>not</strong> a genuine N=3 of the palmier-pro v192 <em>MCP-server</em> standalone that tabularis v212 took to N=2.</p>
+  </div>
+
+  <div class="bucket-label">Product-usage skills — a coding agent operates Geti / <code>getitune</code></div>
+  <div class="grid">
+    <div class="card"><h4>getitune-training-a-model</h4><p><code>create_engine()</code> &rarr; <code>engine.train()/test()</code> or the <code>getitune</code> CLI, with per-step &ldquo;Done when:&rdquo; gates.</p></div>
+    <div class="card"><h4>getitune-preparing-datasets</h4><p>Point <code>data=</code> at a root; format auto-detected (COCO/YOLO/VOC/native) via Datumaro.</p></div>
+    <div class="card"><h4>getitune-discovering-models</h4><p>List recipes/models under <code>getitune.recipe.&lt;task&gt;</code>; disambiguate by task.</p></div>
+    <div class="card"><h4>getitune-optimizing-a-model</h4><p>Quantize / reduced-precision for edge.</p></div>
+    <div class="card"><h4>getitune-exporting-a-model</h4><p>Export to OpenVINO IR or ONNX.</p></div>
+    <div class="card"><h4>getitune-running-inference</h4><p>Run a trained model over new inputs.</p></div>
+    <div class="card"><h4>geti-using-the-pipeline</h4><p>Drive the application's REST pipeline end-to-end.</p></div>
+  </div>
+  <div class="bucket-label">Dev-workflow skills — build Geti with a coding agent</div>
+  <div class="chips">
+    <span class="chip">geti-backend-dev</span><span class="chip">geti-ui-dev</span>
+    <span class="chip">geti-library-dev</span><span class="chip">geti-docs-update</span>
+    <span class="chip">geti-openapi-sync</span>
+  </div>
+
+  <h2>Pattern outcome — NO MINT</h2>
+  <p>Counts <strong>UNCHANGED: 46 patterns / 11 CONFIRMED Library-vocab</strong>; &sect;C live standalones <strong>42</strong> (unchanged); surface <strong>&asymp;49</strong>; max pattern #85.</p>
+  <ul>
+    <li><strong>Corpus-first for the computer-vision / vision-MLOps annotate-train-deploy platform DOMAIN</strong> (collision-clean by sanity-anchored hand-grep) &mdash; but <em>corpus-first-for-a-DOMAIN &ne; a mintable &sect;C capability class</em> (the meetily v196 / TimesFM v193 / AIRI v210 discipline). &rarr; a corpus-knowledge data-point + a DEFERRED watch axis.</li>
+    <li><strong>A richer 2nd instance on the SKILL vector</strong> of the DEFERRED &ldquo;agent-native retrofit&rdquo; axis: <span class="k">SKILL</span> TimesFM v193 &rarr; geti v213 &nbsp;·&nbsp; <span class="k">MCP</span> palmier-pro v192 &rarr; tabularis v212. Strengthens the axis; does not cross a mint bar (&sect;28).</li>
+    <li><strong>The sharpest audit question (recorded, not minted):</strong> are the SKILL vector and the MCP vector <em>one meta-class</em> &mdash; &ldquo;agent-native retrofit of a product-first application&rdquo; &mdash; or two? Defer to the ~v221 audit.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Reviewable &sect;C-mint alternatives (both LOSE to NO-MINT):</strong> (1) &ldquo;First-Party Agent-Skill Suite Shipped With a Product to Operate It&rdquo; (TimesFM v193 + OfficeCLI v206 + geti) &mdash; a packaging move already tracked at the axis+Pattern layer; (2) &ldquo;CV Annotate-Train-Deploy Platform (agent-operable)&rdquo; &mdash; domain-not-capability + not-world-first (Roboflow / CVAT / Label Studio / Encord / V7 precede). Either way counts <strong>46/11</strong>.</p>
+  </div>
+  <p><strong>Secondary (not minted):</strong> #19 19a first Intel author · #84 84c cross-harness (committed-symlink mirror, no N-bump) · #81-adjacent manifest-drift-CI good-pole (<code>sync</code>+<code>validate</code>) · #12 (AGENTS.md&rarr;CLAUDE.md) · the first-party-agent-skill-packaging cross-ref (TimesFM v193 / OfficeCLI v206) · first computer-vision member of the model/training-substrate tier · #66 supply-chain (<code>curl|bash</code> installer + local training engine + optional AGPL YOLO models). <strong>Streak GA:72 &rarr; GA:73</strong> (59 consecutive GA); &sect;35 CLEAR.</p>
+
+  <h2>Pilot — read the seam, borrow the discipline, apply it to hireui</h2>
+  <p>Off-domain product; the on-goal prize is the <strong>agent-nativity architecture</strong> + a genuine hireui agent-nativity template. The CV product itself is a pilot only if you have a real vision project.</p>
+  <div class="path">
+    <span class="step">A1 &mdash; read the skill suite</span><span class="arrow">&rarr;</span>
+    <span class="step">B5 &mdash; distil the packaging discipline into the vault</span><span class="arrow">&rarr;</span>
+    <span class="step">D16 &mdash; spec hireui's own first-party skill suite (agent-* branch)</span>
+  </div>
+  <p><strong>Fence:</strong> <span class="k">install-snapshot</span> before <code>install.sh</code>/<code>install.ps1</code> (both <code>curl|bash</code>/<code>irm|iex</code>, a large local app + training engine) · scratch machine first · Apache-2.0 &rarr; safe to borrow patterns · optional Ultralytics YOLO = <strong>AGPL-3.0</strong> · treat as architecture study, don't adopt the CV product for hireui · hireui per its CONSTITUTION (I-2 / I-8 / GitNexus-first) · pin v3.0.0.</p>
+
+  <h2>Facts &amp; caveats</h2>
+  <div class="panel flush scroll">
+    <table>
+      <tbody class="kv">
+        <tr><td class="axis">Repo</td><td>open-edge-platform/geti · default branch <code>develop</code> (git repo 2018; open-sourced 2026)</td></tr>
+        <tr><td class="axis">Engine</td><td><code>getitune</code> — successor to OpenVINO Training Extensions (<code>otx</code>)</td></tr>
+        <tr><td class="axis">SDK</td><td>separate repo <code>open-edge-platform/geti-sdk</code></td></tr>
+        <tr><td class="axis">Install</td><td><code>curl -fsSL &hellip;/install.sh | bash</code> · <code>irm &hellip;/install.ps1 | iex</code> · Docker <code>ghcr.io/open-edge-platform/geti-${ACCELERATOR}</code></td></tr>
+        <tr><td class="axis">Req</td><td>8 threads · 16 GB RAM · 40 GB disk · GPU optional (Intel XPU / NVIDIA)</td></tr>
+        <tr><td class="axis">Caveats</td><td>NOT source-cloned · hard AI upstream (model architectures + OpenVINO) · stars page-stated (&sect;37.4 &rarr; NOT #52) · AGPL YOLO models · formerly commercial</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <p>Verdict produced <strong>INLINE + fully hand-verified</strong> per <span class="k">feedback_wiki_verify_independently_check_collisions</span> &mdash; no workflow / no subagent (the ~205K shim overflows subagent context; the v200&ndash;v212 self-throttle). Source hand-fetched (repo + gh tree/contents + raw README/AGENTS.md/skills-README + one SKILL.md + a full <code>develop</code>-tree MCP grep); identity + history + landscape by WebSearch; collision + no-MCP + not-a-v192-N=3 by sanity-anchored hand-grep.</p>
+    <p>Companion docs: <em>(C) geti &mdash; Deep Dive</em> · <em>(C) geti &mdash; Verdict</em> · <em>(C) geti &mdash; Pilot Methods Menu</em> (24 methods). Shipped on <span class="k">wiki/v213-geti</span> off the v212 tip; not auto-merged.</p>
+  </div>
+</div>
