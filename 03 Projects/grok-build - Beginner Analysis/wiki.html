@@ -1,0 +1,186 @@
+<title>grok-build — LLM Wiki v215</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --ink:#e7ebf1; --muted:#8b95a6;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.05);
+    --accent:#e8843d; --accent-soft:rgba(232,132,61,.14);
+    --good:#46c08a; --good-soft:rgba(70,192,138,.14);
+    --crit:#e8626f; --crit-soft:rgba(232,98,111,.14);
+    --warn:#d6a338; --warn-soft:rgba(214,163,56,.14);
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --maxw:74ch;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f7f9; --panel:#ffffff; --ink:#1a222e; --muted:#5c6675;
+      --line:rgba(20,26,36,.12); --line2:rgba(20,26,36,.06);
+      --accent-soft:rgba(232,132,61,.12);
+      --good-soft:rgba(46,150,105,.14); --good:#2e9669;
+      --crit-soft:rgba(200,60,72,.12); --crit:#c83c48;
+      --warn-soft:rgba(160,120,30,.14); --warn:#a67c1e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1116; --panel:#161b22; --ink:#e7ebf1; --muted:#8b95a6;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.05);
+    --accent-soft:rgba(232,132,61,.14);
+    --good:#46c08a; --good-soft:rgba(70,192,138,.14);
+    --crit:#e8626f; --crit-soft:rgba(232,98,111,.14);
+    --warn:#d6a338; --warn-soft:rgba(214,163,56,.14);
+  }
+  :root[data-theme="light"]{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#1a222e; --muted:#5c6675;
+    --line:rgba(20,26,36,.12); --line2:rgba(20,26,36,.06);
+    --accent-soft:rgba(232,132,61,.12);
+    --good-soft:rgba(46,150,105,.14); --good:#2e9669;
+    --crit-soft:rgba(200,60,72,.12); --crit:#c83c48;
+    --warn-soft:rgba(160,120,30,.14); --warn:#a67c1e;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;margin:0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(20px,5vw,56px) clamp(18px,5vw,28px) 80px}
+  .eyebrow{font-family:var(--mono);font-size:.82rem;letter-spacing:.02em;color:var(--muted);
+    display:flex;align-items:center;gap:.5ch;flex-wrap:wrap}
+  .eyebrow b{color:var(--accent);font-weight:600}
+  .cursor{display:inline-block;width:.55ch;height:1.05em;background:var(--accent);
+    transform:translateY(.15em);animation:blink 1.15s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+  h1{font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.06;letter-spacing:-.02em;
+    text-wrap:balance;margin:.5rem 0 .3rem;font-weight:720}
+  h1 .sub{display:block;font-size:.42em;font-weight:520;color:var(--muted);letter-spacing:-.01em;margin-top:.5em}
+  .lede{font-size:1.08rem;color:var(--ink);margin:1.1rem 0 0;max-width:66ch}
+  .lede .hl{color:var(--accent);font-weight:600}
+  h2{font-size:1.24rem;letter-spacing:-.01em;margin:2.6rem 0 .2rem;text-wrap:balance;
+    padding-top:1.4rem;border-top:1px solid var(--line2)}
+  h2 .n{font-family:var(--mono);color:var(--accent);font-size:.78em;margin-right:.6ch}
+  h3{font-size:1rem;margin:1.5rem 0 .3rem;color:var(--ink)}
+  p{margin:.7rem 0}
+  a{color:var(--accent);text-underline-offset:2px}
+  strong{font-weight:640}
+  .metrics{display:flex;flex-wrap:wrap;gap:0;margin:1.4rem 0 .4rem;border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;background:var(--panel)}
+  .metric{flex:1 1 120px;padding:.85rem 1rem;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+  .metric .v{font-family:var(--mono);font-size:1.18rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .metric .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.2rem 0}
+  .chip{font-family:var(--mono);font-size:.82rem;padding:.42rem .7rem;border-radius:8px;border:1px solid var(--line);
+    display:inline-flex;align-items:center;gap:.5ch}
+  .chip .lab{color:var(--muted)}
+  .chip.fail{background:var(--crit-soft);border-color:transparent}
+  .chip.fail .val{color:var(--crit);font-weight:640}
+  .chip.strong{background:var(--good-soft);border-color:transparent}
+  .chip.strong .val{color:var(--good);font-weight:640}
+  .verdict-line{font-family:var(--mono);font-size:.92rem;color:var(--ink);margin:.3rem 0 0}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:1.15rem 1.25rem;margin:1.3rem 0}
+  .panel.accent{border-left:3px solid var(--accent)}
+  .badge{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);padding:.28rem .6rem;border-radius:6px;font-weight:600}
+  .badge.mint{color:var(--good);background:var(--good-soft)}
+  ul{margin:.6rem 0;padding-left:1.15rem}
+  li{margin:.4rem 0}
+  li::marker{color:var(--accent)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:1.1rem 0}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:.9rem}
+  th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line2);vertical-align:top}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);
+    background:var(--bg);position:sticky;top:0}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;white-space:nowrap;color:var(--ink)}
+  .callout{border:1px solid var(--warn);background:var(--warn-soft);border-radius:12px;padding:1rem 1.2rem;margin:1.2rem 0}
+  .callout .h{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--warn);font-weight:640}
+  .small{font-size:.86rem;color:var(--muted)}
+  .kv{font-family:var(--mono);font-size:.86rem}
+  .kv b{color:var(--accent);font-weight:600}
+  footer{margin-top:3rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  footer a{word-break:break-word}
+  .prov{font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.7}
+  code{font-family:var(--mono);font-size:.86em;background:var(--accent-soft);color:var(--ink);padding:.08em .4em;border-radius:5px}
+  .pilot{display:grid;gap:.7rem;margin:1rem 0}
+  .step{border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;background:var(--panel)}
+  .step .t{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:640}
+  .step p{margin:.35rem 0 0;font-size:.94rem}
+</style>
+
+<div class="wrap">
+
+  <div class="eyebrow"><b>$</b> grok-build&nbsp;·&nbsp;LLM Wiki v215&nbsp;·&nbsp;2026-07-18&nbsp;·&nbsp;<span>xai-org/grok-build</span><span class="cursor"></span></div>
+
+  <h1>Grok Build
+    <span class="sub">SpaceXAI's open-sourced terminal coding agent — Grok's Claude Code.</span>
+  </h1>
+
+  <p class="lede">A full-screen <span class="hl">Rust TUI</span> that understands your codebase, edits files, runs shell, searches the web, and manages long-running tasks — with up to <span class="hl">8 worktree-isolated parallel subagents</span> reconciled by an orchestrator. Powered by <span class="hl">Grok&nbsp;4.5</span>; full <span class="hl">Apache-2.0</span> source, released 2026-07-15. The corpus's first fully-open <span class="hl">frontier-lab agentic coding CLI</span> as a studiable subject.</p>
+
+  <div class="metrics" role="group" aria-label="Key metrics (GitHub page-stated)">
+    <div class="metric"><div class="v">Rust 99.6%</div><div class="k">language</div></div>
+    <div class="metric"><div class="v">≈844,530</div><div class="k">lines (Simon-stated)</div></div>
+    <div class="metric"><div class="v">Apache-2.0</div><div class="k">license</div></div>
+    <div class="metric"><div class="v">≈16.6k ★</div><div class="k">stars · 0 releases</div></div>
+    <div class="metric"><div class="v">Grok 4.5</div><div class="k">model (paid, locked)</div></div>
+  </div>
+  <p class="small">Metrics GitHub page-stated (§37.4, API mocked) → <strong>NOT a #52 velocity claim</strong>. Line count Simon&nbsp;Willison-stated from a clone; <strong>not source-cloned here</strong> (shim-overflow self-throttle → verdict inline + hand-verified).</p>
+
+  <h2><span class="n">01</span>Verdict</h2>
+  <p class="verdict-line">GOAL-ALIGNED INCLUDE — 3 of 4:</p>
+  <div class="chips">
+    <span class="chip fail"><span class="lab">(a) origin</span><span class="val">FAIL</span></span>
+    <span class="chip strong"><span class="lab">(b) goal</span><span class="val">STRONG</span></span>
+    <span class="chip strong"><span class="lab">(c) substance</span><span class="val">STRONG</span></span>
+    <span class="chip strong"><span class="lab">(d) cross-ref</span><span class="val">STRONG</span></span>
+  </div>
+  <p><strong>(a) FAIL</strong> — <strong>SpaceXAI</strong> (formerly xAI, org <code>xai-org</code>), Elon Musk's AI company, a SpaceX subsidiary after the 2026-02-02 all-stock merger. Not Anthropic; first <code>xai-org</code>/SpaceXAI author → <strong>#19 19a</strong>. <br>
+  <strong>(b) STRONG (keys the tier)</strong> — it <em>is</em> an autonomous coding agent for software development (Goal #1 core) and the corpus's first fully-open frontier-lab coding harness — a premier learning artifact; on the multi-agent-orchestration + git-worktree pilot threads. STRONG-not-STRONGEST: a competitor/peer harness, Grok-locked, paid-to-run, thin hireui payoff (the Kilo&nbsp;Code v177 calibration).</p>
+
+  <h2><span class="n">02</span>Pattern outcome</h2>
+  <div class="panel accent">
+    <span class="badge mint">1 new §C standalone · N=1</span>
+    <p style="margin-top:.7rem"><strong>"Open-Sourced First-Party Frontier-Lab Agentic Coding CLI/TUI"</strong> — the Claude Code / Codex CLI / Gemini CLI vendor peer class. <strong>CORPUS-FIRST for the surface, NOT world-first</strong> (Claude Code / Codex CLI / Gemini CLI / Qwen Code precede as vendor coding CLIs; grok-build is the corpus's first such <em>subject</em>). Minted per the <strong>Kilo Code v177</strong> precedent — credit the recurring-but-corpus-unrepresented world-class category.</p>
+    <p class="kv" style="margin-top:.6rem">counts <b>46/11 UNCHANGED</b> · §C live standalones <b>43 → 44</b> · streak <b>GA:74 → GA:75</b> · §35 CLEAR</p>
+  </div>
+
+  <p>Why a mint, not an N=2 of an existing coding-agent standalone (hand-verified against the §C registry):</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Nearest standalone</th><th>What it is</th><th>Why grok-build ≠ it</th></tr></thead>
+      <tbody>
+        <tr><td>Kilo Code v177</td><td>third-party, IDE-embedded, multi-model (Cline/Roo/Cursor class)</td><td>grok-build is first-party, terminal-TUI, single-model (Grok-locked) — fails Kilo Code's own N=2 scope</td></tr>
+        <tr><td>Agent-Native Vendor CLI v143</td><td>a product CLI an external agent <em>drives</em> (larksuite/cli)</td><td>grok-build <em>is</em> the agent, not a tool an agent consumes — opposite direction</td></tr>
+        <tr><td>CodePilot v161</td><td>a GUI wrapping a CLI agent</td><td>grok-build <em>is</em> the coding agent, not a wrapper</td></tr>
+        <tr><td>DeepSeek-TUI v72</td><td>a third-party chat TUI for a model</td><td>grok-build is a full agentic harness (file-edit/shell/subagents)</td></tr>
+        <tr><td>GLM-5 v176</td><td>a competitor frontier <em>model</em></td><td>Grok 4.5 is the model; grok-build is the <em>harness</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <div class="h">NO-MINT alternative recorded (operator/audit-reviewable)</div>
+    <p style="margin:.4rem 0 0">Generalize the Kilo Code v177 standalone to <em>"Open-Source Interactive AI Coding-Agent Product"</em> and record grok-build as its <strong>N=2</strong> (vendor-terminal-CLI variant). Leaned <strong>MINT</strong> — Kilo Code's row is scoped to exclude exactly what grok-build is. Either way counts UNCHANGED. Flagged for the ~v221 audit: a "coding-agent products" meta-cluster may be forming (Kilo Code IDE-extension + grok-build vendor-CLI + CodePilot GUI-wrapper).</p>
+  </div>
+
+  <h2><span class="n">03</span>What it is</h2>
+  <p>A terminal-first autonomous coding agent — three run modes: interactive full-screen TUI, headless (CI), or editor-embedded via the <strong>Agent Client Protocol (ACP)</strong>. The headline feature: <strong>up to 8 concurrent subagents, each in its own Git worktree on a separate branch</strong> — one rewrites auth, another updates tests, a third refactors a migration — with an orchestrator reconciling their outputs. It hosts <strong>MCP servers</strong> and supports <strong>skills, agents, hooks, plugins, a marketplace, sandboxing, Plan Mode</strong> — the exact Anthropic-pioneered agent-primitive stack, now adopted cross-vendor.</p>
+
+  <h2><span class="n">04</span>Two facts to report faithfully</h2>
+  <div class="panel">
+    <p style="margin-top:0"><strong>Open license, one-way mirror.</strong> Genuinely Apache-2.0 ("the entire Grok Build codebase") — but a source-<em>available</em> mirror <em>synced from the SpaceXAI monorepo</em> with <strong>no external contributions accepted</strong>. Read/fork/borrow — don't try to PR.</p>
+    <p style="margin-bottom:0"><strong>The privacy incident.</strong> Open-sourced after a backlash: earlier versions <strong>uploaded working directories to Google Cloud</strong>. That upload path is now <strong>disabled</strong> and retention is <strong>off by default</strong> — the load-bearing fence point before pointing it at any real repo.</p>
+  </div>
+
+  <h2><span class="n">05</span>Pilot — read the source, borrow the architecture</h2>
+  <p class="small">On-goal (Goal #1) but the payoff is <strong>read + borrow</strong>, not run (paid + Grok-locked + a privacy history). No direct hireui pilot — do <strong>not</strong> run it against hireui.</p>
+  <div class="pilot">
+    <div class="step"><div class="t">⭐ A1 — read the worktree-subagent orchestrator source</div><p>Clone the Apache-2.0 repo read-only; study how a frontier lab implements 8 worktree-isolated parallel subagents + orchestrator reconciliation. The corpus's best-yet reference. Free.</p></div>
+    <div class="step"><div class="t">⭐ B7 — borrow the orchestration architecture</div><p>Into your multi-agent-orchestration thread (composes with devspace v171 git-worktree + loop-engineering v189). Zero install.</p></div>
+    <div class="step"><div class="t">C12 — trial on a scratch repo (subscribers only)</div><p>SuperGrok / X Premium Plus required; Grok-locked. install-snapshot first; scratch repo only; verify the GCloud-upload path is disabled + retention off.</p></div>
+  </div>
+
+  <footer>
+    <p class="prov"><strong>Provenance.</strong> Verdict produced INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows subagent context → prompt-too-long; the v200→v214 self-throttle). Source hand-fetched (GitHub repo + raw README + Simon Willison); identity + the xAI→SpaceXAI rebrand by independent WebSearch; collision + the near-neighbor distinctions (larksuite/cli v143, Kilo Code v177, CodePilot v161) by sanity-anchored hand-grep of <code>_state/</code> + <code>_patterns/</code> (grok-build=0, xai-org=0 subject hits; anchors rich).</p>
+    <p>Sources: <a href="https://github.com/xai-org/grok-build">github.com/xai-org/grok-build</a> · <a href="https://x.ai/cli">x.ai/cli</a> · <a href="https://docs.x.ai/build/overview">docs.x.ai/build/overview</a> · <a href="https://simonwillison.net/2026/Jul/15/grok-build/">Simon Willison</a></p>
+  </footer>
+
+</div>
