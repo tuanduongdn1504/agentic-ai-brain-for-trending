@@ -22,6 +22,19 @@ Herdr is explicitly positioned as **"the tmux for AI agents"** (Hal Shin). Genui
 - The anchor's cmux comparison: Herdr's edges over cmux are **persistence** and **easy Windows** use (though Windows is beta). [context — not independently verified against cmux; treat as the video's claim]
 - The category is **crowded and moving fast** — the source search surfaced Herdr alongside **cmux, Conductor, Superset, Paneflow, Orca, AionUi, Omnigent**, plus Herdr+Hermes for phone orchestration. Herdr is currently the attention leader (17.8K★, HN front page per secondary sources).
 
+## Deepen (t7 Better Stack + t8 Fru Dev comparison) — verified additions
+
+**The structural axis that matters: CLI vs native desktop-app.** t8 surveys the field; the cleanest real distinction is form factor:
+- **CLI / terminal-native:** Herdr (Rust), tmux — run inside your existing terminal.
+- **Native desktop apps:** **cmux** (`manaflow-ai/cmux`, **Swift, Ghostty-based macOS app, 24,724★**, created 2026-01-28 — independently verified), Paneflow (brew-installed macOS app). These add a GUI (vertical tabs; cmux has a built-in browser) but are **macOS-bound** and outside the terminal.
+- Herdr's pitch on this axis: the desktop-app conveniences (agent tabs, state sidebar, notifications) **without leaving the terminal** and **without macOS lock-in**.
+
+**cmux is the nearest rival** — `manaflow-ai/cmux`, **24,724★**, Swift/macOS, and **older than Herdr** (Jan 2026 vs Mar 2026). Native app with a built-in browser + notifications; Herdr trades the GUI for terminal-nativity, cross-platform reach, and the socket API. t8's practitioner rates them closely — personally leans cmux as daily driver, calls Herdr "very promising."
+
+**Why one practitioner switched to Herdr (t8):** tmux was "buggy" — long-running jobs froze — which pushed him to Herdr. A genuine reliability motivation, though anecdotal (no repro captured).
+
+⚠️ **Do not trust t8's other competitor names/numbers.** Its auto-captions badly garble tool names ("Emacs/SiMax", "armox", "Ron Pane", "CC Max") and even swap tmux↔cmux (the caption reads "tmux has a built-in browser" — false; the creator was describing *cmux*). Only the independently-verified cmux facts above + the CLI-vs-desktop axis are asserted; every other competitor name/star-count from t8 is treated as **unverified**. See [[caveats-and-corrections]].
+
 ## What's genuinely differentiated
 
 Stripping the hype, Herdr's defensible advantages are two:

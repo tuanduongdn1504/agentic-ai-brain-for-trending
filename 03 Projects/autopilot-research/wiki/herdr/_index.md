@@ -1,8 +1,8 @@
 # herdr — agent multiplexer that lives in your terminal
 
-> **Topic created:** 2026-07-18 (autopilot `/loop`, operator anchor `neK8ydl0Vlk` Chase AI + 6-video bundle)
+> **Topic created:** 2026-07-18 (autopilot `/loop`, operator anchor `neK8ydl0Vlk` Chase AI + 8-video bundle)
 > **Subject:** [github.com/ogulcancelik/herdr](https://github.com/ogulcancelik/herdr) — a Rust terminal multiplexer purpose-built for running multiple AI coding agents in one place, with zero-config agent-state awareness. Solo author **Oğulcan Çelik**.
-> **Verification:** refute-first multi-agent workflow `wf_65ed9753-32f` (28 agents; 6 digests → 19 load-bearing claims → refute-first verify → synthesize → completeness critic). Grounded on the GitHub API + repo README + herdr.dev docs, with plugin/issue specifics independently re-checked by the main loop.
+> **Verification:** refute-first workflow `wf_65ed9753-32f` (28 agents; 6 core transcripts → 19 claims) + DEEPEN workflow `wf_5ffde4c4-627` (18 agents; late-arriving t7/t8 → 13 more claims). Grounded on GitHub API + repo README + herdr.dev docs + source (`Cargo.toml`, `src/`), with plugin/issue/cmux specifics independently re-checked by the main loop.
 
 ## One-line
 
@@ -12,7 +12,7 @@
 
 **9 CONFIRMED · 7 CORRECT-BUT-INCOMPLETE · 3 MISLEADING · 0 FALSE · 0 UNVERIFIABLE**
 
-The videos were **directionally accurate** — no outright falsehoods — but several claims need caveats (license, state-model, tmux comparisons, workspace hierarchy). See [[claims-scorecard]] and [[caveats-and-corrections]].
+The 6 core videos were **directionally accurate** — no outright falsehoods — but several claims need caveats (license, state-model, tmux comparisons, workspace hierarchy). A DEEPEN pass on t7/t8 added **13 more claims** (3C / 3CBI / 4MIS / 2 FALSE / 1 UNV) — the 2 FALSE (stale star count, "tmux browser") are **t8 auto-caption garble**, not creator errors; it also confirmed new *facts* (Ratatui, Unix-socket IPC, cmux at 24.7K★). See [[claims-scorecard]] and [[caveats-and-corrections]].
 
 ## Articles
 

@@ -38,5 +38,12 @@ This socket API is the concrete thing that makes Herdr an *agent runtime* rather
 
 - **Keyboard and mouse both first-class.** Keyboard uses a **tmux-style prefix** (default `ctrl+b`, then a key — e.g. prefix→v to split). Mouse supports click, drag-to-resize, split. [CORRECT-BUT-INCOMPLETE — C07: "mouse-first" overstates it (both are first-class); right-click is shown in a video but not documented in primary sources.]
 
+## Implementation details (deepen-verified from t7/t8)
+
+- **Rendering:** built with **Ratatui** (Rust TUI framework, v0.30 in `Cargo.toml`) — renders the UI directly to the terminal's text buffer. [CONFIRMED — N02]
+- **IPC:** server↔client communication is over **Unix sockets** (verified in source: `src/session.rs`, `src/server/handoff.rs`). SSH `--remote` uses a **two-layer** socket bridge — a local `SshStdioBridge` Unix socket, forwarded over SSH to a `remote-client-bridge`, which connects to the remote server's Unix socket. `--remote` also brings cross-platform desktop integration (e.g. clipboard image paste) you don't get from a plain `ssh` + `herdr`. [CONFIRMED / CBI — N06, N07] *(Unix-socket IPC implies the terminal-native, Unix-first design behind the Windows-beta caveat.)*
+- **Prefix:** default is **`ctrl+b`**, matching tmux exactly — so it's tmux's muscle-memory, not a reduced one. [CONFIRMED — N04]
+- **Config:** themes include **Catppuccin, Tokyo Night, Gruvbox**; notifications have **4 delivery modes** (in-app toast / terminal / system OS / off) plus custom-MP3 sound alerts with per-agent muting. [corrected from a video's garbled "Nord / Capuchin" — N08; see [[caveats-and-corrections]]]
+
 ## Related
 - [[what-herdr-is]] · [[supported-agents-and-install]] · [[competitive-landscape]] · [[license-and-adoption-caveats]]

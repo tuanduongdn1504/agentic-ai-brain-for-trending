@@ -5,8 +5,8 @@
 > **Anchor:** https://www.youtube.com/watch?v=neK8ydl0Vlk (Chase AI) — force-included
 > **Scope elected by operator:** Full topic bundle (yt-search 5-8 videos)
 > **Started:** 2026-07-18 ~20:00 ICT
-> **Ended:** 2026-07-18 ~21:4x ICT
-> **Duration:** ~100 min (majority consumed by the YouTube 429 bot-gate + 2 fetch retries; analysis workflow ~7 min; wiki write ~25 min)
+> **Ended:** 2026-07-18 ~22:2x ICT (incl. DEEPEN pass for late-arriving t7/t8)
+> **Duration:** ~140 min wall-clock (majority = the YouTube 429 bot-gate + slow tail fetch; core analysis workflow ~7 min; wiki write ~25 min; deepen workflow + fold-in ~20 min)
 
 ## Pre-flight
 
@@ -56,6 +56,14 @@
 
 - `gaps_closed_ratio` = **~1.0** (new-topic gap closed with a full verified 10-file topic).
 - **Stop reason:** single-cycle bundle complete (Phase 6 cond. 1 target-ratio + cond. 5 no unprocessed sources).
+
+## DEEPEN — t7/t8 late arrival (folded in ~22:1x)
+
+- **What happened:** the original fetch didn't die on t7 — it was just ~90 min slow. t7 (Better Stack, 1,701w) landed 21:46, t8 (Fru Dev comparison, 4,150w) 21:56. My mid-run "process dead" call was premature; both completed. Bundle is now the full **8** (~22.7K words).
+- **Deepen workflow `wf_5ffde4c4-627`** (18 agents, 0 errors, ~722K tokens, ~3.4 min): digest t7+t8 → dedupe vs the 19 → verify NEW → enrich. **14 new claims, 13 verified: 3 CONFIRMED / 3 CORRECT-BUT-INCOMPLETE / 4 MISLEADING / 2 FALSE / 1 UNVERIFIABLE.**
+- **New CONFIRMED facts folded into wiki:** Ratatui (Rust TUI, Cargo.toml v0.30); Unix-socket IPC + two-layer SSH bridge (source-verified `src/session.rs`); ctrl+b prefix = tmux; Claude Code + Codex official integrations; **cmux = `manaflow-ai/cmux`, 24,724★, Swift/macOS desktop app, older than Herdr** (independently re-checked). CLI-vs-desktop-app is the real competitive axis.
+- **New corrections (mostly t8 auto-caption GARBLE, not creator errors):** stale "3K stars" (now 17.8K); theme names ("Capuchin"→Catppuccin; +Tokyo Night; NOT Nord); "tmux has a browser" (caption swapped cmux→tmux); "Harness integration" (no such agent); install "Nix flake" (site-only, mise omitted). Per discard-as-garble guard, competitor names/numbers from t8 kept as unverified except the spot-checked cmux facts.
+- **Files updated in deepen:** `wiki/herdr/` `_index` · `architecture-and-detection` (+impl details) · `competitive-landscape` (+CLI-vs-desktop + cmux) · `claims-scorecard` (+deepen pass) · `caveats-and-corrections` (+garble note) · `sources-and-stances` (6→8) + `_sources.md` / `_inventory.md` / `_master-index.md` (6→8).
 
 ## Suggested next action
 

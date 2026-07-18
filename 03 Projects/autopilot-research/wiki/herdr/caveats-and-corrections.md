@@ -38,7 +38,8 @@ Notably, **zero claims were outright false** and **zero were unverifiable** — 
 
 ## Fetch-block incident (process note, not about Herdr)
 - The initial `yt-dlp` caption fetch hit YouTube's **HTTP 429 "confirm you're not a bot"** gate. This is **not** a Cloudflare-page block, so the HTML tiers in `(C) bypass-403-escalation.md` (curl→Playwright→Camoufox) don't apply. Resolved with yt-dlp's native **`--cookies-from-browser chrome`** (JS challenge solved via deno).
-- After 6 rapid fetches the 429 re-accumulated; **2 of the intended 8 videos** (t7 Better Stack, t8 Fru Dev) could not be fetched across 2 attempts. Shipped on **6** (bundle range 5-8). Full audit: `output/bypass-attempts.md`. The comparison angle t8 would have added is partially covered by [[competitive-landscape]] + primary docs.
+- After 6 rapid fetches the 429 re-accumulated and the tail 2 videos (t7 Better Stack, t8 Fru Dev) stalled badly. The topic was **initially shipped on 6** on the (premature) assumption they were lost — but **both eventually completed** ~90 min later and were **folded in via a DEEPEN pass** (workflow `wf_5ffde4c4-627`), bringing the bundle to the full **8**. Full audit: `output/bypass-attempts.md`.
+- ⚠️ **t8 caption garble:** t8's auto-captions mangle competitor tool **names** (Emacs/SiMax, armox, Ron Pane) and use tmux/cmux loosely. Per the **discard-as-garble guard**, those competitor names/stars are treated as **unverified** — only Herdr-specific and structural (CLI-vs-desktop-app) points from t8 are asserted. See [[competitive-landscape]].
 
 ## Related
 - [[claims-scorecard]] · [[license-and-adoption-caveats]] · [[sources-and-stances]]
