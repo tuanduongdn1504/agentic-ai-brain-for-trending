@@ -1,0 +1,193 @@
+<style>
+  :root{
+    --bg:#FBFBFA; --surface:#FFFFFF; --ink:#1A1A1E; --muted:#6B6B76;
+    --line:#E7E7EA; --line-soft:#F0F0F2;
+    --accent:#3B5BA5; --accent-soft:rgba(59,91,165,.08); --accent-line:rgba(59,91,165,.28);
+    --good:#2F7D5B; --warn:#9A6B12;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:70ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#121316; --surface:#191A1E; --ink:#ECECEE; --muted:#9A9AA4;
+      --line:#2A2B31; --line-soft:#202127;
+      --accent:#8FA6DE; --accent-soft:rgba(143,166,222,.12); --accent-line:rgba(143,166,222,.34);
+      --good:#6FB894; --warn:#D0A24E;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121316; --surface:#191A1E; --ink:#ECECEE; --muted:#9A9AA4;
+    --line:#2A2B31; --line-soft:#202127;
+    --accent:#8FA6DE; --accent-soft:rgba(143,166,222,.12); --accent-line:rgba(143,166,222,.34);
+    --good:#6FB894; --warn:#D0A24E;
+  }
+  :root[data-theme="light"]{
+    --bg:#FBFBFA; --surface:#FFFFFF; --ink:#1A1A1E; --muted:#6B6B76;
+    --line:#E7E7EA; --line-soft:#F0F0F2;
+    --accent:#3B5BA5; --accent-soft:rgba(59,91,165,.08); --accent-line:rgba(59,91,165,.28);
+    --good:#2F7D5B; --warn:#9A6B12;
+  }
+  *{box-sizing:border-box}
+  .page{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    font-size:16px;-webkit-font-smoothing:antialiased;padding:clamp(1.25rem,4vw,3rem) 1.25rem 4rem}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  .fade{opacity:0;transform:translateY(8px);animation:rise .18s ease-out forwards}
+  .fade.d1{animation-delay:.04s}.fade.d2{animation-delay:.08s}.fade.d3{animation-delay:.12s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}}
+
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+  h1{font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.08;letter-spacing:-.02em;font-weight:600;
+    text-wrap:balance;margin:.7rem 0 .4rem}
+  .lede{font-size:1.06rem;color:var(--ink);max-width:64ch;margin:0 0 .3rem}
+  .sub{color:var(--muted);font-size:.95rem;max-width:64ch}
+
+  .verdict{margin:1.8rem 0;border:1px solid var(--line);border-left:3px solid var(--accent);
+    background:var(--surface);border-radius:10px;padding:1.1rem 1.2rem}
+  .verdict .tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--accent);
+    text-transform:uppercase;font-weight:600}
+  .verdict p{margin:.45rem 0 0;font-size:.96rem;color:var(--ink)}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.75rem;margin:1.6rem 0}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:.75rem .85rem}
+  .stat .n{font-family:var(--mono);font-size:1.45rem;font-weight:600;font-variant-numeric:tabular-nums;
+    letter-spacing:-.01em;line-height:1}
+  .stat .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin-top:.4rem}
+
+  section{margin:2.2rem 0}
+  h2{font-size:.78rem;font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin:0 0 .9rem;padding-bottom:.5rem;border-bottom:1px solid var(--line-soft)}
+  h3{font-size:1.02rem;font-weight:600;letter-spacing:-.01em;margin:1.2rem 0 .3rem;text-wrap:balance}
+  p{margin:.55rem 0}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  strong{font-weight:600}
+  code{font-family:var(--mono);font-size:.85em;background:var(--accent-soft);color:var(--ink);
+    padding:.08em .34em;border-radius:4px}
+
+  .adx{display:grid;gap:.55rem;margin:.4rem 0}
+  .adx .row{display:grid;grid-template-columns:2.6rem 5.2rem 1fr;gap:.7rem;align-items:baseline;
+    padding:.55rem .1rem;border-bottom:1px solid var(--line-soft)}
+  .adx .k{font-family:var(--mono);font-weight:600;font-size:.9rem}
+  .pill{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;padding:.16em .5em;border-radius:5px;justify-self:start;white-space:nowrap}
+  .pill.fail{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+  .pill.strong{color:var(--good);background:color-mix(in srgb,var(--good) 15%,transparent)}
+  .adx .v{font-size:.93rem;color:var(--muted)}
+  .adx .v strong{color:var(--ink)}
+
+  ul.clean{list-style:none;padding:0;margin:.5rem 0;display:grid;gap:.5rem}
+  ul.clean li{padding-left:1.1rem;position:relative;font-size:.95rem}
+  ul.clean li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;
+    border-radius:1px;background:var(--accent)}
+
+  .rules{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem 1.15rem;margin:.6rem 0}
+  .rules .cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+  .chip{display:inline-flex;gap:.4em;align-items:baseline;font-size:.86rem;margin:.18rem .35rem .18rem 0;
+    border:1px solid var(--line);border-radius:6px;padding:.28em .6em;background:var(--bg)}
+  .chip b{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;font-weight:700}
+  .chip.must b{color:var(--accent)} .chip.never b{color:var(--warn)} .chip.should b{color:var(--muted)}
+
+  .path{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:9px;
+    padding:.85rem 1rem;font-size:.95rem}
+  .path .steps{font-family:var(--mono);font-weight:600;font-size:.92rem;color:var(--ink);letter-spacing:.01em}
+
+  footer{margin-top:3rem;padding-top:1.1rem;border-top:1px solid var(--line);color:var(--muted);
+    font-size:.82rem;font-family:var(--mono);line-height:1.7}
+  footer .warn{color:var(--warn)}
+</style>
+
+<div class="page">
+  <div class="wrap">
+
+    <div class="fade">
+      <div class="eyebrow">
+        <span>LLM Wiki</span><span class="dot"></span><span>v218</span>
+        <span class="dot"></span><span>2026-07-18</span>
+        <span class="dot"></span><span>hand-verified · no workflow</span>
+      </div>
+      <h1>ui&#8209;skills — Skills for Design Engineers</h1>
+      <p class="lede">A curated, categorized, multi-repo <strong>registry + CLI dispatcher</strong> of design-engineering agent skills — 262 skills across 31 topics — so a coding agent (Codex / Cursor / Claude Code) pulls the right UI skill for the task, on demand.</p>
+      <p class="sub"><code>npx ui-skills start</code> · author <strong>ibelick</strong> (Julien Thibeaut) · MIT · <span style="font-variant-numeric:tabular-nums">TS 62% / Astro 33%</span></p>
+    </div>
+
+    <div class="verdict fade d1">
+      <span class="tag">Goal-aligned include · 3/4 · NO MINT</span>
+      <p>Dead-center on the agent-skills substrate + the design-skill cluster, and <strong>directly, immediately pilotable into hireui's frontend</strong>. Strengthens Pattern&nbsp;#68 (curated catalog, CLI-served sub-variant) + Pattern&nbsp;#88 (anti-slop design). Counts unchanged <strong>46 / 11</strong>. Streak <strong>GA:76&nbsp;→&nbsp;GA:77</strong>.</p>
+    </div>
+
+    <div class="stats fade d1">
+      <div class="stat"><div class="n">262</div><div class="l">skills registered</div></div>
+      <div class="stat"><div class="n">31</div><div class="l">topic categories</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">first-party skills</div></div>
+      <div class="stat"><div class="n">46 / 11</div><div class="l">counts unchanged</div></div>
+      <div class="stat"><div class="n">GA:77</div><div class="l">goal-aligned streak</div></div>
+    </div>
+
+    <section class="fade d2">
+      <h2>What it is</h2>
+      <p>AI agents ship UIs faster than ever — and they trend toward averaged-out slop: same fonts, gradient hero, rounded cards, layout drift, missing a11y. <strong>ui-skills</strong> gives an agent a discovery + fetch layer over design-engineering skills.</p>
+      <ul class="clean">
+        <li><strong>A CLI</strong> — <code>start</code> prints the <code>ui-skills-root</code> router-skill that teaches the agent to pick the right sub-skill; <code>categories</code>, <code>list --category motion</code>, <code>get baseline-ui</code> fetch skill markdown on demand.</li>
+        <li><strong>A registry</strong> — <code>src/data/registry.ts</code>, 262 skills / 31 topics, most pointing at skills hosted in <strong>other</strong> repos (a curated aggregator, not a monolithic collection).</li>
+        <li><strong>~6 first-party skills</strong> — <code>baseline-ui</code>, <code>improve-ui</code>, <code>fixing-accessibility</code>, <code>fixing-metadata</code>, <code>fixing-motion-performance</code>, <code>ui-skills-root</code>.</li>
+        <li><strong>An Astro site</strong> (ui-skills.com) on Cloudflare — the human-browsable index.</li>
+      </ul>
+      <p>Aggregates skills from <code>MengTo/Skills</code>, <code>vercel-labs</code> (v51), <code>antfu</code>, <code>anthropics/skills</code>, <code>pbakaus</code> (impeccable v75), <code>mattpocock</code> (v57), <code>shadcn</code>, <code>wshobson</code>, and more.</p>
+    </section>
+
+    <section class="fade d2">
+      <h2>The read</h2>
+      <div class="adx">
+        <div class="row"><span class="k">(a)</span><span class="pill fail">Fail</span><span class="v">ibelick = <strong>Julien Thibeaut</strong>, a disclosed design-engineer (Paris; Interface Office; Zola / prompt-kit / motion-primitives) — <strong>not Anthropic</strong>. §41: no name/heritage/notability rescue. #19 19a first ibelick author.</span></div>
+        <div class="row"><span class="k">(b)</span><span class="pill strong">Strong</span><span class="v">Claude-Code-first UI/design agent skills = the agent-skills substrate the vault studies + the design-skill cluster + <strong>a ready-to-use anti-slop gate for hireui's frontend</strong>. Cleanly GA — no §40. Not-strongest: third-party aggregator, one of several harnesses.</span></div>
+        <div class="row"><span class="k">(c)</span><span class="pill strong">Strong</span><span class="v">Real product: CLI + Astro/Cloudflare site + a 262-skill registry + genuinely well-crafted first-party skills. Caveats: not source-cloned; aggregates others' skills; stars page-stated → not #52; v0.2.x.</span></div>
+        <div class="row"><span class="k">(d)</span><span class="pill strong">Strong</span><span class="v">Design-skill cluster (impeccable v75 / taste-skill v81 / hallmark v204) + Pattern #88 + the agent-skills ecosystem + Pattern #68 (awesome-claude-skills v50 / awesome-llm-apps v201) + hireui frontend.</span></div>
+      </div>
+    </section>
+
+    <section class="fade d2">
+      <h2>Pattern outcome — NO MINT</h2>
+      <p><strong>Pattern #68 Awesome-List-Genre</strong> (CONFIRMED v31) instance-strengthening — a curated skill-registry, machine-consumable + CLI-served + categorized sub-variant, extending awesome-claude-skills v50 and reinforced by the awesome-llm-apps v201 "form-factor ≠ new primitive" precedent.</p>
+      <p><strong>Pattern #88 Anti-Slop-Curation</strong> (88c) instance-strengthening — the first-party skills are textbook anti-slop design skills (the hallmark v204 / taste-skill v81 cluster).</p>
+      <p>A §C-standalone mint ("CLI-served categorized multi-repo skill registry + router-skill") is recorded as the reviewable <strong>alternative</strong> and <strong>declined</strong>: a delivery form-factor within an existing genre, and <strong>not world-first</strong> (Anthropic frontend-design ~402K installs, shadcn skill+MCP, skilld.dev, ~8 skill marketplaces by Q2 2026).</p>
+    </section>
+
+    <section class="fade d3">
+      <h2>baseline-ui — the house rules</h2>
+      <p class="sub">This page is set by them: one accent, no gradient, no glow, compositor-only motion under 200ms, balanced headings, tabular figures.</p>
+      <div class="rules">
+        <div class="cap">A sample of the constraint list</div>
+        <span class="chip must"><b>MUST</b> aria-label icon-only buttons</span>
+        <span class="chip must"><b>MUST</b> h-dvh, not h-screen</span>
+        <span class="chip must"><b>MUST</b> compositor props only</span>
+        <span class="chip should"><b>SHOULD</b> one accent per view</span>
+        <span class="chip should"><b>SHOULD</b> text-balance headings</span>
+        <span class="chip never"><b>NEVER</b> gradients unless asked</span>
+        <span class="chip never"><b>NEVER</b> purple / glow affordances</span>
+        <span class="chip never"><b>NEVER</b> exceed 200ms feedback</span>
+      </div>
+    </section>
+
+    <section class="fade d3">
+      <h2>Pilot — one-thing path</h2>
+      <div class="path">
+        <p class="steps">A1 → B5 → D16</p>
+        <p style="margin:.5rem 0 0"><strong>A1</strong> read <code>baseline-ui</code> + <code>fixing-accessibility</code> (zero install) → <strong>B5</strong> lift the MUST/SHOULD/NEVER list into a <code>05 Skills/</code> design-review checklist (composes with hallmark v204's 57 gates) → <strong>D16</strong> run <code>/baseline-ui &lt;file&gt;</code> read-only review over hireui's Candidate-Detail on an <code>agent-*</code> branch — a zero-risk slop punch-list that composes with, never overrides, the locked Figma Source-of-Truth.</p>
+      </div>
+      <p class="sub" style="margin-top:.7rem">Fence: install-snapshot · npm-security-check <code>ui-skills</code> · it aggregates 262 external repos → review what you pull · pin v0.2.3 · read-only <code>&lt;file&gt;</code> mode first.</p>
+    </section>
+
+    <footer class="fade d3">
+      Author ibelick = Julien Thibeaut — <span class="warn">NOT Anthropic</span> (§41).<br>
+      NOT #52 (stars page-stated, §37.4) · NOT world-first · NOT #18 (no MCP server) · NOT a new pattern (max #85).<br>
+      Verdict produced inline + fully hand-verified — no workflow / no subagent (the ~205K shim overflows subagent context, the v200→v217 self-throttle).
+    </footer>
+
+  </div>
+</div>
