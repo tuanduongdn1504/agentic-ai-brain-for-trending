@@ -1,0 +1,265 @@
+<title>Ghost-Downloader-3 — LLM Wiki v219</title>
+<style>
+  :root {
+    --ground: #f5f7f8;
+    --panel: #ffffff;
+    --panel-2: #eef2f3;
+    --ink: #131c20;
+    --muted: #5a6b72;
+    --faint: #8b9aa0;
+    --hair: #dbe3e6;
+    --accent: #12808d;
+    --accent-soft: #d3ecef;
+    --flag: #9a6410;
+    --flag-soft: #f5e7cf;
+    --stall: #b7c2c6;
+    --good: #2f7d5b;
+    --shadow: 0 1px 2px rgba(13,20,23,.05), 0 8px 30px rgba(13,20,23,.06);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0d1417;
+      --panel: #131d22;
+      --panel-2: #182329;
+      --ink: #d9e3e7;
+      --muted: #93a4ab;
+      --faint: #6b7c83;
+      --hair: #263239;
+      --accent: #45c6d3;
+      --accent-soft: #10333a;
+      --flag: #e2a955;
+      --flag-soft: #2e2413;
+      --stall: #3a474d;
+      --good: #5fb98c;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #f5f7f8; --panel: #ffffff; --panel-2: #eef2f3; --ink: #131c20;
+    --muted: #5a6b72; --faint: #8b9aa0; --hair: #dbe3e6; --accent: #12808d;
+    --accent-soft: #d3ecef; --flag: #9a6410; --flag-soft: #f5e7cf; --stall: #b7c2c6;
+    --good: #2f7d5b; --shadow: 0 1px 2px rgba(13,20,23,.05), 0 8px 30px rgba(13,20,23,.06);
+  }
+  :root[data-theme="dark"] {
+    --ground: #0d1417; --panel: #131d22; --panel-2: #182329; --ink: #d9e3e7;
+    --muted: #93a4ab; --faint: #6b7c83; --hair: #263239; --accent: #45c6d3;
+    --accent-soft: #10333a; --flag: #e2a955; --flag-soft: #2e2413; --stall: #3a474d;
+    --good: #5fb98c; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--sans); line-height: 1.62;
+    -webkit-font-smoothing: antialiased; font-size: 17px;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: clamp(1.2rem, 4vw, 3.5rem) clamp(1.1rem, 4vw, 2rem) 5rem; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 1rem;
+    display: flex; gap: .8rem; flex-wrap: wrap; align-items: center;
+  }
+  .eyebrow .dot { color: var(--faint); }
+
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.04; letter-spacing: -.02em;
+    margin: 0 0 .5rem; text-wrap: balance; font-weight: 800;
+  }
+  h1 .ghost { color: var(--muted); font-weight: 300; }
+  .lede { font-size: clamp(1.05rem, 2.3vw, 1.28rem); color: var(--muted); margin: 0 0 1.6rem; max-width: 46ch; text-wrap: balance; }
+
+  .flagbar {
+    display: flex; gap: .7rem; align-items: baseline; flex-wrap: wrap;
+    background: var(--flag-soft); border: 1px solid color-mix(in srgb, var(--flag) 40%, transparent);
+    border-radius: 10px; padding: .75rem 1rem; margin: 0 0 2.2rem;
+    font-size: .93rem;
+  }
+  .flagbar b { font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--flag); }
+
+  /* ── verdict meter: download chunks encoding the a/b/c/d call ── */
+  .meter { margin: 0 0 2.4rem; }
+  .meter-label { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: .6rem; }
+  .segs { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+  .seg {
+    border: 1px solid var(--hair); border-radius: 8px; padding: .8rem .8rem .7rem;
+    background: var(--panel); position: relative; overflow: hidden;
+  }
+  .seg .bar { height: 5px; border-radius: 3px; background: var(--stall); margin-bottom: .6rem; }
+  .seg .k { font-family: var(--mono); font-weight: 700; font-size: .95rem; }
+  .seg .v { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); display: block; margin-top: .15rem; }
+  .seg.fail .bar { background: repeating-linear-gradient(90deg, var(--stall) 0 6px, transparent 6px 10px); }
+  .seg.fail .k { color: var(--muted); }
+  .seg.mod .bar { background: linear-gradient(90deg, var(--accent) 55%, var(--stall) 55%); }
+  .seg.full .bar { background: var(--accent); }
+  .seg.full .k, .seg.mod .k { color: var(--ink); }
+
+  .verdict-line { font-family: var(--mono); font-size: .82rem; color: var(--muted); margin-top: .7rem; letter-spacing: .02em; }
+  .verdict-line b { color: var(--flag); }
+
+  /* ── metadata spec strip ── */
+  .spec {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--hair); border: 1px solid var(--hair);
+    border-radius: 12px; overflow: hidden; margin: 0 0 2.6rem;
+  }
+  .spec div { background: var(--panel); padding: .85rem 1rem; }
+  .spec dt { font-family: var(--mono); font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; color: var(--faint); margin: 0 0 .25rem; }
+  .spec dd { margin: 0; font-size: .95rem; font-variant-numeric: tabular-nums; }
+
+  section { margin: 0 0 2.6rem; }
+  h2 {
+    font-size: 1.32rem; letter-spacing: -.01em; margin: 0 0 .5rem; font-weight: 750;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  h2::before {
+    content: ""; width: .5rem; height: 1.05rem; border-radius: 2px;
+    background: var(--accent); flex: none;
+  }
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  strong { font-weight: 700; }
+  code { font-family: var(--mono); font-size: .86em; background: var(--panel-2); padding: .1em .38em; border-radius: 5px; }
+
+  .card { background: var(--panel); border: 1px solid var(--hair); border-radius: 12px; padding: 1.2rem 1.3rem; box-shadow: var(--shadow); }
+
+  .signal {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair);
+    border: 1px solid var(--hair); border-radius: 12px; overflow: hidden;
+  }
+  .signal > div { background: var(--panel); padding: 1.1rem 1.2rem; }
+  .signal h3 { margin: 0 0 .5rem; font-size: .95rem; font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+  .signal .claim h3 { color: var(--flag); }
+  .signal .reality h3 { color: var(--good); }
+  .signal ul { margin: 0; padding-left: 1.1rem; font-size: .92rem; color: var(--muted); }
+  .signal li { margin-bottom: .4rem; }
+
+  ul.feat { margin: 0; padding-left: 1.15rem; }
+  ul.feat li { margin-bottom: .45rem; }
+
+  .pill { font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; padding: .2em .55em; border-radius: 999px; border: 1px solid var(--hair); color: var(--muted); white-space: nowrap; }
+
+  .onething {
+    background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 12px; padding: 1.2rem 1.3rem;
+  }
+  .onething .path { font-family: var(--mono); font-weight: 700; font-size: 1.05rem; color: var(--accent); letter-spacing: .02em; }
+
+  footer { border-top: 1px solid var(--hair); margin-top: 3rem; padding-top: 1.3rem; color: var(--faint); font-size: .82rem; }
+  footer .mono { font-family: var(--mono); }
+
+  @media (max-width: 560px) {
+    .segs { grid-template-columns: repeat(2, 1fr); }
+    .signal { grid-template-columns: 1fr; }
+  }
+  a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">
+    <span>LLM Wiki · v219</span><span class="dot">/</span>
+    <span>2026-07-18</span><span class="dot">/</span>
+    <span>OFF-GOAL CAPTURE</span>
+  </p>
+
+  <h1>Ghost&#8209;Downloader&#8209;3 <span class="ghost">// the "AI" is a chunk size</span></h1>
+  <p class="lede">A well-built cross-platform download manager whose "AI-boost" headline is marketing. Catalogued honestly — off both goals, nothing to pilot.</p>
+
+  <div class="flagbar">
+    <b>Verdict</b>
+    <span>OFF-GOAL CAPTURE INCLUDE · <strong>NO MINT</strong> · counts unchanged 46/11 · the v216 Codex-Dream-Skin situation.</span>
+  </div>
+
+  <div class="meter">
+    <div class="meter-label">Four-criteria call — rendered as download segments</div>
+    <div class="segs">
+      <div class="seg fail"><div class="bar"></div><span class="k">(a) FAIL</span><span class="v">author</span></div>
+      <div class="seg fail"><div class="bar"></div><span class="k">(b) FAIL</span><span class="v">goal · keys tier</span></div>
+      <div class="seg full"><div class="bar"></div><span class="k">(c) STRONG</span><span class="v">quality</span></div>
+      <div class="seg mod"><div class="bar"></div><span class="k">(d) MOD</span><span class="v">connectedness</span></div>
+    </div>
+    <p class="verdict-line">(b) keys the tier → <b>OFF-GOAL</b>. §40 does not apply (thin, non-agent-facing hooks). Reviewable §40-GA alternative recorded.</p>
+  </div>
+
+  <dl class="spec">
+    <div><dt>Repo</dt><dd>XiaoYouChR/Ghost-Downloader-3</dd></div>
+    <div><dt>What</dt><dd>Download manager (PySide6 / Qt-Fluent)</dd></div>
+    <div><dt>License</dt><dd>GPL-3.0</dd></div>
+    <div><dt>Languages</dt><dd>Python 75% · TS 22%</dd></div>
+    <div><dt>Stars · forks</dt><dd>~6.7k · 379</dd></div>
+    <div><dt>Releases</dt><dd>61 · v4.1.1</dd></div>
+    <div><dt>Author</dt><dd>18-yo student, Wuhan · not Anthropic</dd></div>
+    <div><dt>Tier</dt><dd>T5 Application</dd></div>
+  </dl>
+
+  <section>
+    <h2>What it is</h2>
+    <div class="card">
+      <p>A next-generation <strong>consumer download manager / accelerator</strong> with a Microsoft-Fluent-Design GUI — think IDM / aria2 / Motrix, in Python. Paste a URL or magnet, it splits the file into concurrent segments, shows live speed &amp; ETA graphs. Built by an 18-year-old as their <strong>first Python project</strong>, originally to help a Bilibili creator grab media.</p>
+      <p>It is a <strong>human-facing desktop utility</strong> — not a library, SDK, agent, coding tool, or agent infrastructure.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The "AI-boost", examined</h2>
+    <div class="signal">
+      <div class="claim">
+        <h3>The claim</h3>
+        <ul>
+          <li>Tagline: <em>"An AI-boost … concurrent downloader."</em></li>
+          <li>Feature line: <em>"IDM-style intelligent chunking, plus AI smart acceleration 🚀".</em></li>
+        </ul>
+      </div>
+      <div class="reality">
+        <h3>The reality</h3>
+        <ul>
+          <li>README gives <strong>no</strong> technical definition of the "AI".</li>
+          <li><code>pyproject.toml</code> has <strong>zero</strong> ML libraries.</li>
+          <li>It's <strong>adaptive chunking</strong> — a ~20-year-old download heuristic, rebranded.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:1rem; color:var(--muted); font-size:.95rem;">→ <strong>AI-washing.</strong> A clean textbook case of "labeled AI, isn't AI" — a real-vs-marketing calibration example, not an AI/LLM/agent subject. No Claude / Anthropic / MCP / LLM / agent anywhere in the repo.</p>
+  </section>
+
+  <section>
+    <h2>Actually well-engineered (c) STRONG</h2>
+    <div class="card">
+      <ul class="feat">
+        <li><strong>Multi-protocol:</strong> HTTP · Magnet/BT (libtorrent) · FTP · M3U8 · MPEG-DASH · eD2k · QUIC/HTTP3.</li>
+        <li><strong>Async core:</strong> asyncio on uvloop / winloop; nuitka-compiled; Inno-Setup installer.</li>
+        <li><strong>Parsers:</strong> YouTube · Bilibili (yt-dlp) · GitHub · HuggingFace; M3U8 live-recording (FFmpeg / N_m3u8DL-RE).</li>
+        <li><strong>Anti-crawling:</strong> browser TLS-fingerprint emulation (<code>wreq</code>) — same <em>technique class</em> as camofox v179 / Scrapling v149, but for its own downloads (not agent-facing).</li>
+        <li><strong>Surfaces:</strong> a TypeScript browser extension · an aria2-compatible RPC interface · Android companion · plugins coming.</li>
+      </ul>
+      <p style="margin-top:1rem; font-size:.9rem; color:var(--faint);">Caveats: the hard bits are upstream libraries it orchestrates; solo bus-factor-1 first project; not source-cloned; stars page-stated → not a viral-velocity claim.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why NO MINT</h2>
+    <div class="card">
+      <p>Collision-clean — the corpus's <strong>first download-manager subject</strong> — but "download manager" is a <strong>domain, not a mintable agent-capability class</strong> (the meetily v196 / TimesFM v193 / geti v213 / Codex-Dream-Skin v216 domain-not-capability discipline), <strong>and not world-first</strong> (IDM / aria2 / JDownloader / FDM / Motrix / XDM saturate the genre). A "corpus-first AI download manager" mint would be §28 phantom-count inflation on an off-goal, non-world-first consumer app → declined.</p>
+      <p style="font-size:.92rem; color:var(--muted);">Counts unchanged <strong>46/11</strong>. §C standalones 44 unchanged. Streak: the 2-GA post-v216 run breaks → <code>GA:77 · OG:13 [7 ov]</code>; §35 clear (window {v217 GA, v218 GA, v219 OG} = 1 OG ≤ 1).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pilot: nothing on-goal</h2>
+    <div class="onething">
+      <p style="margin-top:0;">There is <strong>nothing to pilot</strong> into hireui or the Claude/agents practice — a consumer download utility off both goals.</p>
+      <p style="margin-bottom:.3rem;"><span class="path">⭐ A1 → done.</span></p>
+      <p style="margin-bottom:0; color:var(--muted); font-size:.95rem;">Read it as a 5-minute data-point (download manager · AI-washing · impressive solo build), decline the mint, and pick an on-goal subject / advance a standing hireui pilot next. If used personally: install-snapshot + signed binary + review the extension's permissions + aria2-RPC localhost-only + respect copyright on downloads + pin v4.1.1.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="mono">Verdict produced INLINE + fully hand-verified (no workflow/subagent — the ~205K shim overflows subagent context; the v200→v218 self-throttle). Source hand-fetched; identity + landscape by WebSearch; collision by sanity-anchored hand-grep (0 subject hits).</p>
+    <p>Author-generated <code>(C)</code> · Storm Bear LLM Wiki · v219 · shipped on <span class="mono">wiki/v219-ghost-downloader</span> off the v218 tip.</p>
+  </footer>
+
+</div>
