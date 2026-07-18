@@ -1,0 +1,185 @@
+<title>Firecrawl — LLM Wiki v214</title>
+<style>
+  :root{
+    --ground:#f6f7f9; --panel:#ffffff; --ink:#14181f; --muted:#5a6472; --faint:#8b95a3;
+    --line:#e2e5ea; --line-strong:#cfd4dc;
+    --ember:#e8552a; --amber:#f2a03d; --ember-soft:#fbe9e1;
+    --good:#1f7a4d; --good-soft:#e4f2ea; --warn:#8a6d1f; --warn-soft:#f6efdb;
+    --shadow:0 1px 2px rgba(20,24,31,.04),0 8px 28px rgba(20,24,31,.06);
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0e1116; --panel:#161b22; --ink:#e8eaed; --muted:#9aa4b2; --faint:#6b7686;
+      --line:#242b35; --line-strong:#333c48;
+      --ember:#ff7a4d; --amber:#f6b25f; --ember-soft:#2a1712;
+      --good:#5fcf95; --good-soft:#13251c; --warn:#e0c069; --warn-soft:#241f10;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#f6f7f9; --panel:#ffffff; --ink:#14181f; --muted:#5a6472; --faint:#8b95a3;
+    --line:#e2e5ea; --line-strong:#cfd4dc; --ember:#e8552a; --amber:#f2a03d; --ember-soft:#fbe9e1;
+    --good:#1f7a4d; --good-soft:#e4f2ea; --warn:#8a6d1f; --warn-soft:#f6efdb;
+    --shadow:0 1px 2px rgba(20,24,31,.04),0 8px 28px rgba(20,24,31,.06);
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1116; --panel:#161b22; --ink:#e8eaed; --muted:#9aa4b2; --faint:#6b7686;
+    --line:#242b35; --line-strong:#333c48; --ember:#ff7a4d; --amber:#f6b25f; --ember-soft:#2a1712;
+    --good:#5fcf95; --good-soft:#13251c; --warn:#e0c069; --warn-soft:#241f10;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;-webkit-font-smoothing:antialiased;font-size:16.5px}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px 96px}
+  .rule{height:3px;background:linear-gradient(90deg,var(--ember),var(--amber) 55%,transparent);border:0}
+  header.top{padding:56px 0 8px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ember);font-weight:600}
+  h1{font-size:clamp(34px,6vw,50px);line-height:1.04;margin:.28em 0 .1em;letter-spacing:-.02em;
+    font-weight:800;text-wrap:balance}
+  h1 .flame{-webkit-text-fill-color:transparent;background:linear-gradient(120deg,var(--ember),var(--amber));
+    -webkit-background-clip:text;background-clip:text}
+  .tagline{font-size:19px;color:var(--muted);max-width:60ch;margin:.2em 0 1.4em;text-wrap:balance}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;font-family:var(--mono);font-size:12.5px;margin-bottom:8px}
+  .chip{border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;color:var(--muted);
+    background:var(--panel);white-space:nowrap}
+  .chip b{color:var(--ink);font-weight:600}
+  h2{font-size:23px;margin:2.4em 0 .1em;letter-spacing:-.01em;font-weight:750;text-wrap:balance}
+  h2 .lab{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.12em;
+    text-transform:uppercase;display:block;margin-bottom:.15em;font-weight:600}
+  h3{font-size:16.5px;margin:1.6em 0 .1em;font-weight:700}
+  p{margin:.75em 0}
+  a{color:var(--ember);text-underline-offset:2px}
+  strong{font-weight:680}
+  code{font-family:var(--mono);font-size:.88em;background:var(--ember-soft);color:var(--ink);
+    padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+    box-shadow:var(--shadow);margin:1.5em 0}
+  .verdict{border-left:4px solid var(--ember)}
+  .verdict .v-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:.4em}
+  .badge{font-family:var(--mono);font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;
+    background:var(--good-soft);color:var(--good);letter-spacing:.03em}
+  .crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+  .crit .c{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--ground)}
+  .crit .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .crit .val{font-weight:750;font-size:15px;margin-top:2px}
+  .val.fail{color:var(--muted)} .val.strong{color:var(--good)}
+  .scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--faint);background:var(--panel);font-weight:600}
+  tbody tr:last-child td{border-bottom:0}
+  td .ep{font-family:var(--mono);font-weight:650;color:var(--ember)}
+  .mint{background:linear-gradient(180deg,var(--ember-soft),var(--panel) 70%);border:1px solid var(--line-strong)}
+  .mint .tag{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ember);letter-spacing:.06em}
+  ul{padding-left:1.15em;margin:.7em 0} li{margin:.35em 0}
+  .muted{color:var(--muted)} .sm{font-size:14px}
+  .kv{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--faint);
+    font-family:var(--mono);font-size:12.5px;line-height:1.7}
+  .flag{background:var(--warn-soft);border:1px solid var(--line);border-left:3px solid var(--warn);
+    border-radius:9px;padding:12px 16px;font-size:14.5px;margin:1.1em 0}
+  .flag b{color:var(--warn)}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:2px;border-radius:4px}
+  @media (prefers-reduced-motion:no-preference){a{transition:color .15s}}
+</style>
+
+<div class="wrap">
+  <hr class="rule">
+  <header class="top">
+    <div class="eyebrow">LLM Wiki · v214 · 2026-07-17</div>
+    <h1><span class="flame">Firecrawl</span> — the web-data API for agents</h1>
+    <p class="tagline">Point it at the open web; get back clean, LLM-ready Markdown or structured JSON. The world-canonical open-source web-data layer — and the corpus's second instance of the crawl4ai species.</p>
+    <div class="meta">
+      <span class="chip"><b>firecrawl/firecrawl</b> · f.k.a. mendableai</span>
+      <span class="chip">TS <b>69.5%</b> · Py 14.6% · Rust 4.5%</span>
+      <span class="chip">AGPL-3.0 <span class="muted">core</span> · MIT SDKs</span>
+      <span class="chip">v2.11.0 · 35 releases</span>
+      <span class="chip">~152k★ <span class="muted">page-stated §37.4</span></span>
+      <span class="chip">Firecrawl Inc. · <b>NOT Anthropic</b></span>
+    </div>
+  </header>
+
+  <div class="card verdict">
+    <div class="v-head">
+      <span class="badge">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="kv">Tier T2 Service · streak GA:73 → GA:74</span>
+    </div>
+    <p class="sm" style="margin:.2em 0 0">Cleanly on-goal (Goal #1: web-data ingestion is how agents/RAG get grounding data). Directly pilotable — first-party MCP server + a Firecrawl Skill for Claude Code. Verdict produced <strong>inline + fully hand-verified</strong> (no workflow/subagent — the shim overflows subagent context).</p>
+    <div class="crit">
+      <div class="c"><div class="k">(a) Author</div><div class="val fail">FAIL</div><div class="sm muted">YC startup, not Anthropic (§41)</div></div>
+      <div class="c"><div class="k">(b) Goal-relevance</div><div class="val strong">STRONG</div><div class="sm muted">keys the tier · not strongest</div></div>
+      <div class="c"><div class="k">(c) Substance</div><div class="val strong">STRONG</div><div class="sm muted">mature, canonical · not source-cloned</div></div>
+      <div class="c"><div class="k">(d) Cross-refs</div><div class="val strong">STRONG</div><div class="sm muted">dense web-capability neighborhood</div></div>
+    </div>
+  </div>
+
+  <h2><span class="lab">What it is</span>The web, turned into agent food</h2>
+  <p>Firecrawl handles the tangled infrastructure of the open web — JavaScript rendering ("96% of the web," vendor-stated), rotating proxies, anti-bot, rate limits, PDFs — and hands your agent <strong>clean Markdown that preserves heading hierarchy</strong> (ideal for chunking + embedding) or <strong>schema-driven structured JSON</strong>. Its README frames it as <em>"the web context API to find sources, extract content, and turn it into clean Markdown or structured data your agents can ship with."</em></p>
+  <p>It emerged from <strong>Mendable</strong> (AI chat-for-docs, used by Snapchat/MongoDB/DoorDash); founders realized the real opportunity was upstream — giving AI access to the world's information. Now a YC-backed company (~$16.2M funded; Series A led by Nexus + YC + Shopify's Tobias Lütke), 350k+ users, powering Zapier / Shopify / Replit.</p>
+
+  <h2><span class="lab">Capability surface</span>Eight endpoints</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Endpoint</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ep">scrape</span></td><td>One URL → Markdown / HTML / screenshot / structured JSON</td></tr>
+        <tr><td><span class="ep">search</span></td><td>Query the web and return <em>full page content</em>, not just links</td></tr>
+        <tr><td><span class="ep">crawl</span></td><td>Scrape <em>all</em> URLs on a site in one recursive async request</td></tr>
+        <tr><td><span class="ep">map</span></td><td>Instantly discover every URL on a site (optional search filter)</td></tr>
+        <tr><td><span class="ep">extract</span></td><td>Pull structured JSON from pages <em>against a schema</em></td></tr>
+        <tr><td><span class="ep">interact</span></td><td>Click / scroll / write / wait / press <em>before</em> extracting</td></tr>
+        <tr><td><span class="ep">agent</span></td><td>Autonomous gathering — describe it in English (<code>spark-1-mini</code> / <code>spark-1-pro</code>)</td></tr>
+        <tr><td><span class="ep">batch</span></td><td>Thousands of URLs, asynchronously</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sm muted">Delivered as: a hosted API (<code>firecrawl.dev</code>) · a self-hostable AGPL-3.0 service · SDKs in 9 languages (Python, Node, Go, Java, Elixir, Rust, Ruby, .NET, PHP) · a first-party MCP server (<code>firecrawl-mcp-server</code>) · a Firecrawl Skill for Claude Code / Antigravity / OpenCode. The <strong>fullest agent-nativity stack in the corpus</strong> — MCP <em>and</em> Skill <em>and</em> SDKs.</p>
+
+  <h2><span class="lab">Where it sits</span>The corpus neighborhood</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Subject</th><th>Relationship</th></tr></thead>
+      <tbody>
+        <tr><td><strong>crawl4ai v29</strong></td><td><strong>Direct same-species predecessor</strong> — "LLM Friendly Web Crawler &amp; Scraper," self-run Python <em>library</em>. Predates the §C registry.</td></tr>
+        <tr><td><strong>Agent-Reach v174</strong> <span class="kv">§C</span></td><td>Distinct sibling — federated read+search of <em>named</em> platforms. Firecrawl crawls the <em>arbitrary</em> open web.</td></tr>
+        <tr><td><strong>Scrapling v149</strong></td><td>Adjacent — adaptive scraping <em>library</em> (LV#21 framing).</td></tr>
+        <tr><td><strong>markitdown v28</strong></td><td>Distinct — <em>local</em> doc → markdown, not web crawl.</td></tr>
+        <tr><td><strong>PixelRAG v211</strong></td><td>Distinct — RAG retrieval over screenshots, not extraction.</td></tr>
+        <tr><td><strong>browser-use v41 · Skyvern v24</strong></td><td>Distinct — browser <em>automation</em>, not data-extraction.</td></tr>
+        <tr><td><strong>rowboat v43 · awesome-llm-apps v201 · claude-seo v64</strong></td><td><strong>Corpus-recursive dependency</strong> — used Firecrawl <em>before</em> it became a subject.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="lab">Pattern outcome</span>Minted at N=2, crediting a predecessor</h2>
+  <div class="card mint">
+    <div class="tag">+1 §C STANDALONE · N=2 · NOT corpus-first · NOT world-first</div>
+    <p style="margin:.5em 0 .3em"><strong>"Web-Crawl / Web-Data-to-LLM-Ready-Markdown-&amp;-Structured-Data Capability Layer for Agents"</strong></p>
+    <p class="sm" style="margin:.3em 0">Anchors <strong>N=1 crawl4ai v29</strong> (the un-registered pre-§C-registry first instance, credited) + <strong>N=2 Firecrawl v214</strong>. The exact <strong>camofox v179 / codebase-memory-mcp v172 / Strix v190</strong> precedent — a genuinely-distinct, recurring, tool-shaped agent-capability whose first corpus instance predates the §C registry → mint the species row at N=2, credit the predecessor. Firecrawl's hosted-API + SDK + MCP delivery = within-species variation (recorded, not separately minted).</p>
+    <p class="sm muted" style="margin:.3em 0 0">Counts <strong>46/11 UNCHANGED</strong> · §C live standalones 42 → 43 · surface ≈49 → ≈50. NO-MINT recorded as the reviewable alternative (either way, counts unchanged).</p>
+  </div>
+  <p class="sm"><strong>Secondary (not minted):</strong> #18 B1-MCP → N≈13 (first-party MCP server) · <strong>NOT a palmier-pro v192 N=3</strong> — Firecrawl is agent-tool-<em>first</em> (its primary function IS being a web-data tool), so its MCP server is the agent-tool-first family, not the product-first-retrofit standalone · #84 84c (Skill + SDKs, no N-bump) · open-core / OSS-with-cloud-tier · #19 19a first Firecrawl author · #66 AGPL copyleft + ToS gray zone.</p>
+
+  <h2><span class="lab">Honest caveats</span>What isn't verified</h2>
+  <div class="flag"><b>NOT source-cloned.</b> Verified via the rendered repo page + raw README + WebSearch. The ~205K vault shim overflows subagent context → deep-dive workflows fail prompt-too-long (the v200→v213 self-throttle). Engineering internals are README/vendor-stated.</div>
+  <ul class="sm">
+    <li><strong>Metrics page-stated (§37.4)</strong> — ~152k★ is not API-verified; Aug-2025 press said ~43k → <strong>NOT a #52 velocity claim</strong>. At face value ~152k would be the highest-starred corpus subject — a data-point only.</li>
+    <li><strong>Vendor claims</strong> ("96% of the web," "P95 3.4s," "spark-1-mini 60% cheaper") are the company's own numbers.</li>
+    <li><strong>The hard part is infrastructure, not novel AI</strong> — anti-bot / proxies / JS rendering are hard engineering; the LLM-relevant part is the clean-markdown output shaping.</li>
+    <li><strong>AGPL-3.0 network copyleft</strong> (core) — a real hireui-productization blocker. The MIT SDKs are safe to depend on.</li>
+    <li><strong>Dual-use / ToS</strong> — web scraping is a robots.txt / copyright / GDPR gray zone; the README pushes that responsibility to the user.</li>
+  </ul>
+
+  <h2><span class="lab">Pilot</span>Read-only first, fence the candidate data</h2>
+  <p><strong>⭐ A1 → C11 → D16.</strong> Read the endpoint + agent-nativity design (zero install) → install <code>firecrawl-py</code> (or the MCP server / Skill) against a <strong>public, non-sensitive</strong> target to prove the loop → spec a hireui <em>public-web enrichment</em> slice on an <code>agent-*</code> branch (company-site → structured JSON), <strong>gated by a data-residency + ToS review</strong> (self-host to keep data local; candidate PII never scraped without legal sign-off), per hireui's CONSTITUTION.</p>
+
+  <footer>
+    firecrawl/firecrawl · GOAL-ALIGNED INCLUDE 3/4 · 1 NEW §C standalone (N=2, crediting crawl4ai v29) · counts 46/11 unchanged · Tier T2 · GA:74 · §35 CLEAR<br>
+    Verdict INLINE + hand-verified per feedback_wiki_verify_independently_check_collisions · shipped on wiki/v214-firecrawl off the v213 tip (01074dc) · not auto-merged
+  </footer>
+</div>
