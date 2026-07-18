@@ -41,6 +41,19 @@
 | [[vibe-coding-claims-scorecard]] | The 6 incremental claims, verified (0 clean-CONFIRMED / 2 CBI / 3 MISLEADING incl. 1 FALSE sub-claim) |
 | [[caveats-and-corrections-vibe-coding]] | Rule-12 log — poll-existence override, contested GDPval flag, capex not adopted, 68→96★ |
 
+## Deepening pass — Theo (t3.gg) "Kimi K3 is the best model ever made (sometimes)" (2026-07-17)
+
+**A THIRD Kimi K3 video** (operator-submitted [`Q4LoxsIwriA`](https://www.youtube.com/watch?v=Q4LoxsIwriA), Theo - t3.gg / [@t3dotgg](https://www.youtube.com/@t3dotgg), 2026-07-17, 41:35, ~115.5K views) — and the first **independent, skeptical, hands-on** source (~551K subs; creator of the T3 Stack / T3 Chat). Where N=1 was hype and N=2 was a financially-interested vendor, Theo spent a **full day building real work** (a 122-task migration, UI overhauls, a security audit, 3D game-gen) and reports both wins and rough edges — the "(sometimes)" in the title is the thesis. **Its main value is corroboration:** a skeptic who opened by saying he *hasn't been hyped about open weights* independently confirms **every load-bearing corpus correction** (#3–4 not #1 · frontend specialist · Sonnet-tier pricing · 2× verbosity tax · weights-not-out-until-July-27 · Chinese-parent residency). His one apparent *conflict* — that K3 is "the best open-weight model at not hallucinating" — reconciled into **the most useful nuance in the topic** (index-vs-rate). **0 FALSE / 0 FABRICATED claims** (vs 3 FALSE in N=1, 1 in N=2). Verified via Workflow `wf_0a283971-eb6` (9 agents: 7 refute-first cluster verifiers → synthesizer + independent completeness critic; ~616K tokens, 94 tool calls, 0 errors/empty/skipped) + main-loop Opus anchors on every load-bearing number.
+
+| Article | What's in it |
+|---|---|
+| [[theo-source-and-hands-on-method]] | Entry point — the 3rd source, why an independent skeptic is the highest-value source, ingest & verification method |
+| [[theo-benchmarks-and-the-hallucination-reconciliation]] | **The centerpiece** — Theo's leaderboard read corroborates "#3 specialist"; the hallucination "conflict" reconciled: Omniscience **Index +6→+18** (better calibration) vs raw **rate 39%→51%** (worse truthfulness) |
+| [[theo-independent-hands-on-evidence]] | A full day of real work — 122-task port, Fish Slap 3D, sidebar redesign, security audit, and the novel "sub-agents check off parent to-dos" observation |
+| [[theo-cost-speed-and-how-to-use]] | Pricing corroborated (Sonnet-tier, no "5×" error); ~$63/day real cost; 20-vs-62-TPS reconciled; OpenCode / CLI-proxy access; Singapore-not-China residency nuance |
+| [[theo-security-safety-and-open-weight-risk]] | The safety-transparency gap (no system card) + the well-founded dual-use concern (K3 ran an offensive audit Fable/Soul refuse) |
+| [[theo-claims-scorecard-and-caveats]] | N=3 incremental scorecard (22 CONFIRMED / 3 CBI / 8 OPINION / 1 UNVERIFIABLE / **0 FALSE**) + Rule-12 log |
+
 ## Cross-links
 
 - [[../local-ai-coding-agents/_index]] — self-hosting open models (Qwen/local); the 2.8T hardware wall is the same conversation, one tier up
@@ -55,5 +68,6 @@
 
 - **Real release, hype packaging.** 8 CONFIRMED claims (the whole architecture + pricing + per-task cost) sit next to **3 FALSE + 3 MISLEADING** claims. The model is legit; the video oversells it.
 - **The single most misleading thread:** "it's open source, download it" — **false at video time.** K3 was a closed hosted API; weights came 11 days later (July 27), and at 2.8T you can't realistically self-host anyway.
-- **It's a *specialist*, not "the world's most powerful AI":** #1 on frontend/visual coding, **#3–4 overall**, **#9 on general text**, and its **hallucination rate rose to 51%**. Strong where demos live, weaker where real agentic work lives.
-- **For hireui: AVOID** any candidate-facing use — Chinese-hosted (EU AI Act Annex III), 51% fabrication rate, closed/unauditable. Legitimate only for throwaway, non-candidate UI prototyping.
+- **It's a *specialist*, not "the world's most powerful AI":** #1 on frontend/visual coding, **#3–4 overall**, **#9 on general text**, and its **raw hallucination rate rose 39%→51%** (even as its composite AA-Omniscience *Index* improved +6→+18 via more refusals — see [[theo-benchmarks-and-the-hallucination-reconciliation]]). Strong where demos live, weaker where real agentic work lives.
+- **For hireui: AVOID** any candidate-facing use — Singapore-operated but Chinese-parent + trains on inputs/outputs by default (EU AI Act Annex III), 51% fabrication rate, closed/unauditable, no system card. Legitimate only for throwaway, non-candidate UI prototyping.
+- **N=3 (Theo, independent skeptic) corroborates all of the above with 0 FALSE claims** — the strongest evidence class in the topic: a hostile-prior source independently confirming the corrections. See [[theo-source-and-hands-on-method]].

@@ -9,7 +9,7 @@ Every checkable claim the video makes, ruled against primary/multiple sources. V
 | 1 | Kimi K3 is open-source; download the weights now, do whatever | **FALSE** | Hosted-API-only at video time; weights promised **July 27** (Modified MIT). [[open-weights-reality]] |
 | 2 | $3/$15 pricing is cost-effective / won't break the bank | **MISLEADING** | A **~3.2–3.8× increase** over K2.6 ($0.95/$4 → 3.16× in / 3.75× out); frontier-tier (= Sonnet 5). "End of cheap Chinese AI." *(corrected 2026-07-17 from "~5–6×")* [[pricing-and-the-end-of-cheap-chinese-ai]] |
 | 3 | Beats the frontier; Fable 5 win-rate 58%, GPT-5.6 50% | **FALSE** | Actual arena.ai: Fable 5 **63%**, GPT-5.6 Sol **58%**, K3 76%. On AA Index K3 is **#3–4** behind both. [[benchmarks-fact-vs-hype]] |
-| 4 | Accuracy improved (no downside mentioned) | **MISLEADING** | Hallucination rate **rose 39%→51%** — fabricates more. Omitted. [[benchmarks-fact-vs-hype]] |
+| 4 | Accuracy improved (no downside mentioned) | **MISLEADING** | Raw hallucination rate **rose 39%→51%** — fabricates more when it answers. Omitted. *(N=3 nuance: the composite AA-Omniscience **Index** improved +6→+18 via more refusals + accuracy 33%→46% — a favorable index sitting on a worse raw rate; [[theo-benchmarks-and-the-hallucination-reconciliation]])* [[benchmarks-fact-vs-hype]] |
 | 5 | The US restricted K3 for hacking US systems; Americans-only | **FALSE** | Controls were on Anthropic's **Fable 5/Mythos 5**, not K3; imposed Jun 12, lifted ~Jul 1. [[cyber-and-export-control]] |
 | 6 | 2.8T params / ~50B active / 6.3× decode via KDA | **CONFIRMED** | Correct. Video omits the 3:1 KDA-to-MLA hybrid exists because linear attention loses 2–5% on retrieval. [[architecture]] |
 | 7 | Attention Residuals: 25% training efficiency at <2% cost | **CORRECT-BUT-INCOMPLETE** | Vendor-claimed; validated at 48B (Kimi Linear), not independently at 2.8T. [[architecture]] |
@@ -35,3 +35,5 @@ Every checkable claim the video makes, ruled against primary/multiple sources. V
 **8 CONFIRMED · 3 CORRECT-BUT-INCOMPLETE · 3 MISLEADING · 3 FALSE · 0 FABRICATED-by-the-corpus** (+ side-claims: 1 UNVERIFIABLE, 1 PARTIAL, 1 CBI).
 
 **Integrity read:** unlike the corpus' high-integrity explainers (e.g. [[../data-structures-16-in-32-min/_index]] at 22/24 clean), this is a **hype-video profile**: the *technical spec* is trustworthy, but the *availability, competitive-ranking, pricing-context, and geopolitics* framing carries **3 outright-false claims**. The model is real; the story around it is inflated.
+
+**N=3 corroboration (Theo, t3.gg — independent skeptic):** every load-bearing correction above was **independently confirmed** by a hostile-prior source who spent a day building with K3, at **0 FALSE / 0 FABRICATED** claims of his own. His only *conflict* (hallucination) resolved into an index-vs-rate nuance that *strengthens* claim #4. Full N=3 scorecard: [[theo-claims-scorecard-and-caveats]].

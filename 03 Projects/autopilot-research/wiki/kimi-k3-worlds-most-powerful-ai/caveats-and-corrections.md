@@ -32,7 +32,15 @@ The model name is mangled throughout the auto-captions as **Kimiko 3 / Qwen 1.5 
 - **Export-control lift date:** sources give **June 30** vs **July 1, 2026** — a 1-day discrepancy; wiki says "late June / July 1."
 - **KDA decode speedup:** cited as **6×** or **6.3×** depending on throughput-vs-TPOT measure; wiki uses 6.3× with the qualifier.
 
+## N=3 reconciliations (Theo pass — see [[theo-claims-scorecard-and-caveats]])
+
+- **Hallucination (refines correction #4):** the corpus's "39%→51%" is the raw *rate* (worse); Theo cites the composite AA-Omniscience *Index* (+6→+18, better via more refusals + accuracy 33%→46%). Both true, different metrics. [[theo-benchmarks-and-the-hallucination-reconciliation]]
+- **Speed:** Theo's ~20 TPS vs AA's ~62 TPS = harness-measured vs raw-API — consistent with the corpus's existing "26–28 launch / 62 official." Marked UNVERIFIABLE-as-raw-speed.
+- **Residency (refines the "Chinese-hosted" framing):** the international API is **MOONSHOT AI PTE. LTD. (Singapore)**, not literally Chinese servers — but it **trains on inputs+outputs by default**, so the hireui AVOID *strengthens*. [[theo-cost-speed-and-how-to-use]]
+- **ASR:** "Infropic" = Anthropic (add to the garble list above).
+
 ## Key Takeaways
 
 - **3 FALSE, 3 MISLEADING** framing claims sit on top of a **real, well-specced model** — the corrections are about *availability, ranking, pricing-context, and geopolitics*, not the tech.
 - Two confabulations were caught and excluded (the "13 languages" context-bleed; creator PII), and the workflow model-override limitation is disclosed — nothing swept under the rug.
+- **N=3 (Theo) corroborated all corrections at 0 FALSE**, and its one apparent conflict refined (not overturned) correction #4.
