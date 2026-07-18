@@ -1,0 +1,291 @@
+<title>Mega Steelix — Sand + Trick Room Guide</title>
+<style>
+  :root{
+    --ink:#0d1417; --ink2:#101c21; --panel:#14232a; --panel2:#182c34;
+    --line:#22404a; --steel:#c7d6dd; --muted:#8ba0aa; --faint:#5f7681;
+    --cyan:#57cbe6; --gold:#e6b84a; --lime:#9ede3f; --magenta:#e878c8; --rotom:#6aa8ff; --ember:#ff9a52;
+    --hub:var(--cyan);
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+    --mono:"SF Mono","JetBrains Mono","Roboto Mono",ui-monospace,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --disp:"Arial Black","Helvetica Neue",var(--sans);
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --ink:#eef1ec; --ink2:#e7ece5; --panel:#ffffff; --panel2:#f4f6f1;
+      --line:#d3dcd2; --steel:#1c2b30; --muted:#4f6169; --faint:#7f9098;
+      --cyan:#1a86a3; --gold:#a9781a; --lime:#4f8a12; --magenta:#b23b93; --rotom:#2f66c4; --ember:#c85c17;
+      --shadow:0 8px 24px rgba(30,50,60,.14);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#0d1417; --ink2:#101c21; --panel:#14232a; --panel2:#182c34; --line:#22404a;
+    --steel:#c7d6dd; --muted:#8ba0aa; --faint:#5f7681;
+    --cyan:#57cbe6; --gold:#e6b84a; --lime:#9ede3f; --magenta:#e878c8; --rotom:#6aa8ff; --ember:#ff9a52;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  :root[data-theme="light"]{
+    --ink:#eef1ec; --ink2:#e7ece5; --panel:#ffffff; --panel2:#f4f6f1; --line:#d3dcd2;
+    --steel:#1c2b30; --muted:#4f6169; --faint:#7f9098;
+    --cyan:#1a86a3; --gold:#a9781a; --lime:#4f8a12; --magenta:#b23b93; --rotom:#2f66c4; --ember:#c85c17;
+    --shadow:0 8px 24px rgba(30,50,60,.14);
+  }
+
+  *{box-sizing:border-box}
+  .wrap{
+    font-family:var(--sans); color:var(--steel);
+    background:
+      radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--cyan) 10%, transparent), transparent 60%),
+      repeating-conic-gradient(from 0deg at 18% 120%, color-mix(in srgb,var(--line) 40%,transparent) 0deg 6deg, transparent 6deg 12deg),
+      var(--ink);
+    padding:clamp(18px,4vw,44px); border-radius:14px; overflow:hidden;
+  }
+  .inner{max-width:1060px;margin:0 auto}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+  h1.title{
+    font-family:var(--disp); font-weight:900; line-height:.92; text-wrap:balance;
+    font-size:clamp(30px,6.4vw,60px); letter-spacing:.01em; margin:0; color:var(--steel);
+    text-transform:uppercase;
+  }
+  h1.title .accent{color:var(--cyan)}
+  .lede{max-width:60ch;margin:14px 0 0;font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:var(--muted)}
+  .credit{margin-top:12px;font-family:var(--mono);font-size:12.5px;color:var(--faint);letter-spacing:.02em}
+  .credit b{color:var(--gold);font-weight:600}
+
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:26px 0}
+
+  .sectlabel{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 14px}
+
+  /* mode toggle */
+  .modes{display:flex;flex-wrap:wrap;gap:10px}
+  .mode-btn{
+    flex:1 1 240px; text-align:left; cursor:pointer; color:var(--steel);
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+    display:flex;flex-direction:column;gap:3px; transition:border-color .15s, transform .1s, background .15s;
+    font-family:var(--sans);
+  }
+  .mode-btn:hover{transform:translateY(-1px)}
+  .mode-btn .m-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  .mode-btn .m-t{font-weight:800;font-size:16px}
+  .mode-btn .m-t em{font-style:normal}
+  .mode-btn[data-on="true"]{background:var(--panel2)}
+  .mode-btn.tr[data-on="true"]{border-color:var(--cyan);box-shadow:inset 0 0 0 1px var(--cyan)}
+  .mode-btn.tr .m-t em{color:var(--cyan)}
+  .mode-btn.qn[data-on="true"]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+  .mode-btn.qn .m-t em{color:var(--gold)}
+  .mode-btn:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+  /* diagram */
+  .diagram-card{margin-top:18px;background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:8px}
+  #diagram svg{width:100%;height:auto;display:block}
+  .mode-note{
+    margin:12px 4px 2px; padding:12px 14px; border-radius:10px; background:var(--panel);
+    border:1px solid var(--line); border-left:3px solid var(--hub);
+    font-size:14.5px;line-height:1.5;color:var(--muted)
+  }
+  .mode-note b{color:var(--steel)}
+
+  /* decision guide */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+  .card .if{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+  .card .then{font-weight:800;font-size:15.5px;margin:0 0 5px;color:var(--steel);text-wrap:balance}
+  .card .why{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted)}
+  .card .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-top:9px}
+  .tag.tr{color:var(--cyan);background:color-mix(in srgb,var(--cyan) 15%,transparent)}
+  .tag.qn{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent)}
+  .tag.any{color:var(--lime);background:color-mix(in srgb,var(--lime) 14%,transparent)}
+
+  /* roster */
+  .roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .mon{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 15px;border-top:3px solid var(--dot,var(--muted))}
+  .mon h3{margin:0;font-size:16px;font-weight:800;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+  .mon .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:3px 0 8px}
+  .mon ul{margin:0;padding-left:16px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+  .mon ul li::marker{color:var(--dot,var(--muted))}
+  .swatch{width:10px;height:10px;border-radius:50%;background:var(--dot);flex:none;box-shadow:0 0 8px color-mix(in srgb,var(--dot) 60%,transparent)}
+
+  .foot{margin-top:8px;font-size:13px;line-height:1.6;color:var(--muted)}
+  .foot a{color:var(--cyan)}
+  .foot .flag{color:var(--ember)}
+  .foot code{font-family:var(--mono);font-size:12px;background:var(--panel2);padding:1px 6px;border-radius:5px;color:var(--steel)}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap"><div class="inner">
+
+  <p class="eyebrow">Pokémon Champions · VGC 2026 Doubles · synergy &amp; game-plan guide</p>
+  <h1 class="title">Mega Steelix <span class="accent">Sand&nbsp;+&nbsp;Trick&nbsp;Room</span></h1>
+  <p class="lede">One team, <b style="color:var(--steel)">two win-conditions</b>. A 30-Speed wall that hits like a truck — freed to move first two different ways. The trick isn't the build; it's <b style="color:var(--steel)">choosing the mode from the enemy's team</b>.</p>
+  <p class="credit">Wolfey's team · <b>2nd place, Indianapolis Regional</b> · EV spreads by Justin Tang · breakdown by MrSteelixYourGirl. Team validated in PokéSynergy.</p>
+
+  <div class="rule"></div>
+
+  <p class="sectlabel">Step 1 · Pick the mode</p>
+  <div class="modes" role="tablist" aria-label="Team mode">
+    <button class="mode-btn tr" data-mode="trickroom" data-on="true" role="tab" aria-selected="true">
+      <span class="m-k">Mode B · flip the speed</span>
+      <span class="m-t">Sand <em>Trick Room</em> — Mega Steelix</span>
+    </button>
+    <button class="mode-btn qn" data-mode="queen" data-on="false" role="tab" aria-selected="false">
+      <span class="m-k">Mode A · out-tempo, no TR</span>
+      <span class="m-t">Protect the <em>Queen</em> — Mega Tyranitar</span>
+    </button>
+  </div>
+
+  <p class="sectlabel" style="margin-top:22px">Step 2 · Run the synergy</p>
+  <div class="diagram-card">
+    <div id="diagram" role="img" aria-label="Team synergy map"></div>
+  </div>
+  <p class="mode-note" id="modeNote"></p>
+
+  <div class="rule"></div>
+
+  <p class="sectlabel">⭐ The feature idea · read the enemy team → get the plan</p>
+  <div class="grid" id="decision"></div>
+
+  <div class="rule"></div>
+
+  <p class="sectlabel">The six · roles at a glance</p>
+  <div class="roster" id="roster"></div>
+
+  <div class="rule"></div>
+  <p class="foot">
+    <span class="flag">⚠︎ Reconstruction:</span> abilities &amp; moves are validated Champions-legal in PokéSynergy (1 warning: Talonflame's <code>Covert Cloak</code> item — swap it); the <b style="color:var(--steel)">exact EV spreads are Justin Tang's</b> — grab Wolfey's rental from the video for the precise build. Sprites are intentionally omitted (name badges only) to keep this shareable.<br>
+    Source: <a href="https://www.youtube.com/watch?v=sYzs73TeFR8">"Wolfey's MEGA STEELIX Team COUNTERED the Meta!"</a> · This "enemy-team → step-by-step plan" layout is the reusable idea: a niche tool that hands a player a game plan, not just a calculator.
+  </p>
+
+</div></div>
+
+<script>
+(function(){
+  var C = getComputedStyle(document.documentElement);
+  function col(n){ return C.getPropertyValue(n).trim() || n; }
+  var DISP="'Arial Black','Helvetica Neue',system-ui,sans-serif";
+  var MONO="ui-monospace,Menlo,Consolas,monospace";
+
+  var MODES = {
+    trickroom: {
+      hubColorVar:'--cyan',
+      hub:{label:['MEGA','STEELIX'], colorVar:'--cyan'},
+      note:'<b>Sinistcha sets Trick Room</b> → 30-Speed Steelix suddenly moves first. <b>Tyranitar’s sand</b> switches on Steelix’s Sand Force (+30% Ground/Steel). Rotom keeps the core alive with Light Screen &amp; burns; Sneasler’s Fake Out buys the setup turn. Steelix can also just sit as a <b>Wide Guard</b> wall.',
+      sats:[
+        {pos:'tl', label:['SNEASLER'], role:'Fake Out · Pressure', colorVar:'--magenta'},
+        {pos:'tr', label:['ROTOM-WASH'], role:'Light Screen · Will-O-Wisp', colorVar:'--rotom'},
+        {pos:'bl', label:['SINISTCHA'], role:'Trick Room · Heal · Redirect', colorVar:'--lime'},
+        {pos:'br', label:['TYRANITAR'], role:'Sets Sand → Sand Force', colorVar:'--gold'}
+      ]
+    },
+    queen: {
+      hubColorVar:'--gold',
+      hub:{label:['MEGA','TYRANITAR'], colorVar:'--gold'},
+      note:'<b>Protect the Queen:</b> stack <b>Dragon Dances</b> on Mega Tyranitar until it’s the fastest thing on the field and one-shots anything. The other three exist to buy those turns — Fake Out pressure, redirection, screens &amp; burns — <b>no Trick Room required</b>.',
+      sats:[
+        {pos:'tl', label:['SNEASLER'], role:'Fake Out buys a DD turn', colorVar:'--magenta'},
+        {pos:'tr', label:['ROTOM-WASH'], role:'Screens · Burn walls', colorVar:'--rotom'},
+        {pos:'bl', label:['SINISTCHA'], role:'Redirect hits · Heal', colorVar:'--lime'},
+        {pos:'br', label:['TALONFLAME'], role:'Priority Brave Bird', colorVar:'--ember'}
+      ]
+    }
+  };
+
+  var POS = { tl:{x:150,y:135}, tr:{x:730,y:135}, bl:{x:150,y:465}, br:{x:730,y:465} };
+  var HUB = {x:440,y:300,r:82}, SR=58;
+
+  function clip(a,b,ra,rb){
+    var dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1, ux=dx/d, uy=dy/d;
+    return {x1:a.x+ux*ra, y1:a.y+uy*ra, x2:b.x-ux*rb, y2:b.y-uy*rb};
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+  function nodeSVG(cx,cy,r,labelLines,color){
+    var t='';
+    t+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r+7)+'" fill="none" stroke="'+color+'" stroke-opacity=".28" stroke-width="2"/>';
+    t+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+col('--panel2')+'" stroke="'+color+'" stroke-width="3"/>';
+    var n=labelLines.length, lh=(r>70?21:17), start=cy-(n-1)*lh/2;
+    for(var i=0;i<n;i++){
+      t+='<text x="'+cx+'" y="'+(start+i*lh)+'" text-anchor="middle" dominant-baseline="central" '+
+         'font-family="'+DISP+'" font-weight="900" font-size="'+(r>70?20:15)+'" '+
+         'letter-spacing=".5" fill="'+col('--steel')+'">'+esc(labelLines[i])+'</text>';
+    }
+    return t;
+  }
+
+  function render(key){
+    var m=MODES[key];
+    document.documentElement.style.setProperty('--hub', col(m.hubColorVar));
+    var hubColor=col(m.hub.colorVar);
+    var svg='';
+    // arrows first (under nodes)
+    m.sats.forEach(function(s){
+      var p=POS[s.pos], c=col(s.colorVar);
+      var ln=clip(p, HUB, SR+6, HUB.r+10);
+      svg+='<line x1="'+ln.x1.toFixed(1)+'" y1="'+ln.y1.toFixed(1)+'" x2="'+ln.x2.toFixed(1)+'" y2="'+ln.y2.toFixed(1)+
+           '" stroke="'+c+'" stroke-width="6" stroke-linecap="round" marker-end="url(#ah-'+s.pos+')"/>';
+    });
+    // markers
+    var defs='<defs>';
+    m.sats.forEach(function(s){
+      var c=col(s.colorVar);
+      defs+='<marker id="ah-'+s.pos+'" markerWidth="7" markerHeight="7" refX="5.2" refY="3" orient="auto">'+
+            '<path d="M0,0 L6,3 L0,6 Z" fill="'+c+'"/></marker>';
+    });
+    defs+='</defs>';
+    // satellite nodes + role labels
+    m.sats.forEach(function(s){
+      var p=POS[s.pos], c=col(s.colorVar);
+      svg+=nodeSVG(p.x,p.y,SR,s.label,c);
+      var below=(s.pos==='bl'||s.pos==='br');
+      var ly=below? p.y+SR+22 : p.y-SR-14;
+      svg+='<text x="'+p.x+'" y="'+ly+'" text-anchor="middle" font-family="'+MONO+'" '+
+           'font-size="13" letter-spacing=".02em" fill="'+c+'">'+esc(s.role)+'</text>';
+    });
+    // hub on top
+    svg+=nodeSVG(HUB.x,HUB.y,HUB.r,m.hub.label,hubColor);
+    svg+='<text x="'+HUB.x+'" y="'+(HUB.y+HUB.r+24)+'" text-anchor="middle" font-family="'+MONO+'" font-size="12.5" letter-spacing=".18em" fill="'+col('--faint')+'">FOCAL POINT</text>';
+
+    document.getElementById('diagram').innerHTML='<svg viewBox="0 0 880 600" xmlns="http://www.w3.org/2000/svg">'+defs+svg+'</svg>';
+    document.getElementById('modeNote').innerHTML=m.note;
+    document.querySelectorAll('.mode-btn').forEach(function(b){
+      var on=b.getAttribute('data-mode')===key;
+      b.setAttribute('data-on',on); b.setAttribute('aria-selected',on);
+    });
+  }
+
+  document.querySelectorAll('.mode-btn').forEach(function(b){
+    b.addEventListener('click',function(){ render(b.getAttribute('data-mode')); });
+  });
+
+  // Decision guide
+  var DEC=[
+    {ifx:'Enemy has Tailwind or fast hyper-offense', then:'Go Trick Room (Mega Steelix)', why:'Flip the speed order — their fast sweepers now move last while your 30-Speed Steelix moves first.', tag:'tr', tagt:'Mode B'},
+    {ifx:'Enemy is slow / bulky / runs its own Trick Room', then:'Go Queen mode (Mega Tyranitar)', why:'Don’t fight over Trick Room — out-tempo them by stacking Dragon Dance instead.', tag:'qn', tagt:'Mode A'},
+    {ifx:'Enemy leads spread Earthquake (Garchomp etc.)', then:'Lead Steelix as a Wide Guard wall', why:'Steelix shrugs off the hit and Wide Guard shields Tyranitar while it sets up.', tag:'tr', tagt:'Support'},
+    {ifx:'Enemy’s main threat is physical', then:'Rotom Will-O-Wisp it', why:'A permanent burn halves their physical damage — Steelix &amp; Tyranitar become almost un-KO’able.', tag:'any', tagt:'Every game'},
+    {ifx:'Enemy’s main threat is special', then:'Rotom Light Screen', why:'Halves special damage team-wide; stacks with Tyranitar’s sand Sp.Def boost.', tag:'any', tagt:'Every game'},
+    {ifx:'Any game, turn 1', then:'Sneasler Fake Out + Sinistcha pivot', why:'Fake Out buys the setup turn; switch Sinistcha in/out for free Sitrus healing on your wall.', tag:'any', tagt:'Every game'}
+  ];
+  document.getElementById('decision').innerHTML=DEC.map(function(d){
+    return '<div class="card"><p class="if">If &mdash; '+d.ifx+'</p><p class="then">'+d.then+
+      '</p><p class="why">'+d.why+'</p><span class="tag '+d.tag+'">'+d.tagt+'</span></div>';
+  }).join('');
+
+  // Roster
+  var ROST=[
+    {n:'Mega Steelix', c:'--cyan', role:'Trick Room nuke / Wide Guard wall', mv:['Heavy Slam','High Horsepower','Wide Guard','Protect'], note:'310 Def; Sand Force + sand = +30%'},
+    {n:'Tyranitar', c:'--gold', role:'Sand setter · DD sweeper (the Queen)', mv:['Dragon Dance','Rock Slide','Crunch','Protect'], note:'holds Tyranitarite — the 2nd Mega option'},
+    {n:'Sinistcha', c:'--lime', role:'Trick Room · heal · redirect', mv:['Trick Room','Rage Powder','Life Dew','Matcha Gotcha'], note:'Hospitality heals on switch-in'},
+    {n:'Rotom-Wash', c:'--rotom', role:'Damage mitigation (the star)', mv:['Will-O-Wisp','Light Screen','Hydro Pump','Protect'], note:'burn + screen = the wall engine'},
+    {n:'Sneasler', c:'--magenta', role:'Disruptor / lead', mv:['Fake Out','Dire Claw','Close Combat','Protect'], note:'Pressure; buys tempo'},
+    {n:'Talonflame', c:'--ember', role:'Priority revenge', mv:['Brave Bird','Swords Dance','Tailwind','Protect'], note:'Gale Wings priority cleanup'}
+  ];
+  document.getElementById('roster').innerHTML=ROST.map(function(r){
+    return '<div class="mon" style="--dot:var('+r.c+')"><h3><span class="swatch"></span>'+r.n+'</h3>'+
+      '<p class="role">'+r.role+'</p><ul>'+r.mv.map(function(x){return '<li>'+x+'</li>';}).join('')+
+      '</ul><p class="role" style="margin:8px 0 0;color:var('+r.c+')">'+r.note+'</p></div>';
+  }).join('');
+
+  render('trickroom');
+})();
+</script>

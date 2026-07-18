@@ -9,7 +9,9 @@
 |---|---|
 | [[pokemon-champions-team-building/mega-steelix-speed-swap-team]] | ⭐ Worked example **#1** — Mr. Browser's **Speed-Swap Mega Steelix** (off-meta): free the slow nuke with Speed Swap (no Trick Room), a double-immunity spread-spam shell, the importable teamlist |
 | [[pokemon-champions-team-building/mega-steelix-sand-trick-room-team]] | ⭐ Worked example **#2** — Pokémon Trainer Lucca's **Sand + Trick Room Mega Steelix** (traditional): the *opposite* build choices (High Horsepower not Earthquake, Body Press, Armor Tail glue, Scarf backup) — a direct contrast to #1 |
-| [[pokemon-champions-team-building/reusable-team-building-method]] | ⭐ The transferable pattern — a 5-role template + a step-by-step PokéSynergy workflow to build **your own** variants; the two worked examples show the *same* nuke solved two different ways |
+| [[pokemon-champions-team-building/mega-steelix-wolfey-two-mode-team]] | ⭐ Worked example **#3** — Wolfey's tournament team (2nd @ Indianapolis Regional): **two Megas, two modes, picked from the enemy team**; carries the ⭐ "enemy team → step-by-step plan" feature idea + a visual synergy guide |
+| [`steelix-synergy-guide.html`](steelix-synergy-guide.html) · [open Artifact](https://claude.ai/code/artifact/5f8135b5-13a2-4afa-a3be-3d2af7da0989) | 🎨 **Visual guideline** — interactive synergy map + a "read the enemy → pick your plan" panel (the business-tool feature mockup) |
+| [[pokemon-champions-team-building/reusable-team-building-method]] | ⭐ The transferable pattern — a 5-role template + a step-by-step PokéSynergy workflow to build **your own** variants; the three worked examples show the *same* nuke solved three different ways |
 
 ## The core idea (one paragraph)
 
@@ -30,6 +32,8 @@ Both teams take the same problem — Mega Steelix is a 310-Def monster with ~30 
 | **Vibe** | off-meta gimmick the tool won't suggest | traditional, meta-standard |
 
 **The transferable insight:** the nuke's own moveset is dictated by the *team around it*, not the nuke — so the reusable method is about choosing an engine (Speed Swap vs Trick Room) and a damage-enabler (immunity shell vs sand), then letting those decide Steelix's moves.
+
+**#3 (Wolfey — [[pokemon-champions-team-building/mega-steelix-wolfey-two-mode-team]]) is the adaptive synthesis:** it carries *both* engines — Trick Room **and** Dragon Dance, via **two Megas** — and picks the mode from the opponent's team. That's the tournament-proven version, and it's where the operator's ⭐ product idea lands: a niche tool that reads the enemy team and hands you a **step-by-step game plan**, not just a damage number (see the [visual guide](steelix-synergy-guide.html) / [Artifact](https://claude.ai/code/artifact/5f8135b5-13a2-4afa-a3be-3d2af7da0989), and the hireui tie-in in [[pokesynergy-niche-business-tool/hireui-translation]]).
 
 ## Key Takeaways
 
