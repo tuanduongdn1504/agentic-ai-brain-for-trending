@@ -35,6 +35,8 @@ The prior examples show how to *pilot* the Steelix team; this one shows the **ot
 
 **Meta observation:** *both* finalists ran the **"two Megas, two modes, pick by enemy"** structure (Wolfey: Steelix/Tyranitar; Arsal: Charizard-Y/Floette). The adaptive-flexibility archetype from [[pokemon-champions-team-building/mega-steelix-wolfey-two-mode-team|#3]] wasn't a one-off — it was the *shape of the top of the meta* at this event.
 
+> ⚡ **Now prototyped:** the [visual guide](steelix-synergy-guide.html)'s **Game Plan Assistant** does exactly this — paste an enemy team and it returns the recommended mode + a step-by-step plan + a **matchup-risk flag**. This sand-vs-sun finals team is the built-in one-click example, and it flags **Unfavorable** (red) with the honest note that the Sun team won — the "when the matchup is bad" behavior in action.
+
 ## Verification notes
 
 - ✅ **Mega Floette is real in Champions** — verified in PokéSynergy: ability **Fairy Aura**, item **Floettite** (the tool corrected my guessed "Flower Veil"). Mega Charizard Y (Drought) + the dual-Mega build also accepted. Full team cross-checked against [Victory Road](https://victoryroad.pro/2026-indianapolis/).

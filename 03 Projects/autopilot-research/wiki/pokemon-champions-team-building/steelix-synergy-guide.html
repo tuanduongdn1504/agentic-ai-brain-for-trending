@@ -110,6 +110,35 @@
   .foot a{color:var(--cyan)}
   .foot .flag{color:var(--ember)}
   .foot code{font-family:var(--mono);font-size:12px;background:var(--panel2);padding:1px 6px;border-radius:5px;color:var(--steel)}
+  /* game plan assistant */
+  .proto{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#04222b;background:var(--lime);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:middle}
+  .asst{display:grid;gap:14px}
+  .asst-in{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:11px}
+  .asst-in label{font-size:13px;color:var(--muted)}
+  #enemyInput{width:100%;min-height:108px;resize:vertical;background:var(--ink2);color:var(--steel);border:1px solid var(--line);border-radius:9px;padding:11px 12px;font-family:var(--mono);font-size:13px;line-height:1.55}
+  #enemyInput:focus{outline:2px solid var(--cyan);outline-offset:1px}
+  .asst-btns{display:flex;flex-wrap:wrap;gap:9px}
+  .asst-btns button{cursor:pointer;font-family:var(--sans);font-weight:700;font-size:13.5px;padding:10px 15px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:var(--steel);transition:transform .1s,border-color .15s}
+  .asst-btns button:hover{transform:translateY(-1px);border-color:var(--faint)}
+  .asst-btns button.primary{background:var(--cyan);color:#04222b;border-color:var(--cyan)}
+  .asst-btns button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+  .plan-out{background:var(--ink2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .risk-head{display:flex;align-items:center;gap:11px;padding:14px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .risk-dot{width:12px;height:12px;border-radius:50%;flex:none;box-shadow:0 0 10px currentColor}
+  .risk-name{font-family:var(--disp);font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:18px}
+  .risk-fav{color:var(--lime)} .risk-even{color:var(--gold)} .risk-bad{color:#ff6b6b}
+  .risk-sub{font-size:12.5px;color:var(--muted);margin-left:auto;text-align:right;font-family:var(--mono)}
+  .plan-inner{padding:15px 17px;display:flex;flex-direction:column;gap:13px}
+  .rec{font-size:15px;color:var(--steel)} .rec b{color:var(--cyan)} .rec b.qn{color:var(--gold)}
+  .steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;counter-reset:s}
+  .steps li{position:relative;padding-left:34px;font-size:14px;line-height:1.5;color:var(--muted)}
+  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-1px;width:23px;height:23px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);color:var(--cyan);font-family:var(--mono);font-size:12px;font-weight:700;display:grid;place-items:center}
+  .steps li b{color:var(--steel)}
+  .caveat{margin:0;font-size:13.5px;line-height:1.55;padding:11px 13px;border-radius:9px;background:var(--panel);border-left:3px solid var(--risk,var(--gold));color:var(--muted)}
+  .caveat b{color:var(--steel)}
+  .detected{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .detected .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);color:var(--steel)}
   @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 
@@ -142,7 +171,20 @@
 
   <div class="rule"></div>
 
-  <p class="sectlabel">⭐ The feature idea · read the enemy team → get the plan</p>
+  <p class="sectlabel">⚡ Game Plan Assistant · paste the enemy team → get a plan <span class="proto">prototype</span></p>
+  <div class="asst">
+    <div class="asst-in">
+      <label for="enemyInput">Enemy team — paste a Showdown export, or just list their key Pokémon (one per line):</label>
+      <textarea id="enemyInput" spellcheck="false" placeholder="Charizard&#10;Venusaur&#10;Garchomp&#10;Floette&#10;Sinistcha&#10;Incineroar"></textarea>
+      <div class="asst-btns">
+        <button type="button" id="loadFinals">↺ Load the finals example (Arsal's Sun team)</button>
+        <button type="button" id="analyzeBtn" class="primary">Get my game plan →</button>
+      </div>
+    </div>
+    <div id="planOut" class="plan-out" hidden></div>
+  </div>
+
+  <p class="sectlabel" style="margin-top:26px">The rulebook it applies</p>
   <div class="grid" id="decision"></div>
 
   <div class="rule"></div>
@@ -285,6 +327,76 @@
       '<p class="role">'+r.role+'</p><ul>'+r.mv.map(function(x){return '<li>'+x+'</li>';}).join('')+
       '</ul><p class="role" style="margin:8px 0 0;color:var('+r.c+')">'+r.note+'</p></div>';
   }).join('');
+
+  // ---- Game Plan Assistant (prototype) ----
+  var SIG = {
+    sun:      {rx:/charizard|torkoal|groudon|venusaur|chlorophyll|drought|\bsun\b/i, label:'Sun / Chlorophyll'},
+    rain:     {rx:/pelipper|kyogre|politoed|drizzle|\brain\b|barraskewda|basculegion/i, label:'Rain'},
+    trickroom:{rx:/trick ?room|sinistcha|oranguru|hatterene|indeedee|cresselia|dusclops|porygon2|armarouge/i, label:'Their own Trick Room'},
+    fast:     {rx:/tailwind|talonflame|whimsicott|tornadus|dragapult|meowscarada|sneasler|chien.?pao|zapdos|raging ?bolt|flutter ?mane|dragonite/i, label:'Fast offense / Tailwind'},
+    ground:   {rx:/garchomp|landorus|ting.?lu|great ?tusk|mamoswine|excadrill|earthquake|high ?horsepower/i, label:'Spread Ground / Earthquake'},
+    fairy:    {rx:/floette|flutter ?mane|sylveon|enamorus|tinkaton|hatterene|clefable|moonblast|\bfairy\b/i, label:'Fairy attacker'},
+    special:  {rx:/charizard|flutter ?mane|floette|gardevoir|glimmora|volcarona|raging ?bolt|hydreigon/i, label:'Special attacker'},
+    physical: {rx:/kingambit|urshifu|chien.?pao|dragonite|great ?tusk|rillaboom|scizor|garchomp/i, label:'Physical attacker'}
+  };
+  function makePlan(text){
+    if(!text || !text.replace(/\s/g,'')) return null;
+    var h={}; for(var k in SIG) h[k]=SIG[k].rx.test(text);
+    var steps=[], risk, riskName, riskSub, mode, caveat;
+    if(h.sun){
+      mode='<b>Sand Trick Room</b> — Mega-Evolve <b>Steelix</b>';
+      steps.push('<b>Lead Steelix + Tyranitar.</b> Tyranitar’s sand overwrites their sun (kills Chlorophyll speed) and its Rock Slide threatens Charizard.');
+      steps.push('<b>Set Trick Room with Sinistcha</b> so 30-Speed Steelix moves first — your speed answer to a sun-boosted team.');
+      if(h.fairy || h.trickroom){
+        risk='bad'; riskName='Unfavorable'; riskSub='the finals matchup — sand lost to sun';
+        caveat='⚠︎ This is the exact Indianapolis finals matchup, and the Sun team <b>won it</b>. Their Fairy offense (Floette / Fairy Aura) breaks your walls and their own Trick Room contests yours. You can steal games with tight play, but you’re behind — play for your outs, don’t auto-pilot.';
+      } else { risk='even'; riskName='Even'; riskSub='sand vs sun — Tyranitar tilts it'; caveat='Tyranitar is the linchpin: it removes sun and answers Charizard. Keep it healthy with Sinistcha pivots and you’re in the driver’s seat.'; }
+    } else if(h.fast && !h.rain){
+      mode='<b>Sand Trick Room</b> — Mega-Evolve <b>Steelix</b>';
+      steps.push('<b>Set Trick Room (Sinistcha)</b> to invert their speed — your slow Steelix moves first while their sweepers move last.');
+      steps.push('<b>Lead Sneasler + Sinistcha:</b> Fake Out buys the Trick Room turn.');
+      risk='fav'; riskName='Favorable'; riskSub='Trick Room flips fast offense'; caveat='Fast, weather-less offense is exactly what Trick Room punishes. Just don’t let Trick Room lapse with nothing set up behind it.';
+    } else if(h.trickroom){
+      mode='<b class="qn">Protect the Queen</b> — Mega-Evolve <b>Tyranitar</b>';
+      steps.push('<b>Go Dragon Dance Tyranitar</b> — don’t fight over Trick Room; out-tempo instead.');
+      steps.push('<b>Watch their Trick Room:</b> if they flip it, your built-up Speed works against you. Bait it with Sneasler / a fake setup first.');
+      risk='even'; riskName='Even'; riskSub='TR mirror — tempo battle'; caveat='Whoever controls the Trick Room window wins. If they set TR faster than you, stay in Steelix mode and play under their TR instead.';
+    } else {
+      mode='<b>Sand Trick Room</b> — Mega-Evolve <b>Steelix</b> (default)';
+      steps.push('<b>Default to Trick Room Steelix</b> unless the enemy is clearly slow &amp; bulky.');
+      risk='even'; riskName='Even'; riskSub='no strong read — play your gameplan'; caveat='Nothing here forces a mode — lead your standard Steelix + Tyranitar and adapt after Team Preview.';
+    }
+    if(h.ground) steps.push('<b>Wide Guard on Steelix</b> — they carry spread Ground (Earthquake); Steelix walls it and shields Tyranitar.');
+    if(h.physical) steps.push('<b>Rotom Will-O-Wisp</b> their main physical attacker — the burn halves its damage and your walls become nearly un-KO’able.');
+    if(h.special) steps.push('<b>Rotom Light Screen</b> early — halves their special damage, stacks with Tyranitar’s sand Sp.Def.');
+    steps.push('<b>Every game:</b> Sneasler Fake Out turn 1 for tempo; pivot Sinistcha in/out for free Sitrus healing on your wall.');
+    var det=[]; for(var k2 in SIG) if(h[k2]) det.push(SIG[k2].label);
+    if(!det.length) det.push('no known signals — generic plan');
+    return {risk:risk, riskName:riskName, riskSub:riskSub, mode:mode, steps:steps, caveat:caveat, detected:det};
+  }
+  function renderPlan(text){
+    var out=document.getElementById('planOut'); var p=makePlan(text);
+    if(!p){ out.hidden=true; return; }
+    var cls = p.risk==='fav'?'risk-fav':p.risk==='bad'?'risk-bad':'risk-even';
+    var dotCol = p.risk==='fav'?col('--lime'):p.risk==='bad'?'#ff6b6b':col('--gold');
+    out.style.setProperty('--risk', dotCol);
+    out.innerHTML =
+      '<div class="risk-head"><span class="risk-dot '+cls+'"></span>'+
+        '<span class="risk-name '+cls+'">'+p.riskName+' matchup</span>'+
+        '<span class="risk-sub">'+p.riskSub+'</span></div>'+
+      '<div class="plan-inner">'+
+        '<div class="rec">Run: '+p.mode+'</div>'+
+        '<ol class="steps">'+p.steps.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol>'+
+        '<p class="caveat">'+p.caveat+'</p>'+
+        '<div class="detected"><span class="lbl">Read from their team:</span>'+
+          p.detected.map(function(d){return '<span class="chip">'+d+'</span>';}).join('')+'</div>'+
+      '</div>';
+    out.hidden=false;
+  }
+  var FINALS_ENEMY="Charizard-Mega-Y\nFloette-Mega\nVenusaur\nIncineroar\nSinistcha\nGarchomp";
+  var ib=document.getElementById('enemyInput');
+  document.getElementById('loadFinals').addEventListener('click',function(){ ib.value=FINALS_ENEMY; renderPlan(ib.value); });
+  document.getElementById('analyzeBtn').addEventListener('click',function(){ renderPlan(ib.value); });
 
   render('trickroom');
 })();
