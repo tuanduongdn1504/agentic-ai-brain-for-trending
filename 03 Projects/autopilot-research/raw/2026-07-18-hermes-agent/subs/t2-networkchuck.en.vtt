@@ -1,0 +1,3888 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.520
+I'm switching to Hermes.
+
+00:00:01.520 --> 00:00:04.240
+The vibe, the mission, that alone sold me.
+
+00:00:04.240 --> 00:00:06.799
+But the idea
+that the Hermes agent grows with
+
+00:00:06.799 --> 00:00:09.039
+you, that's gonna be better on
+day 30 than day
+
+00:00:09.039 --> 00:00:09.599
+one.
+
+00:00:09.599 --> 00:00:10.719
+That got me hooked.
+
+00:00:10.719 --> 00:00:12.320
+Also because
+I'm tired of fixing my OpenClaw
+
+00:00:12.320 --> 00:00:13.759
+agents, and I'm not the only one.
+
+00:00:13.759 --> 00:00:16.000
+This is now the fastest growing
+GitHub project.
+
+00:00:16.135 --> 00:00:18.454
+It just topped
+OpenClaw on the OpenRouter token
+
+00:00:18.454 --> 00:00:19.094
+usage.
+
+00:00:19.095 --> 00:00:20.935
+This thing's taken the world by storm.
+
+00:00:20.935 --> 00:00:22.535
+It can't be that good, can it?
+
+00:00:22.535 --> 00:00:24.695
+Is it actually
+worth diving into yet another
+
+00:00:24.695 --> 00:00:26.135
+tool, another harness?
+
+00:00:26.135 --> 00:00:26.855
+Let's talk about it.
+
+00:00:26.855 --> 00:00:28.935
+I've been using it for a month,
+and it's the
+
+00:00:28.935 --> 00:00:30.920
+only agent I
+felt comfortable enough with to
+
+00:00:30.920 --> 00:00:31.720
+give to my wife.
+
+00:00:31.720 --> 00:00:32.760
+She calls hers honey.
+
+00:00:32.760 --> 00:00:33.640
+It's her BFF.
+
+00:00:33.640 --> 00:00:35.000
+I'm telling you this thing is different.
+
+00:00:35.000 --> 00:00:37.079
+Let me show you
+the five things, the five reasons
+
+00:00:37.079 --> 00:00:39.239
+that made me switch all my stuff
+from OpenClaw
+
+00:00:39.239 --> 00:00:40.039
+to Hermes.
+
+00:00:40.039 --> 00:00:41.079
+Actually, here's a teaser.
+
+00:00:41.079 --> 00:00:43.239
+The vibe, the
+memory, the fact that it learns.
+
+00:00:43.505 --> 00:00:46.225
+Also, we're gonna build our very
+own IT Hogwarts
+
+00:00:46.225 --> 00:00:47.744
+themed troubleshooting wizard.
+
+00:00:47.744 --> 00:00:48.704
+Easy for me to say.
+
+00:00:48.704 --> 00:00:49.984
+It's literally magic.
+
+00:00:49.984 --> 00:00:51.824
+And also went a bit too deep, I think.
+
+00:00:51.905 --> 00:00:53.824
+I ended up talking to one of
+the cofounders,
+
+00:00:53.824 --> 00:00:54.704
+Jeffrey Quesnelle.
+
+00:00:54.704 --> 00:00:55.984
+So you're gonna hear from him too.
+
+00:00:55.984 --> 00:00:59.184
+Now I'm trying
+so hard to not use the phrase
+
+00:00:59.184 --> 00:01:00.519
+right now because I told you I
+would chill out
+
+00:01:00.519 --> 00:01:01.479
+on that this year.
+
+00:01:01.479 --> 00:01:04.359
+But this, it's
+something special, and I don't
+
+00:01:04.359 --> 00:01:06.519
+want you burning
+tokens on tools that will frustrate
+
+00:01:06.519 --> 00:01:07.019
+you.
+
+00:01:07.019 --> 00:01:07.959
+This one's worth your time.
+
+00:01:07.959 --> 00:01:08.920
+So get your copy ready.
+
+00:01:08.920 --> 00:01:11.000
+It's time to
+enter our self improvement loop.
+
+00:01:14.204 --> 00:01:15.325
+Self improvement loop.
+
+00:01:15.325 --> 00:01:15.965
+What does that mean?
+
+00:01:15.965 --> 00:01:16.604
+That's number four.
+
+00:01:16.604 --> 00:01:18.604
+It has to do with a skill system,
+and it's probably
+
+00:01:18.604 --> 00:01:19.965
+the best reason on this list.
+
+00:01:19.965 --> 00:01:20.524
+But hold on.
+
+00:01:20.524 --> 00:01:21.405
+Don't go there yet.
+
+00:01:21.405 --> 00:01:22.924
+You haven't
+installed it yet, and that's my
+
+00:01:22.924 --> 00:01:23.644
+goal with this video.
+
+00:01:23.644 --> 00:01:25.719
+You're gonna
+walk away with Hermes running,
+
+00:01:25.719 --> 00:01:26.760
+and it's actually pretty easy.
+
+00:01:26.760 --> 00:01:28.680
+They even have an OpenClaw migration path.
+
+00:01:28.680 --> 00:01:29.479
+How nice of them.
+
+00:01:29.479 --> 00:01:31.000
+But, hey, I get it.
+
+00:01:31.000 --> 00:01:33.239
+You might be where I was about
+a month ago.
+
+00:01:33.239 --> 00:01:34.359
+AI tool fatigue.
+
+00:01:34.359 --> 00:01:35.479
+Don't give me another tool.
+
+00:01:35.479 --> 00:01:36.119
+I'm full.
+
+00:01:36.119 --> 00:01:37.185
+Get it away from me.
+
+00:01:37.185 --> 00:01:39.344
+But Nous Research, the company
+behind Hermes,
+
+00:01:39.344 --> 00:01:41.025
+told me to try it, and I said, fine.
+
+00:01:41.025 --> 00:01:42.864
+But let me hit
+you with number one real quick.
+
+00:01:43.104 --> 00:01:44.144
+Look at this site.
+
+00:01:44.144 --> 00:01:46.545
+How can you not
+try this for the vibes alone?
+
+00:01:46.625 --> 00:01:47.984
+We're gonna install this here in a moment.
+
+00:01:47.984 --> 00:01:48.484
+Don't worry.
+
+00:01:48.484 --> 00:01:49.504
+But just sit here and appreciate this.
+
+00:01:49.650 --> 00:01:51.890
+This isn't some random lobster project.
+
+00:01:51.890 --> 00:01:52.770
+Wee.
+
+00:01:53.650 --> 00:01:55.810
+This is a company
+with a mission, a purpose.
+
+00:01:55.810 --> 00:01:57.569
+I asked Jeff,
+one of the cofounders, what's
+
+00:01:57.569 --> 00:01:58.069
+up with this?
+
+00:01:58.069 --> 00:01:59.890
+As much as we're online, you and
+me are, like,
+
+00:01:59.890 --> 00:02:00.609
+terminally online.
+
+00:02:00.609 --> 00:02:02.530
+We're also, like, creatures of
+this world, and
+
+00:02:02.725 --> 00:02:04.885
+our our sight
+and our taste and all of that
+
+00:02:04.885 --> 00:02:06.084
+are part of who we are.
+
+00:02:06.084 --> 00:02:08.245
+We put we spend a lot of time to
+make sure that
+
+00:02:08.245 --> 00:02:11.044
+we have that
+that that that vibe feel behind
+
+00:02:11.044 --> 00:02:11.544
+it.
+
+00:02:11.544 --> 00:02:12.165
+And it's not just the vibe.
+
+00:02:12.165 --> 00:02:13.365
+It's who these people are.
+
+00:02:13.365 --> 00:02:15.685
+That that was our our origin story.
+
+00:02:15.685 --> 00:02:17.844
+It was just a bunch
+of kinda hackers on a Discord
+
+00:02:18.430 --> 00:02:20.669
+trying to figure out if we can
+make open source
+
+00:02:20.669 --> 00:02:21.169
+AI.
+
+00:02:21.169 --> 00:02:22.430
+We'll hit that
+here in a moment, but first,
+
+00:02:22.430 --> 00:02:23.389
+we gotta install this.
+
+00:02:23.389 --> 00:02:25.310
+To install it, we just run this
+one command.
+
+00:02:25.310 --> 00:02:25.810
+But where?
+
+00:02:25.810 --> 00:02:26.750
+You gotta put it somewhere.
+
+00:02:26.750 --> 00:02:28.509
+Thankfully, you
+can pretty much run this anywhere.
+
+00:02:28.509 --> 00:02:30.775
+It's lightweight, built in Python,
+but my favorite
+
+00:02:30.775 --> 00:02:32.694
+place to run this sucker is in the cloud.
+
+00:02:32.694 --> 00:02:33.194
+Hostinger.
+
+00:02:33.194 --> 00:02:34.455
+That's where I put my wife's agent.
+
+00:02:34.455 --> 00:02:36.134
+They are the sponsor of this video
+and the sponsor
+
+00:02:36.134 --> 00:02:38.055
+of getting you
+spun up on Hermes as quickly
+
+00:02:38.055 --> 00:02:38.775
+as possible.
+
+00:02:38.775 --> 00:02:39.575
+Are you ready?
+
+00:02:39.895 --> 00:02:41.175
+Quick sip of coffee.
+
+00:02:42.455 --> 00:02:45.419
+Go out to
+Hostinger.com/NetworkChuckHermes.
+
+00:02:45.419 --> 00:02:47.099
+Now what we're
+about to do here is install Hermes
+
+00:02:47.099 --> 00:02:48.539
+on a computer and the cloud.
+
+00:02:48.539 --> 00:02:49.979
+But again, you can install it anywhere.
+
+00:02:49.979 --> 00:02:51.419
+I think it's
+actually gonna be Windows native
+
+00:02:51.419 --> 00:02:51.979
+here soon.
+
+00:02:51.979 --> 00:02:53.340
+And don't worry, the tutorial
+I'm showing you
+
+00:02:53.340 --> 00:02:55.340
+right now will
+apply for anything apart from
+
+00:02:55.340 --> 00:02:55.979
+the Hostinger stuff.
+
+00:02:55.985 --> 00:02:57.025
+But here we are in Hostinger.
+
+00:02:57.025 --> 00:02:59.104
+We could do the
+quick deploy option if you wanna
+
+00:02:59.104 --> 00:03:00.865
+be really fast, but I prefer this method.
+
+00:03:00.865 --> 00:03:01.584
+Don't click on that.
+
+00:03:01.584 --> 00:03:02.944
+Instead, go up here to services.
+
+00:03:03.185 --> 00:03:04.865
+Click on VPS hosting right here.
+
+00:03:04.865 --> 00:03:07.264
+By the way, a
+VPS is a virtual private server,
+
+00:03:07.264 --> 00:03:09.740
+fancy talk for
+computer somewhere else, But
+
+00:03:09.740 --> 00:03:11.259
+it's always on
+and always available and then
+
+00:03:11.259 --> 00:03:11.900
+always awesome.
+
+00:03:11.900 --> 00:03:12.860
+We'll choose our plan.
+
+00:03:12.860 --> 00:03:14.219
+KVM two is the choice.
+
+00:03:14.219 --> 00:03:15.659
+It's a whole home lab in the cloud.
+
+00:03:15.659 --> 00:03:16.459
+Run Hermes.
+
+00:03:16.459 --> 00:03:17.500
+Run OpenClaw.
+
+00:03:17.500 --> 00:03:18.139
+Run Docker.
+
+00:03:18.139 --> 00:03:18.639
+I don't care.
+
+00:03:18.639 --> 00:03:19.419
+Do whatever you want.
+
+00:03:19.419 --> 00:03:20.060
+It can handle it.
+
+00:03:20.060 --> 00:03:21.979
+And, yes, you
+can run Hermes and OpenClaw side
+
+00:03:21.979 --> 00:03:22.620
+by side.
+
+00:03:22.699 --> 00:03:23.199
+Test them.
+
+00:03:23.199 --> 00:03:24.699
+Once you choose your plan, and watch this.
+
+00:03:25.625 --> 00:03:30.504
+Put in the coupon
+code NetworkChuck and watch
+
+00:03:30.504 --> 00:03:31.545
+magic happen.
+
+00:03:32.104 --> 00:03:32.665
+Boom.
+
+00:03:32.665 --> 00:03:33.224
+It worked.
+
+00:03:33.224 --> 00:03:34.824
+Choose Ubuntu as your OS.
+
+00:03:34.824 --> 00:03:36.264
+Go through a
+few more steps and then wait for
+
+00:03:36.264 --> 00:03:37.305
+your VPS to brew.
+
+00:03:37.305 --> 00:03:39.620
+You should land
+on the VPS dashboard, and we're
+
+00:03:39.620 --> 00:03:41.620
+gonna copy this command right here.
+
+00:03:41.620 --> 00:03:42.180
+Copy.
+
+00:03:42.180 --> 00:03:43.379
+And then we'll launch our terminal.
+
+00:03:43.379 --> 00:03:45.300
+Whatever OS you
+have, go to your search bar,
+
+00:03:45.379 --> 00:03:47.860
+type in terminal, launch that sucker.
+
+00:03:47.860 --> 00:03:48.360
+Oh, yeah.
+
+00:03:48.360 --> 00:03:49.300
+Best place to be.
+
+00:03:49.300 --> 00:03:50.819
+That's actually
+one of the things I love about
+
+00:03:50.819 --> 00:03:51.319
+Hermes.
+
+00:03:51.319 --> 00:03:52.340
+This is a bonus one.
+
+00:03:52.419 --> 00:03:54.659
+Is they actually
+do make it fun in the terminal,
+
+00:03:54.735 --> 00:03:56.495
+not just the
+messaging app, and they do have
+
+00:03:56.495 --> 00:03:56.995
+that too.
+
+00:03:56.995 --> 00:03:59.215
+We'll paste
+our command, type yes to accept
+
+00:03:59.215 --> 00:04:01.294
+all fingerprints, and then put in
+the root password
+
+00:04:01.294 --> 00:04:03.935
+that you set up earlier, and we're in.
+
+00:04:03.935 --> 00:04:06.094
+Right now, we have remoted into
+or logged in
+
+00:04:06.094 --> 00:04:08.094
+to a computer in the cloud, and
+this is where
+
+00:04:08.094 --> 00:04:09.534
+we're going to install Hermes.
+
+00:04:09.534 --> 00:04:11.189
+And, again, this is gonna be
+pretty Let's go
+
+00:04:11.189 --> 00:04:13.110
+out to Hermes and grab that one
+line command
+
+00:04:13.110 --> 00:04:13.909
+I talked about.
+
+00:04:13.909 --> 00:04:14.550
+There it is.
+
+00:04:14.550 --> 00:04:16.870
+Click on copy,
+get back to our terminal, paste
+
+00:04:16.870 --> 00:04:18.710
+that in, and go.
+
+00:04:19.110 --> 00:04:20.310
+It's gonna do its thing.
+
+00:04:21.189 --> 00:04:21.830
+Coffee break.
+
+00:04:24.544 --> 00:04:27.345
+This is my favorite part of the
+videos, honestly.
+
+00:04:27.425 --> 00:04:30.144
+Watching stuff scroll across the
+terminal while
+
+00:04:30.144 --> 00:04:31.105
+sipping coffee.
+
+00:04:32.144 --> 00:04:33.345
+It's therapy.
+
+00:04:33.345 --> 00:04:33.845
+Hey.
+
+00:04:33.845 --> 00:04:35.584
+While you're waiting, have you
+hacked the YouTube
+
+00:04:35.584 --> 00:04:36.305
+algorithm today?
+
+00:04:36.509 --> 00:04:37.550
+Let's make sure you do.
+
+00:04:37.550 --> 00:04:39.150
+Hit that like
+button, subscribe, notification
+
+00:04:39.150 --> 00:04:39.870
+bell, comment.
+
+00:04:39.870 --> 00:04:41.470
+You gotta hack YouTube today.
+
+00:04:41.710 --> 00:04:42.910
+Ethically, of course.
+
+00:04:42.910 --> 00:04:45.069
+Now what we're about to do when
+this finishes
+
+00:04:45.069 --> 00:04:47.550
+up is we're gonna create our IT
+agent, and this
+
+00:04:47.550 --> 00:04:49.310
+is something
+actually I got inspired by from
+
+00:04:49.310 --> 00:04:50.670
+Jeff over at Nous Research.
+
+00:04:50.774 --> 00:04:52.615
+They get a dog food mentality over there.
+
+00:04:52.615 --> 00:04:53.654
+They use their tools.
+
+00:04:53.654 --> 00:04:54.935
+And I asked him, like, how do you use it?
+
+00:04:54.935 --> 00:04:55.975
+He's like, this example.
+
+00:04:55.975 --> 00:04:57.975
+So we actually have our agents
+in our Discord
+
+00:04:57.975 --> 00:05:01.495
+channels and
+have them running, and we talk
+
+00:05:01.495 --> 00:05:03.814
+to them like
+they're team members, basically.
+
+00:05:03.814 --> 00:05:06.939
+And there's just a Hermes agent
+who's like the
+
+00:05:06.939 --> 00:05:09.660
+the the develop
+you know, the the system admin.
+
+00:05:09.660 --> 00:05:11.180
+So someone comes
+into our Discord and says,
+
+00:05:11.180 --> 00:05:12.220
+oh, something this happened.
+
+00:05:12.220 --> 00:05:13.180
+I got this error message.
+
+00:05:13.180 --> 00:05:15.019
+We're able to
+just talk to the Hermes agent.
+
+00:05:15.019 --> 00:05:18.060
+And what's really amazing and
+is that through
+
+00:05:18.060 --> 00:05:20.814
+having just
+done this, that agent has built
+
+00:05:20.814 --> 00:05:25.534
+up a huge skill
+set of skills particularly related
+
+00:05:25.534 --> 00:05:27.214
+to debugging our infrastructure.
+
+00:05:27.214 --> 00:05:28.735
+When he told
+me that, my brain exploded, and
+
+00:05:28.735 --> 00:05:29.774
+I said that's what I'm doing.
+
+00:05:29.774 --> 00:05:31.774
+We'll talk more about their example later.
+
+00:05:31.774 --> 00:05:32.574
+I'll show you some stuff.
+
+00:05:36.419 --> 00:05:37.860
+Now the vibe.
+
+00:05:37.860 --> 00:05:38.360
+Come on.
+
+00:05:38.360 --> 00:05:38.860
+That was cool.
+
+00:05:38.860 --> 00:05:39.360
+Okay.
+
+00:05:39.360 --> 00:05:39.860
+We're here.
+
+00:05:39.860 --> 00:05:40.360
+Time for quick setup.
+
+00:05:40.360 --> 00:05:40.899
+Hit enter.
+
+00:05:40.899 --> 00:05:42.819
+The first step
+is choosing our inference model
+
+00:05:42.819 --> 00:05:43.860
+or the brain.
+
+00:05:43.860 --> 00:05:46.019
+Similar to OpenClaw, Hermes is a harness.
+
+00:05:46.144 --> 00:05:47.904
+It's a set of tools that would
+use whatever
+
+00:05:47.904 --> 00:05:49.105
+LLM you want.
+
+00:05:49.105 --> 00:05:51.504
+If you wanna
+go local with LM Studio, do it.
+
+00:05:51.504 --> 00:05:53.345
+Hermes is really good with it,
+especially the
+
+00:05:53.345 --> 00:05:53.845
+Qwen model.
+
+00:05:53.845 --> 00:05:54.705
+Wanna go Frontier?
+
+00:05:54.705 --> 00:05:56.785
+OpenRouter's good,
+but my favorite one to start
+
+00:05:56.785 --> 00:05:58.225
+with is the OpenAI Codex.
+
+00:05:58.569 --> 00:05:59.129
+Why?
+
+00:05:59.129 --> 00:06:01.370
+Well, because you
+can use your ChatGPT subscription
+
+00:06:01.370 --> 00:06:01.930
+with this.
+
+00:06:01.930 --> 00:06:04.009
+Most of us already pay for ChatGPT.
+
+00:06:04.009 --> 00:06:05.770
+And without paying
+any more money, you can use
+
+00:06:05.770 --> 00:06:07.930
+ChatGPT as the brain for Hermes.
+
+00:06:07.930 --> 00:06:08.430
+Hey.
+
+00:06:08.430 --> 00:06:09.210
+Chuck from the future here.
+
+00:06:09.210 --> 00:06:10.730
+Something epic just happened.
+
+00:06:10.810 --> 00:06:13.355
+This Grok partnered
+with Hermes, and you can
+
+00:06:13.355 --> 00:06:16.795
+use this as a user
+Grok subscription with Hermes.
+
+00:06:16.795 --> 00:06:18.715
+Just another option, and it's
+pretty powerful.
+
+00:06:18.715 --> 00:06:19.514
+Let's try it out.
+
+00:06:19.514 --> 00:06:21.675
+Hit enter, and all we gotta do
+is copy this
+
+00:06:21.675 --> 00:06:23.995
+URL, paste that
+into our browser, get logged
+
+00:06:23.995 --> 00:06:26.395
+into our chat
+GBT account or OpenAI account,
+
+00:06:26.395 --> 00:06:29.050
+and then grab
+this code that Hermes gave us
+
+00:06:29.050 --> 00:06:30.170
+and paste that in here.
+
+00:06:30.250 --> 00:06:32.169
+Click continue, and that was it.
+
+00:06:32.169 --> 00:06:32.889
+Pretty hard.
+
+00:06:32.889 --> 00:06:34.089
+Login successful.
+
+00:06:34.089 --> 00:06:35.209
+Then we'll choose our model.
+
+00:06:35.209 --> 00:06:36.329
+GPT-5.5.
+
+00:06:36.329 --> 00:06:37.209
+It's the smartest.
+
+00:06:37.370 --> 00:06:38.810
+Select your terminal back end.
+
+00:06:38.889 --> 00:06:39.930
+Keep it local for now.
+
+00:06:39.930 --> 00:06:41.449
+We'll just know you can run it remotely.
+
+00:06:41.449 --> 00:06:42.250
+That's a whole thing.
+
+00:06:42.250 --> 00:06:43.449
+Then finally, set up messaging.
+
+00:06:43.634 --> 00:06:44.835
+Let's go ahead and do that.
+
+00:06:44.915 --> 00:06:45.955
+Here you have options.
+
+00:06:45.955 --> 00:06:47.475
+We're gonna go
+with Telegram because it's the
+
+00:06:47.475 --> 00:06:49.875
+easiest, but you can do any one of these.
+
+00:06:49.875 --> 00:06:51.714
+Also noting that it has less
+options than you
+
+00:06:51.714 --> 00:06:52.995
+would see with OpenClaw.
+
+00:06:53.074 --> 00:06:53.574
+Why?
+
+00:06:53.574 --> 00:06:54.675
+You'll start
+to see this develop as kind of
+
+00:06:54.675 --> 00:06:56.754
+the mentality
+behind Nous Research and Hermes.
+
+00:06:56.810 --> 00:06:58.730
+Instead of supporting
+everything, they'd rather
+
+00:06:58.730 --> 00:07:01.210
+make the experience great with
+a few options.
+
+00:07:01.210 --> 00:07:02.490
+And, obviously, this is more than a few.
+
+00:07:02.490 --> 00:07:03.290
+Let's go Telegram.
+
+00:07:03.290 --> 00:07:05.850
+It's space to select, hit enter,
+and we're almost
+
+00:07:05.850 --> 00:07:06.350
+there.
+
+00:07:06.350 --> 00:07:08.009
+This part actually is really easy.
+
+00:07:08.330 --> 00:07:10.569
+It's asking you for a Telegram
+bot token and
+
+00:07:10.569 --> 00:07:12.490
+to talk to somebody named the bot father.
+
+00:07:12.490 --> 00:07:14.084
+You're If not
+already a Telegram user, become
+
+00:07:14.084 --> 00:07:15.524
+one and open up Telegram.
+
+00:07:15.524 --> 00:07:16.884
+Search for the bot father.
+
+00:07:16.884 --> 00:07:18.725
+He's gonna help us create a new bot.
+
+00:07:19.204 --> 00:07:19.845
+Open.
+
+00:07:20.004 --> 00:07:22.404
+Click on create a new bot, and
+let's name our
+
+00:07:22.404 --> 00:07:22.904
+bot.
+
+00:07:22.904 --> 00:07:24.004
+Mine's gonna be Ron Weasley.
+
+00:07:24.004 --> 00:07:25.125
+That's my IT wizard.
+
+00:07:25.125 --> 00:07:26.564
+By the way, you're gonna watch
+me walk through
+
+00:07:26.564 --> 00:07:29.470
+every step of making Ron an IT
+wizard in my
+
+00:07:29.470 --> 00:07:29.970
+company.
+
+00:07:29.970 --> 00:07:30.470
+Legit.
+
+00:07:30.470 --> 00:07:33.310
+Give him a username, must be
+unique, and it
+
+00:07:33.310 --> 00:07:34.509
+must end in bot.
+
+00:07:34.509 --> 00:07:35.310
+Nailed it.
+
+00:07:35.310 --> 00:07:36.270
+Create bot.
+
+00:07:36.509 --> 00:07:37.310
+That was it.
+
+00:07:37.310 --> 00:07:39.949
+Now that little
+pixie dust thing, we're gonna
+
+00:07:39.949 --> 00:07:40.449
+copy that.
+
+00:07:40.449 --> 00:07:41.230
+Click on copy.
+
+00:07:41.230 --> 00:07:42.110
+That's your token.
+
+00:07:42.110 --> 00:07:43.550
+Paste that right here in the terminal.
+
+00:07:43.925 --> 00:07:45.605
+Hit enter, and we're almost done.
+
+00:07:45.605 --> 00:07:47.125
+This is a security measure
+where you can tell
+
+00:07:47.125 --> 00:07:48.644
+your Hermes agent, hey.
+
+00:07:48.644 --> 00:07:49.444
+Only talk to me.
+
+00:07:49.444 --> 00:07:50.404
+Don't talk to anybody else.
+
+00:07:50.404 --> 00:07:51.285
+Ignore everyone else.
+
+00:07:51.285 --> 00:07:52.564
+I'm the user now.
+
+00:07:52.564 --> 00:07:53.064
+Sorry.
+
+00:07:53.064 --> 00:07:53.564
+That was lame.
+
+00:07:53.564 --> 00:07:54.404
+We're gonna go with it.
+
+00:07:54.404 --> 00:07:56.610
+We're gonna talk to one more bot
+before we can
+
+00:07:56.610 --> 00:07:57.330
+talk to our bot.
+
+00:07:57.330 --> 00:07:59.330
+The user info
+bot, we need our username from
+
+00:07:59.330 --> 00:07:59.889
+Telegram.
+
+00:07:59.889 --> 00:08:01.490
+So we'll find the user info bot.
+
+00:08:01.810 --> 00:08:03.009
+And, usually,
+when you just start talking to
+
+00:08:03.009 --> 00:08:05.569
+him, you'll get
+your user ID just like this.
+
+00:08:05.569 --> 00:08:06.530
+Copy that.
+
+00:08:06.689 --> 00:08:07.189
+Paste it.
+
+00:08:07.189 --> 00:08:08.370
+If you wanna add more, you can.
+
+00:08:08.535 --> 00:08:10.855
+For example, my
+wife's agent, Honey, I can talk
+
+00:08:10.855 --> 00:08:12.455
+to her as well, not just my wife.
+
+00:08:12.455 --> 00:08:14.134
+We'll make our user ID the home.
+
+00:08:14.134 --> 00:08:15.014
+Just hit yes.
+
+00:08:15.014 --> 00:08:16.935
+We'll install
+the gateways a SystemD service.
+
+00:08:16.935 --> 00:08:18.055
+If you're like, what is SystemD?
+
+00:08:18.055 --> 00:08:19.415
+I got a video on that right here.
+
+00:08:19.415 --> 00:08:21.574
+Just hit yes for how the gateway
+service should
+
+00:08:21.574 --> 00:08:22.295
+run-in the background.
+
+00:08:22.295 --> 00:08:24.839
+If you're on a laptop, go with the
+default option.
+
+00:08:24.839 --> 00:08:27.080
+For VPS, let's choose the system service.
+
+00:08:27.080 --> 00:08:29.480
+So I'm gonna go with don't get
+mad at me in
+
+00:08:29.480 --> 00:08:30.199
+the comments.
+
+00:08:30.920 --> 00:08:32.519
+Put run it as which user.
+
+00:08:32.600 --> 00:08:33.639
+I'm gonna put root.
+
+00:08:33.639 --> 00:08:34.200
+Why?
+
+00:08:34.279 --> 00:08:35.240
+I'm on a cloud machine.
+
+00:08:35.414 --> 00:08:36.855
+It's the only user I have right now.
+
+00:08:36.855 --> 00:08:37.894
+It's who I am right now.
+
+00:08:37.894 --> 00:08:40.134
+And this machine is gonna belong to Ron.
+
+00:08:40.134 --> 00:08:41.334
+I want him to own it.
+
+00:08:41.574 --> 00:08:43.095
+He is the IT admin anyway.
+
+00:08:43.095 --> 00:08:45.254
+This is not
+best practice or advice for any
+
+00:08:45.254 --> 00:08:45.894
+other setup.
+
+00:08:45.894 --> 00:08:47.095
+For our example, it's fine.
+
+00:08:48.259 --> 00:08:49.539
+Start the service now.
+
+00:08:49.539 --> 00:08:50.039
+Yep.
+
+00:08:50.039 --> 00:08:51.139
+And we're kinda done.
+
+00:08:51.139 --> 00:08:52.899
+And at this point, we could talk
+to Hermes right
+
+00:08:52.899 --> 00:08:55.059
+here in the terminal or via Telegram.
+
+00:08:55.059 --> 00:08:56.019
+Let's do it in the terminal.
+
+00:08:56.019 --> 00:08:56.580
+It's cooler.
+
+00:08:56.580 --> 00:08:59.940
+Hit enter, and Hermes is here.
+
+00:08:59.940 --> 00:09:01.139
+Let's see if he is here.
+
+00:09:01.299 --> 00:09:01.799
+Hi.
+
+00:09:03.105 --> 00:09:04.144
+He's alive.
+
+00:09:04.225 --> 00:09:06.225
+Also notice at the top here, all
+the available
+
+00:09:06.225 --> 00:09:07.745
+skills that are default built in.
+
+00:09:07.745 --> 00:09:08.945
+Talk about that here in a moment.
+
+00:09:08.945 --> 00:09:11.184
+At number four, foreshadowing.
+
+00:09:11.745 --> 00:09:13.745
+Foreshadowing accident.
+
+00:09:13.985 --> 00:09:16.225
+Let's try Telegram and make
+sure he also is
+
+00:09:16.225 --> 00:09:16.725
+alive there.
+
+00:09:16.725 --> 00:09:18.065
+We'll talk to our new user.
+
+00:09:18.144 --> 00:09:18.644
+Hi.
+
+00:09:19.399 --> 00:09:20.200
+Typing.
+
+00:09:20.759 --> 00:09:21.399
+Hi, Chuck.
+
+00:09:21.399 --> 00:09:22.279
+What can I help you with today?
+
+00:09:22.279 --> 00:09:25.080
+Now at this point,
+if you've never used an agent
+
+00:09:25.080 --> 00:09:26.440
+before, this is magic.
+
+00:09:26.440 --> 00:09:26.940
+Right?
+
+00:09:26.940 --> 00:09:27.440
+Enjoy.
+
+00:09:27.440 --> 00:09:27.940
+Go crazy.
+
+00:09:27.940 --> 00:09:29.399
+But if this isn't your first
+agent, if you've
+
+00:09:29.399 --> 00:09:30.920
+already used
+OpenClaw, you're probably going,
+
+00:09:30.920 --> 00:09:32.824
+Chuck, how's this different?
+
+00:09:32.824 --> 00:09:34.264
+This feels the exact same.
+
+00:09:34.264 --> 00:09:37.225
+And, honestly,
+at first glance, it kind of is.
+
+00:09:37.225 --> 00:09:38.584
+But let me hit you with number two.
+
+00:09:38.584 --> 00:09:40.264
+I discovered
+this while walking the street to
+
+00:09:40.264 --> 00:09:42.024
+Tokyo, and it's kind of insane.
+
+00:09:42.024 --> 00:09:42.985
+Transition.
+
+00:09:46.184 --> 00:09:48.579
+I think memory
+is the reason people switch to
+
+00:09:48.579 --> 00:09:51.059
+Hermes and stay,
+and they may not even realize
+
+00:09:51.059 --> 00:09:52.019
+that's the reason.
+
+00:09:52.179 --> 00:09:54.339
+Because under the hood, Hermes
+and OpenClaw
+
+00:09:54.339 --> 00:09:57.139
+kinda do memory in
+the same way with a few philosophical
+
+00:09:57.139 --> 00:09:58.980
+differences, and they make all
+the differences
+
+00:09:58.980 --> 00:10:00.595
+in the difference in the world.
+
+00:10:00.595 --> 00:10:02.434
+Let me show you by building out
+our IT agent
+
+00:10:02.434 --> 00:10:02.934
+right now.
+
+00:10:02.934 --> 00:10:03.875
+So remember, this is gonna be Ron.
+
+00:10:03.875 --> 00:10:06.034
+Now if I say right now, who are you?
+
+00:10:06.434 --> 00:10:07.554
+It's gonna be generic.
+
+00:10:07.554 --> 00:10:08.434
+I'm Hermes.
+
+00:10:08.434 --> 00:10:09.074
+Let's change that.
+
+00:10:09.074 --> 00:10:11.794
+I've got a nice prompt I'm gonna
+feed him with,
+
+00:10:11.794 --> 00:10:12.674
+seed him with.
+
+00:10:12.674 --> 00:10:13.954
+Here is who you are going to be.
+
+00:10:14.500 --> 00:10:17.940
+Update any file,
+including your soul, to reflect
+
+00:10:17.940 --> 00:10:18.980
+this going forward.
+
+00:10:19.699 --> 00:10:21.379
+And then here's the massive prompt.
+
+00:10:21.379 --> 00:10:22.740
+Essentially, he's Ron Weasley.
+
+00:10:22.740 --> 00:10:24.179
+He's following in his father's
+footsteps of
+
+00:10:24.179 --> 00:10:26.179
+falling in love with
+Muggle technology, specifically
+
+00:10:26.179 --> 00:10:26.819
+IT.
+
+00:10:26.819 --> 00:10:27.539
+Yada yada yada.
+
+00:10:27.539 --> 00:10:28.980
+It's a backstory you can see in
+the description
+
+00:10:28.980 --> 00:10:29.480
+below.
+
+00:10:29.480 --> 00:10:29.980
+Let's see what happens.
+
+00:10:31.355 --> 00:10:33.115
+Now notice it's already using a skill.
+
+00:10:33.115 --> 00:10:34.554
+This is actually something I
+love about it.
+
+00:10:34.554 --> 00:10:36.475
+It shows you the tool use happening.
+
+00:10:36.475 --> 00:10:36.975
+Okay.
+
+00:10:36.975 --> 00:10:37.754
+Identity locked.
+
+00:10:37.754 --> 00:10:38.475
+Let's test it.
+
+00:10:38.475 --> 00:10:42.075
+I'm going to do new, start a new
+session here.
+
+00:10:42.075 --> 00:10:44.315
+We will approve that, and I'll
+say, who are
+
+00:10:44.315 --> 00:10:44.815
+you?
+
+00:10:46.029 --> 00:10:46.990
+Nailed it.
+
+00:10:47.069 --> 00:10:48.190
+This is gonna be fun.
+
+00:10:48.190 --> 00:10:48.690
+Okay.
+
+00:10:48.690 --> 00:10:50.589
+So Hermes edited his SOUL.md file.
+
+00:10:50.589 --> 00:10:51.230
+Big deal.
+
+00:10:51.230 --> 00:10:52.269
+OpenClaw can do that.
+
+00:10:52.269 --> 00:10:53.789
+If we cap that, here it is.
+
+00:10:54.269 --> 00:10:56.750
+Still nothing amazing yet, but hold on.
+
+00:10:56.750 --> 00:10:58.110
+Let's start building him out a bit more.
+
+00:10:58.110 --> 00:10:59.069
+I'll tell him who I am.
+
+00:10:59.069 --> 00:11:00.269
+I'm NetworkChuck and call me Chuck.
+
+00:11:01.125 --> 00:11:02.725
+They'll also
+talk to other members of my team
+
+00:11:02.725 --> 00:11:04.165
+when they have issues, blah blah blah.
+
+00:11:04.165 --> 00:11:05.125
+Let's tell him that.
+
+00:11:05.125 --> 00:11:06.404
+Now watch what happens here.
+
+00:11:06.404 --> 00:11:07.684
+I think it's gonna happen here.
+
+00:11:07.764 --> 00:11:09.365
+I'm doing this live with you.
+
+00:11:09.605 --> 00:11:10.245
+There.
+
+00:11:10.325 --> 00:11:11.285
+There it is.
+
+00:11:11.445 --> 00:11:12.485
+Put it in the binsive.
+
+00:11:12.485 --> 00:11:14.485
+Notice we have a memory action
+here, and it
+
+00:11:14.485 --> 00:11:16.485
+added it to my user file.
+
+00:11:16.700 --> 00:11:18.460
+This file, let's go open it real quick.
+
+00:11:18.460 --> 00:11:21.339
+We'll c d into our dot Hermes
+directory and
+
+00:11:21.339 --> 00:11:24.379
+then jump into our memories directory.
+
+00:11:24.379 --> 00:11:25.980
+Well, l s there, and there it is.
+
+00:11:25.980 --> 00:11:26.779
+USER.md.
+
+00:11:26.779 --> 00:11:27.659
+Let's cat that.
+
+00:11:28.379 --> 00:11:31.339
+This file is what Hermes will
+write about you,
+
+00:11:31.394 --> 00:11:34.195
+what it learns
+about you, and it curates this
+
+00:11:34.195 --> 00:11:35.154
+on its own.
+
+00:11:35.154 --> 00:11:36.115
+And that's a key part.
+
+00:11:36.115 --> 00:11:37.315
+We're we're gonna cover why
+that's important
+
+00:11:37.315 --> 00:11:39.075
+here in a moment, but let's keep adding.
+
+00:11:39.075 --> 00:11:39.715
+This is fun.
+
+00:11:39.715 --> 00:11:40.995
+I'll give him some more information.
+
+00:11:40.995 --> 00:11:43.154
+I'll tell him
+about the network and a few other
+
+00:11:43.154 --> 00:11:43.654
+things.
+
+00:11:44.379 --> 00:11:46.220
+With that information, let's see
+what happens.
+
+00:11:46.620 --> 00:11:48.220
+So we added more to the user side.
+
+00:11:48.220 --> 00:11:49.659
+Let me tell him more about him.
+
+00:11:53.100 --> 00:11:55.179
+Ah, and there's the other part
+of the memory.
+
+00:11:55.179 --> 00:11:57.179
+He added it to his memory file.
+
+00:11:57.179 --> 00:11:58.379
+Let's go look at that.
+
+00:11:58.459 --> 00:12:01.065
+LS, there's a
+new file there, MEMORY.md.
+
+00:12:01.065 --> 00:12:01.945
+Let's cat that.
+
+00:12:02.345 --> 00:12:05.384
+Notice the memory
+file is more about the environment,
+
+00:12:05.545 --> 00:12:08.105
+where Ron is
+running, some technical things.
+
+00:12:08.184 --> 00:12:10.024
+This will also be curated by the agent.
+
+00:12:10.024 --> 00:12:12.600
+Now those two things, the
+USER.md file
+
+00:12:12.600 --> 00:12:15.480
+and the MEMORY.md file, they're
+not groundbreaking
+
+00:12:15.480 --> 00:12:15.980
+things.
+
+00:12:15.980 --> 00:12:17.559
+Like, OpenClaw has these too.
+
+00:12:17.559 --> 00:12:20.839
+In fact, when
+you move from OpenClaw to Hermes,
+
+00:12:20.839 --> 00:12:22.519
+that's part of
+migration is just taking those
+
+00:12:22.519 --> 00:12:23.799
+files over to Hermes.
+
+00:12:23.799 --> 00:12:25.799
+The difference
+is how Hermes uses these files.
+
+00:12:25.904 --> 00:12:28.384
+Now both Hermes
+and OpenClaw will take these
+
+00:12:28.384 --> 00:12:28.945
+files.
+
+00:12:29.024 --> 00:12:31.185
+And when you
+start a new session with Hermes,
+
+00:12:31.185 --> 00:12:34.144
+boom, new session, the user
+and memory file
+
+00:12:34.144 --> 00:12:36.785
+will be loaded into the system
+prompt so that
+
+00:12:36.785 --> 00:12:38.785
+when you talk
+to your agent, it always has the
+
+00:12:38.785 --> 00:12:40.785
+most relevant information about
+you and what
+
+00:12:40.785 --> 00:12:41.285
+you're doing.
+
+00:12:41.285 --> 00:12:42.950
+Both OpenClaw
+and Hermes do that, but here's
+
+00:12:42.950 --> 00:12:43.910
+what Hermes does.
+
+00:12:43.990 --> 00:12:46.070
+That OpenClaw
+does not do well, and you'll feel
+
+00:12:46.070 --> 00:12:46.570
+this.
+
+00:12:46.570 --> 00:12:49.669
+And this is why
+OpenClaw feels clunky and bloated
+
+00:12:49.669 --> 00:12:51.429
+on day 30 versus Hermes.
+
+00:12:51.429 --> 00:12:52.710
+Actually, Hermes does two things.
+
+00:12:52.710 --> 00:12:55.004
+The first thing it does is it
+has hard limits
+
+00:12:55.004 --> 00:12:56.445
+on the size of those files.
+
+00:12:56.445 --> 00:12:59.965
+The user file
+can only be 1,375 characters.
+
+00:12:59.965 --> 00:13:02.125
+The memory file, 2,200 characters.
+
+00:13:02.125 --> 00:13:03.325
+Now why does this matter?
+
+00:13:03.485 --> 00:13:06.445
+Well, it forces the agent to be
+very particular
+
+00:13:06.445 --> 00:13:08.445
+about what's
+gonna be loaded into its system
+
+00:13:08.445 --> 00:13:08.945
+prompt.
+
+00:13:08.945 --> 00:13:10.250
+Now, for example, we were just
+talking with
+
+00:13:10.250 --> 00:13:12.409
+Ron and he was adding stuff to
+this memory.
+
+00:13:12.409 --> 00:13:14.409
+And as we keep
+talking to him and adding more
+
+00:13:14.409 --> 00:13:16.089
+things and talking and talking
+and talking,
+
+00:13:16.089 --> 00:13:17.209
+that's gonna get full.
+
+00:13:17.209 --> 00:13:18.649
+So what happens when it gets full?
+
+00:13:18.649 --> 00:13:20.089
+Well, he has to delete something.
+
+00:13:20.089 --> 00:13:23.205
+He has to curate it, guard what
+actually needs
+
+00:13:23.205 --> 00:13:25.285
+to go in there, what needs to go
+in there, and
+
+00:13:25.285 --> 00:13:26.965
+that keeps the agent focused.
+
+00:13:26.965 --> 00:13:29.605
+It forces the
+agent to distill what is actually
+
+00:13:29.605 --> 00:13:31.605
+important about
+interacting with you and what
+
+00:13:31.605 --> 00:13:34.629
+you need, and that
+actually matters a lot versus
+
+00:13:34.629 --> 00:13:37.029
+OpenClaw, does
+have similar mechanisms, but
+
+00:13:37.029 --> 00:13:39.029
+mostly it's gonna
+end up bloating itself over
+
+00:13:39.029 --> 00:13:40.629
+time if you don't really watch it.
+
+00:13:40.629 --> 00:13:41.829
+This does it by default.
+
+00:13:41.829 --> 00:13:43.509
+It does it without
+you even thinking about it,
+
+00:13:43.509 --> 00:13:45.029
+and it did it
+when I didn't even realize it
+
+00:13:45.029 --> 00:13:45.529
+was doing it.
+
+00:13:45.529 --> 00:13:47.029
+I got a story
+for you on that here in a moment.
+
+00:13:47.029 --> 00:13:48.870
+This is my wow moment with Hermes.
+
+00:13:48.870 --> 00:13:51.945
+The second thing
+it does is it nudges by default
+
+00:13:52.024 --> 00:13:53.305
+every 10 turns.
+
+00:13:53.305 --> 00:13:54.504
+I believe it's every 10 turns.
+
+00:13:54.504 --> 00:13:56.184
+Have your Hermes agent fact check me.
+
+00:13:56.184 --> 00:13:58.985
+It will run a background agent to
+see if anything
+
+00:13:58.985 --> 00:14:01.465
+that we've been talking about
+should update
+
+00:14:01.465 --> 00:14:03.065
+the memory or user file.
+
+00:14:03.299 --> 00:14:05.940
+Most agent infrastructures,
+including OpenClaw,
+
+00:14:06.100 --> 00:14:08.340
+only do this
+when you're about to compact or
+
+00:14:08.340 --> 00:14:09.379
+start a new session.
+
+00:14:09.379 --> 00:14:11.779
+This happens
+during the session with Hermes.
+
+00:14:11.779 --> 00:14:12.899
+It's more active.
+
+00:14:12.899 --> 00:14:14.820
+This alone made it feel pretty
+different, and
+
+00:14:14.820 --> 00:14:16.179
+it guards it over time.
+
+00:14:16.179 --> 00:14:17.379
+But then I tried something else.
+
+00:14:17.379 --> 00:14:17.879
+Watch this.
+
+00:14:18.514 --> 00:14:20.274
+This this is crazy.
+
+00:14:20.595 --> 00:14:21.634
+I tried this.
+
+00:14:21.875 --> 00:14:23.475
+We'll use the Hermes command line options.
+
+00:14:23.475 --> 00:14:26.835
+We'll do Hermes memory setup.
+
+00:14:26.915 --> 00:14:28.514
+Here, can configure the Hermes memory.
+
+00:14:28.514 --> 00:14:30.355
+Right now, by
+default, we're just using built
+
+00:14:30.355 --> 00:14:31.875
+in memory and user.
+
+00:14:32.079 --> 00:14:33.839
+It also has
+a mechanism to search your past
+
+00:14:33.839 --> 00:14:35.279
+sessions if it needs to.
+
+00:14:35.279 --> 00:14:38.079
+But then we have
+these add ons that do something
+
+00:14:38.079 --> 00:14:39.039
+kind of insane.
+
+00:14:39.039 --> 00:14:40.720
+I'm not gonna dive too deep on
+this because
+
+00:14:40.720 --> 00:14:41.519
+that could be its own video.
+
+00:14:41.519 --> 00:14:42.799
+In fact, I'm probably gonna make
+a video about
+
+00:14:42.799 --> 00:14:43.299
+it.
+
+00:14:43.299 --> 00:14:44.799
+But I added this thing called Honcho.
+
+00:14:44.894 --> 00:14:46.975
+You can run a
+Honcho server locally or run it
+
+00:14:46.975 --> 00:14:47.535
+in the cloud.
+
+00:14:47.535 --> 00:14:48.654
+I tried it in the cloud.
+
+00:14:48.654 --> 00:14:51.375
+So here's how
+this works, and this is crazy.
+
+00:14:51.615 --> 00:14:52.654
+I talked to Hermes.
+
+00:14:52.654 --> 00:14:54.894
+My agent's name is James, James Potter.
+
+00:14:55.215 --> 00:14:57.134
+Every time I
+send a message, that message is
+
+00:14:57.134 --> 00:14:58.335
+also sent to Honcho.
+
+00:14:58.440 --> 00:14:59.960
+Honcho is a peer service.
+
+00:14:59.960 --> 00:15:01.080
+It's not Hermes.
+
+00:15:01.080 --> 00:15:02.919
+It's kind of a
+plug in that will start to reason
+
+00:15:02.919 --> 00:15:04.759
+over what I'm saying, and it will
+start to build
+
+00:15:04.759 --> 00:15:06.279
+out what's called a peer card.
+
+00:15:06.279 --> 00:15:07.720
+Basically, who's Chuck?
+
+00:15:07.799 --> 00:15:09.559
+And it gets to know me.
+
+00:15:09.559 --> 00:15:11.960
+Over time, as
+more and more messages are sent,
+
+00:15:11.960 --> 00:15:13.960
+it will start to
+make more conclusions and learn.
+
+00:15:14.174 --> 00:15:15.375
+But that's not the cool part.
+
+00:15:15.375 --> 00:15:17.134
+The cool part is still back at James.
+
+00:15:17.134 --> 00:15:19.054
+With Honcho
+working in the background, when
+
+00:15:19.054 --> 00:15:21.214
+I send a message to James, in his
+system prompt,
+
+00:15:21.214 --> 00:15:23.615
+he's getting his
+USER.md file, his
+
+00:15:23.615 --> 00:15:24.495
+SYSTEM.md file.
+
+00:15:24.495 --> 00:15:26.095
+Now keep in mind, these are all
+very important
+
+00:15:26.095 --> 00:15:28.174
+because when
+you're talking to whatever model
+
+00:15:28.174 --> 00:15:31.179
+it is, anthropic, GPT, it's
+gonna start from
+
+00:15:31.179 --> 00:15:31.679
+scratch.
+
+00:15:31.679 --> 00:15:33.339
+It's a blank
+slate unless you fill its head
+
+00:15:33.339 --> 00:15:34.860
+with something
+when you start talking to it.
+
+00:15:34.860 --> 00:15:36.460
+So it has this
+built in stuff that we give it.
+
+00:15:36.460 --> 00:15:39.179
+But then also
+Honcho is configured to go, what
+
+00:15:39.179 --> 00:15:42.115
+does James need to know about
+Chuck right now
+
+00:15:42.274 --> 00:15:43.235
+in this moment?
+
+00:15:43.235 --> 00:15:45.154
+What context
+would be important based on what
+
+00:15:45.154 --> 00:15:46.274
+Chuck just asked?
+
+00:15:46.274 --> 00:15:48.674
+This combo right here, I can
+verify because
+
+00:15:48.674 --> 00:15:51.315
+I used Hermes for a month with this setup.
+
+00:15:51.315 --> 00:15:52.674
+It's kind of crazy.
+
+00:15:52.674 --> 00:15:54.274
+Let me show you
+what Honcho looks like actually
+
+00:15:54.274 --> 00:15:54.835
+on the cloud.
+
+00:15:56.199 --> 00:15:57.959
+Are some conclusions it made
+about me, like
+
+00:15:57.959 --> 00:16:00.120
+my daily habits or that Kathy
+does not like
+
+00:16:00.120 --> 00:16:00.679
+spice.
+
+00:16:00.679 --> 00:16:03.000
+And it builds
+up this peer card, which I can't
+
+00:16:03.000 --> 00:16:05.879
+show you completely, of my
+personality and my
+
+00:16:05.879 --> 00:16:07.240
+traits and my preferences.
+
+00:16:08.120 --> 00:16:09.399
+Like this one.
+
+00:16:09.480 --> 00:16:12.455
+Trait, high friction, technical
+procrastination
+
+00:16:12.455 --> 00:16:14.855
+gravitates towards tool building
+wiring to avoid
+
+00:16:14.855 --> 00:16:17.014
+high stakes communication or soul work.
+
+00:16:17.654 --> 00:16:18.455
+Ouch.
+
+00:16:18.455 --> 00:16:20.214
+So I was in Tokyo when I first
+started using
+
+00:16:20.214 --> 00:16:20.714
+James.
+
+00:16:20.714 --> 00:16:22.455
+I would get up
+early before everyone else, walk
+
+00:16:22.455 --> 00:16:24.615
+the neighborhoods, and just have
+conversations.
+
+00:16:24.615 --> 00:16:25.414
+It's good.
+
+00:16:25.414 --> 00:16:26.375
+I had some breakthroughs.
+
+00:16:26.580 --> 00:16:28.820
+Now to be fair,
+Honcho is something you can
+
+00:16:28.820 --> 00:16:30.740
+actually plug
+into OpenClaw as well, but it's
+
+00:16:30.740 --> 00:16:31.540
+not as good.
+
+00:16:31.620 --> 00:16:33.940
+It's not as much
+of a first class citizen as
+
+00:16:33.940 --> 00:16:34.740
+it is with Hermes.
+
+00:16:34.740 --> 00:16:37.139
+But honestly,
+Hermes is pretty stinking great
+
+00:16:37.139 --> 00:16:38.820
+even without this addition.
+
+00:16:38.820 --> 00:16:40.899
+All of this is
+kinda scary a little bit because
+
+00:16:40.899 --> 00:16:44.035
+you're relying a lot on the AI
+model to learn
+
+00:16:44.035 --> 00:16:46.035
+things and self correct itself.
+
+00:16:46.195 --> 00:16:48.115
+And should we allow it to do that?
+
+00:16:48.115 --> 00:16:49.235
+I asked Jeff about this.
+
+00:16:49.235 --> 00:16:50.274
+The models are smart.
+
+00:16:50.274 --> 00:16:52.115
+Like, like, get
+out of the way with the models,
+
+00:16:52.115 --> 00:16:52.615
+basically.
+
+00:16:52.615 --> 00:16:53.115
+You know?
+
+00:16:53.115 --> 00:16:55.315
+Like, they're
+smart enough if we let them to
+
+00:16:55.315 --> 00:16:58.434
+just be figure out what it is
+that you want
+
+00:16:58.434 --> 00:16:58.934
+to do.
+
+00:17:01.730 --> 00:17:03.809
+So at this point, we have our
+IT agent, Ron.
+
+00:17:03.809 --> 00:17:04.690
+He knows who he is.
+
+00:17:04.690 --> 00:17:06.049
+He's ready to start working.
+
+00:17:06.049 --> 00:17:07.730
+We're about to give him some skills.
+
+00:17:07.730 --> 00:17:08.690
+And, actually, no.
+
+00:17:08.690 --> 00:17:09.329
+We're not.
+
+00:17:09.570 --> 00:17:10.694
+You'll you'll see.
+
+00:17:10.694 --> 00:17:12.134
+The way it does, this is so cool.
+
+00:17:12.134 --> 00:17:15.734
+But before we get there, did you
+know that Hermes
+
+00:17:16.054 --> 00:17:18.054
+was around before OpenClaw?
+
+00:17:18.054 --> 00:17:18.775
+You didn't know that?
+
+00:17:18.775 --> 00:17:19.494
+Me either.
+
+00:17:19.494 --> 00:17:21.815
+I was talking
+with Jeff, the cofounder, and
+
+00:17:21.815 --> 00:17:22.535
+he told me this.
+
+00:17:22.535 --> 00:17:24.694
+So, actually,
+Hermes agent started out as an
+
+00:17:24.694 --> 00:17:27.650
+internal tool
+that we wrote started it almost
+
+00:17:27.650 --> 00:17:31.009
+six to seven months ago as a
+tool we were using
+
+00:17:31.009 --> 00:17:33.250
+internally to, like, prototype
+this recursive
+
+00:17:33.250 --> 00:17:35.410
+self improvement for model training.
+
+00:17:35.410 --> 00:17:38.644
+And when OpenClaw came out, it
+was actually
+
+00:17:38.644 --> 00:17:41.044
+kind of weird because, like, we
+actually already
+
+00:17:41.044 --> 00:17:41.845
+have this.
+
+00:17:41.845 --> 00:17:44.085
+At the time,
+we were aware of the effect it
+
+00:17:44.085 --> 00:17:44.964
+would have on the world.
+
+00:17:44.964 --> 00:17:46.804
+You know, when we saw what what
+OpenClaw did,
+
+00:17:46.804 --> 00:17:48.484
+we're like,
+we can give this out because we
+
+00:17:48.484 --> 00:17:49.204
+have our own version.
+
+00:17:49.204 --> 00:17:51.420
+And, honestly,
+when we tried OpenClaw, it, I
+
+00:17:51.420 --> 00:17:53.500
+mean, I I hadn't
+used it before, but some of
+
+00:17:53.500 --> 00:17:55.340
+the other people
+in TMR, and they're like, this
+
+00:17:55.340 --> 00:17:57.420
+felt a little
+clunkier compared to what we had
+
+00:17:57.420 --> 00:17:58.140
+internally.
+
+00:17:58.140 --> 00:17:58.700
+I love that.
+
+00:17:58.700 --> 00:18:00.460
+They tried OpenClaw and was like, wow.
+
+00:18:00.460 --> 00:18:02.380
+This is way clunkier than what we have.
+
+00:18:02.380 --> 00:18:04.460
+Let's release
+our version to the world because
+
+00:18:04.460 --> 00:18:05.340
+we think it's better.
+
+00:18:05.340 --> 00:18:07.634
+And this is number three, by
+the way, of the
+
+00:18:07.634 --> 00:18:09.875
+reason I switched from OpenClaw to Hermes.
+
+00:18:09.875 --> 00:18:12.195
+It's the people
+and the story behind this tool.
+
+00:18:12.195 --> 00:18:14.515
+We are a group
+of researchers who found each
+
+00:18:14.515 --> 00:18:17.555
+other because
+we care about making humanistic,
+
+00:18:17.555 --> 00:18:20.035
+censorship free, and democratic AI.
+
+00:18:20.035 --> 00:18:20.994
+And I think that's important.
+
+00:18:20.994 --> 00:18:21.494
+Right?
+
+00:18:21.494 --> 00:18:23.349
+Especially now in the day and age of AI.
+
+00:18:23.589 --> 00:18:25.910
+I think who's
+making the tools, why they're
+
+00:18:25.910 --> 00:18:27.509
+making the tools, and what
+they're gonna do
+
+00:18:27.509 --> 00:18:29.670
+going forward is really important for us.
+
+00:18:29.670 --> 00:18:31.910
+And knowing that
+Hermes was around before, it
+
+00:18:31.910 --> 00:18:33.830
+wasn't just a
+reaction to OpenClaw, and that
+
+00:18:33.830 --> 00:18:37.224
+it was built by AI researchers,
+people who are
+
+00:18:37.224 --> 00:18:38.505
+building their
+own models, which I don't know
+
+00:18:38.505 --> 00:18:39.144
+if you knew that.
+
+00:18:39.144 --> 00:18:41.464
+Nous Research,
+they literally were just a bunch
+
+00:18:41.464 --> 00:18:44.345
+of hacker nerds in a Discord
+training their
+
+00:18:44.345 --> 00:18:46.345
+own models, which was also named Hermes.
+
+00:18:46.345 --> 00:18:47.544
+They still have their Hermes models.
+
+00:18:47.544 --> 00:18:48.744
+Hermes agent is separate.
+
+00:18:48.750 --> 00:18:51.309
+But after talking with Jeff, I
+was even more
+
+00:18:51.309 --> 00:18:53.549
+convinced that this company is
+pretty cool,
+
+00:18:53.549 --> 00:18:55.309
+and I'm very
+happy with my decision to switch
+
+00:18:55.309 --> 00:18:55.950
+to Hermes.
+
+00:18:55.950 --> 00:18:58.109
+AI is not meant to replace you.
+
+00:18:58.109 --> 00:19:00.430
+It's meant to
+make you be a better version of
+
+00:19:00.430 --> 00:19:01.069
+you every day.
+
+00:19:01.275 --> 00:19:03.595
+And by the way, a lot of what we
+said, I can't
+
+00:19:03.595 --> 00:19:04.714
+include in this video.
+
+00:19:04.714 --> 00:19:05.755
+It's just it'd be too long.
+
+00:19:05.755 --> 00:19:07.195
+So if you wanna see that full
+interview, I'm
+
+00:19:07.195 --> 00:19:09.035
+actually gonna launch it first on
+the NetworkChuck
+
+00:19:09.035 --> 00:19:11.195
+Academy alongside
+a course we're building for
+
+00:19:11.195 --> 00:19:11.695
+Hermes.
+
+00:19:11.695 --> 00:19:13.595
+I'm showing you the basics here
+to get you up
+
+00:19:13.595 --> 00:19:14.954
+and running and going crazy.
+
+00:19:15.115 --> 00:19:16.234
+There's a lot more you can do.
+
+00:19:16.234 --> 00:19:16.940
+So check it out.
+
+00:19:16.940 --> 00:19:17.660
+Link below.
+
+00:19:17.660 --> 00:19:18.160
+Okay.
+
+00:19:18.160 --> 00:19:20.299
+Now on to number four.
+
+00:19:20.299 --> 00:19:22.380
+The most powerful
+thing that Hermes does, it's
+
+00:19:22.380 --> 00:19:23.019
+the headline.
+
+00:19:23.019 --> 00:19:25.339
+It's the grow with you thing that
+everyone talks
+
+00:19:25.339 --> 00:19:25.839
+about.
+
+00:19:25.839 --> 00:19:27.659
+Better on day 30 than day one.
+
+00:19:27.740 --> 00:19:28.460
+Watch this.
+
+00:19:28.460 --> 00:19:30.460
+We're gonna give Ron some tools, man.
+
+00:19:30.539 --> 00:19:31.980
+We're gonna make Ron powerful.
+
+00:19:31.980 --> 00:19:33.964
+We're gonna give
+him some skills, but Hermes
+
+00:19:33.964 --> 00:19:35.724
+does skills in the weirdest way.
+
+00:19:35.724 --> 00:19:36.364
+Watch.
+
+00:19:36.444 --> 00:19:37.244
+It's gonna happen.
+
+00:19:37.244 --> 00:19:38.765
+Right now, he's in the Hostinger cloud.
+
+00:19:38.765 --> 00:19:39.265
+Right?
+
+00:19:39.265 --> 00:19:41.724
+He can't talk
+to my IT stuff here in my studio.
+
+00:19:41.724 --> 00:19:42.224
+Not yet.
+
+00:19:42.224 --> 00:19:43.164
+We're gonna use Twingate.
+
+00:19:43.164 --> 00:19:44.044
+It's a VPN.
+
+00:19:44.044 --> 00:19:45.819
+It's a way to
+remote into my stuff, and it's
+
+00:19:45.819 --> 00:19:46.319
+amazing.
+
+00:19:46.319 --> 00:19:47.099
+I'll tell Ron, hey.
+
+00:19:47.099 --> 00:19:50.779
+I need you to set up the headless
+Twingate client
+
+00:19:50.779 --> 00:19:53.499
+for access to my studio.
+
+00:19:53.819 --> 00:19:55.179
+Here is your key.
+
+00:19:55.339 --> 00:19:56.059
+Make it happen.
+
+00:19:56.654 --> 00:19:58.414
+Now I'm doing this live with you.
+
+00:19:58.975 --> 00:20:00.414
+I'm hoping he'll do what I
+think he's gonna
+
+00:20:00.414 --> 00:20:00.914
+do here.
+
+00:20:00.914 --> 00:20:01.775
+Fingers crossed.
+
+00:20:01.775 --> 00:20:02.734
+He's gonna start working.
+
+00:20:02.734 --> 00:20:04.815
+He's gonna start building this,
+and our video
+
+00:20:04.815 --> 00:20:06.654
+editor is gonna blur out my key.
+
+00:20:06.734 --> 00:20:07.454
+Done.
+
+00:20:07.535 --> 00:20:08.975
+Notice he added it to his memory.
+
+00:20:08.975 --> 00:20:09.475
+Okay.
+
+00:20:09.475 --> 00:20:09.975
+Cool.
+
+00:20:09.975 --> 00:20:10.575
+Now he's connected to my network.
+
+00:20:10.980 --> 00:20:12.019
+That's cool by itself.
+
+00:20:12.019 --> 00:20:12.519
+Right?
+
+00:20:12.519 --> 00:20:13.380
+Search the network.
+
+00:20:13.380 --> 00:20:14.499
+See what you can find.
+
+00:20:14.819 --> 00:20:16.259
+Oh, did you see that?
+
+00:20:16.259 --> 00:20:16.900
+There it is.
+
+00:20:16.900 --> 00:20:18.339
+That's what I've been waiting
+for right here.
+
+00:20:18.339 --> 00:20:19.700
+I didn't tell him to do this.
+
+00:20:19.859 --> 00:20:24.500
+Self improvement review skill,
+Twingate client
+
+00:20:24.500 --> 00:20:26.674
+operations created.
+
+00:20:26.674 --> 00:20:29.634
+Ron just made his own skill.
+
+00:20:30.035 --> 00:20:31.954
+That's the power of Hermes.
+
+00:20:32.195 --> 00:20:33.714
+It makes its own skills.
+
+00:20:33.714 --> 00:20:35.875
+The skill system, which is
+sort of like the
+
+00:20:35.875 --> 00:20:37.474
+heart of it,
+which is the ability for it to
+
+00:20:37.474 --> 00:20:40.755
+crystallize once it's viewed
+how you operate
+
+00:20:40.880 --> 00:20:44.080
+to take learnings, basically, and
+and crystallize
+
+00:20:44.080 --> 00:20:47.360
+them down into
+a, like, a a a meaningful chunk
+
+00:20:47.360 --> 00:20:48.720
+that it can then reuse.
+
+00:20:48.720 --> 00:20:51.200
+So we sort of modeled it after
+kind of how,
+
+00:20:51.360 --> 00:20:54.000
+you know, a crude version of
+how potentially,
+
+00:20:54.000 --> 00:20:56.684
+you know, we ourselves work,
+which is we struggle
+
+00:20:56.684 --> 00:20:57.244
+through things.
+
+00:20:57.244 --> 00:20:59.804
+When we figure
+out ways that solve hard problems,
+
+00:21:00.125 --> 00:21:03.404
+we, we note that down, and then
+we iterate on
+
+00:21:03.404 --> 00:21:04.284
+those successes.
+
+00:21:04.284 --> 00:21:04.924
+What?
+
+00:21:05.085 --> 00:21:06.524
+How powerful is that?
+
+00:21:06.605 --> 00:21:09.710
+And that's a huge differentiator
+between OpenClaw
+
+00:21:09.710 --> 00:21:10.750
+and Hermes.
+
+00:21:10.750 --> 00:21:13.390
+With OpenClaw,
+it's all about finding skills
+
+00:21:13.549 --> 00:21:16.029
+in a marketplace,
+whereas Hermes is all about
+
+00:21:16.029 --> 00:21:18.910
+building skills, repeatable
+workflows based
+
+00:21:18.910 --> 00:21:20.910
+on your interactions with Hermes.
+
+00:21:21.214 --> 00:21:23.775
+Now Hermes does have a built in
+skill library
+
+00:21:23.775 --> 00:21:26.015
+that is curated by the Hermes team.
+
+00:21:26.015 --> 00:21:29.454
+One of the, prepackaged skills
+that we do ship
+
+00:21:29.454 --> 00:21:33.454
+is this, GitHub PR review, that
+is is in there.
+
+00:21:33.809 --> 00:21:37.889
+That skill actually is like the
+result of Technium
+
+00:21:37.889 --> 00:21:41.649
+having gone through thousands
+of PRs manually
+
+00:21:41.730 --> 00:21:43.970
+and built up
+the review process that we use
+
+00:21:43.970 --> 00:21:45.409
+internally for PR reviews.
+
+00:21:45.409 --> 00:21:47.730
+And now it's like
+a very high quality crystallized
+
+00:21:47.775 --> 00:21:48.654
+PR system.
+
+00:21:48.654 --> 00:21:50.414
+That's important
+because, I don't know if you
+
+00:21:50.414 --> 00:21:50.914
+remember.
+
+00:21:50.914 --> 00:21:53.455
+OpenClaw, when
+it first came out, dude, malware
+
+00:21:53.455 --> 00:21:54.015
+central.
+
+00:21:54.015 --> 00:21:55.695
+Claude hub where you could
+download a bunch
+
+00:21:55.695 --> 00:21:58.894
+of OpenClaw skills
+that the community was uploading.
+
+00:21:58.974 --> 00:21:59.535
+Yeah.
+
+00:21:59.535 --> 00:22:01.615
+There was bad stuff in there.
+
+00:22:01.775 --> 00:22:04.309
+OpenClaw had a
+bunch of CVEs or vulnerabilities
+
+00:22:04.309 --> 00:22:05.589
+that would get you hacked.
+
+00:22:05.589 --> 00:22:07.829
+As of this video, Hermes hasn't
+had anything
+
+00:22:07.829 --> 00:22:09.910
+agent related hit
+it yet, and I think it's because
+
+00:22:09.910 --> 00:22:11.349
+of this mentality right here.
+
+00:22:11.349 --> 00:22:13.589
+Also, it's kind
+of the Hermes team philosophy,
+
+00:22:13.829 --> 00:22:15.269
+keeping things very simple.
+
+00:22:15.269 --> 00:22:17.029
+But it's not just the building
+of skills that's
+
+00:22:17.029 --> 00:22:17.589
+pretty cool.
+
+00:22:17.589 --> 00:22:19.544
+It's the self
+improvement loop that I alluded
+
+00:22:19.544 --> 00:22:20.664
+to at the beginning of the video.
+
+00:22:20.664 --> 00:22:23.144
+Hermes just came out with this,
+a thing called
+
+00:22:23.144 --> 00:22:25.384
+the Curator,
+which it will be an agent that
+
+00:22:25.384 --> 00:22:27.544
+runs in the
+background periodically, and it
+
+00:22:27.544 --> 00:22:29.065
+will review the current skills.
+
+00:22:29.065 --> 00:22:30.424
+It will curate skills.
+
+00:22:30.424 --> 00:22:31.704
+It'll make sure your skills are good.
+
+00:22:31.704 --> 00:22:33.384
+If there's a skill that's not
+relevant anymore,
+
+00:22:33.384 --> 00:22:34.024
+it'll remove it.
+
+00:22:34.299 --> 00:22:37.579
+It'll improve skills as you're
+working with
+
+00:22:37.579 --> 00:22:38.619
+your agent.
+
+00:22:38.619 --> 00:22:41.259
+It actually moves skills through
+an active stale
+
+00:22:41.259 --> 00:22:43.660
+and archive state, and it exists
+so that skills
+
+00:22:43.660 --> 00:22:45.660
+created via
+the self improvement loop don't
+
+00:22:45.660 --> 00:22:46.700
+pile up forever.
+
+00:22:46.700 --> 00:22:49.075
+And by the way,
+the self improvement loop, this
+
+00:22:49.075 --> 00:22:51.475
+is the mentality
+for when an agent will create
+
+00:22:51.475 --> 00:22:51.975
+skills.
+
+00:22:51.975 --> 00:22:53.154
+How cool is this?
+
+00:22:53.235 --> 00:22:55.555
+Now I wanna do
+a callback to that video I made
+
+00:22:55.555 --> 00:22:56.914
+on Perplexity Computer.
+
+00:22:56.914 --> 00:22:58.515
+And one of the things I said in
+that was that
+
+00:22:58.515 --> 00:23:01.555
+because I couldn't change too much
+with Perplexity
+
+00:23:01.555 --> 00:23:03.394
+Computer, I couldn't tinker
+with it too much,
+
+00:23:04.130 --> 00:23:06.529
+I was able to just be creative
+and actually
+
+00:23:06.529 --> 00:23:08.769
+use it instead of sharpening
+my axe all the
+
+00:23:08.769 --> 00:23:09.269
+time.
+
+00:23:09.269 --> 00:23:11.490
+Hermes, while
+I can tweak it, it's certainly
+
+00:23:11.490 --> 00:23:13.170
+tweakable, it's less.
+
+00:23:13.250 --> 00:23:15.490
+It also just kinda works and
+does its own thing
+
+00:23:15.490 --> 00:23:17.970
+and figures
+things out, allowing me to just
+
+00:23:17.970 --> 00:23:19.904
+work with it, tell
+it to do things, and it figures
+
+00:23:19.904 --> 00:23:21.825
+it out, kinda in that same vein.
+
+00:23:21.825 --> 00:23:24.224
+And I think that's why it's so
+successful for
+
+00:23:24.224 --> 00:23:24.944
+most people.
+
+00:23:24.944 --> 00:23:26.704
+Like what Jeff
+said, we're kinda just getting
+
+00:23:26.704 --> 00:23:28.224
+out of the agent's way.
+
+00:23:28.224 --> 00:23:30.464
+Get get out of
+the way of, like, them and, like,
+
+00:23:30.464 --> 00:23:33.089
+let the models be smart, basically.
+
+00:23:33.089 --> 00:23:35.170
+And and just
+give them the hand like, the the
+
+00:23:35.170 --> 00:23:36.369
+the model is the brain.
+
+00:23:36.369 --> 00:23:36.869
+Right?
+
+00:23:36.869 --> 00:23:39.250
+We just needed
+to give it the hands, the feet,
+
+00:23:39.250 --> 00:23:41.410
+the fingers to
+touch the world in an appropriate
+
+00:23:41.410 --> 00:23:41.970
+way.
+
+00:23:42.210 --> 00:23:44.769
+And then once it
+has that haptic feedback, really,
+
+00:23:44.769 --> 00:23:45.410
+that's what it is.
+
+00:23:45.410 --> 00:23:47.674
+Like, the harness
+is the haptic feedback to
+
+00:23:47.674 --> 00:23:48.954
+the model of the world.
+
+00:23:48.954 --> 00:23:50.794
+It's a weird thought, but it works.
+
+00:23:50.794 --> 00:23:51.674
+Now back to Ron.
+
+00:23:51.674 --> 00:23:52.954
+He found a bunch of stuff.
+
+00:23:52.954 --> 00:23:54.554
+He wants to do a deeper search.
+
+00:23:54.794 --> 00:23:55.835
+Go for it, dude.
+
+00:23:55.914 --> 00:23:57.914
+Now while Ron's
+doing that here, I'm gonna go
+
+00:23:57.914 --> 00:24:01.755
+talk to Ron in, Telegram, start
+a new session
+
+00:24:01.755 --> 00:24:03.115
+here, and let's do something fun.
+
+00:24:03.259 --> 00:24:06.059
+Built into Hermes is a Home
+Assistant skill.
+
+00:24:06.059 --> 00:24:07.900
+I use Home Assistant to run my studio.
+
+00:24:07.900 --> 00:24:09.019
+Let's make some things happen.
+
+00:24:09.019 --> 00:24:10.220
+I'll tell him to enable it first.
+
+00:24:10.220 --> 00:24:11.819
+I think it's disabled by default.
+
+00:24:11.820 --> 00:24:12.380
+Brilliant.
+
+00:24:12.380 --> 00:24:14.299
+The Home Assistant wanted to switch on.
+
+00:24:14.539 --> 00:24:15.660
+I love the way he talks.
+
+00:24:15.660 --> 00:24:17.740
+Let me give
+him the IP address and key, and
+
+00:24:17.740 --> 00:24:18.380
+let's see what he does.
+
+00:24:18.795 --> 00:24:19.595
+And look at that.
+
+00:24:19.595 --> 00:24:21.835
+He's he's figuring things out,
+saving it to
+
+00:24:21.835 --> 00:24:22.554
+his memory.
+
+00:24:22.715 --> 00:24:23.215
+Okay.
+
+00:24:23.215 --> 00:24:24.875
+Let's let's test it.
+
+00:24:24.955 --> 00:24:26.315
+Got that lamp behind me.
+
+00:24:26.315 --> 00:24:27.434
+Let's tell him to turn it off.
+
+00:24:27.434 --> 00:24:29.914
+Can you turn off Chuck Lamp?
+
+00:24:29.994 --> 00:24:31.035
+See what happens.
+
+00:24:33.355 --> 00:24:34.075
+He did it.
+
+00:24:35.269 --> 00:24:36.229
+Yes.
+
+00:24:36.789 --> 00:24:42.069
+Let's say turn it on and make it blue.
+
+00:24:42.630 --> 00:24:44.549
+Also notice, I'm
+talking to Ron in two different
+
+00:24:44.549 --> 00:24:46.710
+places, and he's
+doing two different things.
+
+00:24:46.710 --> 00:24:47.989
+Ah, he did it.
+
+00:24:48.630 --> 00:24:49.269
+Yes.
+
+00:24:51.325 --> 00:24:52.765
+Oh, this is fun.
+
+00:24:52.765 --> 00:24:53.565
+One more thing.
+
+00:24:53.565 --> 00:24:55.404
+We have automatic blinds in there.
+
+00:24:55.404 --> 00:24:56.365
+They're all open.
+
+00:24:56.365 --> 00:24:57.884
+I wanna see if he can do this.
+
+00:24:59.964 --> 00:25:00.525
+Alright.
+
+00:25:00.525 --> 00:25:03.644
+I'm gonna go
+film it and see if that happens.
+
+00:25:03.644 --> 00:25:04.285
+Here we go.
+
+00:25:10.259 --> 00:25:11.299
+He did it.
+
+00:25:11.539 --> 00:25:12.980
+What happened?
+
+00:25:16.724 --> 00:25:18.244
+There's one in the kitchen.
+
+00:25:21.845 --> 00:25:22.884
+He got it.
+
+00:25:24.085 --> 00:25:24.964
+He found it.
+
+00:25:30.529 --> 00:25:33.250
+I told you, IT is magic.
+
+00:25:33.570 --> 00:25:36.289
+Back on the network side, Ron
+is wanting some
+
+00:25:36.289 --> 00:25:37.409
+UniFi access.
+
+00:25:37.490 --> 00:25:38.529
+Should we give it to him?
+
+00:25:38.529 --> 00:25:39.250
+Yes.
+
+00:25:39.570 --> 00:25:40.849
+Let's see what happens.
+
+00:25:40.849 --> 00:25:43.330
+Now notice, this is this is what
+I learned from
+
+00:25:43.330 --> 00:25:45.524
+the Hermes team, from Jeff.
+
+00:25:45.524 --> 00:25:47.845
+Rather than the hubris of being
+like, I know
+
+00:25:47.845 --> 00:25:49.765
+exactly all the
+skills or I know exactly all
+
+00:25:49.765 --> 00:25:51.845
+the things that you need, like,
+the models are
+
+00:25:51.845 --> 00:25:52.345
+smart.
+
+00:25:52.345 --> 00:25:54.005
+Like, like, get out of the way
+of the models,
+
+00:25:54.005 --> 00:25:54.505
+basically.
+
+00:25:54.505 --> 00:25:55.005
+You know?
+
+00:25:55.005 --> 00:25:57.200
+Like, they're
+smart enough if we let them to
+
+00:25:57.200 --> 00:25:59.519
+just be figure out what it is
+that you want
+
+00:25:59.519 --> 00:26:00.079
+to do.
+
+00:26:00.079 --> 00:26:02.400
+I don't have
+to bring on this fully onboarded
+
+00:26:02.400 --> 00:26:05.359
+IT admin with skills
+that I created and everything.
+
+00:26:05.359 --> 00:26:05.859
+No.
+
+00:26:05.859 --> 00:26:08.640
+I just bring him
+on like a person and say, hey.
+
+00:26:08.640 --> 00:26:10.000
+You need to manage this thing.
+
+00:26:10.000 --> 00:26:10.720
+Go look at it.
+
+00:26:10.720 --> 00:26:11.519
+You need to manage this thing.
+
+00:26:11.519 --> 00:26:12.019
+Go look at it.
+
+00:26:12.019 --> 00:26:12.799
+And he'll figure it out.
+
+00:26:14.615 --> 00:26:17.494
+This is the IT admin I was looking for.
+
+00:26:17.494 --> 00:26:18.214
+Yes.
+
+00:26:18.454 --> 00:26:19.015
+I'll see.
+
+00:26:19.015 --> 00:26:23.654
+I'm getting you UniFi creds now
+while you're
+
+00:26:23.654 --> 00:26:24.374
+waiting.
+
+00:26:25.255 --> 00:26:29.255
+I don't know
+why I capitalized your, research
+
+00:26:29.255 --> 00:26:31.179
+everything you can about UniFi.
+
+00:26:31.259 --> 00:26:32.940
+So you are ready to go.
+
+00:26:33.019 --> 00:26:34.779
+Now notice I'm
+not pointing these things out
+
+00:26:34.779 --> 00:26:36.619
+because they're not new things
+to the agent
+
+00:26:36.619 --> 00:26:38.299
+world, but it can delegate tasks.
+
+00:26:38.299 --> 00:26:39.579
+It can do sub agents.
+
+00:26:39.579 --> 00:26:41.500
+It's a fully functional agent harness.
+
+00:26:41.714 --> 00:26:44.355
+I'm just honing
+in on the main things that make
+
+00:26:44.355 --> 00:26:44.914
+it awesome.
+
+00:26:44.914 --> 00:26:48.355
+Also notice you can, interrupt,
+steer, or queue
+
+00:26:48.355 --> 00:26:49.075
+messages.
+
+00:26:49.075 --> 00:26:50.835
+So if I send
+something right now by default,
+
+00:26:50.835 --> 00:26:52.515
+it would interrupt him and go,
+oh, oh, oh, what
+
+00:26:52.515 --> 00:26:53.315
+what does Chuck need?
+
+00:26:53.315 --> 00:26:56.434
+Instead, I'll
+just queue and say here is your
+
+00:26:56.674 --> 00:26:58.799
+UniFi API key.
+
+00:26:59.920 --> 00:27:00.420
+Alright.
+
+00:27:00.420 --> 00:27:01.359
+He finished his inventory.
+
+00:27:01.359 --> 00:27:03.200
+Realized he couldn't get very far
+without username
+
+00:27:03.200 --> 00:27:05.279
+and password, but self improvement.
+
+00:27:05.279 --> 00:27:07.519
+Created a UniFi network operation skill.
+
+00:27:07.519 --> 00:27:08.960
+Let me give him a user account.
+
+00:27:08.960 --> 00:27:09.920
+Now we'll come back to this.
+
+00:27:09.920 --> 00:27:11.119
+We'll see how far he goes.
+
+00:27:11.119 --> 00:27:13.119
+Well, we gotta move on to number five.
+
+00:27:16.815 --> 00:27:20.095
+And this one is
+just funny because it goes back
+
+00:27:20.095 --> 00:27:22.815
+to the idea
+that OpenClaw was kinda clunky.
+
+00:27:22.815 --> 00:27:24.255
+Jeff's team said it themselves.
+
+00:27:24.255 --> 00:27:26.494
+This felt a little clunkier
+compared to what
+
+00:27:26.494 --> 00:27:27.534
+we had internally.
+
+00:27:27.534 --> 00:27:28.494
+And that was my experience.
+
+00:27:28.650 --> 00:27:30.890
+When I initially
+set up OpenClaw, it was like,
+
+00:27:30.890 --> 00:27:32.089
+oh, this is so cool.
+
+00:27:32.089 --> 00:27:33.210
+It's so powerful.
+
+00:27:33.930 --> 00:27:36.009
+But I don't know about you, but
+over time, it
+
+00:27:36.009 --> 00:27:38.410
+kind of degraded, and it would break.
+
+00:27:38.410 --> 00:27:40.089
+An update would break it, or it
+just wouldn't
+
+00:27:40.089 --> 00:27:40.589
+respond.
+
+00:27:40.589 --> 00:27:41.089
+I'd be like, hey.
+
+00:27:41.089 --> 00:27:41.589
+Are you there?
+
+00:27:41.589 --> 00:27:42.089
+Are you awake?
+
+00:27:42.105 --> 00:27:44.105
+It became super
+frustrating, and it wasn't a
+
+00:27:44.105 --> 00:27:46.345
+thing I wanted to give out to
+my wife or my
+
+00:27:46.345 --> 00:27:47.144
+friends and family.
+
+00:27:47.144 --> 00:27:48.825
+It was one of
+those things where you had to
+
+00:27:48.825 --> 00:27:50.744
+be an IT person that knew how
+to troubleshoot
+
+00:27:50.744 --> 00:27:52.424
+it because it was a project.
+
+00:27:52.424 --> 00:27:53.785
+And that's how OpenClaw feels.
+
+00:27:53.785 --> 00:27:56.309
+It feels like
+a project, whereas Hermes feels
+
+00:27:56.309 --> 00:27:57.509
+more like a product.
+
+00:27:57.509 --> 00:27:59.589
+And I gotta tell you, I've been using it.
+
+00:27:59.589 --> 00:28:01.429
+I I I could have made a video a
+month ago about
+
+00:28:01.429 --> 00:28:02.710
+this, but I wanted to give it some time.
+
+00:28:02.710 --> 00:28:05.349
+I wanted to
+actually just see if it's cool.
+
+00:28:06.309 --> 00:28:08.869
+I haven't had
+part I don't think I've had one
+
+00:28:08.869 --> 00:28:09.429
+issue.
+
+00:28:09.429 --> 00:28:10.630
+Nothing I didn't cause myself.
+
+00:28:11.265 --> 00:28:13.585
+And my wife is
+having a great time talking to
+
+00:28:13.585 --> 00:28:15.825
+her friend, Honey,
+who's helping her with homeschool
+
+00:28:15.825 --> 00:28:18.305
+and diet planning and and just
+managing the
+
+00:28:18.305 --> 00:28:19.505
+house for six kids.
+
+00:28:19.505 --> 00:28:20.005
+Yes.
+
+00:28:20.005 --> 00:28:21.505
+We have six kids, six daughters.
+
+00:28:21.505 --> 00:28:23.265
+So number five,
+in case you didn't realize it,
+
+00:28:23.265 --> 00:28:25.345
+was that Hermes just doesn't break.
+
+00:28:25.345 --> 00:28:27.759
+The team behind this, they're
+AI engineers,
+
+00:28:27.759 --> 00:28:28.880
+and I think that's important.
+
+00:28:28.880 --> 00:28:30.720
+And their mentality behind this matters.
+
+00:28:30.720 --> 00:28:32.400
+They're not just
+gonna add a bunch of features
+
+00:28:32.400 --> 00:28:34.559
+to make it bloated or to compete
+with somebody
+
+00:28:34.559 --> 00:28:35.059
+else.
+
+00:28:35.059 --> 00:28:37.759
+And sure, it
+has pretty much feature parity
+
+00:28:37.759 --> 00:28:38.880
+with OpenClaw.
+
+00:28:39.039 --> 00:28:41.504
+It just doesn't allow a bunch
+of things that
+
+00:28:41.504 --> 00:28:42.144
+shouldn't be there.
+
+00:28:42.144 --> 00:28:44.224
+They have a philosophy coming
+into this, which
+
+00:28:44.224 --> 00:28:46.304
+is kinda just get out of the agent's way.
+
+00:28:46.304 --> 00:28:48.144
+Jeff told us earlier, or maybe he didn't.
+
+00:28:48.144 --> 00:28:49.264
+I don't know we included that quote.
+
+00:28:49.264 --> 00:28:50.144
+Get of the way with the model.
+
+00:28:50.144 --> 00:28:52.384
+We're at a point now to where
+the AI models
+
+00:28:52.384 --> 00:28:53.984
+we're getting, they're good.
+
+00:28:54.144 --> 00:28:56.710
+Like, if we stopped getting new
+models at this
+
+00:28:56.710 --> 00:28:59.109
+point, I think we would be at
+a point where
+
+00:28:59.109 --> 00:29:00.309
+we could have AGI.
+
+00:29:00.309 --> 00:29:02.630
+What matters
+the most now is using the right
+
+00:29:02.630 --> 00:29:05.669
+harness, tweaking the tools
+around it to make
+
+00:29:05.669 --> 00:29:06.470
+it awesome.
+
+00:29:06.470 --> 00:29:08.950
+Because Opus 4.7, GPT 5.5,
+
+00:29:08.950 --> 00:29:09.829
+I mean, things are good.
+
+00:29:10.164 --> 00:29:11.605
+And when you
+use something like Hermes with
+
+00:29:11.605 --> 00:29:14.565
+it, you really
+start to realize, oh my gosh.
+
+00:29:14.565 --> 00:29:15.845
+You can do a lot more.
+
+00:29:15.845 --> 00:29:17.444
+Again, you wanna hear more about
+the philosophy
+
+00:29:17.444 --> 00:29:20.325
+behind Hermes, I talked with the
+cofounder for
+
+00:29:20.325 --> 00:29:20.825
+a while.
+
+00:29:20.825 --> 00:29:22.644
+That interview
+should be live right now on the
+
+00:29:22.644 --> 00:29:23.144
+academy.
+
+00:29:23.144 --> 00:29:26.539
+Now beyond number
+five, Hermes is shipping features.
+
+00:29:26.539 --> 00:29:28.460
+Like, now, there's a Hermes dashboard.
+
+00:29:28.460 --> 00:29:29.099
+Look at this.
+
+00:29:29.099 --> 00:29:30.859
+If you wanna learn how to do
+this, by the way,
+
+00:29:30.859 --> 00:29:32.460
+we'll also have that in the, course.
+
+00:29:32.460 --> 00:29:33.900
+I can only show
+you so many things here, but
+
+00:29:33.900 --> 00:29:34.400
+check this out.
+
+00:29:34.400 --> 00:29:35.900
+You can get
+in here and look at your skills
+
+00:29:35.900 --> 00:29:36.859
+and plug ins.
+
+00:29:37.164 --> 00:29:39.884
+You can add
+more agents, more profiles, add
+
+00:29:39.884 --> 00:29:40.605
+more models.
+
+00:29:40.605 --> 00:29:42.285
+You can have
+auxiliary models where you can
+
+00:29:42.285 --> 00:29:44.684
+have one big model that does your
+main thinking,
+
+00:29:44.684 --> 00:29:46.365
+but maybe have another one that
+does research
+
+00:29:46.365 --> 00:29:48.365
+or one that's dedicated to delegation.
+
+00:29:48.365 --> 00:29:50.525
+They have achievements, which
+is kind of fun.
+
+00:29:51.529 --> 00:29:52.169
+Look at this.
+
+00:29:52.169 --> 00:29:54.009
+Again, the vibe is so awesome.
+
+00:29:54.089 --> 00:29:55.210
+Let them cook.
+
+00:29:56.009 --> 00:29:57.049
+Agent autonomy.
+
+00:29:57.049 --> 00:29:58.490
+And then one
+of the most powerful things they
+
+00:29:58.490 --> 00:30:00.329
+released recently is Kanban.
+
+00:30:00.329 --> 00:30:01.690
+You can actually set up a task.
+
+00:30:01.690 --> 00:30:03.849
+You're like,
+create me as a Pokemon card for
+
+00:30:03.849 --> 00:30:04.569
+NetworkChuck.
+
+00:30:04.569 --> 00:30:05.450
+Use my likeness.
+
+00:30:05.505 --> 00:30:09.904
+Make it an HTML page, make it
+look awesome.
+
+00:30:10.144 --> 00:30:11.984
+I'll assign it
+to default because that's the
+
+00:30:11.984 --> 00:30:13.744
+profile, and we'll create it.
+
+00:30:14.704 --> 00:30:15.585
+And there it goes.
+
+00:30:15.585 --> 00:30:17.264
+How cool is that?
+
+00:30:17.265 --> 00:30:19.424
+You can jump
+into it and see the progress as
+
+00:30:19.424 --> 00:30:20.144
+we hit a rate limit.
+
+00:30:21.019 --> 00:30:22.299
+You can add comments.
+
+00:30:22.299 --> 00:30:24.460
+It will stop and
+ask for human input if it needs
+
+00:30:24.460 --> 00:30:26.619
+it, and it got blocked because
+I hit my usage
+
+00:30:26.619 --> 00:30:27.339
+limit.
+
+00:30:28.940 --> 00:30:29.819
+But you get the picture.
+
+00:30:29.819 --> 00:30:32.059
+Also, just came out their own
+computer use,
+
+00:30:32.059 --> 00:30:33.579
+which allows it to control your computer.
+
+00:30:33.579 --> 00:30:35.404
+I think it's still in preview,
+but, man, they're
+
+00:30:35.404 --> 00:30:36.365
+moving things along.
+
+00:30:36.365 --> 00:30:37.644
+It's becoming very exciting.
+
+00:30:37.644 --> 00:30:38.605
+I'm kind of a fanboy.
+
+00:30:38.605 --> 00:30:39.404
+I'm being honest.
+
+00:30:39.404 --> 00:30:40.365
+Like, it's it's fun.
+
+00:30:40.365 --> 00:30:41.325
+I like the vibe.
+
+00:30:41.325 --> 00:30:42.125
+I like the people.
+
+00:30:42.125 --> 00:30:44.044
+I'm not sponsored by them, but I
+think they're
+
+00:30:44.044 --> 00:30:44.684
+really cool.
+
+00:30:44.684 --> 00:30:45.644
+Let me know what you think.
+
+00:30:45.644 --> 00:30:47.724
+Like, try Hermes, and you can
+run OpenClaw and
+
+00:30:47.724 --> 00:30:48.524
+Hermes side by side.
+
+00:30:48.524 --> 00:30:49.804
+You can do your OpenClaw migration.
+
+00:30:50.099 --> 00:30:51.539
+You can do your test.
+
+00:30:51.539 --> 00:30:52.339
+I convert it.
+
+00:30:52.339 --> 00:30:53.140
+Are you gonna convert?
+
+00:30:53.140 --> 00:30:54.499
+Let me know in the comments below.
+
+00:30:54.500 --> 00:30:55.460
+That's all I got.
+
+00:30:55.460 --> 00:30:57.220
+I'll catch you guys next time.
+
+00:30:57.940 --> 00:30:58.440
+Hey.
+
+00:30:58.440 --> 00:31:00.179
+You made it to the end of the video.
+
+00:31:00.259 --> 00:31:02.099
+If you're new
+here, at the end of my videos,
+
+00:31:02.099 --> 00:31:04.179
+like to pray for you, my audience.
+
+00:31:04.179 --> 00:31:05.460
+I'm gonna get some more coffee real quick.
+
+00:31:05.875 --> 00:31:07.315
+Now I know it's a weird thing.
+
+00:31:07.875 --> 00:31:09.794
+A YouTuber praying for his audience.
+
+00:31:10.034 --> 00:31:10.674
+Why?
+
+00:31:10.835 --> 00:31:13.154
+Well, I believe in the power
+of prayer even
+
+00:31:13.154 --> 00:31:14.034
+if you don't.
+
+00:31:14.355 --> 00:31:15.075
+And you know what?
+
+00:31:15.075 --> 00:31:15.794
+Just stick around.
+
+00:31:15.794 --> 00:31:16.914
+You never know what's gonna happen.
+
+00:31:16.914 --> 00:31:18.434
+I'm not trying to force anything on you.
+
+00:31:18.434 --> 00:31:20.355
+I just genuinely care about you,
+and I believe
+
+00:31:20.355 --> 00:31:21.474
+that this is a powerful thing.
+
+00:31:21.690 --> 00:31:22.649
+So let's do it.
+
+00:31:22.730 --> 00:31:24.169
+One, three, pray.
+
+00:31:24.569 --> 00:31:26.569
+God, I thank
+you for the person on the other
+
+00:31:26.569 --> 00:31:29.049
+side of this camera, this screen.
+
+00:31:30.009 --> 00:31:31.529
+I just thank you for who they are.
+
+00:31:31.690 --> 00:31:34.329
+I thank you that they are passionate
+about technology,
+
+00:31:34.329 --> 00:31:36.329
+that they're
+interested in AI, and I pray you
+
+00:31:36.329 --> 00:31:36.829
+bless that.
+
+00:31:36.934 --> 00:31:38.934
+I pray that right now with the
+way the world
+
+00:31:38.934 --> 00:31:41.015
+is, with AI
+moving so quickly that you will
+
+00:31:41.015 --> 00:31:43.734
+be able to calm
+them down, let them not be too
+
+00:31:43.734 --> 00:31:46.294
+stressed, and
+point them to the good things
+
+00:31:46.294 --> 00:31:48.454
+to use, the things that will
+elevate them as
+
+00:31:48.454 --> 00:31:50.869
+a human, the
+things that will encourage them.
+
+00:31:51.430 --> 00:31:53.269
+And let them not sell their soul to AI.
+
+00:31:53.269 --> 00:31:54.950
+Let them not offload the things
+that they need
+
+00:31:54.950 --> 00:31:55.750
+to do to AI.
+
+00:31:55.750 --> 00:31:57.349
+Help them figure that out, God.
+
+00:31:57.589 --> 00:31:59.429
+Equip them with the gifts they need.
+
+00:31:59.589 --> 00:32:00.950
+Bless their families right now.
+
+00:32:00.950 --> 00:32:03.634
+Let their families
+be prosperous and blessed
+
+00:32:03.634 --> 00:32:04.434
+and healthy.
+
+00:32:04.434 --> 00:32:06.595
+Bless their marriages and their children.
+
+00:32:06.914 --> 00:32:08.835
+I pray blessings over them right now.
+
+00:32:09.394 --> 00:32:11.234
+Bless them as
+they try out these new AI tools,
+
+00:32:11.234 --> 00:32:13.795
+and I pray that
+through this learning, through
+
+00:32:13.795 --> 00:32:17.380
+this just tinkering, that this
+will produce
+
+00:32:17.380 --> 00:32:20.019
+opportunities for them they never
+even imagined.
+
+00:32:20.019 --> 00:32:23.460
+Job opportunities, income
+opportunities, or
+
+00:32:23.460 --> 00:32:25.460
+just breakthroughs in their
+relationships or
+
+00:32:25.460 --> 00:32:26.819
+just their own thinking.
+
+00:32:27.059 --> 00:32:30.095
+I pray this
+over them, God, and I thank you
+
+00:32:30.095 --> 00:32:30.894
+for them.
+
+00:32:31.294 --> 00:32:32.974
+It's in Jesus' name I pray.
+
+00:32:33.214 --> 00:32:33.934
+Amen.
+
+00:32:34.974 --> 00:32:36.494
+Thank you for letting me do that.
+
+00:32:36.734 --> 00:32:37.934
+I'll catch you guys next time.
+
