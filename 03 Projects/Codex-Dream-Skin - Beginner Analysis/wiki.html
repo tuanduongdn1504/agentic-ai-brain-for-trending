@@ -1,0 +1,183 @@
+<title>Codex-Dream-Skin — LLM Wiki v216</title>
+<style>
+  :root{
+    --ground:#f6f4ef; --panel:#fbfaf6; --panel-2:#f1ede4;
+    --ink:#23211d; --muted:#6f6a60; --line:#e4dfd4;
+    --accent:#a5651a; --accent-ink:#7c4c12; --accent-soft:#efe3cd;
+    --skin:#8a5a70; --danger:#a8402f; --ok:#4f7a3f;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#141416; --panel:#1b1b1e; --panel-2:#222226;
+      --ink:#e9e6df; --muted:#a29c90; --line:#2d2c30;
+      --accent:#dca24e; --accent-ink:#e7b465; --accent-soft:#2a2317;
+      --skin:#b07f95; --danger:#e0725c; --ok:#8fb573;
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#f6f4ef; --panel:#fbfaf6; --panel-2:#f1ede4;
+    --ink:#23211d; --muted:#6f6a60; --line:#e4dfd4;
+    --accent:#a5651a; --accent-ink:#7c4c12; --accent-soft:#efe3cd;
+    --skin:#8a5a70; --danger:#a8402f; --ok:#4f7a3f;
+  }
+  :root[data-theme="dark"]{
+    --ground:#141416; --panel:#1b1b1e; --panel-2:#222226;
+    --ink:#e9e6df; --muted:#a29c90; --line:#2d2c30;
+    --accent:#dca24e; --accent-ink:#e7b465; --accent-soft:#2a2317;
+    --skin:#b07f95; --danger:#e0725c; --ok:#8fb573;
+  }
+  *{box-sizing:border-box}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased;
+    padding:clamp(20px,4vw,64px) clamp(16px,4vw,40px);}
+  .col{max-width:820px;margin:0 auto;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 14px;font-weight:600;}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.2vw,46px);
+    line-height:1.08;letter-spacing:-.01em;text-wrap:balance;margin:0 0 10px;}
+  h1 .mono{font-family:var(--mono);font-size:.62em;font-weight:500;letter-spacing:0;color:var(--muted);display:block;margin-top:8px;}
+  .lede{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:66ch;margin:0 0 26px;text-wrap:pretty;}
+  /* the "injected skin layer" motif — a translucent wash beneath a native rule */
+  .skinbar{position:relative;height:56px;border-radius:8px;margin:0 0 30px;overflow:hidden;
+    border:1px solid var(--line);background:var(--panel);}
+  .skinbar .wallpaper{position:absolute;inset:0;
+    background:linear-gradient(115deg,var(--skin) 0%,transparent 55%),
+      radial-gradient(120% 180% at 88% -30%,var(--accent) 0%,transparent 50%);
+    opacity:.28;}
+  .skinbar .native{position:absolute;inset:0;display:flex;align-items:center;gap:10px;
+    padding:0 16px;font-family:var(--mono);font-size:12px;color:var(--ink);}
+  .skinbar .dot{width:9px;height:9px;border-radius:50%;background:var(--muted);opacity:.5;}
+  .skinbar .native span{margin-left:auto;color:var(--muted);letter-spacing:.04em;}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.2vw,27px);
+    letter-spacing:-.005em;margin:44px 0 6px;text-wrap:balance;}
+  h2 .num{font-family:var(--mono);font-size:.6em;color:var(--accent);margin-right:.5em;font-weight:600;letter-spacing:0;}
+  p{margin:12px 0;max-width:68ch;}
+  a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+  strong{font-weight:650;}
+  code{font-family:var(--mono);font-size:.86em;background:var(--panel-2);
+    padding:1px 6px;border-radius:5px;border:1px solid var(--line);}
+  .verdict{border:1px solid var(--line);border-left:4px solid var(--accent);
+    background:var(--panel);border-radius:10px;padding:20px 22px;margin:0 0 28px;}
+  .flag{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
+    font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-ink);background:var(--accent-soft);border:1px solid var(--accent);
+    padding:5px 11px;border-radius:999px;margin-bottom:12px;}
+  .verdict p{margin:8px 0;max-width:none;}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;margin:22px 0 8px;}
+  .facts div{background:var(--panel);padding:13px 15px;}
+  .facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 5px;}
+  .facts dd{margin:0;font-size:15px;font-weight:600;line-height:1.35;}
+  .tblwrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px;}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;background:var(--panel-2);}
+  tr:last-child td{border-bottom:none;}
+  td .tag{font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap;}
+  .t-fail{color:var(--danger);background:color-mix(in srgb,var(--danger) 14%,transparent);}
+  .t-mod{color:var(--accent-ink);background:var(--accent-soft);}
+  ul{margin:12px 0;padding-left:1.15em;max-width:68ch;}
+  li{margin:7px 0;}
+  li::marker{color:var(--accent);}
+  .callout{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:16px 18px;margin:20px 0;}
+  .callout.warn{border-left:4px solid var(--accent);}
+  .callout.danger{border-left:4px solid var(--danger);}
+  .callout h3{margin:0 0 6px;font-family:var(--sans);font-size:15px;font-weight:700;
+    letter-spacing:.02em;color:var(--ink);}
+  .callout h3 .k{font-family:var(--mono);color:var(--accent-ink);}
+  hr{border:none;border-top:1px solid var(--line);margin:40px 0;}
+  .foot{font-family:var(--mono);font-size:12px;color:var(--muted);
+    line-height:1.7;border-top:1px solid var(--line);padding-top:18px;margin-top:44px;}
+  .foot .rule{color:var(--accent-ink);}
+  @media (prefers-reduced-motion:no-preference){
+    .col>*{animation:rise .5s cubic-bezier(.2,.7,.2,1) backwards;}
+    .col>*:nth-child(2){animation-delay:.04s} .col>*:nth-child(3){animation-delay:.08s}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+
+<div class="wrap">
+  <div class="col">
+    <p class="eyebrow">LLM&nbsp;Wiki&nbsp;· Ship&nbsp;v216 · 2026-07-18 · Off-goal capture</p>
+    <h1>A breathing face for a rival's editor
+      <span class="mono">Fei-Away / Codex-Dream-Skin</span>
+    </h1>
+    <p class="lede">A cosmetic wallpaper skin for OpenAI's <strong>Codex&nbsp;Desktop</strong> app — painted onto the live window over local Chrome-DevTools-Protocol injection, reversible, no binary touched. Competent at what it does. Off both of your goals.</p>
+
+    <div class="skinbar" aria-hidden="true">
+      <div class="wallpaper"></div>
+      <div class="native">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        native controls stay interactive · wallpaper injected beneath
+        <span>CDP → 127.0.0.1</span>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <span class="flag">⚠ Off-goal · No mint · 46 / 11 unchanged</span>
+      <p><strong>3 of 4 axes hold, but the load-bearing one fails.</strong> This is a skin — it decorates a competitor coding tool's window with a background image. Zero Claude / agent / software-dev substrate: no model, no agent, no skill, no methodology, no LLM architecture. The thinnest goal-relevance of the recent run.</p>
+      <p><strong>Recorded OFF-GOAL CAPTURE</strong> (operator-requested). Streak GA:75 breaks → <code>GA:75 · OG:12 [7 ov]</code>; §35 clear (1 OG ≤ 1). ⚠ Elect §40 operator-direction and it flips to <strong>GA:76</strong> — your call.</p>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Themes</dt><dd>OpenAI Codex Desktop</dd></div>
+      <div><dt>Mechanism</dt><dd>Local CDP injection</dd></div>
+      <div><dt>Author</dt><dd>Fei-Away · not Anthropic</dd></div>
+      <div><dt>License</dt><dd>MIT</dd></div>
+      <div><dt>Stars</dt><dd>~4.8k→8.9k · page-stated</dd></div>
+      <div><dt>Created</dt><dd>2026-07-15 · ~3d old</dd></div>
+      <div><dt>Stack</dt><dd>JS · PowerShell · Shell · CSS</dd></div>
+      <div><dt>Platforms</dt><dd>macOS · Windows</dd></div>
+    </dl>
+
+    <h2><span class="num">01</span>What it actually does</h2>
+    <p>Codex Desktop is an Electron/Chromium app, so its renderer exposes a <strong>Chrome-DevTools-Protocol</strong> port on loopback. Codex-Dream-Skin launches or attaches to that port <em>after</em> the app is running and pushes CSS plus a full-window background image straight into the live renderer. Because it injects into the running window rather than repackaging it, it <strong>never modifies</strong> <code>.app</code> / <code>app.asar</code> / <code>WindowsApps</code> / code signatures, never rewrites your API&nbsp;key or Base&nbsp;URL, and reverts in one click.</p>
+    <p>The sidebar, suggestion cards, project picker, and composer stay <strong>native, interactive controls</strong> — a wallpaper <em>beneath</em> the real UI, not a fake overlay. macOS ships a menu-bar switcher; Windows a system-tray one, with a persistent local theme store. Presets ("Gothic Void Crusade," "Arina Hashimoto," "romantic-rose") skew toward anime / gravure wallpapers — a taste note if it's ever near a work or shared screen.</p>
+
+    <h2><span class="num">02</span>The verdict, axis by axis</h2>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>(a) author</td><td><span class="tag t-fail">FAIL</span></td><td>Bare handle <code>Fei-Away</code>, sponsored passion8.cc. §41 — not Anthropic, no name / heritage / locale rescue.</td></tr>
+          <tr><td>(b) goal-fit <em>· keys the tier</em></td><td><span class="tag t-fail">FAIL → off-goal</span></td><td>A cosmetic skin. No Claude / agent / dev substrate; below the (b) MODERATE floor held by GLM-5 v176 / AIRI v210 / geti v213 — all of which had a real architectural hook. A wallpaper painter does not.</td></tr>
+          <tr><td>(c) substance</td><td><span class="tag t-mod">MODERATE</span></td><td>Real cross-platform CDP tool, ~8k★/3d; but shallow (CSS+image over a known protocol), not source-cloned, stars page-stated → not #52.</td></tr>
+          <tr><td>(d) integration</td><td><span class="tag t-mod">MODERATE</span></td><td>Codex-competitor landscape (grok-build v215 vendor peer); the injection-technique cousins camofox v179 / opencode-antigravity-auth v67 / page-agent v199.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="num">03</span>Not world-first — it's a genre</h2>
+    <p>The decisive input to the NO-MINT call: Codex-Dream-Skin is the most-viral instance of a <strong>populated lane</strong>, not a novel capability. Around the same window shipped <strong>CodeDrobe</strong> (same CDP mechanism), <strong>heige-codex-skin-studio</strong> (nine presets, same "一键换肤" injection), <strong>awesome-codex-themes</strong> (the genre has its own awesome-list), and Codex Desktop's <strong>own native appearance themes</strong> (portable <code>codex-theme-v1</code> JSON, shipped March&nbsp;2026). Cosmetic desktop-app theming is not a mintable agent-capability class, and this isn't first at it.</p>
+
+    <h2><span class="num">04</span>Pattern outcome</h2>
+    <ul>
+      <li><strong>NO MINT.</strong> No new top-level pattern (max #85); no §C standalone; counts unchanged <strong>46 / 11</strong>; §C surface ≈51 unchanged. Recorded as a corpus-knowledge data-point.</li>
+      <li><strong>Secondary (not minted):</strong> #19 19a first <code>Fei-Away</code> author · the CDP-injection technique (the one transferable idea) · the Codex-ecosystem landscape · #66 (open loopback debug surface + niche preset content).</li>
+      <li><strong>Not:</strong> #52 · #57 · #18 B1-MCP · world-first · corpus-first-mintable.</li>
+    </ul>
+
+    <div class="callout danger">
+      <h3><span class="k">Fence</span> · low but real</h3>
+      <p>It runs Codex with a CDP debug port on 127.0.0.1 that any co-resident local process can also attach to while the theme is active. Personal machine only — never a work / shared / hireui box. <code>install-snapshot</code> and read the <code>.command</code> / <code>.ps1</code> first. The install is benign (MIT, reversible, no key rewrite); the risk is the open debug surface, not supply-chain.</p>
+    </div>
+
+    <div class="callout warn">
+      <h3>The blunt bottom line</h3>
+      <p>You asked me to wiki a wallpaper skin for a rival editor, and here's a faithful analysis of it — but there is <strong>nothing to pilot</strong> into hireui or your Claude/agents practice. The one reusable idea (attach to an Electron AI tool's loopback CDP and inject CSS without patching binaries) is a narrow UI-instrumentation technique, not substrate. Spend the next build cycle on-goal.</p>
+    </div>
+
+    <p class="foot">
+      Produced <span class="rule">inline · fully hand-verified</span> — no workflow, no subagent (the ~205K shim overflows subagent context; the v200→v215 self-throttle). Source hand-fetched (repo + raw README.md + README.en.md + landscape); OpenAI-Codex-not-Anthropic corrected from a summarizer artifact; collision by sanity-anchored hand-grep, 0 subject hits.<br>
+      <span class="rule">⭐ One-thing path:</span> read the CDP technique as a 5-minute data-point → decline the mint → pick an on-goal subject next.
+    </p>
+  </div>
+</div>
