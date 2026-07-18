@@ -1,0 +1,190 @@
+<title>little-book-rl — LLM-Wiki v220</title>
+<style>
+  :root{
+    --paper:#f7f5f0; --ink:#1c211f; --muted:#5c6763; --hair:#e2ddd2; --card:#fffdf8;
+    --accent:#117a6c; --accent-soft:#d7ebe6; --amber:#b5822a; --amber-soft:#f2e6cd;
+    --ga:#127a6e; --og:#b5822a; --fail:#a4524b; --code-bg:#eef0ea;
+    --shadow:0 1px 0 rgba(0,0,0,.03),0 8px 24px -18px rgba(20,40,36,.35);
+    --measure:66ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0f1513; --ink:#e7ece9; --muted:#93a29c; --hair:#25302c; --card:#141b18;
+      --accent:#4fbfae; --accent-soft:#123029; --amber:#d9a84e; --amber-soft:#2c2416;
+      --ga:#4fbfae; --og:#d9a84e; --fail:#d98079; --code-bg:#182220;
+      --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 30px -20px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f7f5f0; --ink:#1c211f; --muted:#5c6763; --hair:#e2ddd2; --card:#fffdf8;
+    --accent:#117a6c; --accent-soft:#d7ebe6; --amber:#b5822a; --amber-soft:#f2e6cd;
+    --ga:#127a6e; --og:#b5822a; --fail:#a4524b; --code-bg:#eef0ea;
+  }
+  :root[data-theme="dark"]{
+    --paper:#0f1513; --ink:#e7ece9; --muted:#93a29c; --hair:#25302c; --card:#141b18;
+    --accent:#4fbfae; --accent-soft:#123029; --amber:#d9a84e; --amber-soft:#2c2416;
+    --ga:#4fbfae; --og:#d9a84e; --fail:#d98079; --code-bg:#182220;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(20px,5vw,56px) clamp(18px,5vw,32px)}
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif}
+  .mono{font-family:"SF Mono",ui-monospace,"Cascadia Code",Menlo,Consolas,monospace}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(2rem,5.5vw,2.9rem);line-height:1.08;margin:.35em 0 .2em;text-wrap:balance;letter-spacing:-.01em}
+  h1 .sub{display:block;font-size:.42em;color:var(--muted);font-weight:400;letter-spacing:0;margin-top:.5em}
+  h2{font-size:1.28rem;margin:2.4em 0 .5em;letter-spacing:-.01em;text-wrap:balance;
+    padding-bottom:.3em;border-bottom:1px solid var(--hair)}
+  h3{font-size:1.02rem;margin:1.6em 0 .3em}
+  p,li{max-width:var(--measure)}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+  .lede{font-size:1.12rem;color:var(--ink)}
+  .lede .serif{font-style:italic}
+  code{background:var(--code-bg);padding:.08em .38em;border-radius:5px;font-size:.86em}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin:1.4em 0}
+  .pill{display:inline-flex;align-items:center;gap:.4em;font-size:.78rem;font-weight:600;
+    padding:.34em .7em;border-radius:999px;border:1px solid var(--hair);background:var(--card)}
+  .pill b{font-weight:800}
+  .pill.ga{color:var(--ga);border-color:color-mix(in srgb,var(--ga) 35%,var(--hair))}
+  .pill.og{color:var(--og);border-color:color-mix(in srgb,var(--og) 35%,var(--hair))}
+  .pill.fail{color:var(--fail);border-color:color-mix(in srgb,var(--fail) 35%,var(--hair))}
+  .scorecard{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1.4em 0}
+  .score{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .score .k{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .score .v{font-size:1.18rem;font-weight:800;margin-top:.15em}
+  .score .v.FAIL{color:var(--fail)} .score .v.MOD{color:var(--amber)} .score .v.STRONG{color:var(--accent)}
+  .score small{display:block;color:var(--muted);font-size:.78rem;font-weight:400;margin-top:.3em;line-height:1.45}
+  .callout{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 25%,var(--hair));
+    border-radius:12px;padding:16px 18px;margin:1.5em 0}
+  .callout.amber{background:var(--amber-soft);border-color:color-mix(in srgb,var(--amber) 30%,var(--hair))}
+  .callout .lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:.3em}
+  .callout.amber .lbl{color:var(--amber)}
+  .callout p{margin:.3em 0}
+  ol.ladder{list-style:none;counter-reset:step;padding:0;margin:1.4em 0;
+    display:flex;flex-direction:column;gap:2px;position:relative}
+  ol.ladder li{counter-increment:step;background:var(--card);border:1px solid var(--hair);
+    padding:11px 15px 11px 52px;position:relative;max-width:none}
+  ol.ladder li:first-child{border-radius:12px 12px 0 0}
+  ol.ladder li:last-child{border-radius:0 0 12px 12px}
+  ol.ladder li::before{content:counter(step);position:absolute;left:12px;top:50%;transform:translateY(-50%);
+    width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;
+    font-size:.78rem;font-weight:800;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+  ol.ladder li.top::before{background:var(--amber)}
+  ol.ladder li b{font-weight:700}
+  ol.ladder li span{display:block;color:var(--muted);font-size:.88rem;margin-top:.1em}
+  .streak{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;background:var(--card);
+    border:1px solid var(--hair);border-radius:12px;padding:16px 18px;margin:1.5em 0;box-shadow:var(--shadow)}
+  .streak .big{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+  .streak .big .ga{color:var(--ga)} .streak .big .og{color:var(--og)}
+  .streak small{color:var(--muted);font-size:.82rem}
+  .tbl{overflow-x:auto;margin:1.2em 0;border:1px solid var(--hair);border-radius:12px}
+  table{border-collapse:collapse;width:100%;font-size:.9rem}
+  th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{background:var(--card);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  td.mono{font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:.72rem;font-weight:700;padding:.15em .5em;border-radius:6px;
+    background:var(--accent-soft);color:var(--accent);margin-right:.3em}
+  .path{font-family:inherit;background:var(--card);border:1px solid var(--hair);border-radius:12px;
+    padding:14px 18px;margin:1.3em 0;box-shadow:var(--shadow)}
+  .path .flow{font-weight:800;font-size:1.05rem;letter-spacing:.01em}
+  .path .flow em{font-style:normal;color:var(--accent)}
+  footer{margin-top:3em;padding-top:1.4em;border-top:1px solid var(--hair);color:var(--muted);font-size:.82rem}
+  hr{border:none;border-top:1px solid var(--hair);margin:2.4em 0}
+  @media (prefers-reduced-motion:no-preference){a{transition:opacity .15s}}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+</style>
+
+<main class="wrap">
+  <div class="eyebrow">LLM-Wiki v220 · 2026-07-18 · Storm Bear vault</div>
+  <h1 class="serif">The Little Book of Reinforcement Learning
+    <span class="sub"><code>alxndrTL/little-book-rl</code> — a 157-page classical-RL primer (Monte Carlo → PPO) + PyTorch code, by Alexandre Torres-Leguet</span>
+  </h1>
+
+  <div class="pills">
+    <span class="pill ga"><b>GOAL-ALIGNED INCLUDE</b> 3/4</span>
+    <span class="pill">NO MINT</span>
+    <span class="pill">Tier T3 · Education</span>
+    <span class="pill">counts <b>46 / 11</b> unchanged</span>
+    <span class="pill">corpus-first RL <b>domain</b></span>
+  </div>
+
+  <p class="lede">A short, code-first RL primer that runs from the basics <span class="serif">to applied algorithms, ending at PPO</span> — the corpus's <b>first reinforcement-learning-as-a-domain subject</b>. On-goal as <b>reading</b> (PPO is the RL step inside RLHF; actor-critic + GAE is the machinery behind GRPO / agentic-RL that trains coding agents), off-goal as <b>product</b> — nothing to install, no hireui pilot.</p>
+
+  <div class="scorecard">
+    <div class="score"><div class="k">(a) Anthropic?</div><div class="v FAIL">FAIL</div><small>Alexandre Torres-Leguet, 23, École Centrale Lille — disclosed individual, not Anthropic (§41). #19 19a.</small></div>
+    <div class="score"><div class="k">(b) Goal-relevance</div><div class="v MOD">MODERATE</div><small>Keys the tier. Foundation of RLHF/GRPO, but classical/pre-LLM, zero Claude content. ⚠️ OFF-GOAL &amp; STRONG both reviewable.</small></div>
+    <div class="score"><div class="k">(c) Substance</div><div class="v STRONG">STRONG</div><small>Real 157-page book + PyTorch impls + DP proofs. ⚠️ short/standard material; not source-cloned.</small></div>
+    <div class="score"><div class="k">(d) Cross-refs</div><div class="v STRONG">STRONG</div><small>Education cluster + RL-component thread + model/training-substrate tier.</small></div>
+  </div>
+
+  <h2>What it is</h2>
+  <p>The companion GitHub repo for <b>"The Little Book of Reinforcement Learning"</b> — a short, opinionated, code-anchored primer (157 pages, V1 <span class="mono">2026-06-01</span>) that bundles <b>PyTorch reference implementations</b> of every algorithm it covers (<code>algos/</code>, "MC to PPO") plus <b>rigorous dynamic-programming proofs</b> (<code>supplementary/</code>), with a paid print edition on Amazon. It is a <b>learning resource, not a tool</b>: no MCP server, no agent surface, and — verified in the README — <b>zero LLM / RLHF / GRPO content</b>.</p>
+
+  <div class="tbl">
+    <table>
+      <tr><th>Field</th><th>Value (page-stated §37.4)</th></tr>
+      <tr><td>Book</td><td>157 pages · V1 2026-06-01 · Amazon B0H3W5PJH6 (ISBN 9798195878931)</td></tr>
+      <tr><td>Language</td><td class="mono">Python 100%</td></tr>
+      <tr><td>Stars / forks / releases</td><td class="mono">~1.2k★ / 60 / 0 — NOT #52 (velocity unestablishable)</td></tr>
+      <tr><td>Author</td><td>Alexandre Torres-Leguet (<code>alxndrTL</code>, @AlexandreTL2) — mamba.py (in 🤗 Transformers), OthelloMamba (Albert-Gu-recognized)</td></tr>
+      <tr><td>License</td><td>README: "non-commercial CC (CC BY-SA 4.0)" ⚠️ intent vs cited license inconsistent — see below</td></tr>
+    </table>
+  </div>
+
+  <h2>The MC → PPO ladder — and why it's on-goal</h2>
+  <p>The canonical classical-RL curriculum a MC→PPO primer covers (standard ladder, not a verbatim TOC — the <code>book.pdf</code> was not read):</p>
+  <ol class="ladder">
+    <li><b>MDPs &amp; the RL problem</b><span>agent↔environment loop, return, discount γ, the Markov property</span></li>
+    <li><b>Value functions &amp; Bellman equations</b><span>V(s), Q(s,a), the fixed-point structure the <code>supplementary/</code> proofs formalize</span></li>
+    <li><b>Dynamic programming</b><span>policy iteration, value iteration — the algorithms with rigorous convergence proofs</span></li>
+    <li><b>Monte Carlo methods</b><span>learning from complete sampled episodes, no model needed (the "MC")</span></li>
+    <li><b>Temporal-difference learning</b><span>bootstrapping — SARSA, Q-learning, TD(λ)</span></li>
+    <li><b>Function approximation</b><span>tables → neural nets → deep RL (DQN-style value approximation)</span></li>
+    <li><b>Policy gradients</b><span>REINFORCE — optimize a parameterized policy directly</span></li>
+    <li><b>Actor-critic</b><span>learned critic + policy actor; advantage estimation (A2C, GAE)</span></li>
+    <li class="top"><b>PPO — the endpoint</b><span>clipped-surrogate policy optimization, the modern applied workhorse</span></li>
+  </ol>
+
+  <div class="callout">
+    <div class="lbl">⭐ Why a classical-RL book is on-goal (Goal #1)</div>
+    <p>The ladder <b>ends exactly where the modern-agent training stack begins.</b> <b>PPO is literally the algorithm inside RLHF.</b> <b>Actor-critic + advantage estimation (GAE) is the machinery behind GRPO / RLVR / agentic-RL</b> — the paradigms that now train reasoning models and coding agents. This book is the <b>"what agents are trained <em>with</em>" foundation layer</b> — one step up from LLMs-from-scratch v74's "what an LLM <em>is</em>." That's why it's (b) MODERATE / GOAL-ALIGNED, not FAIL — and why it's one layer removed from the direct Claude/agent core, so not STRONG.</p>
+  </div>
+
+  <h2>Two verified findings</h2>
+  <div class="callout amber">
+    <div class="lbl">1 · License inconsistency (Pattern #83 83f.3)</div>
+    <p>README verbatim: <em>"distributed under a non-commercial Creative Commons license (CC BY-SA 4.0)."</em> But <b>CC BY-SA 4.0 is commercial-allowed</b> (no NonCommercial clause). Stated intent (non-commercial) ≠ cited license — the exact <b>hello-agents v111 83f.3 shape</b>. Practical read: treat the content as the author intends — <b>non-commercial</b> for any reuse.</p>
+  </div>
+  <div class="callout amber">
+    <div class="lbl">2 · Classical, not modern — and NOT world-first</div>
+    <p>Stops at PPO; no RLHF/GRPO/LLMs (README grep-verified). And it positions itself <em>as</em> a lighter alternative to <b>Sutton &amp; Barto</b> (+ OpenAI Spinning Up, Grokking Deep RL) — corpus-first for the RL <b>domain</b>, but decisively <b>not world-first</b>.</p>
+  </div>
+
+  <h2>Pattern outcome — NO MINT</h2>
+  <p>Corpus-first for the reinforcement-learning <b>domain</b> (collision-clean hand-grep) — but <b>corpus-first-for-a-domain ≠ a mintable §C capability class</b> (the AI-For-Beginners v191 / mlsysbook v197 / TimesFM v193 domain-not-capability discipline) <b>and NOT world-first</b> (Sutton &amp; Barto et al.) → a "corpus-first RL book" mint = §28 inflation → <b>DECLINED</b>. <b>T3 Education instance-strengthening</b> (the v74 / v191 / v197 family; ≈ the LLMs-from-scratch v74 "book + companion code" sub-shape). Counts UNCHANGED <b>46 / 11</b>; §C standalones 44 unchanged.</p>
+  <p><span class="tag">secondary</span> #19 19a first alxndrTL author + first RL-domain subject · #83 83f.3 license cross-ref · T3 book-with-code sub-archetype (v74 sibling) · mamba.py author cross-ref (NOT #57) · #66 install BENIGN (a book + PyTorch code; not source-cloned → flagged).</p>
+  <p><span class="tag">non-claims</span> NOT #52 · NOT #57 · NOT #18 B1-MCP (no MCP server) · NOT world-first · NOT a real Claude/agent subject · NOT RL-for-LLMs · NOT source-cloned.</p>
+
+  <div class="streak">
+    <div>
+      <div class="big"><span class="ga">GA:78</span> · <span class="og">OG:13</span> <small>[7 ov]</small></div>
+      <small>v219 was OFF-GOAL (broke the 2-GA post-v216 run); v220 = GOAL-ALIGNED → a new GA run begins. §35 CLEAR (window {v218 GA, v219 OG, v220 GA} = 1 OG ≤ 1).</small>
+    </div>
+    <div style="flex:1;min-width:180px"><small>⚠️ Reviewable OFF-GOAL alternative → <b>GA:77 · OG:14</b>, and §35 would breach (2 OG in the rolling-3). Led GOAL-ALIGNED on the merits — the foundational-knowledge-on-the-training-thread reading (v191/v197 precedent).</small></div>
+  </div>
+
+  <h2>Pilot — read, don't install</h2>
+  <div class="path">
+    <div class="flow"><em>A1</em> read the book &nbsp;→&nbsp; <em>A2</em> map the ladder onto RLHF/GRPO &nbsp;→&nbsp; <em>B5</em> a one-page "RL foundations for agent-training" cheat-sheet</div>
+  </div>
+  <p>The value is <b>on-goal reading + borrow-by-hand</b> (the v74 / v191 / v197 shape), zero install. No hireui pilot (recruitment isn't an RL problem), no Goal-#2 artifact, no product. Optional: scratch-run one <code>algos/</code> impl on a toy env to build intuition (install-snapshot + scratch venv; not source-cloned → treat as untrusted). Reuse: treat the content as non-commercial despite the cited "BY-SA."</p>
+
+  <hr>
+  <footer>
+    <p>Verdict produced INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows every subagent &gt; 200K; the v200→v219 self-throttle). Source hand-fetched (repo + raw README + landscape + author bio + Amazon); identity + not-world-first by WebSearch; collision by sanity-anchored hand-grep (0 subject/author hits; anchors LLMs-from-scratch / AI-For-Beginners / mlsysbook / fish-speech hit 72× → grep works).</p>
+    <p>Full detail: <code>03 Projects/little-book-rl - Beginner Analysis/</code> — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu.</p>
+  </footer>
+</main>
