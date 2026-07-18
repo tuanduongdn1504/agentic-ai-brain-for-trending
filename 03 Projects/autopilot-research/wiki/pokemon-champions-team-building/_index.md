@@ -12,6 +12,7 @@
 | [[pokemon-champions-team-building/mega-steelix-wolfey-two-mode-team]] | ⭐ Worked example **#3** — Wolfey's tournament team (2nd @ Indianapolis Regional): **two Megas, two modes, picked from the enemy team**; carries the ⭐ "enemy team → step-by-step plan" feature idea + a visual synergy guide |
 | [`steelix-synergy-guide.html`](steelix-synergy-guide.html) · [open Artifact](https://claude.ai/code/artifact/5f8135b5-13a2-4afa-a3be-3d2af7da0989) | 🎨 **Visual guideline** — interactive synergy map + a "read the enemy → pick your plan" panel (the business-tool feature mockup) |
 | [[pokemon-champions-team-building/reusable-team-building-method]] | ⭐ The transferable pattern — a 5-role template + a step-by-step PokéSynergy workflow to build **your own** variants; the three worked examples show the *same* nuke solved three different ways |
+| [[pokemon-champions-team-building/finals-case-study-sand-vs-sun]] | 🏆 **Finals case study** — the #3 Steelix team vs Arsal Puri's *winning* **Sun** team (Mega Charizard-Y + **Mega Floette**) at Indianapolis: the sand-vs-sun matchup, Wolfey's mode-pick, and the honest outcome (**Steelix lost — 2nd**). The "when the matchup is bad" half of the enemy-team feature |
 
 ## The core idea (one paragraph)
 
@@ -37,6 +38,7 @@ Both teams take the same problem — Mega Steelix is a 310-Def monster with ~30 
 
 ## Key Takeaways
 
+- **Top-meta shape = "two Megas, two modes, pick by enemy."** Both finalists at Indianapolis ran it (Wolfey: Steelix/Tyranitar; Arsal: Charizard-Y/Floette) — see [[pokemon-champions-team-building/finals-case-study-sand-vs-sun]]. And the honest coda: the Steelix team **lost the finals** to the Sun team, so the enemy-team tool must also flag *unfavorable* matchups, not just hand you a line.
 - **The engine is Emolga** (Motor Drive + Speed Swap) — the one fixed piece; the nuke and the levitator are swappable (the creator says so outright).
 - **Immunity shell → spread moves.** Stacking Ground/Electric immunities is what lets the team run Earthquake + Discharge together.
 - **Two speed modes** (Speed Swap primary, Trick Room + Gravity fallback) make the build robust.
