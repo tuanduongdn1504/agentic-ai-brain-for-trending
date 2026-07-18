@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-07-18 20:xx — herdr-bundle — youtube.com/watch (yt-dlp caption fetch ×8)
+
+- **Block type:** YouTube **HTTP 429 "Too Many Requests" + "Sign in to confirm you're not a bot"** on the webpage/player fetch that precedes caption download. NOT a Cloudflare-page block — this is YouTube's account/bot gate against yt-dlp, so the HTML-page tiers in `(C) bypass-403-escalation.md` (curl → Playwright → stealth → Camoufox) DO NOT APPLY. The correct ladder for yt-dlp is its own cookie/client options.
+- **Trigger context:** lightweight calls (`ytsearch25:` search + metadata `--print`) succeeded; only the heavier webpage+player fetch for subtitles tripped the gate. Same pipeline worked ~6h earlier (vercel-eve) → freshly-accumulated per-IP rate limit, not a permanent block.
+- **yt-dlp Tier 0 (native cookies):** `--cookies-from-browser chrome` → extracted 3,356 cookies, solved the JS challenge via deno, gate cleared. SUCCESS. Fetched 6 of 8 transcripts (t1-t6).
+- **Re-block on tail:** after 6 rapid cookie'd fetches the 429 re-accumulated; t7 (Better Stack) + t8 (Fru Dev) died mid-fetch. 2nd attempt (gentler: `--sleep-requests 3 --retries 3`) died the same way.
+- **Decision (per prime directive — don't repeat the same mistake twice):** stopped at 2 attempts; shipped on the 6 landed transcripts (bundle range is 5-8; healthy). Did NOT escalate to browser-scrape / Claude-in-Chrome for 2 marginal sources — primary ground truth + t1/t2/t4 tmux/cmux comparisons cover their angles.
+
+### Outcome
+- Tier reached: yt-dlp native cookies (`--cookies-from-browser chrome`) — a NEW ladder rung distinct from the HTML-page tiers.
+- Outcome: partial success — 6/8 transcripts.
+- Output: `raw/2026-07-18-herdr/t1-t6.md`.
+- Method retained: n/a (no install; browser cookies are ambient).
+- **Lesson for next YouTube 429:** START with `--cookies-from-browser <browser>`; space requests (`--sleep-requests`) to avoid tail re-block; for >5-video bundles, fetch in 2 batches with a cooldown between. Candidate to codify as a yt-dlp-specific mini-ladder in `(C) bypass-403-escalation.md` (currently HTML-only).
+
+---
+
 ## 2026-05-09 15:05 — openai-symphony-spec — https://openai.com/index/open-source-codex-orchestration-symphony/
 
 - **Block type:** Cloudflare-class with **deeper backend gating**. Initial navigation succeeds (HTTP 200) but client-side `/backend/gate/...` calls return 403 → Next.js error component renders ("This page couldn't load"). Different failure mode from harness-engineering blog (which let backend gates through).

@@ -7,6 +7,10 @@
 
 ---
 
+## herdr
+
+**herdr — "tmux for AI agents"**: a Rust single-binary terminal multiplexer ([github.com/ogulcancelik/herdr](https://github.com/ogulcancelik/herdr), 17.8K★, v0.7.4, solo author Oğulcan Çelik) that runs **21 coding agents** (Claude Code, Codex, Grok, Devin, OpenCode…) across panes/tabs/workspaces, shows each agent's **idle/working/blocked** state via **zero-config** detection, keeps sessions alive after detach (survives restart, over SSH), and exposes a **socket API** so agents spawn panes + coordinate. 6-video bundle (Chase AI anchor `neK8ydl0Vlk` + 5) + refute-first verify (workflow `wf_65ed9753-32f`). **19 claims: 9 CONFIRMED / 7 CORRECT-BUT-INCOMPLETE / 3 MISLEADING / 0 FALSE.** Real edges = zero-config agent-state detection + socket-API orchestration; caveats = **AGPL-3.0 + commercial dual license**, solo maintainer, Windows beta, status-detection bugs. hireui: **operator local dev-tool (NOT candidate-facing); BORROW socket-API pattern / PILOT as orchestration layer for the v189 loop / AVOID vendoring AGPL code**. → `wiki/herdr/_index.md`
+
 ## vercel-eve
 
 **Vercel Eve — the open-source (Apache-2.0), filesystem-first framework for durable AI agents** ("an agent is a directory"), launched at Vercel Ship London 2026-06-17 (PUBLIC PREVIEW/BETA). Full 7-video bundle + refute-first fact-check (anchor [`m8VC2SV2igM`](https://www.youtube.com/watch?v=m8VC2SV2igM), Cole Medin — **Vercel-collaborated**). **30 claims: 14 CONFIRMED / 10 CORRECT-BUT-INCOMPLETE / 4 UNVERIFIABLE / 1 FALSE / 1 MISLEADING.** Real reliability stack (durable WDK checkpointing, `needsApproval` HITL, evals-deploy-gate, credential brokering, MCP-native), novel packaging (Next.js-for-agents), but **BETA + no data-residency story**. hireui: **BORROW patterns / AVOID candidate-facing / WATCH recruiter-side post-GA**. → `wiki/vercel-eve/_index.md`
