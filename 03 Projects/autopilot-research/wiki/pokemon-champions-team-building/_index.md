@@ -13,6 +13,7 @@
 | [`steelix-synergy-guide.html`](steelix-synergy-guide.html) · [open Artifact](https://claude.ai/code/artifact/5f8135b5-13a2-4afa-a3be-3d2af7da0989) | 🎨 **Interactive guide** — synergy map **+ a working Game Plan Assistant**: paste the enemy team → get the mode, a step-by-step plan, and a **matchup-risk flag** (deterministic rule engine; one-click loads the finals sand-vs-sun as the built-in *Unfavorable* example) |
 | [[pokemon-champions-team-building/reusable-team-building-method]] | ⭐ The transferable pattern — a 5-role template + a step-by-step PokéSynergy workflow to build **your own** variants; the three worked examples show the *same* nuke solved three different ways |
 | [[pokemon-champions-team-building/finals-case-study-sand-vs-sun]] | 🏆 **Finals case study** — the #3 Steelix team vs Arsal Puri's *winning* **Sun** team (Mega Charizard-Y + **Mega Floette**) at Indianapolis: the sand-vs-sun matchup, Wolfey's mode-pick, and the honest outcome (**Steelix lost — 2nd**). The "when the matchup is bad" half of the enemy-team feature |
+| [[pokemon-champions-team-building/how-to-choose-your-mode]] | 🧭 **Step-by-step: choose your mode from the enemy team** — a 6-step decision procedure + flowchart, grounded in Wolfey's real Indianapolis mode log (Top-4 vs Zhang → Queen; finals vs Arsal → Steelix-TR). The human-readable rulebook behind the Game Plan Assistant |
 
 ## The core idea (one paragraph)
 

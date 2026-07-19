@@ -177,7 +177,8 @@
       <label for="enemyInput">Enemy team — paste a Showdown export, or just list their key Pokémon (one per line):</label>
       <textarea id="enemyInput" spellcheck="false" placeholder="Charizard&#10;Venusaur&#10;Garchomp&#10;Floette&#10;Sinistcha&#10;Incineroar"></textarea>
       <div class="asst-btns">
-        <button type="button" id="loadFinals">↺ Load the finals example (Arsal's Sun team)</button>
+        <button type="button" id="loadFinals">↺ Finals · Arsal's Sun team</button>
+        <button type="button" id="loadZhang">↺ Top 4 · Zhang's Froslass team</button>
         <button type="button" id="analyzeBtn" class="primary">Get my game plan →</button>
       </div>
     </div>
@@ -332,7 +333,7 @@
   var SIG = {
     sun:      {rx:/charizard|torkoal|groudon|venusaur|chlorophyll|drought|\bsun\b/i, label:'Sun / Chlorophyll'},
     rain:     {rx:/pelipper|kyogre|politoed|drizzle|\brain\b|barraskewda|basculegion/i, label:'Rain'},
-    trickroom:{rx:/trick ?room|sinistcha|oranguru|hatterene|indeedee|cresselia|dusclops|porygon2|armarouge/i, label:'Their own Trick Room'},
+    trickroom:{rx:/trick ?room|sinistcha|oranguru|hatterene|indeedee|cresselia|dusclops|porygon2|armarouge|froslass/i, label:'Their own Trick Room'},
     fast:     {rx:/tailwind|talonflame|whimsicott|tornadus|dragapult|meowscarada|sneasler|chien.?pao|zapdos|raging ?bolt|flutter ?mane|dragonite/i, label:'Fast offense / Tailwind'},
     ground:   {rx:/garchomp|landorus|ting.?lu|great ?tusk|mamoswine|excadrill|earthquake|high ?horsepower/i, label:'Spread Ground / Earthquake'},
     fairy:    {rx:/floette|flutter ?mane|sylveon|enamorus|tinkaton|hatterene|clefable|moonblast|\bfairy\b/i, label:'Fairy attacker'},
@@ -394,8 +395,10 @@
     out.hidden=false;
   }
   var FINALS_ENEMY="Charizard-Mega-Y\nFloette-Mega\nVenusaur\nIncineroar\nSinistcha\nGarchomp";
+  var ZHANG_ENEMY="Tyranitar-Mega\nFroslass-Mega\nArcanine-Hisui\nHydreigon\nCorviknight\nGarchomp";
   var ib=document.getElementById('enemyInput');
   document.getElementById('loadFinals').addEventListener('click',function(){ ib.value=FINALS_ENEMY; renderPlan(ib.value); });
+  document.getElementById('loadZhang').addEventListener('click',function(){ ib.value=ZHANG_ENEMY; renderPlan(ib.value); });
   document.getElementById('analyzeBtn').addEventListener('click',function(){ renderPlan(ib.value); });
 
   render('trickroom');
