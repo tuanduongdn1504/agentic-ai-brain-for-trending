@@ -27,6 +27,16 @@
 ## Completed
 
 
+### Engineer of the future — Addy Osmani AIEWF-2026 keynote + role-under-AI-agents bundle ✅
+- **Drained:** 2026-07-22 by `/loop` (operator anchor `n97BCfyFIvw` + yt-search ×5: Karpathy / Ng / Cursor-Truell / Gergely Orosz / Harrison Chase)
+- **Raw analysis:** `raw/2026-07-22-engineer-of-the-future-osmani-aie-keynote-bundle.md`
+- **Wiki output:** [[../wiki/engineer-of-the-future/_index]] — 15 files (0 FALSE / 0 FABRICATED; workflow `wf_dabc1f67-f9f`)
+- **NotebookLM:** none (yt-dlp captions read in full)
+
+### API types explained (REST, SOAP, GraphQL, gRPC, WebSocket, webhook) ✅
+- **Drained:** 2026-07-21 by overnight orchestrator
+- **Raw analysis:** `raw/2026-07-21-api-types-explained-rest-soap-graphql-grpc-websock.md`
+- **NotebookLM:** `ed17cc3d-952c-4fe0-9572-27a418d0f390`
 ### Harness Engineering — getting started / beginner introduction (Vietnamese anchor) ✅
 - **Drained:** 2026-05-30 by overnight orchestrator
 - **Raw analysis:** `raw/2026-05-30-harness-engineering-getting-started-beginner-intro.md`
