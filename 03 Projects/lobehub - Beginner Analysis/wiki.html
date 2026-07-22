@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>v222 — LobeHub — LLM Wiki</title>
+<style>
+  :root{
+    --bg:#f7f6f3; --surface:#ffffff; --surface-2:#f0efea; --border:#e0ded6;
+    --ink:#1a2321; --ink-2:#5c6663; --ink-3:#8a938f;
+    --accent:#0f8f88; --accent-ink:#0a5c58;
+    --amber:#a86a00; --rose:#b0324c; --green:#2f7a51;
+    --chip:#eef2f1; --shadow:0 1px 2px rgba(20,30,28,.05),0 8px 24px rgba(20,30,28,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#2a3733;
+      --ink:#e6ece9; --ink-2:#9aa8a3; --ink-3:#6d7a76;
+      --accent:#3ec4bb; --accent-ink:#8fe6df;
+      --amber:#e0a94a; --rose:#e8788c; --green:#5fc98c;
+      --chip:#1e2a27; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f6f3; --surface:#ffffff; --surface-2:#f0efea; --border:#e0ded6;
+    --ink:#1a2321; --ink-2:#5c6663; --ink-3:#8a938f;
+    --accent:#0f8f88; --accent-ink:#0a5c58;
+    --amber:#a86a00; --rose:#b0324c; --green:#2f7a51;
+    --chip:#eef2f1; --shadow:0 1px 2px rgba(20,30,28,.05),0 8px 24px rgba(20,30,28,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#2a3733;
+    --ink:#e6ece9; --ink-2:#9aa8a3; --ink-3:#6d7a76;
+    --accent:#3ec4bb; --accent-ink:#8fe6df;
+    --amber:#e0a94a; --rose:#e8788c; --green:#5fc98c;
+    --chip:#1e2a27; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:min(880px,92vw);margin:0 auto;padding:clamp(28px,5vw,64px) 0 96px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent-ink);font-weight:600;margin:0 0 10px}
+  h1{font-size:clamp(28px,5vw,44px);line-height:1.08;margin:0 0 6px;letter-spacing:-.02em;
+    font-weight:800;text-wrap:balance}
+  h1 .sub{display:block;font-size:clamp(15px,2.4vw,19px);font-weight:500;color:var(--ink-2);
+    letter-spacing:-.005em;margin-top:12px;line-height:1.45;text-wrap:pretty}
+  h2{font-size:clamp(19px,3vw,24px);letter-spacing:-.015em;margin:52px 0 4px;font-weight:750;text-wrap:balance}
+  h3{font-size:15px;margin:22px 0 6px;font-weight:700;letter-spacing:-.01em}
+  p{margin:12px 0}
+  a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  code{font-family:var(--mono);font-size:.87em;background:var(--chip);padding:.1em .38em;border-radius:5px;
+    border:1px solid var(--border)}
+  strong{font-weight:700}
+  .lead{font-size:17.5px;color:var(--ink);line-height:1.6}
+  .rule{height:1px;background:var(--border);border:0;margin:34px 0}
+
+  /* chip row */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+  .chip{font-family:var(--mono);font-size:12px;letter-spacing:.02em;padding:5px 11px;border-radius:999px;
+    background:var(--chip);border:1px solid var(--border);color:var(--ink-2);white-space:nowrap}
+  .chip b{color:var(--ink);font-weight:700}
+  .chip.ok{border-color:color-mix(in srgb,var(--green) 45%,var(--border));color:var(--green)}
+  .chip.warn{border-color:color-mix(in srgb,var(--amber) 45%,var(--border));color:var(--amber)}
+  .chip.no{border-color:color-mix(in srgb,var(--rose) 45%,var(--border));color:var(--rose)}
+  .chip.hi{border-color:color-mix(in srgb,var(--accent) 55%,var(--border));color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+
+  /* meta grid */
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:24px 0}
+  .meta div{background:var(--surface);padding:13px 15px}
+  .meta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 3px}
+  .meta dd{margin:0;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+
+  /* axis cards */
+  .axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+  .axis{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:17px 18px;box-shadow:var(--shadow)}
+  .axis .hd{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+  .axis .tag{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.03em}
+  .tag.pass{background:color-mix(in srgb,var(--green) 16%,var(--surface));color:var(--green)}
+  .tag.fail{background:color-mix(in srgb,var(--rose) 16%,var(--surface));color:var(--rose)}
+  .axis .lbl{font-size:13px;font-weight:700;color:var(--ink)}
+  .axis p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
+
+  /* callout blocks */
+  .box{border:1px solid var(--border);border-left:3px solid var(--accent);background:var(--surface);
+    border-radius:0 12px 12px 0;padding:16px 18px;margin:20px 0;box-shadow:var(--shadow)}
+  .box.warn{border-left-color:var(--amber)}
+  .box.no{border-left-color:var(--rose)}
+  .box .t{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:700;margin:0 0 8px}
+  .box p{margin:8px 0 0;font-size:14px;color:var(--ink-2)}
+  .box p:first-of-type{margin-top:0}
+  .box strong{color:var(--ink)}
+
+  ul{margin:12px 0;padding-left:20px}
+  li{margin:7px 0;color:var(--ink-2);font-size:14.5px;line-height:1.55}
+  li strong{color:var(--ink)}
+  .star{color:var(--amber)}
+
+  .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);font-size:12.5px;color:var(--ink-3);
+    font-family:var(--mono);line-height:1.7}
+  .foot a{color:var(--ink-2)}
+  @media (prefers-reduced-motion:no-preference){a,.axis{transition:border-color .15s ease}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">LLM Wiki · v222 · 2026-07-22 · T2 Service</p>
+  <h1>LobeHub
+    <span class="sub"><code>lobehub/lobehub</code> — the flagship open-source, self-hostable, provider-agnostic AI chat + agent platform (renamed from <b>LobeChat</b>), re-framed as a <b>"Chief Agent Operator"</b>: hire, schedule &amp; get reports from a team of AI agent teammates.</span>
+  </h1>
+
+  <div class="chips">
+    <span class="chip hi"><b>GOAL-ALIGNED INCLUDE</b> · 3/4</span>
+    <span class="chip no">(a) FAIL</span>
+    <span class="chip ok">(b) STRONG · keys tier</span>
+    <span class="chip ok">(c) STRONG</span>
+    <span class="chip ok">(d) STRONG</span>
+    <span class="chip"><b>NO MINT</b> · 46/11 unchanged</span>
+    <span class="chip ok">streak GA:80 · OG:13</span>
+    <span class="chip">§35 CLEAR</span>
+  </div>
+
+  <p class="lead">One of the most-starred open-source AI platforms in existence — famous in the world, never wiki'd until now (the <em>world-canonical, not world-first</em> shape). Collision-clean; a genuine corpus-first <em>subject</em>, but it mints nothing: it's an instance-strengthening of the self-hosted agent-platform family, most of whose capabilities the corpus already holds.</p>
+
+  <dl class="meta">
+    <div><dt>Author</dt><dd>Arvin Xu (arvinxx)</dd></div>
+    <div><dt>Not</dt><dd>Anthropic · ex-Ant Group</dd></div>
+    <div><dt>License</dt><dd>LobeHub Community (Apache-2.0 +)</dd></div>
+    <div><dt>Language</dt><dd>TypeScript 98.8%</dd></div>
+    <div><dt>Stars</dt><dd>80.6k · 15.7k forks</dd></div>
+    <div><dt>Releases</dt><dd>2,861 · v2.2.10</dd></div>
+    <div><dt>MCP</dt><dd>host/client (no server)</dd></div>
+    <div><dt>Deploy</dt><dd>Docker · Vercel · cloud SaaS</dd></div>
+  </dl>
+
+  <h2>What it actually is</h2>
+  <p>The repo that was <code>lobehub/lobe-chat</code> until 2026 — <strong>LobeChat</strong>, a self-hostable, design-forward, bring-your-own-key ChatGPT/Claude alternative that puts <strong>OpenAI, Anthropic Claude, Google Gemini, DeepSeek and local models (Ollama)</strong> behind one polished UI, with plugins, a knowledge base (RAG) and voice. The 2026 <strong>LobeHub</strong> rebrand widened it into an ecosystem: LobeChat + a <strong>Chief Agent Operator</strong> + agent teams + a skills/MCP marketplace + a desktop app.</p>
+
+  <div class="box warn">
+    <p class="t">Read the framing skeptically</p>
+    <p>"Chief Agent Operator," "7×24 operations," "273,000 skills," "hire your AI team" is <strong>aspirational product-marketing</strong> layered on a genuinely excellent, battle-tested multi-model chat + agent-builder core. The chat core is 3+ years mature; the CAO / agent-teams / cloud-parallel pieces are newer and marketing-forward. (Metric split, §37.4: README says "10,000+ skills"; the site says "273,000" — both page-stated.)</p>
+  </div>
+
+  <h3>The four pillars (decoded)</h3>
+  <ul>
+    <li><strong>Operator</strong> — hires/schedules/reports on your agents; an <strong>IM Gateway</strong> puts agents inside Slack, Discord, Telegram, WeChat, Feishu, Lark, LINE, QQ &amp; iMessage.</li>
+    <li><strong>Create (Agent Builder)</strong> — describe once → auto-configured agent; any model + modality; tools + <strong>MCP-compatible plugins</strong> (host side).</li>
+    <li><strong>Collaborate (Agent Groups)</strong> — Pages, Schedule, Project, Workspace — "agents as real teammates."</li>
+    <li><strong>Evolve (Personal Memory)</strong> — Continual Learning + <strong>White-Box Memory</strong> (structured, editable, transparent — inspect &amp; fix what the agent remembers).</li>
+  </ul>
+
+  <h2>The four-axis read</h2>
+  <div class="axes">
+    <div class="axis">
+      <div class="hd"><span class="tag fail">FAIL</span><span class="lbl">(a) Anthropic affiliation</span></div>
+      <p>Arvin Xu / LobeHub (ex-Ant Group, Chinese-founder company), not Anthropic. §41 — no name/heritage/locale/notability rescue. #19 19a first Arvin-Xu/LobeHub author.</p>
+    </div>
+    <div class="axis">
+      <div class="hd"><span class="tag pass">STRONG</span><span class="lbl">(b) Goal-relevance · keys tier</span></div>
+      <p>Self-hosted, provider-agnostic (Claude first-class), MCP-hosting, multi-agent-orchestrating, white-box-memory agent platform = dead-center on 5 live threads. STRONG-not-STRONGEST: third-party, Claude 1-of-many, a chat/agent product not agent-dev tooling. Cleanly GA — no §40.</p>
+    </div>
+    <div class="axis">
+      <div class="hd"><span class="tag pass">STRONG</span><span class="lbl">(c) Substance</span></div>
+      <p>80.6k★ / 2,861 releases / v2.2.10 / a mature 3+yr flagship + full ecosystem + RAG + voice + multi-cloud deploy. Caveats: NOT source-cloned; CAO framing marketing-forward; custom license; stars page-stated → not #52.</p>
+    </div>
+    <div class="axis">
+      <div class="hd"><span class="tag pass">STRONG</span><span class="lbl">(d) Corpus-fit</span></div>
+      <p>Self-contained-agent-platform family (OpenHuman v118 / PilotDeck v175 / cortex-hub v181) · provider-agnostic #84 84c · MCP host #18 · white-box memory (PilotDeck v175) · §C#23 orchestration · the LibreChat/Open-WebUI genre.</p>
+    </div>
+  </div>
+
+  <h2>Pattern outcome — NO MINT</h2>
+  <div class="box no">
+    <p class="t">Counts 46 / 11 UNCHANGED · §C surface unchanged</p>
+    <p><strong>Instance-strengthening</strong> of the self-hosted AI chat + agent platform family (OpenHuman v118 / PilotDeck v175 / cortex-hub v181) — the most-famous / most-starred corpus instance = a <strong>world-canonical, NOT world-first</strong> data-point (fame ≠ mint — the awesome-llm-apps v201 / meetily v196 discipline).</p>
+    <p>CAO orchestration = an <strong>ADJACENCY to §C#23</strong> (Paseo v150 / ai-maestro v163), <em>not</em> a clean N=3 (it orchestrates its own general-purpose teammates, not third-party coding agents). White-box memory = a PilotDeck v175 echo. Provider-agnostic = #84 84c. MCP host = #18 (NOT a B1-MCP server subject).</p>
+  </div>
+  <div class="box warn">
+    <p class="t">§C-standalone mint — recorded as the reviewable ALTERNATIVE, declined</p>
+    <p>"Chief Agent Operator — manage AI agents as hired/scheduled/reported teammates across consumer IM channels, with white-box memory." Corpus-first for the framing, but <strong>loses</strong>: (i) framing over capabilities each with corpus precedent (the camofox v179 draw-the-circle rule); (ii) NOT world-first (Lindy / Relay / Cognosys / Manus for agent-teams; LibreChat / Open WebUI / Jan for self-hosted chat); (iii) §C is capability-shaped + §28. Recorded + a DEFERRED watch axis (the IM-Gateway agent-delivery surface).</p>
+  </div>
+
+  <h2>Pilot — architecture is the prize</h2>
+  <p>On-goal, but a product to READ / study / self-host — not a hireui component (custom license blocks shipping a derivative; consumer/prosumer framing). <span class="star">⭐</span> <strong>A1 → B5 → C11</strong>:</p>
+  <ul>
+    <li><span class="star">⭐</span> <strong>A1</strong> — read the provider-agnostic model abstraction + white-box memory + CAO orchestration (zero install).</li>
+    <li><span class="star">⭐</span> <strong>B5</strong> — distil a "provider-agnostic LLM seam + white-box editable memory" reference into the vault + hireui's first-LLM-feature spec (composes with meetily v196 · AIRI v210 xsAI · PilotDeck v175 · the mosh-ai A2 seam).</li>
+    <li><span class="star">⭐</span> <strong>C11</strong> — self-host LobeChat via Docker with YOUR Claude key: a genuinely useful multi-model daily-driver + a live study of a mature agent platform.</li>
+  </ul>
+  <div class="box">
+    <p class="t">Fence</p>
+    <p>install-snapshot + inspect the Docker compose + BYO keys never a live account first-run + <strong>self-host</strong> (never send candidate/sensitive data to the hosted cloud tier — Chinese-company egress) + the "LobeHub Community License" blocks building+distributing a <strong>derivative</strong> → borrow patterns, don't fork-and-ship + hireui borrows ARCHITECTURE only per its CONSTITUTION (I-2 / I-8 / GitNexus-first) + pin v2.2.10.</p>
+  </div>
+
+  <div class="foot">
+    <p>Verdict produced INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows subagent context; the v200→v221 self-throttle). Source hand-fetched; identity + license + landscape by WebSearch; collision by sanity-anchored hand-grep (PilotDeck=23 / OpenHuman=16 anchors; lobe = 0 prior subjects).</p>
+    <p>Shipped on <code>wiki/v222-lobehub</code> off the v221 tip <code>db01991</code>; not auto-merged. Docs: <code>03 Projects/lobehub - Beginner Analysis/</code> · <a href="https://github.com/lobehub/lobehub">github.com/lobehub/lobehub</a></p>
+  </div>
+
+</div>
+</body>
+</html>
