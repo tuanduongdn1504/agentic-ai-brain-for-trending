@@ -1,0 +1,187 @@
+<title>Open Interpreter (Rust) — LLM Wiki v223</title>
+<style>
+  :root{
+    /* light (default) — warm paper, rust accent tied to Rust-lang + "low-cost ember" */
+    --bg:#f7f3ec; --surface:#fffdf8; --surface-2:#f1ebe0; --text:#241d16; --text-dim:#6b5f52;
+    --border:#e2d8c8; --accent:#c14a1c; --accent-soft:#f3ddd0; --good:#2f7d5a; --warn:#9a5b12;
+    --warn-bg:#f7ebd6; --term-bg:#221b14; --term-text:#f0e7da; --term-dim:#a8977f; --term-accent:#e78a4e;
+    --shadow:0 1px 2px rgba(36,29,22,.06),0 8px 28px rgba(36,29,22,.07);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#141009; --surface:#1c1710; --surface-2:#241d14; --text:#efe7da; --text-dim:#a8977f;
+      --border:#332a1e; --accent:#e78a4e; --accent-soft:#3a2a1c; --good:#5cbd8c; --warn:#e0a44a;
+      --warn-bg:#2a2012; --term-bg:#0d0a06; --term-text:#efe7da; --term-dim:#8c7c66; --term-accent:#e78a4e;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141009; --surface:#1c1710; --surface-2:#241d14; --text:#efe7da; --text-dim:#a8977f;
+    --border:#332a1e; --accent:#e78a4e; --accent-soft:#3a2a1c; --good:#5cbd8c; --warn:#e0a44a;
+    --warn-bg:#2a2012; --term-bg:#0d0a06; --term-text:#efe7da; --term-dim:#8c7c66; --term-accent:#e78a4e;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.45);
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f3ec; --surface:#fffdf8; --surface-2:#f1ebe0; --text:#241d16; --text-dim:#6b5f52;
+    --border:#e2d8c8; --accent:#c14a1c; --accent-soft:#f3ddd0; --good:#2f7d5a; --warn:#9a5b12;
+    --warn-bg:#f7ebd6; --term-bg:#221b14; --term-text:#f0e7da; --term-dim:#a8977f; --term-accent:#e78a4e;
+    --shadow:0 1px 2px rgba(36,29,22,.06),0 8px 28px rgba(36,29,22,.07);
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    background:var(--bg); color:var(--text); font-family:var(--sans);
+    line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh;
+    padding:clamp(18px,4vw,56px) clamp(14px,4vw,24px);
+  }
+  .col{max-width:78ch;margin:0 auto}
+  a{color:var(--accent)}
+  h1,h2,h3{text-wrap:balance;line-height:1.15;margin:0}
+  .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.02em;margin:.5rem 0 .3rem}
+  .sub{color:var(--text-dim);font-size:clamp(1rem,2.4vw,1.18rem);margin:.2rem 0 0}
+  h2{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:750;letter-spacing:-.01em;margin:2.6rem 0 .2rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+  h2 .n{font-family:var(--mono);color:var(--accent);font-size:.8em;margin-right:.5em;font-weight:600}
+  h3{font-size:1.02rem;font-weight:700;margin:1.5rem 0 .3rem}
+  p{margin:.7rem 0}
+  .lede{font-size:clamp(1.05rem,2.4vw,1.22rem);color:var(--text);margin:1rem 0 0}
+  strong{font-weight:700}
+  code{font-family:var(--mono);font-size:.88em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.06em .38em}
+
+  /* terminal hero */
+  .term{background:var(--term-bg);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin:1.6rem 0 .4rem;border:1px solid var(--border)}
+  .term-bar{display:flex;align-items:center;gap:.5rem;padding:.6rem .85rem;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .dot.r{background:#e05a4a}.dot.y{background:#e0b23a}.dot.g{background:#4fb06a}
+  .term-title{font-family:var(--mono);font-size:.72rem;color:var(--term-dim);margin-left:.4rem;letter-spacing:.04em}
+  .term-body{padding:1rem 1.1rem 1.2rem;font-family:var(--mono);font-size:clamp(.78rem,1.9vw,.9rem);color:var(--term-text);line-height:1.75;overflow-x:auto}
+  .term-body .p{color:var(--term-accent)}
+  .term-body .c{color:var(--term-dim)}
+  .term-body .o{color:var(--term-text);opacity:.9}
+  .term-body .cur{display:inline-block;width:.55em;height:1.05em;background:var(--term-accent);vertical-align:-.18em;margin-left:.15em;animation:blink 1.1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.term-body .cur{animation:none}}
+
+  /* identity warning */
+  .warn{background:var(--warn-bg);border:1px solid var(--warn);border-left-width:4px;border-radius:10px;padding:1rem 1.1rem;margin:1.8rem 0}
+  .warn .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);font-weight:700}
+  .warn p{margin:.4rem 0 0;font-size:.95rem}
+
+  /* fact grid */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:1.4rem 0}
+  .fact{background:var(--surface);padding:.85rem 1rem}
+  .fact dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin:0}
+  .fact dd{margin:.25rem 0 0;font-weight:650;font-size:.95rem}
+  .fact dd small{font-weight:400;color:var(--text-dim)}
+
+  /* harness chips */
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+  .chip{font-family:var(--mono);font-size:.8rem;padding:.28rem .62rem;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text-dim)}
+  .chip.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:600}
+  .chip.corpus{border-color:var(--good);color:var(--good)}
+
+  /* verdict card */
+  .verdict{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem;box-shadow:var(--shadow);margin:1.4rem 0}
+  .grade{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 0}
+  .g{font-family:var(--mono);font-size:.82rem;padding:.3rem .6rem;border-radius:7px;border:1px solid var(--border);background:var(--surface-2)}
+  .g b{color:var(--text)}
+  .g.pass b{color:var(--good)} .g.fail b{color:var(--accent)}
+  ul{margin:.6rem 0;padding-left:1.2rem}
+  li{margin:.35rem 0}
+  .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;padding:.15em .5em;border-radius:5px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .tag.good{background:transparent;border:1px solid var(--good);color:var(--good)}
+  footer{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:.82rem;font-family:var(--mono)}
+  .path{font-family:var(--mono);background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-size:.86rem;margin:.8rem 0;overflow-x:auto}
+  .path b{color:var(--accent)}
+</style>
+
+<div class="wrap"><div class="col">
+
+  <div class="eyebrow">LLM Wiki · v223 · 2026-07-22</div>
+  <h1>Open Interpreter — the Rust one</h1>
+  <p class="sub"><code>openinterpreter/openinterpreter</code> — a coding agent that <em>emulates each model's native harness</em> to get the most out of cheap, open-weight models.</p>
+
+  <div class="term" role="img" aria-label="Terminal showing Open Interpreter swapping harnesses to match the model">
+    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">~/project — interpreter</span></div>
+    <div class="term-body">
+<span class="c">$</span> <span class="o">i</span>  <span class="c"># "A coding agent optimized for low-cost models"</span><br>
+<span class="p">›</span> <span class="o">/harness kimi-code</span><br>
+<span class="c">  harness → kimi-code · Rust-native · max Kimi K3 performance, Codex-like TUI</span><br>
+<span class="p">›</span> <span class="o">/harness claude-code</span><br>
+<span class="c">  harness → claude-code · run Claude under its own trained harness</span><br>
+<span class="p">›</span> <span class="o">/harness deepseek-tui</span>  <span class="c"># ← corpus v72</span><br>
+<span class="p">›</span> <span class="cur"></span>
+    </div>
+  </div>
+  <p class="sub" style="font-size:.82rem">The insight: a model's <em>agentic</em> performance depends on the <strong>harness</strong> it runs in. So ship one binary that can <em>become</em> any harness — and match it to the model.</p>
+
+  <div class="warn">
+    <span class="lbl">⚠ Not the famous Python one</span>
+    <p><code>openinterpreter/openinterpreter</code> (no hyphen) is <strong>not</strong> the 2023 Python "natural language interface for computers." That was <code>openinterpreter/open-interpreter</code> (with a hyphen) — now handed to a community fork at <code>endolith/open-interpreter</code>. This is the <strong>same company's official 2026 Rust rewrite: a fork of OpenAI's Codex</strong>, re-scoped from "run any task" to "run agentic coding well on <em>cheap</em> models." Same brand (Killian Lucas / Open Interpreter Inc.), different codebase, language, and thesis.</p>
+  </div>
+
+  <p class="lede">Open Interpreter Inc. killed its own famous flagship and rebuilt it in Rust as a <strong>Codex fork</strong> whose organizing principle is <strong>harness emulation</strong> — swap <code>/harness</code> to become <code>claude-code</code>, <code>kimi-code</code>, <code>qwen-code</code>, <code>deepseek-tui</code>, <code>zcode</code> (GLM), and extract maximum agentic performance from low-cost / open-weight models. Open-source (Apache-2.0), native OS sandboxing, ACP editor embedding.</p>
+
+  <h2><span class="n">01</span>At a glance</h2>
+  <dl class="facts">
+    <div class="fact"><dt>Repo</dt><dd>openinterpreter/<br>openinterpreter</dd></div>
+    <div class="fact"><dt>Author</dt><dd>Open Interpreter Inc.<br><small>Killian Lucas · not Anthropic</small></dd></div>
+    <div class="fact"><dt>Language</dt><dd>Rust 96.6%<br><small>a fork of OpenAI Codex</small></dd></div>
+    <div class="fact"><dt>License</dt><dd>Apache-2.0</dd></div>
+    <div class="fact"><dt>Latest</dt><dd>v0.0.34<br><small>2026-07-18 · 62 releases</small></dd></div>
+    <div class="fact"><dt>Stars</dt><dd>~67.1k<br><small>page-stated · not #52</small></dd></div>
+    <div class="fact"><dt>Optimized for</dt><dd>Kimi K3 · DeepSeek<br><small>Qwen · GLM · (Claude too)</small></dd></div>
+    <div class="fact"><dt>Install</dt><dd><small>curl … | sh · run <code>i</code></small></dd></div>
+  </dl>
+
+  <h2><span class="n">02</span>Harness emulation — the one wiki-worthy idea</h2>
+  <p>A model's agentic performance isn't just the model — it's the <strong>harness</strong> it was RL-tuned against: the exact system prompt + tool schemas + turn loop + formatting. Kimi K3 was tuned against Moonshot's "Kimi Code" harness; run it under a foreign harness and you leave capability on the table.</p>
+  <p>Open Interpreter ships <strong>one binary that becomes any harness on demand</strong>. Point it at a cheap/open model and select that model's native harness → "maximum K3 performance with a Codex-like interface." The Kimi-Code harness was reimplemented Rust-native for exactly this. Swappable via <code>/harness</code>:</p>
+  <div class="chips">
+    <span class="chip">native</span>
+    <span class="chip on">claude-code</span>
+    <span class="chip">claude-code-bare</span>
+    <span class="chip">kimi-code</span>
+    <span class="chip">kimi-cli</span>
+    <span class="chip">qwen-code</span>
+    <span class="chip corpus">deepseek-tui ↝ v72</span>
+    <span class="chip corpus">zcode ↝ GLM v176</span>
+    <span class="chip">swe-agent</span>
+    <span class="chip">minimal</span>
+  </div>
+  <p style="font-size:.9rem;color:var(--text-dim)">Two of the emulated harnesses are corpus subjects — <strong>DeepSeek-TUI (v72)</strong> and the Z.AI/GLM harness (<strong>GLM-5, v176</strong>) — making this quietly corpus-recursive. (The DeepSeek-TUI lineage is a hand-caveated cross-ref, not a source-verified #57.)</p>
+  <p style="font-size:.9rem;color:var(--text-dim)">Why it matters for the vault (Goal #1): reading OI's <code>claude-code</code> vs <code>kimi-code</code> harness definitions is a rare, concrete way to see <em>what makes Claude Code effective, by contrast</em> — the productized form of the "the harness is the lever, not just the model" thesis (loop-engineering v189 / grok-build v215 / the harness-engineering thread).</p>
+
+  <h2><span class="n">03</span>Verdict</h2>
+  <div class="verdict">
+    <div><span class="tag">GOAL-ALIGNED INCLUDE 3/4</span> &nbsp;<span class="tag good">1 NEW §C standalone · N=1</span> &nbsp;<span class="tag">counts 46/11 unchanged</span></div>
+    <div class="grade">
+      <span class="g fail">(a) <b>FAIL</b> — Open Interpreter Inc., not Anthropic (§41)</span>
+      <span class="g pass">(b) <b>STRONG</b> keys the tier — coding agent + harness-engineering + cost lever</span>
+      <span class="g pass">(c) <b>STRONG</b> — Rust Codex-fork, Apache-2.0, 62 releases (⚠ not source-cloned)</span>
+      <span class="g pass">(d) <b>STRONG</b> — grok-build v215 · Kilo Code v177 · DeepSeek-TUI v72 · Kimi K3</span>
+    </div>
+    <p style="margin-top:1rem"><strong>MINT (leaning): "Harness-Emulation Coding Agent"</strong> — one binary that emulates a target model's native agent harness (swappable), to maximize agentic performance from low-cost / open models. <strong>Corpus-first for the surface, NOT world-first</strong> (harness-engineering is an active 2026 field). Distinct from grok-build v215 (first-party frontier-lab CLI), Kilo Code v177 (IDE-embedded), CodePilot v161 (GUI-wrapper), DeepSeek-TUI v72 (single-model TUI).</p>
+    <p><span class="tag">⚠ NO-MINT alternative recorded</span> — "just the 4th member of the coding-agent-products cluster; harness-emulation is a <em>feature</em> of a Codex fork." Leaned MINT (genuinely-distinct + corpus-unrepresented capability, the grok-build v215 precedent), but flagged prominently into the <strong>OVERDUE ~v221 coding-agent-products meta-cluster audit</strong>.</p>
+    <p style="font-size:.9rem;color:var(--text-dim)"><strong>Streak:</strong> GA:80 → <code>GA:81 · OG:13 [7 ov]</code> (4 consecutive GA post the v219 OG break). §35 CLEAR. <strong>Tier:</strong> T5 Agent-as-application (terminal coding-agent harness).</p>
+  </div>
+
+  <h2><span class="n">04</span>Pilot — read &amp; borrow, don't adopt</h2>
+  <p>On-goal for Goal #1, but it's a general coding CLI for cheap models — not a recruitment tool, not Claude-first. The payoff is study + a cost lever, not a hireui component (hireui stays Claude-Code / operator-installs / GitNexus-first per its CONSTITUTION).</p>
+  <div class="path">⭐ one-thing path: &nbsp; <b>A1</b> read the harness-emulation design &nbsp;→&nbsp; <b>B7</b> borrow "match the harness to the model" as a cost lever (cheap model + native harness for routine, Claude for the hard parts) &nbsp;→&nbsp; <b>C11</b> (optional) install-snapshot + scratch trial, native sandboxing ON, BYO key, pin v0.0.34</div>
+  <ul>
+    <li><strong>A</strong> — read: the <code>claude-code</code> vs <code>kimi-code</code> harnesses · the Codex-fork delta · the ACP embed · the Python→Rust pivot as an OSS-strategy case study.</li>
+    <li><strong>B</strong> — borrow (zero install): the harness-as-lever cost thesis into the cost-optimization notes · a "what is a harness" one-pager into <code>05 Skills/</code> · the native-sandboxing-not-Docker stance.</li>
+    <li><strong>C</strong> — scratch: run a cheap open model (Kimi K3 / DeepSeek / Qwen) under its native harness on a throwaway task; bake-off harnesses; bake-off OI-cheap vs Claude Code.</li>
+    <li><strong>⚠ D — hireui:</strong> do NOT run OI against hireui (it runs code on your machine; candidate PII + the CONSTITUTION). Borrow the cost-lever <em>thesis</em> only.</li>
+  </ul>
+  <p style="font-size:.9rem;color:var(--text-dim)"><strong>Fence:</strong> install-snapshot before <code>curl | sh</code> · native sandboxing on · scratch dir · BYO keys · pin v0.0.34 · not source-cloned → treat as untrusted-until-inspected.</p>
+
+  <footer>
+    (C) Claude-generated · LLM Wiki v223 · openinterpreter/openinterpreter<br>
+    Verdict produced inline + hand-verified (no workflow — the shim overflows subagents). Source hand-fetched; identity/landscape by WebSearch; collision by sanity-anchored hand-grep (collision-clean). Stars page-stated (§37.4) — not a velocity claim. Not source-cloned.
+  </footer>
+
+</div></div>
