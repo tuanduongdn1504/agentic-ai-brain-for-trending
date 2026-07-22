@@ -1,0 +1,173 @@
+<title>Open Lovable — LLM Wiki v224</title>
+<style>
+  :root{
+    --ground:#FBFAF8; --panel:#F4F1EC; --ink:#1C1917; --muted:#6B6560;
+    --accent:#E4570E; --accent-ink:#B8460B; --accent-soft:rgba(228,87,14,.10); --accent-line:rgba(228,87,14,.28);
+    --ok:#2E7D5B; --ok-soft:rgba(46,125,91,.12); --warn:#B4791A; --warn-soft:rgba(180,121,26,.14);
+    --line:rgba(28,25,23,.12); --line-strong:rgba(28,25,23,.20);
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#14110E; --panel:#1E1A16; --ink:#F5F1EC; --muted:#A69E96;
+      --accent:#FB7A3C; --accent-ink:#FB7A3C; --accent-soft:rgba(251,122,60,.12); --accent-line:rgba(251,122,60,.32);
+      --ok:#5FBF93; --ok-soft:rgba(95,191,147,.14); --warn:#E0A63E; --warn-soft:rgba(224,166,62,.16);
+      --line:rgba(245,241,236,.14); --line-strong:rgba(245,241,236,.24);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#FBFAF8; --panel:#F4F1EC; --ink:#1C1917; --muted:#6B6560;
+    --accent:#E4570E; --accent-ink:#B8460B; --accent-soft:rgba(228,87,14,.10); --accent-line:rgba(228,87,14,.28);
+    --ok:#2E7D5B; --ok-soft:rgba(46,125,91,.12); --warn:#B4791A; --warn-soft:rgba(180,121,26,.14);
+    --line:rgba(28,25,23,.12); --line-strong:rgba(28,25,23,.20);
+  }
+  :root[data-theme="dark"]{
+    --ground:#14110E; --panel:#1E1A16; --ink:#F5F1EC; --muted:#A69E96;
+    --accent:#FB7A3C; --accent-ink:#FB7A3C; --accent-soft:rgba(251,122,60,.12); --accent-line:rgba(251,122,60,.32);
+    --ok:#5FBF93; --ok-soft:rgba(95,191,147,.14); --warn:#E0A63E; --warn-soft:rgba(224,166,62,.16);
+    --line:rgba(245,241,236,.14); --line-strong:rgba(245,241,236,.24);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;margin:0}
+  .wrap{max-width:50rem;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1.1rem,4vw,2rem) 4rem}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-ink);font-weight:600}
+  h1{font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.02;letter-spacing:-.02em;font-weight:800;
+    margin:.5rem 0 .35rem;text-wrap:balance}
+  h1 .flame{color:var(--accent)}
+  .tagline{font-size:1.08rem;color:var(--muted);max-width:38ch;text-wrap:balance;margin:0}
+  .rule{height:3px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent) 22%,var(--line) 22%);
+    border:0;margin:1.4rem 0 1.9rem;border-radius:2px}
+  h2{font-size:1.28rem;letter-spacing:-.01em;font-weight:750;margin:2.6rem 0 .9rem;text-wrap:balance}
+  h2 .n{font-family:var(--mono);font-size:.8rem;color:var(--accent-ink);margin-right:.55rem;font-weight:600}
+  p{margin:0 0 1rem;max-width:66ch}
+  a{color:var(--accent-ink)}
+  strong{font-weight:680}
+  code{font-family:var(--mono);font-size:.86em;background:var(--accent-soft);color:var(--accent-ink);
+    padding:.06em .34em;border-radius:4px}
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.1rem;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:.5rem 0 0}
+  .meta div{padding:.7rem .85rem;background:var(--panel);border:.5px solid var(--line)}
+  .meta dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 .2rem}
+  .meta dd{margin:0;font-size:.92rem;font-weight:600;font-variant-numeric:tabular-nums}
+  .lead{font-size:1.06rem}
+  .lead:first-letter{font-size:1em}
+  .pipe{display:flex;flex-direction:column;gap:0;margin:.4rem 0 1rem;border-left:2px solid var(--accent-line);padding-left:0}
+  .step{position:relative;padding:.55rem 0 .85rem 1.4rem}
+  .step::before{content:"";position:absolute;left:-6px;top:.95rem;width:10px;height:10px;border-radius:50%;
+    background:var(--ground);border:2px solid var(--accent)}
+  .step .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);font-weight:600}
+  .step .txt{margin:.15rem 0 0;font-size:.96rem;color:var(--ink)}
+  .step .txt b{font-weight:680}
+  table{width:100%;border-collapse:collapse;margin:.3rem 0 1rem;font-size:.94rem}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  td:first-child{font-weight:650;white-space:nowrap}
+  .call{font-family:var(--mono);font-weight:700;font-size:.82rem;padding:.1rem .45rem;border-radius:5px;letter-spacing:.02em}
+  .call.pass{color:var(--ok);background:var(--ok-soft)}
+  .call.fail{color:var(--muted);background:rgba(107,101,96,.13)}
+  .call.strong{color:var(--accent-ink);background:var(--accent-soft)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 0}
+  .card.accent{border-left:3px solid var(--accent)}
+  .card.warn{border-left:3px solid var(--warn)}
+  .card h3{margin:0 0 .5rem;font-size:1rem;letter-spacing:-.01em}
+  .card p{margin:0 0 .5rem;font-size:.94rem}
+  .card p:last-child{margin-bottom:0}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 0}
+  .chip{font-family:var(--mono);font-size:.74rem;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--line-strong);
+    color:var(--ink);background:var(--ground);font-variant-numeric:tabular-nums}
+  .chip.hot{border-color:var(--accent-line);color:var(--accent-ink);background:var(--accent-soft)}
+  .chip.ok{border-color:transparent;color:var(--ok);background:var(--ok-soft)}
+  ul{margin:.2rem 0 1rem;padding-left:1.15rem}
+  li{margin:.3rem 0;max-width:64ch}
+  .foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+  .foot code{background:transparent;color:var(--muted);padding:0}
+  .star{color:var(--warn)}
+  @media (prefers-reduced-motion:no-preference){a{transition:color .15s}}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">LLM Wiki · v224 · goal-aligned include</div>
+    <h1>Open <span class="flame">Lovable</span> <span style="font-size:.5em">🔥</span></h1>
+    <p class="tagline">Clone and recreate any website as a modern React app in seconds — the Firecrawl team's open-source answer to Lovable.dev.</p>
+    <hr class="rule">
+
+    <dl class="meta">
+      <div><dt>Repo</dt><dd>firecrawl/open-lovable</dd></div>
+      <div><dt>Author</dt><dd>Firecrawl Inc. — not Anthropic</dd></div>
+      <div><dt>License</dt><dd>MIT</dd></div>
+      <div><dt>Language</dt><dd>TypeScript 94.9%</dd></div>
+      <div><dt>Stars <span style="font-weight:400;text-transform:none;letter-spacing:0">(page-stated)</span></dt><dd><span class="star">★</span> ~28k / 5.3k forks</dd></div>
+      <div><dt>Tier</dt><dd>T5 · Agent-as-application</dd></div>
+    </dl>
+  </header>
+
+  <p class="lead">Give it a <strong>website URL</strong> or a chat prompt. <strong>Firecrawl</strong> scrapes the target into clean, LLM-ready content; an LLM of your choosing — <strong>Claude, GPT, Gemini, or Groq</strong> — generates a modern <strong>React + TypeScript + Tailwind + shadcn/ui</strong> app from it; the generated code runs live in a secure <strong>Vercel or E2B sandbox</strong>; you chat to iterate and download the code you own. It is the corpus's first <strong>prompt-to-app / AI-app-builder</strong> subject — the <em>"clone any website"</em> flavor of the Lovable / v0 / Bolt.new category — and, in Firecrawl's own words, <em>"an example app made by the Firecrawl team."</em></p>
+
+  <h2><span class="n">01</span>How it works</h2>
+  <div class="pipe">
+    <div class="step"><div class="lbl">Scrape</div><p class="txt"><b>Firecrawl</b> renders the target site (handles JS + anti-bot) → clean HTML / structured LLM-ready markdown.</p></div>
+    <div class="step"><div class="lbl">Generate</div><p class="txt">The chosen LLM writes a React 18+ / TypeScript / Tailwind / shadcn/ui app from that content.</p></div>
+    <div class="step"><div class="lbl">Edit</div><p class="txt"><b>Morph "Fast Apply"</b> (optional) applies incremental chat edits fast — not a full regeneration.</p></div>
+    <div class="step"><div class="lbl">Sandbox</div><p class="txt">The code runs + previews live in an isolated <b>Vercel Sandbox (default)</b> or <b>E2B</b> — untrusted generated code never touches your machine.</p></div>
+    <div class="step"><div class="lbl">Iterate / own</div><p class="txt">Chat to refine; download the zipped React project and run it locally. You own the code.</p></div>
+  </div>
+  <p style="font-size:.88rem;color:var(--muted)">The <em>builder</em> is a Next.js + React + Tailwind app at <code>localhost:3000</code>; requires a Firecrawl API key + ≥1 LLM provider key. <strong>MIT</strong> — no productization blocker, unlike Firecrawl's own AGPL-3.0 core.</p>
+
+  <h2><span class="n">02</span>Verdict — include, goal-aligned 3/4</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Criterion</th><th>Call</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>(a) Anthropic / peer</td><td><span class="call fail">FAIL</span></td><td>Firecrawl Inc. (the Firecrawl team), not Anthropic. §41 — #19 19a returning author, 2nd Firecrawl-org subject after firecrawl v214.</td></tr>
+      <tr><td>(b) Goal relevance</td><td><span class="call strong">STRONG</span></td><td>An autonomous LLM-driven software-<em>generation</em> system = Goal #1 core; Claude-capable; the canonical OSS AI-app-builder reference. Keys the tier. <em>STRONG-not-STRONGEST</em> — a Firecrawl example/demo app + a website-cloning vertical + Claude 1-of-5 providers (MODERATE reviewable).</td></tr>
+      <tr><td>(c) Completeness</td><td><span class="call strong">STRONG</span></td><td>Real ~28k★ MIT Next.js pipeline, multi-provider, Vercel/E2B sandboxes, Morph Fast-Apply. Caveats: "example app"; NOT source-cloned; hard parts upstream (Firecrawl / LLM / sandbox); stars page-stated → not #52.</td></tr>
+      <tr><td>(d) Connectedness</td><td><span class="call strong">STRONG</span></td><td>firecrawl v214 (same-org dependency, NOT #57) · the AI-app-builder category · provider-agnostic seam (#84 84c) · Vercel/E2B code-sandbox · structured-surface thread · hireui (Goal #2).</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="n">03</span>Pattern outcome — a new §C standalone (leaning mint)</h2>
+  <div class="card accent">
+    <h3>Open-Source AI App-Builder — Chat/Website-to-Running-App Generator with Live Sandbox Preview</h3>
+    <p><em>The Lovable / v0 / Bolt.new / bolt.diy class.</em> <strong>N=1 · CORPUS-FIRST for the surface, NOT world-first.</strong> A genuinely-distinct, corpus-unrepresented capability — a <strong>new adjacent cluster</strong> (prompt-to-app builders), sibling to but distinct from the coding-agent-products cluster (Kilo Code v177 / grok-build v215 / openinterpreter v223), which help you code in an <em>existing</em> repo. open-lovable generates a whole running app.</p>
+    <p class="chips">
+      <span class="chip hot">§C 46 → 47</span>
+      <span class="chip">surface ≈53 → ≈54</span>
+      <span class="chip">counts 46 / 11 unchanged</span>
+    </p>
+  </div>
+  <div class="card warn">
+    <h3>⚠️ NO-MINT alternative — recorded, reviewable</h3>
+    <p>"A Firecrawl example/demo app + a website-cloning vertical in a populated, non-world-first category → a corpus-knowledge data-point on the firecrawl v214 showcase, not a category-defining mint" (the lobehub v222 domain-not-capability + awesome-llm-apps v201 fame-≠-mint discipline). <strong>Leaned MINT</strong> (distinct, corpus-first, a working tool not a collection); the "it's a demo" reading is defensible and on record. <strong>Flagged to the overdue ~v221 audit.</strong></p>
+  </div>
+
+  <h2><span class="n">04</span>Streak &amp; standing</h2>
+  <p class="chips">
+    <span class="chip ok">GA:82 · OG:13 [7 ov]</span>
+    <span class="chip">5 consecutive GA post-v219</span>
+    <span class="chip">§35 CLEAR</span>
+    <span class="chip">window {v222·v223·v224} = 0 OG</span>
+  </p>
+
+  <h2><span class="n">05</span>Pilot — read the architecture, don't adopt the product</h2>
+  <p>On-goal (Goal #1) as a reference architecture + a fast prototype/internal-tool builder — but <strong>NOT a hireui component</strong>. hireui is a hand-built recruitment SaaS, not a prompt-to-app'd one.</p>
+  <p><strong>⭐ One-thing path — A1 → C11 → B5:</strong></p>
+  <ul>
+    <li><strong>A1</strong> — read the scrape → LLM → codegen → sandbox loop + the multi-provider seam (zero install).</li>
+    <li><strong>C11</strong> — <code>pnpm dev</code> with your Firecrawl + Claude keys against a public site to prove the loop (generated code runs in the sandbox, not on your machine).</li>
+    <li><strong>B5</strong> — borrow the <strong>provider-agnostic LLM seam</strong> into hireui's first-LLM-feature / vendor-seam spec (composes with meetily v196 · AIRI v210 <code>xsAI</code> · lobehub v222 · the mosh-ai A2 seam).</li>
+  </ul>
+  <p style="font-size:.9rem;color:var(--muted)"><strong>Fence:</strong> install-snapshot · the Firecrawl API egresses the scraped site to Firecrawl's cloud → public sites only, never candidate data · BYO keys, never a live account first-run · generated code runs in the Vercel/E2B sandbox · NOT source-cloned → treat as untrusted-until-inspected · MIT = safe to borrow (unlike firecrawl's AGPL core) · hireui stays hand-built per its CONSTITUTION.</p>
+
+  <div class="foot">
+    <p>Verdict produced <strong>inline + hand-verified</strong> per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows subagents; the v200→v223 self-throttle). Source hand-fetched (repo page + raw README + Firecrawl's tutorial); identity + landscape by WebSearch; collision by sanity-anchored hand-grep of <code>_state/</code> + <code>_patterns/</code> + <code>03 Projects/</code> — clean (every "lovable" hit is incidental; no prior subject). ⚠️ NOT source-cloned.</p>
+    <p>Shipped on branch <code>wiki/v224-open-lovable</code> off the v223 tip (<code>a090d50</code>); not auto-merged — operator reviews + merges.</p>
+  </div>
+
+</div>
