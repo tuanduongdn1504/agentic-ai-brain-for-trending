@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i-have-adhd — LLM Wiki v225</title>
+<style>
+  :root{
+    --bg:#faf9f7; --fg:#1c1b19; --muted:#6b6a66; --card:#ffffff; --line:#e7e5e1;
+    --accent:#3a6ea5; --good:#2e7d4f; --warn:#b06a1a; --fail:#a23b3b; --chip:#f0eee9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16181c; --fg:#e8e6e2; --muted:#9a988f; --card:#1e2126; --line:#2c3038;
+      --accent:#7aa8d6; --good:#5fbf87; --warn:#e0a05a; --fail:#e08585; --chip:#262a31; }
+  }
+  :root[data-theme="dark"]{ --bg:#16181c; --fg:#e8e6e2; --muted:#9a988f; --card:#1e2126; --line:#2c3038; --accent:#7aa8d6; --good:#5fbf87; --warn:#e0a05a; --fail:#e08585; --chip:#262a31; }
+  :root[data-theme="light"]{ --bg:#faf9f7; --fg:#1c1b19; --muted:#6b6a66; --card:#ffffff; --line:#e7e5e1; --accent:#3a6ea5; --good:#2e7d4f; --warn:#b06a1a; --fail:#a23b3b; --chip:#f0eee9; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+  .wrap{max-width:880px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+  .kick{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:30px;margin:6px 0 4px;line-height:1.15}
+  h1 .repo{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:19px;color:var(--accent);font-weight:600}
+  .tag{font-style:italic;color:var(--muted);margin:8px 0 0}
+  .chips{margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:12.5px;color:var(--fg)}
+  .chip.good{color:var(--good)} .chip.warn{color:var(--warn)} .chip.fail{color:var(--fail)}
+  h2{font-size:20px;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  p{margin:10px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:var(--chip);padding:1px 5px;border-radius:5px}
+  pre{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto}
+  pre code{background:none;padding:0}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;display:block;overflow-x:auto}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--chip);font-weight:600}
+  ol,ul{margin:10px 0;padding-left:22px} li{margin:5px 0}
+  .score{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+  .sc{flex:1 1 180px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .sc .lab{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .sc .val{font-size:17px;font-weight:700;margin-top:2px}
+  .sc.fail .val{color:var(--fail)} .sc.strong .val{color:var(--good)}
+  .star{color:var(--warn);font-weight:700}
+  .muted{color:var(--muted)}
+  .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kick">LLM Wiki · v225 · 2026-07-23</div>
+  <h1><span class="repo">ayghri/i-have-adhd</span></h1>
+  <p class="tag">"A skill for your coding agent to stop it from burying the answer. ADHD-friendly output."</p>
+  <div class="chips">
+    <span class="chip good">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="chip">NO MINT</span>
+    <span class="chip">counts 46 / 11 UNCHANGED</span>
+    <span class="chip">Tier T1 · Skill</span>
+    <span class="chip good">Streak GA:83</span>
+    <span class="chip">§35 CLEAR</span>
+  </div>
+</header>
+
+<p><strong>What it is:</strong> a cross-harness <strong>agent skill</strong> — one canonical <code>skills/i-have-adhd/SKILL.md</code> distributed as a Claude-Code-first plugin (and to Codex / Zed / Hermes / Pi / Gemini CLI / Antigravity / Cursor / OpenCode / Amp) — that reformats the coding agent's <em>own conversational output</em> so an ADHD reader can act on it. It shapes <strong>how the agent talks to you</strong>, not the code or UI it produces. MIT · ~8.8k★ · no releases · Python 94.3% (evals + tests + hooks + scripts) / Shell 5.7% · author <strong>Ayoub Ghriss</strong> (disclosed individual ML researcher, <strong>NOT Anthropic</strong>).</p>
+
+<div class="card"><span class="star">⚠️</span> <strong>NOT source-cloned.</strong> Built from the rendered repo page + raw README + <code>SKILL.md</code> + <code>INSTALL.md</code> + repo tree (the ~205K CLAUDE.md shim overflows subagents → the v200→v224 self-throttle, so no deep-dive workflow). The Python <code>evals/</code>/<code>hooks/</code>/<code>scripts/</code> rigor is tree/doc-stated, not source-verified.</p></div>
+
+<h2>Four-criterion score</h2>
+<div class="score">
+  <div class="sc fail"><div class="lab">(a) Anthropic</div><div class="val">FAIL</div><div class="muted">Ayoub Ghriss, disclosed individual, not Anthropic. §41. #19 19a first ayghri author.</div></div>
+  <div class="sc strong"><div class="lab">(b) Goal-relevance</div><div class="val">STRONG · keys tier</div><div class="muted">Claude-Code-first agent-skill on the exact substrate + immediately, zero-risk pilotable. ⚠️ MODERATE-reviewable (narrow output-style skill).</div></div>
+  <div class="sc strong"><div class="lab">(c) Substance</div><div class="val">STRONG</div><div class="muted">Neurocognitive grounding + eval harness + tests + CI + i18n + cross-harness. Caveat: core = a single ruleset; not source-cloned; page-stated stars.</div></div>
+  <div class="sc strong"><div class="lab">(d) Cross-refs</div><div class="val">STRONG</div><div class="muted">Agent-skills ecosystem · ponytail v168 species · Pattern #88 · Claude Code native output styles · accessibility thread.</div></div>
+</div>
+
+<h2>The 10 rules (the core artifact)</h2>
+<p><span class="muted">Output "shaped for ADHD cognition, not merely brief" — rests on 5 neurocognitive facts (small working memory, understanding↔doing friction, startup difficulty, uniform time perception, dopamine scarcity). Loosely adapted from Ramsay &amp; Rostain's <em>Adult ADHD Tool Kit</em>.</span></p>
+<ol>
+  <li><strong>Lead with action</strong> — first line is doable now; command/path before prose.</li>
+  <li><strong>Number multi-step tasks</strong> — each step one bounded action; cut trivial steps.</li>
+  <li><strong>End with a concrete next action</strong> — ONE thing doable in under two minutes.</li>
+  <li><strong>Suppress tangents</strong> — finish the first issue; offer others separately.</li>
+  <li><strong>Restate state every turn</strong> — reader can't hold multi-step context between messages.</li>
+  <li><strong>Specific time estimates</strong> — "15 minutes" beats "some work."</li>
+  <li><strong>Make wins visible</strong> — show what works concretely.</li>
+  <li><strong>Matter-of-fact on errors</strong> — state cause and fix directly.</li>
+  <li><strong>Cap lists at 5</strong> — split into "now" vs "later."</li>
+  <li><strong>No preamble, recap, or pleasantries.</strong></li>
+</ol>
+<p class="muted">Plus explicit override conditions (explain requests, destructive actions, debug spirals, ambiguity). Trigger <code>/i-have-adhd</code>; always-on via <code>touch ~/.claude/.i-have-adhd-always</code> (a SessionStart hook).</p>
+
+<h2>Pattern outcome — NO MINT</h2>
+<div class="card">
+<p>i-have-adhd is an <strong>agent output / communication-STYLE skill</strong> — a community, cross-harness implementation of a capability <strong>Claude Code already ships natively</strong> (output styles: Default / Explanatory / Learning + custom <code>/output-style:new</code>). That's a <strong>form-factor within an existing genre</strong>, not a new primitive. It's the <strong>ponytail v168</strong> agent-behavior-ruleset <em>species</em> on the conversational axis (ponytail = the CODE the agent writes), and its removal rules read as a clean <strong>Pattern #88</strong> (88b named-rules + 88c machinery) instance in a NEW conversational-output sub-domain.</p>
+<p>Corpus-first for the conversational-output-shaping surface + the corpus's <strong>FIRST accessibility/neurodivergence subject</strong> = data-points, NOT §C mints (domain-not-capability + form-factor + NOT world-first + §28). <strong>Counts 46/11 UNCHANGED; §C live standalones 47 unchanged.</strong></p>
+<p><span class="star">⚠️</span> A §C-standalone MINT ("Agent Conversational-Output-Style-Shaping Skill") is recorded as the operator/audit-reviewable ALTERNATIVE — LEANED NO-MINT, flagged to the overdue ~v221+ audit. Either way counts stay 46/11.</p>
+</div>
+
+<h2>Pilot — read-only-safe, immediately usable</h2>
+<p>The lowest-risk-to-apply pilot since agency-agents v185. It only changes how Claude talks to you.</p>
+<pre><code>claude plugin marketplace add ayghri/i-have-adhd
+claude plugin install i-have-adhd@i-have-adhd
+/i-have-adhd</code></pre>
+<p><strong>⭐ A1 → C11 → B5:</strong> read the 10 rules → install into your own Claude Code + try one session → distil the rules into a <code>05 Skills/</code> output-discipline note (composes with the vault's "verify + suggested-next-action" discipline). <strong>Fence:</strong> install-snapshot before enabling the always-on hook · inspect <code>plugin.json</code> + the hook · pin a commit (the marketplace fetch auto-updates) · MIT safe-to-borrow-the-rules-by-hand · <strong>NOT a hireui component</strong> (operator-experience skill, not a product feature).</p>
+
+<h2>Non-claims</h2>
+<ul>
+  <li>NOT #52 (~8.8k★ / 0 releases page-stated §37.4)</li>
+  <li>NOT #57 (cites Ramsay &amp; Rostain + names harnesses as install targets; no corpus-subject influence)</li>
+  <li>NOT #18 B1-MCP (a skill; ships no MCP server)</li>
+  <li>NOT world-first (Claude Code native output styles precede)</li>
+  <li>NOT a skill collection · NOT Domain-Vertical · NOT a new top-level pattern (max #85) · NOT source-cloned</li>
+</ul>
+
+<div class="foot">
+  Verdict INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> · collision-clean (0 i-have-adhd / ayghri / \badhd\b hits; ponytail + hallmark/#88 anchors hit) · Shipped on <code>wiki/v225-i-have-adhd</code> off the v224 tip <code>ec42c19</code>. Not auto-merged.
+</div>
+</div>
+<script>
+  // honor a viewer theme toggle if one stamps data-theme; default = prefers-color-scheme
+</script>
+</body>
+</html>
