@@ -1,0 +1,339 @@
+<title>code-review-graph — LLM Wiki v226</title>
+<style>
+  :root {
+    --bg: #f6f8f8;
+    --panel: #ffffff;
+    --panel-2: #eef2f2;
+    --ink: #15201f;
+    --ink-soft: #4a5a58;
+    --ink-faint: #74827f;
+    --line: #d9e0df;
+    --accent: #0e6f6b;
+    --accent-soft: #0e6f6b1a;
+    --accent-ink: #0a4a47;
+    --amber: #9a6b00;
+    --amber-soft: #9a6b0014;
+    --edge: #0e6f6b;
+    --node: #0e6f6b;
+    --radius: 10px;
+    --maxw: 60rem;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c1211;
+      --panel: #121a19;
+      --panel-2: #172221;
+      --ink: #e5ecea;
+      --ink-soft: #a7b6b3;
+      --ink-faint: #6f817e;
+      --line: #24322f;
+      --accent: #3fb8b0;
+      --accent-soft: #3fb8b01f;
+      --accent-ink: #7fd8d1;
+      --amber: #d6a747;
+      --amber-soft: #d6a74714;
+      --edge: #2f7f7a;
+      --node: #45b3ab;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c1211; --panel: #121a19; --panel-2: #172221; --ink: #e5ecea;
+    --ink-soft: #a7b6b3; --ink-faint: #6f817e; --line: #24322f; --accent: #3fb8b0;
+    --accent-soft: #3fb8b01f; --accent-ink: #7fd8d1; --amber: #d6a747; --amber-soft: #d6a74714;
+    --edge: #2f7f7a; --node: #45b3ab;
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f8f8; --panel: #ffffff; --panel-2: #eef2f2; --ink: #15201f;
+    --ink-soft: #4a5a58; --ink-faint: #74827f; --line: #d9e0df; --accent: #0e6f6b;
+    --accent-soft: #0e6f6b1a; --accent-ink: #0a4a47; --amber: #9a6b00; --amber-soft: #9a6b0014;
+    --edge: #0e6f6b; --node: #0e6f6b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.62;
+    font-size: 17px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.4rem 5rem; }
+
+  /* ---- header ---- */
+  header.top {
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--panel-2), var(--bg));
+  }
+  header.top canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; }
+  .top-inner { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 3.2rem 1.4rem 2.4rem; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-ink); margin: 0 0 0.9rem;
+    display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+  }
+  .eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.04; margin: 0 0 0.5rem; letter-spacing: -0.02em; text-wrap: balance; font-weight: 680; }
+  h1 .mono { font-family: var(--mono); font-weight: 600; font-size: 0.92em; }
+  .tagline { font-size: 1.22rem; color: var(--ink-soft); margin: 0 0 1.6rem; max-width: 40ch; font-style: italic; }
+  .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .badge {
+    font-family: var(--mono); font-size: 0.74rem; padding: 0.32rem 0.66rem;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--panel);
+    color: var(--ink-soft); letter-spacing: 0.01em; white-space: nowrap;
+  }
+  .badge.hi { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-soft); }
+  .badge.warn { border-color: color-mix(in srgb, var(--amber) 45%, var(--line)); color: var(--amber); background: var(--amber-soft); }
+
+  /* ---- sections ---- */
+  main { padding-top: 2.6rem; }
+  section { margin: 0 0 2.6rem; }
+  h2 {
+    font-size: 0.82rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--accent-ink); margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 0.6rem;
+  }
+  h2 .n { color: var(--ink-faint); font-size: 0.9em; }
+  h3 { font-size: 1.12rem; margin: 1.6rem 0 0.4rem; letter-spacing: -0.01em; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent-ink); text-underline-offset: 2px; }
+  strong { font-weight: 660; }
+  code {
+    font-family: var(--mono); font-size: 0.86em; background: var(--panel-2);
+    padding: 0.08em 0.36em; border-radius: 5px; border: 1px solid var(--line);
+  }
+  .lede { font-size: 1.08rem; color: var(--ink); }
+  ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  li { margin: 0.3rem 0; }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.3rem 1.4rem; margin: 0 0 1.1rem;
+  }
+  .card.accent { border-left: 3px solid var(--accent); }
+  .card.warn { border-left: 3px solid var(--amber); background: var(--amber-soft); }
+
+  .kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.2rem; font-size: 0.95rem; }
+  .kv dt { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.12rem; }
+  .kv dd { margin: 0; }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 0 0 1.1rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-faint); background: var(--panel-2); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.hi td { background: var(--accent-soft); }
+  .crit td:first-child { font-family: var(--mono); font-weight: 600; white-space: nowrap; }
+  .verd { font-family: var(--mono); font-weight: 600; }
+  .verd.pass { color: var(--accent-ink); }
+  .verd.fail { color: var(--amber); }
+
+  .grade {
+    display: inline-flex; align-items: baseline; gap: 0.5rem; font-family: var(--mono);
+    font-size: 0.9rem; padding: 0.5rem 0.85rem; border: 1px solid var(--line);
+    border-radius: 8px; background: var(--panel-2); margin: 0.2rem 0 1rem;
+  }
+  .grade b { color: var(--accent-ink); }
+
+  .star { color: var(--accent); }
+  .foot { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--ink-faint); font-family: var(--mono); line-height: 1.7; }
+  .path { color: var(--ink-faint); font-family: var(--mono); font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) { header.top canvas { display: none; } }
+  @media (max-width: 34rem) { .kv { grid-template-columns: 1fr; gap: 0.1rem 0; } .kv dt { padding-top: 0.6rem; } body { font-size: 16px; } }
+</style>
+
+<header class="top">
+  <canvas id="graph" aria-hidden="true"></canvas>
+  <div class="top-inner">
+    <p class="eyebrow"><span class="dot"></span> LLM Wiki v226 &nbsp;·&nbsp; 2026-07-25 &nbsp;·&nbsp; Tier T2 Service</p>
+    <h1><span class="mono">code-review-graph</span></h1>
+    <p class="tagline">“Stop burning tokens. Start reviewing smarter.”</p>
+    <div class="badges">
+      <span class="badge hi">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="badge">(a) FAIL · (b) STRONG · (c) STRONG · (d) STRONG</span>
+      <span class="badge hi">NO MINT — #23 N=4 → N=5</span>
+      <span class="badge">streak GA:84 · OG:13</span>
+      <span class="badge">counts 46 / 11 unchanged</span>
+      <span class="badge warn">NOT source-cloned · stars page-stated §37.4</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main>
+
+  <section>
+    <p class="lede"><strong><code>tirth8205/code-review-graph</code></strong> — a self-hosted, local, pip-installable <strong>code-intelligence engine</strong> that parses a whole codebase into a <strong>structural graph</strong> (Tree-sitter → functions/classes/imports as nodes; calls/inheritance/tests as edges), keeps it fresh with <strong>incremental sub-2s updates</strong>, and serves an AI coding agent <strong>precise, minimal context via MCP</strong> — so the agent reads only what matters for a review instead of the whole corpus.</p>
+    <p>Structurally it is the <strong>5th instance</strong> of the vault's CONFIRMED Library-vocab <strong>#23</strong> — “Pre-Indexed Read-Only Code Knowledge-Graph Queried by Coding Agents via MCP” — and the closest living twin of <strong>codebase-memory-mcp v172</strong>, differing mainly in its store (in-memory <code>networkx</code> rather than SQLite) and a richer analysis + delivery surface.</p>
+
+    <div class="card">
+      <dl class="kv">
+        <dt>Author</dt><dd><strong>Tirth Kanani</strong> (London) — AI/ML engineer &amp; technical founder; Univ. of Birmingham HCI/AI Lab; Epiminds Multi-Agent Hackathon 2025 winner; founder of CrumbleUX; author of MERIT / Jailbreak-Eval / GraphMinds. <strong>Not Anthropic.</strong></dd>
+        <dt>License</dt><dd>MIT</dd>
+        <dt>Version</dt><dd><code>2.3.7</code> · Python ≥ 3.10 · <code>pip install code-review-graph</code></dd>
+        <dt>Stars</dt><dd>~26.2k ★ / ~2.5k forks <span class="path">(page-stated §37.4 — not a velocity claim)</span></dd>
+        <dt>Topics</dt><dd><span class="path">ai-coding · claude · claude-code · code-review · graphrag · incremental · knowledge-graph · llm · mcp · python · static-analysis · tree-sitter</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">01</span> The problem it solves</h2>
+    <p>An AI reviewer that reads files one-by-one burns huge token budgets and still misses cross-file impact. The bet: pre-compute the code's <em>structure</em> once into a graph, then answer an agent's review questions — <em>“what breaks if I change this?”, “who calls this?”, “which tests cover it?”</em> — by traversing the graph and returning only the relevant slice. That is the exact “token-reduction, 100% local, read-only graph via MCP” shape of Library-vocab #23.</p>
+    <div class="card accent">
+      <strong>Headline benchmark (README, primary source):</strong> <strong>~82× median per-question token reduction</strong> (range 38×–528×) across 6 real repositories.
+      <p style="margin:0.7rem 0 0; font-size:0.9rem; color:var(--ink-soft)">⚠️ The author's <em>profile</em> summary states a different metric — “6.8× average context compression across 23 languages” — an aggregate framing, not the per-question figure. README primary; both page-stated §37.4; neither grounds a #52 claim.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> Architecture <span class="path" style="text-transform:none;letter-spacing:0">(source-verified from pyproject.toml v2.3.7 + README)</span></h2>
+    <p><strong>Parse → Graph → Watch → Serve.</strong> Tree-sitter (<code>tree-sitter</code> + <code>tree-sitter-language-pack</code>) → AST → an <strong>in-memory <code>networkx</code> graph</strong> <span class="path">(NOT SQLite — the variant vs codebase-memory-mcp v172)</span> → <code>watchdog</code> re-parses only changed files (&lt;2s) → a <strong><code>fastmcp</code>-based MCP server</strong> (<code>mcp</code>+<code>fastmcp</code>) exposes <strong>30 MCP tools</strong> so the agent queries the graph, not the files.</p>
+
+    <h3>Blast-radius / impact analysis — the distinctive feature</h3>
+    <p>When files change it traces callers, dependents, and affected tests. Benchmarked, and unusually honest about it:</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Average F1 (6 repos)</td><td class="num">0.714</td><td>the reported headline</td></tr>
+          <tr><td>Average Precision</td><td class="num">0.578</td><td>the meaningful number</td></tr>
+          <tr><td>Recall</td><td class="num">1.0</td><td>graph-derived upper bound, “circular by construction” (self-disclosed)</td></tr>
+          <tr><td>F1 range</td><td class="num">0.609 – 0.864</td><td>gin → httpx</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Optional analysis layers &amp; delivery (verified extras)</h3>
+    <ul>
+      <li><strong>Community detection</strong> via <code>igraph</code> (Leiden / betweenness-centrality) — module map + hub nodes.</li>
+      <li><strong>Semantic search</strong> via <code>sentence-transformers</code> — an <em>optional</em> vector layer on top of the graph → graph-<em>primary</em> with a bolt-on vector option (so it stays a #23 <em>graph</em> instance; the vector-first claude-context v40 is the class #23 excludes).</li>
+      <li><strong>Enrichment</strong> via <code>jedi</code>; <strong>wiki-generation</strong> via a <em>local</em> <code>ollama</code> model (LLM-Wiki-pattern-for-code — an openwiki v195 / this-vault cross-ref).</li>
+      <li><strong>Delivery:</strong> pip CLI + <code>crg-daemon</code> multi-repo daemon + VS Code extension + GitHub Action + export to GraphML / Neo4j Cypher / Obsidian / SVG.</li>
+      <li><strong>Harnesses (15+):</strong> Claude Code (first-class), Codex, CodeBuddy, Cursor, Windsurf, Zed, Continue, OpenCode, Antigravity, Gemini CLI, Qwen, Qoder, Kiro, GitHub Copilot &amp; Copilot CLI.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> The #23 family — where it sits</h2>
+    <p>CONFIRMED Library-vocab <strong>#23</strong>: a coding agent queries a pre-built read-only graph of the codebase via MCP (symbols/edges/call-chains; tree-sitter/SQLite/Cypher/LSP variants) instead of reading files — token-reduction, 100% local. Promoted at the v182 audit at N=4; code-review-graph is the 5th instance.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>N</th><th>Wiki</th><th>Instance</th><th>Store</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>graphify v16</td><td>code → knowledge graph → Claude Code (MCP)</td><td>graph</td></tr>
+          <tr><td class="num">2</td><td>GitNexus v33</td><td>codebase → knowledge graph · 16 MCP tools</td><td>graph</td></tr>
+          <tr><td class="num">3</td><td>codegraph v70</td><td>code knowledge-graph via MCP</td><td>graph</td></tr>
+          <tr><td class="num">4</td><td>codebase-memory-mcp v172</td><td>SQLite graph + Cypher + LSP; ~99.2% token reduction</td><td>SQLite</td></tr>
+          <tr class="hi"><td class="num">5</td><td><strong>code-review-graph v226</strong></td><td>Tree-sitter → networkx graph; blast-radius (0.714 F1); ~82× reduction; 30 MCP tools; 15+ harnesses</td><td>networkx</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Distinguishing facets — recorded, NOT separately minted</strong> (anti-“draw-the-circle,” the camofox v179 / geti v213 discipline): igraph community detection · benchmarked blast-radius · optional hybrid vector layer · 40+-language breadth · GraphML/Neo4j/Obsidian/SVG export · CLI + VS Code + GitHub Action + daemon delivery. <strong>Adjacent, not this family:</strong> claude-context v40 (vector-first) · fff v194 (lexical) · agentmemory v66 (conversational memory) · devspace v171 (manufactures an agent).</p>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> The four criteria</h2>
+    <div class="grade">Verdict: <b>GOAL-ALIGNED INCLUDE 3/4</b> · cleanly GA via §31, no §40 backstop</div>
+    <div class="tablewrap">
+      <table class="crit">
+        <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>(a)</td><td class="verd fail">FAIL</td><td>Tirth Kanani — disclosed individual, not Anthropic, no (a)-7 source. §41: no notability/credential/hackathon inference rescues (a). First <code>tirth8205</code> author → #19 19a.</td></tr>
+          <tr><td>(b)</td><td class="verd pass">STRONG</td><td>An MCP code-intelligence server for coding agents (Claude Code first-class) whose whole raison d'être is token-reduction → dead-center on the agent substrate + the <em>claude-api-cost-optimization</em> pilot thread + CC-memory-systems + directly pilotable into the vault &amp; hireui (already GitNexus-first, a #23-family tool). STRONG-not-STRONGEST: third-party, read-only augmentation, Claude 1-of-15+ harnesses, an established-pattern instance.</td></tr>
+          <tr><td>(c)</td><td class="verd pass">STRONG</td><td>Real pip package v2.3.7 (mcp+fastmcp, tree-sitter-language-pack, networkx, watchdog, igraph, sentence-transformers, jedi, ollama), 30 MCP tools, benchmarked blast-radius, multi-surface delivery, MIT. Caveats: NOT source-cloned; stars page-stated §37.4; metric framing; hard parts library-backed → an orchestration layer.</td></tr>
+          <tr><td>(d)</td><td class="verd pass">STRONG</td><td>Direct #23 N=4→N=5 (twin of codebase-memory-mcp v172) + claude-context v40 contrast + fff v194 sibling + #18 B1-MCP + Library-vocab #20 (QUALIFIED-ADJACENT) + the cost + CC-memory threads + the Obsidian/wiki-gen cross-ref to this vault.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Pattern outcome — NO MINT</h2>
+    <div class="card accent">
+      <p style="margin:0"><strong>N=4 → N=5 instance-strengthening of CONFIRMED Library-vocab #23.</strong> The cleanest, strongest instance of that family in the run — a near-carbon-copy of the codebase-memory-mcp v172 species (MCP-native, Tree-sitter, token-reduction, 100% local), in a networkx-in-memory variant. The distinguishing facets are within-species variation + a richer profile, not a new primitive.</p>
+      <p style="margin:0.8rem 0 0"><strong>Counts UNCHANGED: 46 patterns / 11 CONFIRMED.</strong> §C live standalones <strong>47 unchanged</strong> (strengthening a CONFIRMED item adds no §C row). No reviewable §C-mint alternative is close — unlike v224/v225, this is an unambiguous instance-strengthening. Nothing to over-mint.</p>
+    </div>
+    <p><strong>Secondary (recorded, NOT minted):</strong> #18 B1-MCP (one fastmcp server, 15+ clients — no double-count with #23) · #84 84c cross-harness (no N-bump) · Library-vocab #20 Token-Economy-Quantification QUALIFIED-ADJACENT (N stays 4) · #19 19a first Tirth-Kanani author · #66 install BENIGN (<code>pip</code>, no <code>curl|bash</code>; local Ollama wiki-gen). <strong>NON-claims:</strong> NOT #52 · NOT corpus-first · NOT a new §C standalone · NOT #57 · NOT world-first · NOT SQLite-based · NOT source-cloned.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span> Pilot <span class="path" style="text-transform:none;letter-spacing:0">— on-goal, LOW-risk, directly pilotable</span></h2>
+    <p>The fff v194 / codebase-memory-mcp v172 class — and arguably a <em>stronger</em> pilot for you: pure-<code>pip install</code> (no compiled binary, no remote tunnel), MIT, read-only, and its value prop maps straight onto your live cost-optimization thread. hireui is already GitNexus-first (a #23-family tool) → a genuine head-to-head is available.</p>
+    <div class="card">
+      <p style="margin:0 0 0.6rem"><span class="star">⭐</span> <strong>One-thing path: A1 → C11 → D16</strong></p>
+      <ul style="margin:0">
+        <li><strong>A1</strong> — read the blast-radius + MCP-tool design (zero install).</li>
+        <li><strong>C11</strong> — <code>pip install</code> + <code>build</code> against a scratch/vault clone, register into your own Claude Code, and <strong>MEASURE the token delta</strong> on 3 real review questions (pair with the ccusage → OTel layer so it's <em>your</em> number).</li>
+        <li><strong>D16</strong> — <strong>bake it off against GitNexus v33</strong> on a hireui staging clone (read-only, <code>agent-*</code> branch, per hireui's CONSTITUTION): token delta + answer quality + blast-radius accuracy → keep GitNexus, switch, or run both.</li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <strong>Fence.</strong> install-snapshot + <code>pip</code>-security-check + scratch/vault-clone or hireui-<strong>staging</strong> first (never prod) + review the 30 MCP tools before wiring in + single-client (Claude Code only) + MEASURE before promoting + prefer the local <code>embeddings</code> extra over cloud <code>google-embeddings</code> + pin <code>v2.3.7</code> + NOT source-cloned → treat as untrusted-until-inspected + hireui per its CONSTITUTION (I-2 / I-8 / GitNexus-first).
+    </div>
+  </section>
+
+  <div class="foot">
+    Blunt bottom line — code-review-graph is a genuinely good, on-goal, directly-pilotable code-intelligence MCP server, and it is the corpus's <strong>5th</strong> instance of a pattern you already confirmed (#23). Borrow it as a tool, measure the token delta, don't over-mint it.<br><br>
+    Docs: 03 Projects/code-review-graph - Beginner Analysis/ — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu<br>
+    Shipped on branch wiki/v226-code-review-graph off the v225 tip; not auto-merged — operator reviews + merges.
+  </div>
+
+</main>
+</div>
+
+<script>
+(function () {
+  var c = document.getElementById('graph');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var ctx = c.getContext('2d');
+  var nodes = [], edges = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function cssvar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#0e6f6b'; }
+  function resize() {
+    var r = c.parentElement.getBoundingClientRect();
+    W = r.width; H = r.height;
+    c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function build() {
+    nodes = []; edges = [];
+    var N = Math.max(14, Math.min(30, Math.round(W / 46)));
+    for (var i = 0; i < N; i++) {
+      nodes.push({ x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.14, vy: (Math.random() - 0.5) * 0.14,
+        r: 1.6 + Math.random() * 2.2 });
+    }
+    for (var a = 0; a < N; a++) for (var b = a + 1; b < N; b++) {
+      if (Math.random() < 0.10) edges.push([a, b]);
+    }
+  }
+  function frame() {
+    var col = cssvar('--edge');
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    ctx.lineWidth = 0.6;
+    for (var e = 0; e < edges.length; e++) {
+      var p = nodes[edges[e][0]], q = nodes[edges[e][1]];
+      var d = Math.hypot(p.x - q.x, p.y - q.y);
+      if (d > 220) continue;
+      ctx.globalAlpha = Math.max(0, 0.28 * (1 - d / 220));
+      ctx.strokeStyle = col;
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+    }
+    ctx.globalAlpha = 0.55; ctx.fillStyle = col;
+    for (var k = 0; k < nodes.length; k++) {
+      ctx.beginPath(); ctx.arc(nodes[k].x, nodes[k].y, nodes[k].r, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+  resize(); build(); frame();
+  window.addEventListener('resize', function () { resize(); build(); });
+})();
+</script>
