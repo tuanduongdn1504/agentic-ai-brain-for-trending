@@ -1,0 +1,103 @@
+<title>Hermes WebUI — LLM Wiki v227</title>
+<style>
+  :root{
+    --ground:#f7f6f3; --panel:#ffffff; --ink:#1c1e26; --ink-soft:#565a68;
+    --line:#e4e2db; --gold:#a8791f; --gold-soft:#c9a24a;
+    --cyan:#0e7c86; --good:#2f7d4f; --warn:#a86a1d; --bad:#a23b3b;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#14161c; --panel:#1c1f27; --ink:#e9e7e0; --ink-soft:#9ca1ad;
+      --line:#2c2f39; --gold:#d7a94a; --gold-soft:#8a6a24; --cyan:#4fc7d1;
+      --good:#5fb380; --warn:#d19a45; --bad:#d8756f;
+    }
+  }
+  :root[data-theme="light"]{--ground:#f7f6f3;--panel:#fff;--ink:#1c1e26;--ink-soft:#565a68;--line:#e4e2db;--gold:#a8791f;--gold-soft:#c9a24a;--cyan:#0e7c86;--good:#2f7d4f;--warn:#a86a1d;--bad:#a23b3b;}
+  :root[data-theme="dark"]{--ground:#14161c;--panel:#1c1f27;--ink:#e9e7e0;--ink-soft:#9ca1ad;--line:#2c2f39;--gold:#d7a94a;--gold-soft:#8a6a24;--cyan:#4fc7d1;--good:#5fb380;--warn:#d19a45;--bad:#d8756f;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:clamp(1.2rem,4vw,3rem) clamp(1rem,4vw,2rem)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 .5rem}
+  h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.08;margin:0 0 .3rem;text-wrap:balance;letter-spacing:-.02em}
+  h1 .sub{display:block;font-size:.42em;color:var(--ink-soft);font-weight:500;letter-spacing:0;margin-top:.5rem}
+  h2{font-size:1.15rem;margin:2.4rem 0 .8rem;letter-spacing:-.01em;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+  h3{font-size:.95rem;margin:1.3rem 0 .3rem}
+  p{margin:.6rem 0}
+  a{color:var(--cyan)}
+  code{font-family:var(--mono);font-size:.86em;background:color-mix(in srgb,var(--gold) 12%,transparent);padding:.08em .35em;border-radius:4px}
+  .meta{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.1rem 0 0}
+  .chip{font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);border-radius:100px;padding:.22rem .7rem;color:var(--ink-soft);background:var(--panel)}
+  .chip.on{border-color:var(--gold-soft);color:var(--gold)}
+  .verdict{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1.4rem 0;padding:1rem 1.2rem;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
+  .verdict b{font-size:1.05rem}
+  .axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:1rem 0}
+  .axis{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+  .axis .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .axis .v{font-weight:700;font-size:.95rem;margin-top:.15rem}
+  .v.fail{color:var(--bad)} .v.mod{color:var(--warn)} .v.strong{color:var(--good)}
+  ul{margin:.5rem 0;padding-left:1.2rem} li{margin:.28rem 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.7rem;margin:1rem 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem}
+  .card h3{margin:0 0 .35rem;font-size:.9rem;color:var(--gold)}
+  .card p{margin:0;font-size:.88rem;color:var(--ink-soft)}
+  .note{background:color-mix(in srgb,var(--warn) 12%,transparent);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);border-radius:9px;padding:.7rem 1rem;font-size:.9rem;margin:1rem 0}
+  .foot{margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);line-height:1.7}
+  strong{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">LLM Wiki v227 · 2026-07-29 · T2 Service</p>
+  <h1>Hermes WebUI<span class="sub">A community web front-end for Nous Research's self-hosted Hermes Agent — <code>nesquena/hermes-webui</code></span></h1>
+  <div class="meta">
+    <span class="chip on">GOAL-ALIGNED 3/4</span>
+    <span class="chip on">NO MINT</span>
+    <span class="chip">counts 46 / 11 unchanged</span>
+    <span class="chip">MIT · Python stdlib + vanilla JS</span>
+    <span class="chip">streak GA:85 · OG:13</span>
+  </div>
+
+  <div class="verdict">
+    <b>Verdict:</b> a thin, no-build web/mobile UI layer over a specific third-party autonomous agent — study the architecture, don't adopt the product. Cleanly goal-adjacent (agent-UI infra + Claude-capable); no new pattern.
+  </div>
+
+  <div class="axes">
+    <div class="axis"><div class="k">(a) author</div><div class="v fail">FAIL</div><div class="card p" style="font-size:.8rem;color:var(--ink-soft)">N. Esquenazi — not Anthropic</div></div>
+    <div class="axis"><div class="k">(b) goal-fit</div><div class="v mod">MODERATE</div><div class="card p" style="font-size:.8rem;color:var(--ink-soft)">keys the tier</div></div>
+    <div class="axis"><div class="k">(c) substance</div><div class="v strong">STRONG</div><div class="card p" style="font-size:.8rem;color:var(--ink-soft)">⚠ front-end, not the agent</div></div>
+    <div class="axis"><div class="k">(d) connectivity</div><div class="v strong">STRONG</div><div class="card p" style="font-size:.8rem;color:var(--ink-soft)">GUI-client + self-hosted-UI families</div></div>
+  </div>
+
+  <h2>What it is</h2>
+  <p>A lightweight, dark-themed, self-hosted <strong>web + mobile front-end for Hermes Agent</strong> — the autonomous personal agent by <strong>Nous Research</strong> that "lives on your server… remembers what it learns and gets more capable the longer it runs." hermes-webui gives that terminal agent full-CLI-parity browser access: a three-panel layout (sessions · chat · workspace file browser), streaming chat, and controls in the composer footer. Its own site labels it <strong>"Community Web UI (unofficial)."</strong> It is <strong>not the agent</strong> — it reuses an existing Hermes install's models and config.</p>
+  <p>Author <strong>Nathan Esquenazi</strong> (<code>nesquena</code>), a disclosed individual (CodePath.org co-founder), <strong>not Anthropic</strong>. Hermes Agent is a recurring named <em>harness</em> across the corpus (cc-switch v73, ECC v78, open-design v83) but was never a wiki subject — this is the first repo in the Hermes ecosystem to be one, and it's the <em>UI layer</em>.</p>
+
+  <div class="note"><strong>Two corrections held by hand:</strong> a lone search snippet calling Esquenazi "CEO of Nous Research" is unverified/likely a confabulation (conflicts with the "unofficial community UI" self-label) and is relied on for nothing — either way, not Anthropic. And the page-stated stars/commits/contributors are mocked (§37.4) and look inflated → <strong>NOT a #52 velocity claim, not relied upon.</strong></div>
+
+  <h2>Architecture (documented; not source-cloned)</h2>
+  <div class="grid">
+    <div class="card"><h3>No build step</h3><p>Python standard-library HTTP server + vanilla JS — no framework, no bundler, no toolchain.</p></div>
+    <div class="card"><h3>Three-panel UI</h3><p>Sessions/nav · chat · workspace file browser with Git; CSS-variable themes (dark/light/Catppuccin/Geist).</p></div>
+    <div class="card"><h3>State</h3><p>SQLite sessions at <code>~/.hermes/webui/</code>; projects, tags, pin, archive, search.</p></div>
+    <div class="card"><h3>Access model</h3><p>localhost <code>:8787</code> + SSH tunnel; optional password / passkeys (WebAuthn) / OIDC.</p></div>
+    <div class="card"><h3>Provider-agnostic</h3><p>OpenAI · <strong>Anthropic/Claude</strong> · Google · DeepSeek — inherited from Hermes. Claude one of several.</p></div>
+    <div class="card"><h3>More</h3><p>Voice input, profile switching, cron/Tasks panel, slash commands, mobile-responsive; Docker/Nix/systemd/launchd.</p></div>
+  </div>
+
+  <h2>Pattern outcome — NO MINT</h2>
+  <ul>
+    <li><strong>Not a clean N=2 of §C#27</strong> (CodePilot v161 — a <em>desktop</em> GUI for a CLI <em>coding</em> agent). hermes-webui is distinct on two axes: a <strong>general personal agent</strong> (not coding) and a <strong>web</strong> UI (not desktop) → an adjacency, not the N=2.</li>
+    <li><strong>No new §C standalone.</strong> The candidate "web GUI front-end for a self-hosted general-purpose agent" is declined: form-factor-within-genre (web-vs-desktop, general-vs-coding = delivery, not a new capability), <strong>not world-first</strong> (Open WebUI / LibreChat / lobehub v222 saturate it), §28. The <strong>lobehub v222 precedent is decisive</strong> — a far larger flagship platform was itself NO MINT.</li>
+    <li>No new top-level pattern (max #85). Counts <strong>46 / 11 unchanged</strong>; §C live standalones <strong>47</strong> unchanged.</li>
+  </ul>
+
+  <h2>Pilot — read &amp; borrow, not a hireui component</h2>
+  <p>⭐ <strong>A1 → B5:</strong> read the no-build architecture (zero install) → borrow the <strong>WebAuthn/OIDC + SSH-tunnel + localhost-first</strong> access model and the zero-toolchain-agent-front-end idea as a hireui/agent-surface reference. Optional personal use: run it as your own Claude-backed self-hosted agent surface (localhost + tunnel, BYO key). ⚠ Do <strong>not</strong> point Hermes (file r/w + cron + tool-calling) at candidate data; hireui stays hand-built. Fence: install-snapshot + inspect <code>bootstrap.py</code> (not source-cloned) + localhost-only + enable WebAuthn/OIDC + pin a commit.</p>
+
+  <div class="foot">
+    GOAL-ALIGNED INCLUDE 3/4 · NO MINT · T2 Service · streak GA:85 · OG:13 [7 ov] · §35 CLEAR (v225 GA, v226 GA, v227 GA = 0 OG).<br>
+    Verified inline + by hand (WebFetch + WebSearch + sanity-anchored hand-grep; collision-clean; NOT source-cloned). Reviewable OFF-GOAL alt → GA:84 · OG:14 (still §35-clear).<br>
+    Storm Bear LLM-Wiki corpus · docs: <code>03 Projects/hermes-webui - Beginner Analysis/</code>
+  </div>
+</div>
