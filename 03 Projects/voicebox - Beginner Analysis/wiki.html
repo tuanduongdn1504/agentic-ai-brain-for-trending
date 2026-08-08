@@ -1,0 +1,268 @@
+<style>
+  /* ── voicebox v229 wiki · audio-console / signal identity ───────────────
+     Palette grounded in an oscilloscope/DAW world: cool slate grounds (not
+     pure black), one signal-teal accent (waveform trace), semantic amber for
+     the consent/deepfake caution. Monospace = the "signal" face for the MCP
+     surface, ports, tool names, counts. Sans = reading. Theme-aware tokens. */
+  :root{
+    --ground:#f5f7f8; --panel:#ffffff; --panel-2:#eef1f3;
+    --ink:#171d22; --ink-soft:#495159; --ink-faint:#79838c;
+    --rule:#dbe1e5; --rule-soft:#e7ebee;
+    --accent:#0d9488; --accent-ink:#0b7d72; --accent-wash:#e2f4f1;
+    --warn:#b4472e; --warn-wash:#f9e9e4; --warn-rule:#e6b8ab;
+    --good:#0d9488;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono","JetBrains Mono","Fira Code",ui-monospace,Menlo,Consolas,monospace;
+    --measure:70ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0d1216; --panel:#141b21; --panel-2:#0f161b;
+      --ink:#e7edf1; --ink-soft:#a7b2bb; --ink-faint:#6f7a83;
+      --rule:#222d35; --rule-soft:#1a242b;
+      --accent:#2dd4bf; --accent-ink:#5fe3d2; --accent-wash:#0d2b29;
+      --warn:#f0857a; --warn-wash:#2c1712; --warn-rule:#5a3128;
+      --good:#2dd4bf;
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#f5f7f8; --panel:#ffffff; --panel-2:#eef1f3;
+    --ink:#171d22; --ink-soft:#495159; --ink-faint:#79838c;
+    --rule:#dbe1e5; --rule-soft:#e7ebee;
+    --accent:#0d9488; --accent-ink:#0b7d72; --accent-wash:#e2f4f1;
+    --warn:#b4472e; --warn-wash:#f9e9e4; --warn-rule:#e6b8ab; --good:#0d9488;
+  }
+  :root[data-theme="dark"]{
+    --ground:#0d1216; --panel:#141b21; --panel-2:#0f161b;
+    --ink:#e7edf1; --ink-soft:#a7b2bb; --ink-faint:#6f7a83;
+    --rule:#222d35; --rule-soft:#1a242b;
+    --accent:#2dd4bf; --accent-ink:#5fe3d2; --accent-wash:#0d2b29;
+    --warn:#f0857a; --warn-wash:#2c1712; --warn-rule:#5a3128; --good:#2dd4bf;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:min(920px,92vw);margin:0 auto;padding:0 22px 88px;}
+  .measure{max-width:var(--measure);}
+  a{color:var(--accent-ink);text-underline-offset:3px;}
+  h1,h2,h3{text-wrap:balance;line-height:1.14;letter-spacing:-.012em;}
+  code,.mono{font-family:var(--mono);font-size:.9em;}
+  .num{font-variant-numeric:tabular-nums;}
+
+  /* ── header / hero ── */
+  header{padding:56px 0 30px;border-bottom:1px solid var(--rule);}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 16px;}
+  h1{font-size:clamp(46px,9vw,84px);margin:0;font-weight:800;letter-spacing:-.03em;}
+  .tagline{font-size:clamp(18px,2.4vw,22px);color:var(--ink-soft);margin:14px 0 0;
+    font-weight:450;max-width:52ch;}
+  .wave{width:100%;height:64px;margin:28px 0 4px;display:block;color:var(--accent);}
+  .sub{font-family:var(--mono);font-size:13px;color:var(--ink-faint);margin:18px 0 0;}
+  .sub b{color:var(--ink-soft);font-weight:600;}
+
+  /* ── console status bar ── */
+  .console{margin:26px 0 0;border:1px solid var(--rule);border-radius:12px;
+    background:var(--panel);overflow:hidden;}
+  .console-hd{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);padding:10px 16px;
+    border-bottom:1px solid var(--rule-soft);background:var(--panel-2);}
+  .readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--rule-soft);}
+  .cell{background:var(--panel);padding:14px 16px;}
+  .cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 5px;}
+  .cell .v{font-size:15px;font-weight:650;color:var(--ink);}
+  .cell .v.accent{color:var(--accent-ink);}
+
+  /* ── sections ── */
+  section{padding:40px 0 4px;}
+  h2{font-size:clamp(24px,3.4vw,32px);margin:0 0 6px;font-weight:750;}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px;}
+  p{margin:0 0 16px;}
+  p.measure,ul.measure,ol.measure{max-width:var(--measure);}
+  ul,ol{margin:0 0 16px;padding-left:1.15em;}
+  li{margin:0 0 8px;}
+  strong{font-weight:680;}
+
+  /* ── headline panel ── */
+  .headline{margin:8px 0 4px;border:1px solid var(--accent);border-radius:14px;
+    background:linear-gradient(180deg,var(--accent-wash),transparent 78%);
+    padding:26px 26px 22px;position:relative;overflow:hidden;}
+  .headline .badge{display:inline-block;font-family:var(--mono);font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);
+    border:1px solid var(--accent);border-radius:999px;padding:4px 11px;margin:0 0 14px;}
+  .headline h2{font-size:clamp(21px,3vw,27px);margin:0 0 10px;}
+  .headline p{color:var(--ink-soft);}
+  .headline .n3{font-family:var(--mono);font-weight:700;color:var(--accent-ink);
+    font-size:1.05em;white-space:nowrap;}
+
+  /* ── signal rail callouts ── */
+  .rail{border-left:3px solid var(--accent);padding:4px 0 4px 20px;margin:22px 0;
+    color:var(--ink-soft);}
+  .rail p{margin:0 0 8px;}
+
+  /* ── tables ── */
+  .tablewrap{overflow-x:auto;margin:18px 0 22px;border:1px solid var(--rule);
+    border-radius:12px;}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px;}
+  th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--rule-soft);
+    vertical-align:top;}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-faint);background:var(--panel-2);font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{white-space:nowrap;font-weight:640;}
+  .tag{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;
+    padding:2px 8px;border-radius:6px;letter-spacing:.04em;}
+  .tag.strong{background:var(--accent-wash);color:var(--accent-ink);}
+  .tag.fail{background:var(--warn-wash);color:var(--warn);}
+
+  /* ── mono block (MCP surface) ── */
+  .mcp{background:var(--panel);border:1px solid var(--rule);border-radius:12px;
+    font-family:var(--mono);font-size:13px;line-height:1.85;padding:18px 20px;
+    color:var(--ink-soft);overflow-x:auto;margin:8px 0 20px;}
+  .mcp .c{color:var(--accent-ink);}
+  .mcp .d{color:var(--ink-faint);}
+
+  /* ── warning callout ── */
+  .warn{margin:24px 0;border:1px solid var(--warn-rule);border-left:4px solid var(--warn);
+    border-radius:12px;background:var(--warn-wash);padding:20px 22px;}
+  .warn h3{margin:0 0 8px;color:var(--warn);font-size:17px;font-family:var(--mono);
+    letter-spacing:.02em;}
+  .warn p{margin:0 0 8px;color:var(--ink);font-size:15px;}
+  .warn p:last-child{margin:0;}
+
+  /* ── path chips ── */
+  .path{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 18px;
+    font-family:var(--mono);font-size:13px;}
+  .path .step{border:1px solid var(--accent);color:var(--accent-ink);
+    border-radius:8px;padding:6px 12px;background:var(--accent-wash);font-weight:650;}
+  .path .arr{color:var(--ink-faint);}
+
+  footer{margin-top:52px;padding-top:24px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);line-height:1.9;}
+  footer b{color:var(--ink-soft);font-weight:600;}
+  ::selection{background:var(--accent);color:var(--ground);}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+  @media (prefers-reduced-motion:no-preference){
+    .wave path{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 1.6s ease-out forwards;}
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">LLM Wiki · v229 · 2026-08-08 · storm bear's vault</p>
+    <h1>voicebox</h1>
+    <p class="tagline">“The open-source AI voice studio. Clone, dictate, create.” — a local-first alternative to ElevenLabs + Wispr Flow, in one desktop app.</p>
+
+    <svg class="wave" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true" fill="none">
+      <path d="M0,32 Q30,32 45,32 T90,32 Q108,4 120,32 T150,32 Q165,60 180,32 T215,32 Q232,10 248,32 T290,32 Q305,54 320,32 T360,32 Q378,2 396,32 T440,32 Q456,58 472,32 T520,32 Q534,20 548,32 T590,32 Q607,50 624,32 T672,32 Q690,6 708,32 T756,32 Q772,56 788,32 T836,32 Q852,16 868,32 T916,32 Q933,52 950,32 T998,32 Q1014,8 1032,32 T1080,32 Q1096,54 1112,32 T1160,32 Q1176,26 1200,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <p class="sub"><b>jamiepine/voicebox</b> · MIT · Tauri (Rust) + FastAPI + React/TS · ~49.7k★ <span class="d" style="color:var(--ink-faint)">page-stated §37.4 → not #52</span> · author <b>Jamie Pine</b> (creator of Spacedrive, Vancouver BC) — <b>NOT Anthropic</b></p>
+
+    <div class="console" role="group" aria-label="verdict readout">
+      <div class="console-hd">Verdict readout</div>
+      <div class="readout">
+        <div class="cell"><p class="k">Verdict</p><p class="v accent">GOAL-ALIGNED 3/4</p></div>
+        <div class="cell"><p class="k">Axes</p><p class="v">a·FAIL b·STRONG c·STRONG d·STRONG</p></div>
+        <div class="cell"><p class="k">Pattern outcome</p><p class="v">NO NEW MINT</p></div>
+        <div class="cell"><p class="k">Counts</p><p class="v num">46 / 11 · §C 47</p></div>
+        <div class="cell"><p class="k">Streak</p><p class="v num">GA:87 · OG:13 [7 ov]</p></div>
+        <div class="cell"><p class="k">Tier</p><p class="v">T5 app · T2-MCP facet</p></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="headline">
+      <span class="badge">The headline · corpus-structural</span>
+      <h2>Voicebox is the non-port <span class="n3">N=3</span> the v212 audit was waiting for.</h2>
+      <p class="measure">A product-first, human-usable app (the voice studio) whose maker <em>also</em> ships that same app's own first-party MCP server — so a coding agent becomes an optional peripheral. That is the exact shape of the <strong>palmier-pro v192</strong> §C standalone <em>“Product-First Native Application Retrofitted with a First-Party MCP Server.”</em></p>
+      <p class="measure">Its history: <b class="mono">N=1</b> palmier-pro (video editor) → <b class="mono">N=2</b> tabularis v212 (SQL GUI) → <b class="mono">N=3</b> voicebox (voice studio). The v212 audit HELD it at N=2 and deferred promotion-to-CONFIRMED to <em>“a genuinely-independent non-port N=3.”</em> Voicebox is that N=3 — fully-independent, cross-author, cross-domain, non-port. <strong>The promotion trigger is now satisfied</strong> → promoting the v192 standalone to a CONFIRMED Library-vocab item (#12) is the primary flag for the next audit. Recorded, <em>not</em> self-promoted (promotion is an audit act; counts stay 46/11 at the ship).</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">What it is</p>
+    <h2>Your whole voice stack, running locally</h2>
+    <p class="measure">Voicebox clones a voice from a few seconds of audio (or 50+ presets), speaks in <strong>23 languages across 7 TTS engines</strong> (Qwen3-TTS, Qwen CustomVoice, LuxTTS, Chatterbox + Turbo, TADA/HumeAI, Kokoro), transcribes + dictates into any app via a global hotkey (<strong>local Whisper</strong>), composes multi-track “Stories,” and refines dictation with a <strong>bundled local Qwen3 LLM</strong> (0.6B / 1.7B / 4B). Privacy is the pitch: <em>“models, voice data, and captures never leave your machine.”</em></p>
+    <div class="rail measure">
+      <p><strong>The honest (c) caveat.</strong> The hard AI is all <em>upstream</em> — Qwen3-TTS (Alibaba), Whisper (OpenAI), Kokoro, Chatterbox, HumeAI/TADA, Qwen3. Voicebox is the substantial <em>orchestration / desktop-UI / MCP-server</em> layer over those models, not model research. The local LLM is Qwen3 — <strong>not Claude</strong>. Claude appears only as an MCP <em>client</em>.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">The corpus-relevant core</p>
+    <h2>A first-party MCP server for coding agents</h2>
+    <p class="measure">Introduced in v0.5.0. This is why voicebox lands on-goal: its primary function is a human voice studio, but it exposes that studio <em>to</em> an agent — <em>“any MCP-aware agent can call into your local Voicebox install”</em> to speak in a voice you cloned.</p>
+    <div class="mcp" role="img" aria-label="MCP server surface">
+<span class="d"># FastMCP server — introduced v0.5.0</span>
+mount   <span class="c">http://127.0.0.1:17493/mcp</span>   <span class="d">(HTTP + stdio)</span>
+shim    <span class="c">voicebox-mcp</span>                    <span class="d">(binary, for stdio-only clients)</span>
+tools   <span class="c">voicebox.speak</span>  <span class="c">voicebox.transcribe</span>
+        <span class="c">voicebox.list_captures</span>  <span class="c">voicebox.list_profiles</span>
+clients Claude Code · Cursor · Windsurf · Cline · VS Code MCP
+    </div>
+    <p class="measure">Product-first — exactly like palmier-pro v192 (a human video editor) and tabularis v212 (a human SQL GUI). A directly-studyable template for making <strong>hireui</strong> agent-native (a 3rd data-point beside palmier's <code>ToolExecutor</code> 51-tool surface + tabularis's read-only-gated 4-tool surface).</p>
+  </section>
+
+  <section>
+    <p class="kicker">Goal-alignment</p>
+    <h2>The four axes</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Axis</th><th>Call</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>(a) Anthropic</td><td><span class="tag fail">FAIL</span></td><td>Jamie Pine / Spacedrive, not Anthropic. §41 — famous-OSS-author is not an (a)-rescue. First <code>jamiepine</code> author (#19 19a).</td></tr>
+          <tr><td>(b) Goal-relevance <em>(keys the tier)</em></td><td><span class="tag strong">STRONG</span></td><td>Ships a first-party MCP server for coding agents (Claude Code named first) = the agent/MCP substrate the vault studies + the non-port N=3 of the v192 standalone = a corpus-structural payoff + a hireui agent-nativity template. STRONG-not-STRONGEST: consumer voice domain off both goals; Claude one of several clients; local LLM is Qwen3. ⚠️ MODERATE-reviewable — either way GA.</td></tr>
+          <tr><td>(c) Substance</td><td><span class="tag strong">STRONG</span></td><td>Substantial cross-platform app (7 engines + local Whisper + local Qwen3 + Tauri/FastAPI/SQLite + MLX/PyTorch + stories editor + MCP server + stdio shim) by the proven Spacedrive author. Caveats: hard AI upstream; NOT source-cloned; stars page-stated; the “no consent lock.”</td></tr>
+          <tr><td>(d) Connectedness</td><td><span class="tag strong">STRONG</span></td><td>The v192 §C standalone (N=3) · first-party-MCP cluster · speech/voice cluster (fish-speech v20 / meetily v196 / video-use v198 / AIRI v210) · local-first thread · Tauri LV-C7 · #18 B1-MCP · #84 84c · #66 dual-use · Spacedrive.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Pattern outcome</p>
+    <h2>The product-first-MCP-retrofit lineage</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>N</th><th>Subject</th><th>Domain</th><th>First-party MCP</th></tr></thead>
+        <tbody>
+          <tr><td>N=1</td><td>palmier-pro <span class="d mono" style="color:var(--ink-faint)">v192</span></td><td>native macOS video editor</td><td><code>ToolExecutor</code> · 51 tools</td></tr>
+          <tr><td>N=2</td><td>tabularis <span class="d mono" style="color:var(--ink-faint)">v212</span></td><td>cross-platform SQL GUI</td><td>4 tools · read-only + EXPLAIN gates</td></tr>
+          <tr><td>N=3</td><td><strong>voicebox</strong> <span class="d mono" style="color:var(--ink-faint)">v229</span></td><td><strong>voice studio</strong></td><td>4 tools · <code>voicebox-mcp</code> stdio shim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="measure"><strong>NO NEW MINT.</strong> The v192 §C row goes N=2 → N=3 (no new row; §C live standalones stay 47). A separate “give-an-agent-a-voice MCP layer” mint is DECLINED (draw-the-circle — it's within the v192 relationship; voice-cloning/TTS is domain-not-capability; not world-first). Corpus-first voice-cloning / TTS-studio DOMAIN + ~5th speech-domain subject = data-points, not mints. Counts <strong>UNCHANGED 46 / 11</strong>. No new top-level pattern (max #85).</p>
+  </section>
+
+  <section>
+    <div class="warn" role="note">
+      <h3>⚠ The fence — “no consent lock”</h3>
+      <p>Voicebox clones an arbitrary voice from a few seconds of audio with <strong>no consent gate</strong> and no ethics note in the README — a real impersonation / voice-fraud / deepfake surface (a #66 dual-use note).</p>
+      <p><strong>hireui must never clone a candidate's or interviewer's voice.</strong> Recruitment is exactly where synthetic-voice misuse is most dangerous. If a voice feature is ever built: preset voices + explicit, logged consent only, behind the candidate-LLM-legibility ADR + a data-residency review. Local-first is a positive for the user's <em>own</em> data — keep it that way.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Pilot — read &amp; borrow, not a hireui component</p>
+    <h2>One-thing path</h2>
+    <div class="path">
+      <span class="step">A1 · read the MCP-retrofit design</span>
+      <span class="arr">→</span>
+      <span class="step">B5 · borrow it into hireui's agent-nativity spec</span>
+      <span class="arr">→</span>
+      <span class="step">C11 · run it locally (optional, personal)</span>
+    </div>
+    <p class="measure">The on-goal prize is the <strong>architecture</strong> (a 3rd product-first-MCP-retrofit data-point) + a genuinely useful <strong>personal</strong> tool (local dictation; give the vault's own Claude Code a voice via the MCP server). It is <em>not</em> a hireui component. Fence: <code>install-snapshot</code> first · inspect <code>just setup</code>/the installer (NOT source-cloned → untrusted) · downloads multi-GB third-party models → verify sources · never clone a real person's voice without consent · pin <code>v0.5.0</code>.</p>
+  </section>
+
+  <footer>
+    <p><b>Provenance.</b> Verdict produced INLINE + fully hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> — no workflow / no subagent (the ~205K shim overflows every subagent &gt;200K; the v200→v228 self-throttle). Source hand-fetched: repo page + raw README + raw CHANGELOG. Identity + landscape by WebSearch. <b>Collision: CLEAN</b> — 0 subject hits (voicebox / jamiepine / Jamie Pine / Spacedrive / voice-clone / voice-studio / wispr) in both <code>_state/03c</code> and <code>_patterns/06</code>; the corpus's FIRST voicebox / Jamie Pine / Spacedrive / voice-cloning-studio subject. ⚠ NOT source-cloned.</p>
+    <p><b>Ship.</b> v229 · branch <code>wiki/v229-voicebox</code> off the v228 tip (<code>77405fc</code>) · not auto-merged — operator reviews + merges. Streak <b>GA:87 · OG:13 [7 ov]</b> (10 consecutive GA post the v219 break). §35 CLEAR.</p>
+  </footer>
+</div>
