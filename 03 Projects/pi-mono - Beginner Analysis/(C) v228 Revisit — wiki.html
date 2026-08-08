@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pi (earendil-works/pi) — v228 REVISIT of v36 pi-mono</title>
+<style>
+  :root{--bg:#fbfbfa;--fg:#1c1c1a;--muted:#5b5b55;--card:#fff;--border:#e4e2dc;--accent:#7a5c1e;--accent2:#2e6b4f;--warn:#8a4b1a;--chip:#f0eee7;}
+  @media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#e9e8e4;--muted:#a2a29a;--card:#1e2024;--border:#33353b;--accent:#d8b866;--accent2:#7fd1a6;--warn:#e0a06a;--chip:#26282d;}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+  h1{font-size:1.7rem;line-height:1.25;margin:.2em 0 .1em}
+  h2{font-size:1.18rem;margin:1.9em 0 .5em;border-bottom:1px solid var(--border);padding-bottom:.25em}
+  .sub{color:var(--muted);font-size:.92rem;margin-bottom:1.2em}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:.6em 0 1.2em}
+  .chip{background:var(--chip);border:1px solid var(--border);border-radius:999px;padding:2px 11px;font-size:.8rem;color:var(--muted)}
+  .chip.go{color:var(--accent2);border-color:var(--accent2)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:14px 0}
+  code{background:var(--chip);border-radius:5px;padding:.08em .38em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em}
+  .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--chip);font-weight:600}
+  .new{color:var(--accent2);font-weight:600}
+  .warn{color:var(--warn)}
+  .accent{color:var(--accent);font-weight:600}
+  ul{padding-left:1.25em}
+  li{margin:.28em 0}
+  .lede{font-size:1.02rem}
+  .foot{color:var(--muted);font-size:.82rem;margin-top:2.4em;border-top:1px solid var(--border);padding-top:1em}
+  .path{font-family:ui-monospace,Menlo,monospace;font-size:.82em;color:var(--accent2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Pi Agent Harness — <span class="accent">v228</span> corpus-recursive REVISIT of v36 pi-mono</h1>
+  <div class="sub"><code>earendil-works/pi</code> · was <code>badlogic/pi-mono</code> (corpus v36) · source-verified <code>e47b8e3</code> · v0.84.1 · MIT · 2026-08-08 · routine v2.7</div>
+
+  <div class="chips">
+    <span class="chip go">GOAL-ALIGNED INCLUDE 3/4</span>
+    <span class="chip">(a) FAIL</span>
+    <span class="chip go">(b) STRONG — keys the tier</span>
+    <span class="chip">(c) STRONG</span>
+    <span class="chip">(d) STRONG</span>
+    <span class="chip">NO MINT</span>
+    <span class="chip">counts 46/11 unchanged</span>
+    <span class="chip">§C 47 unchanged</span>
+    <span class="chip">streak GA:86</span>
+    <span class="chip">3rd revisit in corpus</span>
+  </div>
+
+  <p class="lede">Pi is the minimal, self-extensible, multi-provider terminal coding agent the corpus met at <b>v36</b> as Mario Zechner's solo <code>badlogic/pi-mono</code>. Since then it (1) <b>got a company</b> — on 2026-04-08 Mario + Pi joined <b>Earendil</b>, Armin Ronacher's venture-backed public-benefit corp (open-core, cloud platform <i>Lefos</i>), repo moved to <code>earendil-works/pi</code>, <b>MIT preserved</b>; and (2) <b>grew up architecturally</b> — a monolithic CLI became a client/server runtime with a CBOR wire protocol for remote sessions, a built-in evals harness, vendor-neutral telemetry, and the corpus's most disciplined supply-chain hardening — while <b>doubling to ~85K★</b> and keeping its two invariants: radical minimalism ("no MCP") and the OSS-session-donation flywheel.</p>
+
+  <h2>The revisit delta (v36 → v228)</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th></th><th>v36 (badlogic/pi-mono, 2026-04-23)</th><th>v228 (earendil-works/pi, 2026-08-08)</th></tr>
+    <tr><td>Owner</td><td>Mario Zechner (solo)</td><td class="new">Earendil Inc. (PBC, co-founder Armin Ronacher)</td></tr>
+    <tr><td>npm scope</td><td><code>@mariozechner/*</code></td><td class="new"><code>@earendil-works/*</code></td></tr>
+    <tr><td>License</td><td>MIT</td><td>MIT (preserved)</td></tr>
+    <tr><td>Stars (page-stated §37.4)</td><td>38.9K</td><td class="new">~85.4K (2.2×)</td></tr>
+    <tr><td>Version</td><td>v0.69.0</td><td>v0.84.1 (lockstep; no major releases)</td></tr>
+    <tr><td>Packages</td><td>7 (ai, agent-core, coding-agent, mom, pods, tui, web-ui)</td><td class="new">~10: +protocol, +client, +server(exp), +session-backends, +evals, +telemetry; −mom(→pi-chat)/−pods/−web-ui</td></tr>
+    <tr><td>Architecture</td><td>local monolith CLI</td><td class="new">client/server runtime — transport-neutral CBOR protocol, remote sessions, pluggable session backends (interactive/print-JSON/RPC/SDK)</td></tr>
+    <tr><td>Supply-chain</td><td>—</td><td class="new">pinned deps + min-release-age=2 + shrinkwrap + --ignore-scripts + scheduled audit + lifecycle-script allowlist</td></tr>
+    <tr><td>Sandbox</td><td>—</td><td class="new">none by design; Gondolin micro-VM / Docker / OpenShell + <code>@anthropic-ai/sandbox-runtime</code></td></tr>
+    <tr><td>MCP</td><td>excluded (first T1 counter-evidence)</td><td class="warn">still excluded — now explicit + "you don't need MCP" essay-backed at 85K★</td></tr>
+    <tr><td>Providers</td><td>20+</td><td>~30+ + automatic model discovery; Claude first-class</td></tr>
+  </table></div>
+
+  <h2>Verdict</h2>
+  <div class="card">
+    <b>(a) FAIL</b> — Earendil / Ronacher / Zechner ≠ Anthropic; routine §41: "famous framework author" (Flask, libGDX) is <b>not</b> an (a)-rescue. First <code>earendil-works</code> org → #19 19a.<br><br>
+    <b>(b) STRONG — keys the tier</b> — an open coding agent for software dev = Goal #1 dead-center; runs Claude first-class; a Claude-Code alternative + multi-provider escape-hatch + four borrowable playbooks. STRONG-not-STRONGEST = competitor/peer harness (provider-agnostic; goal centers Claude). Cluster: Kilo Code v177 / grok-build v215 / openinterpreter v223. §40 not needed.<br><br>
+    <b>(c) STRONG</b> (⚠️ MODERATE-reviewable) — mature ~10-pkg client/server monorepo + evals + telemetry + supply-chain playbook + 3 containerization patterns + ~85K★; caveats: still Mario-led (under a company now), <code>pi-server</code> experimental, no built-in sandbox by design, EN-only, MCP-excluded.<br><br>
+    <b>(d) STRONG</b> — coding-agent-product cluster + #57 downstream (llm-space v221 built on pi-agent-core) + devspace v171 remote-bridge cousin + provider-routing cc-switch v73.
+  </div>
+
+  <h2>Pattern outcome — NO MINT (revisit)</h2>
+  <ul>
+    <li>No new top-level pattern (max <b>#85</b>); no new §C standalone; counts <b>46/11 unchanged</b>; §C live standalones <b>47 unchanged</b>. 3rd corpus-recursive revisit (after v78 ECC↺v1, v185 agency-agents↺v18).</li>
+    <li><span class="warn">Candidate §C mint DECLINED</span> — "remotely-drivable open coding-agent runtime + CBOR wire protocol + pluggable session backends" (corpus-first in that shape) declined per §28 + camofox-v179 don't-draw-the-circle (a within-subject architecture evolution; adjacent to devspace v171 §C + the orchestration §C; revisits mint only on a genuinely-new surface). → DEFERRED watch axis, flagged to the overdue ~v221 audit's coding-agent-products cluster (<b>Pi = the OG member</b>, predating Kilo Code v177 / grok-build v215 / openinterpreter v223).</li>
+    <li><b>Instance-strengthening:</b> #18 (MCP-exclusion — now the corpus's strongest counter-pole), <span class="new">#66 supply-chain POSITIVE exemplar</span> (strongest in corpus + a borrowable playbook), #69 (<code>lgtm</code>/<code>lgtmi</code> maintainer-gate anchor), #28/#84 (multi-provider ~30+; no N-bump), #17/#20/#27 (solo-flagship → open-core PBC while staying MIT = a corpus-first <i>trajectory</i>; recorded not registered).</li>
+  </ul>
+
+  <h2>Pilot — the payoff is the playbooks, not the product</h2>
+  <p>Pi is a competitor harness you'd run instead of/alongside Claude Code, so "adopt it" is the low-value read. <span class="accent">⭐ One-thing path: B1 → C11 → D16.</span></p>
+  <ul>
+    <li><b>B1</b> (highest ROI, zero install): lift Pi's <b>supply-chain-hardening playbook</b> into a hireui/vault dependency-security ADR (pinned + min-release-age + shrinkwrap + --ignore-scripts + scheduled audit). Lands on the api-security thread; hireui is a real Node/TS monorepo.</li>
+    <li><b>C11</b>: <code>npm i -g --ignore-scripts @earendil-works/pi-coding-agent</code> + BYO Claude key + one real task → feel the Claude-Code delta + the multi-provider escape-hatch (~30 providers + local llama.cpp).</li>
+    <li><b>D16</b>: build hireui's first LLM feature (Match-Explain) with Pi's <b>evals discipline</b> as the eval-gate (candidate-LLM legibility ADR) inside a Gondolin/Docker container, on an <code>agent-*</code> branch.</li>
+    <li>Also: B2 containerization ADR · B3 evals · B4 telemetry contracts · B5 the "no-MCP" design lens.</li>
+  </ul>
+  <div class="card"><b>Fence:</b> install-snapshot + <code>--ignore-scripts</code> (Pi's own rec; prefer npm over <code>curl|sh</code>) + npm-security-check <code>@earendil-works/*</code> + BYO Claude key + <b>containerize before pointing Pi at anything sensitive / hireui (no built-in sandbox)</b> + scratch repo first + evaluate vs Claude Code (don't wholesale-switch) + pin <code>v0.84.1</code>/<code>e47b8e3</code> + hireui per its CONSTITUTION (I-2/I-8/GitNexus-first; no LLM spend yet).</div>
+
+  <div class="foot">
+    (C) Claude-generated 2026-08-08 · v228 corpus-recursive REVISIT of v36 pi-mono · routine v2.7 · verdict INLINE + hand-verified per <code>feedback_wiki_verify_independently_check_collisions</code> (no workflow/subagent — the ~1MB shim overflows subagents; source hand-read from a real clone; ownership move independently WebSearch-confirmed; collision hand-grepped vs the v227 tip).<br>
+    Docs: <span class="path">03 Projects/pi-mono - Beginner Analysis/</span> — Deep Dive · Verdict + Pattern Outcome · Pilot Methods Menu (v36 docs preserved). §37.4: star counts page-stated (GitHub API mocked) → NOT a Pattern #52 velocity claim.
+  </div>
+
+</div>
+</body>
+</html>
