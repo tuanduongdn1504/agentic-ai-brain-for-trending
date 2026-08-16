@@ -1,0 +1,521 @@
+<title>gemini-web2api</title>
+
+<style>
+  :root {
+    --bg:        #EDF1F2;
+    --surface:   #F9FBFB;
+    --surface-2: #E3E9EA;
+    --ink:       #131C20;
+    --ink-2:     #33474E;
+    --muted:     #5D7076;
+    --rule:      #D0D9DB;
+    --rule-2:    #B9C6C9;
+    --accent:    #0D666D;
+    --accent-2:  #0A4E54;
+    --warn:      #97381B;
+    --warn-bg:   #F6E6E0;
+    --ok:        #2E6B47;
+
+    --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --col: 68ch;
+    --pad: clamp(1.15rem, 4vw, 2.5rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #0C1214;
+      --surface:   #131C1F;
+      --surface-2: #1A262A;
+      --ink:       #DCE6E7;
+      --ink-2:     #AFC0C3;
+      --muted:     #869799;
+      --rule:      #233135;
+      --rule-2:    #31454A;
+      --accent:    #4FC6CD;
+      --accent-2:  #7FD9DE;
+      --warn:      #E58A66;
+      --warn-bg:   #2A1913;
+      --ok:        #6FC08D;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg:        #0C1214;
+    --surface:   #131C1F;
+    --surface-2: #1A262A;
+    --ink:       #DCE6E7;
+    --ink-2:     #AFC0C3;
+    --muted:     #869799;
+    --rule:      #233135;
+    --rule-2:    #31454A;
+    --accent:    #4FC6CD;
+    --accent-2:  #7FD9DE;
+    --warn:      #E58A66;
+    --warn-bg:   #2A1913;
+    --ok:        #6FC08D;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.2rem, 5vw, 3.6rem);
+  }
+
+  .col { max-width: var(--col); }
+
+  /* ---------- masthead ---------- */
+
+  .mast {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--mono);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    font-weight: 600;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .thesis {
+    font-size: clamp(1.08rem, 2.2vw, 1.32rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 56ch;
+    text-wrap: pretty;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem .55rem;
+    font-family: var(--mono);
+    font-size: .74rem;
+    color: var(--muted);
+  }
+  .meta span {
+    border: 1px solid var(--rule-2);
+    border-radius: 2px;
+    padding: .16rem .5rem;
+    white-space: nowrap;
+  }
+  .meta span b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- sections ---------- */
+
+  section { display: flex; flex-direction: column; gap: 1.1rem; }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: clamp(1.28rem, 2.6vw, 1.7rem);
+    line-height: 1.18;
+    letter-spacing: -.015em;
+    font-weight: 680;
+    text-wrap: balance;
+    padding-top: .3rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    font-weight: 660;
+    letter-spacing: -.005em;
+    color: var(--ink);
+  }
+
+  p { max-width: var(--col); text-wrap: pretty; }
+  p + p { margin-top: .75rem; }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  code {
+    font-family: var(--mono);
+    font-size: .855em;
+    background: var(--surface-2);
+    border-radius: 2px;
+    padding: .08em .32em;
+    word-break: break-word;
+  }
+
+  strong { font-weight: 700; color: var(--ink); }
+  em { font-style: italic; }
+
+  ul { display: flex; flex-direction: column; gap: .5rem; padding-left: 1.15rem; max-width: var(--col); }
+  li::marker { color: var(--accent); }
+
+  /* ---------- scorecard ---------- */
+
+  .score {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .cell {
+    background: var(--surface);
+    padding: 1rem 1.05rem;
+    display: flex;
+    flex-direction: column;
+    gap: .38rem;
+  }
+  .cell .k {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .cell .v {
+    font-family: var(--sans);
+    font-size: 1.24rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  .cell .n { font-size: .84rem; line-height: 1.4; color: var(--ink-2); font-family: var(--sans); }
+  .v.pass { color: var(--ok); }
+  .v.fail { color: var(--muted); }
+  .v.mod  { color: var(--accent); }
+
+  /* ---------- callouts ---------- */
+
+  .risk {
+    background: var(--warn-bg);
+    border-left: 3px solid var(--warn);
+    border-radius: 0 3px 3px 0;
+    padding: 1.15rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+  }
+  .risk .tag {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--warn);
+  }
+  .risk p, .risk ul { max-width: none; }
+
+  .note {
+    border-left: 3px solid var(--rule-2);
+    padding: .2rem 0 .2rem 1.1rem;
+    color: var(--ink-2);
+    font-size: .95rem;
+  }
+
+  /* ---------- protocol steps ---------- */
+
+  .steps { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  .step { background: var(--surface); padding: .95rem 1.1rem; display: grid; grid-template-columns: 2.2rem 1fr; gap: .9rem; align-items: start; }
+  .step .num {
+    font-family: var(--mono);
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--accent);
+    padding-top: .18rem;
+  }
+  .step .body { display: flex; flex-direction: column; gap: .3rem; }
+  .step .h { font-family: var(--sans); font-weight: 660; font-size: .97rem; }
+  .step .d { font-size: .93rem; color: var(--ink-2); font-family: var(--sans); line-height: 1.5; }
+
+  pre {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: .9rem 1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: .8rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  pre b { color: var(--warn); font-weight: 700; }
+
+  /* ---------- table ---------- */
+
+  .tscroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; min-width: 42rem; background: var(--surface); }
+  th, td {
+    text-align: left;
+    padding: .72rem .9rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: .89rem;
+    line-height: 1.45;
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--mono);
+    font-size: .69rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.here td { background: var(--surface-2); }
+  tr.here td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- claim chips ---------- */
+
+  .chips { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .chip {
+    font-family: var(--mono);
+    font-size: .74rem;
+    border: 1px solid var(--rule-2);
+    border-radius: 2px;
+    padding: .3rem .55rem;
+    color: var(--ink-2);
+    background: var(--surface);
+  }
+  .chip.no::before { content: "NOT "; color: var(--warn); font-weight: 700; }
+
+  /* ---------- verdict slab ---------- */
+
+  .slab {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 3px;
+    padding: clamp(1.3rem, 3.5vw, 2.1rem);
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+  }
+  :root[data-theme="dark"] .slab,
+  .slab { color: var(--bg); }
+  .slab .tag { font-family: var(--mono); font-size: .69rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); font-weight: 700; }
+  .slab p { color: inherit; opacity: .93; max-width: 62ch; }
+  .slab strong { color: inherit; }
+  .slab .big { font-family: var(--sans); font-size: clamp(1.1rem, 2.4vw, 1.4rem); font-weight: 680; line-height: 1.32; letter-spacing: -.012em; opacity: 1; text-wrap: balance; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+    font-family: var(--sans);
+    font-size: .84rem;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  footer p { max-width: 74ch; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color .15s ease; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">LLM Wiki v232 · 2026-08-17 · T2 Service</div>
+    <h1>gemini-web2api</h1>
+    <p class="thesis">Takes the private RPC endpoint that Google's own Gemini website calls, and re-exposes it on your machine as an OpenAI-compatible API. No API key to Google exists anywhere in it — that is the point.</p>
+    <div class="meta">
+      <span><b>Sophomoresty</b> (靝悠Sol)</span>
+      <span>MIT</span>
+      <span>Python · <b>zero required deps</b></span>
+      <span>~2.7k★ · 59 commits · 6 contributors</span>
+      <span><b>0 releases</b></span>
+      <span>page-stated §37.4</span>
+      <span>NOT source-cloned</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Verdict</h2>
+    <div class="score">
+      <div class="cell">
+        <div class="k">(a) Anthropic-source</div>
+        <div class="v fail">FAIL</div>
+        <div class="n">A disclosed individual — an undergraduate who, per their own bio, “somehow ended up doing AI-powered reverse engineering.” No §41 rescue on name, heritage, locale or notability.</div>
+      </div>
+      <div class="cell">
+        <div class="k">(b) Goal-relevance — keys the tier</div>
+        <div class="v mod">MODERATE</div>
+        <div class="n">LLM-access-gateway infra, the corpus's densest thread; Codex + Gemini-CLI endpoint shapes. Held below STRONG: Claude appears nowhere, single-vendor, nothing safely pilotable.</div>
+      </div>
+      <div class="cell">
+        <div class="k">(c) Substance</div>
+        <div class="v mod">MODERATE</div>
+        <div class="n">Real stdlib-only protocol work — but 0 releases, tests ungated in CI, no cookie rotation, a hardcoded Google build ID.</div>
+      </div>
+      <div class="cell">
+        <div class="k">(d) Corpus fit</div>
+        <div class="v pass">STRONG</div>
+        <div class="n">Direct partner to CoreOfPotato v231; sibling to CLIProxyAPI v207 / OmniRoute v208; LV-C2 economics.</div>
+      </div>
+    </div>
+    <p class="note"><strong>GOAL-ALIGNED INCLUDE 3/4.</strong> Counts unchanged at 46 top-level patterns / 11 CONFIRMED Library-vocab. Streak <code>GA:90 · OG:13</code> — 13 consecutive goal-aligned ships. §35 clear.</p>
+  </section>
+
+  <section>
+    <h2>How it actually works</h2>
+    <p>This is pure HTTP protocol reverse-engineering. There is <strong>no browser anywhere in it</strong> — and that is the sharpest distinction from the corpus's previous instance of this class, which drove a real UI inside an anti-detect browser and scraped the DOM.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="h">Call Gemini's own internal RPC</div>
+          <div class="d">The same <code>batchexecute</code>-family endpoint the web page hits when you type into it — <code>/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate</code>, with <code>bl</code>, <code>hl</code>, <code>_reqid</code>, <code>rt=c</code>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="h">Reconstruct Google's web-client auth</div>
+          <div class="d">Send the raw <code>Cookie</code> header, parse <code>SAPISID</code> out of it, then compute and send <code>Authorization: SAPISIDHASH {ts}_{h}</code> — Google's own scheme, reimplemented from observation.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="h">Parse the wrapped RPC stream</div>
+          <div class="d">Scan for the <code>"wrb.fr"</code> marker, deserialise the nested JSON at <code>arr[0][2]</code>, pull text from <code>inner[4]</code>, regex-detect <code>BardErrorInfo</code>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="h">Translate into three API shapes</div>
+          <div class="d">OpenAI chat completions, the OpenAI <strong>Responses</strong> API (for Codex CLI), and Google's native <code>/v1beta</code> shape (for Gemini CLI) — with tool calling, streaming and image input on top.</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Mimicry is header-level only: a spoofed <code>User-Agent</code>, <code>X-Same-Domain: 1</code>, and matching <code>Referer</code>/<code>Origin</code>. No patched browser, no TLS fingerprinting.</p>
+
+    <h3>Fragile by construction</h3>
+    <p>The shipped config pins a Google internal build identifier — <code>boq_assistant-bard-web-server_20260716.08_p0</code> — which Google rotates. And unlike the mature upstream library in this space, there is <strong>no <code>__Secure-1PSIDTS</code> rotation</strong>: cookies are loaded statically from a file. Keeping it alive needs a live session cookie, a current XSRF token and a current build ID, all harvested from a real logged-in page. The repo ships a browser extension whose entire job is that refresh.</p>
+  </section>
+
+  <section>
+    <h2>The security posture — read this</h2>
+    <p>The <em>install</em> is benign: standard library plus one optional dependency, MIT, no <code>curl|bash</code>, no compiled binary, no postinstall script. Materially safer than v231, which pulled a black-box Chromium from an anonymous vendor. The concern is entirely the runtime posture.</p>
+
+    <div class="risk">
+      <div class="tag">Source-verified · three findings</div>
+      <pre><span>config.example.json</span>
+  "host": <b>"0.0.0.0"</b>          → binds every interface, not loopback
+  "api_keys": <b>["sk-gemini"]</b>  → a working default credential, in a public repo
+  "log_requests": <b>true</b>       → your prompts written to local logs
+
+<span>server.py</span>
+  keys = CONFIG.get("api_keys") or []
+  <b>if not keys: return True</b>    → auth FAILS OPEN, and this mode is advertised
+
+  Access-Control-Allow-Origin: <b>*</b>
+  Access-Control-Allow-Headers: <b>*</b>   → unconditional wildcard CORS</pre>
+      <p>Together: a service that can spend your Gemini entitlement — and, in cookie mode, holds your live Google session — binds to every interface, accepts any origin, and authorises everything when unconfigured.</p>
+    </div>
+
+    <h3>The risk asymmetry</h3>
+    <ul>
+      <li><strong>Anonymous mode</strong> exposes no account of yours. There is nothing for Google to ban; the pressure lands on Google's IP-level throttling — which the bundled Cloudflare Worker path exists to spread across ~300 edge locations.</li>
+      <li><strong>Cookie mode</strong> exposes a real Google account, with no token rotation, from a file behind an open-by-default listener.</li>
+    </ul>
+
+    <p class="note">Neither README carries a terms-of-service, legal or account-ban disclaimer — weaker disclosure than v231, which at least conceded ban risk. Credential-hygiene warnings do exist, but only inside the extension and Cloudflare READMEs: <em>“Cookie 等同于你的 Google 账号凭证.”</em></p>
+  </section>
+
+  <section>
+    <h2>Pattern outcome — a new standalone at N=2</h2>
+    <p>Minted: <strong>“Self-Hosted Gateway that Harvests a Free Consumer AI Web-Chat Entitlement and Re-Exposes It as an OpenAI-Compatible API.”</strong> Not corpus-first — v231 holds priority and is credited. Not world-first — <code>gpt4free</code> and a saturated ecosystem precede.</p>
+
+    <p>Eight days ago v231 <em>declined</em> this mint on two grounds. One survives, one is discharged. “Not world-first” is still true, but has never on its own blocked a §C row — v206, v207 and v215 were each minted explicitly as corpus-first-but-not-world-first, and v214 was neither. The real ground was a weak anchor: 16 stars, 7 commits, stale in four days. v231 itself recorded <em>“mint later on a clean exemplar, crediting v231 as the prior data-point.”</em> This is that exemplar.</p>
+
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr><th>Subject</th><th>Entitlement harvested</th><th>Access mechanism</th><th class="num">Anchor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>v207 CLIProxyAPI</td><td>CLI-tool OAuth <strong>subscriptions</strong></td><td>OAuth reverse-engineering</td><td class="num">~42.4k★</td></tr>
+          <tr><td>v208 OmniRoute</td><td>same — a TypeScript <em>port</em> of v207</td><td>same</td><td class="num">TS port</td></tr>
+          <tr><td>v231 CoreOfPotato</td><td>free consumer <strong>web-chat sessions</strong></td><td>anti-detect browser + DOM scraping</td><td class="num">16★ · 7 commits</td></tr>
+          <tr class="here"><td><strong>v232 gemini-web2api</strong></td><td>free consumer <strong>web-chat entitlement</strong></td><td><strong>direct HTTP protocol RE</strong></td><td class="num">2.7k★ · 59 commits</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The v207/v208 pair and the v231/v232 pair harvest <strong>different kinds of entitlement</strong>. Within the v231/v232 pair the goal is identical and the mechanism is completely different — UI automation versus protocol reverse-engineering. That cross-mechanism independence is what makes this a real second instance rather than a repeat, and it follows the corpus's own established move: mint the species row at N=2 crediting an un-registered first instance, exactly as camofox v179 credited CloakBrowser v69, codebase-memory-mcp v172 credited codegraph v70, Strix v190 credited shannon v45, and Firecrawl v214 credited crawl4ai v29.</p>
+
+    <h3>Boundaries held</h3>
+    <div class="chips">
+      <span class="chip no">an N=3 of the v207 row — its promotion trigger is not fired</span>
+      <span class="chip no">a stealth-browser instance (v69/v179) — header mimicry only</span>
+      <span class="chip no">a Multi-Source LLM Aggregator — it is single-source</span>
+      <span class="chip no">world-first</span>
+      <span class="chip no">corpus-first</span>
+      <span class="chip no">#52 — no releases, velocity unestablishable</span>
+      <span class="chip no">#57 — credits no corpus subject</span>
+      <span class="chip no">an MCP server</span>
+      <span class="chip no">source-cloned</span>
+    </div>
+
+    <p class="note">Two alternatives are recorded but deliberately <strong>not self-executed</strong>: leaving it as a watch axis, and generalising the v207 row to “re-exposes a non-API consumer entitlement.” The second would sweep both instances in and silently fire v207's promotion-to-CONFIRMED trigger — and a promotion is an audit act.</p>
+  </section>
+
+  <section>
+    <h2>Two findings that raise the stakes</h2>
+    <p><strong>The class already targets Claude.</strong> A sibling project applies this identical technique to <code>claude.ai</code>'s own web UI — <em>“OpenAI-compatible proxy for Gemini and Claude Web APIs. Free AI access via cookie auth.”</em> This is not a Google problem; it is an active harvesting vector against Anthropic's consumer product. Recorded as a deferred watch axis, and the strongest reason the class warrants attention here.</p>
+    <p><strong>A corpus subject already productised it.</strong> OmniRoute — corpus v208 — shipped a <code>gemini-web</code> provider alongside existing <code>chatgpt-web</code>, <code>grok-web</code> and <code>copilot-web</code> providers. Four web-UI-harvesting providers now live inside a gateway the corpus already tracks. The request cited four other projects and not this one, so it is a landscape link, not a recursion.</p>
+  </section>
+
+  <section>
+    <h2>Pilot</h2>
+    <div class="slab">
+      <div class="tag">pilot-AVOID · the payoff is read-only</div>
+      <p class="big">Read <code>gemini.py</code>. Bank the security check. Reinforce the ADR. Do not run it.</p>
+      <p><strong>A1 — Read the protocol path</strong> (~30 min, zero risk). The best short lesson in the corpus on what your own private endpoints look like to someone determined to wrap them.</p>
+      <p><strong>D9 — Bank the broken-auth triad as a confirmed recurring check.</strong> One instance is an anecdote; two independent projects with the same defect shape is a pattern. A local service holding authenticated credentials must require auth by default, must not wildcard CORS, must not treat “no key configured” as “allow”, must not bind <code>0.0.0.0</code>, must not ship a working default credential. Then red-team hireui's own local and dev surfaces against exactly that list — it composes with the standing BOLA/api-security thread.</p>
+      <p><strong>D10 — Reinforce the “official paid keys only” ADR</strong>, now with a fourth confirming instance after v207, v208 and v231 — and the first that works with no account at all, which makes it the cheapest temptation yet.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Verification.</strong> Produced inline and fully hand-verified — no workflow, no subagent. Source hand-fetched: repo page, both READMEs, <code>pyproject.toml</code>, <code>config.example.json</code>, <code>gemini.py</code>, <code>server.py</code>, the single-file script, the package / extension / cloudflare / workflow trees, releases, Trendshift, author profile. Identity, landscape and the OmniRoute link verified by independent search. Corpus collision by sanity-anchored hand-grep, three anchors hitting — clean.</p>
+    <p><strong>Three errors caught by hand:</strong> an author characterisation of “penetration tester / offensive security tool developer” unsupported by the verbatim bio, discarded; “SCU” read as Santa Clara University when context makes it Sichuan University, corrected; and a “Zero auth” / “Zero cost” tagline split that resembled v231's artifact-contamination tell, re-checked and resolved clean — two real strings in two locations, both accurate.</p>
+  </footer>
+
+</div>
