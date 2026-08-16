@@ -1,0 +1,277 @@
+<title>Core of Potato</title>
+<style>
+  :root{
+    --paper:#F1F4F3;
+    --surface:#FFFFFF;
+    --ink:#141A1C;
+    --muted:#57635F;
+    --hair:#D3DAD7;
+    --accent:#2F6F62;
+    --accent-soft:#E3EDEA;
+    --warn:#9A5A0F;
+    --warn-soft:#F6EBDC;
+    --danger:#9B2C25;
+    --danger-soft:#F7E4E2;
+    --code-bg:#EAEEEC;
+    --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#12181B;
+      --surface:#182023;
+      --ink:#E6ECE9;
+      --muted:#94A29D;
+      --hair:#2A3639;
+      --accent:#6FBFA9;
+      --accent-soft:#1C2B2A;
+      --warn:#D9A05B;
+      --warn-soft:#2A2318;
+      --danger:#E08078;
+      --danger-soft:#2C1B1A;
+      --code-bg:#0E1416;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12181B;
+    --surface:#182023;
+    --ink:#E6ECE9;
+    --muted:#94A29D;
+    --hair:#2A3639;
+    --accent:#6FBFA9;
+    --accent-soft:#1C2B2A;
+    --warn:#D9A05B;
+    --warn-soft:#2A2318;
+    --danger:#E08078;
+    --danger-soft:#2C1B1A;
+    --code-bg:#0E1416;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16.5px;
+    line-height:1.62;
+    margin:0;
+    padding:0 20px 96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+
+  /* ---- masthead ---- */
+  header{padding-top:60px;display:flex;flex-direction:column;gap:18px}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);display:flex;flex-wrap:wrap;gap:10px 16px;
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;font-size:clamp(2.3rem,6vw,3.4rem);
+    line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.015em;
+  }
+  .repo{font-family:var(--mono);font-size:13.5px;color:var(--muted);word-break:break-all}
+  .thesis{
+    font-family:var(--serif);font-size:clamp(1.12rem,2.4vw,1.32rem);line-height:1.5;
+    margin:0;padding-left:18px;border-left:2px solid var(--accent);text-wrap:pretty;
+  }
+  .thesis em{font-style:italic;color:var(--accent)}
+
+  /* ---- sections ---- */
+  section{display:flex;flex-direction:column;gap:16px}
+  h2{
+    font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--muted);margin:0;
+    padding-bottom:9px;border-bottom:1px solid var(--hair);
+  }
+  h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0;letter-spacing:-.01em}
+  p{margin:0;text-wrap:pretty}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{font-weight:660}
+  code{font-family:var(--mono);font-size:.86em;background:var(--code-bg);padding:.1em .38em;border-radius:3px}
+
+  /* ---- pipeline (a real sequence → numbering earned) ---- */
+  .pipe{display:flex;flex-direction:column;gap:0;font-family:var(--mono);font-size:13.5px}
+  .hop{display:grid;grid-template-columns:2.1rem 1fr;gap:14px;padding:12px 0;border-bottom:1px dashed var(--hair)}
+  .hop:last-child{border-bottom:0}
+  .hop .n{color:var(--accent);font-variant-numeric:tabular-nums}
+  .hop .what{color:var(--ink)}
+  .hop .note{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:3px}
+
+  /* ---- callouts ---- */
+  .note-box{
+    background:var(--surface);border:1px solid var(--hair);border-left:3px solid var(--accent);
+    padding:16px 18px;display:flex;flex-direction:column;gap:8px;
+  }
+  .note-box.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+  .note-box.danger{border-left-color:var(--danger);background:var(--danger-soft)}
+  .note-box .lbl{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+  .note-box.warn .lbl{color:var(--warn)}
+  .note-box.danger .lbl{color:var(--danger)}
+
+  /* ---- risk list ---- */
+  ol.risks,ul.plain{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+  ol.risks li{padding-left:16px;border-left:3px solid var(--danger)}
+  ol.risks li.med{border-left-color:var(--warn)}
+  ul.plain li{padding-left:16px;border-left:1px solid var(--hair)}
+  .risk-h{font-weight:660;display:block}
+
+  /* ---- ledger ---- */
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:420px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;
+  }
+  td.axis{font-family:var(--mono);font-size:13px;white-space:nowrap}
+  .chip{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;padding:2px 8px;border-radius:2px;
+    background:var(--accent-soft);color:var(--accent);white-space:nowrap;
+  }
+  .chip.fail{background:var(--danger-soft);color:var(--danger)}
+  .chip.mid{background:var(--warn-soft);color:var(--warn)}
+
+  pre{
+    font-family:var(--mono);font-size:12.5px;line-height:1.55;background:var(--code-bg);
+    color:var(--ink);padding:14px 16px;border-radius:4px;overflow-x:auto;margin:0;
+    border:1px solid var(--hair);
+  }
+  footer{
+    border-top:1px solid var(--hair);padding-top:20px;font-size:13.5px;color:var(--muted);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  footer .mono{font-family:var(--mono);font-size:12px}
+  @media (prefers-reduced-motion:no-preference){
+    a{transition:opacity .15s ease}
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">
+      <span>LLM Wiki v231</span><span>2026-08-16</span><span>T2 Service</span><span>Goal-aligned 3/4</span><span>No mint</span>
+    </div>
+    <h1>Core of Potato</h1>
+    <div class="repo">github.com/hwahao/CoreOfPotato · MIT · v1.0.1 · ~16★ · 7 commits</div>
+    <p class="thesis">You log into your own free Grok, Gemini and ChatGPT accounts inside an anti-detect browser. It keeps those tabs alive, drives them by <em>scraping the chat UI's DOM</em>, and re-exposes them to your local tools as an OpenAI-compatible endpoint. A free-tier harvester with an API face.</p>
+  </header>
+
+  <section>
+    <h2>The request path</h2>
+    <div class="pipe">
+      <div class="hop"><span class="n">01</span><span class="what">POST /v1/chat/completions &nbsp; Authorization: Bearer OCtest
+        <span class="note">The shipped caller map registers two clients: OpenClaw and OpenCode. This was built to feed coding agents.</span></span></div>
+      <div class="hop"><span class="n">02</span><span class="what">core/server.py — aiohttp, SSE streaming
+        <span class="note">Source-verified: <code>app.router.add_post("/v1/chat/completions", self.api_chat_completions)</code></span></span></div>
+      <div class="hop"><span class="n">03</span><span class="what">nav_key = f"{caller}{modu}_{platform}"
+        <span class="note">The 6-character "NaModu" key is auth, session identity and routing key at once — so <code>OCtest</code> always lands in the same conversation.</span></span></div>
+      <div class="hop"><span class="n">04</span><span class="what">worker pool — grok×3, gemini×1, chatgpt×2
+        <span class="note">URLs recycle on one of three strategies: fixed, time-based (30 min), or usage-based (10 uses, the default).</span></span></div>
+      <div class="hop"><span class="n">05</span><span class="what">CloakBrowser — patched stealth Chromium
+        <span class="note">Corpus subject v69, pinned as <code>cloakbrowser&gt;=0.3.31</code> and openly credited.</span></span></div>
+      <div class="hop"><span class="n">06</span><span class="what">grok.com · gemini.google.com/app · chatgpt.com
+        <span class="note">Your logged-in consumer sessions. There is no API key to any model anywhere in this system.</span></span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it decides an answer is finished</h2>
+    <p>There is no completion signal, because there is no API contract — so <code>grok.py</code> polls the DOM every 0.25 seconds and calls it done when the text stops changing for about two seconds (<code>stable_count &gt;= 8</code>). Prompts are entered with <code>type_human_like()</code>, followed by <code>asyncio.sleep(random.uniform(0.5, 1.2))</code> before submitting. Headless is a toggle the docs advise against: it trips bot protection on Grok and ChatGPT.</p>
+    <div class="note-box">
+      <span class="lbl">Worth reading for</span>
+      <p>This is the cheapest possible argument for paying for a real API. Hold "the answer is done when the text stops changing" next to a streaming API contract, and the value of the contract is immediately legible.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The corpus link</h2>
+    <p><strong>It is built on a previous subject, and says so.</strong> The v1.0.0 changelog credits <em>"complete integration with CloakBrowser for advanced stealth browser automation"</em>; <code>requirements.txt</code> pins it; <code>setup_cloak.py</code> pip-installs it and calls <code>ensure_binary()</code> to fetch its Chromium.</p>
+    <p>Identity was verified independently rather than inferred from the shared name: PyPI <code>cloakbrowser</code> is a drop-in Playwright replacement wrapping a custom Chromium downloaded from <strong>CloakHQ</strong> — matching corpus subject <strong>v69</strong> on author, engine and delivery shape. Because it is credited rather than silently vendored, this is a genuine recursive citation, stronger than the silent bundling seen at v181.</p>
+  </section>
+
+  <section>
+    <h2>Who built it</h2>
+    <p class="thesis">"An ordinary worker with no coding skills. I'm unemployed and forced to adapt, hoping that what I do will prove my capabilities."</p>
+    <p><strong>hwahao</strong>, Ha Noi, Viet Nam. Two public repositories: this, and a fork of AutoGPT. Against that bio sits an aiohttp gateway, a driver registry, a dashboard, CI with ruff and pytest, and a Keep-a-Changelog history — produced in <strong>7 commits over 4 days</strong>, four of them <code>fix(ci)</code> for Python 3.9 typing and lint errors.</p>
+    <p>And one verified tell: the changelog's v1.0.0 entry reads <em>"Open-source release of <strong>CoreNexus</strong>."</em> Not Core of Potato. The string is literally in the file — re-checked specifically to rule out a summarizer artifact.</p>
+    <div class="note-box">
+      <span class="lbl">Reading</span>
+      <p>An AI-generated project by a self-taught non-programmer, shipped as a portfolio piece by someone explicitly trying to prove employability. Not a slight — a data point about who can now ship infrastructure, and the corpus's first subject authored by a self-described non-coder.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Risk</h2>
+    <div class="note-box danger">
+      <span class="lbl">Verdict</span>
+      <p><strong>Pilot-avoid.</strong> The hardest-fenced subject since CLIProxyAPI v207 — which at least rode official OAuth flows. This drives consumer UIs behind an anti-detect browser specifically to evade the bot protection deployed to stop it.</p>
+    </div>
+    <ol class="risks">
+      <li><span class="risk-h">Terms of service and account bans</span>OpenAI, Google and xAI all prohibit scripted access to the consumer apps. The project's own DISCLAIMER disclaims liability for "damages, consequences, or account bans resulting from the use of this software."</li>
+      <li><span class="risk-h">It ships with authentication off</span>Verified in both config and code — and the gateway holds live authenticated sessions to your personal AI accounts.
+        <pre>"security": {
+  "admin_token": "admin-token-change-me",
+  "cors_origins": ["*"],
+  "require_auth": false
+}</pre>
+        <p style="margin-top:10px">The <code>require_admin</code> check <strong>allows the request when no token is configured</strong>. Out of the box, any local process and any web origin reaching <code>127.0.0.1:2809</code> can use your accounts. Local-only host binding is the one thing standing in the way.</p>
+      </li>
+      <li class="med"><span class="risk-h">A black-box binary</span><code>setup_cloak.py</code> downloads a pre-compiled Chromium from CloakHQ, an anonymous vendor, which then runs holding your logged-in sessions.</li>
+      <li class="med"><span class="risk-h">Credentials at rest</span><code>./data/browser_profiles</code> persists your logged-in browser profiles — session cookies for your Google, OpenAI and xAI accounts — to disk.</li>
+      <li class="med"><span class="risk-h">Abandonment</span>No commits since 2026-06-09, on a project whose entire premise is keeping pace with three vendors' UI changes. UI-scraping rots fast.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Ledger</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Axis</th><th>Call</th><th>Reasoning</th></tr></thead>
+        <tbody>
+          <tr><td class="axis">(a) Anthropic</td><td><span class="chip fail">Fail</span></td><td>Disclosed individual, not Anthropic. A shared Vietnamese locale with the operator is explicitly not a rescue.</td></tr>
+          <tr><td class="axis">(b) Goal-relevance</td><td><span class="chip mid">Moderate</span></td><td>Keys the tier. LLM-access gateway infrastructure, coding-agent clients, a live cost thread, a recursive build on v69 — held below strong because Claude appears nowhere, the artifact is tiny and stale, the hard parts are upstream, and nothing is safely pilotable.</td></tr>
+          <tr><td class="axis">(c) Substance</td><td><span class="chip mid">Moderate</span></td><td>A real working gateway with genuine streaming and CI — but 7 commits, ~16★, a thin layer over third-party engines, and almost certainly AI-generated.</td></tr>
+          <tr><td class="axis">(d) Connectivity</td><td><span class="chip">Strong</span></td><td>The dense LLM-access family (v73, v112, v117, v153, v67, v207, v208), the stealth-browser standalone, browser automation, cost economics, dual-use.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Goal-aligned include, 3/4.</strong> Both neighbours recorded reviewable: <em>strong</em> is arguable on the coding-agent-client and recursive-dependency grounds; <em>off-goal</em> is arguable on Claude-absence and ToS violation. Gray-zone is not off-goal.</p>
+  </section>
+
+  <section>
+    <h2>Pattern outcome — no mint</h2>
+    <p>Counts unchanged at 46/11. The tempting new standalone — <em>a gateway that browser-automates free consumer web-chat UIs behind an anti-detect browser and re-exposes them as an OpenAI-compatible API</em> — is corpus-first for that surface, and declined anyway:</p>
+    <ul class="plain">
+      <li><strong>Not world-first, and not close.</strong> gpt4free is the canonical flagship of this class, browser automation included, and precedes it by years.</li>
+      <li><strong>The anchor is weak.</strong> ~16★, 7 commits, four days of activity, a thin wrapper. The v181 precedent is directly on point: a would-be corpus-first class declined because the anchor was an early, thin orchestration layer.</li>
+      <li><strong>Anti-inflation.</strong> Minting a corpus-first row on a 16-star repository for a populated genre is exactly what the discipline exists to prevent.</li>
+    </ul>
+    <p>Recorded as a deferred watch axis instead; if the class earns a mint later it should be minted on a clean exemplar, with this credited as the prior data point.</p>
+    <div class="note-box warn">
+      <span class="lbl">Two boundaries held</span>
+      <p><strong>Not</strong> a third instance of the v207 gateway standalone — that row is scoped to re-exposing <em>CLI-tool OAuth subscriptions</em>, and this re-exposes free consumer web-UI sessions, a different source mechanism. Its pending promotion trigger is therefore <em>not</em> fired. <strong>Not</strong> an instance of the stealth-browser standalone either — it is a consumer of that class, not a member.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What to actually take</h2>
+    <ul class="plain">
+      <li><strong>The security anti-pattern, as a live specimen.</strong> Auth disabled, wildcard CORS, and "no token configured means allow" on a service holding authenticated sessions — a textbook broken-authentication finding that composes directly with the standing API-security work.</li>
+      <li><strong>The vendor seam.</strong> <code>BaseDriver</code> plus a driver registry plus per-platform worker pools is the fourth clean data point on the seam thread, after v196, v210 and v222.</li>
+      <li><strong>The rule it confirms.</strong> Official, paid keys per vendor terms — never web-UI scraping, never subscription re-exposure. This is the third catalogued instance of the anti-pattern, and the first that adds evading bot protection to the list.</li>
+    </ul>
+    <p style="margin-top:4px">Never route candidate data through a browser-automated consumer AI account.</p>
+  </section>
+
+  <footer>
+    <div>Built inline and hand-verified — no workflow, no subagent. Source read file-by-file; not cloned. Collision checked by sanity-anchored grep against both authoritative state files: zero subject hits, anchors hit.</div>
+    <div class="mono">Streak GA:89 · OG:13 — 12 consecutive goal-aligned ships. §35 clear.</div>
+  </footer>
+
+</div>
