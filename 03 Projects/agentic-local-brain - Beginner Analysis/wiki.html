@@ -1,0 +1,482 @@
+<title>Agentic Local Brain</title>
+
+<style>
+  /* ---- Tokens: complete LIGHT palette on bare :root ---- */
+  :root {
+    --ground:    #F2F4F1;   /* green-biased paper, deliberately not cream */
+    --surface:   #FBFCFA;
+    --ink:       #1B211C;   /* near-black, green bias */
+    --ink-soft:  #46514A;
+    --muted:     #6E7A70;   /* chosen neutral, biased toward the accent */
+    --rule:      #D3DAD3;
+    --rule-firm: #B6C0B7;
+    --accent:    #2F6B4F;   /* library-binding green */
+    --accent-bg: #E3EDE6;
+    --alarm:     #A03B2A;   /* oxide stamp red */
+    --alarm-bg:  #F6E7E3;
+    --shadow:    0 1px 2px rgba(27,33,28,.06), 0 8px 24px -16px rgba(27,33,28,.28);
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 68ch;
+    --step-0: 1.0625rem;
+    --step-1: 1.35rem;
+    --step-2: 1.75rem;
+    --step-3: 2.4rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #131714;
+      --surface:   #1B211C;
+      --ink:       #E4E9E3;
+      --ink-soft:  #B4BFB6;
+      --muted:     #8B968D;
+      --rule:      #2C332D;
+      --rule-firm: #3D473F;
+      --accent:    #7BC79A;
+      --accent-bg: #1D2A22;
+      --alarm:     #E4907A;
+      --alarm-bg:  #2C1D18;
+      --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:    #131714;
+    --surface:   #1B211C;
+    --ink:       #E4E9E3;
+    --ink-soft:  #B4BFB6;
+    --muted:     #8B968D;
+    --rule:      #2C332D;
+    --rule-firm: #3D473F;
+    --accent:    #7BC79A;
+    --accent-bg: #1D2A22;
+    --alarm:     #E4907A;
+    --alarm-bg:  #2C1D18;
+    --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: var(--step-0);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 4.5rem) clamp(1.1rem, 4vw, 3rem) 6rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* ---- Catalogue-card header ---- */
+  .card {
+    border: 1px solid var(--rule-firm);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    display: grid;
+    gap: 1.15rem;
+  }
+  .card-rail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.4rem;
+    font-family: var(--mono);
+    font-size: .715rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .card-rail b { color: var(--accent); font-weight: 600; }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: var(--step-3);
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .repo {
+    font-family: var(--mono);
+    font-size: .92rem;
+    color: var(--ink-soft);
+    word-break: break-all;
+  }
+  .dek {
+    margin: 0;
+    max-width: var(--measure);
+    color: var(--ink-soft);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+
+  .verdict-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding-top: .35rem;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .04em;
+    padding: .34rem .6rem;
+    border: 1px solid var(--rule-firm);
+    color: var(--ink-soft);
+    background: var(--ground);
+    white-space: nowrap;
+  }
+  .chip.go   { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+  .chip.stop { border-color: var(--alarm);  color: var(--alarm);  background: var(--alarm-bg); }
+
+  /* ---- Body sections ---- */
+  section { margin-top: clamp(2.75rem, 6vw, 4.25rem); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 .55rem;
+  }
+  .eyebrow::before { content: "[["; opacity: .45; margin-right: .25em; }
+  .eyebrow::after  { content: "]]"; opacity: .45; margin-left: .25em; }
+
+  h2 {
+    font-size: var(--step-2);
+    line-height: 1.2;
+    letter-spacing: -.015em;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    max-width: var(--measure);
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -.01em;
+    margin: 2rem 0 .6rem;
+    max-width: var(--measure);
+  }
+  p { max-width: var(--measure); margin: 0 0 1rem; text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 650; }
+  em { font-style: italic; color: var(--ink-soft); }
+
+  code {
+    font-family: var(--mono);
+    font-size: .86em;
+    background: var(--accent-bg);
+    color: var(--accent);
+    padding: .1em .34em;
+    border-radius: 2px;
+  }
+
+  blockquote {
+    margin: 1.25rem 0;
+    padding: .1rem 0 .1rem 1.15rem;
+    border-left: 2px solid var(--accent);
+    color: var(--ink-soft);
+    font-style: italic;
+    max-width: var(--measure);
+  }
+
+  ul { max-width: var(--measure); padding-left: 1.15rem; margin: 0 0 1rem; }
+  li { margin-bottom: .45rem; }
+
+  /* ---- Tables ---- */
+  .scroll { overflow-x: auto; margin: 1.25rem 0; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 32rem;
+    font-size: .93rem;
+  }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: .5rem;
+  }
+  th, td {
+    text-align: left;
+    padding: .58rem .8rem .58rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    border-bottom-color: var(--rule-firm);
+  }
+  td.k { font-family: var(--mono); font-size: .84rem; color: var(--ink); white-space: nowrap; }
+  td.num { font-variant-numeric: tabular-nums; }
+
+  /* ---- Scale bars ---- */
+  .bars { display: grid; gap: .7rem; max-width: var(--measure); margin: 1.25rem 0; }
+  .bar-row { display: grid; grid-template-columns: minmax(7rem, 9rem) 1fr minmax(4rem, auto); gap: .75rem; align-items: center; }
+  .bar-name { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); }
+  .bar-track { background: var(--rule); height: .7rem; position: relative; }
+  .bar-fill { background: var(--accent); height: 100%; display: block; }
+  .bar-fill.self { background: var(--alarm); }
+  .bar-val { font-family: var(--mono); font-size: .78rem; font-variant-numeric: tabular-nums; color: var(--muted); text-align: right; }
+
+  /* ---- The one flourish: a stamped finding ---- */
+  .stamp {
+    max-width: var(--measure);
+    margin: 1.75rem 0;
+    border: 2px solid var(--alarm);
+    background: var(--alarm-bg);
+    color: var(--ink);
+    padding: 1.1rem 1.25rem;
+    transform: rotate(-.65deg);
+  }
+  .stamp-label {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--alarm);
+    margin: 0 0 .5rem;
+    font-weight: 600;
+  }
+  .stamp p { margin-bottom: .6rem; }
+  .stamp p:last-child { margin-bottom: 0; }
+  .stamp pre { margin: .7rem 0; }
+
+  pre {
+    font-family: var(--mono);
+    font-size: .8rem;
+    line-height: 1.6;
+    background: var(--surface);
+    border: 1px solid var(--rule-firm);
+    padding: .8rem .9rem;
+    overflow-x: auto;
+    color: var(--ink);
+  }
+  pre .bad { color: var(--alarm); font-weight: 600; }
+
+  /* ---- Pilot path ---- */
+  .path { display: grid; gap: .9rem; max-width: var(--measure); margin: 1.25rem 0 0; }
+  .step {
+    border: 1px solid var(--rule-firm);
+    background: var(--surface);
+    padding: 1rem 1.15rem;
+    display: grid;
+    gap: .35rem;
+  }
+  .step-key {
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .step-title { font-weight: 650; }
+  .step p { margin: 0; font-size: .97rem; color: var(--ink-soft); }
+
+  .kicker {
+    margin-top: clamp(2.75rem, 6vw, 4rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-firm);
+    max-width: var(--measure);
+    font-size: var(--step-1);
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+  footer {
+    margin-top: 2.5rem;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .06em;
+    color: var(--muted);
+    max-width: var(--measure);
+    line-height: 1.8;
+  }
+
+  a { color: var(--accent); text-underline-offset: .18em; }
+  a:focus-visible, :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="card">
+    <div class="card-rail">
+      <span>Wiki <b>v234</b></span>
+      <span>2026-08-17</span>
+      <span>Tier <b>T5</b> Application</span>
+      <span>Counts <b>46 / 11</b> unchanged</span>
+    </div>
+    <h1>Agentic Local Brain</h1>
+    <div class="repo">agent-creativity/agentic-local-brain · MIT · Python · 75★ · 0 releases</div>
+    <p class="dek">A local-first personal knowledge base that ingests your files, papers, emails and notes — and then compiles a wiki out of them, with staleness tracking and automatic recompilation. It is this vault's own founding pattern, mechanised, by someone who built it in two weekends.</p>
+    <div class="verdict-strip">
+      <span class="chip go">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="chip">NO MINT</span>
+      <span class="chip">GA:92 · OG:13</span>
+      <span class="chip">§35 CLEAR</span>
+      <span class="chip stop">PILOT-AVOID — read &amp; borrow only</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">the one idea</p>
+    <h2>Derived pages that know when they have gone stale</h2>
+    <p>The v0.7 feature list contains one line that earns this subject its place in the corpus:</p>
+    <blockquote>"Auto-generate wiki articles from topic clusters using LLM synthesis, with entity summary cards, wiki-link cross-references, staleness tracking, and automatic recompilation."</blockquote>
+    <p>Read that against this vault. Four maintainer duties written into <code>CLAUDE.md</code> — synthesise pages from sources, maintain entity pages, keep cross-references current, catch stale claims — are here as mechanical product features. The fourth is the one that matters: derived articles remember which sources produced them, notice when those sources move, and recompile.</p>
+    <p>This vault does that fourth job by hand, badly, and knows it. The Library-vocab registry carries a stale-flagged <code>C22–C27</code> backlog whose retire pass has been deferred for months. <strong>That mechanism is the takeaway — not the application.</strong></p>
+  </section>
+
+  <section>
+    <p class="eyebrow">verdict</p>
+    <h2>Three of four, keyed on a qualified middle</h2>
+    <div class="scroll">
+      <table>
+        <caption>Criteria</caption>
+        <thead>
+          <tr><th scope="col">Axis</th><th scope="col">Call</th><th scope="col">Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="k">(a)</td><td class="k">FAIL</td>
+            <td>Allen Xu / <code>agent-creativity</code> — an individual, not Anthropic. No heritage, locale or notability rescue taken.</td>
+          </tr>
+          <tr>
+            <td class="k">(b)</td><td class="k">MODERATE<br><span style="color:var(--muted)">keys the tier</span></td>
+            <td>The vault's own pattern, mechanised, plus a real Claude-consumable skill — but the domain is personal knowledge management, Claude is <em>one of six</em> named agents, and it ships no MCP. Must sit below v134, which took STRONG for the same domain as a Claude Code skill.</td>
+          </tr>
+          <tr>
+            <td class="k">(c)</td><td class="k">MODERATE</td>
+            <td>Genuine breadth — six collectors, RRF hybrid retrieval, LLM reranking, HDBSCAN clustering, CLI + FastAPI — but every hard part is an upstream library, and it is two weekends of work with no releases and no evals.</td>
+          </tr>
+          <tr>
+            <td class="k">(d)</td><td class="k">STRONG</td>
+            <td>Dense verified neighbours across the Karpathy-productization vector, the MCP-scepticism pole, and the non-US-cloud egress thread.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Cleanly goal-aligned via §31 — no §40 rescue needed. <strong>An OFF-GOAL reading is not defensible</strong>: v134 set the floor for this domain. <em>(b) STRONG is recorded as the reviewable alternative.</em></p>
+  </section>
+
+  <section>
+    <p class="eyebrow">why no mint</p>
+    <h2>A minor entrant in a named, saturated category</h2>
+    <p>The pattern question turns on scale as much as on shape. This is a genre with an <em>awesome-list</em> and a published 2026 roundup of "Karpathy-style LLM knowledge base apps". Its incumbents are not close:</p>
+
+    <div class="bars">
+      <div class="bar-row">
+        <span class="bar-name">AnythingLLM</span>
+        <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+        <span class="bar-val">63,000★</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-name">Khoj</span>
+        <span class="bar-track"><span class="bar-fill" style="width:54%"></span></span>
+        <span class="bar-val">34,000★</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-name">agentic-local-brain</span>
+        <span class="bar-track"><span class="bar-fill self" style="width:0.5%"></span></span>
+        <span class="bar-val">75★</span>
+      </div>
+    </div>
+
+    <p>So the mint fails on four independent grounds. It is <strong>not corpus-first for the domain</strong> — v134's Obsidian second-brain skill and v118's OpenHuman memory tree both precede it, a fact the collision grep surfaced and a careless read would have inverted. It is <strong>domain-not-capability</strong>. It is <strong>not world-first and not the exemplar</strong>, so the "mint the world-class flagship at N=1" precedent does not reach it — the applicable precedent is v180, where a likeable small project was declined as a weak anchor. And §28.</p>
+    <p>What it <em>is</em>: the <strong>fourth "generate" instance</strong> on an already-registered Pattern&nbsp;#57 sub-variant — and a structurally new one, being a standalone application with its own store rather than a harness memory, a skill over your existing vault, or a one-shot converter.</p>
+    <p>That matters because <strong>v137 deferred a "promote-broad-class-vs-split" question on this exact vector to an audit that never happened.</strong> A fourth data point makes it harder to keep deferring.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">the argument worth reading</p>
+    <h2>CLI as the agent protocol, on purpose</h2>
+    <p>The author's design gist makes an explicit case for shipping a CLI and a skill <em>instead of</em> an MCP server:</p>
+    <blockquote>"CLI is the greatest common denominator interaction protocol between different software."</blockquote>
+    <p>The reasoning: a CLI is self-describing — <code>--help</code> <em>is</em> the prompt — self-contained, and needs no auth handshake, no SDK, no token config, no JSON parsing. Only text comprehension, which is the model's strongest faculty. Grep the README for MCP and you get nothing; the claim is honoured.</p>
+    <p>This is a second independent voice against MCP-by-default, arriving from the opposite end of the size spectrum from <strong>pi (v228)</strong>, the corpus's strongest exclusion pole at ~85,000★. Recorded as a watch axis — <em>cross-reference only, no N-bump, because a runtime and a utility are not the same shape.</em></p>
+  </section>
+
+  <section>
+    <p class="eyebrow">security</p>
+    <h2>The finding that settles the pilot question</h2>
+    <p>Every published install path — and the recommended way to install the agent skill — runs over plaintext HTTP.</p>
+
+    <div class="stamp">
+      <p class="stamp-label">Verified twice · scheme-specific re-fetch</p>
+<pre>curl -fsSL <span class="bad">http://</span>localbrain.oss-cn-shanghai.aliyuncs.com/python_installer/install.sh | sh
+irm       <span class="bad">http://</span>localbrain.oss-cn-shanghai.aliyuncs.com/binary_installer/install.ps1 | iex</pre>
+      <p>Unauthenticated remote code execution by design, from a public bucket URL. And the agent path is worse — the README's recommended install is to tell your assistant:</p>
+      <p><em>"Please install or update this knowledge collection skill: <span class="bad">http://</span>…/SKILL.md"</em></p>
+      <p>That instructs an autonomous agent to fetch behaviour over a channel anyone on the path can rewrite. It is the exact attack class catalogued defensively at v209.</p>
+    </div>
+
+    <p>Compounding it: <strong>zero releases</strong>, so nothing to pin and no checksums; the corpus being ingested is <strong>your email and personal documents</strong>; and the default provider is <strong>DashScope</strong>, so every embedding and RAG call ships that content to Alibaba unless reconfigured. The same egress fence as v221 and v222, but far more acute, because here the private corpus <em>is</em> the payload.</p>
+    <p>In fairness: MIT, no telemetry found, and the application itself is an ordinary local Python program. The risk lives entirely in how it asks to be installed.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">design note</p>
+    <h2>Fail soft here, fail closed there</h2>
+    <p>Extraction resolves user-provided → LLM → built-in TF-IDF, and the degradation table ends with a promise: <em>"Documents are always saved to the filesystem and SQLite, regardless of service availability."</em> Ingestion never refuses to capture something because a model was unreachable.</p>
+    <p>The previous ship, <strong>ClawWork (v233)</strong>, does the deliberate opposite: a missing rubric raises, and <em>"heuristic evaluation is no longer supported."</em></p>
+    <p>Both are right, and the pair is the sharpest thing to come out of two consecutive ships. A lost capture is unrecoverable while a bad tag is fixable later — so ingestion fails soft. A silently degraded score is worse than no score — so evaluation fails closed.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">what to actually do</p>
+    <h2>Read it, take two ideas, don't install it</h2>
+    <div class="path">
+      <div class="step">
+        <span class="step-key">A1 · read</span>
+        <span class="step-title">The CLI-as-agent-protocol gist</span>
+        <p>Thirty minutes, zero install, best value in the subject. Pairs with pi v228.</p>
+      </div>
+      <div class="step">
+        <span class="step-key">B5 · borrow</span>
+        <span class="step-title">Staleness tracking, into this vault</span>
+        <p>Give derived artifacts — registry rows, the shim head, Pattern Library entries — a source fingerprint, flag them stale when sources change, recompile on demand. A discipline change, not a dependency.</p>
+      </div>
+      <div class="step">
+        <span class="step-key">D9 · apply</span>
+        <span class="step-title">Both defaults, into the hireui CV-parsing ADR</span>
+        <p>Ingestion fails soft — a candidate document is always stored, even if enrichment is unavailable. Evaluation fails closed — no score without a file-backed rubric and a measured threshold.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem"><strong>Fence:</strong> never run the <code>http://</code> installers, and never paste the agent-install line into Claude Code. If ever trialled — source clone at a pinned commit, scratch machine, no email ingestion, no DashScope key, and never pointed at candidate data.</p>
+  </section>
+
+  <p class="kicker">A competent, unusually broad two-weekend build that assembles good upstream parts into a coherent knowledge base, and includes one feature its far larger competitors mostly leave to the user. It is also 75 stars, zero releases, one watcher, no MCP, Claude one-of-six, your private corpus defaulted to a Chinese cloud, and an install that pipes plaintext HTTP into a shell. <strong>Read the gist. Steal the staleness mechanism. Do not install it.</strong></p>
+
+  <footer>
+    Produced inline and fully hand-verified — no workflow, no subagent. Collision by sanity-anchored hand-grep. Three errors caught by hand: a "corpus-first PKM" over-claim that v134 disproves, the installer URL scheme, and a commit count of 110 (gist) against 92 (repo page). Not source-cloned; internals are page- and doc-stated.
+  </footer>
+
+</div>
