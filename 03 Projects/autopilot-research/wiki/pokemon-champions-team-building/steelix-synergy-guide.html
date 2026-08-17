@@ -179,7 +179,7 @@
   <p class="sectlabel">⚡ Game Plan Assistant · paste the enemy team → get a plan <span class="proto">prototype</span></p>
   <div class="asst">
     <div class="asst-in">
-      <div class="team-pick"><span class="tp-lbl">Piloting</span><button type="button" class="tp-btn" data-team="steelix" data-on="true">🔩 Steelix · Sand/TR</button><button type="button" class="tp-btn" data-team="ho" data-on="false">❄️ Tailwind · Snow HO</button></div>
+      <div class="team-pick"><span class="tp-lbl">Piloting</span><button type="button" class="tp-btn" data-team="steelix" data-on="true">🔩 Steelix · Sand/TR</button><button type="button" class="tp-btn" data-team="ho" data-on="false">❄️ Tailwind · Snow HO</button><button type="button" class="tp-btn" data-team="arcanine" data-on="false">🔥 Arcanine · Speed-Flex</button></div>
       <label for="enemyInput">Enemy team — paste a Showdown export, or just list their key Pokémon (one per line):</label>
       <textarea id="enemyInput" spellcheck="false" placeholder="Charizard&#10;Venusaur&#10;Garchomp&#10;Floette&#10;Sinistcha&#10;Incineroar"></textarea>
       <div class="asst-btns">
@@ -420,7 +420,43 @@
     if(!det.length) det.push('no known signals — generic plan');
     return {risk:risk, riskName:riskName, riskSub:riskSub, mode:mode, steps:steps, caveat:caveat, detected:det};
   }
-  function makePlan(text){ return currentTeam==='ho' ? makePlanHO(text) : makePlanSteelix(text); }
+  function makePlanArcanine(text){
+    if(!text || !text.replace(/\s/g,'')) return null;
+    var h={}; for(var k in SIG) h[k]=SIG[k].rx.test(text);
+    var steps=[], risk, riskName, riskSub, mode, caveat;
+    if(h.sun){
+      mode='<b>Line-up 1</b> — lead <b>Hisuian Arcanine + Mega Staraptor</b>';
+      steps.push('<b>Lead Arcanine (Focus Sash):</b> recoil-free <b>Head Smash</b> is 4× on Mega Charizard-Y and OHKOs it — locking their whole sun plan.');
+      steps.push('<b>Staraptor sets Tailwind;</b> keep Farigiraf in the back to flip to Trick Room if the game slows down.');
+      risk='fav'; riskName='Favorable'; riskSub='Arcanine hard-counters Charizard / sun';
+      caveat='This is the matchup the team was built for — Arcanine + Head Smash walls the Charizard-Y plan. Lead Arcanine and apply pressure.';
+    } else if(h.fast){
+      mode='<b>Flip them</b> — <b>Farigiraf Trick Room</b> (or race with Staraptor Tailwind)';
+      steps.push('<b>Set Trick Room (Farigiraf)</b> to invert their speed — your slower nukes now move first.');
+      steps.push('<b>Or race:</b> Staraptor Tailwind + Raichu Fake Out if you’d rather out-speed than flip. Pick whichever their team fears more.');
+      risk='fav'; riskName='Favorable'; riskSub='you carry BOTH Tailwind and Trick Room';
+      caveat='Fast offense has to guess which speed mode you’ll pick — and you can set both. That two-way threat is this team’s edge.';
+    } else if(h.trickroom){
+      mode='<b>Line-up 2</b> — <b>Mega Raichu + Kingambit</b> (fast nuke)';
+      steps.push('<b>Pressure before their Trick Room goes up:</b> Raichu <b>Fake Out</b> buys Kingambit a free <b>Swords Dance</b>.');
+      steps.push('<b>+2 Sucker Punch + Life Orb</b> then OHKOs most things — and priority still works under their Trick Room.');
+      risk='even'; riskName='Even'; riskSub='race their TR, or mirror with Farigiraf';
+      caveat='Don’t set your own Trick Room into theirs. Go fast and punish their slow mons before TR, or mirror-set with Farigiraf and win the TR turns.';
+    } else {
+      mode='<b>Line-up 1 (default)</b> — Arcanine + Staraptor Tailwind';
+      steps.push('<b>Default lead:</b> Arcanine (Focus Sash pressure) + Staraptor Tailwind; pick a line-up after Team Preview.');
+      risk='even'; riskName='Even'; riskSub='no hard read — stay flexible';
+      caveat='Nothing forces a mode — lead your Arcanine + Tailwind core and choose a line-up once you see their four.';
+    }
+    if(h.special || h.fairy) steps.push('<b>Sylveon</b> (Pixilate Hyper Voice) is your spread special answer; <b>Farigiraf Foul Play</b> punishes their physical breakers.');
+    if(h.bulkywall){ steps.push('<b>Break walls:</b> Arcanine <b>Head Smash</b>, Staraptor <b>Close Combat</b> (Contrary → it gets bulkier as it swings), or Kingambit SD + Sucker Punch — bulky walls are the one thing that stalls you.'); if(risk==='even'){ risk='bad'; riskName='Unfavorable'; riskSub='bulky walls stall the offense'; } }
+    steps.push('<b>Signature line (Line-up 3):</b> if they carry their OWN speed control, set <b>BOTH</b> Tailwind (Staraptor) AND Trick Room (Farigiraf) to out-flex any speed archetype.');
+    steps.push('<b>Every game:</b> Farigiraf <b>Armor Tail</b> shuts off their Fake Out; Raichu Fake Out + Kingambit Sucker Punch are your priority.');
+    var det=[]; for(var k2 in SIG) if(h[k2]) det.push(SIG[k2].label);
+    if(!det.length) det.push('no known signals — generic plan');
+    return {risk:risk, riskName:riskName, riskSub:riskSub, mode:mode, steps:steps, caveat:caveat, detected:det};
+  }
+  function makePlan(text){ return currentTeam==='ho' ? makePlanHO(text) : currentTeam==='arcanine' ? makePlanArcanine(text) : makePlanSteelix(text); }
   function renderPlan(text){
     var out=document.getElementById('planOut'); var p=makePlan(text);
     if(!p){ out.hidden=true; return; }

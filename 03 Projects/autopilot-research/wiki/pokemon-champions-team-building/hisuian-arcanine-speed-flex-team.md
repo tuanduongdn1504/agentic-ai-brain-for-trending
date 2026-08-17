@@ -44,7 +44,7 @@ Built around **Hisuian Arcanine** (Rock/Fire) — a Focus-Sash pressure lead tha
 
 ## Meta connection
 
-This is the **third dual-Mega, flexible-speed team** the topic has catalogued (after Wolfey's Steelix/Tyranitar and Zhang's Tyranitar/Froslass), and the **fourth pair of novel Champions Megas** (after Mega Floette / Mega Froslass, now **Mega Staraptor / Mega Raichu Y**). The pattern is emphatic: **the top of the Champions meta is "carry two Megas + multiple speed modes, and pick from the enemy team."** This team just pushes it furthest — *three* line-ups and a double-speed-control mode. It's the ideal candidate for the [Game Plan Assistant](steelix-synergy-guide.html) treatment.
+This is the **third dual-Mega, flexible-speed team** the topic has catalogued (after Wolfey's Steelix/Tyranitar and Zhang's Tyranitar/Froslass), and the **fourth pair of novel Champions Megas** (after Mega Floette / Mega Froslass, now **Mega Staraptor / Mega Raichu Y**). The pattern is emphatic: **the top of the Champions meta is "carry two Megas + multiple speed modes, and pick from the enemy team."** This team just pushes it furthest — *three* line-ups and a double-speed-control mode. It's now the **third preset** in the [Game Plan Assistant](steelix-synergy-guide.html) — the **"🔥 Arcanine · Speed-Flex"** toggle: paste an enemy team and it tells you which line-up to run (Arcanine-lead vs Charizard, Trick Room vs fast offense, or the double-speed Line-up 3) plus a matchup-risk flag.
 
 ## Importable teamlist (PokéSynergy-validated; sets are reconstructions)
 
