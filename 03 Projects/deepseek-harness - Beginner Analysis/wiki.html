@@ -1,0 +1,398 @@
+<title>Everything Is a Plugin</title>
+
+<style>
+  :root {
+    --ground: #F6F7F9;
+    --surface: #FFFFFF;
+    --slab: #FDFDFE;
+    --ink: #15171D;
+    --muted: #5B6170;
+    --faint: #878D9C;
+    --rule: #DCE0E8;
+    --rule-strong: #C2C8D4;
+    --accent: #A96A08;
+    --accent-soft: #F3E7D2;
+    --good: #2C6A4C;
+    --bad: #9E3728;
+    --code-bg: #EEF0F4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #111319;
+      --surface: #171A21;
+      --slab: #1B1F27;
+      --ink: #E4E7ED;
+      --muted: #99A0AE;
+      --faint: #757C8B;
+      --rule: #282D38;
+      --rule-strong: #3A4150;
+      --accent: #DFA34A;
+      --accent-soft: #2E2617;
+      --good: #6FBF95;
+      --bad: #E08573;
+      --code-bg: #1F242D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #111319;
+    --surface: #171A21;
+    --slab: #1B1F27;
+    --ink: #E4E7ED;
+    --muted: #99A0AE;
+    --faint: #757C8B;
+    --rule: #282D38;
+    --rule-strong: #3A4150;
+    --accent: #DFA34A;
+    --accent-soft: #2E2617;
+    --good: #6FBF95;
+    --bad: #E08573;
+    --code-bg: #1F242D;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  /* ---- masthead ---- */
+  header { display: flex; flex-direction: column; gap: 0.9rem; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .eyebrow b { color: var(--accent); font-weight: 600; }
+  h1 {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: clamp(1.85rem, 5vw, 2.7rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .repo {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92rem;
+    color: var(--muted);
+    word-break: break-word;
+  }
+  .standfirst {
+    font-size: 1.09rem;
+    color: var(--muted);
+    max-width: 40rem;
+    margin: 0;
+  }
+
+  /* ---- verdict strip ---- */
+  .verdict {
+    border: 1px solid var(--rule-strong);
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 1.15rem 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 1rem 1.75rem;
+  }
+  .vcell { display: flex; flex-direction: column; gap: 0.2rem; }
+  .vkey {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .vval {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- sections with seam rail ---- */
+  section {
+    border-left: 1px solid var(--rule);
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  section > h2 {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+  }
+  section > h2::before {
+    content: "";
+    position: absolute;
+    left: -1.4rem;
+    top: 0.45em;
+    width: 0.8rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  section > h3 {
+    font-size: 1.12rem;
+    margin: 0.6rem 0 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p { margin: 0; max-width: 40rem; }
+  section p + p { margin-top: 0.15rem; }
+
+  /* ---- module slabs: the plugin idea, structurally ---- */
+  .slabs { display: flex; flex-direction: column; gap: 0.9rem; }
+  .slab {
+    background: var(--slab);
+    border: 1px solid var(--rule);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .slab-tag {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .slab-tag .ok { color: var(--good); }
+  .slab h4 { margin: 0; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .slab p { font-size: 0.96rem; }
+
+  blockquote {
+    margin: 0;
+    padding: 0.15rem 0 0.15rem 1rem;
+    border-left: 2px solid var(--accent-soft);
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 1.03rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  code {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86em;
+    background: var(--code-bg);
+    padding: 0.1em 0.36em;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  .tablewrap { overflow-x: auto; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.93rem;
+    min-width: 30rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.8rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 600;
+  }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.45rem; max-width: 40rem; }
+  li::marker { color: var(--faint); }
+
+  .flag {
+    border: 1px solid var(--rule-strong);
+    background: var(--accent-soft);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .flag strong { color: var(--accent); }
+
+  .path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .path span {
+    border: 1px solid var(--rule-strong);
+    padding: 0.28rem 0.6rem;
+    background: var(--surface);
+  }
+  .path em { color: var(--faint); font-style: normal; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.4rem;
+    font-size: 0.86rem;
+    color: var(--faint);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">
+      <span>LLM Wiki v235</span>
+      <span>2026-08-17</span>
+      <span><b>GOAL-ALIGNED 3/4</b></span>
+      <span>NO MINT</span>
+    </div>
+    <h1>Everything Is a Plugin</h1>
+    <div class="repo">deepseek-ai/deepseek-harness &nbsp;·&nbsp; <code>dsh</code> &nbsp;·&nbsp; MIT &nbsp;·&nbsp; v0.1.0-rc.5</div>
+    <p class="standfirst">DeepSeek open-sourced not a coding-agent product but the agent <em>runtime</em> — where the model, the tools, the sandbox, the scheduler, the UI, and even the main agent loop are all hot-swappable plugins. It ships Claude Code as one of them.</p>
+  </header>
+
+  <div class="verdict">
+    <div class="vcell"><span class="vkey">Author</span><span class="vval">DeepSeek AI</span></div>
+    <div class="vcell"><span class="vkey">Released</span><span class="vval">2026-08-13</span></div>
+    <div class="vcell"><span class="vkey">Scale</span><span class="vval">~453K LOC</span></div>
+    <div class="vcell"><span class="vkey">Packages</span><span class="vval">~219</span></div>
+    <div class="vcell"><span class="vkey">Counts</span><span class="vval">46 / 11</span></div>
+    <div class="vcell"><span class="vkey">Streak</span><span class="vval">GA:93 · OG:13</span></div>
+  </div>
+
+  <section>
+    <h2>What it is</h2>
+    <p>Run <code>npx @deepseek-ai/dsh web</code> and you get a local web UI on port 3080. Underneath is a plugin kernel — <strong>Cordis</strong>, which is not DeepSeek's: it is an independent meta-framework by the developer <em>shigma</em> that has powered the Koishi chatbot framework for four years. Its one defining capability is <strong>disposability</strong>: load, unload and reload a plugin with complete cleanup of side effects.</p>
+    <p>That is what makes the tagline operational rather than decorative. The swappable set, verbatim from DeepSeek: <em>models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and the UI.</em></p>
+    <blockquote>DeepSeek Harness is currently in developer preview and is iterating rapidly. THERE WILL BE COMPATIBILITY-BREAKING CHANGES.</blockquote>
+  </section>
+
+  <section>
+    <h2>Three verified findings</h2>
+    <div class="slabs">
+
+      <div class="slab">
+        <div class="slab-tag"><span>Finding 01 — corpus link</span><span class="ok">hand-verified</span></div>
+        <h4>Its model seam runs on Pi — a corpus subject</h4>
+        <p><code>packages/llm/</code> holds only five directories, and there is <strong>no <code>llm-anthropic</code></strong>. Breadth comes from one package: <code>llm-pi-ai</code>, described as a <em>"generic multi-provider adapter for the harness LLM seam backed by <code>@earendil-works/pi-ai</code>."</em> That is the npm package of <strong>Pi</strong> — corpus subject v228, the revisit of v36 <code>pi-mono</code>.</p>
+        <p>So a frontier lab's flagship runtime gets OpenAI, <strong>Anthropic</strong>, Azure, Bedrock and Vertex from one solo developer's SDK. Pi is now depended on by two labs — ByteDance's llm-space v221 and this. And the sharpest critique of dsh — <em>token usage roughly 10× versus Pi</em> — measures it against the very project it is built on.</p>
+      </div>
+
+      <div class="slab">
+        <div class="slab-tag"><span>Finding 02 — Goal #1</span><span class="ok">hand-verified</span></div>
+        <h4>It ships Claude Code as a delegatable subagent</h4>
+        <p><code>packages/subagent/subagent-claude-code</code> <em>"starts a real Claude Code child through the official Claude Agent SDK."</em> Alongside it, <code>subagent-codex</code> starts a real Codex app-server child, and <code>packages/hooks/</code> bridges your existing <code>hooks.json</code>. Both off by default.</p>
+        <p>This is the mirror image of harness <em>emulation</em>. One wiki earlier, openinterpreter v223 minted a class for <em>reimplementing</em> a rival's harness to squeeze performance from cheap models. DeepSeek does the opposite: it spawns the real thing through the vendor's own SDK. <strong>Emulate versus delegate</strong> — two opposite answers to the same problem, twelve wikis apart.</p>
+      </div>
+
+      <div class="slab">
+        <div class="slab-tag"><span>Finding 03 — the borrowable idea</span><span class="ok">hand-verified</span></div>
+        <h4>Traceability as an architectural guarantee</h4>
+        <p>Session logs are <strong>append-only</strong>: anything visible to the model is permanently recorded. Not a logging policy — an invariant of the runtime. The main loop is decomposed into interceptable Turn/Step stages rather than hardcoded control flow, which is what lets the loop itself be a plugin.</p>
+        <p>That first rule is almost verbatim the audit requirement in the vault's ratified candidate-LLM legibility ADR. It is the single most transferable thing in 453,000 lines.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>The pattern call</h2>
+    <p>The natural home is an existing registry row — <em>"Open-Sourced First-Party Frontier-Lab Agentic Coding CLI/TUI,"</em> anchored at N=1 by grok-build v215. deepseek-harness satisfies every essential axis of it: a frontier lab, its own official agent, fully open-sourced, studiable as a primary subject, in the Claude Code peer class.</p>
+    <p>It differs only on two <em>descriptive</em> clauses — that row says "terminal-TUI-first, single-vendor-model"; dsh is web-UI-first and multi-vendor. The v212 audit has generalized exactly that kind of clause before.</p>
+    <div class="flag">
+      <strong>But that row is promotion-eligible at N=2.</strong>
+      <p>Declaring the N=2 here would silently fire a promotion to CONFIRMED and change the headline counts. The v232 ship refused precisely this move on the record: <em>a promotion is an audit act.</em> So the candidacy is recorded and flagged to the badly-overdue audit — not executed. Counts stay 46 / 11.</p>
+    </div>
+    <p>The reviewable alternative — mint a new standalone for a "frontier-lab plugin-composable agent runtime" — is recorded and declined: a well-fitting row already exists, "plugin architecture" is a crowded world class the corpus has twice declined to mint on (cortex-hub v181, lobehub v222 at 80.6k stars), and a four-day-old preview is a weak anchor.</p>
+  </section>
+
+  <section>
+    <h2>What is actually wrong with it</h2>
+    <ul>
+      <li><strong>Ecosystem compatibility ~19%</strong> — 41 of 219 integrations succeeding.</li>
+      <li><strong>~10× token usage versus Pi</strong>, plus a confirmed context-duplication bug.</li>
+      <li><strong>No evaluation story at all.</strong> <code>BENCHMARK.md</code> is a three-line stub; there is no eval harness anywhere in the tree and zero evaluation claims — striking for a runtime this size.</li>
+      <li><strong>Squashed-merge history.</strong> The whole codebase arrived as one commit; contributors called it hostile, and it means real provenance opacity.</li>
+      <li><strong>A <code>postinstall</code> script</strong> — pointed, given it depends on Pi, the corpus's strongest supply-chain positive exemplar for <code>--ignore-scripts</code> discipline.</li>
+      <li><strong>Windows sandboxing is partial</strong> — reads, network and process visibility stay unrestricted. Credit where due: DeepSeek documents this rather than hiding it.</li>
+    </ul>
+    <p>Its own reviewers suggest waiting three to six months before production adoption. The ~92,700 stars in 28 hours are page-stated only and, under this vault's provenance rule, not a velocity claim.</p>
+  </section>
+
+  <section>
+    <h2>Corpus position</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Subject</th><th>Relationship</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">grok-build v215</td><td>The natural home row — N=2 candidacy recorded, not executed</td></tr>
+          <tr><td class="num">pi v228 / v36</td><td>Genuine #57 — the declared, npm-linked dependency under its whole model seam</td></tr>
+          <tr><td class="num">llm-space v221</td><td>The other Pi-dependent subject → Pi is now a two-lab dependency</td></tr>
+          <tr><td class="num">openinterpreter v223</td><td>Sharp contrast — emulate a harness vs delegate to the real one</td></tr>
+          <tr><td class="num">DeepSpec v186</td><td>Same org — this is the corpus's second first-party DeepSeek subject</td></tr>
+          <tr><td class="num">cortex-hub v181 · lobehub v222</td><td>The packaging-not-capability precedents that constrain the mint</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>What to do about it</h2>
+    <p>Read-and-borrow. Not a tool to adopt, and not a hireui component.</p>
+    <div class="path">
+      <span>A1 · read the seam taxonomy</span><em>→</em><span>B5 · name your own seams</span><em>→</em><span>B6 · steal append-only traceability</span>
+    </div>
+    <p>The seam list is the best available checklist for what should be swappable in an agent system, and the append-only rule drops straight into hireui's LLM-integration ADR. Note too that this is the <strong>second consecutive ship</strong> — after agentic-local-brain v234 — to hand the vault machinery for its own stale-derived-artifact backlog: dsh ships <code>verify-doc-refs</code>, <code>verify-doc-budgets</code> and <code>verify-md-links</code> as CI gates.</p>
+    <p><strong>Fence:</strong> install-snapshot first (there is a <code>postinstall</code>), scratch directory only, pin the version and expect breakage, route the pi-ai seam at Claude rather than the DeepSeek default to avoid PRC cloud egress, never point it at candidate data, and never enable self-modifying toolsets.</p>
+  </section>
+
+  <footer>
+    <div>Built inline and fully hand-verified — no workflow, no subagent. Collision by sanity-anchored hand-grep: <code>deepseek-harness</code> = 0 hits, with anchors DeepSpec 56 / DeepSeek-TUI 115 / openinterpreter 50 confirming the grep works.</div>
+    <div>Three errors caught by hand: the "~40 providers" figure (one wrapped SDK, not 40 adapters), the Claude Code integration mechanism (the official Agent SDK, not a PATH binary), and a self-contradictory first summary that would have concluded dsh has no Claude surface at all — inverting the goal-relevance call. ⚠️ Not source-cloned.</div>
+  </footer>
+
+</div>
