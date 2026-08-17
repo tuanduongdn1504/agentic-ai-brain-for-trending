@@ -1,0 +1,324 @@
+<title>Claude Code, Re-Skinned</title>
+
+<style>
+  :root{
+    --paper:#F6F8FC;
+    --panel:#FFFFFF;
+    --panel-2:#EDF2F8;
+    --ink:#131C29;
+    --ink-2:#3D4A5C;
+    --ink-3:#69788C;
+    --rule:#D3DEEA;
+    --mist:#2E6B93;
+    --mist-soft:#5B8FB9;
+    --mist-wash:#E4EEF6;
+    --warn:#8A5A12;
+    --warn-wash:#F7EEDC;
+    --stop:#8E3434;
+    --stop-wash:#F8E9E9;
+    --ok:#1F6B4F;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --serif:ui-serif,Charter,"Iowan Old Style",Georgia,"Times New Roman",serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0B1220;
+      --panel:#111A28;
+      --panel-2:#16212F;
+      --ink:#E6EDF6;
+      --ink-2:#B4C2D2;
+      --ink-3:#8494A6;
+      --rule:#243244;
+      --mist:#7FB2D6;
+      --mist-soft:#5B8FB9;
+      --mist-wash:#152534;
+      --warn:#D9A85C;
+      --warn-wash:#241C0F;
+      --stop:#E08585;
+      --stop-wash:#251314;
+      --ok:#6EC49B;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0B1220;
+    --panel:#111A28;
+    --panel-2:#16212F;
+    --ink:#E6EDF6;
+    --ink-2:#B4C2D2;
+    --ink-3:#8494A6;
+    --rule:#243244;
+    --mist:#7FB2D6;
+    --mist-soft:#5B8FB9;
+    --mist-wash:#152534;
+    --warn:#D9A85C;
+    --warn-wash:#241C0F;
+    --stop:#E08585;
+    --stop-wash:#251314;
+    --ok:#6EC49B;
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink-2);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.62;
+    margin:0;
+    padding:0 1.25rem 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:74ch;margin:0 auto;display:flex;flex-direction:column;gap:2.1rem}
+  .prose{max-width:66ch}
+
+  /* --- status line: echoes the plugin's own TUI top bar --- */
+  .statusline{
+    margin:0 -1.25rem 0;
+    padding:.6rem 1.25rem;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.04em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.35rem 1.4rem;
+    align-items:baseline;
+    font-variant-numeric:tabular-nums;
+  }
+  :root[data-theme="dark"] .statusline,
+  :root:not([data-theme="light"]) .statusline{background:var(--panel-2);color:var(--ink)}
+  @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .statusline{background:var(--ink);color:var(--paper)}}
+  .statusline b{color:var(--mist-soft);font-weight:600}
+
+  header.mast{padding-top:2.6rem;display:flex;flex-direction:column;gap:.7rem}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  h1{
+    font-family:var(--mono);
+    font-size:clamp(1.85rem,5vw,2.6rem);
+    line-height:1.12;
+    letter-spacing:-.02em;
+    font-weight:600;
+    color:var(--ink);
+    margin:0;
+    text-wrap:balance;
+  }
+  .standfirst{font-size:1.14rem;color:var(--ink-2);margin:0;max-width:60ch;text-wrap:pretty}
+  .repo{font-family:var(--mono);font-size:13px;color:var(--mist);word-break:break-all}
+
+  h2{
+    font-family:var(--mono);
+    font-size:1.02rem;
+    letter-spacing:.02em;
+    font-weight:600;
+    color:var(--ink);
+    margin:0 0 .2rem;
+    padding-bottom:.5rem;
+    border-bottom:1px solid var(--rule);
+  }
+  h3{font-family:var(--mono);font-size:.9rem;font-weight:600;color:var(--ink);margin:0 0 .1rem;letter-spacing:.01em}
+  section{display:flex;flex-direction:column;gap:.85rem}
+  p{margin:0}
+  strong{color:var(--ink);font-weight:600}
+  em{font-style:italic}
+  code{font-family:var(--mono);font-size:.85em;background:var(--panel-2);padding:.1em .35em;border-radius:3px;color:var(--ink)}
+  a{color:var(--mist);text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--mist);outline-offset:2px;border-radius:2px}
+
+  ul{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.45rem}
+  li::marker{color:var(--mist-soft)}
+
+  .verdict{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--mist);
+    padding:1.1rem 1.2rem;
+    display:flex;flex-direction:column;gap:.7rem;
+  }
+  .verdict .line{font-family:var(--mono);font-size:.86rem;color:var(--ink);letter-spacing:.01em}
+  .crit{display:grid;grid-template-columns:auto 1fr;gap:.4rem .85rem;font-size:.95rem}
+  .crit dt{font-family:var(--mono);font-size:.8rem;color:var(--ink-3);padding-top:.22rem}
+  .crit dd{margin:0}
+  .tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:.14em .5em;border-radius:3px;white-space:nowrap}
+  .t-fail{background:var(--stop-wash);color:var(--stop)}
+  .t-mod{background:var(--warn-wash);color:var(--warn)}
+  .t-strong{background:var(--mist-wash);color:var(--mist)}
+
+  .scroller{overflow-x:auto;border:1px solid var(--rule);background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;font-family:var(--serif)}
+  caption{
+    text-align:left;font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-3);padding:.7rem .85rem .4rem;
+  }
+  th,td{text-align:left;padding:.5rem .85rem;border-top:1px solid var(--rule);vertical-align:top}
+  th{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  tbody tr:nth-child(odd) td{background:var(--panel-2)}
+  td.gap{color:var(--stop)}
+
+  .ledger{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media (min-width:620px){.ledger{grid-template-columns:1fr 1fr}}
+  .ledger > div{background:var(--panel);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.4rem}
+  .ledger h3 span{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-bottom:.2rem}
+  .ledger ul{font-size:.9rem;gap:.28rem}
+
+  pre{
+    margin:0;padding:.9rem 1rem;background:var(--panel);border:1px solid var(--rule);
+    overflow-x:auto;font-family:var(--mono);font-size:.8rem;line-height:1.55;color:var(--ink);
+  }
+
+  .note{border-left:3px solid var(--warn);background:var(--warn-wash);padding:.8rem 1rem;font-size:.95rem}
+  .note.stop{border-left-color:var(--stop);background:var(--stop-wash)}
+  .note .lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:.25rem}
+  .note.stop .lbl{color:var(--stop)}
+
+  .path{display:flex;flex-direction:column;gap:.55rem;counter-reset:step}
+  .path > li{list-style:none;display:flex;gap:.75rem;align-items:baseline}
+  .path{padding-left:0}
+  .path > li::before{
+    counter-increment:step;content:counter(step);
+    font-family:var(--mono);font-size:.75rem;color:var(--mist);
+    border:1px solid var(--mist-soft);border-radius:50%;
+    min-width:1.5rem;height:1.5rem;display:inline-flex;align-items:center;justify-content:center;flex:none;
+  }
+  footer{border-top:1px solid var(--rule);padding-top:1rem;font-size:.85rem;color:var(--ink-3);font-family:var(--mono);line-height:1.5}
+</style>
+
+<div class="statusline">
+  <span><b>dsh-tui</b> v0.8.0</span>
+  <span>MIT</span>
+  <span>host <b>dsh</b> 0.1.0-rc.6</span>
+  <span>peers <b>21</b></span>
+  <span>ctx <b>v236</b>/236</span>
+  <span>GA <b>94</b> · OG 13</span>
+  <span>mint <b>none</b></span>
+</div>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">LLM Wiki v236 · 2026-08-17</div>
+    <h1>Claude Code, Re-Skinned</h1>
+    <p class="standfirst">A pseudonymous developer rebuilt Claude Code's terminal experience as a plugin <em>inside</em> a rival lab's brand-new agent runtime — and accidentally produced the best available proof that last week's subject was telling the truth about its own architecture.</p>
+    <div class="repo">ccch1mneyyy/dsh-TUI · npm @deepseek-harness-tui/dsh-tui</div>
+  </header>
+
+  <div class="verdict">
+    <div class="line">GOAL-ALIGNED INCLUDE 3/4 · NO MINT · counts 46/11 unchanged</div>
+    <dl class="crit">
+      <dt>(a)</dt><dd><span class="tag t-fail">Fail</span> Pseudonymous individual — "Chimney". Not Anthropic, not DeepSeek. §41 allows no name, heritage, or locale inference.</dd>
+      <dt>(b)</dt><dd><span class="tag t-mod">Moderate</span> <strong>Keys the tier.</strong> The interaction surface of a coding-agent runtime, plus a rival ecosystem's itemised inventory of Claude Code's UX. Held below strong: a presentation layer adding zero agent capability.</dd>
+      <dt>(c)</dt><dd><span class="tag t-strong">Strong</span> Ported Ink core, Yoga layout, differential output, virtualised lists, an 11-script <code>verify:*</code> suite. The hard parts are all upstream.</dd>
+      <dt>(d)</dt><dd><span class="tag t-strong">Strong</span> Host v235 · v72 · §C#27 v161 · v227 · v216 · v215 · v223 · v228.</dd>
+    </dl>
+  </div>
+
+  <section>
+    <h2>What it is</h2>
+    <p class="prose"><code>package.json</code> says it plainly: <em>"Claude Code style interactive TUI front door for DeepSeek Harness agents, built on the ported Ink core."</em> Not a program — a front door bolted onto someone else's agent. The install line is the host plus the plugin:</p>
+    <pre>npm install -g @deepseek-ai/dsh @deepseek-harness-tui/dsh-tui
+dsh-tui</pre>
+    <p class="prose">Author <strong>"Chimney"</strong> (<code>ccch1mneyyy</code>), bio 「试图用ai做点东西~」 — <em>trying to make something with AI</em>. No disclosed name, employer, or location. ~1.7k★ / 74 forks, page-stated.</p>
+  </section>
+
+  <section>
+    <h2>Finding one: it runs inside last ship's subject</h2>
+    <p class="prose">The vault shipped <strong>v235 <code>deepseek-ai/deepseek-harness</code></strong> four days earlier. Its entire thesis was <em>"Everything is a Plugin"</em> — models, tools, skills, sessions, storage, the agent loop, <strong>and the UI</strong> all hot-swappable on <strong>Cordis</strong>, whose defining capability is disposability.</p>
+    <p class="prose">v236 is a stranger doing exactly that, to the UI seam. The proof is a lockfile edge, not a claim: <strong>21 <code>peerDependencies</code>, every one <code>@deepseek-ai/*</code> at <code>^0.1.0-rc.6</code></strong> — including <code>@deepseek-ai/cordis</code>, the rescoped kernel v235 documented. That is the most machine-checkable form of corpus recursion the corpus holds. It also sits <em>one prerelease ahead</em> of the <code>rc.5</code> recorded at v235: the promised breaking-change treadmill, visible in a version range.</p>
+
+    <div class="ledger">
+      <div>
+        <h3><span>Replaces</span>The UI seam, and nothing else</h3>
+        <ul>
+          <li>Mounts via Cordis; entry point stays light, runtime loads lazily</li>
+          <li>Declares injection points + a config schema</li>
+          <li>Unified cleanup on <code>dispose</code></li>
+          <li><em>"Zero core changes… uninstall leaves no core patches"</em></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span>Consumes</span>Everything that matters</h3>
+        <ul>
+          <li>The official DSH agent, model, tool, session and persistence services</li>
+          <li>House rule: 「不要在组件中复制 DSH Agent、session 或 tool 服务」 — <em>do not replicate them in components</em></li>
+          <li>Skills, MCP, subagents, Goals, Todos — surfaced, not implemented</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="prose">Underneath that sits the finding worth keeping. v235 flagged <strong>append-only session logs</strong> as an architectural guarantee. dsh-TUI proves the guarantee is load-bearing: 「Channel 只保留适合当前 TUI 的投影」 — the Channel keeps only a <em>projection</em>, while the host's <code>session/event</code> log owns history replay, streaming, <strong>rewind boundaries</strong>, and reconstruction after resume or fork.</p>
+    <p class="prose">So an independent front end implements time-travel and forking while holding nothing authoritative of its own. That is the cleanest external validation of an append-only design the corpus has seen — and it is the one idea to steal.</p>
+  </section>
+
+  <section>
+    <h2>Finding two: a rival ecosystem itemised Claude Code's UX</h2>
+    <div class="scroller">
+      <table>
+        <caption>Claude Code behaviour, as reconstructed on a competitor's runtime</caption>
+        <thead><tr><th scope="col">Claude Code</th><th scope="col">dsh-TUI</th></tr></thead>
+        <tbody>
+          <tr><td>Streaming reasoning, expandable</td><td>streaming thought expansion</td></tr>
+          <tr><td>Context-window pressure, visible</td><td>context progress bar</td></tr>
+          <tr><td>Throughput / cost feel</td><td><strong>TPS gauge</strong>, cache-hit rate, reasoning level, token counts</td></tr>
+          <tr><td>Esc-Esc to rewind</td><td>double-Esc rewind — implemented as session <strong>fork</strong></td></tr>
+          <tr><td>Structured tool output</td><td>structured tool cards</td></tr>
+          <tr><td><code>@</code> refs, completion, history search</td><td>all present</td></tr>
+          <tr><td><code>/resume</code> <code>/new</code> <code>/compact</code> <code>/export</code></td><td>all present</td></tr>
+          <tr><td><code>/vim</code> <code>/connect</code> <code>/hooks</code></td><td class="gap">placeholders — declared, not implemented</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose">It clones the <em>architecture</em>, not just the look. Claude Code's own TUI is — per third-party reverse-engineering, <strong>not</strong> Anthropic documentation — a React app on a heavily forked <strong>Ink</strong> renderer with a <strong>Yoga</strong> layout engine and ANSI diffing. dsh-TUI's pipeline: Cordis profile → plugin → DSH services → channel projection → components → <strong>ported Ink renderer + Yoga</strong> → terminal, with 「差分输出」 differential output, virtualised message lists on cached row heights, replay merging, and CJK/emoji cell-width handling. Tellingly, there is <em>no <code>ink</code> dependency</em> — but Ink's entire dependency set is present. Vendored and modified, exactly as Claude Code forked it.</p>
+    <p class="prose">The placeholders are the tell: someone catalogued the command surface and shipped its shell. The imitation is incomplete and says so. This <strong>extends the <code>grok-build</code> v215 primitive-convergence axis to the presentation layer</strong> — convergence now reaches the rendering stack and the keybindings.</p>
+  </section>
+
+  <section>
+    <h2>Why no mint</h2>
+    <p class="prose">A §C standalone was drafted — <em>"third-party replacement UI layer mounted as a first-class plugin inside an agent runtime"</em> — and declined. It is genuinely distinct on mechanism: <strong>CodePilot v161</strong> wraps a CLI from outside; <strong>hermes-webui v227</strong> is a separate server fronting an install; <strong>Codex-Dream-Skin v216</strong> was unsanctioned CDP injection; <strong>DeepSeek-TUI v72</strong> is a standalone client for DeepSeek <em>models</em>. None mount in-process through the host's own kernel.</p>
+    <p class="prose">It loses anyway, on four grounds: the v227 / v222 / v216 precedent chain treats front ends as form factors, not classes; §C vocabulary is capability-shaped and this adds no capability; §28 forbids minting on a delivery mechanism; and the anchor is one plugin among ~1,120 in a four-day-old ecosystem that already contains a rival UI plugin. Recorded as a deferred watch axis, <strong>not executed</strong>.</p>
+    <div class="note">
+      <span class="lbl">The v216 discriminator</span>
+      Codex-Dream-Skin was rated <strong>off-goal</strong> for being decoration with zero functional surface. dsh-TUI implements the whole interaction layer — session lifecycle, streaming reasoning, observability, rewind-and-fork, tool cards, completion. Functional agent UX, not a skin. That is why (b) is moderate rather than fail.
+    </div>
+  </section>
+
+  <section>
+    <h2>The honest weaknesses</h2>
+    <ul class="prose">
+      <li><strong>The hard parts are not here.</strong> Agent loop, model, tools, session, persistence — all upstream in v235.</li>
+      <li><strong>No end-to-end tests with real credentials.</strong> Author-stated: integration needs manual terminal verification. The <code>verify:*</code> suite checks structure and boundaries, not behaviour.</li>
+      <li><strong>Pinned to a release candidate</strong> of a preview whose own README warns in bold of breaking changes.</li>
+      <li><strong>Documented limits:</strong> injected context invisible; model switch is a fork, not an in-place swap; exit doesn't await persistence; three inert commands.</li>
+      <li><strong>"Official recognition" is author-stated</strong> — featured in DeepSeek Harness's WeChat account as a "beta user selected plugin." Not web-verifiable.</li>
+      <li><strong>Not source-cloned.</strong> Repo page, README, <code>package.json</code>, <code>docs/architecture.md</code>, profile, directories, landscape search.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The ecosystem nobody should miss</h2>
+    <p class="prose">Searching for this plugin surfaced something larger than the plugin: a <strong>DSH plugin land-rush</strong>. Within days of v235's preview, ~<strong>1,120 plugins</strong> are listed across at least eight competing directory sites, several reading as automated aggregation, none disclosing an operator.</p>
+    <div class="note stop">
+      <span class="lbl">Provenance failure, caught by hand</span>
+      One of those directories lists dsh-TUI as <strong>v0.3.3, BSD-3-Clause</strong>. The repo and <code>package.json</code> say <strong>v0.8.0, MIT</strong> — stale version <em>and</em> wrong licence. The repo is authoritative (the Kilo Code v177 precedent). Read the repo; do not trust the aggregators, and do not install from them.
+    </div>
+    <p class="prose">This cuts both ways. It revises v235's picture — ~19% ecosystem compatibility and reviewers advising a 3–6 month wait — because adoption is clearly moving faster than that number suggested. It is also a supply-chain warning: a thousand unvetted plugins for a release candidate, indexed by anonymous sites with demonstrably wrong metadata.</p>
+  </section>
+
+  <section>
+    <h2>Pilot: read and borrow, do not install</h2>
+    <p class="prose">Installing means a global npm install of a v0.8.0 plugin against a four-day-old release candidate, 21 rc peer deps, a <code>prepare</code> script, and PRC egress on the host's default models. The payoff is a prettier terminal for an agent you don't use.</p>
+    <ol class="path">
+      <li><span><strong>Read <code>docs/architecture.md</code></strong> and the feature inventory above. Twenty minutes, zero install.</span></li>
+      <li><span><strong>Write the invariant into hireui's LLM ADR:</strong> the event log is the source of truth; the UI holds only a projection. Two consecutive ships now converge on this, and the ratified candidate-LLM legibility ADR already demands it.</span></li>
+      <li><span><strong>Steal <code>verify:boundary</code> / <code>verify:patch-surface</code>:</strong> encode an architectural boundary as a build gate rather than a paragraph.</span></li>
+    </ol>
+    <p class="prose">That third point lands on a pattern: this is the <strong>third consecutive ship</strong> to hand the vault machinery for enforcing its own invariants — v234's staleness tracking, v235's doc-verification gates, now boundary gates. Three in a row pointing at the same unattended backlog is not a coincidence worth ignoring.</p>
+  </section>
+
+  <footer>
+    Verdict produced inline and fully hand-verified — no workflow, no subagent. Collision by sanity-anchored hand-grep: <code>dsh-TUI</code> and <code>ccch1mney</code> zero hits vault-wide; anchors <code>deepseek-harness</code>, <code>DeepSeek-TUI</code>, <code>Cordis</code>, <code>CodePilot</code>, <code>hermes-webui</code> all hit, so the empty result is trustworthy.<br>
+    Streak GA:94 · OG:13 — 17 consecutive goal-aligned. §35 clear. inflation_check held.
+  </footer>
+
+</div>
