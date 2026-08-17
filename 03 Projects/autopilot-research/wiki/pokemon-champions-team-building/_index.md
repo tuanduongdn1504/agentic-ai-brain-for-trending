@@ -15,6 +15,7 @@
 | [[pokemon-champions-team-building/finals-case-study-sand-vs-sun]] | 🏆 **Finals case study** — the #3 Steelix team vs Arsal Puri's *winning* **Sun** team (Mega Charizard-Y + **Mega Floette**) at Indianapolis: the sand-vs-sun matchup, Wolfey's mode-pick, and the honest outcome (**Steelix lost — 2nd**). The "when the matchup is bad" half of the enemy-team feature |
 | [[pokemon-champions-team-building/how-to-choose-your-mode]] | 🧭 **Step-by-step: choose your mode from the enemy team** — a 6-step decision procedure + flowchart, grounded in Wolfey's real Indianapolis mode log (Top-4 vs Zhang → Queen; finals vs Arsal → Steelix-TR). The human-readable rulebook behind the Game Plan Assistant |
 | [[pokemon-champions-team-building/tailwind-snow-ho-team]] | ❄️ **Non-Steelix contrast** — a **Tailwind / Snow Hyper-Offense** built from operator's 6 mons (Froslass/Sneasler/Rotom/Garchomp/Kingambit/Talonflame): *fast*, priority-backed, Mega Froslass **Snow Warning** → Blizzard/Aurora Veil. Proves the reusable method generalizes (slow-nuke ↔ fast-HO); a **preset in the Game Plan Assistant** |
+| [[pokemon-champions-team-building/hisuian-arcanine-speed-flex-team]] | 🔥 **Guide: Hisuian Arcanine "triple speed-control" flex** (Duy Plays Poké VN review): **3 line-ups** + a double Tailwind/Trick-Room mode; dual-Mega **Staraptor (Contrary) + Raichu Y**; Arcanine (Rock Head + Head Smash) locks Charizard. The most flexible team in the topic |
 
 ## The core idea (one paragraph)
 
