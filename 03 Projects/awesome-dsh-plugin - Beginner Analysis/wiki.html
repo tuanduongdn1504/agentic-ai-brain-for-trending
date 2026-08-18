@@ -1,0 +1,437 @@
+<title>The Record That Wasn't Indexed</title>
+<style>
+  :root {
+    --paper: #f7f6f2;
+    --paper-2: #fffefb;
+    --ink: #131a24;
+    --ink-2: #3d4754;
+    --ink-3: #6b7480;
+    --rule: #d7d8d1;
+    --rule-2: #e7e7e1;
+    --accent: #2f5d63;
+    --accent-soft: #e3ecec;
+    --flag: #9d5518;
+    --flag-soft: #f5e9dd;
+    --void: #8c2b2b;
+    --void-soft: #f6e6e4;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #10151c;
+      --paper-2: #161c25;
+      --ink: #e8e6df;
+      --ink-2: #b3b8c0;
+      --ink-3: #838b96;
+      --rule: #2a323d;
+      --rule-2: #212832;
+      --accent: #7fb3b8;
+      --accent-soft: #1a2a2d;
+      --flag: #d9924e;
+      --flag-soft: #2a2016;
+      --void: #d97a72;
+      --void-soft: #2b1a1a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #10151c;
+    --paper-2: #161c25;
+    --ink: #e8e6df;
+    --ink-2: #b3b8c0;
+    --ink-3: #838b96;
+    --rule: #2a323d;
+    --rule-2: #212832;
+    --accent: #7fb3b8;
+    --accent-soft: #1a2a2d;
+    --flag: #d9924e;
+    --flag-soft: #2a2016;
+    --void: #d97a72;
+    --void-soft: #2b1a1a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 62rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  /* ---- masthead ---- */
+  .masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1.75rem; margin-bottom: 0; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin: 0 0 0.9rem;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--ink-2);
+    max-width: 46ch;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .repo {
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    color: var(--accent);
+    margin-top: 1.25rem;
+    word-break: break-all;
+  }
+
+  /* ---- ledger rows: mono rail + prose ---- */
+  .row {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0 2rem;
+    border-bottom: 1px solid var(--rule-2);
+    padding: 2.25rem 0;
+    align-items: start;
+  }
+  .row:last-of-type { border-bottom: none; }
+  .key {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .key b { display: block; color: var(--accent); font-weight: 600; }
+  .body > * + * { margin-top: 1rem; }
+  h2 {
+    font-size: clamp(1.3rem, 2.6vw, 1.62rem);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    font-weight: 600;
+    margin: 1.75rem 0 0;
+  }
+  p { margin: 0; max-width: 66ch; }
+  .body p { color: var(--ink-2); }
+  .body p strong, .body li strong { color: var(--ink); font-weight: 600; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  code {
+    font-family: var(--mono);
+    font-size: 0.855em;
+    background: var(--rule-2);
+    padding: 0.1em 0.34em;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+  ul { margin: 0; padding-left: 1.15rem; max-width: 66ch; color: var(--ink-2); }
+  li + li { margin-top: 0.55rem; }
+
+  blockquote {
+    margin: 0;
+    padding: 0.15rem 0 0.15rem 1.1rem;
+    border-left: 2px solid var(--accent);
+    color: var(--ink);
+    font-size: 1.02rem;
+    max-width: 62ch;
+  }
+  blockquote cite {
+    display: block;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 0.6rem;
+  }
+
+  /* ---- verdict grid ---- */
+  .verdict {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .vcell { background: var(--paper-2); padding: 0.95rem 1rem; }
+  .vcell dt {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.3rem;
+  }
+  .vcell dd { margin: 0; font-family: var(--mono); font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+  .vcell dd small { display: block; font-family: var(--serif); font-size: 0.8rem; font-weight: 400; color: var(--ink-3); margin-top: 0.25rem; line-height: 1.4; }
+  .pass { color: var(--accent) !important; }
+  .fail { color: var(--flag) !important; }
+
+  /* ---- data table ---- */
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; min-width: 30rem; }
+  th, td { text-align: left; padding: 0.55rem 0.9rem 0.55rem 0; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+  th {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    border-bottom: 1px solid var(--rule);
+  }
+  td { color: var(--ink-2); }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+  td.mono { font-family: var(--mono); font-size: 0.84rem; }
+
+  /* ---- the missing record: the page's one flourish ---- */
+  .catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 0.7rem;
+    margin-top: 1.25rem;
+  }
+  .card {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.7rem 0.8rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: var(--ink-2);
+    word-break: break-all;
+  }
+  .card span { display: block; color: var(--ink-3); font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .card.orphan {
+    border: 1px dashed var(--void);
+    background: var(--void-soft);
+    color: var(--void);
+  }
+  .card.orphan span { color: var(--void); }
+  .card.ellipsis { display: flex; align-items: center; justify-content: center; color: var(--ink-3); border-style: dotted; }
+
+  .note {
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    max-width: 62ch;
+  }
+  .note.warn { background: var(--flag-soft); border-left-color: var(--flag); }
+  .note strong { color: var(--ink); }
+
+  .rule-heavy { border-top: 2px solid var(--ink); margin-top: 3rem; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 46rem) {
+    .row { grid-template-columns: 1fr; gap: 0.75rem 0; padding: 1.85rem 0; }
+    .key { padding-top: 0; }
+    .key b { display: inline; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>LLM Wiki · v240</span>
+      <span>2026-08-18</span>
+      <span>Goal-aligned 3/4 · No mint</span>
+      <span>Source-cloned</span>
+    </div>
+    <h1>The Record That Wasn't Indexed</h1>
+    <p class="standfirst">A five-day-old plugin catalogue built better documentation machinery than most funded projects — and then lost a contributor's submission to a missing file extension.</p>
+    <p class="repo">awesome-dsh-plugin/awesome-dsh-plugin · CC0-1.0 · 1,390 entries · the plugin catalogue for DeepSeek Harness (v235)</p>
+  </header>
+
+  <div class="row">
+    <div class="key"><b>Verdict</b>Phase 0.9</div>
+    <div class="body">
+      <dl class="verdict">
+        <div class="vcell"><dt>(a) Author</dt><dd class="fail">FAIL<small>A bare handle. The README states: "not affiliated with DeepSeek."</small></dd></div>
+        <div class="vcell"><dt>(b) Goal relevance</dt><dd>MODERATE<small>Keys the tier. STRONG is genuinely arguable.</small></dd></div>
+        <div class="vcell"><dt>(c) Analysability</dt><dd class="pass">STRONG<small>Source-cloned with full history — the run's first.</small></dd></div>
+        <div class="vcell"><dt>(d) Actionability</dt><dd class="pass">STRONG<small>Four pilotable mechanisms, zero install.</small></dd></div>
+      </dl>
+      <p>Counts unchanged at <strong>46 patterns / 11 Library-vocab</strong>. Streak <strong>GA:98</strong> — 21 consecutive goal-aligned ships. §35 clear.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Subject</b>What it actually is</div>
+    <div class="body">
+      <h2>Not a list. A registry with an editorial layer.</h2>
+      <p>The tagline says "a curated list of plugins," and that description is what misleads. Inside is one YAML record per plugin, a compiler that renders those records into two 350 KB bilingual READMEs and a static site, four probes that re-verify the outside world, a weekly decay scan, six CI workflows — and a published machine API.</p>
+      <blockquote>Public registry API: /plugins.json — deterministic; consumed by the find[er]<cite>scripts/build-site.mjs:675</cite></blockquote>
+      <p>Two independent programs read that endpoint at runtime: <code>dsh-market</code>, an in-harness storefront built by a <strong>separate organisation</strong> ("This repo is the market app, not the catalog"), and <code>dsh-find-plugin</code>, which registers a <strong><code>find_dsh_plugin</code> tool into the agent</strong> so the model searches the catalogue itself.</p>
+      <div class="note">One ship earlier, v239's <code>community-plugins</code> panel earned a form-factor note describing it as <em>static, index-only, no runtime registry.</em> This is that runtime registry.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Provenance</b>Git, not the API</div>
+    <div class="body">
+      <h2>A clone measures what the mocked API cannot</h2>
+      <p>Star counts are page-stated and carry no velocity claim. Commit metadata inside a clone is authoritative — so these figures are hand-derived and stand on their own.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Measure</th><th>Value</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>First commit</td><td class="num">2026-08-13 21:55 +0800</td><td class="mono">git log --reverse</td></tr>
+            <tr><td>Age</td><td class="num">~5 days</td><td class="mono">derived</td></tr>
+            <tr><td>Commits</td><td class="num">1,662</td><td class="mono">git rev-list --count</td></tr>
+            <tr><td>Unique author emails</td><td class="num">853</td><td class="mono">git log --pretty=%ae</td></tr>
+            <tr><td>Top committer</td><td class="num">243 (fkysly)</td><td class="mono">86 of ~93 touching scripts/ + .github/</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>853 contributors, and <strong>one volunteer wrote essentially all of the machinery</strong>. A 967★ storefront and an agent tool read this bus-factor-1 repository's API live.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Finding</b>Prose vs. code</div>
+    <div class="body">
+      <h2>It checks its documentation against its source of truth</h2>
+      <p>The counts reconcile exactly, in both languages: 1,390 YAML records; 1,393 entry lines minus 3 table-of-contents links; twenty category headings summing to 1,390; bilingual completeness 1,390 of 1,390. One record, two renders — drift is prevented by construction, not detected after the fact.</p>
+      <p>Then it goes one step further than any prior ship in this run:</p>
+      <blockquote>contributing.md lists the valid category values for contributors to copy. It drifted once already — <code>usage</code> and <code>vision</code> were added to the taxonomy and the docs kept advertising the old twelve — so the list is checked here rather than trusted to stay in step by hand.<cite>scripts/generate-readme.mjs</cite></blockquote>
+      <p>The build fails when a prose enumeration disagrees with the code. <strong>v239's conclusion was that its own linter "checks structure, not content equivalence — prose numbers are exactly what it cannot catch."</strong> This is the missing half.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Finding</b>The inventory rule</div>
+    <div class="body">
+      <h2>A submission was merged, and has never appeared anywhere</h2>
+      <p>Every record in <code>data/plugins/</code> ends in <code>.yml</code>. One does not.</p>
+      <div class="catalogue">
+        <div class="card"><span>record</span>01Virex__dsh-status-rotator.yml</div>
+        <div class="card"><span>record</span>paicat1__dsh-screenshot.yml</div>
+        <div class="card ellipsis">1,388 more</div>
+        <div class="card orphan"><span>not indexed</span>zmm863-commits__dsh-paperclip</div>
+      </div>
+      <p>The file is complete and well-formed — url, name, category, and both English and Chinese descriptions. It was reviewed, approved and merged as <strong>PR #1192 on 2026-08-17</strong>. And <code>entries.mjs:69</code> reads <code>if (!f.endsWith('.yml')) continue</code> — skipped silently, no warning.</p>
+      <p>Verified consequences: zero occurrences in either README, zero in the site data, therefore absent from <code>plugins.json</code>, and so absent from the storefront and from the agent's search results. There is even a filename validator that would have caught it — but it sits <strong>downstream of the glob that excludes the file</strong>.</p>
+      <div class="note"><strong>The rule this teaches.</strong> A consistency check between two views of one source cannot see what is missing from the source. Pair every equivalence check with an <em>inventory</em> check that enumerates the input by a different rule than the parser uses.</div>
+      <p>This is the vault's own condition, precisely: an index-versus-content check between <code>CLAUDE.md</code> and <code>_state/03c</code> would never notice a chapter absent from the index — which is how a file labelled <code>-v183</code> came to hold entries through v240.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Finding</b>The doctrine</div>
+    <div class="body">
+      <h2>Automate the evidence. Never automate the irreversible decision.</h2>
+      <p>Three scripts, written by the same hand, all refusing to act on their own conclusions.</p>
+      <blockquote>Flags — never removes. […] removal stays a human decision because it is irreversible and a scan can be wrong — an outage, a rename, a rate-limit blip. Anything inconclusive is skipped, not flagged: a decay report must only ever contain evidence, not doubt.<cite>scripts/scan-decay.mjs</cite></blockquote>
+      <p>The bleed detector — which finds one entry's description leaking into another's, after that happened twice while every existing check passed — is likewise <em>"reported, not enforced,"</em> on a threshold calibrated by running it: at 40 shared characters, a full pass over ~1,170 entries surfaced five pairs, all genuine. The site builder carries a publish-time plausibility floor added the day a bad probe shipped 1,362 null star counts to everything downstream.</p>
+      <div class="note"><strong>The sharpest contrast of the run, one ship apart.</strong> v239's <code>pr-review.mjs</code> auto-closed a substantive bug report for template non-compliance. v240 refuses to auto-remove a single entry.</div>
+      <p>Every non-obvious constant here carries a comment naming the incident that motivated it and the measurement that calibrated it. That habit is the exact inverse of the vault's — accreting claims without provenance, which is why its rows cannot be retired.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Finding</b>Propagation</div>
+    <div class="body">
+      <h2>A contested claim, caught moving downstream again</h2>
+      <p>The editorial policy requires a reviewer to check whether the code does what the entry claims, "including any numbers or API names." The catalogue's verified entry for the v239 subject reads: <em>"…pet, <strong>live token stats</strong>, and a skin center."</em></p>
+      <p>That is the feature v239 flagged as advertised but absent. Rather than lean on the prior ship, the live source was re-checked here: the current 33,162-byte README contains <strong>zero</strong> occurrences of <code>token</code> or <code>usage</code>. Its single Chinese "token" is on line 81, in the mobile-pairing section — the pairing token, not usage statistics.</p>
+      <p>v239 republished upstream's retracted benchmark into its npm description. v240 republishes v239's unsubstantiated feature into its registry API. <strong>The same failure mode, pointing the other way, one ship apart</strong> — a claim travelling downstream through a live dependency graph faster than anyone re-checks it. The mechanism is banal, not malicious: the line was copied from the plugin's own tagline, which is precisely what the policy warns against.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Security</b>One good, one honest</div>
+    <div class="body">
+      <h2>The best CI artifact of the run — and a limit the project discloses itself</h2>
+      <blockquote>a token is in scope here, so nothing from the pull request is ever executed. […] Checking out <code>refs/pull/N/merge</code> and running <code>npm ci</code> there would hand the token to fork-supplied install scripts, which is the <code>pull_request_target</code> footgun this workflow exists to avoid.<cite>.github/workflows/pr-gate.yml</cite></blockquote>
+      <p>All six workflows run <code>contents: read</code>; no lifecycle scripts; two current dependencies. The fork-triggered job holds no token, and the privileged job treats pull-request content strictly as data in a scratch directory.</p>
+      <p>Against that, the README's boast — <em>"if a description claims '46 tools', someone counts them"</em> — has no mechanism behind it. The contributing guide says so before anyone else can: <em>"A green CI run is the precondition, not the decision… It cannot tell whether a plugin does what its entry says."</em> Nothing listed is security-scanned; the tarball probe only confirms a URL resolves.</p>
+      <div class="note warn"><strong>Two cautions.</strong> A listing is not a safety signal, and the project says so above 1,390 install commands. And the committed lockfile resolves two of three packages from a mirror registry while <code>npm ci</code> runs in four workflows — integrity-hashed, so the exposure is availability and install-traffic visibility, not integrity.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Drift</b>Three defects</div>
+    <div class="body">
+      <h2>Where the machinery structurally cannot reach</h2>
+      <ul>
+        <li><strong>A dead link on line 5 of both READMEs.</strong> <code>README.ja.md</code> does not exist — verified three ways, including that no <code>ja</code> locale is registered at all. It survives because everything outside the generated markers is hand-written. <strong>1,390 generated lines are perfect; the one hand-written navigation line is broken.</strong></li>
+        <li><strong>One record in 1,390 with Windows line endings.</strong> Trivial in effect; interesting only as the byte-level variance the semantic validator was never asked about.</li>
+        <li><strong>The dropped submission</strong> — outside the glob, and therefore outside every check.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="key"><b>Pattern</b>No mint</div>
+    <div class="body">
+      <h2>Declined, on prior art that was verified rather than assumed</h2>
+      <p>The candidate row — a curated catalogue publishing a runtime-consumed registry API — is real but not new. <strong>awesome-selfhosted</strong> already splits into a per-entry-YAML data repository that generates both README and website; <strong>HACS</strong> is already a curated community registry consumed at runtime by an in-app storefront in the host application. An independent adversarial check returned: <em>"a well-executed curated list with good engineering, but it is not a structural innovation."</em> The genuinely newest element — the agent-callable tool — lives in a separate repository. Recorded as a deferred watch axis at N=1.</p>
+      <h3>Also declined: a tempting revival</h3>
+      <p><code>skills-lock.json</code> pins two corpus subjects by content hash — v85 and v51 — the same filename and purpose as a pattern the corpus retired 225 wikis ago for lack of a second instance. It does not qualify: this is not a framework, and the manifest is not load-bearing (nothing verifies the hashes or consumes the skills). <strong>An initial over-reading, reversed by the verifier.</strong></p>
+      <h3>And a note the corpus owes itself</h3>
+      <p>v237's verdict had already named this repository — <em>"Ecosystem-formation data-point, not a subject."</em> That call was made on the genre label without reading the source, and was wrong on the facts. The lesson is about intake, not this repo: <strong>do not settle a subject question on form-factor alone when the form factor is cheap to verify.</strong></p>
+    </div>
+  </div>
+
+  <div class="row rule-heavy">
+    <div class="key"><b>Pilot</b>A1 → B6 → C12</div>
+    <div class="body">
+      <h2>Read four scripts. Then build the thing six ships have now specified.</h2>
+      <p><strong>A1 — thirty minutes, zero install.</strong> The marker logic and both checks in <code>generate-readme.mjs</code>; the header comments of <code>scan-decay.mjs</code> and <code>check-bleed.mjs</code>; lines 65–75 and 130–135 of <code>lib/entries.mjs</code>; the first thirty lines of <code>pr-gate.yml</code>.</p>
+      <p><strong>B6 — write the doc-integrity contract into <code>CLAUDE.md</code>,</strong> now with the two pieces v239 lacked: prose-versus-code equivalence, and the inventory rule. <strong>B7 —</strong> adopt the five-rule decay doctrine verbatim as the retire-pass policy: flag never remove, skip the inconclusive, evidence not doubt, one issue updated in place, removal is human. That dissolves the objection on which the pass has stalled for fifty wikis.</p>
+      <p><strong>C12 — build <code>verify-vault-docs</code>:</strong> inventory, prose-versus-code, structure, decay. Six consecutive ships have now handed over the parts — v234's staleness tracking, v235's doc gates, v236's boundary CI, v237's pack-and-mount, v239's structure linter, and this ship's prose check, inventory rule and decay doctrine.</p>
+      <div class="note warn"><strong>Read and borrow. Install nothing.</strong> Not a hireui component. Do not treat a listing as a safety signal, do not run <code>npm ci</code> in the clone, and do not cite "live token stats."</div>
+    </div>
+  </div>
+
+  <footer>
+    Verification: source-cloned, full history · 16-agent workflow, 0 errors, ~1.70M tokens, 382 s · every count hand-derived<br>
+    Six errors caught, four of them the author's own — including a wrong doubt about js-yaml 5.3.0, and the Pattern #16 over-reading reversed by an adversarial check<br>
+    Star and fork figures are page-stated (the GitHub API is mocked in this environment) and carry no velocity claim
+  </footer>
+
+</div>
