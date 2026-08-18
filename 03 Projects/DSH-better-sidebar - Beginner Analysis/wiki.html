@@ -1,0 +1,411 @@
+<title>DSH-better-sidebar</title>
+<style>
+  :root{
+    --ground:#F6F8FA; --surface:#FFFFFF; --surface-2:#EDF1F5;
+    --ink:#151A21; --ink-2:#4A5563; --ink-3:#78838F;
+    --rule:#DCE2EA; --rule-2:#C6CFDA;
+    --accent:#2F6F7E;      /* desaturated deep teal — panel chrome */
+    --accent-soft:#E2EEF1;
+    --caution:#9E6428;     /* muted ochre — verdict / fence only */
+    --caution-soft:#F6EDE1;
+    --good:#3D6B4A;
+    --shadow:0 1px 2px rgba(20,28,38,.06), 0 8px 24px -12px rgba(20,28,38,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#10141A; --surface:#171C24; --surface-2:#1E242E;
+      --ink:#E6EBF2; --ink-2:#AAB4C2; --ink-3:#7E8895;
+      --rule:#262D38; --rule-2:#343D4A;
+      --accent:#79B7C4; --accent-soft:#15272C;
+      --caution:#D3A06A; --caution-soft:#2A2118;
+      --good:#84B694;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#10141A; --surface:#171C24; --surface-2:#1E242E;
+    --ink:#E6EBF2; --ink-2:#AAB4C2; --ink-3:#7E8895;
+    --rule:#262D38; --rule-2:#343D4A;
+    --accent:#79B7C4; --accent-soft:#15272C;
+    --caution:#D3A06A; --caution-soft:#2A2118;
+    --good:#84B694;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16.5px; line-height:1.62; margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;}
+
+  .shell{max-width:1180px; margin:0 auto; padding:0 22px 88px;
+         display:grid; grid-template-columns:210px minmax(0,1fr); gap:44px; align-items:start;}
+  @media (max-width:900px){ .shell{grid-template-columns:minmax(0,1fr); gap:0;} }
+
+  /* ---- masthead ---- */
+  header.mast{grid-column:1/-1; padding:56px 0 30px; border-bottom:1px solid var(--rule);}
+  .eyebrow{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+           color:var(--accent); font-weight:650; margin:0 0 14px;}
+  h1{font-family:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+     font-size:clamp(2.3rem,5.2vw,3.5rem); line-height:1.06; letter-spacing:-.018em;
+     margin:0 0 6px; text-wrap:balance; font-weight:600;}
+  .repo{font-size:13.5px; color:var(--ink-3); margin:0 0 20px;}
+  .repo a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--rule-2);}
+  .repo a:hover{color:var(--accent); border-color:var(--accent);}
+  .thesis{font-family:"Iowan Old Style",Palatino,Georgia,serif;
+          font-size:clamp(1.06rem,2.1vw,1.28rem); line-height:1.5; color:var(--ink-2);
+          max-width:64ch; margin:0 0 26px; text-wrap:pretty;}
+  .thesis b{color:var(--ink); font-weight:600;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{font-size:11.5px; letter-spacing:.05em; padding:5px 11px; border-radius:3px;
+        border:1px solid var(--rule-2); color:var(--ink-2); background:var(--surface);
+        font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  .chip.on{border-color:var(--accent); color:var(--accent); background:var(--accent-soft);}
+  .chip.warn{border-color:var(--caution); color:var(--caution); background:var(--caution-soft);}
+
+  /* ---- rail: the "registered tabs", using the subject's real order values ---- */
+  nav.rail{position:sticky; top:26px; padding-top:38px;}
+  @media (max-width:900px){
+    nav.rail{position:static; padding:18px 0 4px; overflow-x:auto; border-bottom:1px solid var(--rule);}
+    nav.rail ol{display:flex; gap:18px; white-space:nowrap;}
+  }
+  nav.rail p{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+             color:var(--ink-3); margin:0 0 14px; font-weight:650;}
+  nav.rail ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:3px;}
+  nav.rail a{display:flex; gap:10px; align-items:baseline; text-decoration:none;
+             color:var(--ink-2); font-size:13.5px; padding:4px 0; border-radius:2px;}
+  nav.rail a:hover{color:var(--accent);}
+  nav.rail a .ord{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10.5px;
+                  color:var(--ink-3); min-width:18px; font-variant-numeric:tabular-nums;}
+  nav.rail a:hover .ord{color:var(--accent);}
+  nav.rail a:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  /* ---- main ---- */
+  main{padding-top:38px; min-width:0;}
+  section{margin:0 0 52px; scroll-margin-top:22px;}
+  h2{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:1.62rem; font-weight:600;
+     letter-spacing:-.012em; margin:0 0 4px; text-wrap:balance;}
+  h2 + .sub{color:var(--ink-3); font-size:13px; margin:0 0 22px;
+            font-family:ui-monospace,"SF Mono",Menlo,monospace; letter-spacing:.02em;}
+  h3{font-size:1.02rem; font-weight:650; margin:30px 0 8px; letter-spacing:-.005em;}
+  p{margin:0 0 15px; max-width:68ch;}
+  ul,ol.body{max-width:68ch; padding-left:20px; margin:0 0 16px;}
+  li{margin:0 0 8px;}
+  code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.855em;
+       background:var(--surface-2); padding:1.5px 5px; border-radius:3px; color:var(--ink);}
+  a.inline{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule-2);}
+  a.inline:hover{border-color:var(--accent);}
+
+  .card{background:var(--surface); border:1px solid var(--rule); border-radius:6px;
+        padding:22px 24px; box-shadow:var(--shadow); margin:0 0 18px;}
+  .card.flag{border-left:3px solid var(--caution);}
+  .card.key{border-left:3px solid var(--accent);}
+  .card p:last-child, .card ul:last-child, .card ol:last-child{margin-bottom:0;}
+  .card .lbl{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+             font-weight:700; margin:0 0 10px; color:var(--accent);}
+  .card.flag .lbl{color:var(--caution);}
+
+  .scroller{overflow-x:auto; margin:0 0 18px; border:1px solid var(--rule);
+            border-radius:6px; background:var(--surface);}
+  table{border-collapse:collapse; width:100%; font-size:13.6px; min-width:460px;}
+  th,td{text-align:left; padding:9px 14px; border-bottom:1px solid var(--rule); vertical-align:top;}
+  th{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+     font-weight:700; background:var(--surface-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.num{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-variant-numeric:tabular-nums;
+         color:var(--ink-2); white-space:nowrap;}
+  td .id{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:.94em;}
+
+  pre{margin:0 0 18px; overflow-x:auto; background:var(--surface); border:1px solid var(--rule);
+      border-radius:6px; padding:16px 18px; font-size:13px; line-height:1.6;}
+  pre code{background:none; padding:0; font-size:13px; color:var(--ink-2);}
+  .k{color:var(--accent); font-weight:600;}
+  .c{color:var(--ink-3); font-style:italic;}
+
+  figure.diagram{margin:0 0 20px; background:var(--surface); border:1px solid var(--rule);
+                 border-radius:6px; padding:26px 20px 18px; overflow-x:auto;}
+  figure.diagram svg{display:block; margin:0 auto; max-width:100%; height:auto;}
+  figcaption{font-size:12.5px; color:var(--ink-3); text-align:center; margin-top:16px;
+             max-width:58ch; margin-left:auto; margin-right:auto; line-height:1.5;}
+
+  ol.grounds{counter-reset:g; list-style:none; padding:0; max-width:68ch;}
+  ol.grounds li{counter-increment:g; position:relative; padding-left:34px; margin-bottom:12px;}
+  ol.grounds li::before{content:counter(g); position:absolute; left:0; top:1px;
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11px; font-weight:700;
+    color:var(--caution); border:1px solid var(--caution); border-radius:50%;
+    width:20px; height:20px; display:grid; place-items:center;}
+
+  .verdict-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:0 0 20px;}
+  .vbox{background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:15px 17px;}
+  .vbox .crit{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11px;
+              color:var(--ink-3); letter-spacing:.06em; margin:0 0 5px;}
+  .vbox .call{font-size:1.16rem; font-weight:650; margin:0 0 6px; letter-spacing:-.01em;}
+  .vbox .call.fail{color:var(--ink-3);} .vbox .call.mod{color:var(--caution);}
+  .vbox .call.strong{color:var(--accent);}
+  .vbox .why{font-size:12.6px; color:var(--ink-2); margin:0; line-height:1.45;}
+
+  footer{grid-column:1/-1; border-top:1px solid var(--rule); padding-top:22px; margin-top:14px;
+         font-size:12.6px; color:var(--ink-3); max-width:78ch;}
+  footer p{max-width:none;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;}}
+</style>
+
+<div class="shell">
+
+  <header class="mast">
+    <p class="eyebrow">LLM Wiki · v237 · 18 August 2026</p>
+    <h1>DSH-better-sidebar</h1>
+    <p class="repo"><a href="https://github.com/omdsh-dev/DSH-better-sidebar">omdsh-dev/DSH-better-sidebar</a> · npm <code>dsh-better-sidebar</code> v0.13.0 · MIT · TypeScript</p>
+    <p class="thesis">A VS Code-style sidebar mounted as a plugin <b>inside DeepSeek Harness</b> — and then the thing that actually matters: <b>it publishes its own extension API</b>, so further third-party plugins register tabs and file viewers into <em>it</em>. A plugin that became a platform.</p>
+    <div class="chips">
+      <span class="chip on">GOAL-ALIGNED 3/4</span>
+      <span class="chip">NO MINT</span>
+      <span class="chip">counts 46/11 unchanged</span>
+      <span class="chip">Tier T4 Plugin/Extension</span>
+      <span class="chip on">streak GA:95 · 18 consecutive</span>
+      <span class="chip warn">read-and-borrow — do not install</span>
+    </div>
+  </header>
+
+  <nav class="rail" aria-label="Sections">
+    <p>Registered tabs</p>
+    <ol>
+      <li><a href="#finding"><span class="ord">10</span><span>The finding</span></a></li>
+      <li><a href="#what"><span class="ord">20</span><span>What it is</span></a></li>
+      <li><a href="#api"><span class="ord">30</span><span>The extension API</span></a></li>
+      <li><a href="#gates"><span class="ord">40</span><span>Boundary &amp; CI</span></a></li>
+      <li><a href="#verdict"><span class="ord">50</span><span>Verdict</span></a></li>
+      <li><a href="#supply"><span class="ord">60</span><span>Supply chain</span></a></li>
+      <li><a href="#errors"><span class="ord">70</span><span>Caught by hand</span></a></li>
+      <li><a href="#pilot"><span class="ord">80</span><span>Pilot</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="finding">
+      <h2>The finding</h2>
+      <p class="sub">third consecutive ship in one dependency graph — and the corpus's first <em>lateral</em> recursion</p>
+
+      <p><code>package.json</code> declares <b>17 peer dependencies</b>, the <code>@deepseek-ai/*</code> set pinned at <code>^0.1.0-rc.6</code> — the same release-candidate pin <b>v236 dsh-TUI</b> carried, one prerelease ahead of the <code>rc.5</code> recorded at <b>v235</b>. That is a lockfile edge, not a README citation.</p>
+
+      <p>But the shape is new. Every prior corpus recursion ran <em>vertically</em>: a port (v207 → v208), credited priority (v231 → v232), runs-inside (v235 → v236). Here, <b>v236 and v237 are unrelated sibling plugins in the same host, with no dependency on each other</b> — two strangers extending one kernel from opposite directions within four days.</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 640 260" role="img" aria-label="Diagram: DeepSeek Harness v235 hosts two independent sibling plugins, dsh-TUI v236 and DSH-better-sidebar v237, which do not depend on each other.">
+          <rect x="20" y="16" width="600" height="228" rx="8" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
+          <text x="40" y="42" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="var(--ink-3)" letter-spacing="1">HOST · v235 deepseek-harness · Cordis kernel</text>
+          <text x="40" y="60" font-family="ui-monospace,Menlo,monospace" font-size="10.5" fill="var(--ink-3)">@deepseek-ai/* @ ^0.1.0-rc.6</text>
+
+          <rect x="52" y="96" width="230" height="112" rx="6" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="70" y="122" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="var(--accent)">v236 · dsh-TUI</text>
+          <text x="70" y="146" font-size="12.5" fill="var(--ink-2)">replaces the front door</text>
+          <text x="70" y="166" font-size="12.5" fill="var(--ink-2)">21 peers · rc.6</text>
+          <text x="70" y="188" font-size="11.5" fill="var(--ink-3)">publishes no extension point</text>
+
+          <rect x="358" y="96" width="230" height="112" rx="6" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="376" y="122" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="var(--accent)">v237 · better-sidebar</text>
+          <text x="376" y="146" font-size="12.5" fill="var(--ink-2)">adds a docked panel</text>
+          <text x="376" y="166" font-size="12.5" fill="var(--ink-2)">17 peers · rc.6</text>
+          <text x="376" y="188" font-size="11.5" fill="var(--ink-3)">publishes ctx.betterSidebar</text>
+
+          <line x1="167" y1="72" x2="167" y2="96" stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="473" y1="72" x2="473" y2="96" stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="167" y1="72" x2="473" y2="72" stroke="var(--accent)" stroke-width="1.5"/>
+
+          <line x1="282" y1="152" x2="358" y2="152" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="4 5"/>
+          <text x="320" y="144" text-anchor="middle" font-size="10.5" fill="var(--ink-3)" font-family="ui-monospace,Menlo,monospace">no dep</text>
+        </svg>
+        <figcaption>Two unaffiliated authors mounted independent UI layers on the same kernel in the same week. v236 proved the seam was swappable; v237 proves it is <em>re-entrant</em>.</figcaption>
+      </figure>
+
+      <div class="card key">
+        <p class="lbl">What this proves about v235</p>
+        <p>v235's headline claim was <em>"Everything is a Plugin."</em> v236 showed a stranger could replace the UI seam. v237 goes further: a plugin can <b>publish its own service on the host context</b> and become an extension host in turn. That is the claim actually cashing out — the kernel is re-entrant, not merely swappable.</p>
+      </div>
+    </section>
+
+    <section id="what">
+      <h2>What it is</h2>
+      <p class="sub">explorer · editor · terminal · git · browser · sub-agent topology — session-isolated</p>
+
+      <p>A right sidebar plus bottom panel: a lazy-loaded file tree with CodeMirror editing and inline preview (images, Markdown with Mermaid, HTML, PDF, Office), a <b>real terminal</b> (xterm.js + <code>node-pty</code>, not an emulation), a Git panel with staging and diffs, a sandboxed multi-tab embedded browser, and a <b>sub-agent topology</b> view. Everything is scoped per conversation session. The core is ~325 KB at startup; terminal, editor and Mermaid load on demand.</p>
+
+      <p>Its built-in tabs are registered through the same public API third parties use — the <code>order</code> values below are real, and are what the section rail on this page is numbered by.</p>
+
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Tab id</th><th>Order</th><th>Single</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td><span class="id">editor</span></td><td class="num">10</td><td>no</td><td>file window; path dedup</td></tr>
+            <tr><td><span class="id">git</span></td><td class="num">20</td><td>yes</td><td>diff, staging, history</td></tr>
+            <tr><td><span class="id">subagent</span></td><td class="num">30</td><td>yes</td><td>child-agent topology + task monitoring</td></tr>
+            <tr><td><span class="id">terminal</span></td><td class="num">40</td><td>no</td><td>auto-incrementing ids</td></tr>
+            <tr><td><span class="id">browser</span></td><td class="num">50</td><td>no</td><td>opaque-origin sandboxed iframe</td></tr>
+            <tr><td><span class="id">diff</span></td><td class="num">−1</td><td>no</td><td>hidden from the + menu</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Who wrote it</h3>
+      <p><code>omdsh-dev</code> — <b>"Oh My DSH"</b>, self-described as <em>"DeepSeek Harness 的非官方社区插件生态 | Unofficial community plugins, tools, and experiments."</em> Not DeepSeek. Not Anthropic. <b>106 repositories</b>, five members, its own hub at <code>hub.omdsh.dev</code>, a discovery platform and a governance repo. Sibling projects include <code>dsh-at-file</code>, <code>dsh-genui</code>, <code>dsh_workflow</code>, <code>dsh-security-audit</code>.</p>
+      <p>That is the wider observation: an unaffiliated community stood up a 106-repo plugin org, a directory and written governance around a rival lab's agent runtime — in roughly two weeks.</p>
+    </section>
+
+    <section id="api">
+      <h2>The extension API</h2>
+      <p class="sub">the reason to read this repo even though you should not install it</p>
+
+      <p>A consuming plugin registers a tab in five lines. The host is an <em>optional</em> peer dependency, so this code is inert — not broken — when better-sidebar is absent:</p>
+
+      <pre><code><span class="k">export const</span> inject = [<span class="k">'betterSidebar'</span>]
+
+<span class="k">export function</span> apply(ctx: Context): <span class="k">void</span> {
+  ctx.effect(() =&gt;                       <span class="c">// disposer runs on HMR / unload</span>
+    ctx.betterSidebar.registerTab({
+      id: <span class="k">'my-plugin:db'</span>,             <span class="c">// namespaced</span>
+      title: <span class="k">'Database'</span>,
+      order: 50,
+      component: ({ scope }) =&gt; &lt;DbView sessionId={scope.sessionId} /&gt;,
+    })
+  )
+}</code></pre>
+
+      <h3>Seven decisions worth stealing</h3>
+      <ul>
+        <li><b>Dogfooded API, no privileged path.</b> The built-in tabs and viewers register through the same public API as third parties — 吃自己的狗粮, "eating our own dog food." Built-in ids are simply non-overridable; a duplicate registration throws.</li>
+        <li><b>Graceful absence.</b> Declared as an <em>optional</em> peer dependency, so <code>ctx.betterSidebar</code> is <code>undefined</code> when it isn't installed and consumer registration silently skips.</li>
+        <li><b>Capability gates, not version sniffing.</b> <code>features: readonly string[]</code> advertises <code>badge</code>, <code>tabLifecycle</code>, <code>updateTab</code>, <code>pluginSettings</code>, <code>urlTarget</code>… Consumers ask <em>can you do X</em>, not <em>are you new enough</em>.</li>
+        <li><b>Disposal is mandatory.</b> Registration must be wrapped in <code>ctx.effect()</code> so the Cordis fiber unregisters on hot reload or unload.</li>
+        <li><b>Type-only across bundle boundaries.</b> <code>import type {}</code> merges the context augmentation and is erased at build; a <b>build-purity gate blocks value-imports</b> from other plugin namespaces, and cross-plugin <code>require()</code> is blocked by the loader.</li>
+        <li><b>Orphan degradation.</b> A persisted tab whose plugin has gone renders as a labelled placeholder — "plugin not loaded", plus a close button — and auto-restores when the plugin returns, instead of corrupting layout state.</li>
+        <li><b>Settings are part of the contract.</b> A registered tab declares <code>toggles</code> (host prefs), <code>pluginToggles</code> (plugin-local, persisted under <code>pluginSettings[id]</code>) or a custom panel — so extensions get first-class settings UI without touching host code.</li>
+      </ul>
+    </section>
+
+    <section id="gates">
+      <h2>Boundary &amp; CI</h2>
+      <p class="sub">the fourth consecutive ship handing the vault machinery for its own invariants</p>
+
+      <p><code>AGENTS.md</code> states the rule in the imperative: <b>禁止修改 DeepSeek Harness 源码</b> — zero writes to the DSH checkout, no harness-package modification, no commits to official branches. Mounting happens only through <code>cordis.patch.yml</code>, which does exactly one thing: inserts a plugin row into the host's bundle stack at profile boot. No host core file is touched.</p>
+
+      <div class="card key">
+        <p class="lbl">Stronger than v236's gate</p>
+        <p>v236 mechanised non-invasiveness with <em>static</em> checks. v237's <code>plugin-mount</code> job is an <b>integration contract test</b>: <code>pnpm build &amp;&amp; pnpm pack &amp;&amp; pnpm test:mount</code> packs the tarball, <b>mounts it into a real DSH instance on a scratch profile</b>, and renders it headlessly under Playwright Chromium — asserting the root mounts, no error bars, no page or plugin console errors, panel expansion works, and that the terminal and editor <b>lazy chunks actually load</b>.</p>
+      </div>
+
+      <p>The pattern across four ships in a row: v234 gave the vault staleness tracking; v235 doc-verification gates; v236 CI boundary gates; v237 build-the-real-artifact-and-mount-it. All four point at the same deferred backlog — the C22–C27 stale rows and the retire pass the corpus keeps postponing.</p>
+    </section>
+
+    <section id="verdict">
+      <h2>Verdict</h2>
+      <p class="sub">GOAL-ALIGNED INCLUDE 3/4 · NO MINT · counts 46/11 unchanged</p>
+
+      <div class="verdict-grid">
+        <div class="vbox"><p class="crit">(a) AUTHORSHIP</p><p class="call fail">FAIL</p><p class="why">An explicitly unofficial community org. Not Anthropic, not DeepSeek. §41 — no heritage or notability rescue.</p></div>
+        <div class="vbox"><p class="crit">(b) GOAL RELEVANCE</p><p class="call mod">MODERATE</p><p class="why">Keys the tier. The harness-UI substrate plus a studiable extension-API design — but zero agent capability.</p></div>
+        <div class="vbox"><p class="crit">(c) SUBSTANCE</p><p class="call strong">STRONG</p><p class="why">216 commits, ten releases in seven days, a real test pyramid, OIDC provenance publishing. Not source-cloned.</p></div>
+        <div class="vbox"><p class="crit">(d) CONNECTIVITY</p><p class="call strong">STRONG</p><p class="why">Third ship in one dependency graph; the harness-UI family; observability adjacency; two live cross-refs.</p></div>
+      </div>
+
+      <div class="card">
+        <p class="lbl">Why (b) is MODERATE, source-verified not inferred</p>
+        <p><code>dsh.plugin.json</code> declares <code>contributes: { tools: [], skills: [] }</code> — <b>both arrays empty</b>. Despite being a large, well-engineered plugin it contributes no agent tools and no agent skills. The agent gains nothing; the <em>human</em> gains panels. That single line is what holds the tier below STRONG, and it converts "adds no agent capability" from a judgement into a fact.</p>
+      </div>
+
+      <p>The <b>v216 discriminator</b>, applied a third time: Codex-Dream-Skin v216 was rated OFF-GOAL because it was CSS wallpaper with <em>zero</em> functional surface. This implements terminal, git, filesystem, editor, browser and sub-agent-monitoring surfaces behind a public API with a CI mount gate — <b>MODERATE, not FAIL</b>.</p>
+
+      <h3>Pattern outcome: no mint</h3>
+      <p>v236 recorded a deferred watch axis — <em>"sanctioned in-process UI-<b>seam replacement</b> via a host agent's own plugin kernel."</em> v237 is a second instance, but the axis needs generalising: v236 <em>replaced</em> the front door; v237 <em>adds</em> a panel and negotiates for the slot rather than seizing it. Generalised to <b>"sanctioned in-process UI-layer plugin on a host agent's own extension kernel"</b> → <b>N=2</b>, recorded and <em>not</em> self-promoted. A promotion is an audit act.</p>
+
+      <div class="card flag">
+        <p class="lbl">The §C mint alternative — recorded, and declined</p>
+        <p><em>"Second-Order Extension Host — a third-party plugin that re-exposes its own public, capability-gated extension API so further third-party plugins extend the plugin rather than the host."</em> Genuinely distinct on mechanism, and corpus-first by grep. It still loses:</p>
+        <ol class="grounds">
+          <li>§C vocabulary is <b>agent-capability-shaped</b>. Second-order extensibility is a software-architecture property — and <code>contributes</code> is empty.</li>
+          <li><b>Emphatically not world-first.</b> VS Code extensions have exported APIs to other extensions for roughly a decade; Eclipse extension points predate that; Backstage, Obsidian and Figma all do it.</li>
+          <li><b>§28 anti-inflation.</b> "Plugin that hosts plugins" is first only because the circle is drawn there.</li>
+          <li>The precedent chain runs <b>five deep</b> — lobehub v222, hermes-webui v227, Codex-Dream-Skin v216, dsh-TUI v236, now this.</li>
+          <li><b>Weak anchor.</b> One plugin in a two-week-old ecosystem, among rival right-panels, from an org shipping 106 repos.</li>
+        </ol>
+        <p style="margin-top:14px">Recorded instead as a second deferred watch axis — <em>"plugin-as-platform"</em> — and flagged to the badly overdue audit.</p>
+      </div>
+    </section>
+
+    <section id="supply">
+      <h2>Supply chain</h2>
+      <p class="sub">genuinely two-sided, and worth stating both ways</p>
+
+      <div class="card key">
+        <p class="lbl">Positive — the publish-side exemplar</p>
+        <p><b>npm Trusted Publishing via OIDC</b>: <code>pnpm publish --provenance --access public</code>, with <b>no <code>NPM_TOKEN</code> secret in the repo</b>, provider/org/repo/workflow pinned at npmjs.com, and the git tag required to match <code>package.json</code> exactly. Together with the zero-source-write rule, the build-purity gate and the real-host mount test, this is the <b>publish-side complement to pi v228's consume-side hardening playbook</b> — the corpus's two strongest supply-chain positives now cover both directions.</p>
+        <p>The sandbox model is also considered rather than absent: embedded content runs in <b>opaque-origin sandboxed iframes with CSP</b>, sandbox status is shown in the UI, and unlocking is deliberate and temporary.</p>
+      </div>
+
+      <div class="card flag">
+        <p class="lbl">Negative — why you still should not install it</p>
+        <ul>
+          <li>A <code>prepare</code> lifecycle script, and <code>node-pty</code> — a native module that compiles at install.</li>
+          <li>Sandbox-escape settings exist at all (<code>browserNoSandbox</code>, <code>htmlViewerNoSandbox</code>, <code>htmlViewerDefaultUnsafe</code>) inside a panel that also holds a real shell and an embedded browser. Disclosed and default-safe, but one toggle away.</li>
+          <li><b>17 peer dependencies pinned to a release candidate</b> of a host still labelled a developer preview with breaking changes promised.</li>
+          <li>A roughly two-week-old public plugin ecosystem with at least six competing, operator-undisclosed directory sites — one of which v236 already caught publishing the wrong licence for a different plugin.</li>
+          <li><b>Not source-cloned.</b> Treat the tree as untrusted until inspected.</li>
+        </ul>
+      </div>
+
+      <p>The project also volunteers its own gaps — no file watcher, no git push/pull/fetch, terminals remount when dragged between panes, unusable below a 768 px viewport. A clean instance of honest-deficiency disclosure.</p>
+    </section>
+
+    <section id="errors">
+      <h2>Caught by hand</h2>
+      <p class="sub">verification was inline — no workflow, no subagent</p>
+
+      <p>The shim overflows every subagent's context, so every claim here was hand-verified: source fetched directly, collision checked by sanity-anchored grep (subject terms returned zero while six anchors hit richly, proving the grep was working), and the neighbouring registry rows read verbatim. Five things did not survive that pass:</p>
+
+      <div class="scroller">
+        <table>
+          <thead><tr><th>#</th><th>Claim as found</th><th>What is actually true</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Both READMEs: "7 built-in tabs + 6 viewers"</td><td><code>AGENTS.md</code>'s table lists <b>six</b>. <code>explorer</code> was folded into the <code>editor</code> file window at v0.13.0 — the READMEs are one release stale.</td></tr>
+            <tr><td class="num">2</td><td>v236's head: "a four-day-old ecosystem"</td><td><b>Corpus correction.</b> DSH's page shows 12,404 commits and ~154.1k stars. The public <em>plugin ecosystem</em> is ~2 weeks old; the <em>codebase</em> is not. Flagged to the audit.</td></tr>
+            <tr><td class="num">3</td><td>API: <code>created_at</code> 2026-08-07, 2,038 stars</td><td>The GitHub API is mocked in this environment (§37.4). Used the <b>page-stated release dates</b> instead — ten releases, 11 → 17 Aug — and made <b>no velocity claim</b>.</td></tr>
+            <tr><td class="num">4</td><td>"Adds no agent capability" (inference)</td><td><code>contributes: { tools: [], skills: [] }</code> — empty. Now a source-verified fact, and the thing holding (b) at MODERATE.</td></tr>
+            <tr><td class="num">5</td><td><code>aionui-panel</code> looks like iOfficeAI's</td><td>It lives in <code>zhu1090093659/dsh-web-ui</code> and merely <em>ports</em> AionUi's UI. An ecosystem-collision cross-ref — <b>not</b> a corpus-recursive dependency on v206's author.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Worth noting for what it says about the ecosystem: v0.13.0 added <b>runtime mutual exclusion</b> with that rival panel. If <code>aionui-panel</code> claims the right side, better-sidebar unmounts itself entirely and says so. Two independent authors negotiating a scarce UI slot through a settings protocol.</p>
+    </section>
+
+    <section id="pilot">
+      <h2>Pilot</h2>
+      <p class="sub">read-and-borrow · not a hireui component · do not install</p>
+
+      <p>Installing this means a plugin with a <code>prepare</code> script and a native build, against a release-candidate 17-package peer set, inside a two-week-old ecosystem — for a nicer file panel on an agent you do not run. The value is entirely in reading it.</p>
+
+      <div class="card key">
+        <p class="lbl">One-thing path · A1 → B5 → B6</p>
+        <ul>
+          <li><b>A1 — read <code>docs/external-plugin-guide.md</code> and <code>AGENTS.md</code>.</b> Thirty minutes, zero install. You are reading it for the seven design decisions, not the sidebar.</li>
+          <li><b>B5 — lift the public-API rules into hireui's agent-nativity spec.</b> Namespaced ids with non-overridable built-ins; a <code>features[]</code> list consumers query; optional-peer graceful absence; mandatory disposers; type-only imports across bundle boundaries; your own features using the public API; orphan degradation. Composes with palmier-pro v192's <code>ToolExecutor</code> template and geti v213's first-party skill-suite template.</li>
+          <li><b>B6 — steal both CI gates.</b> Pack the artifact you actually publish, mount it into a real consumer, drive it headlessly before you tag. And publish with OIDC Trusted Publishing plus <code>--provenance</code>, holding no long-lived token.</li>
+        </ul>
+      </div>
+
+      <p>Also worth taking: the build-purity gate as a mechanical way to enforce an architectural boundary code review keeps missing; the ~325 KB startup budget published as a contract rather than a hope; and — the one piece that touches product directly — the <b>sandbox-with-visible-unlock</b> model, for any untrusted candidate-supplied content hireui ever has to render.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><b>Verification.</b> Inline and fully hand-verified per the vault's independent-verification rule — no workflow, no subagent. Source hand-fetched: rendered repo page, <code>README.md</code>, <code>README_EN.md</code>, <code>package.json</code>, <code>dsh.plugin.json</code>, <code>cordis.patch.yml</code>, <code>AGENTS.md</code>, <code>docs/external-plugin-guide.md</code>, releases and org pages. Collision by sanity-anchored hand-grep — clean. Counts unchanged at 46 confirmed patterns / 11 confirmed Library-vocab; §C live standalones 49.</p>
+    <p style="margin-top:10px">Star, fork, commit and issue figures are page-stated (§37.4) and are not used as velocity claims. Not source-cloned — no line-level verification of <code>src/</code>.</p>
+  </footer>
+
+</div>
