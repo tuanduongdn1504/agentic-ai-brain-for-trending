@@ -1,0 +1,440 @@
+<title>The Divergence Point</title>
+<style>
+  /* ─ tokens: light is the base; dark redefines only tokens ─ */
+  :root{
+    --ground:#F6F7FA;
+    --panel:#FFFFFF;
+    --panel-2:#EFF1F6;
+    --ink:#151922;
+    --ink-2:#3E4552;
+    --ink-3:#6B7385;
+    --rule:#D9DDE6;
+    --rule-2:#C3C9D6;
+    --accent:#3F5AE0;        /* the project's own badge blue, desaturated a touch */
+    --accent-soft:#E7EBFC;
+    --flag:#A8451F;          /* corrections & risks */
+    --flag-soft:#FBEAE3;
+    --ok:#16694F;            /* verified */
+    --ok-soft:#E2F1EC;
+    --shadow:0 1px 2px rgba(21,25,34,.05),0 8px 24px rgba(21,25,34,.05);
+    --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,"Songti SC",serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0D1016;
+      --panel:#141922;
+      --panel-2:#1B212C;
+      --ink:#E8EBF2;
+      --ink-2:#B4BBCA;
+      --ink-3:#7F879A;
+      --rule:#252C39;
+      --rule-2:#333C4C;
+      --accent:#8A9EFF;
+      --accent-soft:#1B2340;
+      --flag:#E89272;
+      --flag-soft:#2E1D16;
+      --ok:#5FC7A4;
+      --ok-soft:#12271F;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.32);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0D1016; --panel:#141922; --panel-2:#1B212C;
+    --ink:#E8EBF2; --ink-2:#B4BBCA; --ink-3:#7F879A;
+    --rule:#252C39; --rule-2:#333C4C;
+    --accent:#8A9EFF; --accent-soft:#1B2340;
+    --flag:#E89272; --flag-soft:#2E1D16;
+    --ok:#5FC7A4; --ok-soft:#12271F;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.32);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--serif); font-size:17px; line-height:1.62;
+    margin:0; padding:0 20px 88px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto}
+  .col{max-width:66ch}
+
+  /* ─ type ─ */
+  h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0}
+  h1{font-size:clamp(2.1rem,5.2vw,3.35rem);line-height:1.06;letter-spacing:-.022em;font-weight:600}
+  h2{font-size:clamp(1.35rem,2.6vw,1.72rem);line-height:1.18;letter-spacing:-.014em;font-weight:600}
+  h3{font-size:1.06rem;line-height:1.3;font-weight:600;letter-spacing:-.006em}
+  p{margin:0}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  strong{font-weight:600}
+  code,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  code{font-size:.855em;background:var(--panel-2);padding:.1em .34em;border-radius:3px;color:var(--ink-2)}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.685rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:500
+  }
+
+  /* ─ rhythm ─ */
+  header.hero{padding:76px 0 0}
+  .stack{display:flex;flex-direction:column}
+  .g8{gap:8px}.g12{gap:12px}.g16{gap:16px}.g20{gap:20px}.g28{gap:28px}
+  section{padding:56px 0 0}
+  .sechead{display:flex;flex-direction:column;gap:10px;padding-bottom:22px}
+  hr.div{border:0;border-top:1px solid var(--rule);margin:56px 0 0}
+
+  /* ─ the ledger: the thesis ─ */
+  .ledger{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border:1px solid var(--rule-2);border-radius:10px;overflow:hidden;
+    background:var(--panel);box-shadow:var(--shadow)
+  }
+  .ledger>div{padding:22px 22px 24px;display:flex;flex-direction:column;gap:14px}
+  .ledger>div+div{border-left:1px solid var(--rule-2)}
+  .ledger .lhead{display:flex;flex-direction:column;gap:5px}
+  .ledger h3{font-size:1rem}
+  .rows{display:flex;flex-direction:column;gap:0;margin-top:2px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:7px 0;border-top:1px solid var(--rule)}
+  .row:first-child{border-top:0}
+  .row .k{font-size:.86rem;color:var(--ink-3);font-family:var(--mono);letter-spacing:.01em}
+  .row .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;white-space:nowrap}
+  .v.big{font-size:1.12rem}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;
+    padding:3px 8px;border-radius:99px;font-weight:600
+  }
+  .tag.repo{background:var(--flag-soft);color:var(--flag)}
+  .tag.prod{background:var(--ok-soft);color:var(--ok)}
+  .caption{font-size:.9rem;color:var(--ink-3);line-height:1.5}
+
+  /* ─ callouts ─ */
+  .rule-card{
+    border:1px solid var(--rule-2);border-left:3px solid var(--accent);
+    background:var(--panel);border-radius:8px;padding:18px 20px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:9px
+  }
+  .rule-card.warn{border-left-color:var(--flag)}
+  .rule-card.good{border-left-color:var(--ok)}
+  .rule-card .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+
+  /* ─ the pivot commit ─ */
+  .commit{
+    font-family:var(--mono);font-size:.83rem;line-height:1.7;
+    background:var(--panel-2);border:1px solid var(--rule-2);border-radius:8px;
+    padding:16px 18px;overflow-x:auto;color:var(--ink-2)
+  }
+  .commit .hash{color:var(--accent);font-weight:600}
+  .commit .del{color:var(--flag);font-weight:600}
+  .commit .add{color:var(--ok);font-weight:600}
+
+  /* ─ findings ─ */
+  .finds{display:flex;flex-direction:column;gap:0}
+  .find{display:grid;grid-template-columns:118px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--rule)}
+  .find:first-child{border-top:0;padding-top:4px}
+  .find .kind{font-family:var(--mono);font-size:.665rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:4px;font-weight:600;line-height:1.5}
+  .find .body{display:flex;flex-direction:column;gap:8px}
+
+  /* ─ two-col compare ─ */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .vs>div{border:1px solid var(--rule);border-radius:8px;padding:15px 17px;background:var(--panel);display:flex;flex-direction:column;gap:7px}
+  .vs .who{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+  .vs .a .who{color:var(--accent)}
+  .vs .b .who{color:var(--flag)}
+  .vs p{font-size:.94rem;line-height:1.55}
+
+  /* ─ risk / borrow lists ─ */
+  ul.clean{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}
+  ul.clean li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:.96rem;line-height:1.55}
+  ul.clean li .mk{font-family:var(--mono);font-size:.85rem;font-weight:700;line-height:1.6}
+  li .mk.no{color:var(--flag)}
+  li .mk.yes{color:var(--ok)}
+
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  .tscroll{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--panel)}
+  th,td{text-align:left;padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+  thead th{border-top:0;font-family:var(--mono);font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;white-space:nowrap}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:7px}
+  footer p{font-size:.87rem;color:var(--ink-3)}
+
+  @media (max-width:700px){
+    body{font-size:16px;padding:0 16px 64px}
+    .ledger{grid-template-columns:1fr}
+    .ledger>div+div{border-left:0;border-top:1px solid var(--rule-2)}
+    .find{grid-template-columns:1fr;gap:9px}
+    .vs{grid-template-columns:1fr}
+    header.hero{padding-top:52px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="hero stack g20">
+    <div class="stack g8">
+      <p class="eyebrow">LLM Wiki · v241 · 2026-08-18 · source-cloned</p>
+      <h1>The clone was authoritative.<br>It described a different project.</h1>
+    </div>
+    <div class="col stack g16">
+      <p><strong><code>anywhere-labs/deepseek-harness-desktop</code></strong> is an open-source Electron desktop client for DeepSeek Harness — 「万物皆「插件」，桌面本身也是「插件」」, <em>everything is a plugin; the desktop itself is a plugin.</em> MIT, v2.0.1, three Yarn workspaces around a pinned upstream submodule.</p>
+      <p>Last ship established that a git clone gives you real provenance where the GitHub API is mocked. This ship establishes the limit of that method — and the limit is not small.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">The thesis</p>
+      <h2>Two readings of one clone</h2>
+      <p class="col caption">Both columns come from the same <code>git clone</code>, minutes apart. Everything on the left is true of the <em>repository</em>. Everything on the right is true of the <em>product</em>.</p>
+    </div>
+
+    <div class="ledger">
+      <div>
+        <div class="lhead">
+          <span class="tag repo">Inherited history</span>
+          <h3>What the repository says</h3>
+        </div>
+        <div class="rows">
+          <div class="row"><span class="k">commits</span><span class="v big">12,637</span></div>
+          <div class="row"><span class="k">of which merges</span><span class="v">5,646 · 44.7%</span></div>
+          <div class="row"><span class="k">first commit</span><span class="v">2026-06-10</span></div>
+          <div class="row"><span class="k">age</span><span class="v big">~69 days</span></div>
+          <div class="row"><span class="k">author emails</span><span class="v">52</span></div>
+          <div class="row"><span class="k">top author share</span><span class="v">41%</span></div>
+          <div class="row"><span class="k">@deepseek.com</span><span class="v big">2,219</span></div>
+          <div class="row"><span class="k">…distinct addresses</span><span class="v">10</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="lhead">
+          <span class="tag prod">Measured at the divergence</span>
+          <h3>What the product says</h3>
+        </div>
+        <div class="rows">
+          <div class="row"><span class="k">commits</span><span class="v big">343</span></div>
+          <div class="row"><span class="k">non-merge</span><span class="v">307</span></div>
+          <div class="row"><span class="k">first commit</span><span class="v">2026-08-15</span></div>
+          <div class="row"><span class="k">age</span><span class="v big">~3.8 days</span></div>
+          <div class="row"><span class="k">authors</span><span class="v">~6</span></div>
+          <div class="row"><span class="k">lead author share</span><span class="v">54%</span></div>
+          <div class="row"><span class="k">@deepseek.com</span><span class="v big">0</span></div>
+          <div class="row"><span class="k">…distinct addresses</span><span class="v">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack g16" style="padding-top:26px">
+      <div class="col stack g12">
+        <p>The repository <em>was</em> DeepSeek Harness. Its single root commit, dated 2026-06-10, is followed immediately by <em>“Link MVP requirement analysis and microkernel architecture docs”</em>, <em>“Set up monorepo infra: Yarn 4 workspaces”</em>, and <strong>“Vendor Cordis framework packages as source”</strong>. That is not a desktop wrapper being born.</p>
+        <p>The tell is one command: <code>packages/</code> — a directory that no longer exists anywhere in the tree — carries <strong class="num">8,103</strong> commits. Merge subjects say <strong class="num">915</strong> “from <code>deepseek-harness/</code>” and <strong class="num">69</strong> “from <code>deepseek-ai/</code>”, against <strong class="num">11</strong> from “<code>anywhere-labs/</code>”.</p>
+      </div>
+
+      <div class="commit">
+<span class="hash">4e3eb91</span>  2026-08-15 01:07:13 +0800  t4wefan@qq.com
+    refactor(repo): isolate upstream and desktop workspace
+
+    <span class="del">7,405 files deleted</span>   ← upstream's entire source tree, including
+                            its own June–July architecture notes
+    <span class="add">+ .gitmodules</span>          ← upstream re-added as a pinned submodule
+    <span class="add">+ dsh-plugin-desktop/</span>  ← the product starts here
+      </div>
+
+      <div class="rule-card">
+        <span class="lbl">The rule · D19</span>
+        <p><strong>A clone’s git metadata is authoritative about the repository, never about the project.</strong> Where history is inherited — fork, graft, or in-place re-purposing — provenance must be measured from the divergence point. Commit counts, author counts and “age” over an inherited history describe the parent.</p>
+        <p class="caption">Detector, cheap and general: find paths with heavy commit history that no longer exist in the tree; count root commits; scan merge subjects for foreign org names.</p>
+      </div>
+
+      <div class="col stack g12">
+        <p><strong>This corrects last ship’s headline method</strong> — v240 was praised for “provenance measured without the mocked API.” The method is sound only when the history belongs to the subject.</p>
+        <p><strong>And it exonerates the project.</strong> I first read ten <code>@deepseek.com</code> addresses against a <em>“not affiliated with or endorsed by DeepSeek”</em> disclaimer as a real tension. Every one of those commits predates the product. The disclaimer is accurate, and the repository advertises no commit count anywhere.</p>
+      </div>
+
+      <div class="vs">
+        <div class="a">
+          <span class="who">v240 · missing</span>
+          <p>A consistency check between two views of one source cannot see what is <strong>missing</strong> from the source.</p>
+        </div>
+        <div class="b">
+          <span class="who">v241 · beginning</span>
+          <p>A provenance measurement over an inherited history cannot see <strong>where the subject began</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">Doc integrity</p>
+      <h2>The mechanism is here. So is the gap.</h2>
+      <p class="col caption">Seven consecutive ships have handed the vault machinery for its own documentation drift. This one hands over the most — and supplies the sharpest counter-example to itself.</p>
+    </div>
+
+    <div class="finds">
+      <div class="find">
+        <div class="kind">Inventory<br>rule</div>
+        <div class="body">
+          <h3>It exists here as working code</h3>
+          <p><code>dsh-community-fabric/scripts/verify-docs.mjs</code> declares an explicit 33-file inventory <strong>and</strong> walks the tree recursively — enumerating both ways. That is precisely the rule derived last ship: pair every equivalence check with an inventory check that enumerates by a different rule than the parser uses.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="kind">…and the<br>irony</div>
+        <div class="body">
+          <h3>Those files include a four-RFC suite the index never mentions</h3>
+          <p><code>docs/README.en.md</code> calls itself the full documentation and README map. It contains <strong>zero</strong> occurrences of <code>rfcs</code> — hand-verified. Roughly 25 files are absent from it. Fabric’s own README indexes all four RFCs at lines 46–49.</p>
+          <p class="caption">The workspace that solved the inventory problem is invisible from the front door, because the top-level index is hand-maintained and has no inventory check of its own.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="kind">Stale<br>prose</div>
+        <div class="body">
+          <h3><code>AGENTS.md</code> still calls a shipped marketplace a scaffold</h3>
+          <p>It reads: <em>“until its runtime is implemented, it remains a private documentation scaffold and must not declare loadable DSH or package entry points.”</em> The manifest declares <code>main</code>, <code>exports</code>, and <code>dsh.client.inject</code> behind ~18,748 lines of code and a 15-file test suite.</p>
+          <p><strong>The sharp part:</strong> in the very commit that added the runtime, <code>verify-docs.mjs</code> flipped polarity — from <em>forbidding</em> those keys to <em>requiring</em> them. The machine contract advanced as a state machine. The file the AI agents read did not.</p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="kind">Counter-<br>balance</div>
+        <div class="body">
+          <h3>67 links tested. Zero dead.</h3>
+          <p>Every relative markdown link across five index files resolves. The recorded bilingual blob hashes match. Last ship had <code>README.ja.md</code> broken on line 5 of both READMEs. <strong>This project’s failure is omission, not breakage.</strong></p>
+        </div>
+      </div>
+      <div class="find">
+        <div class="kind">The gate</div>
+        <div class="body">
+          <h3><code>verify-layout.mjs</code> — 136 lines, and the strongest structural gate of the run</h3>
+          <p>It makes “we do not modify upstream” a property of the build: the submodule pin must match the index <em>and</em> the checked-out HEAD, its working tree must be clean, and <strong>no dependency may bypass the published-package boundary</strong> — any <code>workspace:</code>, <code>portal:</code>, <code>link:</code> range fails the build. It hashes the <em>committed</em> blob rather than the working tree, commented “checkout line endings differ per host” — solving last ship’s CRLF defect.</p>
+          <p class="caption">Its limit, inverted from v240’s: line 21 hardcodes <strong>one</strong> note name. Twelve notes carry blob-hash records — a perfect 12/12/12 pairing — and eleven are checked by nothing. v240’s loader globbed and silently skipped a file; this checker hardcodes a constant and silently ignores eleven that would match. Both are inventory failures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">Architecture</p>
+      <h2>The container is a plugin of the contained</h2>
+    </div>
+    <div class="col stack g12">
+      <p>The Electron launcher is neither the host nor embedded in one. It <strong>starts the Cordis host</strong>, injects itself in via <code>hostCtx.provide('desktopRuntime', runtime)</code>, and mounts its own services as ordinary plugins. <code>src/index.ts</code> exports <code>name = 'desktop-shell'</code> and a standard <code>apply(ctx, config)</code> — and silently returns if the runtime is absent.</p>
+      <p>Compatibility mode is the default and deliberately additive: <em>“keeps upstream ownership of the browser carrier and rendered UI.”</em> Work profiles are real directories, written with a <code>0600</code> temp file and same-directory atomic rename, tracking <code>active</code> / <code>pending</code> / <code>lastKnownGood</code> — promoted only after the app boots <em>and</em> the window loads.</p>
+    </div>
+    <div class="rule-card warn" style="margin-top:20px">
+      <span class="lbl">Novelty · refuted</span>
+      <p><strong>Eclipse RCP is decisive prior art.</strong> Eclipse’s own plug-in-architecture article names the workbench UI itself as a self-extending plug-in contributing to its own extension points — Eclipse 1.0 shipped 2001, and 3.0 made the whole platform OSGi bundles. JupyterLab’s lumino shell and Theia populate the same space.</p>
+      <p><strong>And the project never claims novelty.</strong> Its own <code>docs/research/</code> holds <code>mature-plugin-frameworks.md</code> and <code>vscode-extension-model.md</code>. 「桌面本身也是「插件」」 is a design commitment, not a priority claim. Minting here would over-claim on the subject’s behalf.</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">Supply chain</p>
+      <h2>Best hygiene of the run, and four real risks</h2>
+    </div>
+    <div class="vs">
+      <div class="a">
+        <span class="who">Deny by default</span>
+        <p><code>.yarnrc.yml</code> sets <strong><code>enableScripts: false</code></strong>, then <code>dependenciesMeta</code> allow-lists exactly five packages to build and explicitly denies three. <strong>1,001 lockfile resolutions, zero from npmmirror, taobao or cnpm</strong> — a direct contrast with last ship’s mirror-resolved lockfile.</p>
+      </div>
+      <div class="b">
+        <span class="who">Applied to users too</span>
+        <p>Its marketplace <strong>refuses any package declaring <code>preinstall</code>, <code>install</code>, <code>postinstall</code> or <code>prepare</code></strong>, verifies SHA-512 integrity, requires a repository backlink matching the npm manifest, and pins exact stable versions only.</p>
+      </div>
+    </div>
+
+    <div class="rule-card good" style="margin-top:16px">
+      <span class="lbl">The honest limit, in their words</span>
+      <p><em>“These checks establish package identity and a narrow compatibility boundary; they do not review the plugin or its dependency tree for malicious or unsafe behavior.”</em></p>
+      <p class="caption">Last ship published a catalogue that scans nothing and said so. This ship consumes catalogues, gates the install structurally, and says just as plainly that structural gating is not code review. Publisher and consumer, one ship apart, both honest about the same hole — and nothing anywhere in this ecosystem scans plugin code.</p>
+    </div>
+
+    <ul class="clean" style="margin-top:22px">
+      <li><span class="mk no">01</span><div><strong>Updates route through a third-party domain.</strong> It polls <code>dshdesktop.cn/api/desktop/version</code> and downloads installers from the same host — no <code>electron-updater</code>, no GitHub Releases fallback, and validation is <em>format-only</em> (DMG magic, PE header), not signature or digest verification against a trusted manifest.</div></li>
+      <li><span class="mk no">02</span><div><strong>Windows builds carry no code-signing configuration</strong> while the NSIS installer sets <code>allowElevation: true</code>. macOS is hardened-runtime and notarized, with signing credentials withheld from the build subprocess. The asymmetry lands on the only platform shipping an installer target.</div></li>
+      <li><span class="mk no">03</span><div><strong><code>electronFuses: { runAsNode: true }</code></strong> — a documented hardening gap. Fair caveat: this app must run Node, and the Windows sandbox sets <code>ELECTRON_RUN_AS_NODE</code> deliberately. A considered trade-off, but it weakens the notarized story.</div></li>
+      <li><span class="mk no">04</span><div><strong>Telemetry is opt-out, default-on</strong> — the upstream OTel session plugin is disabled only when <code>DSH_TELEMETRY_DISABLED</code> is non-empty.</div></li>
+    </ul>
+
+    <div class="col stack g12" style="padding-top:22px">
+      <h3>The patches — a disclosure gap, not deception</h3>
+      <p>Four of five patches modify upstream’s <em>published</em> <code>@deepseek-ai/*</code> packages at install time, while the README says the project <em>“does not fork or modify upstream source.”</em> Narrowly true — the submodule genuinely is unmodified, and CI proves it — but an installed product’s <code>node_modules/</code> contains four patched packages.</p>
+      <p>Every patch is benign or beneficial: a real streaming tool-call identity fix shipped with a 100-line spec; a Windows console fix that <em>preserves</em> ACL confinement; two inert UI markers; and an <code>app-builder-lib</code> fix that <em>strengthens</em> code signing. All are documented — in <code>.agents/notes/</code>, and nowhere user-facing.</p>
+      <p class="caption">The inverse of last ship’s shape: there, documentation was more precise than marketing. Here, the internal agent notes are more complete than the user-facing docs.</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">Ecosystem</p>
+      <h2>The directories cannot be trusted</h2>
+    </div>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Claim</th><th>Source</th><th>Reality</th></tr></thead>
+        <tbody>
+          <tr><td>Its own stars</td><td class="n">13.2k / 11,974 / 494</td><td>Three figures across three sources. None cited as verified.</td></tr>
+          <tr><td>A peer’s plugin count</td><td class="n">“4,120 plugins”</td><td>The target repository states <strong>3,100+</strong>. Third consecutive ship republishing a wrong downstream claim.</td></tr>
+          <tr><td>Listed in last ship’s catalogue</td><td class="n">absent</td><td>It lists <code>ningbainb/deepseek-harness-desktop</code> instead. A rival list carries <strong>four forks</strong> and not this repo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="col caption" style="padding-top:14px">The ecosystem’s leading desktop client is missing from two of four catalogues, which list forks and namesakes of it instead — an independent confirmation of last ship’s dropped-submission finding.</p>
+  </section>
+
+  <hr class="div">
+
+  <section>
+    <div class="sechead">
+      <p class="eyebrow">Verdict</p>
+      <h2>Goal-aligned 3/4 · no mint · eighth consecutive decline</h2>
+    </div>
+    <div class="col stack g12">
+      <p>Counts unchanged at 46 confirmed patterns and 11 confirmed vocabulary items. The mint — <em>“container-as-plugin desktop shell”</em> — was recorded and declined on five grounds, decisively external prior art and the fact that the subject never claimed the ground.</p>
+    </div>
+
+    <div class="rule-card warn" style="margin-top:20px">
+      <span class="lbl">Governance · now a pattern, not an incident</span>
+      <p>Ship v236 called this repository <em>“a rival UI-layer plugin (<code>dsh-desktop</code>)”</em> and used it to argue another subject’s anchor was weak. Identity confirmed — the npm package ships <code>bin: dsh-desktop</code>. That characterization understates a three-workspace desktop product with a pinned-upstream distribution model, ~46K LOC, seven verify gates, a four-RFC draft standard and twelve bilingual decision records.</p>
+      <p><strong>This is the second consecutive ship to falsify an earlier ship’s dismissal-by-label</strong> — v237 did it to v240’s subject. <strong>D20: never let a genre or form-factor label settle a subject question that only source can settle, especially when the source is one clone away.</strong></p>
+    </div>
+
+    <div class="stack g16" style="padding-top:24px">
+      <h3>Errors caught this ship — six, and three were mine</h3>
+      <ul class="clean">
+        <li><span class="mk no">✗</span><div><strong>Mine, and the biggest.</strong> I framed the DeepSeek commits as an affiliation tension. Reversed by my own pivot-commit analysis.</div></li>
+        <li><span class="mk no">✗</span><div><strong>An agent’s, incoherent.</strong> “Three authors, zero @deepseek.com” — 25+22+3 does not make 12,637 — excused by an impossible claim about an empty submodule.</div></li>
+        <li><span class="mk no">✗</span><div><strong>An adversarial verifier’s.</strong> It <em>confirmed</em> my wrong framing with correct arithmetic. <strong>D21: a verifier checks the claim you hand it; it does not reframe the question.</strong></div></li>
+        <li><span class="mk no">✗</span><div><strong>Falsifiable in one command.</strong> “The gate runs only on Windows.” The root <code>check</code> script begins with <code>check:layout</code> and runs on ubuntu. The real gap is macOS.</div></li>
+        <li><span class="mk yes">✓</span><div><strong>Corrected upward.</strong> An agent claimed no <code>built:true</code> entries. There are five — behind <code>enableScripts: false</code>. The truth was a better finding.</div></li>
+        <li><span class="mk yes">✓</span><div><strong>Adjudicated.</strong> Two agents split on novelty. Ruled for the one holding a primary-source quote, and found the fairest ground: the project never claimed it.</div></li>
+      </ul>
+    </div>
+
+    <div class="rule-card" style="margin-top:24px">
+      <span class="lbl">Pilot · read and borrow, install nothing</span>
+      <p>Not a hireui component. Never install on a machine that touches candidate data. Do not cite the repository’s commit, author or age figures as the product’s. Do not treat a catalogue listing as a safety signal.</p>
+      <p><strong>Next: read four files (~40 minutes, zero install), then build <code>verify-vault-docs</code></strong> — with the three pieces now in hand: prose-versus-code equivalence, the inventory rule as working code, and provenance at the divergence point. Seven consecutive ships have handed over the parts.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Bottom line.</strong> The numbers on this repository are a trap, and I walked into it before walking out. A clone says twelve thousand commits, sixty-nine days, fifty-two authors, a fifth of them at DeepSeek — and all of it belongs to DeepSeek Harness, not to this product. One command found it: a directory called <code>packages/</code> with eight thousand commits and no files.</p>
+    <p>What is underneath is three days and eight hours old, six people, three hundred commits — and better engineered than most of this run. Then the same failure the vault has, one directory up from where the fix already lives: a doc-checker that enumerates its files twice, whose four RFCs are the most formal thing the project has produced, and a top-level index that calls itself the full documentation map and does not contain the string <code>rfcs</code>.</p>
+    <p style="padding-top:6px">Take the rule, not the app.</p>
+  </footer>
+
+</div>
