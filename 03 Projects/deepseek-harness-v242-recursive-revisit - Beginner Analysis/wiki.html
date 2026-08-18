@@ -1,0 +1,469 @@
+<title>The Clone Is the Arbiter</title>
+<style>
+  :root {
+    --paper:        #F2F5F7;
+    --surface:      #FFFFFF;
+    --surface-sunk: #E9EEF2;
+    --ink:          #14181F;
+    --ink-soft:     #414C5C;
+    --ink-faint:    #6B7787;
+    --rule:         #D3DBE3;
+    --rule-strong:  #B4C0CC;
+    --accent:       #3A4FC4;
+    --accent-soft:  #E7EAFA;
+    --refuted:      #96262B;
+    --refuted-soft: #F8E9E9;
+    --confirmed:    #17624F;
+    --confirmed-soft:#E3F1EC;
+    --stale:        #7C5A0C;
+    --stale-soft:   #F7EEDA;
+
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:        #101419;
+      --surface:      #171C23;
+      --surface-sunk: #1E242D;
+      --ink:          #E8EDF2;
+      --ink-soft:     #B3BECB;
+      --ink-faint:    #8391A1;
+      --rule:         #2A323C;
+      --rule-strong:  #3C4652;
+      --accent:       #8E9DF5;
+      --accent-soft:  #1F2740;
+      --refuted:      #E8908F;
+      --refuted-soft: #33191B;
+      --confirmed:    #6FC3A8;
+      --confirmed-soft:#12291F;
+      --stale:        #D9B15E;
+      --stale-soft:   #2C2312;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:        #101419;
+    --surface:      #171C23;
+    --surface-sunk: #1E242D;
+    --ink:          #E8EDF2;
+    --ink-soft:     #B3BECB;
+    --ink-faint:    #8391A1;
+    --rule:         #2A323C;
+    --rule-strong:  #3C4652;
+    --accent:       #8E9DF5;
+    --accent-soft:  #1F2740;
+    --refuted:      #E8908F;
+    --refuted-soft: #33191B;
+    --confirmed:    #6FC3A8;
+    --confirmed-soft:#12291F;
+    --stale:        #D9B15E;
+    --stale-soft:   #2C2312;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+  /* ---------- masthead ---------- */
+  .mast { padding: 3.5rem 0 2rem; border-bottom: 2px solid var(--ink); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2.1rem, 5.5vw, 3.3rem);
+    line-height: 1.08; font-weight: 600; letter-spacing: -.015em;
+    text-wrap: balance; margin: 0 0 1rem;
+  }
+  .standfirst {
+    font-size: 1.16rem; color: var(--ink-soft); max-width: 40rem;
+    margin: 0; text-wrap: pretty;
+  }
+  .repo {
+    font-family: var(--mono); font-size: .87rem; color: var(--ink-faint);
+    margin: 1.4rem 0 0;
+  }
+
+  /* ---------- fact strip ---------- */
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1px; background: var(--rule);
+    border: 1px solid var(--rule); margin: 2.25rem 0 0;
+  }
+  .fact { background: var(--surface); padding: .85rem 1rem; }
+  .fact dt {
+    font-family: var(--mono); font-size: .64rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 0 0 .3rem;
+  }
+  .fact dd {
+    margin: 0; font-family: var(--mono); font-size: 1.02rem;
+    font-variant-numeric: tabular-nums; color: var(--ink);
+  }
+  .fact dd small { display:block; font-size:.68rem; color: var(--ink-faint); letter-spacing:.02em; }
+
+  /* ---------- sections ---------- */
+  section { margin: 3.5rem 0 0; }
+  h2 {
+    font-family: var(--display); font-size: 1.72rem; font-weight: 600;
+    letter-spacing: -.01em; text-wrap: balance;
+    margin: 0 0 .5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--rule-strong);
+  }
+  .kicker {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 0 0 .35rem;
+  }
+  .lede { color: var(--ink-soft); margin: .9rem 0 1.5rem; max-width: 42rem; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); }
+  strong { font-weight: 650; }
+  code {
+    font-family: var(--mono); font-size: .86em;
+    background: var(--surface-sunk); padding: .1em .35em; border-radius: 2px;
+  }
+
+  /* ---------- ledger ---------- */
+  .ledger { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .row { background: var(--surface); padding: 1.25rem 1.35rem; }
+  .row-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .75rem; margin-bottom: .7rem; }
+  .chip {
+    font-family: var(--mono); font-size: .64rem; letter-spacing: .1em;
+    text-transform: uppercase; padding: .26em .6em; border-radius: 2px;
+    white-space: nowrap; font-weight: 600;
+  }
+  .chip-refuted   { background: var(--refuted-soft);   color: var(--refuted);   border: 1px solid var(--refuted); }
+  .chip-confirmed { background: var(--confirmed-soft); color: var(--confirmed); border: 1px solid var(--confirmed); }
+  .chip-stale     { background: var(--stale-soft);     color: var(--stale);     border: 1px solid var(--stale); }
+  .claim { font-family: var(--display); font-size: 1.06rem; font-weight: 600; margin: 0; flex: 1 1 18rem; }
+  .said {
+    font-size: .93rem; color: var(--ink-soft); font-style: italic;
+    border-left: 2px solid var(--rule-strong); padding-left: .85rem; margin: 0 0 .7rem;
+  }
+  .found { font-size: .95rem; margin: 0; }
+  .found b { font-weight: 650; }
+
+  /* ---------- pull quote ---------- */
+  blockquote {
+    margin: 1.5rem 0; padding: 1.4rem 1.6rem;
+    background: var(--surface); border-left: 3px solid var(--accent);
+    font-family: var(--display); font-size: 1.14rem; line-height: 1.5;
+  }
+  blockquote p { margin: 0 0 .7rem; }
+  blockquote p:last-child { margin: 0; }
+  blockquote cite {
+    display: block; margin-top: .9rem; font-family: var(--mono);
+    font-size: .7rem; font-style: normal; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+
+  /* ---------- count comparison ---------- */
+  .counts { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem,1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .count { background: var(--surface); border: 1px solid var(--rule); padding: 1.1rem 1.25rem; }
+  .count-label { font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 .5rem; }
+  .count-wrong { font-family: var(--mono); font-size: 1.5rem; color: var(--refuted); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+  .count-right { font-family: var(--mono); font-size: 2.1rem; color: var(--confirmed); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .count-note { font-size: .82rem; color: var(--ink-soft); margin: .5rem 0 0; }
+
+  /* ---------- timeline (real sequence) ---------- */
+  .tl { border: 1px solid var(--rule); background: var(--surface); margin: 1.5rem 0; }
+  .tl-item { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding: .9rem 1.25rem; border-bottom: 1px solid var(--rule); }
+  .tl-item:last-child { border-bottom: 0; }
+  .tl-when { font-family: var(--mono); font-size: .78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .tl-what { font-size: .93rem; margin: 0; }
+  .tl-hi { background: var(--accent-soft); }
+  .tl-hi .tl-what { font-weight: 600; }
+
+  /* ---------- gap panels ---------- */
+  .gap3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem,1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-top: 3px solid var(--rule-strong); padding: 1.1rem 1.2rem; }
+  .panel h3 { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 .55rem; }
+  .panel p { font-size: .9rem; margin: 0 0 .5rem; }
+  .panel .verdicts { font-family: var(--mono); font-size: .78rem; color: var(--refuted); margin: 0; }
+
+  /* ---------- rules ---------- */
+  .rules { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+  .rule-card { background: var(--surface); border: 1px solid var(--rule); padding: 1.15rem 1.3rem; display: grid; grid-template-columns: 3.4rem 1fr; gap: 1.1rem; align-items: start; }
+  .rule-id { font-family: var(--mono); font-size: 1.05rem; font-weight: 700; color: var(--accent); }
+  .rule-body p { margin: 0; }
+  .rule-body .rule-t { font-family: var(--display); font-weight: 600; font-size: 1.02rem; margin: 0 0 .35rem; }
+  .rule-body .rule-d { font-size: .91rem; color: var(--ink-soft); }
+
+  /* ---------- table ---------- */
+  .tw { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--rule); }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: .9rem; }
+  th, td { text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--mono); font-size: .66rem; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-sunk); }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- verdict block ---------- */
+  .verdict { background: var(--surface); border: 2px solid var(--ink); padding: 1.6rem 1.7rem; margin: 1.5rem 0; }
+  .verdict-line { font-family: var(--mono); font-size: .95rem; letter-spacing: .02em; margin: 0 0 1rem; color: var(--ink); }
+  .verdict h3 { font-family: var(--display); font-size: 1.2rem; margin: 0 0 .6rem; }
+
+  .warn { background: var(--refuted-soft); border: 1px solid var(--refuted); padding: 1.1rem 1.3rem; margin: 1.5rem 0; }
+  .warn p { margin: 0 0 .5rem; font-size: .93rem; }
+  .warn p:last-child { margin: 0; }
+  .warn strong { color: var(--refuted); }
+
+  footer { margin: 4rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--ink-faint); }
+  footer p { margin: 0 0 .5rem; }
+
+  ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  li { margin-bottom: .45rem; }
+
+  @media (max-width: 34rem) {
+    .rule-card { grid-template-columns: 1fr; gap: .4rem; }
+    .tl-item { grid-template-columns: 1fr; gap: .2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Vault wiki v242 · corpus-recursive revisit · 2026-08-18</p>
+    <h1>The Clone Is the Arbiter</h1>
+    <p class="standfirst">Yesterday the vault rated DeepSeek's agent runtime and wrote, in bold, that it had not cloned the source. Today it cloned the source. Four of the five caveats carrying that assessment do not survive.</p>
+    <p class="repo">deepseek-ai/deepseek-harness · MIT · 0.1.0-rc.7 · HEAD 99f6f02fecdb…</p>
+
+    <dl class="facts">
+      <div class="fact"><dt>Commits</dt><dd>12,404<small>6,753 non-merge</small></dd></div>
+      <div class="fact"><dt>Root commits</dt><dd>1<small>2026-06-10</small></dd></div>
+      <div class="fact"><dt>Age</dt><dd>~68 days<small>to rc.7</small></dd></div>
+      <div class="fact"><dt>Authors</dt><dd>42<small>top = 42.4%</small></dd></div>
+      <div class="fact"><dt>@deepseek.com</dt><dd>18.1%<small>10 addresses</small></dd></div>
+      <div class="fact"><dt>GPG-signed</dt><dd>0<small>of 12,404</small></dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <p class="kicker">The finding</p>
+    <h2>Governance, not architecture, produced the ecosystem</h2>
+    <p class="lede">The corpus spent seven consecutive ships documenting a plugin ecosystem around this runtime — a TUI, a sidebar, a 13-package web suite, a 1,390-entry catalogue, a desktop client that swallows the host whole. It never read the 23-line file that explains why any of them exist.</p>
+
+    <blockquote>
+      <p>“DeepSeek Harness is still at an early stage and under active development. <strong>We are sorry that we cannot accept external pull requests at the moment.</strong> However, contributing code to this repository is far from the only way to help.”</p>
+      <p>“Contribute to the ecosystem: Create a plugin that excites you… <strong>Associate your GitHub project with the <code>dsh-plugin</code> topic</strong> to help others discover your plugin.”</p>
+      <p>“We do not believe that packages in the official repository are inherently more important than packages created by the community… an idea, an official showcase, and a source of inspiration, <strong>but not a mandate from us.</strong>”</p>
+      <cite>CONTRIBUTING.md — verbatim</cite>
+    </blockquote>
+
+    <p>“Everything is a plugin” is not only an architecture. It is a <strong>contribution policy</strong>: the core is closed to outside code, and the plugin surface is the sanctioned channel — with the host naming the exact GitHub topic string that the community catalogue would later index.</p>
+    <p>The mechanics agree. Of <strong>1,008 pull-request merges</strong>, 939 arrive from <code>deepseek-harness/…</code> branches and 69 from <code>deepseek-ai/…</code> — every one internal. And <code>github.com/deepseek-harness</code> is a real GitHub organisation with <strong>zero public repositories</strong>. The commit history is fully public; the review record is not.</p>
+  </section>
+
+  <section>
+    <p class="kicker">The errata ledger</p>
+    <h2>What v235 said, and what the source says</h2>
+    <p class="lede">Each of these was listed under v235's own heading “Caveats, load-bearing.” Four were inherited from third-party commentary. One was derived from the source. Only that one holds.</p>
+
+    <div class="ledger">
+
+      <article class="row">
+        <div class="row-head">
+          <p class="claim">Squashed-merge history · “contributor-hostile”</p>
+          <span class="chip chip-refuted">Refuted</span>
+        </div>
+        <p class="said">“The whole codebase ‘arrived as one squashed merge’… Real provenance opacity.”</p>
+        <p class="found">One root commit of <b>48 insertions across 5 files</b>, then genuine incremental development: <em>monorepo infra</em> → <em>vendor Cordis as source</em> → <em>abstract service interfaces</em> → <em>implement the agent loop</em>. <b>Zero</b> non-merge commits carry a <code>(#NNNN)</code> squash suffix; PR merges run continuously from #1 to #2620; the reflog shows no force-push or rewrite. An adversarial verifier instructed to refute this refutation could not. The real barrier is a <b>stated closed-PR policy</b> — openly declared, not history opacity.</p>
+      </article>
+
+      <article class="row">
+        <div class="row-head">
+          <p class="claim">Ecosystem compatibility ~19% (41 of 219)</p>
+          <span class="chip chip-refuted">No in-repo basis</span>
+        </div>
+        <p class="said">“Ecosystem compatibility ~19% — 41 of 219 integrations succeeding.”</p>
+        <p class="found">Repo-wide grep for <code>19%</code>, <code>41 of 219</code>, <code>41/219</code>: <b>zero hits</b> in any Markdown, JSON or TypeScript file. No compatibility matrix, report or verify script computes such a figure. The number is not the project's — and the vault's own v240 ship catalogued <b>1,390 plugins</b>.</p>
+      </article>
+
+      <article class="row">
+        <div class="row-head">
+          <p class="claim">~10× token usage versus Pi</p>
+          <span class="chip chip-refuted">No in-repo basis</span>
+        </div>
+        <p class="said">“The single most important number for anyone considering running it.”</p>
+        <p class="found">No in-repo support — and the project's only token mechanism could not settle it either way. <code>packages/llm/token-meter/README.md</code> discloses that its estimate is “<b>approximate</b> — content without reusable provider usage is priced by character count plus structural overhead, <b>not an exact provider tokenizer</b>.” A ~4-characters-per-token heuristic cannot substantiate or refute a 10× claim.</p>
+      </article>
+
+      <article class="row">
+        <div class="row-head">
+          <p class="claim">A confirmed context-duplication bug</p>
+          <span class="chip chip-stale">Fixed before the release it was cited against</span>
+        </div>
+        <p class="said">“A confirmed context-duplication bug.”</p>
+        <p class="found">An architecture note dated <b>2026-08-11</b> records the problem and its fix: “Session owns one contiguous Event window and publishes both Chat and Trajectory snapshots through <code>Session.views</code>; it does not run a second Trajectory history source.” v235 rated <b>rc.5, released 2026-08-13</b>. The fix predates the release.</p>
+      </article>
+
+      <article class="row">
+        <div class="row-head">
+          <p class="claim">No evaluation harness · BENCHMARK.md is a 3-line stub</p>
+          <span class="chip chip-confirmed">Confirmed at rc.7</span>
+        </div>
+        <p class="said">“BENCHMARK.md is a 3-line stub, no eval harness, zero evaluation claims.”</p>
+        <p class="found">Adversarially verified and it <b>holds</b>. Still 3 lines. The only performance test measures web-UI rendering over a 500-turn history; the <code>evaluator.ts</code> files evaluate JavaScript closures for plugin loading, not agents. <b>Zero</b> quantitative accuracy or success-rate claims anywhere. <b>This is the one caveat v235 derived from the source itself — and the only one that survives.</b></p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Correction</p>
+    <h2>Two headline figures were bilingual double-counts</h2>
+    <p class="lede">Every decision note ships three times: <code>X.md</code>, <code>X.zh.md</code>, <code>X.i18n.yaml</code>. A count that ignores the pairing inflates by the number of languages.</p>
+
+    <div class="counts">
+      <div class="count">
+        <p class="count-label">“Decision records”</p>
+        <div class="count-wrong">1,386</div>
+        <div class="count-right">693</div>
+        <p class="count-note">693 English + 692 Chinese = 1,385. Real notes: <strong>693</strong> — 516 implemented, 143 archived, 25 proposed, 11 rejected.</p>
+      </div>
+      <div class="count">
+        <p class="count-label">“Lines of docs”</p>
+        <div class="count-wrong">170,752</div>
+        <div class="count-right">90,857</div>
+        <p class="count-note">Correct as “all Markdown,” but English-only content is <strong>~1.9× smaller</strong> than the figure implies.</p>
+      </div>
+    </div>
+
+    <p><strong>The subject was more careful about this than the vault.</strong> Its <code>postinstall</code> registers a custom git merge driver named, verbatim, <em>“DeepSeek Harness bilingual pairing records”</em> — the project wrote a merge driver to keep the triples in sync, while the vault counted the translations as extra records.</p>
+    <p>The trap is live: an independent agent in this run, counting naively, produced <em>“1,389 decision records (not 1,386 claimed)”</em> — landing in the same bucket. The hand count stood.</p>
+  </section>
+
+  <section>
+    <p class="kicker">Correction</p>
+    <h2>The release ladder tracked across six ships is 69 minutes wide</h2>
+    <p class="lede">The corpus recorded a “monotonic rc ladder” — rc.5 → rc.6 → rc.7 — across six ships and read it as upstream progression. Measured between the actual release commits, this is a real sequence, so here it is as one.</p>
+
+    <div class="tl">
+      <div class="tl-item"><span class="tl-when">2026-08-13</span><p class="tl-what">Eight releases in a single day: <code>0.0.1-rc.3/4/5</code>, then a re-base to <code>0.1.0</code> and <code>rc.1/2/3/5/6</code>. 190 commits that day.</p></div>
+      <div class="tl-item"><span class="tl-when">18:43 +0800</span><p class="tl-what"><code>0.1.0-rc.5</code> ships. <strong>This is what v235 rated.</strong></p></div>
+      <div class="tl-item tl-hi"><span class="tl-when">+69 minutes</span><p class="tl-what"><code>0.1.0-rc.6</code> ships — 223 files, <b>+224 / −224</b>. Version strings only. Zero functional change.</p></div>
+      <div class="tl-item"><span class="tl-when">2026-08-17</span><p class="tl-what"><code>0.1.0-rc.7</code> ships — 538 files, +8,181 / −1,623, 106 commits. Zero breaking changes; zero packages added or removed (219 both ends).</p></div>
+    </div>
+
+    <p>So v236's and v237's <code>^0.1.0-rc.6</code> pins — recorded in the corpus as being “one prerelease <em>ahead</em> of v235's rc.5” — are <strong>69 minutes ahead, across zero code</strong>. The repo holds exactly one tag, so the ladder isn't even navigable.</p>
+  </section>
+
+  <section>
+    <p class="kicker">The structural gap</p>
+    <h2>Identity is verified end to end. Effect is unmeasured end to end.</h2>
+    <p class="lede">This runtime tests its own plumbing harder than most production software and evaluates its agent not at all. Placed beside the vault's two previous ships, that becomes a hole spanning the whole stack.</p>
+
+    <div class="gap3">
+      <div class="panel">
+        <h3>The host · v242</h3>
+        <p>816 spec files, ~299K lines of test code against ~245K of source, 723 snapshot fixtures, 4 numbered postmortems, 11 recorded <em>rejected</em> decisions.</p>
+        <p class="verdicts">No evaluation harness.</p>
+      </div>
+      <div class="panel">
+        <h3>The catalogue · v240</h3>
+        <p>1,390 curated entries compiled to a public registry API, read live by a separate org's storefront and by a tool inside the agent.</p>
+        <p class="verdicts">Checks metadata.</p>
+      </div>
+      <div class="panel">
+        <h3>The installer · v241</h3>
+        <p>~10 structural gates: lifecycle scripts rejected, SHA-512 integrity, repository backlink, exact-version pinning, approval gate.</p>
+        <p class="verdicts">“They do not review the plugin… for malicious or unsafe behavior.”</p>
+      </div>
+    </div>
+
+    <p>The plumbing is exactly what <em>can</em> be unit-tested, and model quality is what cannot be without an eval harness — so the coverage boundary follows the architecture rather than betraying carelessness. But the consequence is that <strong>nothing anywhere in this stack measures whether a plugin makes the agent worse.</strong> Security and quality are both unmeasured, for the same structural reason: the only party positioned to measure them is the one that closed its pull-request queue.</p>
+  </section>
+
+  <section>
+    <p class="kicker">What the clone earns</p>
+    <h2>Provenance, in the positive direction</h2>
+    <p class="lede">v241 established that a clone's git metadata describes the repository, never automatically the project — it found this history inside a desktop client where it described something else. Here it describes the subject, and the loop closes.</p>
+
+    <p>The root commit <code>b67e81ac976…</code> (2026-06-10, <em>“Initialize repo with README, AGENTS.md, and CLAUDE.md symlink”</em>) is the <strong>same commit</strong> v241 found at the base of the desktop repo. And this clone's HEAD, <code>99f6f02fecdb…</code>, is <strong>exactly the submodule pin v241 recorded</strong> — a hash the vault wrote down yesterday, independently confirmed today.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Measure</th><th>Value</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Commits</td><td class="num">12,404</td><td>6,753 non-merge · 5,651 merges · 1,008 PR merges</td></tr>
+          <tr><td>Genesis</td><td class="num">2026-06-10</td><td>one root commit, 48 insertions</td></tr>
+          <tr><td>@deepseek.com</td><td class="num">2,246 · 18.1%</td><td>10 addresses, spread 06-19 → 08-17 — <strong>not inherited</strong></td></tr>
+          <tr><td>Top author</td><td class="num">5,262 · 42.4%</td><td>GitHub noreply — staff status <strong>unknowable from source</strong></td></tr>
+          <tr><td>Source lines (TS/TSX)</td><td class="num">568,146</td><td>≈245,200 excluding vendor and tests</td></tr>
+          <tr><td>Workspace packages</td><td class="num">219</td><td>unchanged rc.5 → rc.7</td></tr>
+          <tr><td>Lockfile resolutions</td><td class="num">1,203</td><td><strong>zero</strong> npmmirror / taobao / cnpm</td></tr>
+          <tr><td>Branch prefixes</td><td class="num">codex/ 211</td><td>vs <code>claude/</code> 3 — built with Codex, ships Claude Code</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>What the clone also shows, in the project's favour: nine of Shigma's Cordis packages vendored with <strong>author, MIT licence and a per-package LICENSE preserved in every one</strong>, a third-party notices file and an 18-section modification manifest; <strong>deny-by-default install scripts</strong> (5 allowed, 3 explicitly denied, each with a written reason); a release-age cooldown whose named exclusion is the corpus's own <code>pi</code>; and a <code>postinstall</code> that turns out to be 845 lines of Node standard library installing local git hooks with <strong>no network fetch at all</strong> — de-risking the caveat v235 raised as a category.</p>
+  </section>
+
+  <section>
+    <p class="kicker">Rules derived</p>
+    <h2>Three rules the vault did not have this morning</h2>
+
+    <div class="rules">
+      <div class="rule-card">
+        <div class="rule-id">D23</div>
+        <div class="rule-body">
+          <p class="rule-t">Declare the language basis of every count.</p>
+          <p class="rule-d">In a bilingual repository, a naive count over files or lines inflates by the number of languages. Detector: check for <code>.zh.md</code> / <code>.i18n.yaml</code> siblings before quoting any file or doc count.</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">D24</div>
+        <div class="rule-body">
+          <p class="rule-t">A version-number delta is not a code delta.</p>
+          <p class="rule-d">Measure between the release commits, not between the labels. Six ships inferred maturation from a semver ladder that covered 69 minutes and no code.</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">D25</div>
+        <div class="rule-body">
+          <p class="rule-t">An un-cloned subject's caveats are hearsay.</p>
+          <p class="rule-d">When an analysis discloses “not source-cloned,” every critical claim inside it inherits that disclosure. v235 was honest about the gap, then let unverified commentary carry its entire risk assessment. The clone is the only arbiter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Disposition</p>
+    <h2>Verdict</h2>
+
+    <div class="verdict">
+      <p class="verdict-line">GOAL-ALIGNED INCLUDE 3/4 · NO MINT · counts 46 / 11 UNCHANGED · GA:100 · §35 CLEAR</p>
+      <h3>No mint — the ninth consecutive decline on this chain</h3>
+      <p>Tested adversarially and <strong>refuted</strong> on three grounds. Eclipse RCP/OSGi (2001–2004) is decisive prior art for a self-extending plugin system whose shell is itself a plug-in. The architecture is <strong>credited to a third party</strong> — the README says the design is “powered by Cordis,” and <code>vendor/cordis/LICENSE</code> reads “Copyright (c) 2021-present Shigma.” And <strong>the repository claims novelty nowhere</strong>: minting would over-claim on the subject's behalf.</p>
+      <p style="margin:0">Recorded and <strong>not</strong> self-executed: the stale <em>Graduated / Least-Privilege Tool-Exposure</em> row — at N=1 for ~100 wikis, raised at v238, declined at v241 because that candidate's enforcement was unimplemented — now has an <strong>implemented</strong> N=2 candidate here, where the highest-privilege toolset is absent from every shipped tree and activation is gated on capability injection: “a composition missing it never activates the tools.” A promotion is an audit act.</p>
+    </div>
+
+    <div class="warn">
+      <p><strong>Pilot posture: read and borrow. Install nothing.</strong> Developer preview with breaking changes promised; no evaluation harness; telemetry opt-out and default-on; a <code>postinstall</code>; PRC-default egress; closed to external pull requests, so a downstream fix has no upstream path.</p>
+      <p><strong>Never</strong> point it at candidate data, and never treat a catalogue listing or topic tag as a safety signal — nothing in this ecosystem reviews plugin code.</p>
+      <p><strong>Do not cite:</strong> “~19% compatibility”, “~10× tokens”, “a context-duplication bug”, “1,386 decision records”, or any star figure.</p>
+    </div>
+
+    <p>The subject is better engineered than v235 could show, and worse documented in exactly one dimension than v235 reported. The difference between those two statements is one <code>git clone</code> — and the revisit's real product is not a re-rating of DeepSeek's runtime but <strong>four corrections to the vault's own record, and a rule that explains why they happened.</strong></p>
+  </section>
+
+  <footer>
+    <p><strong>Method.</strong> Full source clone with history (201MB, HEAD <code>99f6f02fecdb…</code>). A 14-agent workflow — 11 succeeded, 3 schema-failed on surfaces already hand-covered; ~1.60M subagent tokens, 485 tool uses, 426s — plus hand-verification of every load-bearing number. Seven errors caught, three of them the vault's or mine.</p>
+    <p><strong>§37.4.</strong> This environment mocks the GitHub API. Stars, forks and watchers are page-stated, never verified, and support no viral-velocity claim.</p>
+    <p>Vault wiki v242 · corpus-recursive revisit of v235 — the fourth in wiki history, after ECC v78, agency-agents v185 and pi v228.</p>
+  </footer>
+
+</div>
