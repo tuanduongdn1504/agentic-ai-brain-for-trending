@@ -1,0 +1,611 @@
+<title>Tool-Surface Anchoring</title>
+
+<style>
+  :root {
+    /* light — cool slate ground with a blue bias, not cream */
+    --ground: #F6F8FA;
+    --surface: #FFFFFF;
+    --surface-sunk: #EDF1F5;
+    --ink: #11161D;
+    --ink-soft: #3B4553;
+    --slate: #5A6675;
+    --slate-faint: #8B97A6;
+    --rule: #D8E0E8;
+    --rule-strong: #B9C5D2;
+    --accent: #0C6874;
+    --accent-soft: #E0EFF1;
+    --ok: #1F6B4C;
+    --ok-soft: #E2F0E9;
+    --warn: #9A5B05;
+    --warn-soft: #FBEEDC;
+    --bad: #9B3131;
+    --bad-soft: #F8E6E6;
+    --shadow: 0 1px 2px rgba(17,22,29,.05), 0 8px 24px -12px rgba(17,22,29,.12);
+
+    --display: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    --body: ui-serif, Georgia, Charter, "Iowan Old Style", serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0D1218;
+      --surface: #141B23;
+      --surface-sunk: #10161D;
+      --ink: #E8EDF3;
+      --ink-soft: #C0CAD6;
+      --slate: #96A3B2;
+      --slate-faint: #6B7887;
+      --rule: #253039;
+      --rule-strong: #35434F;
+      --accent: #4FBECC;
+      --accent-soft: #123136;
+      --ok: #5EC08F;
+      --ok-soft: #102B20;
+      --warn: #DDA24A;
+      --warn-soft: #2E2211;
+      --bad: #E0776F;
+      --bad-soft: #2E1616;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0D1218;
+    --surface: #141B23;
+    --surface-sunk: #10161D;
+    --ink: #E8EDF3;
+    --ink-soft: #C0CAD6;
+    --slate: #96A3B2;
+    --slate-faint: #6B7887;
+    --rule: #253039;
+    --rule-strong: #35434F;
+    --accent: #4FBECC;
+    --accent-soft: #123136;
+    --ok: #5EC08F;
+    --ok-soft: #102B20;
+    --warn: #DDA24A;
+    --warn-soft: #2E2211;
+    --bad: #E0776F;
+    --bad-soft: #2E1616;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px 96px; }
+  .measure { max-width: 68ch; }
+
+  /* ---------- masthead ---------- */
+  header.mast {
+    padding: 56px 0 34px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 34px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-bottom: 22px;
+  }
+  .eyebrow b { color: var(--accent); font-weight: 600; }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -.032em;
+    font-weight: 700;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .repo {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--slate);
+    margin: 0 0 20px;
+    word-break: break-all;
+  }
+  .standfirst {
+    font-size: 1.15rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  /* ---------- chips ---------- */
+  .chiprow { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 3px;
+    border: 1px solid var(--rule-strong);
+    color: var(--slate);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .chip.ok   { color: var(--ok);     background: var(--ok-soft);   border-color: transparent; font-weight: 600; }
+  .chip.warn { color: var(--warn);   background: var(--warn-soft); border-color: transparent; font-weight: 600; }
+  .chip.bad  { color: var(--bad);    background: var(--bad-soft);  border-color: transparent; font-weight: 600; }
+  .chip.acc  { color: var(--accent); background: var(--accent-soft);border-color: transparent; font-weight: 600; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 58px; }
+  h2 {
+    font-family: var(--display);
+    font-size: 1.02rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 4px;
+  }
+  h2 + .sub {
+    font-family: var(--display);
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
+    line-height: 1.16;
+    letter-spacing: -.02em;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 20px;
+    text-wrap: balance;
+    max-width: 34ch;
+  }
+  h3 {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -.008em;
+    margin: 30px 0 8px;
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  code {
+    font-family: var(--mono);
+    font-size: .855em;
+    background: var(--surface-sunk);
+    padding: .12em .38em;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+  strong { font-weight: 700; color: var(--ink); }
+  em { font-style: italic; }
+  blockquote {
+    margin: 20px 0;
+    padding: 2px 0 2px 20px;
+    border-left: 3px solid var(--accent);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+  blockquote .cn { font-style: normal; font-size: .94em; color: var(--slate); }
+
+  ul { margin: 0 0 16px; padding-left: 1.15em; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--slate-faint); }
+
+  /* ---------- diagram ---------- */
+  .figure {
+    margin: 26px 0 10px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 22px 20px 14px;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+  .figure svg { display: block; min-width: 640px; width: 100%; height: auto; }
+  figcaption {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--slate);
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- tables ---------- */
+  .tablewrap { overflow-x: auto; margin: 22px 0; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-family: var(--display); font-size: 14.5px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--slate);
+    background: var(--surface-sunk);
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td code { background: transparent; padding: 0; }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .07em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .s-ok   { color: var(--ok);   background: var(--ok-soft); }
+  .s-no   { color: var(--bad);  background: var(--bad-soft); }
+  .s-disp { color: var(--warn); background: var(--warn-soft); }
+
+  /* ---------- callouts ---------- */
+  .callout {
+    margin: 26px 0;
+    padding: 20px 22px;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .callout.hot { border-left-color: var(--warn); }
+  .callout.stop { border-left-color: var(--bad); }
+  .callout .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---------- levers ---------- */
+  .levers { display: grid; gap: 14px; margin: 24px 0; }
+  @media (min-width: 760px) { .levers { grid-template-columns: repeat(3, 1fr); } }
+  .lever {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+  .lever .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .lever h4 { font-family: var(--display); font-size: .98rem; margin: 0 0 8px; letter-spacing: -.005em; }
+  .lever p { font-size: 15px; margin: 0; color: var(--ink-soft); }
+  .lever .fig { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
+
+  /* ---------- path ---------- */
+  .path { display: grid; gap: 12px; margin: 22px 0; }
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .step .tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .step p { margin: 0; font-size: 15.5px; }
+  .step p + p { margin-top: 6px; color: var(--slate); font-size: 14.5px; }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.75;
+    color: var(--slate-faint);
+  }
+  footer b { color: var(--slate); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">
+      <span><b>LLM Wiki v238</b></span>
+      <span>2026-08-18</span>
+      <span>DeepSeek Harness · agent preset</span>
+      <span>operator-requested</span>
+    </div>
+    <h1>Tool-Surface Anchoring</h1>
+    <p class="repo">xiaobright/dsh-anchored-standard · MIT · v0.1.0 · ~3,500★ (page-stated) · maintenance-only since 2026-08-17</p>
+    <p class="standfirst">A DeepSeek Harness preset built on one claim: the model reasons differently depending on how many tools you show it on the <em>first</em> request. The mechanism is real and carefully built. Whether it makes the model <em>better</em> is the part nobody could reproduce — and the author shut the project down because he could no longer afford to check.</p>
+    <div class="chiprow">
+      <span class="chip acc">Goal-aligned include 3/4</span>
+      <span class="chip">(a) fail</span>
+      <span class="chip warn">(b) moderate · strong-reviewable</span>
+      <span class="chip">(c) strong</span>
+      <span class="chip">(d) strong</span>
+      <span class="chip bad">No mint</span>
+      <span class="chip">counts 46/11 unchanged</span>
+      <span class="chip warn">Read &amp; borrow · do not install</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>The mechanism</h2>
+    <p class="sub">Look like Minimal on request #1, become Standard from request #2</p>
+    <div class="measure">
+      <p>DeepSeek ships two presets for its harness. <em>Minimal</em> exposes two tools and scores well on their internal evaluation. <em>Standard</em> exposes twenty-five and scores worse. This preset tries to have both: it constrains the first model request to Minimal's real two-tool schema, blanks every automatic context injection on that request, and then promotes to a fuller catalogue the moment the session records a durable event.</p>
+      <p>It is not a plugin that adds a feature. It is a composition of the host's own configuration rows — an <em>agent preset</em> — which makes it the third structurally distinct kind of DeepSeek Harness extension the corpus has now documented, after the host itself and two kinds of plugin.</p>
+    </div>
+
+    <div class="figure">
+      <svg viewBox="0 0 900 260" role="img" aria-label="Two-phase request lifecycle: request one sees two tools with all injections blanked; a durable event promotes the session; request two onward sees the bootstrap pair plus discovery tools plus anything unlocked, with injections restored.">
+        <!-- phase 1 -->
+        <rect x="8" y="46" width="300" height="150" rx="6" fill="var(--surface-sunk)" stroke="var(--rule-strong)"/>
+        <text x="24" y="34" font-family="ui-monospace, Menlo, monospace" font-size="11.5" letter-spacing="1.4" fill="var(--slate)">REQUEST #1 — BOOTSTRAP</text>
+
+        <rect x="26" y="66" width="86" height="26" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="69" y="83.5" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="var(--accent)">bash</text>
+        <rect x="120" y="66" width="164" height="26" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="202" y="83.5" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="var(--accent)">str_replace_editor</text>
+
+        <text x="26" y="118" font-family="ui-monospace, Menlo, monospace" font-size="10.5" letter-spacing=".8" fill="var(--slate-faint)">BLANKED</text>
+        <g font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="var(--bad)">
+          <text x="26" y="137" text-decoration="line-through">skill catalog (~9 KB)</text>
+          <text x="26" y="154" text-decoration="line-through">AGENTS.md / CLAUDE.md digest</text>
+          <text x="26" y="171" text-decoration="line-through">time · tmux · hooks · 3rd-party</text>
+        </g>
+        <text x="26" y="188" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="var(--slate-faint)">kept: claimed batch + skill-invocation</text>
+
+        <!-- promotion boundary -->
+        <line x1="336" y1="30" x2="336" y2="212" stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="346" y="120" font-family="ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="var(--warn)">PROMOTION</text>
+        <text x="346" y="137" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="var(--slate)">first durable</text>
+        <text x="346" y="151" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="var(--slate)">tool/call OR</text>
+        <text x="346" y="165" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="var(--slate)">assistant/message</text>
+
+        <!-- phase 2 -->
+        <rect x="472" y="46" width="420" height="150" rx="6" fill="var(--surface-sunk)" stroke="var(--rule-strong)"/>
+        <text x="488" y="34" font-family="ui-monospace, Menlo, monospace" font-size="11.5" letter-spacing="1.4" fill="var(--slate)">REQUEST #2+ — RESIDENT</text>
+
+        <g font-family="ui-monospace, Menlo, monospace" font-size="10.5">
+          <rect x="488" y="66" width="62" height="24" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="519" y="82.5" text-anchor="middle" fill="var(--accent)">bash</text>
+          <rect x="558" y="66" width="128" height="24" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="622" y="82.5" text-anchor="middle" fill="var(--accent)">str_replace_editor</text>
+          <rect x="488" y="98" width="118" height="24" rx="4" fill="var(--ok-soft)" stroke="var(--ok)"/>
+          <text x="547" y="114.5" text-anchor="middle" fill="var(--ok)">dev_tool_search</text>
+          <rect x="614" y="98" width="100" height="24" rx="4" fill="var(--ok-soft)" stroke="var(--ok)"/>
+          <text x="664" y="114.5" text-anchor="middle" fill="var(--ok)">skill_search</text>
+          <rect x="722" y="98" width="90" height="24" rx="4" fill="var(--ok-soft)" stroke="var(--ok)"/>
+          <text x="767" y="114.5" text-anchor="middle" fill="var(--ok)">skill_load</text>
+          <rect x="488" y="130" width="324" height="24" rx="4" fill="none" stroke="var(--rule-strong)" stroke-dasharray="4 3"/>
+          <text x="650" y="146.5" text-anchor="middle" fill="var(--slate)">+ whatever the model explicitly unlocked</text>
+        </g>
+        <text x="488" y="176" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="var(--slate-faint)">injections restored · one fresh context message diffed in</text>
+
+        <!-- note -->
+        <text x="8" y="238" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="var(--slate)">compaction/end re-demotes → the next request is treated as a &#8220;second first request&#8221;</text>
+      </svg>
+      <figcaption>Source-verified from <code>shared/context-gate.mjs</code> and <code>shared/tool-bootstrap.mjs</code>. Promotion is read off the durable session-event log rather than held in memory, so resume and reload preserve the phase. The full Standard catalogue is deliberately <em>not</em> dumped at promotion — doing so pulled the behaviour back, so heavier tools stay one <code>dev_tool_search</code> call away.</figcaption>
+    </div>
+  </section>
+
+  <section>
+    <h2>The three levers</h2>
+    <p class="sub">What actually moves the model's first reasoning chain</p>
+    <div class="levers">
+      <div class="lever">
+        <span class="n">LEVER 1</span>
+        <h4>Tool schema</h4>
+        <p>The decisive variable at the adapter's default output budget. The real Minimal pair anchored <span class="fig">5/5</span>; every Standard-family schema fell back <span class="fig">11/11</span>.</p>
+      </div>
+      <div class="lever">
+        <span class="n">LEVER 2</span>
+        <h4>Output budget</h4>
+        <p>A 1024-token cap on the first request also anchored it — <span class="fig">26/32</span> — independently of the tool descriptions. Left unset by default; opt-in only.</p>
+      </div>
+      <div class="lever">
+        <span class="n">LEVER 3</span>
+        <h4>Injected reminders</h4>
+        <p>With the skill catalogue present the effect vanished entirely: <span class="fig">0/9</span>. Roughly <span class="fig">9 KB</span> of auto-injected text was enough.</p>
+      </div>
+    </div>
+    <div class="measure">
+      <p>Lever 3 is the one that generalises, and it explains why replication kept failing on other people's machines: the harness injects the skill directory only when local skills exist, so the author's machine could reproduce the effect and everyone else's could not.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The evidence</h2>
+    <p class="sub">The style effect holds. The quality claim does not.</p>
+    <div class="measure">
+      <p>This is the section to read before believing anything about this preset — including its own repository tagline, which still advertises a score that its own issue tracker retracted.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Claim</th><th>Status</th><th>Evidence</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The preset changes the <strong>style</strong> of the first reasoning chain</td>
+            <td><span class="status s-ok">Established</span></td>
+            <td class="num">9/9 separated perfectly by preset<br><span style="color:var(--slate)">#65 · 3×3 randomised block</span></td>
+          </tr>
+          <tr>
+            <td>Auto-injected context can <strong>destroy</strong> the effect</td>
+            <td><span class="status s-ok">Established</span></td>
+            <td class="num">0/9 with catalogue vs ~81% without<br><span style="color:var(--slate)">#6 · ~9 KB injection</span></td>
+          </tr>
+          <tr>
+            <td>The tool schema is the decisive lever at default budget</td>
+            <td><span class="status s-ok">Supported</span></td>
+            <td class="num">45-session controlled trial<br><span style="color:var(--slate)">#11</span></td>
+          </tr>
+          <tr>
+            <td>The preset makes the model <strong>better</strong></td>
+            <td><span class="status s-no">Not established</span></td>
+            <td class="num">+3.3 ability, 95% CI [−2.6, +9.3]<br>ANOVA F(2,6)=1.05 · not significant<br><span style="color:var(--slate)">#65</span></td>
+          </tr>
+          <tr>
+            <td>The headline “Project2 98/99” reflects the shipped composition</td>
+            <td><span class="status s-no">Retracted</span></td>
+            <td class="num">Those runs used pwsh+read → 25 tools<br><span style="color:var(--slate)">#60 · raised by a third party</span></td>
+          </tr>
+          <tr>
+            <td>The trajectory effect is stable on current weights</td>
+            <td><span class="status s-disp">Disputed</span></td>
+            <td class="num">Ability 85–90 · 98/99 not reproduced<br>trajectory ↔ score: no correlation<br><span style="color:var(--slate)">#51 · 11 rounds × 3 OSes</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout hot">
+      <span class="k">The load-bearing caveat</span>
+      <p><strong>The two independent replications disagree with each other.</strong> One found the anchoring effect robust but its benefit statistically indistinguishable from zero. The other could not reproduce the effect at all on current model weights, and traced the score losses to a model-layer defect unrelated to the preset. Any use of this subject has to carry that.</p>
+    </div>
+
+    <div class="measure">
+      <p>To the author's credit, the README says a version of this itself — <em>“treat the scores above as our original observations, not a settled effect size”</em> — and documents the provenance correction that a third party forced on him. That is a stronger form of honesty than volunteering one's own gaps.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why no new pattern</h2>
+    <p class="sub">Anthropic already ships the mechanism</p>
+    <div class="measure">
+      <p>The tempting reading is that this is a new capability class: constrain the first request's tool surface to select the model's reasoning trajectory. It is genuinely unrepresented in the corpus, and the near neighbours all fail to cover it — graduated tool exposure for an MCP server is scoped to permissions and quota as a deployment-time flag; context compression is a token-economy interceptor; harness emulation swaps whole harness personalities; skill optimisation works on a document in text space.</p>
+      <p>But the mechanism is not new, and the closest prior art is a first-party Claude feature. Anthropic's <strong>Tool Search Tool</strong> with <code>defer_loading: true</code> strips deferred tools from the initial system prompt entirely and restores them on demand through a search tool — documented at 77K → 8.7K tokens on the first request. That is the same bootstrap → discovery → promote shape, shipped and supported. The academic literature is thick too: dynamic tool gating with lazy schema loading, work on how many tools an agent should see, and a body of results showing the first reasoning step disproportionately determines the outcome.</p>
+      <p>So what is distinctive here is not the mechanism but the <strong>rationale and the measurement</strong>. Every documented staged-tool system justifies itself with token economy or least privilege. This one justifies itself with reasoning-trajectory selection, then publishes the ablations and lets strangers fail to replicate them in public. That is a real contribution to understanding — and understanding is not a capability class.</p>
+    </div>
+    <div class="callout">
+      <span class="k">Recorded, not minted</span>
+      <p>Filed as a corpus-knowledge data-point plus a deferred watch axis, with the candidate mint written down as the reviewable alternative. Counts unchanged at 46 patterns / 11 confirmed vocabulary items. Separately flagged to the audit: the graduated-tool-exposure row has sat at a single instance for roughly ninety-eight wikis past its stale-watch — generalising it to cover staged tool exposure regardless of rationale would make this subject its second instance and settle the boundary question in one move.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it ended</h2>
+    <p class="sub">Killed by the cost of checking, not the cost of building</p>
+    <div class="measure">
+      <p>The farewell note is dated the day before this wiki was written. Development has stopped; the repository is maintenance-only.</p>
+      <blockquote>
+        <p class="cn">API 涨价之后，一轮完整评测的成本已经超过了我的承受范围，而继续在没有验证能力的情况下堆功能，是对用户不负责任。</p>
+        <p>“After the API price increase, the cost of one complete evaluation round has exceeded what I can bear, and continuing to pile on features without verification capability is irresponsible to users.”</p>
+      </blockquote>
+      <p>The handoff document prices it: an evaluation round went from roughly ¥2 to ¥12 — about $0.28 to $1.70. The absolute figure is trivial, which is exactly the point. The work needed many rounds, so a sixfold multiplier on a small number was enough. <strong>For inference-time research the binding constraint is the cost of evaluation, not the cost of development.</strong> Writing the plugin was free; knowing whether it worked was not.</p>
+      <p>The same note contains the sharpest statement of what the project actually was — sharper than the README's:</p>
+      <blockquote>
+        <p>“Much of our recent work can be called ‘inference-time control’, or plainly: filling gaps for the official team — retrieving the good behavior the model was trained to show under evaluation conditions, back into the user's real-world environment.”</p>
+      </blockquote>
+      <p>And it names its own obsolescence condition: that the vendor train across more diverse harness environments, citing Kimi K3's technical report as proof the path works, so that <em>“our kind of patch engineering [becomes] unnecessary.”</em></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why this matters for your setup</h2>
+    <p class="sub">Your tool catalogue may be a reasoning variable, not just a budget line</p>
+    <div class="measure">
+      <p>Your Claude Code session carries roughly a 54,000-token tool catalogue across connected MCP servers. The vault has treated that purely as a context-budget problem — and this session proved the point again when eighteen workflow subagents died at ~207K against a 200K ceiling.</p>
+      <p>This subject's evidence says the tool surface is plausibly <em>also</em> a reasoning variable. Issue #6 measured roughly 9 KB of auto-injected catalogue taking a reproducible behavioural effect from ~81% to zero. Your injection is about six times larger than the one that did that.</p>
+      <p>Be careful with the inference, though: what is established is a change in reasoning <em>style</em>. That it changes reasoning <em>quality</em> is precisely the claim two replications failed to confirm — and it was measured on DeepSeek V4 Pro, not on Claude. So this is a hypothesis worth testing on your own setup, not a finding to act on blindly.</p>
+      <p>The test is nearly free, because the lever already exists first-party. You do not need to install a dead preset for a rival harness to try the idea.</p>
+    </div>
+
+    <div class="path">
+      <div class="step">
+        <span class="tag">A1</span>
+        <div>
+          <p>Read the three-lever finding and issue #6.</p>
+          <p>Thirty minutes, zero install, no repository needed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="tag">B5</span>
+        <div>
+          <p>Write a tool-surface hygiene rule into <code>CLAUDE.md</code> — the connected MCP catalogue is a reasoning variable, not only a token cost.</p>
+          <p>Fence it honestly in the note: measured on another model, style effect established, quality effect unproven.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="tag">C11</span>
+        <div>
+          <p>Trial Anthropic's Tool Search Tool with <code>defer_loading: true</code> on your own Claude Code — and measure it.</p>
+          <p>Three real tasks, run with the full catalogue and again with most of it deferred; capture tokens through the ccusage/OTel layer and judge output quality yourself. Gives the cost-optimisation thread a second dimension it currently lacks.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Also worth taking</h3>
+    <div class="measure">
+      <ul>
+        <li><strong>Fail-soft at runtime, fail-fast at config.</strong> A missing bootstrap tool degrades to the full catalogue with a one-time warning so composition drift cannot brick a session — while an invalid setting throws at mount.</li>
+        <li><strong>Blank the family, don't enumerate the sources.</strong> The gate suppresses the whole runtime-context family rather than named sources, so an unknown third-party injection is caught by default.</li>
+        <li><strong>The handoff document's evaluation discipline.</strong> Measure the artifact the downstream process consumes, not the pre-cleaned one. Label small-n results as exploratory and tag every run with its invariants. Design probes that isolate one variable at one request per trial. Watch for silent model-checkpoint drift.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Risk</h2>
+    <p class="sub">Unusually clean supply chain, three real hazards</p>
+    <div class="measure">
+      <p>Zero npm dependencies, no lifecycle scripts, no network calls, no telemetry, CI with read-only permissions, atomic writes confined to the harness home directory, and an installing-agent contract bounded to one command. For what it is, that is exemplary.</p>
+    </div>
+    <div class="callout stop">
+      <span class="k">Do not</span>
+      <p><strong>Do not install the prefab modes.</strong> They replay 80 KB and 212 KB of another person's recorded model reasoning into your session as history, with stale tool results replayed verbatim — only skill-search results are re-rendered against your machine. That is a self-inflicted context-injection surface.</p>
+      <p><strong>Do not cite “Project2 98/99.”</strong> The repository's own issue #60 retracted the attribution and nobody has reproduced the number.</p>
+      <p><strong>Do not expect sandboxing from the bundled shell on Windows.</strong> Its own tool description says it runs without OS sandbox confinement and to treat output as untrusted.</p>
+    </div>
+    <div class="measure">
+      <p>Two documentation defects found by hand: the README links a <code>HANDOFF.md</code> that does not exist in the repository, and third-party plugin directories disagree with the repository about its licence and star count. The repository is authoritative — the same lesson the previous two ships in this dependency graph produced.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Verdict</b> — Goal-aligned include 3/4 · no mint · counts 46/11 unchanged · §C live standalones 49 unchanged · streak GA:96 · OG:13 · §35 clear.</p>
+    <p><b>Provenance</b> — rendered repository page, raw README, git-tree API, seven source files read, five issues, FAREWELL / ACKNOWLEDGEMENTS / NOTICE / LICENSE / package.json / HANDOFF-2, plus prior-art research. Not source-cloned. Star and fork counts are page-stated, not API-verified, so no viral-velocity claim is made. Four files in the exotic modes are documentation-stated rather than source-verified, and are labelled as such throughout.</p>
+    <p><b>Verification</b> — produced inline and hand-verified. The Workflow tool failed with all eighteen agents over the context limit; routed around it with seven direct read-only agents. Collision checked by sanity-anchored grep; the five nearest pattern rows read verbatim before ruling on distinctness. Five errors caught during the build, including one of my own.</p>
+  </footer>
+
+</div>
