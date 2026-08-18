@@ -1,0 +1,374 @@
+<title>Everything Is a Plugin</title>
+<style>
+  :root {
+    --paper: #F1F4F6;
+    --card: #FBFCFD;
+    --ink: #16232B;
+    --ink-2: #41555F;
+    --ink-3: #6D8087;
+    --rule: #D3DCE1;
+    --rule-2: #E4EAEE;
+    --accent: #0E6E7D;
+    --accent-soft: #E2EFF1;
+    --good: #1F6B4A;
+    --good-soft: #E3EFE8;
+    --warn: #8A5A12;
+    --warn-soft: #F4EDDF;
+    --crit: #9B2F3E;
+    --crit-soft: #F6E6E8;
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+
+    --col: 68ch;
+    --s1: .35rem; --s2: .7rem; --s3: 1.15rem; --s4: 1.9rem; --s5: 3rem; --s6: 4.6rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0E1519;
+      --card: #151E23;
+      --ink: #DCE5E8;
+      --ink-2: #A7B8BF;
+      --ink-3: #74878F;
+      --rule: #263338;
+      --rule-2: #1D272C;
+      --accent: #52B6C4;
+      --accent-soft: #143136;
+      --good: #5FBB8F;
+      --good-soft: #122A20;
+      --warn: #D3A257;
+      --warn-soft: #2C2213;
+      --crit: #DE8792;
+      --crit-soft: #2E181C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0E1519;
+    --card: #151E23;
+    --ink: #DCE5E8;
+    --ink-2: #A7B8BF;
+    --ink-3: #74878F;
+    --rule: #263338;
+    --rule-2: #1D272C;
+    --accent: #52B6C4;
+    --accent-soft: #143136;
+    --good: #5FBB8F;
+    --good-soft: #122A20;
+    --warn: #D3A257;
+    --warn-soft: #2C2213;
+    --crit: #DE8792;
+    --crit-soft: #2E181C;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: var(--s5) var(--s3) var(--s6); }
+  .col { max-width: var(--col); }
+
+  /* ---- masthead ---- */
+  .mast { border-bottom: 2px solid var(--ink); padding-bottom: var(--s3); margin-bottom: var(--s4); }
+  .eyebrow {
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); margin-bottom: var(--s3);
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(2.1rem, 5.4vw, 3.3rem);
+    line-height: 1.06; letter-spacing: -.02em; margin: 0 0 var(--s2); text-wrap: balance;
+  }
+  .sub { font-family: var(--serif); font-size: clamp(1.05rem, 2.2vw, 1.3rem); font-style: italic; color: var(--ink-2); margin: 0; max-width: 58ch; }
+  .slug { font-family: var(--mono); font-size: .82rem; color: var(--ink-3); margin-top: var(--s3); word-break: break-all; }
+  .slug a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  /* ---- verdict strip ---- */
+  .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 0 0 var(--s5); }
+  .cell { background: var(--card); padding: var(--s3); }
+  .cell dt { font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 var(--s1); }
+  .cell dd { margin: 0; font-family: var(--serif); font-size: 1.22rem; line-height: 1.2; }
+  .cell dd small { display: block; font-family: var(--sans); font-size: .78rem; color: var(--ink-3); margin-top: 4px; line-height: 1.4; }
+
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(1.5rem, 3.1vw, 2rem);
+    line-height: 1.15; letter-spacing: -.015em; margin: var(--s6) 0 var(--s3); text-wrap: balance;
+    padding-top: var(--s3); border-top: 1px solid var(--rule);
+  }
+  h2 .num { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; color: var(--accent); display: block; margin-bottom: var(--s2); font-weight: 400; }
+  h3 { font-family: var(--sans); font-weight: 650; font-size: 1.02rem; letter-spacing: -.005em; margin: var(--s4) 0 var(--s2); }
+  p { margin: 0 0 var(--s3); }
+  a { color: var(--accent); }
+  strong { font-weight: 650; }
+  code, .m { font-family: var(--mono); font-size: .855em; }
+  code { background: var(--rule-2); padding: .1em .32em; border-radius: 2px; }
+  .zh { font-size: .95em; }
+
+  /* ---- evidence chip ---- */
+  .chip {
+    display: inline-flex; align-items: center; gap: .4em; font-family: var(--mono);
+    font-size: .63rem; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+    padding: .22em .5em; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-2); vertical-align: 1px;
+  }
+  .chip::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3); }
+  .chip.v { color: var(--good); border-color: color-mix(in srgb, var(--good) 35%, transparent); background: var(--good-soft); }
+  .chip.v::before { background: var(--good); }
+  .chip.d { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 35%, transparent); background: var(--warn-soft); }
+  .chip.d::before { background: var(--warn); }
+  .chip.u { color: var(--crit); border-color: color-mix(in srgb, var(--crit) 35%, transparent); background: var(--crit-soft); }
+  .chip.u::before { background: var(--crit); }
+
+  /* ---- note ---- */
+  .note { border-left: 2px solid var(--accent); padding: var(--s2) 0 var(--s2) var(--s3); margin: var(--s4) 0; }
+  .note.crit { border-color: var(--crit); }
+  .note.good { border-color: var(--good); }
+  .note p:last-child { margin-bottom: 0; }
+  .note .lbl { font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: var(--s1); }
+  .note.crit .lbl { color: var(--crit); }
+  .note.good .lbl { color: var(--good); }
+
+  /* ---- tables ---- */
+  .scroll { overflow-x: auto; margin: var(--s3) 0 var(--s4); border: 1px solid var(--rule); background: var(--card); }
+  table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+  th, td { text-align: left; padding: .62rem .8rem; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+  thead th { font-family: var(--mono); font-size: .64rem; letter-spacing: .11em; text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.pin { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink-2); }
+  tr.self td { background: var(--accent-soft); }
+
+  /* ---- rc ladder (a real sequence) ---- */
+  .ladder { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: var(--s2); margin: var(--s3) 0 var(--s4); }
+  .rung { border: 1px solid var(--rule); background: var(--card); padding: var(--s2) var(--s3); position: relative; }
+  .rung .v { font-family: var(--mono); font-size: 1.02rem; font-weight: 600; color: var(--accent); display: block; }
+  .rung .k { font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .rung .n { font-size: .8rem; color: var(--ink-2); display: block; margin-top: 2px; }
+  .rung.self { border-color: var(--accent); border-width: 2px; }
+
+  /* ---- split ---- */
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--s3); margin: var(--s3) 0 var(--s4); }
+  .pane { border: 1px solid var(--rule); background: var(--card); padding: var(--s3); border-top: 3px solid var(--ink-3); }
+  .pane.g { border-top-color: var(--good); }
+  .pane.b { border-top-color: var(--crit); }
+  .pane h4 { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 var(--s2); color: var(--ink-2); }
+  .pane.g h4 { color: var(--good); }
+  .pane.b h4 { color: var(--crit); }
+  .pane ul { margin: 0; padding-left: 1.15em; font-size: .885rem; }
+  .pane li { margin-bottom: var(--s2); }
+  .pane li:last-child { margin-bottom: 0; }
+
+  ul.body, ol.body { margin: 0 0 var(--s3); padding-left: 1.3em; }
+  ul.body li, ol.body li { margin-bottom: var(--s2); }
+
+  .kicker { font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 var(--s2); }
+
+  footer { margin-top: var(--s6); padding-top: var(--s3); border-top: 2px solid var(--ink); font-size: .82rem; color: var(--ink-3); }
+  footer p { margin: 0 0 var(--s2); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">
+      <span>LLM Wiki v239</span><span>2026-08-18</span><span>Goal-aligned 3/4</span><span>No mint</span>
+    </div>
+    <h1>Everything Is a Plugin</h1>
+    <p class="sub">Seventy strangers, six days, thirteen packages — and a benchmark number that outran its own correction.</p>
+    <p class="slug"><a href="https://github.com/zhu1090093659/dsh-web-ui">github.com/zhu1090093659/dsh-web-ui</a> &nbsp;·&nbsp; Apache-2.0 (+BSD-3, MIT, CC BY-NC-SA) &nbsp;·&nbsp; v0.2.0 &nbsp;·&nbsp; ~4.4k&#9733; page-stated</p>
+  </header>
+
+  <dl class="strip">
+    <div class="cell"><dt>Criterion (a)</dt><dd>FAIL<small>Bare handle "Solitude". Not DeepSeek, not Anthropic.</small></dd></div>
+    <div class="cell"><dt>Criterion (b)</dt><dd>MODERATE<small>Keys the tier. STRONG is arguable — flagged reviewable.</small></dd></div>
+    <div class="cell"><dt>Criterion (c)</dt><dd>STRONG<small>13 packages, 32 scripts, real CI gates.</small></dd></div>
+    <div class="cell"><dt>Criterion (d)</dt><dd>STRONG<small>Four-way corpus recursion.</small></dd></div>
+    <div class="cell"><dt>Counts</dt><dd>46 / 11<small>Unchanged. Sixth consecutive DSH no-mint.</small></dd></div>
+  </dl>
+
+  <div class="col">
+    <p><strong>What it is:</strong> a thirteen-package monorepo of community plugins and eleven skins for the <em>official</em> web GUI of DeepSeek Harness — the agent runtime this corpus shipped as v235. Its own motto: <span class="zh m">一切皆开发，一切皆插件</span> — <em>everything is development, everything is a plugin.</em> One row installs the lot.</p>
+    <p>It adds a kanban task board with host-side cron, a git graph, a QR-paired mobile remote, an SSH operations console that also hands the model remote-execution tools, an image-understanding tool, an animated whale, a skin centre, a community-plugin index, and a two-phase agent preset. It is roughly <strong>six days old</strong>.</p>
+  </div>
+
+  <h2><span class="num">Finding 01 · corpus recursion</span>It cites four prior subjects</h2>
+  <div class="col">
+    <p>This is the widest <span class="m">#57</span> fan-in the corpus holds. The previous high-water mark was two.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Prior subject</th><th>Relation</th><th>Evidence</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td class="pin">v235 deepseek-harness</td><td>the host it mounts into</td><td class="pin">@deepseek-ai/* ^0.1.0-rc.7</td><td><span class="chip v">verified</span></td></tr>
+        <tr><td class="pin">v237 DSH-better-sidebar</td><td><strong>exact-pinned npm dependency</strong></td><td class="pin">dsh-better-sidebar: 0.13.0</td><td><span class="chip v">verified</span></td></tr>
+        <tr><td class="pin">v238 dsh-anchored-standard</td><td><strong>vendored code + NOTICE</strong></td><td>credited "Original experiment"</td><td><span class="chip v">verified</span></td></tr>
+        <tr><td class="pin">v216 Codex-Dream-Skin</td><td>cited design model</td><td><span class="zh">仿 Codex-Dream-Skin</span> in package.json</td><td><span class="chip v">verified</span></td></tr>
+        <tr><td class="pin">v236 dsh-TUI</td><td>lateral sibling, no dependency</td><td>same host, same profile</td><td><span class="chip v">verified</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p>The host's release-candidate pins across four consecutive ships form a genuine sequence — one step per ship, in ship order:</p>
+  </div>
+  <div class="ladder">
+    <div class="rung"><span class="k">v235</span><span class="v">rc.5</span><span class="n">the runtime</span></div>
+    <div class="rung"><span class="k">v236</span><span class="v">rc.6</span><span class="n">a TUI front door</span></div>
+    <div class="rung"><span class="k">v237</span><span class="v">rc.6</span><span class="n">a sidebar panel</span></div>
+    <div class="rung self"><span class="k">v239</span><span class="v">rc.7</span><span class="n">this suite</span></div>
+  </div>
+  <div class="col">
+    <div class="note">
+      <span class="lbl">A correction the corpus owes itself</span>
+      <p>v238's no-mint rested partly on "a weak anchor in an already-crowded class," naming external rivals. The corpus already held stronger evidence: <strong>v236's own entry records <code>presets/liangshen/</code> plus <code>verify:minimal-preset-tools</code> and <code>verify:liangshen-bootstrap</code></strong> — shipped a day earlier and never connected. The class is crowded <em>inside the corpus's own subjects</em>. v238's ruling was right; its evidence was stronger than stated.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Finding 02 · provenance</span>The claim that outran its correction</h2>
+  <div class="col">
+    <p>The <span class="zh">梁神模式</span> preset states — in its README <em>and its npm registry description</em> — <strong>98 / 99, mean 98.5</strong>, framed as measured and <span class="zh m">证明不是抽卡</span> (<em>"proving it's not a lucky draw"</em>). Upstream, that same pair has a history.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Date</th><th>Upstream artefact</th><th>What it establishes</th></tr></thead>
+      <tbody>
+        <tr class="self"><td class="pin">08-14</td><td class="pin">commit 2a1ff28</td><td><strong>The 98/99 claim enters this project's README.</strong> Two days before the correction — the author could not have known.</td></tr>
+        <tr><td class="pin">08-16</td><td class="pin">issue #60</td><td>Those runs used <code>pwsh</code> + <code>read</code>, then the full <strong>25-tool</strong> catalog — <em>not</em> the two-tool Minimal pair the docs attributed them to. Filed by a third party; closed.</td></tr>
+        <tr><td class="pin">—</td><td class="pin">issue #51</td><td>Independent replication, 11 rounds &times; 3 OSes: <strong>Ability 85–90. Not reproduced.</strong></td></tr>
+        <tr><td class="pin">—</td><td class="pin">issue #65</td><td>Anchoring separated <strong>9/9</strong>; the ability advantage was <strong>+3.3, 95% CI [&minus;2.6, +9.3]</strong> — not significant.</td></tr>
+        <tr><td class="pin">08-17</td><td class="pin">FAREWELL.md</td><td>Upstream shut down. Evaluation cost had risen ~&yen;2 → ~&yen;12 per round.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="note crit">
+      <span class="lbl">The finding, stated fairly</span>
+      <p>Nobody lied. The number was published in good faith two days before its attribution was publicly corrected — and two days <em>after</em> that correction it is unchanged, carried into the npm registry, with no issue or note acknowledging either the retraction or the two failed replications. Whether it is an independent re-derivation or an inherited one <strong>cannot be settled from the sources</strong>, and neither version reports a sample size or a confidence interval.</p>
+      <p><strong>Do not cite 98/99.</strong> What the corpus has actually captured — across two consecutive ships, from both ends — is a contested empirical claim propagating through a live dependency graph.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Finding 03 · mechanism</span>The gate is a regex on the model's thoughts</h2>
+  <div class="col">
+    <p>Phase one exposes only the host's builtin Minimal pair — persistent <code>bash</code> and <code>str_replace_editor</code> — clears runtime context, and drops workspace directives, snapshots and the skill directory.</p>
+    <p>Promotion fires on the first persisted tool call <em>if</em> the reasoning block passes the anchor gate. And the anchor gate, source-verified, is this: a block counts as "minimal-like" <strong>iff</strong> it matches <code>/\bwe\b/gi</code> <strong>and</strong> has zero matches of <code>/\blet me\b/gi</code>. <span class="chip v">verified</span></p>
+    <p>An architecture of phase machines and durable-event promotion rests on a two-token string test over model prose.</p>
+    <p>Phase two is not a larger catalog — it <strong>collapses to a single <code>run_code</code> tool</strong> reaching the full registry via generated SDK calls. Both phases minimise the visible tool surface; the second by making tools code rather than schema. And <code>PTC mode</code> is <em>the host's own preset name</em>: DSH rc.7's notes read <em>"Rename the English <code>Code mode</code> preset to <code>PTC mode</code>."</em> Both phases are compositions of first-party presets.</p>
+  </div>
+
+  <h2><span class="num">Finding 04 · governance</span>A required field for "which agent wrote this?"</h2>
+  <div class="col">
+    <p>The pull-request template carries a section headed <span class="zh m">AI 编码披露</span> — <em>AI Coding Disclosure</em> — marked <strong>required</strong>, with three mutually exclusive checkboxes (fully AI-coded / partially AI-assisted / no AI), then two fields: <span class="zh m">使用的 AI 模型</span> (examples: DeepSeek, GPT-5, <strong>Claude Sonnet 4</strong>) and <span class="zh m">使用的编码 Agent 工具</span> (examples: DeepSeek Harness, Codex, <strong>Claude Code</strong>, Cursor). <span class="chip v">verified</span></p>
+    <p>It is enforced: <code>scripts/pr-review.mjs</code> audits external PRs with REJECT/FAIL/WARN/PASS verdicts, size limits, worktree build verification — and missing-template-field checks. The norm reached reporters too; one issue closes with <span class="zh m">大部分为 AI 的测试复现与代码推测，仅供维护者参考</span>.</p>
+    <p><strong>This is the corpus's first subject that treats AI authorship as structured, required provenance metadata in its contribution process.</strong></p>
+    <div class="note">
+      <span class="lbl">Two-sided, and worth noticing</span>
+      <p>The same automation <strong>auto-closed issue #532</strong> — a substantive bug report, with reproduction steps, about the v237 sidebar failing to load when also installed standalone — for template non-compliance. Borrow the field. Do not borrow the severity.</p>
+      <p>And a quieter tension: in a repo whose PRs are declared <em>fully AI-coded</em>, a CI gate that bans emoji across four Unicode ranges is not only style enforcement — it suppresses one of the most reliable AI-authorship tells. The project requires the disclosure and erases the signature.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Finding 05 · security</span>Sound in one half, hazardous in the other</h2>
+  <div class="split">
+    <div class="pane g">
+      <h4>Source-verified sound</h4>
+      <ul>
+        <li><strong>Mobile pairing done properly</strong> — one-time 16-byte token, 10-minute expiry, consumed on first accept, revocable sessions; binding <em>inherited</em> from the host (loopback by default).</li>
+        <li><strong>No broken-auth triad.</strong> Unlike v231 and v232, it does not ship 0.0.0.0 + wildcard CORS + fail-open auth. First in this run to get it right.</li>
+        <li>Port forwarding <strong>loopback-only</strong>. No telemetry.</li>
+        <li>CI is <code>permissions: contents: read</code> — no publish job, no secrets.</li>
+        <li><strong>The pi v228 hardening playbook, independently adopted</strong>: exact-pinned deps, a <code>allowBuilds</code> lifecycle allowlist, minimum release age.</li>
+      </ul>
+    </div>
+    <div class="pane b">
+      <h4>Source-verified hazardous</h4>
+      <ul>
+        <li><strong>Six SSH tools registered into the agent</strong> — <code>ssh_list</code>, <code>ssh_exec</code>, <code>ssh_upload</code>, <code>ssh_download</code>, <code>ssh_tunnel</code>, <code>ssh_cluster</code>. <code>ssh_exec</code> takes an arbitrary command.</li>
+        <li><strong>No allowlist. No approval gate. No audit log. No output redaction. No read-only mode.</strong></li>
+        <li>SSH <strong>passwords and key passphrases written plaintext</strong> to <code>~/.dsh/dsh-ssh.json</code>.</li>
+        <li>Reconnect "may replay non-idempotent commands."</li>
+        <li>The one-line install transitively pulls <code>cloudflared</code>, whose <code>postinstall</code> downloads a tunnel binary.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="note crit">
+      <span class="lbl">The corpus already knows the answer</span>
+      <p><strong>tabularis v212</strong> — one ship earlier — solved this exact secret class with the <strong>OS keychain</strong>, and gated its agent surface with read-only mode, approval gates, and a pre-flight EXPLAIN that fails closed. Same problem, done properly, already in the record.</p>
+      <p>And to be fair to this project: the defect is <strong>disclosed verbatim in both READMEs</strong>. Careless design, honest documentation.</p>
+    </div>
+    <p>The scheduler, by contrast, is careful — and corrects a risk I first overstated. Every run opens a <strong>separate session</strong> with a pinned workspace, preset and permission applied <em>before</em> the prompt; it is <strong>fail-closed</strong> (a rejected permission aborts before the prompt reaches the model); missed cron occurrences are <strong>skipped, never queued</strong>; runs never overlap; and prompts are <em>queued</em> into the normal interaction flow rather than auto-approved. <span class="chip v">verified</span></p>
+    <div class="note good">
+      <span class="lbl">A four-ship theme</span>
+      <p>v233 — <em>evaluation</em> fails closed. v234 — <em>ingestion</em> fails soft. v238 — fail-soft at runtime, fail-fast at config. <strong>v239 — <em>scheduling</em> fails closed.</strong> Four unrelated projects converging on failure mode as the thing worth being explicit about.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Finding 06 · the payoff</span>A linter for exactly the vault's disease</h2>
+  <div class="col">
+    <p><code>scripts/verify-docs.mjs</code> enforces, per package: a required README triplet; <strong>translation pairing by git blob hash</strong>, so a translation cannot silently drift; markdown link validation; heading structure; no scaffold placeholders — with a <code>--write</code> repair mode. Alongside it sit a runtime-dependency gate born from a real boot crash, a vendored-copy drift check, an aggregate consistency check, and a seven-field skin contract the build hard-fails on.</p>
+    <p>And then the irony that makes it land. <strong>Everything the build can see is checked. Everything only a human can check has already drifted:</strong></p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Drift</th><th>Stated</th><th>Actual</th></tr></thead>
+      <tbody>
+        <tr><td>Plugin count</td><td class="pin">"eleven" / 12 listed</td><td class="pin">14 shipped</td></tr>
+        <tr><td>Root version</td><td class="pin">0.1.1</td><td class="pin">0.2.0 everywhere</td></tr>
+        <tr><td>Tagline feature</td><td class="pin">"live token stats"</td><td class="pin">in no README, no package</td></tr>
+        <tr><td>PR template scope</td><td class="pin">2 package checkboxes</td><td class="pin">13 packages</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p>The gate checks <em>structure</em>, not content equivalence. Prose numbers are precisely what it cannot catch — and that is the vault's own condition, exactly: stale rows past both age floors, a chapter filename reading <code>-v183</code> while holding entries through v239, a "current state" block frozen at a v78 snapshot, and yesterday's subject linking a <code>HANDOFF.md</code> that does not exist.</p>
+    <div class="note">
+      <span class="lbl">Five ships, one idea, zero implementations</span>
+      <p>v234 gave staleness tracking. v235 gave doc-verification gates. v236 gave a CI-enforced architectural boundary. v237 gave pack-and-mount rendering. <strong>v239 gives documentation integrity — and it arrives as a readable script.</strong> The vault has taken the idea five times and built it zero times.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Ruling</span>No mint, and why the close call lost</h2>
+  <div class="col">
+    <p>Counts unchanged at <strong>46 / 11</strong>; 49 live standalones unchanged. Three watch axes strengthened, none promoted — a promotion is an audit act.</p>
+    <h3>Declined: the plugin-and-skin suite</h3>
+    <p>Emphatically not world-first. "Plugin + theme pack for an extensible host application" is canonical and decades old — VS Code extension packs and its theme marketplace, Obsidian's ~6,730 plugins and ~698 themes, Home Assistant HACS, Grafana, JupyterLab, Eclipse before them all. Packaging, not capability. And the precedent chain now runs six deep.</p>
+    <h3>Declined, but closer: the SSH capability layer</h3>
+    <p>Genuinely corpus-first by grep — <span class="m">SFTP</span>, <span class="m">port forward</span>, <span class="m">cluster execution</span>, <span class="m">ttyd</span>, <span class="m">Guacamole</span>, <span class="m">Cockpit</span>, <span class="m">Portainer</span> all return zero, and the corpus's twelve SSH hits are all SSH-as-transport-to-<em>reach</em>-an-agent, never SSH as a capability the agent <em>wields</em>. It loses on four grounds: agent SSH tools and browser SSH consoles are both well-precedented; it is one package inside a thirteen-package suite, so minting draws the circle around a component; it is the <em>weakest-engineered</em> part of the subject, and minting vocabulary off a project's worst code encodes a liability as a class; and anti-inflation. Recorded as a deferred watch axis — and flagged with emphasis, because it is the corpus's first instance of an agent handed <strong>production-fleet reach</strong>.</p>
+    <h3>The near-miss worth naming</h3>
+    <p>The task board's surface similarity made "third instance of the Multi-Vendor Orchestration Platform" tempting — until the row was read verbatim. It requires <em>heterogeneous third-party agents as the orchestration units</em>. This board is single-host, DSH-only. Not an instance.</p>
+  </div>
+
+  <h2><span class="num">Verification</span>Six errors caught</h2>
+  <div class="col">
+    <ol class="body">
+      <li><strong>The GitHub API.</strong> Research agents leaned on it; this environment mocks it. The "1,477 files" and "66 contributors" figures rest on the API alone and were <strong>discarded</strong> <span class="chip u">unverified</span>, replaced with a hand-verified 70-handle contributor block.</li>
+      <li><strong>My own package count.</strong> I first recorded eight packages from the README; the registry shows fourteen. The discrepancy turned out to <em>be</em> a finding.</li>
+      <li><strong>A near-miss mint</strong> — the orchestration-platform row, avoided only by reading it verbatim.</li>
+      <li><strong>My own overstated risk.</strong> I framed the danger as "unattended cron plus <code>ssh_exec</code>"; the scheduler in fact queues and fails closed. The SSH risk is real; that framing was wrong.</li>
+      <li><strong>An agent's install-risk claim</strong> — <code>prepare</code> runs for the publisher, not the registry consumer. The real transitive actor is <code>cloudflared</code>'s <code>postinstall</code>.</li>
+      <li><strong>A tempting identity inference declined.</strong> The contributor list holds a handle matching v236's author's display name. Left unverified rather than asserted.</li>
+    </ol>
+    <div class="note good">
+      <span class="lbl">Infrastructure note</span>
+      <p>This ship's research ran as a single 16-agent workflow — 0 errors, ~1.73M tokens, 411 seconds. <strong>The <code>Workflow</code> tool, which failed at v238 with every agent prompt-too-long at ~207K against a 200K limit, now works.</strong> The v238 shim compaction was the fix, and this is the clean fresh-session confirmation v238 asked for.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">Next</span>A1 → B5 → C11</h2>
+  <div class="col">
+    <p><strong>Read</strong> <code>verify-docs.mjs</code>, the PR template, and the Liangshen README against v238's issues. <strong>Write</strong> a vault doc-lint contract into <code>CLAUDE.md</code> — required files, index-versus-content agreement, dead links, chapter-size caps, stale-row floors, count reconciliation. <strong>Then build <code>verify-vault-docs</code></strong> and fail on each. That is the stale-row retire pass, mechanised.</p>
+    <p>Also worth taking: the AI-authorship disclosure field for hireui's PR template; the five-rule fail-closed scheduling contract for any scheduled LLM job; and one line for the LLM ADR — <em>an agent that can reach production must be gated at the tool, not the prompt</em> — citing v212 as the reference implementation and this subject's SSH plugin as the counter-example.</p>
+    <p><strong>Do not install.</strong> Not a hireui component. Never <code>dsh-ssh</code> against anything you care about, and never cite 98/99.</p>
+  </div>
+
+  <footer>
+    <p><strong>Everything Is a Plugin</strong> — LLM Wiki v239, 2026-08-18. Goal-aligned include 3/4; no mint; counts 46/11 unchanged. Streak GA:97, twenty consecutive.</p>
+    <p>Stars, forks and commit counts are page-stated, not API-verified (&sect;37.4) — no viral-velocity claim is made. Not source-cloned: built from raw file fetches, the npm registry, and rendered pages. Companion documents: Deep Dive, Verdict, Pilot Methods Menu.</p>
+  </footer>
+
+</div>
