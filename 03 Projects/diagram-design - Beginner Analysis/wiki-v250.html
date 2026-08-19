@@ -1,0 +1,510 @@
+<title>The Decidability Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+
+<style>
+  /* ── Tokens: diagram-design's own semantic roles.
+        paper is deliberately not pure white — their onboarding.md:121 rule. ── */
+  :root {
+    --paper:    #fafaf7;
+    --paper-2:  #f2f1ec;
+    --paper-3:  #eceae3;
+    --ink:      #171614;
+    --ink-2:    #3c3a34;
+    --muted:    #5c6672;
+    --accent:   #b5523a;
+    --accent-q: #f0e2dd;
+    --hairline: #d9d7d0;
+    --hairline-2: #c6c3b9;
+
+    --title: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --body:  "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono:  "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    /* 4px grid — their non-negotiable */
+    --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+    --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:    #131311;
+      --paper-2:  #1c1c19;
+      --paper-3:  #232320;
+      --ink:      #f1efe8;
+      --ink-2:    #d6d3ca;
+      --muted:    #9aa2ad;
+      --accent:   #e0805f;
+      --accent-q: #3a2620;
+      --hairline: #33322d;
+      --hairline-2: #4a4842;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:    #131311;
+    --paper-2:  #1c1c19;
+    --paper-3:  #232320;
+    --ink:      #f1efe8;
+    --ink-2:    #d6d3ca;
+    --muted:    #9aa2ad;
+    --accent:   #e0805f;
+    --accent-q: #3a2620;
+    --hairline: #33322d;
+    --hairline-2: #4a4842;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    font-feature-settings: "kern" 1;
+  }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: var(--s7) var(--s5) var(--s8); }
+  .col  { max-width: 68ch; }
+
+  /* ── Masthead ── */
+  .mast { border-bottom: 1px solid var(--hairline); padding-bottom: var(--s5); }
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center;
+  }
+  h1 {
+    font-family: var(--title); font-weight: 400;
+    font-size: clamp(2.6rem, 6.4vw, 4.4rem);
+    line-height: 1.02; letter-spacing: -.015em;
+    margin: var(--s4) 0 var(--s3); text-wrap: balance;
+  }
+  .standfirst {
+    font-family: var(--title); font-style: italic;
+    font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+    line-height: 1.45; color: var(--ink-2); margin: 0; max-width: 56ch;
+  }
+  .repo {
+    font-family: var(--mono); font-size: 13px; color: var(--muted);
+    margin-top: var(--s5);
+  }
+  .repo b { color: var(--ink); font-weight: 500; }
+
+  /* ── Verdict strip: the page's first focal point (accent use 1 of 2) ── */
+  .verdict {
+    display: flex; flex-wrap: wrap; gap: var(--s2);
+    margin-top: var(--s5);
+  }
+  .chip {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    padding: var(--s1) var(--s3); border: 1px solid var(--hairline-2);
+    border-radius: 8px; color: var(--muted); background: var(--paper-2);
+    white-space: nowrap;
+  }
+  .chip.focal {
+    color: var(--accent); border-color: var(--accent);
+    background: var(--accent-q); font-weight: 500;
+  }
+
+  /* ── Sections ── */
+  section { margin-top: var(--s8); }
+  h2 {
+    font-family: var(--title); font-weight: 400;
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.14;
+    letter-spacing: -.01em; margin: 0 0 var(--s4); text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--body); font-weight: 600; font-size: 1rem;
+    letter-spacing: -.005em; margin: var(--s6) 0 var(--s3);
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: var(--s2);
+  }
+  p { margin: 0 0 var(--s4); }
+  .col p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+  code {
+    font-family: var(--mono); font-size: .875em;
+    background: var(--paper-2); border: 1px solid var(--hairline);
+    border-radius: 4px; padding: 1px 5px; color: var(--ink-2);
+  }
+
+  /* ── Pull quote: Instrument Serif italic, their annotation primitive ── */
+  blockquote {
+    margin: var(--s5) 0; padding-left: var(--s5);
+    border-left: 1px solid var(--accent);
+    font-family: var(--title); font-style: italic;
+    font-size: clamp(1.15rem, 2.3vw, 1.5rem); line-height: 1.4;
+    color: var(--ink); max-width: 54ch;
+  }
+  blockquote cite {
+    display: block; margin-top: var(--s3);
+    font-family: var(--mono); font-style: normal; font-size: 12px;
+    letter-spacing: .04em; color: var(--muted);
+  }
+
+  /* ── Tables: 1px hairlines, no shadows, tabular figures ── */
+  .scroll { overflow-x: auto; margin: var(--s5) 0; }
+  table {
+    border-collapse: collapse; width: 100%; min-width: 560px;
+    font-size: 14px;
+  }
+  caption {
+    text-align: left; font-family: var(--mono); font-size: 11px;
+    font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); padding-bottom: var(--s3);
+  }
+  th, td {
+    text-align: left; padding: var(--s3) var(--s4) var(--s3) 0;
+    border-bottom: 1px solid var(--hairline); vertical-align: top;
+  }
+  th {
+    font-weight: 600; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 1px solid var(--hairline-2);
+  }
+  td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  tr:last-child td { border-bottom: none; }
+  .yes { color: var(--ink); font-family: var(--mono); font-size: 13px; }
+  .no  { color: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+
+  /* ── The one big number (accent use 2 of 2) ── */
+  .ratio {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px; background: var(--hairline); border: 1px solid var(--hairline);
+    border-radius: 8px; overflow: hidden; margin: var(--s5) 0;
+  }
+  .ratio div { background: var(--paper-2); padding: var(--s5) var(--s4); }
+  .ratio .big {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500;
+    line-height: 1; letter-spacing: -.02em; color: var(--ink);
+  }
+  .ratio div.lead { background: var(--accent-q); }
+  .ratio div.lead .big { color: var(--accent); }
+  .ratio .lbl {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--muted); margin-top: var(--s3);
+    line-height: 1.4;
+  }
+
+  figure { margin: var(--s6) 0 0; }
+  figure .scroll { margin: 0; }
+  figcaption {
+    font-family: var(--title); font-style: italic; font-size: 15px;
+    color: var(--muted); margin-top: var(--s4); max-width: 60ch;
+  }
+  svg.diagram { display: block; width: 100%; height: auto; min-width: 700px; }
+
+  .note {
+    border: 1px solid var(--hairline); border-radius: 8px;
+    background: var(--paper-2); padding: var(--s4) var(--s5);
+    margin: var(--s5) 0; font-size: 15px;
+  }
+  .note .kicker { margin-bottom: var(--s2); }
+  .note p:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 var(--s4); padding-left: var(--s5); }
+  li { margin-bottom: var(--s2); }
+  li::marker { color: var(--muted); }
+
+  footer {
+    margin-top: var(--s8); padding-top: var(--s5);
+    border-top: 1px solid var(--hairline);
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    line-height: 1.7;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">
+      <span>Wiki v250</span><span>·</span><span>2026-08-19</span><span>·</span>
+      <span>T4 Plugin / Extension</span>
+    </div>
+    <h1>The Decidability Line</h1>
+    <p class="standfirst">A designer-founder wrote 11,305 lines of Python to check her diagrams — then stopped at exactly the point where taste stops being checkable, and wrote down why.</p>
+    <p class="repo"><b>cathrynlavery/diagram-design</b> · MIT · HEAD <b>5f1b6dd</b> · 335 files · 114 commits · 20+ contributors<br>
+    source verified <b>three times</b> — two git clones + one codeload tarball, byte-identical</p>
+    <div class="verdict">
+      <span class="chip focal">GOAL-ALIGNED INCLUDE 3/4</span>
+      <span class="chip focal">NO MINT</span>
+      <span class="chip">46 / 11 unchanged</span>
+      <span class="chip">§C 51 unchanged</span>
+      <span class="chip">GA:108 · 31 consecutive</span>
+      <span class="chip">§35 CLEAR</span>
+      <span class="chip">SECURITY LOW</span>
+      <span class="chip">PILOT: INSTALL, fenced</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="col">
+      <div class="kicker">The finding</div>
+      <h2>Six rules called non-negotiable. One of them has a gate.</h2>
+      <p>The last four ships in this corpus turned on one axis: a guarantee written as prose addressed to a language model is not a guarantee; a guarantee compiled into a gate that can fail is. One subject engineered beautiful loud failures for its users and shipped behind a suite that could not fail. One wrote a mutation tester and wired it to nothing. This is the first subject that <strong>states the rule for which half is which.</strong></p>
+      <p><code>SKILL.md:261</code> says of its six connector rules: <em>“These six rules are non-negotiable.”</em> Five are unguarded prose. The sixth is enforced by <code>verify-geometry.py</code> — and the checker’s own docstring explains the selection criterion.</p>
+    </div>
+
+    <figure>
+      <div class="scroll">
+        <!-- Built to the subject's own rules: 1px hairlines, no shadows, 4px grid,
+             rounded right-angle elbows r=8, ≤2 accent nodes, fanned attach points
+             ≥12px apart, and their accessible-SVG contract (role=img, prefixed
+             title/desc IDs, title as first child before defs). -->
+        <svg class="diagram" viewBox="0 0 896 440" role="img"
+             aria-labelledby="dd250-title dd250-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="dd250-title">Where diagram-design gates its rules</title>
+          <desc id="dd250-desc">Six connector rules from SKILL.md section 6. Rules one to five — rounded elbows, label margin, no overlapping connectors, fanned attach points, and no transit behind non-endpoint boxes — route to a bin labelled prose only, addressed to the model, with no gate. Rule six, a label mask must not overlap a node drawn after it, routes to a bin labelled code enforced by verify-geometry dot py, because paint order makes its violation a determinate rendering defect rather than a matter of taste.</desc>
+          <defs>
+            <marker id="dd250-arrow" viewBox="0 0 8 8" refX="7" refY="4"
+                    markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <g style="color: var(--hairline-2)">
+            <path d="M344,86 H488 a8,8 0 0 1 8,8 V132 a8,8 0 0 0 8,8 H604"
+                  fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#dd250-arrow)"/>
+            <path d="M344,138 H480 a8,8 0 0 1 8,8 V148 a8,8 0 0 0 8,8 H604"
+                  fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#dd250-arrow)"/>
+            <path d="M344,190 H472 a8,8 0 0 0 8,-8 V180 a8,8 0 0 1 8,-8 H604"
+                  fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#dd250-arrow)"/>
+            <path d="M344,242 H464 a8,8 0 0 0 8,-8 V196 a8,8 0 0 1 8,-8 H604"
+                  fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#dd250-arrow)"/>
+            <path d="M344,294 H456 a8,8 0 0 0 8,-8 V212 a8,8 0 0 1 8,-8 H604"
+                  fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#dd250-arrow)"/>
+          </g>
+          <g style="color: var(--accent)">
+            <path d="M344,358 H604" fill="none" stroke="currentColor" stroke-width="1"
+                  marker-end="url(#dd250-arrow)"/>
+          </g>
+
+          <!-- rule boxes -->
+          <g font-family="Geist, sans-serif" font-size="13" fill="var(--ink)">
+            <g>
+              <rect x="48" y="64"  width="296" height="44" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1"/>
+              <text x="66" y="91"><tspan font-family="Geist Mono, monospace" fill="var(--muted)">1 </tspan>Rounded elbows, no diagonals</text>
+            </g>
+            <g>
+              <rect x="48" y="116" width="296" height="44" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1"/>
+              <text x="66" y="143"><tspan font-family="Geist Mono, monospace" fill="var(--muted)">2 </tspan>Label margin 6–10px, always</text>
+            </g>
+            <g>
+              <rect x="48" y="168" width="296" height="44" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1"/>
+              <text x="66" y="195"><tspan font-family="Geist Mono, monospace" fill="var(--muted)">3 </tspan>No overlapping connectors</text>
+            </g>
+            <g>
+              <rect x="48" y="220" width="296" height="44" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1"/>
+              <text x="66" y="247"><tspan font-family="Geist Mono, monospace" fill="var(--muted)">4 </tspan>Fan attach points ≥12px</text>
+            </g>
+            <g>
+              <rect x="48" y="272" width="296" height="44" rx="8" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1"/>
+              <text x="66" y="299"><tspan font-family="Geist Mono, monospace" fill="var(--muted)">5 </tspan>No transit behind a box</text>
+            </g>
+            <g>
+              <rect x="48" y="336" width="296" height="44" rx="8" fill="var(--accent-q)" stroke="var(--accent)" stroke-width="1"/>
+              <text x="66" y="363"><tspan font-family="Geist Mono, monospace" fill="var(--accent)">6 </tspan>Mask vs later-painted node</text>
+            </g>
+          </g>
+
+          <!-- bins -->
+          <g font-family="Geist Mono, monospace" font-size="11" letter-spacing="1.2">
+            <rect x="616" y="64" width="232" height="252" rx="8" fill="none"
+                  stroke="var(--hairline-2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <text x="636" y="96" fill="var(--muted)" font-weight="500">PROSE ONLY</text>
+            <text x="636" y="118" fill="var(--muted)" font-size="10" letter-spacing="0">addressed to the model</text>
+            <text x="636" y="290" fill="var(--muted)" font-size="10" letter-spacing="0">nothing fails · CI green</text>
+
+            <rect x="616" y="336" width="232" height="44" rx="8" fill="var(--accent-q)"
+                  stroke="var(--accent)" stroke-width="1"/>
+            <text x="636" y="356" fill="var(--accent)" font-weight="500">CODE ENFORCED</text>
+            <text x="636" y="372" fill="var(--accent)" font-size="10" letter-spacing="0">verify-geometry.py</text>
+          </g>
+
+          <!-- annotation: masked label with a clear gap, their primitive -->
+          <g>
+            <rect x="452" y="404" width="392" height="14" fill="var(--paper)"/>
+            <text x="452" y="415" font-family="Instrument Serif, serif" font-style="italic"
+                  font-size="14" fill="var(--muted)">“Paint order is what makes this a defect rather than a stylistic choice.”</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Drawn to the subject’s own specification — 1px hairlines, no shadows, rounded right-angle elbows at r=8, fanned attach points 16px apart, one accent path, and its accessible-SVG contract. A diagonal connector renders perfectly; it is merely ugly. A label mask under a later-painted node renders as a fragment clipped by the node fill.</figcaption>
+    </figure>
+
+    <div class="col">
+      <blockquote>
+        You can only compile the part of your aesthetic that becomes a <em>lie</em> when violated. The rest stays prose.
+        <cite>The borrowable rule — and the reason the treemap checker exists too: area <em>is</em> the encoding, so a mismatch is not a preference</cite>
+      </blockquote>
+      <p>The same criterion drives the second gate. <code>verify-treemap.py</code> computes each cell’s share of drawn area against the share its own label claims, and fails when they diverge — because a treemap whose areas disagree with its numbers is a chart that lies. Its error message names cause and remedy in one line: <em>“Area is the only encoding; resize the cell.”</em></p>
+      <p>The reasoning is more sophisticated than it needed to be. Error is measured as a <strong>relative</strong> figure, not percentage points, and the docstring explains why: <em>“a 0.13pp slip is noise on a 59% cell and a quarter of a 0.5% cell, so an absolute threshold passes exactly the cell most likely to be wrong.”</em> Their own 4px grid is what creates the residue, and it lands hardest on the smallest cells — so they chose the metric that survives their own rule.</p>
+      <div class="note">
+        <div class="kicker">The honest counterweight</div>
+        <p><code>AREA_TOLERANCE = 8.0</code>, deliberately loose so grid snapping never trips it. It catches gross area lies, not subtle ones. And calling all six connector rules “non-negotiable” oversells five of them: an agent that emits a diagonal fails nothing, in CI or on your machine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">The drift</div>
+      <h2>Every counter they aimed is right. Every surface they didn’t aim at is stale.</h2>
+      <p>The true count is <strong>28</strong>, established by enumeration. Two independent scripts count it. An ADR calls it <em>“a stable, verifiable claim.”</em> When treemap made it 28, the amendment procedure was followed correctly. And it is still <strong>27</strong> in three places.</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <caption>The type count, by surface</caption>
+        <thead>
+          <tr><th>Surface</th><th class="num">Says</th><th>Gated by</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>SKILL.md</code> § Visual-type guide + its rows</td><td class="num">28</td><td class="yes">verify-semantic-motion.py:194–205 — counts the rows</td></tr>
+          <tr><td><code>SKILL.md</code> selection table</td><td class="num">28</td><td class="yes">verify-docs-sync.py:76</td></tr>
+          <tr><td>Both <code>plugin.json</code> descriptions (enumerated)</td><td class="num">28</td><td class="yes">verify-docs-sync.py:77–85 — per-type lexical hook</td></tr>
+          <tr><td><code>README.md</code>, seven separate places</td><td class="num">28</td><td class="yes">partially</td></tr>
+          <tr><td><code>docs/adr/0002</code> decision text</td><td class="num">27</td><td class="yes">correctly amended, declares itself stale</td></tr>
+          <tr><td><code>commands/import-drawio.md:25</code></td><td class="num">27</td><td class="no">no gate — shipped to the agent</td></tr>
+          <tr><td><code>commands/import-mermaid.md:25</code></td><td class="num">27</td><td class="no">no gate — shipped to the agent</td></tr>
+          <tr><td>GitHub repository description</td><td class="num">27</td><td class="no">structurally unreachable — not a file</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p>Two shipped slash-command files that the model reads at runtime, and the single most-read string the project owns — the description that appears in every search result, every share card, the Trendshift listing and the sidebar.</p>
+      <h3>And the asymmetry is inside one 236-line file</h3>
+      <p>This is not a competence gap, and the proof is that the same file does it right one function earlier. <code>check_gallery</code> runs <strong>both</strong> set-differences — filesystem→gallery and gallery→filesystem — and catches an example that exists but has no tab. <code>check_readme_tree</code>, forty lines later, runs only tree→filesystem. There is no reverse check.</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <caption>What the unidirectional check cannot see</caption>
+        <thead><tr><th>Inventory</th><th class="num">On disk</th><th class="num">Named in the README tree</th><th class="num">Invisible</th></tr></thead>
+        <tbody>
+          <tr><td><code>type-*.md</code></td><td class="num">28</td><td class="num">14</td><td class="num no">14 &nbsp;(50%)</td></tr>
+          <tr><td><code>scripts/*.py</code></td><td class="num">28</td><td class="num">7</td><td class="num no">21 &nbsp;(75%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p>Half the type files and three-quarters of the scripts are missing from the README’s architecture tree, and CI is green. Two functions, one file, one author — one bidirectional, one not, with the drift measurable to the file. <strong>A gate’s aim, not a gate’s quality, decides what rots.</strong></p>
+      <blockquote>
+        A PR that edits them without amending this file has quietly made itself the authority. Amend here in the same PR, or the number in the test is just whatever the last contributor typed.
+        <cite>docs/adr/0002, Amendments — the best sentence in the repository</cite>
+      </blockquote>
+      <p>That is a real observation about mechanised invariants: a hardcoded expected value in a test is not a specification. It is a record of one person’s intent at one moment, editable by the same pull request that violates it. The gate does not know the right answer — it knows the answer someone typed.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">The scale</div>
+      <h2>The machinery outweighs the thing it checks.</h2>
+    </div>
+    <div class="ratio">
+      <div class="lead">
+        <div class="big">11,305</div>
+        <div class="lbl">lines of Python<br>verification</div>
+      </div>
+      <div>
+        <div class="big">7,268</div>
+        <div class="lbl">lines of the skill<br>itself</div>
+      </div>
+      <div>
+        <div class="big">2,861</div>
+        <div class="lbl">lines testing<br>the checkers</div>
+      </div>
+      <div>
+        <div class="big">26 / 28</div>
+        <div class="lbl">scripts wired<br>into CI</div>
+      </div>
+      <div>
+        <div class="big">0</div>
+        <div class="lbl">unwired gates ·<br>zero soft-fail</div>
+      </div>
+    </div>
+    <div class="col">
+      <p>The two unwired scripts are a developer version-bump utility and the skill-internal self-check whose own test <em>is</em> wired. There is no <code>continue-on-error</code> and no <code>|| true</code> anywhere; the 25 <code>if: always()</code> steps make every gate report in one push while each failure still fails the job. Three jobs, a 3-OS × 2-Python matrix, plus a Python 3.9 compatibility job — they test the oldest interpreter a stranger might have.</p>
+      <p>Vault rule D34 — <em>a committed CI rule is not an enforced one</em> — has failed at every subject that met it recently. <strong>This is the first clean pass.</strong> The finding here is not that they failed to wire their gates. It is that the gates are excellent, so the drift moved to where the gates are not.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">The transferable one</div>
+      <h2>A skill’s description is infrastructure, not documentation.</h2>
+      <p>ADR 0004 records a regression worth more than the rest of the repository to anyone who writes agent skills. A byte cap was set at 35,000 to keep <code>SKILL.md</code> lean. To fit, they slimmed the frontmatter description — deleting the type names.</p>
+      <blockquote>
+        The description is the only text an agent sees <em>before</em> deciding to load the skill: removing “flowchart”, “Gantt”, “org chart” from it removes the lexical hooks that make “make me a flowchart” invoke the skill at all.
+        <cite>docs/adr/0004 — a byte budget that silently broke invocation</cite>
+      </blockquote>
+      <p>The fix ranks description completeness <em>above</em> their own byte budget — <em>“routing surface is never traded for body prose”</em> — and mechanises both: every type in the selection table must appear in the description, and <code>MAX_SKILL_BYTES = 40_000</code> is enforced in CI. <code>SKILL.md</code> currently sits at <strong>37,778 bytes — 94.4% of cap</strong>, with 2,222 bytes of headroom.</p>
+      <p>This is the exact inverse of an earlier ship which found that <em>blanking</em> an agent’s tool injections improved its reasoning. Together they bound the problem from both ends: <strong>strip the catalogue and the model reasons better; strip the description and the model never arrives.</strong></p>
+      <div class="note">
+        <div class="kicker">One more gate worth stealing</div>
+        <p>The same script asserts that the semantic-pattern router <em>precedes</em> the visual-type guide — a CI check on the <strong>order of prose</strong> in an agent-facing file, mechanising the intent that behaviour is chosen before layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">The calibration</div>
+      <h2>The aesthetic checks guard their gallery, not your diagram.</h2>
+      <p>What installs onto your machine is three files and 2,603 lines. The only output checker among them is <code>self_check.py</code> — 389 lines covering the accessible-SVG contract, single-file safety, and the motion contract. The skin linter, the geometry checker and the treemap area checker all stay in the repository.</p>
+      <p>So the promise of accessibility and safety is <strong>code, shipped</strong>. The promise of editorial quality is a <strong>37-item prose checklist</strong> addressed to the model. That is defensible — accessibility structure is decidable and taste is not — and to their credit the checklist says so item by item, distinguishing <em>“in this repository”</em> from <em>“from an installed skill, manually check.”</em> But state it plainly rather than repeating the marketing.</p>
+      <p>The best-designed part of that checklist is the part no machine could ever run — the <strong>remove test</strong>: <em>can I remove any node, merge any two, remove any arrow, remove any label?</em> — preceded by the gate that matters most: <em>“Would a table or paragraph do the same job? If yes — don’t draw.”</em> A diagram tool whose checklist opens by asking whether to draw at all.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">Ledger</div>
+      <h2>What this run got wrong.</h2>
+      <p>Seven errors, three mine and all self-caught, four from a 19-agent fleet that completed cleanly at ~2.27M tokens.</p>
+      <ul>
+        <li><strong>Mine.</strong> “The 27 exists only in GitHub settings” — wrong; a broader grep found two shipped command files. My first pattern missed the phrasing <em>“one of the 27.”</em></li>
+        <li><strong>Mine.</strong> Called two verifiers dead gates for missing types; both are documented variants inside their parent type files, and one is the feature at HEAD. Evidence <em>for</em> the project, not against.</li>
+        <li><strong>Mine.</strong> Estimated the checklist at 41 items. It is 37.</li>
+        <li><strong>Fleet.</strong> Declared the byte cap <em>“aspirational, not enforced.”</em> It is enforced in CI across six runners. The agent searched only <code>SKILL.md</code>, did not find it there, and read absence of evidence as evidence.</li>
+        <li><strong>Fleet.</strong> Two more checklist counts — 28 and 35. Both wrong. Settled with <code>grep -c</code>, not authority.</li>
+        <li><strong>Fleet.</strong> A mapper, a contradiction pass and the critic all escalated one example set as an undocumented type. It is documented, in its parent type file, three lines of prose away.</li>
+      </ul>
+      <p>The last item and my second error are <strong>the same trap</strong>, and it caught me and three agents independently: a filename that omits its parent makes a documented child look orphaned to any inventory check, human or machine. Both times the fix was to stop diffing filenames and read the parent file.</p>
+      <p>And the pattern from the previous ship held for a third time: the contradiction stages did real work, but the error that would have embarrassed this document — a live CI gate declared imaginary — was caught by running the check myself.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="kicker">Verdict</div>
+      <h2>Install it, fenced — then take the three rules whether you install or not.</h2>
+      <p><strong>No mint.</strong> A clean instance of the confirmed anti-slop-curation pattern at its machinery-with-enforcement pole, joining a seven-member design-skill cluster. Anthropic ships first-party diagramming guidance for agents and renders Mermaid natively in artifacts; “declarative source to opinionated diagram” is a mature category. The genuinely novel axis — machine-verified output geometry — is a technique rather than a capability class, and it does not ship to the user. Recorded as the reviewable alternative, not executed: a mint is an audit act.</p>
+      <p><strong>Security is low and structurally clean</strong> — no server, so the broken-authentication triad cannot occur; no lifecycle scripts; no telemetry; a font allowlist pinned to an exact host and path with lookalikes rejected; a real propose-diff-then-approve gate. One named gap: brand onboarding fetches a live website into the agent’s context and nothing anywhere treats that page as untrusted text. Worst realistic outcome is an ugly diagram, but the sentence is missing.</p>
+      <p><strong>Ninety seconds, zero risk:</strong> open the gallery and decide whether you like the output. Nothing else matters if you don’t.</p>
+      <p><strong>Two hours, zero install, the rung that pays:</strong> make the vault’s inventory checks bidirectional. This project proved the principle in a controlled experiment inside one file — and the vault has a state file whose filename has lagged its contents for eleven consecutive ships, re-described in prose every time and never once detected by a script.</p>
+    </div>
+  </section>
+
+  <footer>
+    Wiki v250 · <b>cathrynlavery/diagram-design</b> · analysed 2026-08-19 · MIT · HEAD 5f1b6dd<br>
+    Source verified three times across two transports. Star, fork and watcher figures are page-stated only — the GitHub API is mocked in this environment, so no velocity claim is made.<br>
+    Reception, release history and issue contents: not established. Diagram output quality: not evaluated — the gallery is the test.<br>
+    Fleet: 19 agents, 19 completed, 0 errors, ~2.27M tokens, 470 tool uses, 1,169 s.
+  </footer>
+
+</div>
