@@ -1,0 +1,875 @@
+<title>The De-Branding CI Won't Allow</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  /* ============ TOKENS: complete light palette on bare :root ============ */
+  :root {
+    --paper:      #eaeef2;
+    --surface:    #ffffff;
+    --surface-2:  #f3f6f9;
+    --ink:        #131720;
+    --ink-soft:   #333c4e;
+    --muted:      #59647a;
+    --faint:      #7b869a;
+    --rule:       #ccd5df;
+    --rule-soft:  #dee5ec;
+
+    --accent:     #2b4c8c;   /* containment blue — structure */
+    --accent-ink: #1d3766;
+    --accent-wash:#e3eaf6;
+
+    --signal:     #a83318;   /* oxide — enforced / critical */
+    --signal-ink: #872710;
+    --signal-wash:#f8e6e1;
+
+    --good:       #18614f;   /* verified */
+    --good-wash:  #e0efe9;
+
+    --amber:      #8a5a06;   /* unverified / caution */
+    --amber-wash: #f7ecd8;
+
+    --shadow: 0 1px 2px rgba(19,23,32,.06), 0 8px 24px -12px rgba(19,23,32,.18);
+
+    --measure: 68ch;
+    --f-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  /* dark: redefine ONLY tokens; guard so explicit light wins over dark OS */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #0f131b;
+      --surface:    #171d28;
+      --surface-2:  #1d2431;
+      --ink:        #e7ecf3;
+      --ink-soft:   #c5cedb;
+      --muted:      #93a0b4;
+      --faint:      #738296;
+      --rule:       #2c3543;
+      --rule-soft:  #232b38;
+
+      --accent:     #8fb0e8;
+      --accent-ink: #b6cbf2;
+      --accent-wash:#1c2740;
+
+      --signal:     #e89078;
+      --signal-ink: #f2ac97;
+      --signal-wash:#33201a;
+
+      --good:       #74c3aa;
+      --good-wash:  #16302a;
+
+      --amber:      #ddaa5e;
+      --amber-wash: #322512;
+
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.6);
+    }
+  }
+  /* explicit dark toggle wins in the other direction */
+  :root[data-theme="dark"] {
+    --paper:      #0f131b;
+    --surface:    #171d28;
+    --surface-2:  #1d2431;
+    --ink:        #e7ecf3;
+    --ink-soft:   #c5cedb;
+    --muted:      #93a0b4;
+    --faint:      #738296;
+    --rule:       #2c3543;
+    --rule-soft:  #232b38;
+
+    --accent:     #8fb0e8;
+    --accent-ink: #b6cbf2;
+    --accent-wash:#1c2740;
+
+    --signal:     #e89078;
+    --signal-ink: #f2ac97;
+    --signal-wash:#33201a;
+
+    --good:       #74c3aa;
+    --good-wash:  #16302a;
+
+    --amber:      #ddaa5e;
+    --amber-wash: #322512;
+
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+
+  .col { max-width: var(--measure); }
+
+  /* ---------- masthead ---------- */
+  header.mast {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: center;
+    margin: 0 0 22px;
+  }
+  .eyebrow .sep { color: var(--rule); }
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 6vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -.022em;
+    text-wrap: balance;
+    margin: 0 0 20px;
+    max-width: 22ch;
+  }
+  .standfirst {
+    font-size: clamp(1.02rem, 1.9vw, 1.22rem);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- verdict strip ---------- */
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+  .cell { background: var(--surface); padding: 15px 17px; }
+  .cell dt {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 6px;
+  }
+  .cell dd {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 1.06rem;
+    margin: 0;
+    line-height: 1.28;
+    font-variant-numeric: tabular-nums;
+  }
+  .cell dd small {
+    display: block;
+    font-family: var(--f-body);
+    font-weight: 400;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .cell.is-mint dd { color: var(--good); }
+  .cell.is-flag dd { color: var(--signal); }
+
+  /* ---------- sections ---------- */
+  section { padding: 54px 0 0; }
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
+    letter-spacing: -.014em;
+    line-height: 1.18;
+    text-wrap: balance;
+    margin: 0 0 6px;
+    max-width: 34ch;
+  }
+  h2 .n {
+    font-family: var(--f-mono);
+    font-size: .55em;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: .06em;
+    margin-right: .6em;
+    vertical-align: .12em;
+  }
+  h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 1.06rem;
+    letter-spacing: -.004em;
+    margin: 30px 0 8px;
+    max-width: 46ch;
+    text-wrap: balance;
+  }
+  .kicker {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 20px;
+  }
+  p { margin: 0 0 15px; max-width: var(--measure); }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  code, .mono {
+    font-family: var(--f-mono);
+    font-size: .855em;
+    background: var(--surface-2);
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    padding: .08em .34em;
+    word-break: break-word;
+  }
+
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- epistemic chips: the structural device.
+       These encode the analysis's own evidence status — not decoration. ---------- */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    vertical-align: 2px;
+  }
+  .chip::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .c-verified  { color: var(--good);   background: var(--good-wash);   }
+  .c-enforced  { color: var(--signal); background: var(--signal-wash); }
+  .c-withdrawn { color: var(--amber);  background: var(--amber-wash);  }
+  .c-unverified{ color: var(--amber);  background: var(--amber-wash);  }
+  .c-refuted   { color: var(--accent-ink); background: var(--accent-wash); }
+
+  /* ---------- finding blocks with severity rail ---------- */
+  .finding {
+    background: var(--surface);
+    border: 1px solid var(--rule-soft);
+    border-left: 3px solid var(--accent);
+    box-shadow: var(--shadow);
+    padding: 20px 22px;
+    margin: 22px 0;
+  }
+  .finding.sev-crit { border-left-color: var(--signal); }
+  .finding.sev-good { border-left-color: var(--good); }
+  .finding.sev-warn { border-left-color: var(--amber); }
+  .finding > :last-child { margin-bottom: 0; }
+  .finding h3 { margin-top: 0; }
+
+  /* ---------- the one big device: surface vs substrate ---------- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 30px 0 8px;
+  }
+  @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
+  .pane { background: var(--surface); padding: 22px 22px 24px; }
+  .pane.substrate { background: var(--surface-2); }
+  .pane-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--rule-soft);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .pane .pane-label { color: var(--muted); }
+  .pane.substrate .pane-label { color: var(--signal); }
+  .pane ul { margin: 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .pane li { font-size: .93rem; line-height: 1.48; padding-left: 15px; position: relative; color: var(--ink-soft); }
+  .pane li::before {
+    content: "";
+    position: absolute; left: 0; top: .55em;
+    width: 6px; height: 1px; background: var(--faint);
+  }
+  .pane.substrate li::before { background: var(--signal); height: 2px; top: .5em; }
+  .pane li strong { color: var(--ink); }
+
+  /* ---------- codeblock ---------- */
+  pre {
+    font-family: var(--f-mono);
+    font-size: .82rem;
+    line-height: 1.62;
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--signal);
+    padding: 15px 17px;
+    overflow-x: auto;
+    margin: 18px 0;
+    color: var(--ink);
+  }
+  pre code { background: none; border: none; padding: 0; font-size: 1em; }
+  pre .cm { color: var(--muted); }
+  pre .hl { color: var(--signal-ink); font-weight: 600; }
+
+  /* ---------- tables ---------- */
+  .tw { overflow-x: auto; margin: 22px 0; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 540px; font-size: .88rem; }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 15px 10px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  th, td { text-align: left; padding: 9px 15px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.45; }
+  thead th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.path { font-family: var(--f-mono); font-size: .8rem; word-break: break-all; }
+  .zero { color: var(--signal); font-weight: 600; }
+  .yes { color: var(--good); font-weight: 600; }
+
+  /* ---------- pull ---------- */
+  .pull {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(1.14rem, 2.6vw, 1.5rem);
+    line-height: 1.34;
+    letter-spacing: -.012em;
+    color: var(--ink);
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 0;
+    margin: 34px 0;
+    max-width: 44ch;
+    text-wrap: balance;
+  }
+  .pull .em { color: var(--signal); }
+
+  ul.body, ol.body { max-width: var(--measure); padding-left: 1.15em; margin: 0 0 15px; }
+  ul.body li, ol.body li { margin-bottom: 9px; }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 66px;
+    padding-top: 26px;
+    border-top: 2px solid var(--ink);
+    font-size: .86rem;
+    color: var(--muted);
+  }
+  footer p { max-width: 74ch; }
+  .nonclaims { background: var(--surface-2); border: 1px solid var(--rule); padding: 20px 22px; margin: 26px 0 0; }
+  .nonclaims h3 { margin-top: 0; }
+  .nonclaims ul { font-size: .88rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">
+    <span>LLM Wiki v244</span><span class="sep">/</span>
+    <span>2026-08-19</span><span class="sep">/</span>
+    <span>opensandbox-group/OpenSandbox</span><span class="sep">/</span>
+    <span>Apache-2.0</span><span class="sep">/</span>
+    <span>source-cloned&nbsp;×2</span>
+  </p>
+  <h1>The De-Branding CI Won&rsquo;t Allow</h1>
+  <p class="standfirst">
+    Alibaba built the thing a coding agent most needs &mdash; a self-hostable sandbox to run untrusted
+    code in &mdash; then spent six months making it look like nobody built it. <strong>It cannot finish,
+    because a required status check fails every pull request unless the file says
+    <em>Copyright Alibaba Group Holding Ltd.</em></strong>
+  </p>
+
+  <dl class="strip">
+    <div class="cell"><dt>Verdict</dt><dd>Goal-aligned 3/4<small>(a) fail &middot; (b) <strong>strong</strong> &middot; (c) strong &middot; (d) strong</small></dd></div>
+    <div class="cell is-mint"><dt>Mint</dt><dd>1 new &sect;C, N=1<small>Ends a nine-ship no-mint run</small></dd></div>
+    <div class="cell"><dt>Counts</dt><dd>46 / 11<small>Unchanged &middot; standalones 49&nbsp;&rarr;&nbsp;50</small></dd></div>
+    <div class="cell is-flag"><dt>Alibaba headers</dt><dd>1,674<small>CI-enforced on every PR to main</small></dd></div>
+    <div class="cell"><dt>Streak</dt><dd>GA:102<small>25 consecutive, v220&rarr;v244</small></dd></div>
+  </dl>
+</header>
+
+<section>
+  <p class="kicker">What it is</p>
+  <h2><span class="n">&sect;1</span>The compute substrate, finally read as a subject</h2>
+  <div class="col">
+    <p>
+      OpenSandbox is a self-hostable control plane that provisions, runs, inspects, snapshots and destroys
+      <strong>isolated sandboxes for AI agents</strong>. A FastAPI lifecycle server, two runtime backends
+      (Docker and a full Go Kubernetes operator), SDKs in six languages, an <code>osb</code> CLI, a first-party
+      <strong>MCP server</strong>, six installable <strong>agent skills</strong>, and 26 runnable examples &mdash;
+      nine of which target a <em>different</em> coding agent.
+    </p>
+    <p>
+      For 243 wikis this corpus read things that <em>stand on</em> sandboxes &mdash; a live preview here, a Kali
+      container there, worktrees, a plugin seam &mdash; without once reading a sandbox. E2B appears fourteen and
+      ten times across the vault&rsquo;s state files, and <strong>every single occurrence is a dependency inside
+      another subject.</strong> This is the first subject that <em>is</em> the floor.
+    </p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>Scale &mdash; tracked files at HEAD b8cabe53, basis stated</caption>
+      <thead><tr><th>Area</th><th>Lines</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="path">sdks/</td><td class="num">161,495</td><td>802 files, six languages &mdash; <em>generated-vs-hand-written basis unresolved</em></td></tr>
+        <tr><td class="path">components/ (Go)</td><td class="num">81,912</td><td>execd, egress, ingress, nodeagent</td></tr>
+        <tr><td class="path">kubernetes/ (Go)</td><td class="num">45,379</td><td>CRDs, controller, Helm, Kind e2e</td></tr>
+        <tr><td class="path">server/tests/</td><td class="num">29,504</td><td>66 test files</td></tr>
+        <tr><td class="path">server/ (Python)</td><td class="num">25,254</td><td>the lifecycle control plane</td></tr>
+        <tr><td class="path">oseps/</td><td class="num">15,057</td><td>19 proposals, 784,678 bytes</td></tr>
+        <tr><td class="path"><strong>total tracked</strong></td><td class="num"><strong>804,531</strong></td><td>2,221 files; 12,579 lines are lockfiles</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">The headline</p>
+  <h2><span class="n">&sect;2</span>They renamed it everywhere a human reads and nowhere a compiler reads</h2>
+  <div class="col">
+    <p>
+      The migration is <strong>stated, not inferred</strong>. Commit <code>e435df40</code> (2026-07-06, PR&nbsp;#1197,
+      on a branch called <code>codex/update-repo-links</code>) carries the body
+      <em>&ldquo;Update repository links after GitHub org migration.&rdquo;</em> It touched 24 files: README badges,
+      <code>CONTRIBUTING.md</code>, three Helm charts, K8s docs, four example configs, even
+      <code>startup_guard.py</code>. Every surface a person reads moved from <code>alibaba/OpenSandbox</code> to
+      <code>opensandbox-group/OpenSandbox</code>.
+    </p>
+  </div>
+
+  <div class="split">
+    <div class="pane">
+      <p class="pane-label"><span>Surface &mdash; what the migration changed</span><span>24 files</span></p>
+      <ul>
+        <li><strong>GitHub org</strong> &rarr; <code>opensandbox-group</code>, zero public members</li>
+        <li><strong>GOVERNANCE.md</strong> &mdash; 9.5&nbsp;KB on maintainers, consensus, conflict-of-interest recusal. Mentions Alibaba <strong>zero times</strong></li>
+        <li><strong>CNCF Landscape</strong> entry &middot; <strong>OpenSSF Best Practices</strong> passing at 100%</li>
+        <li><strong>19 OSEPs</strong> in Kubernetes&rsquo; exact KEP vocabulary &mdash; <code>provisional</code> &rarr; <code>implementable</code> &rarr; <code>implementing</code> &rarr; <code>implemented</code></li>
+        <li>Alignment to a standard it did not author &mdash; <code>kubernetes-sigs/agent-sandbox</code>, supported and <code>implemented</code></li>
+      </ul>
+    </div>
+    <div class="pane substrate">
+      <p class="pane-label"><span>Substrate &mdash; what it could not change</span><span>enforced</span></p>
+      <ul>
+        <li><strong>10 of 10 <code>go.mod</code> files</strong> still declare <code>github.com/alibaba/&hellip;</code>. <strong>Zero</strong> declare the org the code lives in. The migration touched <strong>no <code>go.mod</code> at all</strong></li>
+        <li><code>README.md:90</code> still says <code>go get github.com/alibaba/OpenSandbox/&hellip;</code> &mdash; working only via GitHub&rsquo;s redirect from the org they left</li>
+        <li><strong>Maven</strong> <code>com.alibaba.opensandbox</code> &middot; <strong>npm</strong> <code>@alibaba-group/opensandbox</code> &middot; <strong>NuGet</strong> <code>Alibaba.OpenSandbox</code></li>
+        <li>The <strong>OpenSSF badge</strong> still lists its repository as <code>github.com/alibaba/OpenSandbox</code></li>
+        <li><strong>1,674 files</strong> carry <code>Copyright &lt;year&gt; Alibaba Group Holding Ltd.</code> &mdash; and a CI job re-asserts it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="finding sev-crit">
+    <h3><span class="chip c-enforced">enforced</span> The nine lines that will not let the rebrand land</h3>
+    <p>
+      <code>.github/workflows/verify-license.yml</code> &mdash; <em>&ldquo;Verify License Headers&rdquo;</em> &mdash; runs
+      <code>on: pull_request: branches: [main]</code> and executes <code>scripts/verify-license.sh</code>:
+    </p>
+<pre><code><span class="cm"># scripts/verify-license.sh:35-36</span>
+<span class="hl">LICENSE_OWNER="Alibaba Group Holding Ltd."</span>
+LICENSE_REGEX="Copyright [0-9]{4} ${LICENSE_OWNER// / }"
+
+<span class="cm"># scans: go py sh kt kts java ts tsx js jsx toml html css sql tf + Dockerfile</span>
+<span class="cm"># fails the build, listing every violation</span></code></pre>
+    <p>
+      Which is why the header count is so clean: 678 <code>.py</code>, 624 <code>.go</code>, 112 <code>.kt</code>,
+      72 <code>.cs</code>, 62 <code>.ts</code>. <strong>The identity does not merely persist &mdash; it
+      propagates. Every new file any of the 119 contributors adds must assert Alibaba&rsquo;s copyright in order
+      to merge.</strong>
+    </p>
+  </div>
+
+  <p class="pull">
+    The document that decides who owns the project does not name Alibaba, and the CI job that must pass on
+    every pull request <span class="em">will not let any file omit it.</span>
+  </p>
+
+  <div class="col">
+    <p>
+      Nothing here is dishonest &mdash; every fact is in the tree. <span class="chip c-withdrawn">withdrawn</span>
+      I opened this analysis thinking the affiliation was concealed, and that framing is <strong>withdrawn: it
+      is disclosed in 1,674 copyright headers and every package-manager coordinate the README tells you to
+      install.</strong> The only place it is missing is the org page. That correction exonerates the project,
+      and it leaves something more precise in its place: <strong>documents are cheap to neutralise; build
+      gates, module paths, package coordinates and copyright headers are not &mdash; because those are the ones
+      with downstream consumers.</strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">The best artifact in the repository</p>
+  <h2><span class="n">&sect;3</span>One commit diagnosed the drift and removed its mechanism</h2>
+  <div class="finding sev-good">
+    <h3><span class="chip c-verified">verified</span> PR&nbsp;#1100 &mdash; <code>fb5a2c91</code>, 2026-06-18</h3>
+<pre><code>docs(server): streamline AGENTS.md and DEVELOPMENT.md (#1100)
+
+* docs(server): streamline AGENTS.md and DEVELOPMENT.md
+
+  Remove generic boilerplate (...), <span class="hl">outdated content</span> (flat project
+  structure tree, "Planned" K8s roadmap, <span class="hl">stale internal
+  implementation details</span>), and duplicated information.
+
+  Co-Authored-By: Claude Opus 4.6 &lt;noreply@anthropic.com&gt;
+
+* <span class="hl">docs(server): add CLAUDE.md symlink to AGENTS.md</span>
+
+  Co-Authored-By: Claude Opus 4.6 &lt;noreply@anthropic.com&gt;</code></pre>
+    <p>
+      Read the two bullets together. The first <em>deletes stale agent-facing prose, by name</em>. The second
+      <em>makes that class of staleness structurally impossible</em> for the harness-specific filename, by
+      replacing a copy with a symlink. <strong>The diagnosis and the structural fix, in one pull request &mdash;
+      with Claude Opus 4.6 co-authored on both.</strong>
+    </p>
+    <p>
+      This is the vault&rsquo;s own <strong>D22</strong> (<em>agent-facing prose goes stale first</em>) and
+      <strong>v243&rsquo;s symlink answer</strong> occurring together, in a stranger&rsquo;s repository. The template is
+      four words long: <strong>delete what rotted, then remove the mechanism that let it rot.</strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">The lesson</p>
+  <h2><span class="n">&sect;4</span>They solved the hard drift problem with code and the easy one by hand</h2>
+
+  <div class="tw">
+    <table>
+      <caption>The bridge &mdash; six AGENTS.md, two CLAUDE.md, two incompatible mechanisms</caption>
+      <thead><tr><th>Directory</th><th>AGENTS.md</th><th>CLAUDE.md beside it</th><th>Mode</th></tr></thead>
+      <tbody>
+        <tr><td class="path">/ <em>(root)</em></td><td class="num">7,414&nbsp;B</td><td>85-byte prose <strong>stub</strong></td><td class="num">100644</td></tr>
+        <tr><td class="path">server/</td><td class="num">2,081&nbsp;B</td><td>9-byte <strong>symlink</strong></td><td class="num">120000</td></tr>
+        <tr><td class="path">cli/</td><td class="num">5,136&nbsp;B</td><td class="zero">none</td><td>&mdash;</td></tr>
+        <tr><td class="path">kubernetes/</td><td class="num">7,671&nbsp;B</td><td class="zero">none</td><td>&mdash;</td></tr>
+        <tr><td class="path">sdks/</td><td class="num">3,816&nbsp;B</td><td class="zero">none</td><td>&mdash;</td></tr>
+        <tr><td class="path">specs/</td><td class="num">2,164&nbsp;B</td><td class="zero">none</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <p>
+      Both bridges are drift-proof &mdash; the stub carries no content to go stale. But they are not equivalent:
+      <strong>the symlink delivers the content, while the stub costs the agent a second read and a hop it may
+      not take.</strong> The symlink sits in a subdirectory. <strong>The root &mdash; the file Claude Code opens
+      first &mdash; got the weaker one.</strong>
+    </p>
+    <p>
+      Set that against what the same team shipped three months earlier. <code>osb skills install --target &lt;t&gt;</code>
+      takes six canonical Markdown skills and renders them into <strong>six different harnesses</strong>, correctly
+      distinguishing <em>copy</em> targets that have a skills directory from <em>append</em> targets that have a
+      single instruction file:
+    </p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>osb skills &mdash; one canonical source, six native formats, via render_skill_for_target()</caption>
+      <thead><tr><th>Target</th><th>Destination</th><th>Mode</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Code</td><td class="path">.claude/skills &nbsp;/&nbsp; ~/.claude/skills</td><td class="yes">copy</td></tr>
+        <tr><td>Cursor</td><td class="path">.cursor/rules</td><td class="yes">copy</td></tr>
+        <tr><td>Codex</td><td class="path">.codex/skills/{slug}/SKILL.md</td><td class="yes">copy</td></tr>
+        <tr><td>GitHub Copilot</td><td class="path">.github/copilot-instructions.md</td><td>append</td></tr>
+        <tr><td>Windsurf</td><td class="path">.windsurfrules</td><td>append</td></tr>
+        <tr><td>Cline</td><td class="path">.clinerules</td><td>append</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="pull">
+    One skill, six harnesses, two file layouts &mdash; solved by a function. One file with two names &mdash;
+    solved twice, by hand, <span class="em">differently.</span>
+  </p>
+
+  <div class="col">
+    <p>
+      v243 made the mirror-image error: it symlinked so two files could not diverge, then hand-copied one
+      warning paragraph into three skill files where it came out different three times. <strong>Two unrelated
+      companies, opposite mistakes, one cause: whatever a machine does not generate, humans will let
+      diverge.</strong>
+    </p>
+    <p>
+      Which lands at home. This vault&rsquo;s <code>_state/03c-projects-v61-v183.md</code> has held entries through
+      v244 for sixty-one versions. Four consecutive ships have diagnosed exactly that defect. None of us has
+      run <code>ln -s</code>.
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">Security</p>
+  <h2><span class="n">&sect;5</span>The first right answer to a failure mode this corpus keeps finding</h2>
+
+  <div class="finding sev-good">
+    <h3><span class="chip c-verified">verified</span> <span class="chip c-withdrawn">framing withdrawn</span> A consent gate that fails closed</h3>
+    <p>
+      The server binds <code>0.0.0.0</code> by default, <code>api_key</code> defaults to <code>None</code>, and
+      <code>middleware/auth.py:85</code> reads <em>&ldquo;if no API keys configured &hellip; skip auth.&rdquo;</em> I first
+      wrote that as <em>auth fails open</em>. <strong>That was wrong.</strong> <code>startup_guard.py</code> refuses
+      to start the server without explicit acknowledgment:
+    </p>
+    <ul class="body">
+      <li><code>OPENSANDBOX_INSECURE_SERVER=YES</code> &mdash; the non-interactive path, logged as a warning</li>
+      <li>otherwise, on a TTY: an <strong>ANSI-red prompt demanding the exact string <code>YES</code></strong>, with a
+        <strong>30-second timeout that aborts</strong> and a link to tracking issue #750</li>
+      <li>otherwise: a hard <code>RuntimeError</code> &mdash; <em>&ldquo;Startup blocked&hellip;&rdquo;</em></li>
+    </ul>
+    <p>
+      Documented in four places and four example configs, <strong>two of them in Chinese</strong>. The vault
+      recorded a broken-authentication triad at v231 and v232 &mdash; both <em>pilot-AVOID</em>, both shipping this
+      exact convenience default with nothing in front of it. <strong>This is the first time the corpus has seen
+      the right answer, and it is about sixty lines of it.</strong>
+    </p>
+  </div>
+
+  <div class="finding sev-crit">
+    <h3><span class="chip c-unverified">unverified &mdash; flagged, not concluded</span> The finding that survives</h3>
+    <p>
+      <code>middleware/auth.py:82-83</code>, evaluated <em>before</em> the key check, skips authentication for
+      <code>/v1/sandboxes/{id}/proxy/{port}/&hellip;</code> in single-tenant mode &mdash; <strong>even when an API key
+      is configured.</strong> OSEP-0011 and the <code>[ingress.secure_access]</code> signed-token machinery exist
+      to protect those endpoints, so the intent is plainly that the proxy layer carries its own scheme. I did
+      not verify end-to-end whether a token is required when <code>secure_access</code> is unconfigured, and that
+      is the question that decides whether this is a design boundary or a hole.
+    </p>
+    <p>
+      <strong>The shape holds regardless: the consent gate protects the operator who configured nothing, and a
+      separate code path un-protects the one who configured something.</strong>
+    </p>
+  </div>
+
+  <div class="finding sev-warn">
+    <h3><span class="chip c-verified">verified</span> &ldquo;Strong Isolation&rdquo; is a passthrough &mdash; and the honest part is the part the README hides</h3>
+    <p>
+      gVisor, Kata and Firecracker appear <strong>only</strong> in the README, in config validation, and in tests.
+      There is no integration code &mdash; just a <code>runtimeClassName</code> passed to Kubernetes. <em>You</em>
+      install the runtime. But the validators encode something genuinely useful that the marketing bullet
+      obscures: <code>test_rejects_gvisor_with_network_policy</code> versus
+      <code>test_allows_kata_with_network_policy</code>. <strong>Choosing their strongest isolation turns off their
+      egress control.</strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">Provenance</p>
+  <h2><span class="n">&sect;6</span>340 trailers, three harnesses, three conventions, and a collapse</h2>
+
+  <div class="tw">
+    <table>
+      <caption>AI attribution &mdash; HEAD, 2,400 commits (population stated per D27)</caption>
+      <thead><tr><th>Signal</th><th>Commits</th><th>Lines</th><th>Convention</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Claude</strong> <code>noreply@anthropic.com</code></td><td class="num">197</td><td class="num">340</td><td>Claude Code default</td></tr>
+        <tr><td>Cursor</td><td class="num">37</td><td class="num">37</td><td><code>Made-with:</code> &mdash; Cursor&rsquo;s own</td></tr>
+        <tr><td>Cursor (co-author)</td><td class="num">9</td><td class="num">9</td><td><code>cursoragent@cursor.com</code></td></tr>
+        <tr><td>Copilot Autofix</td><td class="num">18</td><td class="num">20</td><td>a <strong>bot</strong> &mdash; automated security fixes</td></tr>
+        <tr><td>Codex / Devin / Windsurf / Cline</td><td class="num zero">0</td><td class="num zero">0</td><td>&mdash;</td></tr>
+        <tr><td><code>Claude-Session:</code></td><td class="num zero">0</td><td class="num zero">0</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <p>
+      Of the 340 Claude lines, <strong>329 (96.8%) name a model version</strong> &mdash; Opus 4.6 at 162, Opus 4.7 at
+      130, Opus 4.8 at 23 &mdash; and 49 name <code>(1M context)</code>. Two spellings of the trailer coexist.
+      <strong>No AI-authorship disclosure requirement exists anywhere</strong> in the 20&nbsp;KB
+      <code>CONTRIBUTING.md</code>: like v243, these are a left-on default, not a policy.
+    </p>
+    <p>
+      <span class="chip c-verified">D26 extended</span> The mean here is <strong>1.73 lines per commit</strong>,
+      against v243&rsquo;s 5.48 &mdash; because this repository is merge-commit-dominant (726 merges; only 253 subjects
+      end in <code>(#NNNN)</code>) so individual commits survive rather than being squashed together.
+      <strong>The same metric, under a different merge strategy, means a different thing: the gap measures how
+      much a repo squashes.</strong>
+    </p>
+    <p>
+      And then it stops. Claude-attributed commits peaked in <strong>June at 91 of 256 (36%)</strong>. July was
+      the busiest month in the repository&rsquo;s history at <strong>422 commits</strong> &mdash; and carried
+      <strong>11</strong>. Attribution fell 88% while activity rose 65%.
+      <strong>I cannot tell whether they stopped using Claude or stopped emitting the trailer, and that
+      distinction matters: a trailer is a setting, not a measurement.</strong>
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">Method</p>
+  <h2><span class="n">&sect;7</span>Three new rules, one of them earned by refuting my own fleet</h2>
+
+  <div class="finding sev-warn">
+    <h3><span class="chip c-refuted">refuted</span> D29 &mdash; <code>mtime</code> is not drift; test the claims, not the date</h3>
+    <p>
+      A completeness critic reported <code>cli/AGENTS.md</code> as <em>&ldquo;67 days stale.&rdquo;</em> I tested every
+      path it names &mdash; eleven of them &mdash; and <strong>all eleven exist.</strong> The file had not changed in
+      67 days because it was still correct. <strong>Staleness is content disagreeing with reality, not a
+      timestamp</strong> &mdash; and this is the rule that decides whether the vault&rsquo;s planned
+      <code>verify-vault-docs</code> is a linter or merely a recency alarm.
+    </p>
+  </div>
+
+  <div class="finding sev-crit">
+    <h3><span class="chip c-enforced">D28</span> An absent config file is not an absent check</h3>
+    <p>
+      All 24 workflows grep <strong>zero</strong> for CodeQL, trivy, gosec, bandit, semgrep, scorecard or snyk, and
+      there is no <code>dependabot.yml</code>. Concluding <em>&ldquo;no security scanning&rdquo;</em> would be wrong:
+      <strong>18 <code>Copilot Autofix</code> commits and 5 <code>dependabot/</code> branches prove both run through
+      GitHub&rsquo;s settings, which leave no file in the tree.</strong> A tree-only audit systematically
+      <em>under</em>-reports security posture &mdash; and the detector is the bot&rsquo;s commit trailers, not the
+      workflow directory.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="chip c-verified">D30</span> When the API is mocked, read the repo&rsquo;s own committed badges</h3>
+    <p>
+      This environment mocks the GitHub API, so star counts are page-stated only. But the pre-migration README
+      carried a <strong>hardcoded <code>Stars-11.6k</code> badge</strong>, which commit <code>e435df40</code> replaced
+      with a live one &mdash; giving a <strong>dated in-repo metric</strong> the mock otherwise forbids:
+      ~7k at launch+72h (third-party), <strong>11.6k on 2026-07-06 (in-repo)</strong>, 14.3k today.
+    </p>
+  </div>
+
+  <div class="col">
+    <h3>The error ledger &mdash; nine caught, four mine</h3>
+    <p>
+      Four were mine and all four improved the analysis: the withdrawn <em>&ldquo;fails open&rdquo;</em>; the withdrawn
+      <em>&ldquo;concealed affiliation&rdquo;</em> (which <strong>exonerated</strong> the project); 51 &ldquo;Cursor commits&rdquo;
+      that were 46, because five matched the <em>word</em> <code>cursor</code> in code prose; and a
+      <em>&ldquo;two rival websites&rdquo;</em> finding I killed before writing it, when 406 references to a second
+      domain turned out to be Kubernetes API-group prefixes.
+    </p>
+    <p>
+      The fleet&rsquo;s worst was worse. <strong>A critic reported three Claude trailers out of 2,400 commits &mdash;
+      0.125% &mdash; and concluded the project was &ldquo;not Claude-Code-native.&rdquo; The true figure is 197 commits
+      and 340 lines: a sixty-five-fold error</strong>, produced by sampling the last fifty commits and then
+      inventing a blobless-clone limitation to explain the result. Commit <em>messages</em> are fully present in
+      a blobless clone; only file blobs are omitted. It also reported 5 Alibaba commits where there are 1,160,
+      and 18 OSEPs where there are 19.
+    </p>
+  </div>
+</section>
+
+<section>
+  <p class="kicker">The ruling</p>
+  <h2><span class="n">&sect;8</span>Mint at N=1 &mdash; and the argument against it</h2>
+  <div class="col">
+    <p>
+      <strong>&ldquo;Self-Hostable Sandbox / Code-Execution Runtime for AI Agents&rdquo;</strong> &mdash; corpus-first for
+      the surface, explicitly <em>not</em> world-first. It is the last missing member of a family this corpus
+      mints repeatedly: browser (v41), iOS simulator (v183), web reach (v174), Office documents (v206),
+      stealth browser (v179), database (v212), file search (v194), video (v198). All answer <em>what can the
+      agent reach?</em> &mdash; and the one an agent needs most, <strong>somewhere safe to run code</strong>, was absent.
+    </p>
+    <p>
+      <span class="chip c-unverified">reviewable</span> <strong>The case against is genuinely strong, and it is
+      recorded, not buried:</strong> <code>kubernetes-sigs/agent-sandbox</code> standardised this shape at KubeCon
+      in November 2025 &mdash; three months <em>before</em> OpenSandbox&rsquo;s public launch &mdash; and OpenSandbox
+      <em>supports</em> that standard rather than setting it. When a Kubernetes SIG owns the category, it is an
+      established industry class. Add that OpenSandbox delegates isolation rather than implementing it, that
+      E2B and Daytona precede it as products, and that fame is not a mint. <strong>This is the closest mint
+      call since v233.</strong>
+    </p>
+    <p>
+      One fact reframes its position without earning it anything: <strong>Daytona went closed-source in June
+      2026.</strong> The leading open-source self-hostable rival left the category two months before this
+      analysis &mdash; not because OpenSandbox won, but because the incumbent walked away.
+    </p>
+    <h3>Recorded, not executed &mdash; flagged to the audit</h3>
+    <p>
+      The committed cross-harness agent-context bridge now stands at <strong>N=3</strong> &mdash; v213 Intel geti,
+      v243 ToolJet, v244 OpenSandbox: three independent, cross-author, cross-domain, non-port instances. That
+      <strong>crosses the corpus&rsquo;s eligible-at-N=3 threshold, so a promotion is live on the table.</strong> I am
+      not taking it: a promotion is an audit act. But the audit should note that the three are <em>not the same
+      mechanism</em>, and that both multi-instance cases are partial &mdash; ToolJet at 3 of 13 directories,
+      OpenSandbox at 2 of 6 with two incompatible mechanisms inside one repository. The pattern&rsquo;s real-world
+      form is <em>incomplete adoption</em>, and the row should say so.
+    </p>
+  </div>
+
+  <div class="nonclaims">
+    <h3>Non-claims</h3>
+    <ul class="body">
+      <li><strong>Not world-first</strong> &mdash; Kata 2017, gVisor 2018, Firecracker 2018, E2B 2023, Daytona, agent-sandbox Nov 2025, and Anthropic&rsquo;s own Claude Code sandboxing all precede it.</li>
+      <li><strong>Not a viral-velocity claim.</strong> Stars and forks are page-stated; the GitHub API is mocked here.</li>
+      <li><strong>Do not cite &ldquo;340 Claude-co-authored commits.&rdquo;</strong> It is 197 commits and 340 trailer lines.</li>
+      <li><strong>Do not cite any git count without its ref population</strong> &mdash; HEAD and <code>--all</code> differ by 145 commits.</li>
+      <li><strong>Do not say OpenSandbox implements gVisor, Kata or Firecracker isolation</strong>, or that auth fails open, or that the proxy-path bypass is a confirmed vulnerability.</li>
+      <li><strong>Unresolved:</strong> the generated-versus-hand-written split of the 161,495 SDK lines; whether the Go module proxy honours the redirect; whether the MCP server has real downstream consumers; whether <code>opensandbox-group</code> is a legal entity distinct from Alibaba.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <strong>LLM Wiki v244</strong> &middot; <code>opensandbox-group/OpenSandbox</code> at
+    <code>b8cabe532392063851f8594e38e016b324c89468</code> &middot; source-cloned twice, 2,400 commits on HEAD /
+    2,545 on <code>--all</code> &middot; every headline finding hand-verified.
+  </p>
+  <p>
+    Analysis executed as a 23-agent workflow &mdash; 7 mapping lenses, 14 adversarial verifiers, prior-art
+    research, a completeness critic &mdash; returning 10 confirmed, 4 partially correct, 0 refuted, at
+    ~2.40M subagent tokens over 758 seconds.
+    <strong>Pilot ruling: read-and-borrow. A fenced technical pilot is available &mdash; Apache-2.0, no copyleft
+    trap &mdash; but never point it at candidate data, and set <code>server.api_key</code> before anything
+    else.</strong>
+  </p>
+  <p>
+    Prepared by Claude (Opus 5) for Storm Bear &middot; 2026-08-19 &middot; shipped on
+    <code>wiki/v244-opensandbox</code>, not auto-merged.
+  </p>
+</footer>
+
+</div>
