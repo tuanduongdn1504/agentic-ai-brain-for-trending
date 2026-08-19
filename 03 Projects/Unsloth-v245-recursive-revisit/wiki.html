@@ -1,0 +1,820 @@
+<title>Unsloth Reopened</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ink:        #12161c;
+    --ink-2:      #2b3541;
+    --slate:      #4a5a6a;
+    --slate-soft: #7b8895;
+    --ground:     #f6f7f8;
+    --surface:    #ffffff;
+    --surface-2:  #eef0f2;
+    --rule:       #d9dde1;
+    --rule-soft:  #e7eaed;
+    --ochre:      #b8730f;
+    --ochre-soft: #f4e6cf;
+    --teal:       #1f6f6b;
+    --teal-soft:  #dceceb;
+    --red:        #9e2b25;
+    --red-soft:   #f4dedd;
+
+    --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --body:    "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono:    "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+
+    --measure: 68ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:        #eef1f4;
+      --ink-2:      #c6ced7;
+      --slate:      #9aa8b6;
+      --slate-soft: #6d7b89;
+      --ground:     #10141a;
+      --surface:    #171c23;
+      --surface-2:  #1e242c;
+      --rule:       #2c343e;
+      --rule-soft:  #232a33;
+      --ochre:      #e0a24a;
+      --ochre-soft: #3a2c14;
+      --teal:       #6fc3bd;
+      --teal-soft:  #14302e;
+      --red:        #e58a83;
+      --red-soft:   #331a19;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink:        #eef1f4;
+    --ink-2:      #c6ced7;
+    --slate:      #9aa8b6;
+    --slate-soft: #6d7b89;
+    --ground:     #10141a;
+    --surface:    #171c23;
+    --surface-2:  #1e242c;
+    --rule:       #2c343e;
+    --rule-soft:  #232a33;
+    --ochre:      #e0a24a;
+    --ochre-soft: #3a2c14;
+    --teal:       #6fc3bd;
+    --teal-soft:  #14302e;
+    --red:        #e58a83;
+    --red-soft:   #331a19;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 48px) 96px; }
+  .col  { max-width: var(--measure); }
+
+  /* ---------- dateline masthead ---------- */
+  .masthead { padding: clamp(40px, 7vw, 88px) 0 0; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    align-items: baseline;
+  }
+  .eyebrow b { color: var(--ochre); font-weight: 500; }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 6.2vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -.022em;
+    margin: 22px 0 0;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+  h1 em { font-style: italic; color: var(--ochre); }
+
+  .standfirst {
+    font-family: var(--display);
+    font-size: clamp(1.12rem, 2.1vw, 1.42rem);
+    line-height: 1.48;
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 26px 0 0;
+    text-wrap: pretty;
+  }
+
+  /* ---------- the expiry stamp ---------- */
+  .stamp {
+    margin: 40px 0 0;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--ochre);
+    background: var(--surface);
+    padding: 22px 26px;
+    max-width: 62ch;
+  }
+  .stamp .q {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.16rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .stamp .attr {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin: 14px 0 0;
+  }
+  .stamp .verdict {
+    margin: 16px 0 0;
+    font-size: .96rem;
+    color: var(--ink-2);
+  }
+  .stamp .verdict strong { color: var(--ochre); }
+
+  /* ---------- sections ---------- */
+  section { margin-top: clamp(56px, 8vw, 96px); }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin-bottom: 26px;
+  }
+  .sec-head .n {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    color: var(--slate-soft);
+    flex: none;
+    padding-top: .5em;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    line-height: 1.14;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: -.005em;
+    margin: 34px 0 10px;
+  }
+
+  p { margin: 0 0 15px; text-wrap: pretty; }
+  .col > p:last-child { margin-bottom: 0; }
+
+  a { color: var(--ochre); text-decoration-thickness: 1px; text-underline-offset: .16em; }
+  a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-radius: 2px; }
+
+  code, .m {
+    font-family: var(--mono);
+    font-size: .855em;
+    background: var(--surface-2);
+    padding: .1em .32em;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  strong { font-weight: 600; }
+
+  /* ---------- the stacked line-budget bar ---------- */
+  .budget { margin: 8px 0 0; max-width: 900px; }
+  .bar {
+    display: flex;
+    height: 58px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    overflow: hidden;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .bar > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--surface);
+    letter-spacing: .04em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .seg-studio { flex: 0 0 75.9%; background: var(--slate); }
+  .seg-tests  { flex: 0 0 12.6%; background: var(--slate-soft); }
+  .seg-core   { flex: 0 0 4.3%;  background: var(--ochre); }
+  .seg-cli    { flex: 0 0 1.8%;  background: var(--teal); }
+  .seg-rest   { flex: 1 1 auto;  background: var(--surface-2); color: var(--slate); }
+
+  .bar-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--slate);
+    letter-spacing: .03em;
+  }
+  .bar-key span { display: flex; align-items: center; gap: 7px; }
+  .bar-key i { width: 11px; height: 11px; flex: none; border-radius: 1px; }
+  .bar-note {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.06rem;
+    color: var(--ink-2);
+    margin: 20px 0 0;
+    max-width: 54ch;
+  }
+
+  /* ---------- timeline spine ---------- */
+  .spine { margin: 4px 0 0; max-width: 780px; }
+  .ev {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 0 22px;
+    position: relative;
+    padding: 0 0 24px 0;
+  }
+  .ev::before {
+    content: "";
+    position: absolute;
+    left: 103px;
+    top: 9px;
+    bottom: -4px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .ev:last-child::before { display: none; }
+  .ev .d {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .04em;
+    color: var(--slate);
+    text-align: right;
+    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .ev .body { position: relative; padding-left: 22px; }
+  .ev .body::before {
+    content: "";
+    position: absolute;
+    left: -4.5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--rule);
+    border: 2px solid var(--ground);
+  }
+  .ev.mark .body::before { background: var(--ochre); }
+  .ev.anchor .body::before { background: var(--red); }
+  .ev .t { font-weight: 600; font-size: .96rem; }
+  .ev .s { font-size: .9rem; color: var(--slate); margin-top: 3px; }
+  .ev .s code { font-size: .82em; background: none; padding: 0; color: var(--slate); }
+
+  /* ---------- finding cards ---------- */
+  .findings { display: grid; gap: 18px; margin-top: 6px; }
+  .f {
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 20px 24px;
+  }
+  .f .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .f h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.28rem;
+    line-height: 1.24;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .f p { font-size: .95rem; margin-bottom: 11px; }
+  .f p:last-child { margin-bottom: 0; }
+  .f.good  { border-left: 3px solid var(--teal); }
+  .f.good .tag { color: var(--teal); }
+  .f.bad   { border-left: 3px solid var(--red); }
+  .f.bad .tag { color: var(--red); }
+  .f.key   { border-left: 3px solid var(--ochre); }
+  .f.key .tag { color: var(--ochre); }
+
+  blockquote {
+    margin: 14px 0;
+    padding: 0 0 0 18px;
+    border-left: 2px solid var(--rule);
+    font-family: var(--display);
+    font-size: 1.04rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  blockquote code { font-size: .8em; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ---------- tables ---------- */
+  .tw { overflow-x: auto; margin: 18px 0; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 500;
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td code { background: none; padding: 0; }
+  .ok  { color: var(--teal); font-weight: 600; }
+  .no  { color: var(--red); font-weight: 600; }
+  .mid { color: var(--ochre); font-weight: 600; }
+
+  /* ---------- rule chips ---------- */
+  .rules { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); margin-top: 6px; }
+  .r {
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ochre);
+    background: var(--surface);
+    padding: 16px 18px;
+  }
+  .r .id {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    color: var(--ochre);
+    display: block;
+    margin-bottom: 7px;
+  }
+  .r p { font-size: .9rem; margin: 0; }
+  .r.ext { border-top-color: var(--slate); }
+  .r.ext .id { color: var(--slate); }
+
+  /* ---------- ledger ---------- */
+  ul.plain { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 11px; }
+  ul.plain > li {
+    padding-left: 22px;
+    position: relative;
+    font-size: .95rem;
+  }
+  ul.plain > li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: .62em;
+    width: 7px;
+    height: 1.5px;
+    background: var(--ochre);
+  }
+
+  .callout {
+    margin: 26px 0;
+    background: var(--ochre-soft);
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    max-width: 64ch;
+  }
+  .callout .lbl {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .callout p { font-size: .95rem; margin-bottom: 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.warn { background: var(--red-soft); }
+  .callout.warn .lbl { color: var(--red); }
+  .callout.pos { background: var(--teal-soft); }
+  .callout.pos .lbl { color: var(--teal); }
+
+  /* ---------- closing ---------- */
+  .blunt {
+    margin-top: clamp(56px, 8vw, 96px);
+    border-top: 3px solid var(--ink);
+    padding-top: 28px;
+  }
+  .blunt h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  .blunt .col p { font-size: 1.03rem; }
+
+  footer {
+    margin-top: 72px;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.7;
+    letter-spacing: .03em;
+    color: var(--slate);
+  }
+
+  @media (max-width: 620px) {
+    .ev { grid-template-columns: 1fr; gap: 0; }
+    .ev::before { display: none; }
+    .ev .d { text-align: left; margin-bottom: 4px; }
+    .ev .body { padding-left: 0; }
+    .ev .body::before { display: none; }
+    .bar { height: 46px; }
+    .bar > div { font-size: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>LLM Wiki <b>v245</b></span>
+      <span>2026-08-19</span>
+      <span>5th corpus-recursive revisit</span>
+      <span>↺ <b>v23</b>, 2026-04-20</span>
+      <span>source-cloned ×2 · <code>cabed07f</code></span>
+    </div>
+
+    <h1>The verdict that <em>expired</em></h1>
+
+    <p class="standfirst">Sixteen weeks ago this vault read <code>unslothai/unsloth</code> and closed the file. Nothing in our criteria changed since. The subject walked across the boundary while nobody was looking.</p>
+
+    <div class="stamp">
+      <p class="q">“Not agent infrastructure — training-only … Direct adoption: <strong>NONE</strong>. Wiki is reference asset, not implementation backlog.”</p>
+      <p class="attr">— v23 entry, 2026-04-20, <code>_state/05-projects-v1-v29.md</code></p>
+      <p class="verdict">Accurate on the day it was written. <strong>Wrong 63 days later</strong>, when the same repository shipped a Claude Code plugin.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="n">01</span><h2>What 4.3% looks like</h2></div>
+    <div class="col">
+      <p>The library everyone knows Unsloth for — the Triton kernels, the 2× training, the 70% VRAM saving — is a sliver of the repository that carries its name. <strong>3,972 tracked files, 1,752,665 tracked lines</strong>, apportioned like this:</p>
+    </div>
+
+    <div class="budget">
+      <div class="bar" role="img" aria-label="Line budget: studio 75.9 percent, tests 12.6 percent, the unsloth core library 4.3 percent, unsloth_cli 1.8 percent, remainder 5.4 percent">
+        <div class="seg-studio">studio/ &nbsp;75.9%</div>
+        <div class="seg-tests">tests/ 12.6%</div>
+        <div class="seg-core">4.3%</div>
+        <div class="seg-cli"></div>
+        <div class="seg-rest"></div>
+      </div>
+      <div class="bar-key">
+        <span><i style="background:var(--slate)"></i>studio/ — the desktop app · 1,330,957</span>
+        <span><i style="background:var(--slate-soft)"></i>tests/ · 220,365</span>
+        <span><i style="background:var(--ochre)"></i><strong>unsloth/ — the library · 76,215</strong></span>
+        <span><i style="background:var(--teal)"></i>unsloth_cli/ · 31,888</span>
+      </div>
+      <p class="bar-note">The README's own first line now reads: “Unsloth is the first desktop app to run and train models.” The GitHub description leads with <em>run</em>, not train.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">02</span><h2>The five commits that invalidated a classification</h2></div>
+    <div class="col">
+      <p>Everything that makes this in-scope landed <em>after</em> the v23 ship. The dates are the finding.</p>
+    </div>
+
+    <div class="spine">
+      <div class="ev anchor">
+        <div class="d">2026-04-20</div>
+        <div class="body">
+          <div class="t">v23 ships — filed OUTSIDE-SCOPE</div>
+          <div class="s">“Not agent infrastructure — training-only.” The facts were right: it recorded the dual licence, the Han brothers, and <code>studio/</code> already existing.</div>
+        </div>
+      </div>
+      <div class="ev mark">
+        <div class="d">2026-06-22</div>
+        <div class="body">
+          <div class="t">Local Agent Guides CI</div>
+          <div class="s"><code>264f1a04f</code> · PR #6547 — CI that installs and drives real coding-agent CLIs against a live server</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="d">2026-07-03</div>
+        <div class="body">
+          <div class="t"><code>unsloth connect</code> → <code>unsloth start</code></div>
+          <div class="s"><code>b8400f40d</code> · PR #6613</div>
+        </div>
+      </div>
+      <div class="ev mark">
+        <div class="d">2026-07-22</div>
+        <div class="body">
+          <div class="t">“add local subagents for Claude Code, Codex, OpenCode and Pi”</div>
+          <div class="s"><code>968e6230a</code> · PR #7326 — a Claude Code <em>plugin</em>, an MCP server, and a Pi TypeScript extension</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="d">2026-07-24</div>
+        <div class="body">
+          <div class="t">“Complete local subagent delegation for Codex, Claude plan mode, and Pi”</div>
+          <div class="s"><code>387547980</code> · PR #7329 — authored by <strong>oobabooga</strong></div>
+        </div>
+      </div>
+      <div class="ev mark">
+        <div class="d">2026-08-19</div>
+        <div class="body">
+          <div class="t">v245 — the file is reopened</div>
+          <div class="s">(b) flips <span class="no">FAIL</span> → <span class="ok">STRONG</span> on the same repository, with no criteria change</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="lbl">Rule minted — D31</span>
+      <p><strong>A scope verdict is a claim about a date, not a property of a subject.</strong> The corpus re-tests facts on revisit (D25) and provenance on revisit (D19). It has never re-tested <em>scope</em> — and OUTSIDE-SCOPE is the one verdict that closes the file, which makes it the one most likely to rot unobserved.</p>
+      <p><strong>Every prior OUTSIDE-SCOPE subject in this corpus is un-audited by construction.</strong> The detector is cheap: re-read the description field and the top-level directory shares. Both would have caught this in seconds.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">03</span><h2>The best Claude Code integration in the corpus</h2></div>
+    <div class="col">
+      <p><code>unsloth start claude</code> points Claude Code at a locally-served model. Almost every line of the environment it builds is a decision, and three of them are worth stealing outright.</p>
+    </div>
+
+    <div class="findings">
+      <div class="f good">
+        <span class="tag">Credential hygiene · start.py:146</span>
+        <h4>It deletes your Anthropic key on the way past</h4>
+        <p><code>_CLAUDE_ENV_UNSET = ("ANTHROPIC_API_KEY", "CLAUDE_CODE_OAUTH_TOKEN")</code> — the child process is launched without them, so a request cannot silently fall through to Anthropic and be billed, and the local endpoint never sees the real key. Same for <code>OPENAI_API_KEY</code>, <code>CODEX_API_KEY</code>, <code>CODEX_ACCESS_TOKEN</code>.</p>
+        <p><strong>This is the exact inverse of four consecutive prior subjects</strong> — v207, v208, v231, v232 — every one of which existed to harvest or re-expose precisely that credential. First subject in the corpus to treat a vendor credential as blast radius to shrink. Two lines.</p>
+      </div>
+
+      <div class="f good">
+        <span class="tag">Integrity · start.py:4359</span>
+        <h4>It refuses to lie to Claude's own safety check</h4>
+        <blockquote><p><code>IS_SANDBOX</code> is left unset on purpose: Claude refuses bypass mode as root unless a sandbox is detected, and <strong>we don't want to falsely claim one on the user's host.</strong></p></blockquote>
+        <p>And in CI, where it <em>is</em> true: “the CI runner IS the sandbox, so declare it.” They set the flag exactly where the claim holds and refuse to set it where it doesn't.</p>
+      </div>
+
+      <div class="f key">
+        <span class="tag">The finding · agent-guides-drive.sh:568–613</span>
+        <h4>A Claude Code default breaks prompt caching — and they wrote a CI test that proves it</h4>
+        <p>Claude Code ≥ 2.1.36 sends an <code>x-anthropic-billing-header</code> injected at the <em>front</em> of the system prompt. It changes every request, so the cached prefix moves, so every request is a miss. Unsloth ships <code>CLAUDE_CODE_ATTRIBUTION_HEADER=0</code> plus <code>--exclude-dynamic-system-prompt-sections</code>, and then built an A/B in CI: <strong>Phase A asserts a cache HIT with the suppression; Phase B strips it and asserts a MISS.</strong></p>
+        <p>It requires the <em>unfixed</em> configuration to fail — a regression test on the claim, not on the fix. Verdicts are read from the llama-server log, sliced by a byte offset captured immediately before the measured turn so an earlier turn's reuse cannot leak in.</p>
+        <p>Both knobs are <strong>real and undocumented</strong>: open Anthropic docs issues <a href="https://github.com/anthropics/claude-code/issues/50085">#50085</a> and <a href="https://github.com/anthropics/claude-code/issues/45930">#45930</a>. Neither string appears in the current settings docs.</p>
+      </div>
+
+      <div class="f">
+        <span class="tag">Convergence · N=3, cross-organisation</span>
+        <h4>Three unrelated projects found the same defect independently — one of them is ours</h4>
+        <p>Unsloth · <code>musistudio/claude-code-router</code> PR #1220, <em>“Fix: use CLAUDE_CODE_ATTRIBUTION_HEADER to avoid breaking cache”</em> · and <code>farion1231/cc-switch</code> issue #2025 — <strong>corpus subject v73</strong>. Same undocumented default, three separate workarounds.</p>
+      </div>
+
+      <div class="f">
+        <span class="tag">Measurement · the vault's own open question</span>
+        <h4>~28k tokens, of which ~18k is tool schemas</h4>
+        <blockquote><p>measured via <code>claude -p /context</code>, the default prompt is ~28k tokens of which ~18k is “System tools” alone … <strong><code>--tools</code> is the flag that restricts which schemas are sent.</strong></p></blockquote>
+        <p>Anthropic's docs confirm the central claim — <em>“To restrict which tools are available, use <code>--tools</code> instead.”</em> One clause of theirs is now inaccurate: a bare name in <code>--disallowedTools</code> <em>does</em> remove the tool from context. This vault has been reasoning about a ~54K tool-catalog floor since v167 and asking for a measurement since v238. Here is the instrument.</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="lbl">The guardrail — read before acting</span>
+      <p><strong>The mechanism transfers; the number does not.</strong> The “~90% slower” figure is measured against local llama.cpp on a CPU runner at ~16 tok/s, where a miss means re-prefilling from scratch. The documentation issue is explicitly scoped to <code>ANTHROPIC_BASE_URL</code> — third-party, proxied and local endpoints.</p>
+      <p><strong>Do not claim this cuts an Anthropic bill.</strong> First-party effect: NOT VERIFIED.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">04</span><h2>The inversion — your model as a subagent <em>inside</em> Claude Code</h2></div>
+    <div class="col">
+      <p><code>unsloth start claude --as-subagent</code> does not repoint Claude Code. Claude keeps Anthropic's model and gains a tool: a plugin is written to a session-scoped directory and <code>claude</code> launches with <code>--plugin-dir</code> and exactly two pre-approved tools.</p>
+      <p>Two variants, and the second is the interesting one — a <strong>read-only plan-mode subagent</strong> (“Investigate the assigned task with read-only tools … Do not modify files”), with its own test and a follow-up hardening commit. Codex gets a mirror MCP server whose routing instructions override its built-in <code>spawn_agent</code>. Pi gets a 409-line TypeScript extension shipped inside the wheel.</p>
+      <p><strong>This is the exact inverse of v235.</strong> deepseek-harness shipped Claude Code as a subagent <em>of</em> the runtime and left a delegation axis logged as deferred. Unsloth runs the arrow the other way. Same axis, opposite direction, different economics: v235 buys capability, this buys cost and privacy — and the plan-mode variant buys cheap reconnaissance before expensive reasoning, which is the one version of this that is obviously worth doing.</p>
+    </div>
+
+    <div class="callout pos">
+      <span class="lbl">⭐ The mint — 1 new §C standalone, N=1</span>
+      <p><strong>“Self-Hosted / Locally-Trained Model Registered as a Delegatable Subagent Inside a Frontier Coding-Agent Harness.”</strong> §C live standalones 50 → 51. Counts 46 / 11 unchanged.</p>
+      <p>The NO-MINT alternative is recorded and non-trivial: this is a <em>direction</em> on an axis v235 opened, and drawn one notch wider it would be born stale at N≈6 (claude-code-router, LiteLLM, cc-switch v73, opencode-antigravity-auth v67, the vendor guides). The boundary is drawn at <strong>delegation</strong>, deliberately excluding redirection — and that boundary is what the audit should test. Corpus-first for the surface; world-first <strong>not</strong> established.</p>
+    </div>
+
+    <div class="col">
+      <h3>And a collision the mint discussion walks straight past</h3>
+      <p>The <strong>v192 palmier-pro standalone</strong> — “Product-First Native Application Retrofitted with a First-Party MCP Server” — stands at <strong>N=4</strong>, all non-port, with promotion awaiting an audit and the trigger already “doubly reinforced” at v230. <strong>Unsloth Studio satisfies every clause:</strong> product-first (its own first line), native (Tauri v2, 34 <code>.rs</code>, signed installers on four platforms), <em>retrofitted</em> (MCP is opt-in and later — off by default, behind a mandatory token), first-party MCP server (11 tools including <code>start_training</code> and <code>export_gguf</code>).</p>
+      <p><strong>Recorded: v192 goes N=4 → N=5. No new row.</strong> This is the <strong>third consecutive ship</strong> to reinforce a promotion no audit has executed — v229 at N=3, v230 at N=4, v245 at N=5 — and the corpus's only §C→CONFIRMED promotion to date happened at N=4. Flagged, not self-executed. <strong>But the audit is now declining at N=5 what it once granted at N=4.</strong></p>
+      <p>Two artifacts, two findings, no conflict: Studio is v192 N=5; <code>--as-subagent</code> is the new mint.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">05</span><h2>Executable documentation, and the sentence that beats it</h2></div>
+    <div class="col">
+      <p>A CI job installs and drives <strong>six real coding agents</strong> — claude, codex, hermes, openclaw, opencode, pi — against a live server. The mechanism is the point:</p>
+      <blockquote><p><strong>Self-updating:</strong> we obtain the exact env + command from <code>unsloth start &lt;agent&gt; --no-launch</code> and run <strong>THAT</strong>, so a recipe change is exercised automatically.</p></blockquote>
+      <p>Eleven ships have handed this vault a piece of <code>verify-vault-docs</code>. Every prior piece either <em>prevented</em> duplication (v243's symlink, v244's renderer) or <em>detected</em> it (v239's linter, v240's build gate). This is a third kind: <strong>remove the prose from the loop.</strong> The documented recipe is a command's output, so there is nothing left to lint.</p>
+      <p>Around it: a three-way failure taxonomy that separates flaky installs from real drift, a <code>curl | bash</code> that downloads-then-executes so a truncated fetch can never run a half-written installer, the Hermes installer <strong>pinned to a full commit SHA</strong>, and GNU/BSD-portable secret redaction “so the redaction is never silently skipped.”</p>
+      <p>But the most valuable thing in 1.75 million lines is in a file about Kaggle GPU quotas.</p>
+    </div>
+
+    <div class="callout">
+      <span class="lbl">Rule minted — D32 · the payoff</span>
+      <blockquote><p><strong>The workflow header is the source of truth.</strong> … <strong>If the two ever disagree, the workflow is right and this file is stale; fix this file.</strong></p></blockquote>
+      <p><strong>When two documents must carry the same fact and mechanisation is impractical, declare which copy wins — inside the copy that loses.</strong></p>
+      <p>Prevention needs the two copies to be the same artifact, which fails the moment they serve different readers. Detection needs a checker written and maintained. Declaring subordination costs one sentence, and converts a silent contradiction into a resolved one: the reader who finds the disagreement is instructed, not misled.</p>
+    </div>
+
+    <div class="col">
+      <h3>And the rule has already been tested — by the file that states it</h3>
+      <p><code>BUDGET.md</code> and the workflow header now disagree on the headline number, and not subtly:</p>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>BUDGET.md</th><th>kaggle-t4-notebook-ci.yml</th></tr></thead>
+        <tbody>
+          <tr><td>allowance</td><td class="num">40 GPU-h/week</td><td class="num mid">15 GPU-h/week &nbsp;<code>:78</code></td></tr>
+          <tr><td>the arithmetic</td><td class="num">231 × r × 0.25 = 30 → 40%</td><td class="num mid">231 × r × 0.25 = 9 → 15% &nbsp;<code>:129</code></td></tr>
+          <tr><td>the flag actually run</td><td class="num"><code>--percent 40</code></td><td class="num mid"><code>--percent 15</code> &nbsp;<code>:368</code></td></tr>
+          <tr><td>busy-week spend</td><td class="num">23.1 GPU-h</td><td class="num mid">8.7 GPU-h &nbsp;<code>:133</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p>The workflow says why, at <code>:136-137</code>: <em>“An earlier revision of this block ran <strong>40% for ~23 GPU-h/week</strong>, sized against a <strong>40h allowance from before the Studio leg existed.</strong>”</em> A second GPU consumer appeared, the allowance was re-split — and <code>BUDGET.md</code> still teaches the 40% arithmetic. <strong>The prose drifted on the exact number it exists to justify.</strong></p>
+      <p><strong>Which is the proof, and it is better than the rule.</strong> The declaration did not prevent the drift. It made the drift <em>harmless and self-diagnosing</em>: a reader who finds the two disagreeing is told, by the stale file itself, that the workflow wins and this file is the one to fix.</p>
+      <p><strong>Set that against v243, the control condition.</strong> ToolJet had the doctrine — “Stale context is worse than no context” — a same-PR update policy, and a template. No precedence line, no linter. Its one committed plan file cited three non-existent documents for eight weeks, and it <em>misled</em>. Unsloth has no linter either. <strong>Same failure mode, opposite outcome, and the entire difference is one sentence.</strong></p>
+      <p style="margin-top:18px"><strong>Applied here, today:</strong> <code>_state/03c-projects-v61-v183.md</code> has held entries through v245 for sixty-two versions. v239 found the defect, v240 built the check, v242 named the rule, v243 shipped the symlink, v244 handed us a third instance — and the file is still called <code>-v183</code>. The rename is still right. One header line fixes the ambiguity now.</p>
+
+      <h3>One more thing worth taking: how they disable a test</h3>
+      <p><code>legs.py</code> keeps a <code>grpo</code> Kaggle leg <strong>written and deliberately unwired</strong>, in an <code>UNWIRED: dict[str, str]</code> whose value is the <em>reason</em> — the verbatim error (<code>torch.AcceleratorError: CUDA error: an illegal memory access was …</code>), the reproduction rate (“one session in three” on Turing), what was ruled out, and the condition for re-wiring. <strong>A disabled test that says why it is disabled, in a data structure, is the strongest honest-deficiency disclosure this corpus has recorded</strong> — the opposite of a silently-skipped test.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">06</span><h2>Where the prose and the packaging disagree</h2></div>
+    <div class="col">
+      <p>The README says the core stays Apache-2.0 and that AGPL covers “certain optional components, such as the Unsloth Studio UI.” The packaging says something wider.</p>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>fact</th><th>where</th><th class="num">value</th></tr></thead>
+        <tbody>
+          <tr><td>Declared package licence</td><td><code>pyproject.toml:11</code></td><td class="num">Apache-2.0</td></tr>
+          <tr><td>Packages shipped in the wheel</td><td><code>pyproject.toml:79-81</code></td><td class="num"><code>unsloth*</code>, <code>unsloth_cli*</code>, <code>studio</code>, <code>studio.backend*</code></td></tr>
+          <tr><td><code>unsloth_cli/</code> files with an AGPL SPDX tag</td><td>uniform — zero Apache headers</td><td class="num no">36 / 36</td></tr>
+          <tr><td>AGPL-tagged files in the tree</td><td>3,164 occurrences</td><td class="num">3,162 files</td></tr>
+          <tr><td>AGPL files reaching the wheel</td><td>after <code>exclude-package-data</code> drops 622 test files</td><td class="num">~2,110</td></tr>
+          <tr><td>Core files with an Apache <em>prose</em> header</td><td><code>unsloth/*.py</code></td><td class="num ok">56 / 95</td></tr>
+          <tr><td>Core files with an AGPL SPDX tag</td><td>both paired with the 2023 copyright line — a template slip</td><td class="num mid">2</td></tr>
+          <tr><td>CI jobs enforcing any licence header</td><td>—</td><td class="num no">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p><strong>This is not concealment</strong>, and saying so was my own error, withdrawn. The dual licence is in the README, both licence texts are committed at root, GitHub's sidebar shows “Apache-2.0, AGPL-3.0,” and v23 recorded the arrangement in April. It is also <strong>not a legal conclusion</strong> — that needs a lawyer, and depends on what a downstream user imports and whether they serve it over a network.</p>
+      <p>The sufficient claim is narrower: <strong>the README's boundary does not describe the wheel's contents</strong>, and a reader who relies on that sentence to decide what they may build on is relying on something the packaging does not support.</p>
+      <p>⭐ Against last ship this is a matched pair. <strong>v244 OpenSandbox had a licence gate and used it to over-assert an identity its governance document never named; v245 has no gate and under-asserts one its packaging enforces anyway.</strong> Both repositories' prose disagrees with their build — and in both, the build is the honest one. There it was a CI job; here it is <code>packages.find</code>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">07</span><h2>The triad, finally broken properly</h2></div>
+    <div class="col">
+      <p>This corpus has recorded a broken-authentication triad three times — bind <code>0.0.0.0</code>, wildcard CORS, auth fails open. v244 was the first positive counter-example, and its answer was a consent gate around an insecure default. Unsloth's answer is better: <strong>it does not have the insecure default.</strong></p>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>leg</th><th>verdict</th><th>evidence</th></tr></thead>
+        <tbody>
+          <tr><td>bind</td><td class="ok">127.0.0.1 by default</td><td><code>studio.py:1709</code>, <code>:2268</code></td></tr>
+          <tr><td>auth</td><td class="ok">real + mandatory</td><td>password + JWT + refresh, forced default-admin change, API keys, per-IP <em>and</em> per-user lockout</td></tr>
+          <tr><td>CORS</td><td class="mid">defaults to <code>["*"]</code></td><td><code>utils/host_policy.py:50-56</code></td></tr>
+          <tr><td><code>--secure</code></td><td class="ok">forces loopback</td><td><code>run.py:2258-2266</code> — “so the raw port is never public (even <code>-H 0.0.0.0</code>)”</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="lbl">Rule minted — D33</span>
+      <p><strong>The broken-auth triad is not additive.</strong> The CORS leg looks identical to v231/v232 — and it is far less dangerous here, for a reason located somewhere else entirely: <code>grep set_cookie</code> across the backend returns nothing. The session travels as an <code>Authorization: Bearer</code> header, and a browser does not attach that cross-origin on its own.</p>
+      <p><strong>Leg 3's severity is set by the token transport — cookie-borne is critical, header-borne bearer is minor.</strong> Ask how the token travels <em>before</em> weighting the CORS finding. <span style="color:var(--slate)">NOT VERIFIED: whether the frontend persists the JWT in <code>localStorage</code>, which would make XSS the real vector.</span></p>
+    </div>
+
+    <div class="col">
+      <h3>And the calibre of the work</h3>
+      <blockquote><p><strong>Measured in WebKit</strong>: with Starlette's 600s default, a state-changing request still REACHED the server after remote access was stopped (Chromium/Firefox/Edge re-preflighted). Keep the stale window short so revocation is nearly as immediate as every other trust signal here.</p></blockquote>
+      <p>They found a browser-specific revocation gap in their own remote-access kill switch, measured which engines exhibited it, and set the preflight cache to 60 seconds.</p>
+
+      <h3>Supply chain: a new corpus high-water mark</h3>
+      <p>pi v228 held this title with <code>min-release-age=2</code>. Unsloth's <code>.npmrc</code> sets <strong>7</strong> — N=2 on the technique — with <code>save-exact</code>, a pinned registry, <code>audit-level=high</code>, “use <code>npm ci</code> (never <code>npm install</code>)”, and <strong>zero npm lifecycle scripts</strong> across all three <code>package.json</code> files. But the reason it takes the title is that it <em>documents its own defeat condition</em>:</p>
+      <blockquote><p>this does NOT block an ambient <code>NPM_CONFIG_REGISTRY</code> env var: npm and bun honor that at a higher precedence than this project file. <strong>That is exactly why Unsloth does not read <code>NPM_CONFIG_REGISTRY</code></strong> and instead exposes one deliberate, explicit opt-in.</p></blockquote>
+      <p><strong>The best security comment states what its control does not cover.</strong></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">08</span><h2>Two more things the git metadata says</h2></div>
+    <div class="col">
+      <h3>Three roots, not one</h3>
+      <p><code>1e2ba1b1d</code> (2023-11-30, Daniel Han — the library) · <code>42490cfbc</code> (<strong>2025-12-10</strong>, Dan Saunders, “train CLI”) · <code>b5aa137b7</code> (<strong>2026-01-27</strong>, Roland Tannous, “first commit” — the studio skeleton). All three are ancestors of HEAD, plus a “Restore non-studio files from main after history recovery” commit. <strong>D19 extended: count the roots and date each one.</strong> “Since 2023” is true of 4.3% of this tree; three-quarters of it is about six months old.</p>
+
+      <h3>The tag list dates the identity flip</h3>
+      <p>For twenty months this project tagged <em>months</em>: <code>July-2024</code>, <code>July-Mistral-2024</code>, <code>2025-02-v2</code>, <code>March-2026</code> — twenty-four milestone tags, no product versions. Then on <strong>2026-03-20</strong> it cut <code>v0.1.0-beta</code>, eleven days after AGPL landed on <code>studio/</code> and three days after <code>cli/</code> became <code>unsloth_cli/</code>. Fifty-three beta tags followed in five months, including eight in five days.</p>
+      <p>A library that ships continuously tags months. A product that ships installers needs version numbers, and a <code>desktop-</code> tag. <strong>The versioning scheme changed because the artifact did.</strong> Two schemes still coexist, one per identity: <code>_version.py</code> — “the single source of truth” — reads <code>2026.8.18</code>, while the app is <code>v0.1.800-beta</code>. <strong>The product line has never left beta</strong>, on a 73.7k★ project shipping signed installers.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">09</span><h2>Rules this ship adds</h2></div>
+    <div class="rules">
+      <div class="r"><span class="id">D31</span><p>A <strong>scope verdict is a claim about a date</strong>, not a property of a subject. OUTSIDE-SCOPE closes the file, so it rots unobserved. Detector: the description field and the directory shares. <strong>Work-list: re-check LLaMA-Factory v22 first</strong> — same domain, same era, same ruling, Pattern #41's co-anchor. One WebFetch.</p></div>
+      <div class="r"><span class="id">D32</span><p>When two documents must carry the same fact and mechanisation is impractical, <strong>declare which copy wins, inside the copy that loses.</strong> One sentence; no tooling — <strong>and proven by its own author's stale file.</strong></p></div>
+      <div class="r"><span class="id">D33</span><p><strong>The broken-auth triad is not additive.</strong> Wildcard-CORS severity is set by token transport. Ask how the token travels first.</p></div>
+      <div class="r ext"><span class="id">D19 ext.</span><p><strong>Count the roots.</strong> A single-root provenance check misses a graft that hides a young project inside an old repository's age.</p></div>
+      <div class="r ext"><span class="id">D26 ✓</span><p>Confirmed at a third point: trailer-lines-per-commit tracks merge strategy — 1.73 merge-dominant, <strong>2.98 mixed</strong>, 5.48 squash-dominant.</p></div>
+      <div class="r ext"><span class="id">D29 ↔</span><p><strong>Cuts both ways.</strong> Test the claim you <em>want</em> to be true — and do not test a claim the subject has since withdrawn.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">10</span><h2>Error ledger — 13 caught, 10 mine</h2></div>
+    <div class="col">
+      <ul class="plain">
+        <li><strong>“The AGPL header pointer is a dead link.”</strong> The file exists. I went looking for v240's case and assumed before checking.</li>
+        <li><strong>“Unsloth conceals its licensing.”</strong> Fully disclosed — README, both licence files, GitHub's sidebar, and v23. <em>Exonerating.</em></li>
+        <li><strong>“Auth may fail open; CORS is critical.”</strong> Loopback default, real auth, no cookies. Downgraded — and the downgrade produced D33.</li>
+        <li><strong>“80 of 95 core files carry no licence header.”</strong> 56 carry the Apache <em>prose</em> header. “Zero Apache SPDX” was a true statement about <em>notation</em> masquerading as a finding about <em>substance</em> — and the finding got stronger once it moved onto <code>packages.find</code>.</li>
+        <li><strong>“79 tags, all beta, no non-beta ever.”</strong> Twenty-six are non-beta. <code>git tag | tail</code> sorts <em>lexically</em>, not by date — I read a sampling bias as recency. The corrected reading became finding 08.</li>
+        <li><strong>“Non-Claude AI trailers = 1.”</strong> There are 104 on HEAD — <code>gemini-code-assist[bot]</code> 86, Cursor 12, Copilot 4, Codex 2. I checked the key form (<code>Made-with: X</code>) and not the value form. <strong>I avoided the over-count and committed the under-count in the same paragraph.</strong></li>
+        <li><strong>“3,164 AGPL files.”</strong> 3,162 files, 3,164 occurrences. <strong>“~2,700 reach the wheel.”</strong> ~2,110 — <code>exclude-package-data</code> drops 622.</li>
+        <li><strong>“LlamaFactory is v37.”</strong> v22. <strong>“Test the 500+ models claim.”</strong> It is no longer in the README.</li>
+      </ul>
+
+      <p style="margin-top:22px"><strong>The pattern matters more than the fixes.</strong> Every one of the last four is a <em>counting-method</em> error, not a reading error: lexical sort read as recency, key-form grep read as all trailers, occurrences read as files, tree read as wheel. This vault already carries D26 and D27 for exactly that family and I made four of them in one ship. The adversarial verify stage caught three; I caught the rest. <strong>That is the case for the verify stage in one sentence: the errors it finds live in the commands, not the prose, so re-reading your own draft will never surface them.</strong></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">11</span><h2>What to actually do</h2></div>
+    <div class="col">
+      <p>⚠️ <strong>Read-and-borrow.</strong> The licence ambiguity makes Unsloth a non-component for hireui — the v214 / v188 / v243 precedent. Nothing below installs anything.</p>
+      <ul class="plain">
+        <li><strong>M1 — strip the credential.</strong> Any script that sets <code>ANTHROPIC_BASE_URL</code> also unsets <code>ANTHROPIC_API_KEY</code> and <code>CLAUDE_CODE_OAUTH_TOKEN</code>. Two lines; closes accidental billing and key leakage at once.</li>
+        <li><strong>M2 — measure the prompt.</strong> <code>claude -p /context</code> in the vault root, then diff against <code>--tools "Bash,Read,Edit,Write,Grep"</code>. The first real measurement of the ~54K floor v167 established and v238 asked for.</li>
+        <li><strong>M3 — apply D32 today.</strong> One header line in <code>_state/03c-projects-v61-v183.md</code> naming the entries authoritative and the filename stale. Four ships diagnosed this; one sentence resolves it while the rename stays on the list.</li>
+        <li><strong>M5 — make <code>verify-vault-docs</code> a generator, not a linter.</strong> The structural payoff.</li>
+      </ul>
+      <p style="margin-top:20px">🔴 Never point it at candidate data. Never <code>-H 0.0.0.0</code> without <code>--secure</code>. Never meter a routed Claude Code with <code>cache_read_input_tokens</code> — on the Anthropic path Studio never sets it, so it reads 0 on every request regardless of the truth.</p>
+    </div>
+  </section>
+
+  <div class="blunt">
+    <div class="sec-head" style="border-top:none;padding-top:0"><span class="n">—</span><h2>Blunt</h2></div>
+    <div class="col">
+      <p>A fine-tuning library became an agent host in ninety days and this vault only found out because someone asked for a wiki. v23 filed it OUTSIDE-SCOPE with “Direct adoption: NONE” — a defensible reading of a training framework in April. By July it was writing Claude Code plugins. Nothing in our criteria changed; the file was simply closed, and a closed file does not get re-read. <strong>That is the finding, and it is about us: the one verdict that ends the conversation is the one that most needs an expiry date.</strong></p>
+      <p>What they built is genuinely good, and better than this corpus's usual band. They point Claude Code at a local model and <em>delete your Anthropic key on the way</em> — after four consecutive ships whose whole business model was harvesting exactly that credential. They refuse to set <code>IS_SANDBOX</code> on your machine because it would be a lie, then set it in CI where it isn't. They found an undocumented Claude Code default that moves the system-prompt prefix every turn and kills the KV cache, fixed it, and wrote a CI test that <em>fails if the unfixed version stops failing</em> — and two other projects, one of them our own v73, found the same thing independently. Their <code>.npmrc</code> documents its own defeat condition. Their CORS preflight window is sixty seconds because somebody measured WebKit still landing a state-changing request after the kill switch was pulled.</p>
+      <p>And the most valuable thing in 1.75 million lines is one sentence in a file about Kaggle GPU quotas: <em>“If the two ever disagree, the workflow is right and this file is stale; fix this file.”</em> We have spent eleven ships collecting machinery for a problem that a sentence solves. <code>_state/03c-projects-v61-v183.md</code> has been lying about its own contents for sixty-two versions. v239 found the defect, v240 built the check, v242 named the rule, v243 shipped the symlink, v244 handed us a third instance — and the file is still called <code>-v183</code>, because every proposed fix was a project. <strong>Unsloth's fix is not a project. It is a line of prose that tells the reader which of two disagreeing things to believe, written into the one that's wrong.</strong> Do that today, and keep the rename on the list.</p>
+      <p>The catch is boring and real: the licence. <code>pip install unsloth</code> ships a uniformly AGPL CLI inside a wheel stamped Apache-2.0, and the README calls the AGPL side “certain optional components.” Nobody is hiding anything — it is in the sidebar, and v23 wrote it down in April — but the sentence people will rely on is not the sentence the packaging supports. So: take the five ideas, install none of it, and note that the two best-engineered repositories this corpus has read back to back both ended up with prose that disagrees with their build. In both, the build was the honest one.</p>
+    </div>
+  </div>
+
+  <footer>
+    LLM Wiki v245 · <code>unslothai/unsloth</code> · 5th corpus-recursive revisit, ↺ v23 (2026-04-20)<br>
+    Source-cloned twice at <code>cabed07f95676ef6267ce0fd64115b1e9c51e74a</code> — 3,972 files / 1,752,665 lines; 7,476 commits on HEAD, 21,442 with <code>--all</code>. Every count declares its ref population.<br>
+    GOAL-ALIGNED INCLUDE 3/4 · (b) FAIL → STRONG on the same repository · 1 new §C standalone at N=1 · counts 46 / 11 unchanged · streak GA:103 · §35 clear.<br>
+    Stars page-stated (§37.4, API mocked) — <strong>not</strong> a Pattern #52 claim. The v23 anchor is preserved unmodified.<br>
+    Claude Opus 5 for Storm Bear · 2026-08-19
+  </footer>
+
+</div>
