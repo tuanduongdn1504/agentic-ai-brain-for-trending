@@ -1,0 +1,622 @@
+<title>ToolJet Agent Layer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+  :root{
+    --paper:#f6f6f3; --surface:#fffffe; --sunk:#eeeeea;
+    --ink:#16181f; --body:#3a3d49; --muted:#6d7080; --faint:#9a9daa;
+    --rule:#dededa; --rule-strong:#c6c6c1;
+    --accent:#4b57d6; --accent-soft:#e8e9fa; --accent-deep:#2f39a8;
+    --good:#1c6f54; --good-soft:#e2f0eb;
+    --risk:#a94818; --risk-soft:#fbeae1;
+    --warn:#8a6712; --warn-soft:#f7f0dd;
+    --shadow:0 1px 2px rgba(22,24,31,.05), 0 8px 24px -12px rgba(22,24,31,.14);
+    --measure:70ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#121319; --surface:#1a1c24; --sunk:#0d0e13;
+      --ink:#f0f0ee; --body:#c3c5cf; --muted:#9497a4; --faint:#6a6d7a;
+      --rule:#2b2d37; --rule-strong:#3d404c;
+      --accent:#96a0ff; --accent-soft:#22253a; --accent-deep:#b9c0ff;
+      --good:#6ec8a4; --good-soft:#16281f;
+      --risk:#f0906a; --risk-soft:#2e1a12;
+      --warn:#dcb455; --warn-soft:#2a2210;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#121319; --surface:#1a1c24; --sunk:#0d0e13;
+    --ink:#f0f0ee; --body:#c3c5cf; --muted:#9497a4; --faint:#6a6d7a;
+    --rule:#2b2d37; --rule-strong:#3d404c;
+    --accent:#96a0ff; --accent-soft:#22253a; --accent-deep:#b9c0ff;
+    --good:#6ec8a4; --good-soft:#16281f;
+    --risk:#f0906a; --risk-soft:#2e1a12;
+    --warn:#dcb455; --warn-soft:#2a2210;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--body);
+    font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16.5px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:min(94vw,860px); margin:0 auto; padding:clamp(2.5rem,7vw,5.5rem) 0 6rem}
+  section{margin:0 0 3.25rem}
+
+  h1,h2,h3{font-family:Newsreader,Georgia,serif; color:var(--ink); text-wrap:balance; margin:0}
+  h1{font-size:clamp(2.3rem,6vw,3.5rem); font-weight:500; line-height:1.06; letter-spacing:-.017em}
+  h2{font-size:clamp(1.42rem,3.3vw,1.85rem); font-weight:500; line-height:1.2; letter-spacing:-.011em}
+  h3{font-size:1.09rem; font-weight:600; line-height:1.34; margin:0 0 .4rem}
+  p{margin:0 0 1.05rem; max-width:var(--measure)}
+  a{color:var(--accent-deep); text-decoration-thickness:1px; text-underline-offset:2px}
+  strong{color:var(--ink); font-weight:600}
+  em{font-style:italic}
+  code,kbd,.m{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  code{font-size:.855em; background:var(--sunk); padding:.1em .34em; border-radius:3px; color:var(--ink)}
+
+  /* ── eyebrow / labels ── */
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace; font-size:.665rem; font-weight:500;
+    letter-spacing:.15em; text-transform:uppercase; color:var(--muted);
+    display:flex; flex-wrap:wrap; gap:.55rem 1.1rem; align-items:baseline;
+  }
+  .sec-head{display:flex; flex-direction:column; gap:.55rem; margin:0 0 1.35rem}
+  .sec-head .eyebrow{color:var(--accent)}
+
+  /* ── provenance chips: the page's structural device ── */
+  .chip{
+    display:inline-flex; align-items:center; gap:.34rem;
+    font-family:"JetBrains Mono",monospace; font-size:.63rem; font-weight:700;
+    letter-spacing:.075em; text-transform:uppercase;
+    padding:.2rem .46rem; border-radius:3px; white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .chip::before{content:""; width:5px; height:5px; border-radius:50%; background:currentColor; flex:none}
+  .c-clone{color:var(--good); background:var(--good-soft); border-color:color-mix(in srgb,var(--good) 26%,transparent)}
+  .c-page{color:var(--warn); background:var(--warn-soft); border-color:color-mix(in srgb,var(--warn) 26%,transparent)}
+  .c-risk{color:var(--risk); background:var(--risk-soft); border-color:color-mix(in srgb,var(--risk) 26%,transparent)}
+  .c-fix{color:var(--accent); background:var(--accent-soft); border-color:color-mix(in srgb,var(--accent) 26%,transparent)}
+
+  /* ── hero ── */
+  header.hero{border-bottom:1px solid var(--rule-strong); padding-bottom:2.5rem; margin-bottom:3rem}
+  .hero .eyebrow{margin-bottom:1.25rem}
+  .lede{font-size:1.115rem; color:var(--body); max-width:64ch; margin-top:1.15rem}
+  .hero-chips{display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1.6rem}
+
+  /* ── the symlink artifact: the thesis object ── */
+  .artifact{
+    margin:2.1rem 0 0; background:var(--sunk); border:1px solid var(--rule);
+    border-radius:6px; overflow:hidden; box-shadow:var(--shadow);
+  }
+  .artifact-bar{
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    padding:.5rem .85rem; border-bottom:1px solid var(--rule);
+    background:var(--surface);
+    font-family:"JetBrains Mono",monospace; font-size:.65rem; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+  }
+  .artifact pre{
+    margin:0; padding:1rem .95rem; overflow-x:auto;
+    font-family:"JetBrains Mono",monospace; font-size:.79rem; line-height:1.78;
+    color:var(--body); tab-size:2;
+  }
+  .artifact pre b{color:var(--ink); font-weight:700}
+  .artifact pre .ar{color:var(--accent); font-weight:700}
+  .artifact pre .dim{color:var(--faint)}
+  .artifact pre .ok{color:var(--good); font-weight:500}
+
+  /* ── ledger: every number declares its basis ── */
+  .ledger{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden}
+  .row{
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.35rem 1.25rem;
+    padding:.85rem 1rem; background:var(--surface); align-items:baseline;
+  }
+  .row .k{color:var(--ink); font-weight:600; font-size:.945rem}
+  .row .v{
+    font-family:"JetBrains Mono",monospace; font-variant-numeric:tabular-nums;
+    font-size:1.14rem; font-weight:700; color:var(--accent); text-align:right; white-space:nowrap;
+  }
+  .row .basis{
+    grid-column:1/-1; font-family:"JetBrains Mono",monospace; font-size:.665rem;
+    letter-spacing:.055em; text-transform:uppercase; color:var(--muted);
+  }
+  .row.neg .v{color:var(--risk)}
+  .row.pos .v{color:var(--good)}
+
+  /* ── finding blocks ── */
+  .find{
+    border-left:2px solid var(--rule-strong); padding:0 0 0 1.15rem; margin:0 0 1.9rem;
+  }
+  .find.key{border-left-color:var(--accent)}
+  .find.bad{border-left-color:var(--risk)}
+  .find.good{border-left-color:var(--good)}
+  .find > .eyebrow{margin-bottom:.45rem}
+  .find p:last-child{margin-bottom:0}
+
+  blockquote{
+    margin:1.1rem 0; padding:.85rem 1.1rem; background:var(--accent-soft);
+    border-left:2px solid var(--accent); border-radius:0 4px 4px 0;
+    font-family:Newsreader,Georgia,serif; font-size:1.055rem; color:var(--ink); max-width:var(--measure);
+  }
+  blockquote p{margin:0; max-width:none}
+  blockquote cite{
+    display:block; margin-top:.5rem; font-family:"JetBrains Mono",monospace;
+    font-size:.655rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); font-style:normal;
+  }
+
+  .tw{overflow-x:auto; margin:1.2rem 0; border:1px solid var(--rule); border-radius:6px; background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:.885rem}
+  th,td{text-align:left; padding:.62rem .8rem; border-bottom:1px solid var(--rule); vertical-align:top}
+  thead th{
+    font-family:"JetBrains Mono",monospace; font-size:.635rem; font-weight:700;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+    background:var(--sunk); white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:none}
+  td.n{font-family:"JetBrains Mono",monospace; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; color:var(--ink); font-weight:500}
+  td strong{font-weight:600}
+
+  ul,ol{margin:0 0 1.05rem; padding-left:1.25rem; max-width:var(--measure)}
+  li{margin:0 0 .42rem}
+  li::marker{color:var(--faint)}
+
+  .verdict{
+    background:var(--surface); border:1px solid var(--rule); border-radius:6px;
+    padding:1.35rem 1.5rem; box-shadow:var(--shadow);
+  }
+  .grade{display:flex; flex-wrap:wrap; gap:.5rem; margin:.9rem 0 1.1rem}
+  .g{
+    font-family:"JetBrains Mono",monospace; font-size:.7rem; font-weight:700; letter-spacing:.05em;
+    padding:.28rem .55rem; border-radius:3px; border:1px solid var(--rule-strong); color:var(--muted);
+  }
+  .g.on{color:var(--good); border-color:color-mix(in srgb,var(--good) 40%,transparent); background:var(--good-soft)}
+  .g.off{color:var(--risk); border-color:color-mix(in srgb,var(--risk) 34%,transparent); background:var(--risk-soft)}
+
+  footer{margin-top:4rem; padding-top:1.4rem; border-top:1px solid var(--rule-strong)}
+  footer p{font-size:.855rem; color:var(--muted); max-width:none}
+
+  hr.d{border:none; border-top:1px solid var(--rule); margin:2.6rem 0}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    .row{grid-template-columns:1fr}
+    .row .v{text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">
+    <span>Wiki v243</span><span>2026-08-19</span><span>ToolJet/ToolJet</span><span>AGPL-3.0</span>
+  </div>
+  <h1>Nine bytes that cannot lie</h1>
+  <p class="lede">
+    ToolJet is a five-year-old open-source platform for building internal tools. The reason the vault
+    read it is that on <strong>18 August 2026 — the day before this analysis</strong> — it merged a
+    complete, harness-agnostic agent-context layer onto <span class="m">main</span>. The load-bearing
+    part is a symlink.
+  </p>
+  <div class="hero-chips">
+    <span class="chip c-clone">Source-cloned</span>
+    <span class="chip c-clone">17,101 commits</span>
+    <span class="chip c-page">Stars page-stated</span>
+    <span class="chip c-fix">12 errors logged</span>
+    <span class="chip c-risk">No mint</span>
+  </div>
+
+  <div class="artifact">
+    <div class="artifact-bar"><span>the finding, as the filesystem shows it</span><span>ls -l</span></div>
+<pre>-rw-r--r--  5898  <b>AGENTS.md</b>              <span class="dim">← real file, canonical</span>
+lrwxr-xr-x     9  <b>CLAUDE.md</b> <span class="ar">-></span> AGENTS.md  <span class="ok">← cannot drift</span>
+
+.claude/skills/commit    <span class="ar">-></span> ../../.agents/skills/commit
+.claude/skills/merge     <span class="ar">-></span> ../../.agents/skills/merge
+.claude/skills/create-pr <span class="ar">-></span> ../../.agents/skills/create-pr</pre>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>01 — the thesis</span></div>
+    <h2>Claude Code does not read <span class="m" style="font-size:.86em">AGENTS.md</span>. ToolJet's answer is a symlink, not a second file.</h2>
+  </div>
+
+  <p>
+    The usual workaround for a harness that only reads its own filename is to keep two context files and
+    try to remember to update both. ToolJet's answer is structural: <strong>one canonical file, and the
+    other name is a view of it.</strong> A symlink cannot disagree with its target. This is the cheapest
+    available answer to a problem the vault named one ship ago as <em>D22 — agent-facing prose goes stale
+    first</em>: it removes the failure mode instead of policing it.
+  </p>
+
+  <blockquote>
+    <p>Canonical file: <span class="m">AGENTS.md</span>; <span class="m">CLAUDE.md</span> is a symlink to it.</p>
+    <cite>AGENTS.md, line 3 — the convention documents itself</cite>
+  </blockquote>
+
+  <div class="find bad">
+    <div class="eyebrow"><span>and the deployment is 3 of 13</span> <span class="chip c-risk">defect</span></div>
+    <p>
+      Thirteen directories carry an <span class="m">AGENTS.md</span>. Only three — root,
+      <span class="m">frontend/</span>, <span class="m">server/</span> — get a
+      <span class="m">CLAUDE.md</span> beside them. The <strong>ten per-module context files, 59 KB of
+      ToolJet's most specific guidance, are invisible to the harness their own commit trailers prove they
+      use.</strong> The design is right; the bridge was built at a quarter of the crossings.
+    </p>
+  </div>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>02 — the ledger</span><span>every number states its basis</span></div>
+    <h2>Six load-bearing counts</h2>
+  </div>
+  <p>
+    This ship earned two decision rules about counting, so the page declares the basis of every figure it
+    prints. Two of these numbers were wrong on the first pass and are corrected here.
+  </p>
+
+  <div class="ledger">
+    <div class="row">
+      <span class="k">Commits carrying a <span class="m">Co-Authored-By: Claude</span> trailer</span>
+      <span class="v">165</span>
+      <span class="basis">distinct commits · population HEAD/main · 0.96% of 17,101</span>
+    </div>
+    <div class="row">
+      <span class="k">Claude trailer <em>lines</em> inside those 165 commits</span>
+      <span class="v">905</span>
+      <span class="basis">lines, not commits · mean 5.48 per commit · max 143 in one squash</span>
+    </div>
+    <div class="row">
+      <span class="k">Same count across all 1,271 refs</span>
+      <span class="v">1,412</span>
+      <span class="basis">population --all · 25,613 commits · +56% vs HEAD</span>
+    </div>
+    <div class="row">
+      <span class="k">Trailer lines naming <span class="m">(1M context)</span></span>
+      <span class="v">586</span>
+      <span class="basis">64.8% of 905 · HEAD</span>
+    </div>
+    <div class="row pos">
+      <span class="k">Lifecycle scripts across the whole monorepo</span>
+      <span class="v">1 / 103</span>
+      <span class="basis">package.json files · only root "prepare": husky install · zero postinstall</span>
+    </div>
+    <div class="row neg">
+      <span class="k">Unit-test files covering 280,321 lines of frontend</span>
+      <span class="v">8</span>
+      <span class="basis">*.test / *.spec under frontend/ · server is 80 specs · 122 Cypress E2E carry the load</span>
+    </div>
+  </div>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>03 — provenance</span></div>
+    <h2>905 model-versioned trailers that nobody asked for</h2>
+  </div>
+
+  <p>
+    A grep for <span class="m">Co-Authored-By</span>, <span class="m">Claude-Session</span> or
+    <span class="m">noreply@anthropic.com</span> across every agent file, all thirteen
+    <span class="m">AGENTS.md</span>, the CI workflows, the git hooks and
+    <span class="m">CONTRIBUTING.md</span> returns <strong>zero hits.</strong> There is no policy.
+    <strong>These trailers are a Claude Code default, left on.</strong> My first reading credited ToolJet
+    with the strongest AI-provenance practice in the corpus; that reading is withdrawn.
+  </p>
+  <p>
+    The finding survives in a better form. Precisely because nobody designed it, the record is
+    <strong>uncurated</strong> — no selection effect, nobody performing for posterity. It is accidental
+    longitudinal telemetry of one engineering organisation's real usage, model version by model version.
+  </p>
+
+  <div class="tw">
+    <table>
+      <caption class="eyebrow" style="padding:.7rem .8rem;text-align:left;display:block">Model named in the trailer · 905 lines · population HEAD</caption>
+      <thead><tr><th>Model</th><th style="text-align:right">Lines</th><th>Model</th><th style="text-align:right">Lines</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Opus 4.6</strong></td><td class="n">378</td><td>Opus 4.5</td><td class="n">38</td></tr>
+        <tr><td><strong>Opus 4.8</strong></td><td class="n">231</td><td>Opus 5</td><td class="n">8</td></tr>
+        <tr><td><strong>Opus 4.7</strong></td><td class="n">122</td><td>Sonnet 5</td><td class="n">4</td></tr>
+        <tr><td>Sonnet 4.6</td><td class="n">59</td><td>Sonnet 4.5</td><td class="n">1</td></tr>
+        <tr><td>Fable 5</td><td class="n">58</td><td>unversioned</td><td class="n">6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="find key">
+    <div class="eyebrow"><span>the ratio</span></div>
+    <p>
+      Against <strong>130</strong> Copilot trailer lines on the same branch, Claude trailers outnumber
+      them <strong>6.96 to 1</strong> — and 9.05 to 1 across all refs. ToolJet took investment from
+      Microsoft's M12 fund and GitHub in 2023. Stated as a fact about attribution trailers, which is all
+      it is: a trailer marks assistance, not authorship, and says nothing about lines of code.
+    </p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Ship</th><th>Provenance mechanism</th><th>Deliberate?</th></tr></thead>
+      <tbody>
+        <tr><td class="m">v239</td><td>a PR-form field naming Claude Code</td><td><strong>yes</strong> — required metadata</td></tr>
+        <tr><td class="m">v242</td><td>branch-name prefix (<span class="m">codex/</span> 211, <span class="m">claude/</span> 3)</td><td>no — incidental</td></tr>
+        <tr><td class="m">v243</td><td>commit trailer naming the <strong>model version</strong>, + 11 session URLs</td><td><strong>no — a default nobody turned off</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--ink);font-weight:600">The richest data came from the mechanism nobody designed.</p>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>04 — the cause</span></div>
+    <h2>The same problem, solved twice, seventeen months apart</h2>
+  </div>
+  <p>
+    ToolJet's enterprise code lives in two git submodules — <span class="m">frontend/ee</span> and
+    <span class="m">server/ee</span> — and <strong>both are private.</strong> Verified at the git
+    protocol level, not from a 404 page: <span class="m">git ls-remote</span> on each demands
+    credentials. So <span class="m">git clone --recurse-submodules</span> cannot succeed for anyone
+    outside the company, and every git operation inside it spans three repositories.
+  </p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Date</th><th>Commit</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td class="n">2025-02-25</td><td class="m">5bdfbe6de</td><td><strong>Submodules added.</strong> The three-repo fan-out problem is born.</td></tr>
+        <tr><td class="n">2025-02-26</td><td class="m">a32580f14</td><td><strong>12 git aliases committed.</strong> Solved for humans, the next day — on <span class="m">submodule foreach</span> and shell loops.</td></tr>
+        <tr><td class="n">2026-03-19</td><td class="m">9bbb1dc09</td><td>A developer's <span class="m">.claude/worktrees/</span> gitlink leaks in; removed and gitignored. Co-authored by Claude Sonnet 4.6.</td></tr>
+        <tr><td class="n">2026-07-28</td><td class="m">75eef168d</td><td>Agent layer authored. <em>Not an ancestor of main</em> — the pre-squash original.</td></tr>
+        <tr><td class="n">2026-08-18</td><td class="m">e416bc08e</td><td><strong>Squash-merged onto main</strong> after 15 commits. Solved for agents, ~17.7 months later.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    <p>
+      <span class="m" style="font-size:.86em">for</span> loops cause
+      <span class="m" style="font-size:.86em">git: command not found</span> — never use loops. Always use
+      <span class="m" style="font-size:.86em">git -C &lt;path&gt;</span> — never
+      <span class="m" style="font-size:.86em">cd &lt;path&gt; &amp;&amp; git</span>.
+    </p>
+    <cite>.agents/skills/*/SKILL.md — the shell-environment warning, in all three skills</cite>
+  </blockquote>
+
+  <div class="find key">
+    <div class="eyebrow"><span>why this matters to the vault</span> <span class="chip c-fix">act on this</span></div>
+    <p>
+      <strong>The agent skills are not a port of the human aliases — they forbid the construct the
+      aliases are built on.</strong> Same problem, same team, same repository, two incompatible
+      implementations, because the executor changed. And the vault has been recording this same shell
+      behaviour as its own local flakiness. It is not:
+      <strong>this is a second, independent, cross-organisation observation</strong> of a Claude Code
+      execution defect — and ToolJet independently derived the vault's own "don't <span class="m">cd</span>"
+      rule in the stronger constructive form. It bit this analysis twice.
+    </p>
+  </div>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>05 — the best artifact in the repository</span></div>
+    <h2>A catalogue of the codebase's own false friends</h2>
+  </div>
+  <p>
+    <span class="m">UBIQUITOUS_LANGUAGE.md</span> is 117 terms in three columns, and it closes with ten
+    <strong>Flagged Ambiguities</strong> — the places where an agent that trusts identifier names will be
+    actively misled. It is not a glossary. It is a list of the names that lie.
+  </p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>The code says</th><th>The truth is</th></tr></thead>
+      <tbody>
+        <tr><td class="m">Organization</td><td>"Workspace" everywhere in the UI. <em>"The code entity name is a legacy artifact."</em></td></tr>
+        <tr><td class="m">docs/docs/widgets/</td><td>contains content that says <strong>Components</strong>. <em>"The folder name is historical."</em></td></tr>
+        <tr><td class="m">flexible</td><td>the <strong>Pro</strong> plan. (<span class="m">business</span> = Team, <span class="m">basic</span> = the free tier.)</td></tr>
+        <tr><td class="m">branch</td><td><strong>three different things.</strong> <em>"never use bare 'branch' for an app Version."</em></td></tr>
+        <tr><td class="m">module</td><td>a NestJS module in the backend, a reusable app block in the frontend.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="find key">
+    <div class="eyebrow"><span>the vault has this exact disease</span></div>
+    <p>
+      <span class="m">_state/03c-projects-v61-v183.md</span> holds entries through <strong>v242</strong> —
+      a filename that lies about its contents, flagged by three consecutive ships and fixed by none.
+      ToolJet's <span class="m">widgets/</span> case is literally the same defect.
+      <strong>Their answer to a name they could not cheaply rename was to write down that it lies, in the
+      file the agent reads first.</strong>
+    </p>
+  </div>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>06 — the counter-example</span></div>
+    <h2>They have the doctrine. They do not have the check.</h2>
+  </div>
+
+  <blockquote>
+    <p>
+      Update its <span class="m" style="font-size:.86em">AGENTS.md</span> in the same PR. …
+      <strong>Stale context is worse than no context.</strong>
+    </p>
+    <cite>AGENTS.md — the living-docs rule</cite>
+  </blockquote>
+
+  <p>
+    The policy is right, the update is required <em>in the same PR</em>, and there is a template to
+    create a missing file from. <strong>Nothing verifies it</strong> — no linter, no CI job, no script in
+    any workflow. And the consequence is already sitting in the tree.
+  </p>
+
+  <div class="find bad">
+    <div class="eyebrow"><span>plans/widget-css-class.md · committed 2026-06-24</span> <span class="chip c-risk">rotted</span></div>
+    <p>
+      One genuinely excellent implementation plan — with inline <em>"(Grill correction — …)"</em> and
+      <em>"(PM correction, 2026-06-18)"</em> annotations and a phase tagged <span class="m">Type: AFK</span>.
+      Its header cites three companion documents. <strong>All three are missing from the repository.</strong>
+      The body says <em>"See ADR 0001."</em> There is no ADR 0001 — there are zero ADR files anywhere. And
+      <strong>no <span class="m">AGENTS.md</span> mentions <span class="m">plans/</span> at all</strong>,
+      so a linter comparing the context index to the code would never have flagged it. Eight weeks,
+      unnoticed.
+    </p>
+  </div>
+
+  <div class="find good">
+    <div class="eyebrow"><span>and this is what makes it an argument, not a complaint</span></div>
+    <p>
+      The squashed body of the agent-layer commit preserves fifteen bullet subjects. Three of them are
+      the prose-versus-code check performed <strong>by hand</strong>:
+      <span class="m">docs: revise glossary against current code and docs</span> ·
+      <span class="m">docs: align lint guidance with CI lint jobs</span> ·
+      <span class="m">docs: remove accidentally committed context-mode tooling block</span>.
+      They ran the check three times, carefully, and produced excellent documentation — and the one
+      artifact outside that review's scope rotted anyway. <strong>Care does not scale. A script does.</strong>
+    </p>
+  </div>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>07 — for the operator</span></div>
+    <h2>The plugin you would actually touch is two generations stale</h2>
+  </div>
+  <p>
+    The CE tree ships <strong>49 built-in data-source connectors and 45 marketplace plugins</strong>,
+    including <span class="m">anthropic</span>, <span class="m">openai</span>,
+    <span class="m">aws-bedrock</span>, <span class="m">pinecone</span> and <span class="m">qdrant</span>.
+    None of the four marketed AI features — app generation, query builder, debugging, agent builder —
+    is in this repository; all live behind the private submodules, metered by
+    <span class="m">AI Credits</span>.
+  </p>
+
+  <div class="artifact">
+    <div class="artifact-bar"><span>marketplace/plugins/anthropic/lib/operations.json</span><span>the bug</span></div>
+<pre>"defaults": { "operation": "chat-v2",
+              "model": <b>"claude-3-5-sonnet-20241022"</b> }
+
+...and the dropdown, in the same file:
+  { "value": "claude-3-5-sonnet-20241022",
+    "name":  "claude-3-5-sonnet-20241022 <span class="dim">(Discontinued)</span>" }</pre>
+  </div>
+
+  <p style="margin-top:1.2rem">
+    <strong>The plugin's out-of-the-box default is a model it itself marks as dead.</strong> Its newest
+    offering is Opus 4.5; absent are Opus 4.6, 4.7, 4.8, Opus 5, Sonnet 4.6, Sonnet 5 and Fable 5. The
+    SDK is pinned to <span class="m">@anthropic-ai/sdk ^0.32.1</span>, which predates adaptive thinking,
+    effort and the 1M window.
+  </p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Plugin</th><th>Model list last updated</th><th>Current-gen models?</th></tr></thead>
+      <tbody>
+        <tr><td class="m">anthropic</td><td class="n">2026-05-14</td><td><strong style="color:var(--risk)">No</strong> — Haiku 4.5 only</td></tr>
+        <tr><td class="m">openai</td><td class="n">2026-06-18</td><td><strong style="color:var(--good)">Yes</strong> — <span class="m">gpt-5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Inside the same marketplace, the OpenAI plugin is maintained to the current generation and the
+    Anthropic plugin is two behind. <strong>The fix is one file, and <span class="m">CONTRIBUTING.md</span>
+    accepts external PRs.</strong>
+  </p>
+</section>
+
+<hr class="d">
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow"><span>08 — verdict</span></div>
+    <h2>Goal-aligned, no mint, three things to do</h2>
+  </div>
+
+  <div class="verdict">
+    <div class="eyebrow" style="color:var(--accent)"><span>classification</span></div>
+    <div class="grade">
+      <span class="g off">(a) FAIL — not Anthropic</span>
+      <span class="g on">(b) STRONG</span>
+      <span class="g on">(c) STRONG</span>
+      <span class="g on">(d) STRONG</span>
+    </div>
+    <p style="margin:0">
+      <strong>GOAL-ALIGNED INCLUDE 3/4. NO MINT.</strong> Retool (2017), Budibase (2019) and Appsmith
+      (2020) precede ToolJet's 2021 root commit; Retool AI and Power Apps Copilot (2023) precede its
+      February-2025 AI launch; the <span class="m">AGENTS.md</span> convention is not ToolJet's, and
+      <strong>v213 (Intel geti) already shipped committed cross-harness symlinks</strong> — so ToolJet is
+      a clean cross-author <strong>N=2</strong> on that axis, <em>recorded and flagged to the audit, not
+      self-promoted.</em> Counts unchanged: <span class="m">46 / 11</span>. Streak
+      <span class="m">GA:101</span>, 24 consecutive.
+    </p>
+  </div>
+
+  <h3 style="margin-top:2.1rem">Two new decision rules</h3>
+  <ul>
+    <li>
+      <strong>D26</strong> — in a squash-merge repository, a grep over commit bodies counts
+      <em>pre-squash</em> commits, not commits. ToolJet squashes 35.6% of its history; 165 commits carry
+      905 trailer lines. It also hides commits entirely — the agent layer's original is not an ancestor
+      of <span class="m">main</span>.
+    </li>
+    <li>
+      <strong>D27</strong> — declare the <em>ref population</em> of every git count, and re-check it
+      before accepting a refutation. This ship's adversarial verifier returned <strong>REFUTED twice, on
+      two unrelated claims, both times by silently switching to <span class="m">--all</span></strong> —
+      and both claims were correct as stated. Extends v241's D21: a verifier can check the right claim
+      against the wrong population.
+    </li>
+  </ul>
+
+  <h3 style="margin-top:1.9rem">The payoff — under thirty minutes, all three</h3>
+  <ol>
+    <li><strong>Symlink the vault's own context files</strong>, so <span class="m">CLAUDE.md</span> and <span class="m">AGENTS.md</span> cannot diverge.</li>
+    <li><strong>Add a <em>Flagged Ambiguities</em> section to <span class="m">CLAUDE.md</span></strong>, opening with the <span class="m">-v183</span> label.</li>
+    <li><strong>Update the flaky-shell memory</strong> — it is the harness, not the machine, and now N=2.</li>
+  </ol>
+  <p>
+    Then the <strong>label check</strong>: assert that every <span class="m">_state/*.md</span> filename's
+    version range matches the entries it contains. Nine consecutive ships have now handed the vault a
+    piece of that tool. ToolJet contributes the structural half — <em>and</em> the proof of what the
+    policy alone buys you.
+  </p>
+</section>
+
+<footer>
+  <p>
+    <strong>Read-and-borrow. Install nothing; not a hireui component.</strong> AGPL-3.0 forbids using
+    ToolJet inside a closed-source hosted product. Never set
+    <span class="m">TOOLJET_WORKFLOW_SANDBOX_BYPASS</span>; CodeQL runs weekly on a schedule and never on
+    a pull request. All star, fork and issue figures are page-stated — the GitHub API is mocked in this
+    environment, so none of this is a viral-velocity claim.
+  </p>
+  <p style="margin-bottom:0">
+    <span class="m" style="font-size:.78rem">v243 · clone HEAD 2f7638c2d7bb0a6eca2e160b687ac994cc8c08e3 · (C) Claude-authored · 12 errors caught, 4 of them mine</span>
+  </p>
+</footer>
+
+</div>
