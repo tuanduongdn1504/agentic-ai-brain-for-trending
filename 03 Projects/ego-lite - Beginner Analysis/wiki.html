@@ -1,0 +1,573 @@
+<title>The Unwired Checks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --surface-2: #F2F3F1;
+    --ink: #171B1F;
+    --ink-soft: #3C454E;
+    --muted: #616B76;
+    --rule: #DDE1DE;
+    --rule-strong: #C4CAC6;
+    --wired: #216F66;
+    --wired-bg: #E4F0EE;
+    --unwired: #A8412A;
+    --unwired-bg: #F8E7E2;
+    --caution: #8A5E15;
+    --caution-bg: #F7EEDC;
+    --shadow: 0 1px 2px rgba(23,27,31,.05), 0 8px 24px -16px rgba(23,27,31,.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171B;
+      --surface: #1A1E23;
+      --surface-2: #21262C;
+      --ink: #E7EAE7;
+      --ink-soft: #C3CAC7;
+      --muted: #8F9AA4;
+      --rule: #2A3037;
+      --rule-strong: #3B434B;
+      --wired: #6FBDB1;
+      --wired-bg: #17322F;
+      --unwired: #E08D74;
+      --unwired-bg: #35211C;
+      --caution: #D8AC58;
+      --caution-bg: #302716;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14171B;
+    --surface: #1A1E23;
+    --surface-2: #21262C;
+    --ink: #E7EAE7;
+    --ink-soft: #C3CAC7;
+    --muted: #8F9AA4;
+    --rule: #2A3037;
+    --rule-strong: #3B434B;
+    --wired: #6FBDB1;
+    --wired-bg: #17322F;
+    --unwired: #E08D74;
+    --unwired-bg: #35211C;
+    --caution: #D8AC58;
+    --caution-bg: #302716;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1.15rem, 4vw, 2rem) 6rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .74rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: Newsreader, ui-serif, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -.02em;
+    margin: 0 0 .5rem;
+    text-wrap: balance;
+  }
+
+  .subject {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .95rem;
+    color: var(--wired);
+    margin: 0 0 1.5rem;
+  }
+
+  .standfirst {
+    font-family: Newsreader, ui-serif, Georgia, serif;
+    font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 2.25rem;
+    text-wrap: pretty;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 3rem; }
+
+  .chip {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .76rem;
+    letter-spacing: .05em;
+    padding: .34rem .68rem;
+    border-radius: 3px;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+  .chip.good { color: var(--wired); border-color: var(--wired); background: var(--wired-bg); }
+  .chip.bad  { color: var(--unwired); border-color: var(--unwired); background: var(--unwired-bg); }
+  .chip.warn { color: var(--caution); border-color: var(--caution); background: var(--caution-bg); }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 3.5rem; }
+
+  h2 {
+    font-family: Newsreader, ui-serif, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.6vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    margin: 0 0 .3rem;
+    text-wrap: balance;
+  }
+
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 1.15rem;
+  }
+
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin: 2rem 0 .5rem;
+    color: var(--ink);
+  }
+
+  p { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--wired); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .chip:focus-visible { outline: 2px solid var(--wired); outline-offset: 2px; }
+
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .87em;
+    background: var(--surface-2);
+    padding: .1em .32em;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+
+  strong { font-weight: 600; color: var(--ink); }
+  em { font-style: italic; }
+
+  ul { margin: 0 0 1.05rem; padding-left: 1.15rem; }
+  li { margin-bottom: .5rem; }
+
+  /* ---------- pull quote ---------- */
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 1.15rem 1.35rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-strong);
+    border-radius: 3px;
+    font-family: Newsreader, ui-serif, Georgia, serif;
+    font-size: 1.13rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  blockquote .attrib {
+    display: block;
+    margin-top: .7rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .74rem;
+    letter-spacing: .04em;
+    color: var(--muted);
+    font-style: normal;
+  }
+  blockquote.good { border-left-color: var(--wired); }
+  blockquote.bad  { border-left-color: var(--unwired); }
+
+  /* ---------- the set-of-four sequence ---------- */
+
+  .seq { display: grid; gap: .5rem; margin: 1.5rem 0; }
+  .seq-row {
+    display: grid;
+    grid-template-columns: 4.2rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: .8rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .seq-row .ver {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+  .seq-row.here { border-color: var(--wired); background: var(--wired-bg); }
+  .seq-row.here .ver { color: var(--wired); }
+  .seq-row .what { font-size: .96rem; }
+
+  /* ---------- ledger table ---------- */
+
+  .scroll { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--rule); border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: .89rem; background: var(--surface); }
+  caption {
+    caption-side: bottom;
+    text-align: left;
+    padding: .7rem .85rem;
+    font-size: .8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+  }
+  th, td { text-align: left; padding: .62rem .85rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    background: var(--surface-2);
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.mono, th.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  .status {
+    display: inline-block;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    padding: .16rem .45rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .status.on  { color: var(--wired);   background: var(--wired-bg);   border: 1px solid var(--wired); }
+  .status.off { color: var(--unwired); background: var(--unwired-bg); border: 1px solid var(--unwired); }
+  .status.part{ color: var(--caution); background: var(--caution-bg); border: 1px solid var(--caution); }
+
+  /* ---------- the number ---------- */
+
+  .figure {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .1rem 1.4rem;
+    margin: 1.75rem 0 1.25rem;
+    padding: 1.5rem 1.5rem 1.35rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--unwired);
+    border-radius: 3px;
+  }
+  .figure .big {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: clamp(2.6rem, 8vw, 3.9rem);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--unwired);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -.02em;
+  }
+  .figure .cap { font-size: .96rem; color: var(--ink-soft); max-width: 26rem; }
+
+  /* ---------- callouts ---------- */
+
+  .note {
+    padding: 1rem 1.15rem;
+    border-radius: 3px;
+    font-size: .93rem;
+    margin: 1.35rem 0;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .note.warn { border-color: var(--caution); background: var(--caution-bg); color: var(--ink-soft); }
+  .note.good { border-color: var(--wired); background: var(--wired-bg); color: var(--ink-soft); }
+  .note .lbl {
+    display: block;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: .35rem;
+  }
+  .note.warn .lbl { color: var(--caution); }
+  .note.good .lbl { color: var(--wired); }
+
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 3.5rem 0; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: .86rem;
+    color: var(--muted);
+  }
+  footer p { margin-bottom: .6rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .seq-row { transition: border-color .2s ease; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="eyebrow">
+    <span>Wiki v247</span>
+    <span>2026-08-19</span>
+    <span>Source-cloned twice</span>
+    <span>HEAD c46a439e</span>
+  </div>
+
+  <h1>The Unwired Checks</h1>
+  <p class="subject">citrolabs/ego-lite &nbsp;·&nbsp; 150 files &nbsp;·&nbsp; ~26,800 lines &nbsp;·&nbsp; MIT + a closed binary</p>
+
+  <p class="standfirst">A team wrote the most thoughtful instructions for an AI agent in this corpus — including a rule that says stopping when the human intervenes is not a failure but the correct outcome. Then they built a mutation tester, a prose linter and a token-leak scanner aimed at their own worst failure modes, and wired none of them to anything.</p>
+
+  <div class="chips">
+    <span class="chip good">GOAL-ALIGNED 3/4</span>
+    <span class="chip">NO MINT · 46/11 unchanged</span>
+    <span class="chip">collision clean</span>
+    <span class="chip bad">PILOT: do not install</span>
+    <span class="chip warn">2 new rules · D34 · D35</span>
+  </div>
+
+  <section>
+    <p class="kicker">What it is</p>
+    <h2>One browser, two occupants</h2>
+    <p><strong>ego lite</strong> is a Chromium-based macOS browser built so that a human and any number of external AI agents can share a single browser. It partitions itself into <strong>Task Spaces</strong> — isolated browsing contexts, each owned by either <code>agent</code> or <code>user</code>, each inheriting your login state by default. You browse in front; agents work behind; neither steals the other's tabs.</p>
+    <p><code>ego-browser</code> is the open half: a Node.js CDP harness that any agent CLI drives by writing a JavaScript snippet into a heredoc. It presents a deliberately <strong>Playwright-shaped API</strong>, so anyone who knows Playwright already knows it.</p>
+    <p>The browser itself is a closed-source <code>.dmg</code>. <strong>And the project says so, unprompted, in the two files a reader and an agent open first.</strong></p>
+  </section>
+
+  <section>
+    <p class="kicker">The headline</p>
+    <h2>It declares the boundary the last three ships hid</h2>
+    <blockquote class="good">The contents of this repository are released under the MIT License. The ego lite browser is a separate, free download.
+      <span class="attrib">README.md — License section</span></blockquote>
+    <p>And again in <code>AGENTS.md</code>, in the first five lines: it drives the browser <em>"through <code>globalThis.ego</code> bindings (provided by the <strong>closed-source</strong> ego lite app)"</em>, and <em>"this repo contains the open-source harness and the agent skill package — <strong>not</strong> the browser itself."</em></p>
+    <p>Four consecutive ships have now found a licence in prose that does not describe the artifact that runs. This one closes the set:</p>
+
+    <div class="seq">
+      <div class="seq-row"><span class="ver">v244</span><span class="what"><strong>Over-asserted.</strong> OpenSandbox's CI enforced an Alibaba copyright in 1,674 files; its governance doc named Alibaba zero times.</span></div>
+      <div class="seq-row"><span class="ver">v245</span><span class="what"><strong>Under-asserted.</strong> Unsloth's metadata said Apache-2.0 while the wheel shipped a uniformly AGPL CLI.</span></div>
+      <div class="seq-row"><span class="ver">v246</span><span class="what"><strong>Split and silent.</strong> needle executed a revenue-capped engine from a sibling repo and never mentioned it — zero hits in 44 files.</span></div>
+      <div class="seq-row here"><span class="ver">v247</span><span class="what"><strong>Split and declared.</strong> Same structure as v246. Two sentences, in the README and in <code>AGENTS.md</code>. The counter-example the set needed.</span></div>
+    </div>
+
+    <div class="note warn">
+      <span class="lbl">The consequence</span>
+      The README's differentiator — <em>"the strongest page Snapshot on the market… thanks to kernel-level customization… reliably handles deeply nested iframes"</em> — <strong>is not in this repository.</strong> <code>driver/observe.ts</code> is ~139 lines and calls <code>browserEgo().snapshot(options)</code>, a method of the binary. No iframe traversal, no accessibility-tree construction, no "kernel-level" anything in the open code. Do not cite this repo as evidence of snapshot innovation.
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">The thesis</p>
+    <h2>Write the check first</h2>
+    <p>That is their own doctrine, one of four named Design Principles in <code>CONTRIBUTING.md</code>:</p>
+    <blockquote><strong>Goal-Driven Execution</strong> — Translate the task into a verifiable goal; write the check first, then iterate until it passes.
+      <span class="attrib">CONTRIBUTING.md §12, The Four Principles</span></blockquote>
+    <p>They then wrote better checks than most repositories in this corpus, and left the best ones connected to nothing.</p>
+
+    <div class="scroll">
+      <table>
+        <caption>Verified by grep across <code>.github/</code>, <code>lefthook.yml</code>, <code>CONTRIBUTING.md</code> and <code>AGENTS.md</code>.</caption>
+        <thead>
+          <tr><th>Check</th><th>What it actually is</th><th class="mono">Wired to</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">mutation-check.mjs</td>
+            <td><strong>Real mutation testing</strong>, hand-rolled on <code>acorn</code> — injects operator flips and boundary shifts into <em>named</em> focus functions, then reports kill rate. Its targets are <code>isAgentOwned</code>, <code>findMatchingTaskSpace</code>, <code>boxModelCenter</code>: precisely the predicates whose silent failure would seize the human's browser or click the viewport corner.</td>
+            <td><span class="status off">nothing</span></td>
+          </tr>
+          <tr>
+            <td class="mono">validate-agent-style.mjs</td>
+            <td><strong>A style linter whose target is the prose that instructs a language model.</strong> Lints <code>SKILL.md</code>, every learning, every e2e case for patterns that teach an agent badly. Not prose-vs-code — prose-vs-<em>doctrine</em>.</td>
+            <td><span class="status off">nothing</span></td>
+          </tr>
+          <tr>
+            <td class="mono">publish-…-skill.yml</td>
+            <td>Version normalisation from the tag, <strong>a token-leak scanner over the release archive</strong>, a SHA256-pinned CLI download, dry-run, post-publish verification.</td>
+            <td><span class="status off">never fired</span></td>
+          </tr>
+          <tr>
+            <td class="mono">run-real-browser-e2e</td>
+            <td>24 case modules registering 31 cases — the only tests that touch a real browser.</td>
+            <td><span class="status part">pre-commit</span></td>
+          </tr>
+          <tr>
+            <td class="mono">validate:site-skills</td>
+            <td>Validates the site-learning data format; rejects temporary refs.</td>
+            <td><span class="status on">all four</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The one check wired everywhere validates a <em>data format</em>. The checks aimed at their own doctrine are wired nowhere. The publish pipeline triggers on tags matching <code>[0-9]+.[0-9]+.[0-9]+</code> — no leading <code>v</code> — and all 21 tags in the repository are <code>v</code>-prefixed. <strong>It has never run.</strong></p>
+
+    <div class="note good">
+      <span class="lbl">And the part they got right — better than v246</span>
+      v246 shipped a daily automated PyPI publish behind a suite where every engine-touching test was skipped or deselected, and <code>pytest</code> reports a skip as success: a gate that could not fail for the thing being shipped. ego lite has the same problem — its real tests need a closed macOS browser that cannot run on <code>ubuntu-latest</code> — and solves it the other way: <strong>it moves the test to where the dependency exists</strong>, into the pre-commit hook on the developer's machine, and lets CI claim only what CI ran. <em>Put the test where the dependency is.</em> (Caveat: bypassable with <code>--no-verify</code>, opt-in, and undisclosed in <code>CONTRIBUTING.md</code> — a silent contract.)
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">The sharpest finding</p>
+    <h2>A gate its own history contradicts</h2>
+    <p><code>main-pr-source.yml</code> is nine lines and one rule: <em>pull requests into <code>main</code> must come from the <code>dev</code> branch.</em> It landed on 2026-06-01 and sits on <code>main</code>.</p>
+
+    <div class="figure">
+      <span class="big">66/82</span>
+      <span class="cap">PR merges into <code>main</code> since the gate was added that came from branches the gate is written to reject — <strong>including HEAD itself</strong>. Sixteen came from <code>dev</code>.</span>
+    </div>
+
+    <p>And four sources of truth about one process, no two agreeing: the workflow requires <code>dev</code>; <code>CONTRIBUTING.md:322</code> agrees; <code>CONTRIBUTING.md:283</code> tells you to <em>"branch from latest <code>main</code>"</em>; the pre-commit hook gates on <code>origin/dev</code>; and <code>main</code> and <code>dev</code> have <strong>diverged</strong> — 32 ahead, 20 behind.</p>
+    <p>Follow the contributing guide, branch from <code>main</code> as a cloner gets it, and the project's own pre-commit hook blocks your first commit — then the CI gate rejects your PR.</p>
+
+    <div class="note warn">
+      <span class="lbl">What is not claimed</span>
+      Whether that workflow is configured as a <em>required</em> status check lives in GitHub branch-protection settings, which are not in the repository. So this is a measurement, never an accusation: <strong>the rule this repository commits and the history this repository records disagree 66 times.</strong> That is v244's D28 run in reverse — an absent config file is not an absent check, and a committed CI rule is not an enforced one.
+    </div>
+
+    <h3>D34 — and the detector is portable</h3>
+    <p>v246 handed this vault one command, <code>grep -rni "silent" .</code>, for finding where an author thought about silent corruption. This ship hands it a second: <strong>take a gate's own predicate and test it against the history it was supposed to govern.</strong> A gate you have never seen fail is not a gate you have seen pass.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">The documentation ledger</p>
+    <h2>The shipped doc is clean; the human docs rotted</h2>
+    <p>Five verified defects, every one of them in a <em>developer-facing</em> document:</p>
+    <ul>
+      <li><code>CONTRIBUTING.md</code> links to a <code>SKILL.zh.md</code> that was deleted in commit <code>1a7f293</code>.</li>
+      <li>It attributes the Four Principles to <code>AGENTS.md</code> — which contains none of them.</li>
+      <li>It teaches refs as <code>@eN</code> in three places (and the package README in a fourth) — the exact format <code>AGENTS.md:17</code> explicitly warns against: <em>"<code>@21</code>, not <code>@e21</code>."</em></li>
+      <li><code>AGENTS.md</code> names a <code>run-e2e.sh</code> that no longer exists.</li>
+      <li><code>AGENTS.md</code> describes <code>npm run e2e</code> as a suite <code>package.json</code> does not map it to.</li>
+    </ul>
+    <p>Meanwhile <code>SKILL.md</code> — 209 lines, the file that ships to every agent — carries none of them. Its refs are correct throughout and every path it names resolves.</p>
+
+    <div class="note good">
+      <span class="lbl">D35 — a refinement of this vault's own rule</span>
+      The vault's D22 says <em>agent-facing prose goes stale first.</em> Here the agent-facing prose is the <strong>freshest artifact in the repository</strong> and the human-facing prose has five defects — same repo, same authors, same 73 days: a controlled comparison. The variable is not audience, it is <strong>contact</strong>. <code>SKILL.md</code> is read on every agent run, rewritten by CI, published to two registries, and its errors surface to someone who complains. <code>CONTRIBUTING.md</code> is read by almost nobody and checked by nothing. <em>Prose goes stale in proportion to how little machinery and how few readers touch it.</em>
+    </div>
+    <p>Which cuts directly at this vault: <code>CLAUDE.md</code> is high-contact and maintained, while the <code>_state/03c-…-v183</code> filename label and the shim-versus-registry divergence are its two lowest-contact surfaces — and the stale premise that reached fourteen agents last ship is the same mechanism.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">The best artifact</p>
+    <h2>An agent contract that governs behaviour</h2>
+    <p><code>skills/ego-browser/SKILL.md</code> is, on the merits, the strongest agent-facing contract in this corpus — ahead of v246's <code>llms.txt</code>, because it does something an API reference cannot: it tells the agent how to <em>behave</em>.</p>
+
+    <h3>The write probe</h3>
+    <p><em>Before writing substantial content into a rich editor, perform a tiny write probe, then verify it. If the probe appears in the title bar, toolbar search, hidden input, or any wrong field, stop using DOM/input helpers for that surface</em> — and switch technique. It converts "I filled the form and the document is unchanged" from a confident wrong answer into a detected one, for the price of one small write. The second half is the part everyone omits: <strong>on failure, change technique, not parameters.</strong></p>
+
+    <h3>Failure as the correct outcome</h3>
+    <blockquote class="good">A "user is controlling" error is a hard stop on the whole task — not an obstacle to route around. It means the user has deliberately taken the browser back, often because your current approach is going wrong. Honoring it <em>is</em> the correct outcome here; pushing the goal forward anyway is the failure.
+      <span class="attrib">SKILL.md — Control handoff</span></blockquote>
+    <p>That is written by someone who has watched an agent grind past a human's intervention. Naming deference as <em>success</em>, rather than as a constraint, changes what a completion-seeking model is optimising for.</p>
+
+    <h3>And then the two gaps</h3>
+    <div class="note warn">
+      <span class="lbl">A prose guardrail on an unguarded primitive</span>
+      The same ownership table records that <code>takeOverTaskSpace</code> has <strong>no ownership check</strong>, and the mitigation is a sentence: <em>"Never call it on your own to grab control back — it will seize the browser away from the user."</em> Verified at <code>helpers.ts:347-353</code>. So the most consequential action in the system — an agent taking the browser from the human using it — is prevented only by an instruction addressed to a language model. That is the exact inverse of v246's rule: where you cannot make a failure loud, move the setting into the artifact so it cannot be set wrong.
+    </div>
+    <div class="note warn">
+      <span class="lbl">Not one word about a hostile page</span>
+      The product loop is: read an untrusted web page → an LLM decides → it writes JavaScript that runs against your authenticated sessions. A grep for <em>malicious, hostile, untrusted, prompt inject</em> across <code>SKILL.md</code>, <code>AGENTS.md</code> and <code>CONTRIBUTING.md</code> returns nothing. There is no <code>SECURITY.md</code>. They reasoned at length about one adversary — an impatient agent that might trample its user — and not at all about the other.
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">Security &amp; supply chain</p>
+    <h2>The boundary is drawn well; the risk is the premise</h2>
+    <p><strong>No broken-auth triad, and structurally so.</strong> <code>ego-browser</code> opens no port and no socket — the transport is a function the app injects. It notably declines the usual shortcut of exposing Chrome's <code>--remote-debugging-port</code>, which is exactly the failure mode this corpus documented at v231 and v232. The authorization model therefore lives in the closed app and cannot be audited: the open layer can neither be faulted for lacking auth nor credited with having it.</p>
+    <p><strong>The residual risk is the product's own premise.</strong> Inside a Space that inherits your logins, <code>js()</code> is arbitrary evaluation and <code>browserFetch()</code> returns authenticated response bodies to any origin. With the silence above, prompt injection from page content is the entire threat model.</p>
+    <p>Two precise smaller items: <code>.env</code> is auto-loaded from the installed skill directory into agent-script environment; and <em>validating</em> a site-learning <em>imports</em> it, so the validator executes learning JavaScript in CI — correctly configured as <code>pull_request</code>, not <code>pull_request_target</code>, so fork PRs run without secrets. That is the right choice and worth saying.</p>
+    <p>Supply chain is mid-table with two standouts: <strong>exactly one runtime dependency</strong> (<code>acorn</code>, reused three ways), and <strong>a mutable <code>latest.tar.gz</code> URL made immutable by a committed SHA256</strong> — better than v246's pinned-but-unverified, far better than v234's plaintext installers. Against that: caret-ranged deps, and a <code>.dmg</code> at an opaque fixed filename with no version in it, so you cannot pin, diff, or name what you installed.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">Prior art</p>
+    <h2>Not world-first, and no mint</h2>
+    <p>Each component is occupied. A daily-use browser whose agent reaches your real logins: Claude in Chrome, ChatGPT Atlas, Perplexity Comet. Isolated parallel workspaces in one browser: Arc Spaces — the name is literally Arc's — Firefox Multi-Account Containers, Chrome profiles, and the entire anti-detect category, whose product <em>is</em> multi-profile isolation. An externally drivable browser: CDP, Playwright, Playwright MCP, browser-use, Vercel's agent-browser. Arc and Brave already ship first-class agent APIs, Arc's with a declarative permission system ego lite does not have.</p>
+    <p><strong>What is actually distinctive is narrower than the marketing:</strong> the per-Space ownership state machine — <code>agent | agentDelegatedToUser | user</code>, with handoff, takeover and claim as first-class operations, a tabulated policy, and a doctrine naming deference as success. I did not find that primitive elsewhere. But an absence of evidence is not evidence of firstness, and a combination is not a capability class.</p>
+    <p><strong>NO MINT</strong> on four grounds: form-factor-within-a-genre; a combination is not a class; the distinctive machinery is not in the subject; and the N=1 gate. Recorded but not executed: a deferred watch axis for <em>human+agent shared-state co-habitation with per-workspace ownership handoff</em> — repeatable well beyond browsers, and a real candidate if a second implementation ships. A promotion is an audit act.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <p class="kicker">The verdict</p>
+    <h2>Do not install. Borrow four things.</h2>
+    <p>The fence that makes this safe for an operator whose laptop holds candidate data is a profile with no ATS and no mail logged in — <strong>and that fence is also the refutation. The only configuration in which it is safe is the one that deletes the reason to use it.</strong> Its feature is inheriting your real logins; decline that and you have a closed binary from a team the repository never names, driving pages you don't care about, which Playwright already does in the open on three platforms.</p>
+    <p>Candidate sourcing — the use case that would pay for itself — fails on the ratified policy (no injection defence, no read-only mode, no approval gate), on asymmetric account risk, and on unestablished accountability.</p>
+    <ul>
+      <li><strong>M1 — the write probe.</strong> Into <code>CLAUDE.md</code>. On failure change technique, not parameters.</li>
+      <li><strong>M2 — D34's detector.</strong> Test the vault's own gates against the history they govern.</li>
+      <li><strong>M3 — deference as success.</strong> Reframe the existing prohibitions in the success frame.</li>
+      <li><strong>M5 — the injection paragraph they never wrote.</strong> Straight into the candidate-LLM ADR: content extracted from a candidate-supplied document is data, never instructions.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="kicker">Method</p>
+    <h2>Nine errors, five of them mine</h2>
+    <p>All five of mine were caught before publication, and three were suspicions that did not survive checking: that the version-normalising workflow was operative (it has never fired), that <code>dev</code> was the integration branch (<code>main</code> is ahead, and they have diverged — that wrong hypothesis became the sharpest finding), that the style linter was theatre, that <code>SKILL.md</code> documented four non-existent helpers (my grep could not answer it — recorded unverified), and that the unmentioned paid tier was a second omission (it sells support, not features).</p>
+    <p>The fleet contributed four of its own. The critic "corrected" my file count of 148 to 173 — by counting <code>.git</code> internals as repository files, which is this vault's signature error shape committed by the agent assigned to hunt it. <em>Adjudicate a counting dispute with a command, not with authority.</em> It also called the closed binary <code>libneedle</code> — that is v246's binary, imported from the context I supplied to ground it. The lesson there is mine: <strong>context supplied to ground an agent can also contaminate it.</strong></p>
+    <div class="note good">
+      <span class="lbl">v246's method finding replicates — and the fix works</span>
+      Last ship, agents asked to <em>check</em> claims rubber-stamped seven of eight against a brief that told them to default to refuted, while the agents asked to <em>read the code</em> caught the worst error. So this ship replaced the verify stage with a <strong>contradiction</strong> stage: each agent received the mapper's report as a suspect document, was told its job was to produce corrections by independent reading, had to open and confirm at least six specific citations, and had to file a read receipt naming files and line ranges. It returned corrections and receipts instead of confirmations. <em>Do not ask an agent whether a claim is true; ask it what the claim gets wrong, and make it show you what it read.</em>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Streak</strong> GA:105 · OG:13 [7 ov] — 28 consecutive goal-aligned ships, v220→v247. §35 clear. Counts unchanged at 46 patterns / 11 confirmed Library-vocab.</p>
+    <p><strong>Provenance</strong> 102 Co-Authored-By trailer lines across the 415-commit <code>--all</code> population, 91 of them Claude across five model strings — and no policy anywhere asks for them. A left-on default, third instance after v243 and v246.</p>
+    <p><strong>Fleet</strong> 14 agents authored, 11 of 12 completed, ~1.53M subagent tokens, 393 tool uses, 817s. Three contradiction passes and the prior-art agent failed their schema; prior art was researched by hand.</p>
+    <p><strong>Stars and forks are page-stated, never API-verified.</strong> No viral-velocity claim is made. Do not cite the 2.5× or 5× benchmark: it is backed by one PNG, with no harness, no data and no reproduction script — in a repository that owns a 31-case real-browser suite.</p>
+    <p style="margin-top:1.2rem;">The ~v221 audit is now 35 ships overdue. This one hands it three items.</p>
+  </footer>
+
+</div>
