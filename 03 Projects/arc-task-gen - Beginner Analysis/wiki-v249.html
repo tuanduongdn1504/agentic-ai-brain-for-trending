@@ -1,0 +1,514 @@
+<title>The Reordered Eval Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Palette derives from the ARC-AGI grid colours the subject
+   itself ships in visualize_tasks.py — ARC blue as accent,
+   ARC red / green as semantic, neutrals biased toward the blue.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --ground:        #FBFBFD;
+  --surface:       #FFFFFF;
+  --surface-sunk:  #F2F4F8;
+  --ink:           #15171E;
+  --ink-soft:      #3A3F4C;
+  --muted:         #5C6270;
+  --rule:          #DCDFE7;
+  --rule-soft:     #EAECF2;
+  --accent:        #0074D9;
+  --accent-soft:   #E4F0FB;
+  --critical:      #C42B22;
+  --critical-soft: #FCE9E7;
+  --good:          #1E8F33;
+  --good-soft:     #E6F7E9;
+  --warn:          #8A6A00;
+  --shadow:        0 1px 2px rgba(21,23,30,.05), 0 8px 24px -16px rgba(21,23,30,.18);
+
+  --arc-0:#111318; --arc-1:#0074D9; --arc-2:#FF4136; --arc-3:#2ECC40; --arc-4:#FFDC00;
+  --arc-5:#AAAAAA; --arc-6:#F012BE; --arc-7:#FF851B; --arc-8:#7FDBFF; --arc-9:#870C25;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:        #0A0C11;
+    --surface:       #12151C;
+    --surface-sunk:  #171B24;
+    --ink:           #E9EBF2;
+    --ink-soft:      #C3C8D4;
+    --muted:         #939AAA;
+    --rule:          #262B36;
+    --rule-soft:     #1C2029;
+    --accent:        #5AA9EA;
+    --accent-soft:   #12293D;
+    --critical:      #FF7A70;
+    --critical-soft: #2E1614;
+    --good:          #5FD97A;
+    --good-soft:     #102615;
+    --warn:          #E0B93C;
+    --shadow:        0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+    --arc-0:#E9EBF2;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:        #0A0C11;
+  --surface:       #12151C;
+  --surface-sunk:  #171B24;
+  --ink:           #E9EBF2;
+  --ink-soft:      #C3C8D4;
+  --muted:         #939AAA;
+  --rule:          #262B36;
+  --rule-soft:     #1C2029;
+  --accent:        #5AA9EA;
+  --accent-soft:   #12293D;
+  --critical:      #FF7A70;
+  --critical-soft: #2E1614;
+  --good:          #5FD97A;
+  --good-soft:     #102615;
+  --warn:          #E0B93C;
+  --shadow:        0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  --arc-0:#E9EBF2;
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 72px) clamp(18px, 4vw, 40px) 96px;
+}
+
+.prose { max-width: 68ch; }
+
+/* ── type scale ── */
+h1, h2, h3 { font-family: Newsreader, ui-serif, Georgia, serif; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.1rem, 5.4vw, 3.1rem); font-weight: 600; line-height: 1.08; letter-spacing: -.018em; }
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.78rem); font-weight: 600; line-height: 1.2;
+  letter-spacing: -.012em; margin: 3.6rem 0 .2rem;
+}
+h3 { font-size: 1.11rem; font-weight: 600; margin: 2.2rem 0 .1rem; letter-spacing: -.004em; }
+p  { margin: .85rem 0; }
+a  { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px;
+}
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; color: var(--ink-soft); }
+
+code, .mono, kbd {
+  font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .855em;
+  font-variant-ligatures: none;
+}
+code {
+  background: var(--surface-sunk);
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  padding: .08em .34em;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .705rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── masthead ── */
+.masthead { border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
+.masthead h1 { margin-top: .5rem; }
+.standfirst {
+  font-family: Newsreader, serif; font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+  line-height: 1.5; color: var(--ink-soft); margin: 1rem 0 0; max-width: 60ch;
+}
+.repoline {
+  margin-top: 1.35rem; display: flex; flex-wrap: wrap; gap: .45rem 1.2rem;
+  font-family: "IBM Plex Mono", monospace; font-size: .78rem; color: var(--muted);
+}
+.repoline span { white-space: nowrap; }
+
+/* palette strip — the subject's own 10 grid colours */
+.palette { display: flex; height: 7px; margin-top: 1.9rem; border-radius: 2px; overflow: hidden; }
+.palette i { flex: 1; }
+
+/* ── verdict cells ── */
+.verdict {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  border-radius: 5px; overflow: hidden; margin: 2.4rem 0 0;
+}
+.vc { background: var(--surface); padding: .8rem .9rem .85rem; }
+.vc .k { display: block; font-family: "IBM Plex Mono", monospace; font-size: .66rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.vc .v { display: block; margin-top: .3rem; font-weight: 600; font-size: .95rem;
+  font-variant-numeric: tabular-nums; line-height: 1.3; }
+.vc .v.neg { color: var(--critical); }
+.vc .v.pos { color: var(--good); }
+
+/* ── callouts ── */
+.note {
+  border-left: 3px solid var(--rule); padding: .1rem 0 .1rem 1.05rem;
+  margin: 1.7rem 0; color: var(--ink-soft);
+}
+.note.hit  { border-left-color: var(--accent); }
+.note.bad  { border-left-color: var(--critical); }
+.note.fair { border-left-color: var(--good); }
+.note .lbl {
+  display: block; font-family: "IBM Plex Mono", monospace; font-size: .68rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem;
+}
+.note.hit  .lbl { color: var(--accent); }
+.note.bad  .lbl { color: var(--critical); }
+.note.fair .lbl { color: var(--good); }
+.note p:first-of-type { margin-top: 0; }
+.note p:last-child { margin-bottom: 0; }
+
+/* ── tables ── */
+.tscroll { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--rule); border-radius: 5px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+caption {
+  caption-side: bottom; text-align: left; padding: .7rem .9rem .8rem;
+  font-size: .78rem; color: var(--muted); border-top: 1px solid var(--rule-soft);
+}
+th, td { padding: .52rem .9rem; text-align: left; border-bottom: 1px solid var(--rule-soft); vertical-align: baseline; }
+thead th {
+  font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  background: var(--surface-sunk); border-bottom: 1px solid var(--rule);
+}
+tbody tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: "IBM Plex Mono", monospace; }
+tr.spot td { background: var(--accent-soft); font-weight: 600; }
+tr.zero td.num { color: var(--muted); }
+.tag {
+  display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .68rem;
+  font-weight: 500; padding: .1rem .38rem; border-radius: 3px; letter-spacing: .02em;
+}
+.tag.code { background: var(--good-soft); color: var(--good); }
+.tag.prose { background: var(--critical-soft); color: var(--critical); }
+.tag.none { background: var(--surface-sunk); color: var(--muted); }
+
+/* ── the ladder (a real ordered sequence, hence numbered) ── */
+.ladder { list-style: none; padding: 0; margin: 1.6rem 0; display: flex; flex-direction: column; gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; }
+.ladder li { background: var(--surface); display: grid; grid-template-columns: 3.1rem 1fr auto;
+  gap: .9rem; align-items: baseline; padding: .62rem .9rem; }
+.ladder .lv { font-family: "IBM Plex Mono", monospace; font-size: .76rem; font-weight: 600; color: var(--muted); }
+.ladder .rule-txt { font-size: .9rem; color: var(--ink-soft); }
+.ladder .hits { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+  font-weight: 600; font-size: .95rem; white-space: nowrap; }
+.ladder li.key { background: var(--accent-soft); }
+.ladder li.key .lv, .ladder li.key .rule-txt { color: var(--ink); }
+.ladder li.key .hits { color: var(--accent); }
+.ladder .hits.nil { color: var(--muted); font-weight: 400; }
+
+/* ── figure: the actual swapped task ── */
+figure { margin: 2.2rem 0; }
+figcaption { font-size: .8rem; color: var(--muted); margin-top: .7rem; max-width: 62ch; }
+.swapfig {
+  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  border: 1px solid var(--rule); border-radius: 5px; padding: 1.1rem; background: var(--surface);
+}
+.filecard .fname {
+  font-family: "IBM Plex Mono", monospace; font-size: .74rem; color: var(--ink-soft);
+  display: block; margin-bottom: .1rem; word-break: break-all;
+}
+.filecard .forigin { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+.pairrow { display: flex; gap: .55rem; align-items: center; margin-top: .7rem; flex-wrap: wrap; }
+.pairrow .plab { font-family: "IBM Plex Mono", monospace; font-size: .7rem; color: var(--muted); width: 3.1rem; }
+.arrow { color: var(--muted); font-size: .8rem; }
+.g { display: grid; gap: 1px; background: var(--rule); padding: 1px; border-radius: 2px; }
+.g i { width: 8px; height: 8px; display: block; }
+.g.six { grid-template-columns: repeat(6, 8px); }
+.g.two { grid-template-columns: repeat(2, 8px); }
+.testband {
+  margin-top: 1rem; padding-top: .85rem; border-top: 1px dashed var(--rule);
+  font-size: .82rem; color: var(--ink-soft);
+}
+
+/* ── take-list ── */
+.takes { list-style: none; padding: 0; margin: 1.4rem 0; display: flex; flex-direction: column; gap: .9rem; }
+.takes li { display: grid; grid-template-columns: 1.5rem 1fr; gap: .7rem; }
+.takes .dot { width: 9px; height: 9px; border-radius: 2px; background: var(--accent); margin-top: .48rem; }
+.takes li:nth-child(2) .dot { background: var(--arc-3); }
+.takes li:nth-child(3) .dot { background: var(--arc-7); }
+.takes li:nth-child(4) .dot { background: var(--arc-6); }
+.takes li:nth-child(5) .dot { background: var(--arc-8); }
+.takes li:nth-child(6) .dot { background: var(--arc-4); }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 3.4rem 0 0; }
+
+footer { margin-top: 3rem; font-size: .81rem; color: var(--muted); }
+footer p { margin: .4rem 0; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <span class="eyebrow">Storm Bear LLM Wiki &nbsp;·&nbsp; v249 &nbsp;·&nbsp; 19 August 2026</span>
+  <h1>The Reordered Eval Set</h1>
+  <p class="standfirst">Pathway published a tool to build a private ARC-AGI benchmark because the public one is contaminated. It is right — and the contamination is one <code>ls</code> away from anyone who looks.</p>
+  <div class="repoline">
+    <span><strong>pathwaycom/arc-task-gen</strong></span>
+    <span>MIT</span>
+    <span>13 files · 2,139 lines</span>
+    <span>12 commits · 2 roots</span>
+    <span>HEAD <code>20b2203</code></span>
+    <span>cloned twice, byte-identical</span>
+  </div>
+  <div class="palette" aria-hidden="true">
+    <i style="background:var(--arc-0)"></i><i style="background:var(--arc-1)"></i><i style="background:var(--arc-2)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-5)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-9)"></i>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="vc"><span class="k">Tier</span><span class="v">Goal-aligned 3/4</span></div>
+  <div class="vc"><span class="k">Mint</span><span class="v neg">No mint</span></div>
+  <div class="vc"><span class="k">Counts</span><span class="v">46 / 11 unchanged</span></div>
+  <div class="vc"><span class="k">Streak</span><span class="v pos">GA:107 · 30 GA</span></div>
+  <div class="vc"><span class="k">Pilot</span><span class="v neg">Read &amp; borrow</span></div>
+</div>
+
+<div class="prose">
+
+<h2>What it is</h2>
+
+<p>A 2,139-line Python tool that asks a frontier model — <code>gpt-5.6</code> by default, any OpenAI-compatible endpoint — to <em>invent</em> ARC-AGI-1-style puzzles, one per API call, so you can score a model on tasks it cannot have memorised. It accompanies <strong>BDH-CQ</strong> (arXiv:2608.09888, submitted 10 Aug 2026), Pathway's 150M-parameter recurrent-latent-reasoning model, and its press launch.</p>
+
+<p>Each call receives a <strong>slot</strong> — rows, columns, colour count, pair counts — copied <em>wholesale off one randomly chosen real evaluation task</em> rather than sampled axis by axis, because independent sampling produces, in the code's own words, <q>a 2x2 grid asked to carry 9 distinct colours</q>. Then a convergence loop deduplicates by embedding similarity of model-written rule descriptions, deletes anything too close to a real eval task, validates structure, and regenerates what it removed.</p>
+
+<h2>The contamination is worse than the repo says</h2>
+
+<p>The premise is that the public eval set <q>appears in web-scraped training corpora</q> — a diffuse claim about the open web. There is a far more concrete channel, and neither the repo nor the paper mentions it. The tool's <strong>only open issue</strong>, filed by a stranger four days after publication and never answered, claims 375 of the 400 eval tasks sit in ARC-AGI-2's public <em>training</em> split, undetectable by hashing.</p>
+
+<p>I cloned both datasets and tested it at six cumulative levels.</p>
+
+<ol class="ladder">
+  <li><span class="lv">L0</span><span class="rule-txt">same filename / task id</span><span class="hits">376 / 400</span></li>
+  <li><span class="lv">L1</span><span class="rule-txt">byte hash of the file</span><span class="hits nil">0 / 400</span></li>
+  <li><span class="lv">L2</span><span class="rule-txt">JSON-canonical hash</span><span class="hits nil">0 / 400</span></li>
+  <li class="key"><span class="lv">L3</span><span class="rule-txt">+ demonstration pairs treated as an unordered set</span><span class="hits">375 / 400</span></li>
+  <li><span class="lv">L4</span><span class="rule-txt">+ D₄ symmetry, all 8 dihedral transforms</span><span class="hits">375 / 400</span></li>
+  <li><span class="lv">L5</span><span class="rule-txt">+ colour permutation</span><span class="hits">371 <span style="font-weight:400;color:var(--muted)">(4 false negatives, my own tie-break cap)</span></span></li>
+</ol>
+
+<div class="note hit">
+  <span class="lbl">The mechanism, exactly</span>
+  <p>Of the 376 shared ids, <strong>375 carry an identical demonstration-pair multiset</strong> — same grids, same colours, no rotation, no recolouring — and <strong>not one is byte-order identical</strong>. In every single case the train pairs are simply in a different order. D₄ and colour permutation contribute <strong>zero</strong> additional matches. All 375 land on the <em>same task id</em>.</p>
+</div>
+
+<p>So the issue is right about the number and wrong about the reason. It is not symmetry and not recolouring; it is a shuffle. And because the filenames never changed, it is detectable with <code>ls</code> — the issue's own warning that task-ID matching cannot be relied on is false for this dataset pair.</p>
+
+<figure>
+  <div class="swapfig">
+    <div class="filecard">
+      <span class="forigin">ARC-AGI-1</span>
+      <span class="fname">data/evaluation/00576224.json</span>
+      <div class="pairrow"><span class="plab">train 0</span>
+        <span class="g two"><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i></span>
+        <span class="arrow">→</span>
+        <span class="g six">
+          <i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i>
+        </span>
+      </div>
+      <div class="pairrow"><span class="plab">train 1</span>
+        <span class="g two"><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i></span>
+        <span class="arrow">→</span>
+        <span class="g six">
+          <i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i>
+          <i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i>
+          <i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i>
+          <i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i>
+        </span>
+      </div>
+    </div>
+    <div class="filecard">
+      <span class="forigin">ARC-AGI-2</span>
+      <span class="fname">data/training/00576224.json</span>
+      <div class="pairrow"><span class="plab">train 0</span>
+        <span class="g two"><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i></span>
+        <span class="arrow">→</span>
+        <span class="g six">
+          <i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i>
+          <i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i>
+          <i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i>
+          <i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i><i style="background:var(--arc-7)"></i><i style="background:var(--arc-9)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-3)"></i>
+        </span>
+      </div>
+      <div class="pairrow"><span class="plab">train 1</span>
+        <span class="g two"><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i></span>
+        <span class="arrow">→</span>
+        <span class="g six">
+          <i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i>
+          <i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-8)"></i><i style="background:var(--arc-6)"></i>
+          <i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i><i style="background:var(--arc-6)"></i><i style="background:var(--arc-4)"></i>
+        </span>
+      </div>
+    </div>
+    <div class="testband" style="grid-column: 1 / -1;">
+      <strong>And the test pair is byte-identical in both files — including its output.</strong> ARC-AGI-2's public training split ships the answer to ARC-AGI-1 evaluation task <code>00576224</code>. The same holds for all 375.
+    </div>
+  </div>
+  <figcaption>The whole of the difference, drawn in the ARC palette the repo itself ships. Two files, same task id, same two demonstration pairs, opposite order. That is what defeats byte and JSON hashing.</figcaption>
+</figure>
+
+<div class="note fair">
+  <span class="lbl">In fairness to ARC Prize</span>
+  <p>ARC-AGI-2's readme does say its training set <q>combines tasks from ARC-AGI-1 as well as new tasks.</q> What it never says, anywhere, is that this includes <strong>375 of the 400 ARC-AGI-1 <em>evaluation</em> tasks</strong> — in a document whose next line describes an evaluation split as being for <q>models that have never seen these tasks.</q> Disclosed, with the load-bearing half omitted. Controls confirm the method isn't matching everything: ARC-AGI-2's own eval set matches its training set <strong>0 / 120</strong>.</p>
+</div>
+
+<p>The paper's training mixture reaches the same set from a second direction. Section 4.2 names <strong>ARC-GEN100K</strong>; Google's ARC-GEN repository enumerates 900 task ids, comprising all 400 ARC-AGI-1 training ids <strong>plus 328 of the 400 evaluation ids</strong>. Whether the specific 100K artifact draws on that subset is not established — but no document in the paper or the repo performs the check, which is precisely what the open issue asks for.</p>
+
+<h2>The honest number exists. It is higher. It is in an appendix.</h2>
+
+<p>I expected to find that the tool shipped and the trustworthy number did not. That was wrong, and reading the paper corrected it.</p>
+
+<div class="tscroll">
+  <table>
+    <caption>BDH-CQ, arXiv:2608.09888, Appendix A, Table 6. The 400-task calibrated cohort is <code>generate_tasks.py</code>; the 1,131-task cohort is <code>generate_tasks_stratified.py --mechanics all</code>.</caption>
+    <thead><tr><th>Evaluation cohort</th><th class="num">Tasks</th><th class="num">Solved</th><th class="num">Solve rate</th></tr></thead>
+    <tbody>
+      <tr><td>Public ARC-AGI-1 evaluation</td><td class="num">400</td><td class="num">118</td><td class="num">29.5%</td></tr>
+      <tr class="spot"><td>Calibrated generated</td><td class="num">400</td><td class="num">149</td><td class="num">37.2%</td></tr>
+      <tr><td>Mechanic-stratified generated</td><td class="num">1,131</td><td class="num">337</td><td class="num">29.8%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The model scores <strong>7.7 points better on the set built to be uncontaminated</strong> — the direction <em>inconsistent</em> with memorisation inflating the public figure, and the strongest evidence in the whole package for Pathway's own claim. It sits in Appendix A.1. The contaminated number is in the abstract, the README, the chart and the press release.</p>
+
+<div class="note bad">
+  <span class="lbl">It proves nothing on its own</span>
+  <p>The gap is equally consistent with the generated set being <strong>easier</strong>, and <strong>nothing in this tool measures difficulty</strong>. It matches six surface statistics; grid area and colour count are not cognitive load. The authors say so themselves — <q>not directly comparable</q> — and are right to. Note the direction, though: an ill-posed generated task is one the solver <em>loses</em>, and the repo discloses 19 of 20 hand-checked as solvable, so a ~5% rate means 37.2% <em>understates</em> ability and <em>widens</em> the gap.</p>
+</div>
+
+<p>The most interesting number is <strong>29.8%</strong>. The stratified cohort — deliberately harder, allocated evenly across 16 transformation mechanics instead of following the eval set's skew — lands 0.3 points from the public figure. And that cohort is where the tool earns its existence, in a way its own README never states: <strong>the point of a private distribution-matched set is not to restate the aggregate, it is to buy statistical power in cells the real benchmark cannot fill.</strong> 400 public tasks cannot support a per-mechanic estimate. 1,131 evenly-allocated ones can, and the answer is a <strong>24× spread</strong> — 68.6% on flood fill, 2.9% on gravity and stacking.</p>
+
+<h2>"Independent Reproduction" — and none of the three are</h2>
+
+<p>The README's last section carries that heading. It credits <strong>Łukasz Kaiser</strong>, whom Pathway's own blog lists among the company's <q>investors and advisors</q>; then says the results were <q>also <em>independently</em> reproduced by</q> <strong>Remigiusz Kinas</strong> and <strong>Richard Zhong</strong> — authors 8 and 9 of the nine-author paper.</p>
+
+<p>Git records the direction of travel. Commit <code>b1ff64c</code> rewrote <q>also reproduced by Richard Zhong</q> into <q>also <strong>independently</strong> reproduced by Remigiusz Kinas … and Richard Zhong</q> — the word was <em>added</em>, in the same edit that added a co-author. And Pathway's own blog post never uses the word at all, and never mentions Kinas. <strong>The independence claim is stronger in the repository than in the press release.</strong></p>
+
+<p>What is <em>not</em> claimed here: that the reproductions did not happen, or that the result is wrong. Kaiser stated publicly that he replicated the ARC-AGI-1 results himself. The finding is narrow: a section headed <em>Independent Reproduction</em> names one investor-advisor and two co-authors, and calls two of them independent.</p>
+
+<h2>What the chart admits with a legend glyph</h2>
+
+<p>The efficiency-frontier chart marks <strong>hollow circles as the public eval set and filled circles as the semi-private set</strong>. All three BDH-CQ points are hollow. GPT-5.6 Luna (Low) is filled, at <strong>34.2% for $0.008</strong> — a higher score than BDH-CQ's 29.5%, on the set that is not contaminated. The README states neither the set difference nor that the comparator scores higher; "11× cheaper" is a cost claim, and arithmetically fine.</p>
+
+<p>The footnotes are better than the prose, and two work against Pathway: the <code>$0.0007</code> is <q>estimated from measured inference compute, assuming USD 3 per H200 GPU-hour</q>, set against competitors' retail API prices; the leaderboard access is dated; and Luna's cost was adjusted <em>down</em> 80% to reflect OpenAI's July price cut, making the comparator look cheaper.</p>
+
+<h2>Both halves of the code-versus-prose axis, in one file</h2>
+
+<p>The best line in the repository is a comment that describes an enforced information-flow rule: <strong>eval descriptions are never placed in a generation prompt — the similarity filter <q>only ever removes; it never instructs.</q></strong> I traced it and it holds: the avoid list draws only from prior generations and prior rejections. One sentence of policy, four lines of enforcement. The <code>.gitignore</code> is a scientific instrument that explains itself, too: publishing the generated tasks <q>puts them into web-scraped corpora and burns them.</q></p>
+
+<div class="tscroll">
+  <table>
+    <caption>Every guarantee protecting the <em>experiment</em> is enforced in code; every guarantee making each task a valid <em>puzzle</em> is a request addressed to a language model. The only evidence for the second column is 19 of 20 hand-checked.</caption>
+    <thead><tr><th>Guarantee</th><th>Where</th><th>Enforcement</th></tr></thead>
+    <tbody>
+      <tr><td>grids rectangular, cells 0–9, ≥2 train pairs</td><td class="mono">:293</td><td><span class="tag code">code</span></td></tr>
+      <tr><td>eval content never enters a generation prompt</td><td class="mono">:641</td><td><span class="tag code">code</span></td></tr>
+      <tr><td>slot distribution pinned across rounds</td><td class="mono">:634</td><td><span class="tag code">code</span></td></tr>
+      <tr><td>“a genuinely new transformation rule you invent”</td><td class="mono">:74</td><td><span class="tag prose">prose</span></td></tr>
+      <tr><td>“unambiguously inferable from the training pairs alone”</td><td class="mono">:87</td><td><span class="tag prose">prose</span></td></tr>
+      <tr><td>“Before returning the result, verify the task yourself”</td><td class="mono">:90</td><td><span class="tag prose">prose</span></td></tr>
+      <tr class="zero"><td>generated grid sizes actually match the slot</td><td class="mono">—</td><td><span class="tag none">nothing</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Its comments are a changelog of its own measurement errors — and they all check out</h2>
+
+<p>Nine substantive comments record a defect, a rejected alternative, or a measurement that set a constant: pooling input and output grids <q>under-sizes inputs by ~8%</q>; <q>Two ragged grids reached a scoring run before this was enforced</q>; running the two filters as sequential passes <q>let each undo the other's guarantee</q>. I recomputed the checkable ones from the public dataset.</p>
+
+<div class="tscroll">
+  <table>
+    <caption>Every figure this repository states about the reference dataset — in its documentation <em>and</em> in its code comments — survives independent recomputation to the stated precision. On the one table a reader can check, it checks out.</caption>
+    <thead><tr><th>Their figure</th><th>Where</th><th class="num">Stated</th><th class="num">Recomputed</th></tr></thead>
+    <tbody>
+      <tr><td>input grids, mean area</td><td class="mono">code :163</td><td class="num">226.9</td><td class="num">226.9</td></tr>
+      <tr><td>output grids, mean area</td><td class="mono">code :163</td><td class="num">189.7</td><td class="num">189.7</td></tr>
+      <tr><td>pooled under-sizes inputs by</td><td class="mono">code :163</td><td class="num">~8%</td><td class="num">8.2%</td></tr>
+      <tr><td>input area, mean / median</td><td class="mono">docs</td><td class="num">226.92 / 144.00</td><td class="num">226.92 / 144.00</td></tr>
+      <tr><td>input rows / cols, mean</td><td class="mono">docs</td><td class="num">13.23 / 13.70</td><td class="num">13.23 / 13.70</td></tr>
+      <tr><td>colours per task, mean</td><td class="mono">docs</td><td class="num">5.35</td><td class="num">5.35</td></tr>
+      <tr><td>≥4 demonstration pairs</td><td class="mono">docs</td><td class="num">34.2%</td><td class="num">34.3%</td></tr>
+      <tr><td>single test pair (sanity-check reference)</td><td class="mono">code :456</td><td class="num">≥95%</td><td class="num">95.3%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The catch is what the comments hold that the documents do not. <code>185+88+41+16+8+1+1 = 340</code>: producing 400 novel tasks cost <strong>740 generations</strong>, the first-round collision rate at N=400 is <strong>46%</strong>, and it <q>has risen at every scale measured.</q> That scaling wall is the most important operational fact about the tool, and it lives in a comment on a backstop constant. Also undocumented: <code>TOLERANCE = 0.40</code>, meaning the distribution check reports PASS at up to a 40% deviation — though in fairness the reported run came in at 1.0%, beating its own gate by roughly forty times.</p>
+
+<div class="note bad">
+  <span class="lbl">One real bug</span>
+  <p><code>eval_similar_replaced</code> appears exactly three times: initialised at <code>:651</code>, written into <code>sanity_check.json</code> at <code>:862</code>, printed at <code>:882</code>. <strong>It is never incremented.</strong> The run report's <code>replacements_generated</code> for the contamination filter is structurally always zero — a dead counter in the audit trail of the tool's headline guarantee.</p>
+</div>
+
+<h2>No mint</h2>
+
+<p>Declined on five grounds, the decisive one being external prior art: <strong>Google's ARC-GEN</strong> is an explicitly <q>mimetic</q> ARC generator preserving grid size, colour distribution and pair counts — distribution-matched ARC generation, already published, and named in BDH-CQ's own training mixture. BARC/ARC-Heavy, RE-ARC and ARC-TGI precede it too. Beyond that: technique-not-capability, a research artifact rather than a capability layer, §28 anti-inflation at ~51 standalones, and not the exemplar. Counts stay 46 / 11. It is not an N=2 of the v233 ClawWork row — that is a benchmark <em>harness</em>; this is a dataset <em>generator</em>.</p>
+
+<p>One attribution does not survive checking. The code calls its six categories <q>the six Chollet ARC-AGI categories</q>; Chollet's framework is <strong>four Core Knowledge priors</strong>, and two of the six have no counterpart in it. The phrase appears seven times across four files — including inside the output JSON's own self-description, so every downstream consumer inherits it. This is the axis the paper's appendix calls confirmatory.</p>
+
+<h2>What to take</h2>
+
+<ul class="takes">
+  <li><span class="dot"></span><div><strong>A pre-registered instrument-invalidity guard.</strong> Before collecting data, state the condition under which your own measurement axis is not analysable — and make the collector print it. Here: <q>'other' is the escape hatch; a large share means the closed list is wrong … and should not be analysed as-is</q>, emitted as a warning above 15%.</div></li>
+  <li><span class="dot"></span><div><strong>“Only ever removes; it never instructs.”</strong> When a filter must consult ground truth, let it delete but never inform — enforced in the data flow, not in a comment.</div></li>
+  <li><span class="dot"></span><div><strong>Generate a private set to buy power in the cells your real data cannot fill</strong>, not to restate the aggregate.</div></li>
+  <li><span class="dot"></span><div><strong>Comment the measurement that set the constant, and the alternative you rejected.</strong> Nine here, and the checkable ones reproduce exactly.</div></li>
+  <li><span class="dot"></span><div><strong>A <code>.gitignore</code> entry can be a scientific instrument.</strong> Write the reason in the file.</div></li>
+  <li><span class="dot"></span><div><strong>Test a third party's quantified claim yourself.</strong> The issue was right about 375 and wrong about the mechanism, and one afternoon of Node settled both.</div></li>
+</ul>
+
+<h2>Error ledger</h2>
+
+<p><strong>Mine, one, self-caught before publication:</strong> I framed the headline as <em>the tool shipped, the honest number did not</em>. Reading the paper found Table 6 and inverted it. The error was the vault's signature shape — inferring a mechanism went unused from its absence in the promotional surface.</p>
+
+<p><strong>The fleet's, five, all rejected or corrected.</strong> A situating agent built its entire difficulty analysis on <q>Tong et al., arXiv:2405.18742</q> with quantified human solve rates and a derived <q>calibrated ~24–26%</q>. <strong>arXiv:2405.18742 is “Musical Phrase Segmentation via Grammatical Induction.”</strong> The paper, its findings and every derived number were invented; all discarded. The same report inverted the arithmetic of unsolvable tasks. The critic's second headline — <q>the paper never mentions arc-task-gen or uses synthetic tasks</q> — is false, and was absence-of-evidence rendered as evidence. The contradiction stage caught four fabricated line citations across three reports, and the critic invented an error in my own grounding.</p>
+
+<div class="note hit">
+  <span class="lbl">Method finding, third consecutive ship</span>
+  <p>Handing each mapper's report to an independent reader <em>as a suspect document</em>, with a mandatory read receipt, caught every fabricated line number — including in the strongest report. It did not catch the fabricated <em>paper</em>, because no agent was asked to treat the <em>situating</em> reports as suspect. <strong>The stage only protects the stages it is pointed at.</strong> Next refinement: pipeline the contradiction pass over the situating reports too.</p>
+</div>
+
+<hr>
+
+<footer>
+  <p><strong>Pilot: read and borrow.</strong> Do not run it — a 400-task set is ~760 frontier-model calls and the output is ARC puzzles. Risk is genuinely low: no port, no CORS, no <code>exec</code> on model output, egress to exactly two hosts, writes confined to <code>data/</code>. There is simply nothing to gain. Rung 1 is two hours, zero install: read three passages and write the three rules into <code>hireui/evals/METHOD.md</code>.</p>
+  <p>Never cite this repository's headline numbers as verified. Star and fork counts on this page's subject are page-stated, not API-verified.</p>
+  <p>Wiki v249 · <span class="mono">wiki/v249-arc-task-gen</span> · Storm Bear LLM Wiki · full detail in <span class="mono">03 Projects/arc-task-gen - Beginner Analysis/</span></p>
+</footer>
+
+</div>
+</div>
