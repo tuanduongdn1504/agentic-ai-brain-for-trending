@@ -1,0 +1,461 @@
+<title>The Deleted Measurement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --paper:#EDF0EF; --paper-2:#E3E8E7; --card:#F6F8F7;
+    --ink:#131A1C; --ink-2:#3A4749; --ink-3:#657577;
+    --rule:#C9D3D2; --rule-2:#DCE3E2;
+    --accent:#0E6B78; --accent-soft:#DCEAEC;
+    --ember:#A63E26; --ember-soft:#F3DED8;
+    --warn:#7A6015; --warn-soft:#EFE7CE;
+    --ok:#2C6146; --ok-soft:#DBEAE1;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0C1214; --paper-2:#121A1D; --card:#141E21;
+      --ink:#DFE7E6; --ink-2:#A9B8B8; --ink-3:#7C8C8D;
+      --rule:#263437; --rule-2:#1B2528;
+      --accent:#4FB3BF; --accent-soft:#123037;
+      --ember:#E28068; --ember-soft:#3A1E17;
+      --warn:#D2B25E; --warn-soft:#332A11;
+      --ok:#78C79C; --ok-soft:#122E21;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C1214; --paper-2:#121A1D; --card:#141E21;
+    --ink:#DFE7E6; --ink-2:#A9B8B8; --ink-3:#7C8C8D;
+    --rule:#263437; --rule-2:#1B2528;
+    --accent:#4FB3BF; --accent-soft:#123037;
+    --ember:#E28068; --ember-soft:#3A1E17;
+    --warn:#D2B25E; --warn-soft:#332A11;
+    --ok:#78C79C; --ok-soft:#122E21;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    font-size:16.5px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 clamp(18px,4vw,44px);}
+  .col{max-width:68ch;}
+
+  /* ---------- masthead ---------- */
+  header.mast{
+    border-bottom:1px solid var(--rule);
+    padding:clamp(38px,7vw,72px) 0 26px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.17em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 20px;
+    display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  }
+  .eyebrow span.sep{color:var(--rule);}
+  h1{
+    font-family:"Newsreader",Georgia,serif; font-weight:300;
+    font-size:clamp(2.5rem,6.4vw,4.4rem); line-height:1.02;
+    letter-spacing:-.021em; margin:0 0 22px; text-wrap:balance;
+  }
+  h1 em{font-style:italic; color:var(--accent);}
+  .dek{
+    font-family:"Newsreader",Georgia,serif; font-size:clamp(1.1rem,2.2vw,1.42rem);
+    line-height:1.5; color:var(--ink-2); font-weight:300; max-width:60ch; margin:0 0 30px;
+  }
+  .subject{
+    font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink-3);
+    display:flex; flex-wrap:wrap; gap:6px 20px; padding-top:8px;
+    border-top:1px solid var(--rule-2);
+  }
+  .subject b{color:var(--ink); font-weight:500;}
+
+  /* ---------- verdict chips ---------- */
+  .chips{display:flex; flex-wrap:wrap; gap:9px; margin:26px 0 4px;}
+  .chip{
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.055em;
+    text-transform:uppercase; padding:6px 11px; border-radius:2px;
+    border:1px solid var(--rule); color:var(--ink-2); background:var(--card);
+  }
+  .chip.ok{background:var(--ok-soft); border-color:transparent; color:var(--ok); font-weight:500;}
+  .chip.acc{background:var(--accent-soft); border-color:transparent; color:var(--accent); font-weight:500;}
+  .chip.em{background:var(--ember-soft); border-color:transparent; color:var(--ember); font-weight:500;}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(40px,6vw,62px) 0; border-bottom:1px solid var(--rule-2);}
+  .slabel{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.19em;
+    text-transform:uppercase; color:var(--ink-3); margin:0 0 16px;
+  }
+  h2{
+    font-family:"Newsreader",Georgia,serif; font-weight:400;
+    font-size:clamp(1.65rem,3.5vw,2.5rem); line-height:1.14; letter-spacing:-.014em;
+    margin:0 0 20px; text-wrap:balance;
+  }
+  h3{
+    font-family:"IBM Plex Sans",sans-serif; font-weight:600; font-size:1.02rem;
+    margin:34px 0 10px; letter-spacing:-.004em;
+  }
+  p{margin:0 0 17px;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft);}
+  a:hover{border-bottom-color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  strong{font-weight:600;}
+  code{
+    font-family:"IBM Plex Mono",monospace; font-size:.855em;
+    background:var(--paper-2); padding:.11em .36em; border-radius:2px;
+  }
+
+  blockquote{
+    margin:24px 0; padding:2px 0 2px 22px; border-left:2px solid var(--accent);
+    font-family:"Newsreader",Georgia,serif; font-size:1.16rem; line-height:1.5;
+    font-style:italic; color:var(--ink-2);
+  }
+  blockquote .src{
+    display:block; margin-top:9px; font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px; font-style:normal; letter-spacing:.05em; color:var(--ink-3);
+  }
+
+  /* ---------- evidence block (breakout) ---------- */
+  .evidence{
+    background:var(--card); border:1px solid var(--rule);
+    border-radius:3px; margin:30px 0; overflow:hidden;
+  }
+  .evidence > figcaption{
+    padding:13px 18px; border-bottom:1px solid var(--rule);
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; color:var(--ink-3); background:var(--paper-2);
+    display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  }
+  .evidence > figcaption b{color:var(--ember); font-weight:500;}
+  .scroll{overflow-x:auto;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px;}
+  th,td{
+    text-align:left; padding:9px 18px; border-bottom:1px solid var(--rule-2);
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+  th{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.11em;
+    text-transform:uppercase; color:var(--ink-3); font-weight:400;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td.mono,th.mono{font-family:"IBM Plex Mono",monospace;}
+  td.wrap-ok{white-space:normal; min-width:22ch;}
+  .zero{color:var(--ember); font-weight:600;}
+  .same{color:var(--warn); font-weight:600;}
+
+  /* ---------- scoreboard ---------- */
+  .board{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+    gap:1px; background:var(--rule); border:1px solid var(--rule);
+    border-radius:3px; margin:28px 0; overflow:hidden;
+  }
+  .cell{background:var(--card); padding:18px 16px;}
+  .cell .n{
+    font-family:"Newsreader",Georgia,serif; font-size:2.45rem; line-height:1;
+    font-weight:300; color:var(--ember); font-variant-numeric:tabular-nums;
+  }
+  .cell .n.good{color:var(--ok);}
+  .cell .l{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-3); margin-top:9px; line-height:1.45;
+  }
+
+  /* ---------- callout ---------- */
+  .call{
+    border-left:3px solid var(--ember); background:var(--ember-soft);
+    padding:17px 20px; border-radius:0 3px 3px 0; margin:26px 0;
+  }
+  .call.acc{border-left-color:var(--accent); background:var(--accent-soft);}
+  .call.ok{border-left-color:var(--ok); background:var(--ok-soft);}
+  .call p:last-child{margin-bottom:0;}
+  .call .tag{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.13em;
+    text-transform:uppercase; display:block; margin-bottom:8px; font-weight:500;
+  }
+  .call .tag{color:var(--ember);} .call.acc .tag{color:var(--accent);} .call.ok .tag{color:var(--ok);}
+
+  ul,ol{margin:0 0 17px; padding-left:1.35em;}
+  li{margin-bottom:9px;}
+  ol.ledger{list-style:none; padding-left:0; counter-reset:l;}
+  ol.ledger li{
+    counter-increment:l; position:relative; padding-left:38px; margin-bottom:15px;
+  }
+  ol.ledger li::before{
+    content:counter(l,decimal-leading-zero); position:absolute; left:0; top:1px;
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--accent);
+    letter-spacing:.04em;
+  }
+
+  footer{padding:44px 0 64px; color:var(--ink-3); font-size:13.5px;}
+  footer .fm{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.05em;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">
+    <span>LLM Wiki v252</span><span class="sep">/</span>
+    <span>2026-08-20</span><span class="sep">/</span>
+    <span>Goal-aligned 3&#8202;/&#8202;4 &middot; No mint</span>
+  </p>
+  <h1>The <em>deleted</em> measurement</h1>
+  <p class="dek">A consultant measured whether anyone was reading the knowledge scaffolding he told clients to build, concluded they weren&rsquo;t, and deleted it. Then he built a proper eval harness to prove the new design was better &mdash; ran only the arm that could not fail, graded nothing, published the comparison as fact, and dropped the data in the same commit.</p>
+  <div class="subject">
+    <span><b>jacob-dietle/context-os</b></span>
+    <span>HEAD <b>1027e3f1</b></span>
+    <span>26 commits &middot; 1 root &middot; 48 files</span>
+    <span>MIT <i>(repo only)</i></span>
+    <span>108&#9733; <i>page-stated</i></span>
+  </div>
+  <div class="chips">
+    <span class="chip acc">(a) FAIL &sect;41</span>
+    <span class="chip ok">(b) STRONG</span>
+    <span class="chip ok">(c) STRONG</span>
+    <span class="chip ok">(d) STRONG</span>
+    <span class="chip">46&#8202;/&#8202;11 unchanged</span>
+    <span class="chip">&sect;C 51 unchanged</span>
+    <span class="chip em">No mint &mdash; 5 grounds</span>
+    <span class="chip">Streak GA:110</span>
+  </div>
+</header>
+
+<section>
+  <p class="slabel">What it is</p>
+  <div class="col">
+    <h2>The vault&rsquo;s own architecture, built by someone else for client work</h2>
+    <p>An agent-skill collection plus templates that scaffolds a knowledge graph the AI reads and writes over time: atomic concept notes, <code>[[wiki-links]]</code>, a lifecycle of <code>emergent &rarr; validated &rarr; canonical</code>, and a <code>SENSE &rarr; ORIENT &rarr; ACT &rarr; DEPOSIT</code> loop. Thirteen skills, 8,243 lines of markdown, one author, MIT.</p>
+    <p>Its stated principle is <strong>stigmergy</strong> &mdash; and it is the most interesting sentence in the README:</p>
+    <blockquote>Desire paths are stigmergy. Agents coordinate by reading and modifying the shared environment &mdash; not by following procedures. If a file has zero heat, it&rsquo;s the concrete path nobody walks. Pave the desire paths.<span class="src">README.md</span></blockquote>
+    <p>This is Karpathy&rsquo;s LLM-wiki pattern &mdash; the same pattern this vault runs by hand &mdash; productised as a Claude Code plugin. That makes it unusually on-goal, and a fair mirror.</p>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">The headline</p>
+  <div class="col">
+    <h2>The repository ships the exact document that forbids its own README&rsquo;s claim</h2>
+    <p>The refactor is <strong>real and brave</strong>. <code>git diff v1.0-ceremony..v2.0-stigmergic</code> is <strong>8 files, 158 insertions, 448 deletions</strong> &mdash; a net &minus;290-line deletion, with both sides tagged so it is diffable. They deleted the taxonomy and ontology templates, a <code>/graph-health</code> command, and an entire ingestion subagent.</p>
+    <p>The justification is a measurement: <em>&ldquo;We measured it &mdash; taxonomy.yaml had 2 accesses in 90 days, ontology.yaml had 1, and the node lifecycle doc had zero.&rdquo;</em> That measurement is <strong>nowhere in the repository</strong>. No log, no artifact, no data &mdash; it describes client deployments and is unfalsifiable from the artifact.</p>
+    <p>But an instrument <em>was</em> here. <code>eval_quickstart.py</code> is a real Claude-Agent-SDK harness with a three-arm design (<code>--version old | new | both</code>). Its results file was committed, then deleted by <code>f7619ba</code> &mdash; <em>&ldquo;docs: rewrite README with v1&rarr;v2 narrative, drop eval results.&rdquo;</em> I recovered it.</p>
+  </div>
+
+  <figure class="evidence">
+    <figcaption>
+      <span>Recovered &mdash; <code>git show f7619ba^:eval_results.jsonl</code></span>
+      <b>8 rows &middot; one arm &middot; zero grades</b>
+    </figcaption>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th class="mono">test</th><th class="mono">version</th><th class="mono">tools used</th><th class="mono">duration</th><th class="wrap-ok">response opens with&hellip;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">T1</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">13.7s</td><td class="wrap-ok">&ldquo;Based on your CLAUDE.md&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T2</td><td class="mono same">new</td><td class="mono">5</td><td class="mono">40.1s</td><td class="wrap-ok">&ldquo;Let me first check for the node template&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T3</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">10.7s</td><td class="wrap-ok">&ldquo;Based on your CLAUDE.md&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T4</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">13.2s</td><td class="wrap-ok">&ldquo;Based on your CLAUDE.md&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T5</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">17.7s</td><td class="wrap-ok">&ldquo;Great question. Based on your CLAUDE.md&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T6</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">13.6s</td><td class="wrap-ok">&ldquo;Based on your CLAUDE.md&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T7</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">13.0s</td><td class="wrap-ok">&ldquo;The CLAUDE.md has a clear answer&hellip;&rdquo;</td></tr>
+          <tr><td class="mono">T8</td><td class="mono same">new</td><td class="mono zero">0</td><td class="mono">13.4s</td><td class="wrap-ok">&ldquo;Yes &mdash; based on your Context OS lifecycle&hellip;&rdquo;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+
+  <div class="col">
+    <p>Three things follow, each settled by command:</p>
+    <ul>
+      <li><strong>The baseline arm was never run.</strong> <code>--version old</code> needs <code>eval_old_claude.md</code>; that file was <strong>never committed</strong> &mdash; 0 of the 57 paths that have ever existed in this repository.</li>
+      <li><strong>Seven of eight runs used zero tools.</strong> In a system whose thesis is that agents coordinate by <em>reading and modifying the environment</em>, its own recorded runs mostly recited the <code>CLAUDE.md</code> instead of touching the graph.</li>
+      <li><strong>Nothing is graded.</strong> <code>pass_criteria</code>, <code>fail_criteria</code> and <code>critical_fail</code> appear only in their definitions and in a <code>print()</code> for a human to eyeball. Zero hits for <code>score</code>, <code>judge</code>, <code>verdict</code>, <code>assert</code>. The recorded fields are duration, tool count and response length &mdash; <strong>mechanics, never correctness</strong>.</li>
+    </ul>
+
+    <div class="call">
+      <span class="tag">And then the self-refutation</span>
+      <p>The repository ships <code>statistical-validity-checks.md</code>, 256 lines against <em>&ldquo;the backwards-reasoning failure mode.&rdquo;</em> Its own checklist: <em>&ldquo;<strong>&lsquo;N=8 is enough to see the pattern&rsquo; &mdash; no, N=8 fits ANY pattern perfectly by accident</strong>&rdquo;</em> and <em>&ldquo;same test set you iterated on?&rdquo;</em> Its &sect;5: <em>&ldquo;Labeled N &lt; 30 &rarr; <strong>do NOT iterate.</strong> Produce a &lsquo;hypothesis-generating&rsquo; output labeled as directional.&rdquo;</em></p>
+      <p>Their evidence base was N=8, single-arm, ungraded &mdash; and the README states the comparison as settled fact in a six-row table. <strong>The best document in the repository forbids the inference the README makes.</strong></p>
+    </div>
+
+    <p><strong>The borrowable rule:</strong> an instrument you only point at the arm that cannot fail is not a measurement. The harness was kept and the reading was dropped &mdash; the exact inverse of v251, where the instrument shipped and no reading did.</p>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">The best idea</p>
+  <div class="col">
+    <h2>A regression test against your own deleted abstractions</h2>
+    <p>Every one of the eight test cases carries a <code>critical_fail</code>, and every single one names something they had just deleted.</p>
+  </div>
+  <figure class="evidence">
+    <figcaption><span>eval_quickstart.py &mdash; critical_fail criteria</span><span>8 of 8 name a deleted thing</span></figcaption>
+    <div class="scroll">
+      <table>
+        <thead><tr><th class="mono">test</th><th class="wrap-ok">critical_fail</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">T1</td><td class="wrap-ok">&ldquo;References taxonomy.yaml or ontology.yaml as key system files&rdquo;</td></tr>
+          <tr><td class="mono">T2</td><td class="wrap-ok">&ldquo;Checks taxonomy.yaml for blessed tags before creating&rdquo;</td></tr>
+          <tr><td class="mono">T3</td><td class="wrap-ok">&ldquo;References taxonomy.yaml tag sprawl checking or _system/knowledge_graph/&rdquo;</td></tr>
+          <tr><td class="mono">T4</td><td class="wrap-ok">&ldquo;References ingestion staging workflow or taxonomy validation&rdquo;</td></tr>
+          <tr><td class="mono">T8</td><td class="wrap-ok">&ldquo;References node_lifecycle.md or says to check the lifecycle documentation&rdquo;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="col">
+    <div class="call acc">
+      <span class="tag">Take this</span>
+      <p><strong>When you delete an abstraction, the test is that the agent does not resurrect it.</strong> That the harness never evaluates these does not make the idea worse &mdash; only unfinished. This vault has a large graveyard: retired patterns C22&ndash;C27, superseded routine versions, and a chapter filename that has been wrong for 69 ships.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">Code vs prose &mdash; 7th consecutive ship</p>
+  <div class="col">
+    <h2>Everything is specified precisely enough to compile. Nothing compiles it.</h2>
+  </div>
+  <div class="board">
+    <div class="cell"><div class="n">0</div><div class="l">CI workflows<br>no .github, no yml</div></div>
+    <div class="cell"><div class="n">0<span style="font-size:1rem;color:var(--ink-3)">/7</span></div><div class="l">shell scanners that<br>can fail (no exit 1)</div></div>
+    <div class="cell"><div class="n">0</div><div class="l">automated grades<br>in the eval harness</div></div>
+    <div class="cell"><div class="n">0</div><div class="l">tests shipped</div></div>
+    <div class="cell"><div class="n">20</div><div class="l">detection commands<br>using grep -P</div></div>
+  </div>
+  <div class="col">
+    <p>For a skill collection this is <em>largely correct</em> &mdash; a skill <strong>is</strong> prose addressed to a model, and v250&rsquo;s rule holds: you can only compile the part that becomes a lie when violated. The exception is a labelling problem.</p>
+    <div class="call">
+      <span class="tag">A new species of overclaim</span>
+      <p><code>anti-slop-rules.md</code> heads its rule block <strong>&ldquo;Hard Limits (Automated, Zero Tolerance)&rdquo;</strong>. Nothing in the repository automates them. v250 called unguarded rules <em>&ldquo;non-negotiable&rdquo;</em> &mdash; a <strong>normative</strong> overclaim. This asserts <strong>&ldquo;Automated&rdquo;</strong>, a <strong>factual</strong> claim about mechanism that the artifact does not implement. <em>Overclaiming enforcement in the indicative mood is worse than in the imperative.</em></p>
+    </div>
+    <p>And the commands would not run anyway: <strong>20 use <code>grep -P</code></strong>, which stock macOS <code>/usr/bin/grep</code> rejects outright &mdash; <code>invalid option</code>, exit 2.</p>
+    <div class="call ok">
+      <span class="tag">A gotcha that isn&rsquo;t there</span>
+      <p>I went looking for the repo violating its own banned-word rules and <strong>found none</strong>. Every hit for <em>Furthermore / Moreover / Revolutionary</em> is a rule definition or a grep pattern. The em-dash cap is scoped to <em>generated content</em>, not their docs &mdash; applying it to the README would be a category error.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">A functional defect</p>
+  <div class="col">
+    <h2>A hard STOP that routes nowhere</h2>
+    <p><code>eval-loop/SKILL.md</code> references a sibling skill <strong>ten times</strong>, in the strongest language in the repository:</p>
+    <blockquote>STOP. Route to <code>/eval-driven-scoring</code> and read <code>references/statistical-validity-checks.md</code>. Do not proceed with this skill.<span class="src">eval-loop/SKILL.md:43</span></blockquote>
+    <p><strong><code>eval-driven-scoring</code> does not exist in this repository.</strong> Existence-testing every path that file cites: two resolve, three dangle &mdash; including the statistical document itself, which <em>is</em> present but at <code>eval/</code>, not the <code>references/</code> its own skill points at. One cited rubric was never tracked at all.</p>
+    <div class="call">
+      <span class="tag">Why this matters more than doc rot</span>
+      <p>A predictive-scoring problem &mdash; lead scoring, <strong>candidate matching</strong> &mdash; hits a hard stop, is routed to a skill that isn&rsquo;t installed, and told to open a file at a path that doesn&rsquo;t resolve. The reference paths still point at the private parent skill this was carved out of: <strong>the gate shipped, the gatekeeper didn&rsquo;t.</strong></p>
+    </div>
+    <p>The fleet&rsquo;s critic called this route <em>&ldquo;a REAL hard stop&hellip; genuinely fail-closed.&rdquo;</em> It is wrong on both halves: it is a markdown table cell, and its destination is missing. A stop instruction with no destination is a dead end, not a gate.</p>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">What is genuinely good</p>
+  <div class="col">
+    <h2>Two documents better than most published work on their subjects</h2>
+    <h3>statistical-validity-checks.md &mdash; 256 lines</h3>
+    <p>An operational runbook on ground-truth contamination in LLM scorers. Its <strong>first gate</strong> is a contaminated/clean source table: <em>&ldquo;Contacts associated with closed/won deals&rdquo; &rarr; &ldquo;Pre-filtered on the outcome you&rsquo;re predicting. Using outcomes as predictors = tautology.&rdquo;</em> Then a selection-bias template, a base-rate requirement, a discriminative-ratio band, a holdout procedure with a gap-interpretation table, and a backwards-reasoning detector that ends: <em>&ldquo;If you cannot describe falsification &rarr; the hypothesis is unfalsifiable. Do not use.&rdquo;</em></p>
+    <p>All four of its worked ratio examples check out arithmetically. And it disclaims its own novelty: <em>&ldquo;not novel; they are table stakes&hellip; This document codifies them at the skill level so they become unavoidable.&rdquo;</em></p>
+    <h3>landmine-patterns.md</h3>
+    <p>Pattern 1: two directories declaring the same deploy-target name with identical bindings &mdash; <em>&ldquo;A deploy from either location overwrites the other&rsquo;s code with zero warning.&rdquo;</em> Translated across Cloudflare, Railway, Vercel, Fly and Compose, with a real detection method and a <em>conditional</em> severity taxonomy (Drift &rarr; Landmine <em>on schema change</em>).</p>
+    <div class="call acc">
+      <span class="tag">The best line in the repository &mdash; and it diagnoses this vault</span>
+      <p><em>&ldquo;Code drift fails loud (eventually &mdash; when a deploy detonates). <strong>Context drift fails silent</strong> &mdash; an agent reads the wrong context and nothing announces it.&rdquo;</em></p>
+      <p>That is the <code>-v183</code> filename and the C22&ndash;C27 stale-claim backlog, named exactly. A wrong deploy detonates; a wrong context just quietly produces worse work forever.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">The installer &mdash; fetched and read, not executed</p>
+  <div class="col">
+    <h2>Why the answer is read-and-borrow</h2>
+    <p>The critic claimed the CLI doesn&rsquo;t exist and the install URL 404s. <strong>Refuted by direct fetch</strong> &mdash; it returns a valid 5.4&#8202;KB installer, and the binary ships. Reading it gives a far better-grounded picture than the repo alone:</p>
+    <ul>
+      <li><strong>The only integrity check is a size floor.</strong> <code>MIN_SIZE=$((10 * 1048576))</code> &mdash; <em>&ldquo;should be at least 10 MB.&rdquo;</em> No checksum, no signature, no GPG, no cosign. Any &ge;10&#8202;MB blob from that host installs and executes.</li>
+      <li><strong>The version resolves at install time</strong> from <code>curl -fsSL "$BASE_URL/latest.txt"</code> &mdash; piping to bash installs whatever that mutable file points at, that second.</li>
+      <li><strong>It auto-registers a login-persistent daemon at a 30-second interval.</strong> The README presents this as a step <em>you</em> run later. It is not.</li>
+      <li>A <strong>staging channel</strong> is one env var away. The binary is closed-source. There is <strong>no privacy or telemetry statement anywhere in the repository.</strong></li>
+    </ul>
+    <p>I did <strong>not</strong> establish that anything leaves the machine. But a closed binary polling your file access every 30 seconds from login, delivered by an unpinned pipe-to-shell whose sole integrity check is &ldquo;is it at least ten megabytes,&rdquo; is not a footprint to accept on a machine holding client or candidate data. In fairness, the script is competently written &mdash; the objection is the trust model, not the craft.</p>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">Take this, install nothing</p>
+  <div class="col">
+    <h2>The rung that pays</h2>
+    <div class="call acc">
+      <span class="tag">Two hours, zero install</span>
+      <p>Copy the contamination gate into <code>hireui/evals/METHOD.md</code>. The ratified candidate-LLM ADR has demanded eval-gating for months and <strong>still has no implementation</strong>. This is the runbook.</p>
+    </div>
+    <p>The transfer is direct, and alarming. Substitute recruitment terms into their contaminated-source table:</p>
+  </div>
+  <figure class="evidence">
+    <figcaption><span>Their contaminated sources &rarr; the hireui equivalent</span><b>every natural choice is on the list</b></figcaption>
+    <div class="scroll">
+      <table>
+        <thead><tr><th class="wrap-ok">their source</th><th class="wrap-ok">hireui equivalent</th><th class="wrap-ok">their stated reason</th></tr></thead>
+        <tbody>
+          <tr><td class="wrap-ok">&ldquo;contacts associated with closed/won deals&rdquo;</td><td class="wrap-ok"><strong>&ldquo;candidates we hired&rdquo;</strong></td><td class="wrap-ok">&ldquo;using outcomes as predictors = tautology&rdquo;</td></tr>
+          <tr><td class="wrap-ok">&ldquo;leads our sales team engaged with&rdquo;</td><td class="wrap-ok"><strong>&ldquo;candidates recruiters shortlisted&rdquo;</strong></td><td class="wrap-ok">&ldquo;already scored informally &mdash; you&rsquo;re copying existing bias&rdquo;</td></tr>
+          <tr><td class="wrap-ok">&ldquo;companies we consider good-fit&rdquo;</td><td class="wrap-ok"><strong>&ldquo;candidates we consider good-fit&rdquo;</strong></td><td class="wrap-ok">&ldquo;circular &mdash; unless labeled before any data was seen, it&rsquo;s hindsight&rdquo;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="col">
+    <p>Training a matcher on &ldquo;people we hired&rdquo; is not merely a statistical error &mdash; it is the precise mechanism by which a hiring model encodes historical hiring bias, which is the exposure the ADR exists to manage. Three questions must be answerable before any matcher ships: was the label produced <strong>blind</strong> to the score and <em>before</em> any model saw the data; what is the <strong>base rate</strong> in the full candidate universe; and <strong>what would falsify this rule?</strong></p>
+    <p>Then: adopt the <strong>critical-fail list</strong> for the vault&rsquo;s own graveyard, and finally write the bidirectional <code>bin/verify-vault-inventory.sh</code> that v250 specified and this ship re-argues &mdash; with the clause that would at last detect the <code>-v183</code> drift.</p>
+    <div class="call">
+      <span class="tag">Never</span>
+      <p>Never point this at candidate data. Never train a matcher on &ldquo;people we hired.&rdquo; Never cite the access counts as measured, or the v1-vs-v2 comparison as evaluated. Never cite &ldquo;142 automated anti-slop tests&rdquo; &mdash; none ship here. Never run their detection commands as written on macOS. Never assume <code>eval-driven-scoring</code> is available.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">Not established</p>
+  <div class="col">
+    <ul>
+      <li>Whether the taxonomy access counts (2&#8202;/&#8202;1&#8202;/&#8202;0 in 90 days) were ever measured &mdash; no artifact exists</li>
+      <li>Whether the CLI <em>works</em>, or what its daemon transmits &mdash; the installer was read, <strong>nothing was executed</strong></li>
+      <li>The &ldquo;142 automated anti-slop tests&rdquo; and &ldquo;5 verified multi-agent builds&rdquo; cited as provenance &mdash; neither ships</li>
+      <li>Stars and forks &mdash; page-stated only; the GitHub API is mocked here, so <strong>no velocity claim of any kind</strong></li>
+      <li>External prior-art dates the fleet produced for a Karpathy post, a &ldquo;Stigmem v1.0&rdquo; and a third repo &mdash; <strong>all unverifiable, all discarded</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <p class="slabel">Error ledger &mdash; 11 caught, 3 mine</p>
+  <div class="col">
+    <ol class="ledger">
+      <li><strong>Mine.</strong> I recorded the <code>silent</code> detector as a null result <em>without running the grep</em>. It returned 22 hits and the strongest replication in the series &mdash; including the best line in the repository. <em>Never assert the outcome of a check you have not run.</em></li>
+      <li><strong>Mine.</strong> I counted 2 AI-provenance trailers; the real number is <strong>19</strong>. Cause: zsh silently dropped stdout on a piped grep. <em>Route counts to a file, then count the file.</em></li>
+      <li><strong>Mine.</strong> Two defects I hypothesised were refuted by the evidence, and I reported the clean results instead. I also nearly filed a false <code>grep -P</code> finding because this machine has <code>ugrep</code> aliased as grep.</li>
+      <li><strong>The fleet&rsquo;s worst.</strong> The critic asserted the CLI &ldquo;does not exist &mdash; install URL returns 404.&rdquo; A direct fetch refuted it. Publishing that would have been a false claim about a live product; checking it myself produced this ship&rsquo;s best security material.</li>
+      <li>A situating agent invented external prior art with specific dates &mdash; a dated Karpathy post, a &ldquo;Stigmem v1.0,&rdquo; a third repo. All discarded. <strong>The v249&rarr;v251 fix held a fourth time:</strong> pointing a contradiction stage at the <em>situating</em> reports contained the fabrication class.</li>
+      <li>Also caught: a fabricated README table, a claim that the ceremony files never existed, an inverted diff summary, two nonexistent files, and line numbers off by 50&ndash;150 across two lenses. Every line number here is one I obtained myself.</li>
+    </ol>
+    <div class="call ok">
+      <span class="tag">The measurement that keeps replicating</span>
+      <p>Every claim formed by <strong>reading and quoting a file</strong> held. Every claim that broke was a <strong>count, an inventory, or a generalisation</strong> &mdash; mine and the fleet&rsquo;s alike. Seventeen agents, 2.1M tokens, and the run&rsquo;s worst error was caught by running one command myself.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0;">
+    <p class="fm">v252 &middot; NO MINT on five grounds &mdash; decisively, the differentiating machinery (file heat, co-access) lives entirely in the closed binary. Counts 46&#8202;/&#8202;11 unchanged &middot; &sect;C live standalones 51 unchanged &middot; streak GA:110, 33 consecutive.</p>
+    <p>Two independent clones, <code>diff -rq</code> clean both ways. No subject code was executed.</p>
+  </div>
+</footer>
+
+</div>

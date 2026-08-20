@@ -577,3 +577,43 @@ Forced-retired (the v79–v89 N=1 long-tail, non-exhaustive — these were never
 - ⚠️ **METHOD LIMIT DISCOVERED:** **a blind replication cannot be run inside a vault whose `CLAUDE.md` is auto-injected into every subagent.** The workers were meant to be blind to v251; the shim carries the v251 summary and the critic argued with it. Evidence was still independently derived — the architecture mapper contradicted the v251 headline on its first pass — but the design must strip the shim for the workers next time.
 - **§35 CLEAR** (window {v249 GA, v250 GA, v251 GA} = 0 OG); **streak `GA:108` → `GA:109 · OG:13 [7 ov]`**, 32 consecutive GA (v220→v251); **no override** — (b) cleanly STRONG. **The rebuild does not increment the streak; a rebuild is not a ship.**
 - `inflation_check` **HELD** — 0 mints, counts 46/11 unchanged, §C standalones 51 unchanged, no N-bumps taken, the §C alternative recorded rather than executed.
+
+---
+
+**§F — v252 context-os (`jacob-dietle/context-os`) — 2026-08-20 — NO MINT; counts 46/11 UNCHANGED; §C live standalones 51 unchanged; tracked surface ≈58 unchanged.** GOAL-ALIGNED INCLUDE 3/4 [(a) FAIL §41 · (b) **STRONG** · (c) STRONG ⚠️tempered · (d) STRONG].
+
+**SUBJECT.** An MIT agent-skill collection (13 skills, 8,243 md lines) + templates that scaffolds a Karpathy-style LLM wiki — atomic notes, `[[wiki-links]]`, `emergent → validated → canonical`, a `SENSE → ORIENT → ACT → DEPOSIT` loop — behind a **closed-source `context-os` CLI** supplying graph queries, **"file heat"** and behavioural **"co-access"**. Source-verified by two clones (`diff -rq` clean both ways), HEAD `1027e3f1`, 26 commits, one root, one author, 108★ page-stated.
+
+**MINT DECLINED on FIVE grounds.**
+1. **⭐ DECISIVE — direct in-corpus precedent at v234** (`agentic-local-brain`, **three days prior**): a near-identical subject — a personal knowledge system whose headline feature was an auto-compiled LLM wiki — was declined **NO MINT on four grounds**. Declining v234 and minting v252 would be incoherent.
+2. **NOT corpus-first for the domain.** **v134** (`obsidian-second-brain`, explicitly *"an evolution of Karpathy's LLM Wiki pattern"*) and **v118** (OpenHuman Memory Tree) precede; v234 precedes by three days. This is the **5th instance** on the already-registered **Pattern #57 sub-variant** *"Productized/Automated Karpathy-LLM-Wiki-Pattern at the Methodology-Influence Layer."*
+3. **🔴 THE MACHINERY DOES NOT SHIP (v242 D25 / v246).** The only mechanically novel element — **file heat + behavioural co-access driving which knowledge survives** — lives **entirely in the closed binary**, which the README itself calls *"not fully finished yet."* **A capability class cannot be minted on a mechanism absent from the artifact.** Sufficient alone.
+4. **Technique/domain-not-capability** (v211 PixelRAG / v196 meetily / v234 discipline). *"Instrument your knowledge base and delete what nobody reads"* is a technique; PKM is a domain. Neither is §C-vocab-shaped.
+5. **§28** at 51 live standalones, and it is **not the exemplar** of its class — 26 commits, one author, **108★** against a genre with 34k★/63k★ incumbents (the v180 / v234 weak-anchor precedent).
+
+⚠️ **STRONGEST ALTERNATIVE RECORDED, operator/audit-reviewable, NOT self-executed:** a §C standalone at N=1 — ***"Stigmergically-Instrumented Knowledge Base — an agent-maintained graph whose retention is driven by measured access rather than declared taxonomy."*** Genuinely distinctive on mechanism: **every prior instance on the #57 vector BUILDS the wiki; this is the first to MEASURE whether it is being read and DELETE what is not.** v118/v134/v137/v234 all accumulate; this one prunes on evidence, and its own v1→v2 refactor is that idea applied to itself. **Loses** on grounds 3–5 — decisively **3** — and would be *drawing the circle to make it first* (the camofox v179 discipline).
+
+⚠️ **AUDIT FLAG (load-bearing, inherited and AGGRAVATED).** The **v137** entry deferred a *"promote-broad-class-vs-split"* question on **this exact vector** to the *"~v139–v140 audit"*, **which never resolved it**; v234 was the 4th data point and re-flagged it. **v252 is the 5th and structurally new again:**
+
+| Instance | Shape |
+|---|---|
+| v118 | an agent harness's memory |
+| v134 | a skill over *your existing* vault |
+| v137 | a one-shot source→skill converter |
+| v234 | a standalone app that compiles **and maintains** the wiki |
+| **v252** | **a skill collection + closed CLI scaffolding the wiki as a CONSULTING DELIVERABLE, with behavioural instrumentation deciding what survives** |
+
+**Five instances, four distinct shapes, one unresolved class question, deferred ~113 ships.** This is now the single strongest standing item on the overdue audit's agenda for this vector.
+
+**SECONDARY — recorded, NOT minted.**
+- **#88 Anti-Slop-Curation** — instance at the **specification** pole: rules are grep-precise (the table ships the detection command) but **nothing runs them**, and 20 of those commands use `grep -P`, which stock macOS `/usr/bin/grep` rejects (exit 2). Joins v75 / v81 / v82 / v83 / v85 / v204 / v250. **No N-bump asserted.**
+- **⭐ CODE-vs-PROSE, 7th consecutive ship (v246→v252) — a NEW SPECIES of overclaim.** Repo-wide enforcement: **0** CI workflows · **0 of 7** shell scanners can fail · **0** automated grades · **0** tests. Largely *correct* for a skill collection (v250's rule). The exception is a **labelling** problem: `anti-slop-rules.md` heads its rules **"Hard Limits (Automated, Zero Tolerance)"** and nothing automates them ⇒ **v250 called unguarded rules *"non-negotiable"* (a NORMATIVE overclaim); v252 asserts *"Automated"* — a FACTUAL claim about mechanism that the artifact does not implement.** *Overclaiming enforcement in the indicative mood is worse than in the imperative.*
+- **⭐⭐⭐ v246's `grep -rni "silent"` — 7th CONSECUTIVE REPLICATION, richest species yet: SILENCE AS THE ORGANISING PRINCIPLE OF A SEVERITY TAXONOMY.** 22 hits. `code-service-defrag` assigns severity **by how silent the failure is** (🔴 Landmine = *"silently regresses production, no warning"* vs 🟡 Drift = eventually detectable), and compiles that rationale into the scanner itself. ⭐⭐⭐ **THE BEST LINE, AND IT DIAGNOSES THIS VAULT** — `SKILL.md:25`: *"Code drift fails loud (eventually — when a deploy detonates). **Context drift fails silent** — an agent reads the wrong context and nothing announces it."* That is the `-v183` label (wrong for **69 ships**) and the C22–C27 backlog, named exactly ⇒ **the strongest argument yet for the bidirectional `bin/verify-vault-inventory.sh` that v250 specified and that still does not exist.**
+- **#83 a genuine POSITIVE, twice** — the *"not fully finished yet"* caveat sits **at the install site**, and `statistical-validity-checks.md` closes by disclaiming its own novelty (*"not novel; they are table stakes"*).
+- **Domain-Vertical-Skill-Collection — CONSIDERED and REJECTED.** The set is heterogeneous (GTM/content/SEO **+** codebase defrag **+** eval **+** epistemics), so not single-vertical in the v202-marketing / v187-finance / v64-SEO sense. Closer to **a consultant's personal toolkit** — recorded as a shape observation, not a pattern claim.
+- **#12** ships `CLAUDE.md`, no `AGENTS.md` (**no N-bump**) · **#66 MODERATE** (unpinned `curl|bash`; the installer's **only** integrity check is `MIN_SIZE=$((10 * 1048576))` — a size floor, no checksum or signature — the version resolves from a mutable `latest.txt`, and it **auto-registers a login-persistent file-access-tracking daemon at 30-second intervals**; milder than v234's plaintext `http://` since this is TLS) · **NOT #52** (page-stated, API mocked) · **NOT #57** (no dependency on any prior corpus subject).
+- **NEW DEFERRED WATCH AXIS (N=1):** *"behavioural instrumentation of a knowledge base — access-frequency and co-access as the signal for what to keep, and 'delete what has no heat' as a maintenance doctrine."*
+
+**`inflation_check` HELD** — 0 mints; the §C alternative recorded and declined per §28 + v242 D25; counts **46/11** unchanged; max pattern #85; **no N-bumps taken** on #88 / #12 / #57 / #83.
+
+**Streak: v251 `GA:109` → `GA:110 · OG:13 [7 ov]`** (**33 consecutive GA**, v220→v252); **§35 CLEAR** (window {v250 GA, v251 GA, v252 GA} = 0 OG); **no override** — (b) cleanly STRONG.
