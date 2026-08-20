@@ -1,0 +1,497 @@
+<title>One Field of Five</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,800;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+  /* ── tokens: light is the base, both dark states redefine only tokens ── */
+  :root{
+    --ground:#F6F8FA;
+    --panel:#FFFFFF;
+    --panel-2:#EDF1F5;
+    --ink:#15202B;
+    --ink-2:#3D4C5A;
+    --ink-3:#6B7B8A;
+    --rule:#D6DEE6;
+    --rule-2:#C2CDD8;
+    --accent:#A06A05;        /* star amber, darkened for light-ground contrast */
+    --accent-soft:#F3E3C2;
+    --accent-line:#C89020;
+    --flag:#A8231C;          /* defect */
+    --flag-soft:#F7E0DE;
+    --ok:#17614A;            /* verified */
+    --ok-soft:#DBEDE4;
+    --dim:#8A97A4;           /* the discarded fields */
+    --dim-soft:#E6EAEE;
+    --shadow:0 1px 2px rgba(21,32,43,.06),0 8px 24px -12px rgba(21,32,43,.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#101720;
+      --panel:#18212C;
+      --panel-2:#1F2A36;
+      --ink:#E8EEF4;
+      --ink-2:#B4C1CD;
+      --ink-3:#8797A6;
+      --rule:#2A3743;
+      --rule-2:#3A4855;
+      --accent:#E8AC42;
+      --accent-soft:#3A2E17;
+      --accent-line:#B78528;
+      --flag:#F0847C;
+      --flag-soft:#3A1F1D;
+      --ok:#63C39A;
+      --ok-soft:#16301F;
+      --dim:#6D7C8A;
+      --dim-soft:#212C37;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101720; --panel:#18212C; --panel-2:#1F2A36;
+    --ink:#E8EEF4; --ink-2:#B4C1CD; --ink-3:#8797A6;
+    --rule:#2A3743; --rule-2:#3A4855;
+    --accent:#E8AC42; --accent-soft:#3A2E17; --accent-line:#B78528;
+    --flag:#F0847C; --flag-soft:#3A1F1D;
+    --ok:#63C39A; --ok-soft:#16301F;
+    --dim:#6D7C8A; --dim-soft:#212C37;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+  .col{max-width:68ch}
+  h1,h2,h3,h4{font-family:Bitter,Georgia,serif;text-wrap:balance;margin:0}
+  h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;line-height:1.06;letter-spacing:-.02em}
+  h2{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;line-height:1.18;margin:0 0 .5rem}
+  h3{font-size:1.14rem;font-weight:600;margin:0 0 .35rem}
+  p{margin:0 0 1.05rem}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  code,.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  code{font-size:.855em;background:var(--panel-2);padding:.1em .34em;border-radius:3px;
+       border:1px solid var(--rule)}
+  strong{font-weight:700}
+  em{font-style:italic;color:var(--ink-2)}
+
+  /* eyebrow labels — used only where they encode a real category */
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.665rem;font-weight:700;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ── masthead ── */
+  header{border-bottom:1px solid var(--rule);padding:56px 0 34px;margin-bottom:44px}
+  .slug{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:500;
+    padding:.28em .62em;border-radius:3px;border:1px solid var(--rule-2);color:var(--ink-2);
+    background:var(--panel)}
+  .chip.v{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft);font-weight:700}
+  .chip.no{border-color:var(--flag);color:var(--flag);background:var(--flag-soft)}
+  .lede{font-family:Bitter,Georgia,serif;font-size:1.2rem;line-height:1.5;color:var(--ink-2);
+    max-width:60ch;margin-top:20px}
+  .repo{font-family:"JetBrains Mono",monospace;font-size:.95rem;color:var(--ink-3);margin-top:14px}
+
+  /* ── the AIMED / UNAIMED language: the page's one structural device ── */
+  .thesis{margin:0 0 52px}
+  .fields{display:grid;gap:12px;margin:26px 0 0}
+  .field{display:grid;grid-template-columns:auto 1fr;gap:0;border:1px solid var(--rule);
+    border-radius:6px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+  .field .key{font-family:"JetBrains Mono",monospace;font-size:.83rem;font-weight:700;
+    padding:16px 18px;display:flex;align-items:center;gap:9px;border-right:1px solid var(--rule);
+    background:var(--dim-soft);color:var(--dim);min-width:190px}
+  .field .body{padding:14px 18px;font-size:.95rem;color:var(--ink-2)}
+  .field .body b{color:var(--ink)}
+  .field.read{border-color:var(--accent-line)}
+  .field.read .key{background:var(--accent-soft);color:var(--accent);border-right-color:var(--accent-line)}
+  .dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex:0 0 auto}
+  .verdict{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-top:6px}
+  .verdict.bad{color:var(--flag)}
+  .verdict.good{color:var(--ok)}
+
+  pre{font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.6;
+    background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--accent-line);
+    border-radius:5px;padding:15px 17px;overflow-x:auto;margin:0 0 1.1rem;color:var(--ink)}
+
+  section{margin:0 0 54px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule);
+    padding-bottom:10px;margin-bottom:22px;flex-wrap:wrap}
+  .sec-head .eyebrow{flex:0 0 auto}
+
+  /* ── data tables ── */
+  .tw{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--panel);
+      box-shadow:var(--shadow);margin:0 0 1.2rem}
+  table{border-collapse:collapse;width:100%;font-size:.9rem}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+  thead th{font-family:"JetBrains Mono",monospace;font-size:.665rem;font-weight:700;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);background:var(--panel-2);
+    white-space:nowrap;border-bottom:1px solid var(--rule-2)}
+  tbody tr:last-child td{border-bottom:none}
+  .num{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .win-a{color:var(--flag);font-weight:600}
+  .win-b{color:var(--ok);font-weight:600}
+
+  /* ── measurement strip: the star/length ladder ── */
+  .ladder{display:grid;gap:2px;margin:6px 0 18px}
+  .rung{display:grid;grid-template-columns:104px 1fr 108px;align-items:center;gap:14px;
+    padding:7px 0;border-bottom:1px solid var(--rule)}
+  .rung:last-child{border-bottom:none}
+  .rung .lab{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--ink-2);
+    font-variant-numeric:tabular-nums;text-align:right}
+  .bar{height:13px;border-radius:2px;background:var(--accent);opacity:.85}
+  .rung .val{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--ink-3);
+    font-variant-numeric:tabular-nums}
+
+  .callout{border:1px solid var(--rule);border-left:3px solid var(--accent-line);
+    background:var(--panel);border-radius:5px;padding:17px 20px;margin:0 0 1.2rem;
+    box-shadow:var(--shadow)}
+  .callout.flag{border-left-color:var(--flag)}
+  .callout.ok{border-left-color:var(--ok)}
+  .callout p:last-child{margin-bottom:0}
+  .callout .eyebrow{display:block;margin-bottom:7px}
+
+  ul{margin:0 0 1.1rem;padding-left:1.15rem}
+  li{margin-bottom:.42rem}
+  li::marker{color:var(--ink-3)}
+
+  .rule-quote{font-family:Bitter,Georgia,serif;font-size:1.18rem;line-height:1.45;
+    font-weight:600;color:var(--ink);border-left:3px solid var(--accent);padding:2px 0 2px 20px;
+    margin:0 0 1.2rem;max-width:56ch}
+
+  details{border:1px solid var(--rule);border-radius:5px;background:var(--panel);
+    padding:0 16px;margin:0 0 10px}
+  summary{cursor:pointer;padding:12px 0;font-weight:600;font-size:.95rem}
+  details[open] summary{border-bottom:1px solid var(--rule);margin-bottom:12px}
+  details .in{padding-bottom:14px;font-size:.93rem;color:var(--ink-2)}
+
+  footer{border-top:1px solid var(--rule);padding-top:22px;margin-top:12px;
+    font-size:.85rem;color:var(--ink-3)}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 18px 64px}
+    .field{grid-template-columns:1fr}
+    .field .key{border-right:none;border-bottom:1px solid var(--rule);min-width:0}
+    .field.read .key{border-right-color:transparent;border-bottom-color:var(--accent-line)}
+    .rung{grid-template-columns:78px 1fr;row-gap:2px}
+    .rung .val{grid-column:2;font-size:.72rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="slug">
+    <span class="chip v">wiki v254</span>
+    <span class="chip">2026-08-20</span>
+    <span class="chip">GOAL-ALIGNED 3/4</span>
+    <span class="chip no">NO MINT</span>
+    <span class="chip">counts 46 / 11 unchanged</span>
+    <span class="chip">T3 Reference/Index</span>
+  </div>
+  <h1>One field of five</h1>
+  <p class="lede">A weekly build server keeps 300 curated entries in perfect star order — and reads one field of the five that the very same API response hands it.</p>
+  <p class="repo">bradAGI/awesome-cli-coding-agents &nbsp;·&nbsp; HEAD <code>6e307e73</code> &nbsp;·&nbsp; two clones, <code>diff -rq</code> clean both ways</p>
+</header>
+
+<section class="thesis">
+  <div class="sec-head">
+    <span class="eyebrow">the finding</span>
+    <h2>What the machine asks for, and what it throws away</h2>
+  </div>
+
+  <div class="col">
+    <p>The list is one Markdown file — 300 entries, 688 lines — plus a banner, a 192-line Python script, and a GitHub Actions workflow that has fired every Monday for seventeen weeks without a gap. Each run re-fetches every entry's star count, re-sorts all six sections, stamps the date, and commits. It works. That is the unusual part.</p>
+
+    <p>The whole story is one line of that script:</p>
+
+    <pre>return json.load(resp).get("stargazers_count")</pre>
+
+    <p>The entire <code>GET /repos/{owner}/{repo}</code> response is parsed into a dictionary. One key is selected. The rest is discarded on the next line — and each of those keys is the answer to a defect the list actually has.</p>
+  </div>
+
+  <div class="fields">
+    <div class="field read">
+      <div class="key"><span class="dot"></span>stargazers_count</div>
+      <div class="body">
+        <b>Read.</b> Zero descending-order violations across 300 entries in six sections, and the numbers are right — I checked three against rendered GitHub pages: <span class="mono">openclaw</span> 386,827 vs <span class="mono">387k</span>, <span class="mono">claude-code</span> 142,065 vs <span class="mono">142k</span>, <span class="mono">hermes-agent</span> 233,195 vs <span class="mono">232k</span> after three days of growth.
+        <span class="verdict good">correct, and verifiably so</span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="key"><span class="dot"></span>archived</div>
+      <div class="body">
+        <b>Discarded.</b> <span class="mono">letta-ai/lettabot</span> (327★) sits in the active Open Source section. Its GitHub title reads <em>“Archived — has been replaced by Letta Code channels/schedules!”</em> The list's own third inclusion rule requires a <em>“valid, active project (no dead repos).”</em>
+        <span class="verdict bad">a dead project in the active list</span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="key"><span class="dot"></span>full_name</div>
+      <div class="body">
+        <b>Discarded.</b> <span class="mono">ruvnet/claude-flow</span> — 68,000★, the second-largest entry in its section — redirects to <span class="mono">ruvnet/ruflo</span>. So does <span class="mono">paoloanzn/free-code</span> → <span class="mono">freecodexyz/free-code</span>.
+        <span class="verdict bad">two stale names, one at 68k stars</span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="key"><span class="dot"></span>pushed_at</div>
+      <div class="body">
+        <b>Discarded.</b> There is no decay or dormancy policy of any kind — no dated section, no per-entry evidence, nothing that detects a project going quiet.
+        <span class="verdict bad">no dormancy detection at all</span>
+      </div>
+    </div>
+    <div class="field">
+      <div class="key"><span class="dot"></span>license</div>
+      <div class="body">
+        <b>Discarded.</b> 134 of 300 entries name no licence, and ten of the twenty most-starred are silent. The machine could have filled every one.
+        <span class="verdict bad">you cannot filter this list by licence</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col" style="margin-top:28px">
+    <div class="callout flag">
+      <span class="eyebrow">and the sixth thing, which needs no API at all</span>
+      <p><strong>300 entries, 295 unique URLs.</strong> Five duplicate pairs — every one adjacent, every one byte-identical. The script builds <code>repos</code>, a dictionary keyed by <span class="mono">(owner, repo)</span>, so <em>building it is deduplication</em>. Twelve lines later it prints <code>len(repos)</code> to stderr.</p>
+      <p><strong>Every Monday for seventeen weeks that job has printed <span class="mono">295</span> while editing a file containing 300 entry lines.</strong> Nothing compares them. One <code>if</code>, on data already in hand, already being printed.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">provenance</span><h2>The duplicates came from transcription, not tooling</h2></div>
+  <div class="col">
+    <p>Traced through all 125 commits, the duplicate count is a clean step function: <strong>zero from the root commit through 2026-07-27 — 5.7 months and 242 entries</strong> — then five, in a single commit, and exactly five ever since.</p>
+  </div>
+  <pre>0b3d522  2026-02-06    95 entries   0 duplicates   ← root
+4820306  2026-07-27   242 entries   0 duplicates
+126e206  2026-07-29   260 entries   5 duplicates   ← "Add 17 entries from reviewed PRs…"
+b433ac5  2026-08-03   261 entries   5              ← bot rewrite
+0e01e31  2026-08-10   261 entries   5              ← bot rewrite
+151476e  2026-08-13   300 entries   5              ← human "refresh all star counts"
+6e307e7  2026-08-17   300 entries   5              ← bot rewrite (HEAD)</pre>
+  <div class="col">
+    <p>The file has been completely machine-rewritten four times since they appeared. All four preserved them. And because the sort keys on stars, identical entries sort <em>adjacent</em> every run — the machine actively holds them side by side, in the one arrangement a human reader would most easily notice.</p>
+    <p>Nine commits are batches phrased <em>“Add N entries from reviewed PRs.”</em> The maintainer reads contributor pull requests and re-types their entries. He also has 33 real merge commits. <strong>Every duplicate came from a transcription batch; not one came from a merge.</strong> Git already knows what is in the file; reviewing a PR and hand-copying it is the one workflow that discards that knowledge.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">the rule</span><h2>A declaration is a form of aim</h2></div>
+  <div class="col">
+    <p>Three classes of fact in this repository had three different fates, and the pattern is not “machine good, human bad.”</p>
+    <ul>
+      <li><strong>What the machine was aimed at</strong> — stars, sort order, the <em>“Last updated”</em> stamp — is correct and verifiable. The stamp reads 2026-08-17 because a <code>sed</code> step writes it weekly.</li>
+      <li><strong>What the human declared</strong> — the headline <em>“110+ CLI coding agents”</em> — is <em>exactly</em> right. Agents are 83 + 12 + 16 = <strong>111</strong>; the harnesses are <em>“plus.”</em> 111 + 189 = 300. He bumped that number by hand in five separate commits.</li>
+      <li><strong>What nobody declared and nothing was aimed at</strong> — uniqueness, liveness, rename-freshness — is broken.</li>
+    </ul>
+    <p class="rule-quote">A gate's aim, not its quality, decides what rots — and a declaration is a form of aim. Before adding a check, ask what you have never declared. That is where the rot is.</p>
+    <p>I assumed <em>“110+”</em> was stale against 300 entries. It is not, and three separate fleet agents made the same misreading. The sentence's grammar was precise all along.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">controlled comparison</span><h2>v253 had no machinery. This one does.</h2></div>
+  <div class="col"><p>The immediately prior wiki subject was the same genre in an adjacent domain: 180 entries, one file, no CI, no scripts, ever. Setting them side by side answers a question worth asking — <em>what does machinery actually buy a curated list?</em></p></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th></th><th>v253 — no machinery</th><th>v254 — weekly CI</th></tr></thead>
+      <tbody>
+        <tr><td>Entries</td><td class="num">180</td><td class="num">300</td></tr>
+        <tr><td>Ordering invariant</td><td>alphabetical, 0 violations, by hand</td><td>star-sorted, <span class="win-b">0 violations, by machine</span></td></tr>
+        <tr><td>Star <em>accuracy</em></td><td class="win-a">hand-typed; “never cite as verified”</td><td class="win-b">CI-fetched; 3 verified against live pages</td></tr>
+        <tr><td>“Last updated” stamp</td><td class="win-a">two values in its whole life; 23 days stale</td><td class="win-b">machine-stamped; 3 days old</td></tr>
+        <tr><td>Duplicates</td><td class="win-b">zero</td><td class="win-a">five, adjacent and byte-identical</td></tr>
+        <tr><td>Dead entries</td><td class="win-b">caught, plus a dated <em>Resting</em> section</td><td class="win-a">lettabot archived, listed live; no policy</td></tr>
+        <tr><td>Renames</td><td class="win-b">5 verified and fixed</td><td class="win-a">2 stale redirects, one at 68k★</td></tr>
+        <tr><td>Licence disclosure</td><td class="win-a">2.2%, adversely selected</td><td class="win-b">55.3%, adverse selection gone</td></tr>
+        <tr><td>Licence file</td><td class="win-a">none</td><td class="win-a">none — plus a badge claiming one</td></tr>
+        <tr><td>Merge strategy</td><td>squash, 100 PRs reviewed one at a time</td><td>33 merges + 9 hand-transcribed batches</td></tr>
+        <tr><td>Entries from outside</td><td>community-driven</td><td class="num">33 of 300 (1.1% of added lines)</td></tr>
+        <tr><td>AI provenance</td><td>48.9% of commits — <em>the maintainer's own</em></td><td>4 trailer lines — <em>all contributors'</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="callout">
+      <span class="eyebrow">verdict</span>
+      <p>Machinery bought accuracy and freshness on the axis it was pointed at — genuinely, measurably, and v253 has nothing comparable. It bought nothing at all on membership. <strong>And v253's hand-maintained decay section beat v254's automated pipeline at the one job the automation was best positioned to do.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">replication</span><h2>The length ladder, measured against verified stars</h2></div>
+  <div class="col"><p>v253's maintainer diagnosed that entry length tracked how hard each submitter wanted to promote their own project. That was measured against hand-typed stars. Here the stars are machine-fetched weekly, so the same association can be measured properly. Mean description words, by star bucket:</p></div>
+  <div class="ladder">
+    <div class="rung"><span class="lab">≥ 100k ★</span><span class="bar" style="width:38%"></span><span class="val">19.3 w · n=7 · 0 over 40</span></div>
+    <div class="rung"><span class="lab">10k–100k</span><span class="bar" style="width:49%"></span><span class="val">24.9 w · n=55 · 13 over 40</span></div>
+    <div class="rung"><span class="lab">1k–10k</span><span class="bar" style="width:47%"></span><span class="val">24.0 w · n=63 · 12 over 40</span></div>
+    <div class="rung"><span class="lab">100–999</span><span class="bar" style="width:56%"></span><span class="val">28.5 w · n=58 · 13 over 40</span></div>
+    <div class="rung"><span class="lab">&lt; 100 ★</span><span class="bar" style="width:61%"></span><span class="val">31.2 w · n=104 · 21 over 40</span></div>
+  </div>
+  <div class="col">
+    <p><strong>The seven most-starred projects average 19.3 words and not one exceeds 28. The 104 least-starred average 31.2, and 21 of them exceed 40.</strong> <span class="mono">openclaw</span> at 387,000★ gets 19 words; <span class="mono">Agent AFK</span> at 51★ gets 71 — a 7,588× spread in adoption inverted into 3.7× in words.</p>
+    <p>And the structural consequence is specific to this list, because <em>it sorts by stars</em>: the file gets systematically wordier as you scroll, so promotional pressure and position are correlated by construction — concentrated exactly where a maintainer's attention runs out.</p>
+    <div class="callout flag">
+      <span class="eyebrow">the honest read</span>
+      <p>A Spearman of <strong>−0.24</strong> on n=287 is statistically significant but explains roughly <strong>6% of the variance</strong>. The bucket means are a far clearer signal than the coefficient. And the <em>causal</em> story — that length tracks self-promotion — is v253's maintainer's diagnosis of his own list, stated in his own commit message. It is not established here, and a perfectly innocent alternative fits this data: niche low-adoption tools genuinely need more words to explain what they are.</p>
+      <p><strong>The defensible claim is that the association replicates against verified stars. Not the motive.</strong></p>
+    </div>
+    <p>One difference matters: <em>v253 had a budget nobody enforced and landed at mean 18 words. v254 has no budget at all and sits at 27.6.</em> That is the cost of not writing the number down.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">decidability</span><h2>awesome-lint would fail this file ~13 times and be right 6 of them</h2></div>
+  <div class="col"><p>v253's finding was that all 21 of its lint deviations were <em>lint being wrong</em>. Running the same battery here inverts that.</p></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Deviation</th><th>Count</th><th>Would lint be right?</th></tr></thead>
+      <tbody>
+        <tr><td>Duplicate entries</td><td class="num">5</td><td class="win-b">Yes — five times</td></tr>
+        <tr><td>No <code>LICENSE</code> file</td><td class="num">1</td><td class="win-b">Yes</td></tr>
+        <tr><td>Description starts lowercase</td><td class="num">6</td><td class="win-a">No — every one is <span class="mono">xAI</span>, <span class="mono">tmux</span> or <span class="mono">macOS</span></td></tr>
+        <tr><td>No trailing period</td><td class="num">1</td><td class="win-a">No — it ends in a backticked <span class="mono">pip install</span></td></tr>
+        <tr><td>Malformed URLs</td><td class="num">0</td><td>—</td></tr>
+        <tr><td>Missing separators</td><td class="num">0</td><td>—</td></tr>
+        <tr><td>ToC named <code>Contents</code></td><td class="num">✓</td><td>—</td></tr>
+        <tr><td>Anchors resolving</td><td class="num">9 / 9</td><td>— including both hard double-hyphen slugs</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p>v253 found exactly four lowercase starts, all <span class="mono">tmux</span> or <span class="mono">macOS</span>. <strong>Two lists, two authors, ten instances, ten proper nouns</strong> — an independent second data point that the capitalization rule is <em>systematically</em> defective on a technology catalogue, not merely misapplied. Technology names are disproportionately lowercase-initial.</p>
+    <p class="rule-quote">v250: you can only compile the part of your aesthetic that becomes a lie when violated. v253: compile the merely stylistic part and the machine is wrong while the human is right. v254: they built the machine and aimed it at the one decidable thing nobody doubted.</p>
+    <p><strong>Duplicates and a missing licence are trivially machine-decidable. Star ordering was never in question. The machinery went to the certainty and not to the risk.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">corpus recursion</span><h2>Sixteen prior ships are entries here</h2></div>
+  <div class="col"><p>Matched by exact <span class="mono">owner/repo</span> pair against 4,996,866 characters of vault state, then adjudicated — a mention is not a ship. <strong>Sixteen numbered wiki subjects appear as single lines in this file, spanning 206 versions of vault history. The previous record was ten.</strong></p></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Ship</th><th>Entry</th><th>Line</th><th>Stars</th></tr></thead>
+      <tbody>
+        <tr><td class="num">v9</td><td><span class="mono">bytedance/deer-flow</span></td><td class="num">410</td><td class="num">80.1k</td></tr>
+        <tr><td class="num">v15</td><td><span class="mono">multica-ai/multica</span></td><td class="num">286</td><td class="num">—</td></tr>
+        <tr><td class="num">v30</td><td><span class="mono">All-Hands-AI/OpenHands</span></td><td class="num">58</td><td class="num">84.3k</td></tr>
+        <tr><td class="num">v36 / v228</td><td><span class="mono">badlogic/pi-mono</span></td><td class="num">56</td><td class="num">92k</td></tr>
+        <tr><td class="num">v42</td><td><span class="mono">ruvnet/claude-flow</span> <em>(now ruflo)</em></td><td class="num">412</td><td class="num">68k</td></tr>
+        <tr><td class="num">v48</td><td><span class="mono">github/gh-aw</span></td><td class="num">520</td><td class="num">—</td></tr>
+        <tr><td class="num">v52</td><td><span class="mono">code-yeongyu/oh-my-openagent</span></td><td class="num">62</td><td class="num">68k</td></tr>
+        <tr><td class="num">v72</td><td><span class="mono">Hmbown/CodeWhale</span> <em>(was deepseek-tui)</em></td><td class="num">70</td><td class="num">40.8k</td></tr>
+        <tr><td class="num">v99</td><td><span class="mono">manaflow-ai/cmux</span></td><td class="num">294</td><td class="num">—</td></tr>
+        <tr><td class="num">v144</td><td><span class="mono">headroomlabs-ai/headroom</span></td><td class="num">496</td><td class="num">66.6k</td></tr>
+        <tr><td class="num">v150</td><td><span class="mono">getpaseo/paseo</span></td><td class="num">296</td><td class="num">14k</td></tr>
+        <tr><td class="num">v162</td><td><span class="mono">njbrake/agent-of-empires</span></td><td class="num">312</td><td class="num">—</td></tr>
+        <tr><td class="num">v177</td><td><span class="mono">Kilo-Org/kilocode</span></td><td class="num">82</td><td class="num">26.9k</td></tr>
+        <tr><td class="num">v179</td><td><span class="mono">jo-inc/camofox-browser</span></td><td class="num">516</td><td class="num">—</td></tr>
+        <tr><td class="num">v195</td><td><span class="mono">langchain-ai/openwiki</span></td><td class="num">510</td><td class="num">—</td></tr>
+        <tr><td class="num">v215</td><td><span class="mono">xai-org/grok-build</span></td><td class="num">84</td><td class="num">25.5k</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="callout ok">
+      <span class="eyebrow">and the vault had already used it as a source</span>
+      <p>A grep for <span class="mono">awesome-cli-coding-agents</span> across vault state returns <strong>two hits</strong> — both in the v223 entry, cited as evidence that <em>“harness-engineering is a recognized 2026 field.”</em> <strong>A prior ship used this list as a source. This ship makes it the subject.</strong> Nobody had opened it.</p>
+    </div>
+    <p>Two false-negative classes had to be closed, both mine. <strong>Renames defeat pair-matching</strong> — <span class="mono">Hmbown/CodeWhale</span> is v72 under a new name, <span class="mono">ruvnet/claude-flow</span> is v42 under an old one. And <strong>the vault often names a ship without its owner path</strong> — <span class="mono">All-Hands-AI/OpenHands</span> appears nowhere as a pair, only as “OpenHands v30.” A reverse-direction pass took the count from 13 to 16.</p>
+    <p>Seven further repos appear in <em>both</em> lists, which the vault knows only from analysing v253 three days ago — including <span class="mono">johannesjo/parallel-code</span>, v253's own pilot pick, <em>submitted here by its author</em>, and <span class="mono">andyrewlee/amux</span>, v253's author's own tool, which collides: <strong><span class="mono">amux</span> appears twice as two different projects.</strong> Neither list links to the other.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">defects</span><h2>Ledger</h2></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Defect</th><th>Severity</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Five duplicate entries, adjacent and byte-identical; survived four machine rewrites</td><td class="win-a">HIGH</td></tr>
+        <tr><td class="num">2</td><td>No <code>LICENSE</code>, ever — plus a shields.io badge claiming one and linking to a path that has never resolved</td><td class="win-a">HIGH</td></tr>
+        <tr><td class="num">3</td><td>An archived project in the active list, violating the list's own third criterion</td><td class="win-a">HIGH</td></tr>
+        <tr><td class="num">4</td><td>Two stale owner redirects, one at 68,000★</td><td class="win-a">MED</td></tr>
+        <tr><td class="num">5</td><td>Ten of the twenty most-starred entries name no licence</td><td class="win-a">MED</td></tr>
+        <tr><td class="num">6</td><td>The third-most-starred entry is contradicted by its own repository, plus two unverifiable extraordinary claims</td><td class="win-a">MED</td></tr>
+        <tr><td class="num">7</td><td>No decay or dormancy policy at all</td><td>MED</td></tr>
+        <tr><td class="num">8</td><td><span class="mono">amux</span> name collision — two different projects</td><td>LOW</td></tr>
+        <tr><td class="num">9</td><td>No word budget stated; mean 27.6, max 71, wordier as it descends</td><td>LOW</td></tr>
+        <tr><td class="num">10</td><td>Bus factor one — 33 of 37 identities have a single commit</td><td>LOW</td></tr>
+        <tr><td class="num">11</td><td><span class="mono">126e206</span> says “Add 17”; measured +18</td><td>TRIVIAL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>Defect 6, in full — the third-most-starred entry</summary>
+    <div class="in">
+      <p>README line 50, at 195,000★: <em>“Clean-room Python/Rust rewrite of Claude Code architecture using <strong>oh-my-codex</strong>; <strong>fastest repo in GitHub history to 100K stars</strong>. Born from the <strong>March 2026 Claude Code source leak</strong>.”</em></p>
+      <p><span class="mono">ultraworkers/claw-code</span>'s own fetched GitHub tagline: <em>“An agent-managed museum exhibit, built in Rust with <strong>Gajae-Code / LazyCodex</strong> — developed and maintained with no human intervention.”</em></p>
+      <p>A grep for <span class="mono">fastest | 100K stars | source leak | leaked</span> on the repo's own page returns zero hits. The tooling attribution differs. “Fastest repo in GitHub history” is <strong>not established</strong> — no authoritative GitHub velocity record exists. The “March 2026 Claude Code source leak” is asserted as settled fact in <strong>three</strong> entries and cannot be verified here.</p>
+      <p>In fairness, one extraordinary claim checks out near-verbatim: <span class="mono">free-code</span> is described as having <em>“all telemetry removed, guardrails stripped”</em> and the repo's own tagline says <em>“All telemetry removed, security-prompt guardrails stripped.”</em> Which means the list catalogues, in its main Open Source section with no warning of any kind, a build of Claude Code with its security guardrails deliberately stripped. <strong>Presence in this list is not a safety signal.</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>The <code>silent</code> detector returns zero — and the null sharpens the rule</summary>
+    <div class="in">
+      <p>Second consecutive null, and I ran it rather than assuming it. v253's explanation was that <em>a curated list has no runtime — it cannot fail confidently.</em> But <strong>v254 has a runtime</strong>: 192 lines running unattended every Monday. It still returns zero. So the detector's domain is not artifacts that <em>run</em> — it is <strong>artifacts whose authors have debugged them.</strong></p>
+      <p>And this runtime fails silently exactly where it matters. An <code>HTTPError</code> prints one <code>WARN</code> to stderr in an unattended weekly CI log, then the sort key falls back to re-parsing <em>the badge already printed in the file</em> — so a dead repo keeps its last-known star count forever, rendered as current fact. Worse: if every fetch failed, the script still rewrites the file, <code>git diff --quiet</code> finds no change, the step prints <em>“No changes.”</em> and exits 0. A total API outage produces a green, successful run indistinguishable from a quiet week.</p>
+      <p><strong>A warning in an unattended job is a silent failure with extra steps.</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Error ledger — 19 caught, 6 mine, and the fleet's worst was a fabricated verdict</summary>
+    <div class="in">
+      <p><strong>Mine:</strong> the median was 26 and should be 25.5 (I took the upper-middle rather than averaging the two middles) · I assumed “110+” was stale, and it is exact · a loose URL regex produced non-comparable unique counts · my corpus matcher had two false-negative classes, and closing them took the ship count from 13 to 16 · my self-submission matcher cannot see company accounts or non-GitHub URLs at all · I nearly compared 45.5% to v253's 18.3% across different denominators.</p>
+      <p><strong>The fleet's worst:</strong> the critic declared the root commit date and commit count “CRITICAL fabrications,” escalated to <em>“the entire edifice is compromised… no claim built from it can be trusted”</em> — and was itself wrong on both. The root is <span class="mono">0b3d5227</span>, 2026-02-06; the count is 125; each confirmed three ways. <strong>A fabricated verdict was used to destroy correct work</strong> — a worse failure mode than the previous ship's, where fabrication merely added a false finding.</p>
+      <p>The mechanism is a portable rule. The verifier used <code>git log --reverse --oneline | head -1</code> as a proxy for “the root commit,” and got a real commit that is not a root. <strong>To establish a structural git fact, use the command whose semantics <em>are</em> the definition</strong> — <code>rev-list --max-parents=0</code> for roots, <code>rev-list --count</code> for counts. Never <span class="mono">log | head</span> or <span class="mono">log | wc</span>.</p>
+      <p>Also: a description-length figure of “median 23.5” came from <code>sed 's/.*— //'</code>, which is greedy and truncates at the <em>last</em> em-dash. Fifteen of 300 entries contain more than one. Re-running with the greedy method reproduces 23.5 exactly, which proves the method was the cause.</p>
+      <p><strong>Point an adversary at the critic.</strong> The final synthesis is the only stage with no adversary, and the only one whose output reads as authority.</p>
+    </div>
+  </details>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">action</span><h2>Read and apply. There is nothing to install.</h2></div>
+  <div class="col">
+    <p><strong>Rung 0, 25 minutes.</strong> The <code>Contributing</code> section, then the 87-entry <em>Agent infrastructure</em> section, then <code>scripts/update-stars.py</code> lines 44–52 — ninety seconds, and the whole lesson.</p>
+    <p><strong>Rung 1, two hours, zero installs.</strong> Finally write <code>bin/verify-vault-inventory.sh</code>, recommended for four consecutive ships and still unwritten. Seven clauses now, from five ships — and clause 7 is new here:</p>
+    <div class="callout">
+      <span class="eyebrow">clause 7 — and note its exact form</span>
+      <p>The subject's script <em>already computes</em> the deduplicated set and <em>already prints</em> its size. It simply never compares that number to the other number sitting right next to it. So the clause is not “add a dedupe check.” It is: <strong>wherever the script already knows a count, assert it against the count it is supposed to equal, and fail if they differ.</strong></p>
+    </div>
+    <p>Then clause 8, a rename clause — the list carries <span class="mono">claude-flow</span> when the repo is <span class="mono">ruflo</span>, and my own overlap check missed two vault ships for exactly that reason.</p>
+    <p><strong>And give the stale pattern rows a <em>Resting</em> section by hand.</strong> That pass has been deferred for roughly 66 ships because deletion demands certainty while moving a row is reversible. This ship is the argument for not waiting on automation: <em>v253's hand-maintained decay section correctly caught an archived project that v254's weekly CI job missed.</em></p>
+    <p><strong>Rung 2.</strong> 282 unique repos, 16 already vault ships, <strong>266 never looked at</strong> — the largest on-goal candidate pool this corpus has ever been handed in a single file.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">pins</span><h2>What not to trust, and the one thing you now can</h2></div>
+  <div class="col">
+    <ul>
+      <li>Verify every licence yourself. 55.3% is 25× better than v253, but ten of the top twenty are silent.</li>
+      <li>Presence is not a safety or quality endorsement.</li>
+      <li>Never point an agent at this file and say “install the best one” — 300 untrusted descriptions become 300 attempts to steer that choice.</li>
+      <li>An active entry is not necessarily alive; a listed name is not necessarily current.</li>
+      <li>Do not repeat “fastest repo in GitHub history to 100K stars” or the “March 2026 source leak” as fact.</li>
+      <li>Do not repeat the fleet's numbers: not 50 commits, not a 2026-04-06 root, not median 23.5, not worktree at 3%.</li>
+    </ul>
+    <div class="callout ok">
+      <span class="eyebrow">the one pin that reverses</span>
+      <p>You <strong>may</strong> cite v254's star figures as CI-fetched and spot-verified, within a one-week refresh window. v253's standing pin was <em>never cite its star figures as verified.</em> This is the one thing the machinery unambiguously bought — and it bought it well.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Wiki v254 · <span class="mono">bradAGI/awesome-cli-coding-agents</span> at <span class="mono">6e307e73</span> · source verified by two clones with a clean bidirectional <span class="mono">diff -rq</span>. Star and fork figures are page-stated; the GitHub API is mocked in this environment, so three counts were verified against rendered pages and the rest are not independently confirmed. 22 of 295 URLs fetched. No code was executed — the script was read, not run.</p>
+</footer>
+
+</div>
