@@ -1,0 +1,797 @@
+<title>Manga Translator Studio, Read Closely</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,800;1,400&family=JetBrains+Mono:wght@400;700&display=swap">
+
+<style>
+  /* ---------------------------------------------------------------
+     Palette taken from the subject's own mmt_gui/styles/theme.py.
+     The author's comments name these colours; I kept his names.
+     This page commits to a single dark world on purpose: the subject
+     is a self-described night-mode workbench, and borrowing its
+     palette is the point. Every colour is painted from a token on
+     bare :root, so the page holds on any host ground.
+     --------------------------------------------------------------- */
+  :root {
+    --ground:    #0a0a0c;  /* "Deep Metallic Black" */
+    --panel:     #111116;  /* "Dark panel background" */
+    --elevated:  #181820;  /* "Elevated surfaces" */
+    --border:    #2c2c36;  /* "Subtle borders" */
+    --border-lo: #1e1e26;
+
+    --text:      #e5e7eb;  /* "Off-white text" */
+    --muted:     #8a8a9e;  /* "Muted gray text" */
+    --dim:       #6a6a7c;
+
+    --accent:    #9d4edd;  /* "Neon Purple highlight" */
+    --accent-lo: #3d1c63;
+
+    /* the subject's own stage-status set (widgets/stage_status.py) */
+    --st-done:    #00f2fe;
+    --st-ready:   #ffd60a;
+    --st-error:   #ff0844;
+    --st-missing: #3f3f5a;
+
+    --measure: 68ch;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 78ch; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+
+  /* ---------- masthead ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    margin: 0 0 0.5rem;
+  }
+  .repo {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 0 0 2rem;
+    word-break: break-all;
+  }
+  .standfirst {
+    font-size: 1.16rem;
+    line-height: 1.55;
+    color: var(--text);
+    max-width: var(--measure);
+    margin: 0 0 2.5rem;
+    text-wrap: pretty;
+  }
+  .standfirst em { color: var(--st-ready); font-style: italic; }
+
+  /* ---------- verdict strip ---------- */
+  .verdict {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1px;
+    background: var(--border-lo);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 0 3.5rem;
+  }
+  .verdict div { background: var(--panel); padding: 0.95rem 1.05rem; }
+  .verdict dt {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 0 0 0.35rem;
+  }
+  .verdict dd {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.98rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .verdict dd.ok   { color: var(--st-done); }
+  .verdict dd.warn { color: var(--st-ready); }
+
+  /* ---------- headings ---------- */
+  h2 {
+    font-weight: 800;
+    font-size: 1.62rem;
+    line-height: 1.18;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+    margin: 4rem 0 0.35rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--border);
+  }
+  h2 .n {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.06rem;
+    letter-spacing: -0.005em;
+    margin: 2.4rem 0 0.5rem;
+    color: var(--text);
+  }
+  p, ul, ol { max-width: var(--measure); }
+  p { margin: 0 0 1.05rem; text-wrap: pretty; }
+  ul, ol { padding-left: 1.15rem; margin: 0 0 1.15rem; }
+  li { margin-bottom: 0.5rem; }
+  strong { font-weight: 600; color: #fff; }
+  a { color: var(--st-done); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.855em;
+    background: var(--elevated);
+    border: 1px solid var(--border-lo);
+    border-radius: 2px;
+    padding: 0.08em 0.34em;
+    color: #cbd5e1;
+    word-break: break-word;
+  }
+
+  /* ---------- finding cards, striped in the subject's status colours ---------- */
+  .find {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--st-missing);
+    border-radius: 0 3px 3px 0;
+    padding: 1.15rem 1.3rem 0.6rem;
+    margin: 1.6rem 0;
+    max-width: var(--measure);
+  }
+  .find.good  { border-left-color: var(--st-done); }
+  .find.watch { border-left-color: var(--st-ready); }
+  .find.bad   { border-left-color: var(--st-error); }
+  .find .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--dim);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .find.good .tag  { color: var(--st-done); }
+  .find.watch .tag { color: var(--st-ready); }
+  .find.bad .tag   { color: var(--st-error); }
+  .find p:last-child { margin-bottom: 0.55rem; }
+
+  /* ---------- quotes ---------- */
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 0.15rem 0 0.15rem 1.15rem;
+    border-left: 2px solid var(--accent-lo);
+    color: var(--text);
+    max-width: var(--measure);
+  }
+  blockquote p { margin-bottom: 0.5rem; }
+  blockquote cite {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-style: normal;
+    color: var(--dim);
+    margin-top: 0.4rem;
+  }
+  .vn { font-style: italic; color: #d8b4fe; }
+
+  /* ---------- code block ---------- */
+  pre {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    margin: 1.4rem 0;
+    color: #cbd5e1;
+  }
+  pre code { background: none; border: none; padding: 0; font-size: 1em; }
+
+  /* ---------- tables ---------- */
+  .scroll { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--border); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.87rem; }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid var(--border-lo);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 400;
+    background: var(--elevated);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.path { font-family: var(--mono); font-size: 0.8rem; word-break: break-all; }
+
+  /* ---------- the pipeline rail: numbering here is a real sequence ---------- */
+  .stages { list-style: none; padding: 0; margin: 1.5rem 0 2rem; max-width: var(--measure); }
+  .stages li {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: 0.9rem;
+    align-items: baseline;
+    padding: 0.42rem 0;
+    border-bottom: 1px solid var(--border-lo);
+    margin: 0;
+  }
+  .stages li:last-child { border-bottom: none; }
+  .stages .idx {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .stages .stale { color: var(--st-ready); font-family: var(--mono); font-size: 0.72rem; }
+
+  /* ---------- pull ---------- */
+  .pull {
+    font-weight: 600;
+    font-size: 1.28rem;
+    line-height: 1.4;
+    letter-spacing: -0.012em;
+    color: #fff;
+    border-top: 1px solid var(--accent-lo);
+    border-bottom: 1px solid var(--accent-lo);
+    padding: 1.4rem 0;
+    margin: 2.6rem 0;
+    max-width: var(--measure);
+    text-wrap: pretty;
+  }
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    line-height: 1.8;
+    color: var(--dim);
+    max-width: var(--measure);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a, .find { transition: border-color 140ms ease, color 140ms ease; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 3rem 1.15rem 4rem; }
+  }
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">LLM Wiki · ship v256 · 2026-08-20</p>
+  <h1>Manga Translator Studio, read closely</h1>
+  <p class="repo">github.com/mranex/my_manga_translator &nbsp;·&nbsp; HEAD f2318d3 &nbsp;·&nbsp; AGPL-3.0</p>
+
+  <p class="standfirst">
+    A Vietnamese scanlator built a ten-stage, human-in-the-loop desktop workbench for translating
+    manga — 54,977 lines of Python in fourteen days, alone. It contains the best-scoped unenforced
+    check the corpus has seen, a deleted AI agent's memory whose prescribed fix is still running,
+    and a dependency file that is the last surviving description of a program that no longer exists.
+  </p>
+
+  <dl class="verdict">
+    <div><dt>Gate</dt><dd class="ok">GOAL-ALIGNED 3/4</dd></div>
+    <div><dt>Mint</dt><dd>NO MINT</dd></div>
+    <div><dt>Counts</dt><dd>46 / 11 unchanged</dd></div>
+    <div><dt>Streak</dt><dd>GA:114 · 37 consec.</dd></div>
+    <div><dt>Pilot</dt><dd class="warn">Read &amp; borrow</dd></div>
+    <div><dt>Source</dt><dd class="ok">2 clones, identical</dd></div>
+  </dl>
+
+  <h2><span class="n">01 — what it is</span>A workbench, not a button</h2>
+
+  <p>
+    Ten stages, each writing its intermediate result to a per-stage JSON cache, each editable in the
+    GUI before the next stage consumes it. The README's warning block opens by refusing the category
+    it belongs to — <span class="vn">"ĐÂY KHÔNG PHẢI LÀ MỘT CÔNG CỤ ĂN SẴN KHÔNG NÃO"</span>, this is not a
+    brainless ready-made tool — and the design-philosophy section attacks one-click translators for
+    deforming art and mangling speech bubbles.
+  </p>
+
+  <p>
+    The numbering below is not decoration. It is the actual pipeline, and the right-hand column is
+    what the code marks stale when you hand-edit that stage.
+  </p>
+
+  <ul class="stages">
+    <li><span class="idx">01</span><span>Detection — layout and speech-bubble regions <span class="stale">→ marks 5 stages stale</span></span></li>
+    <li><span class="idx">02</span><span>OCR Prepare — normalise and crop the text regions</span></li>
+    <li><span class="idx">03</span><span>OCR — recognise source text on the crops <span class="stale">→ marks 4 stages stale</span></span></li>
+    <li><span class="idx">04</span><span>Translation Init — build the translation records</span></li>
+    <li><span class="idx">05</span><span>Translation — send to a provider, reconcile the response</span></li>
+    <li><span class="idx">06</span><span>Mask Prepare — build the text-removal mask</span></li>
+    <li><span class="idx">07</span><span>Inpaint — erase original text with LaMa-manga</span></li>
+    <li><span class="idx">08</span><span>Render Prepare — lay out the text objects</span></li>
+    <li><span class="idx">09</span><span>Render — typeset onto the cleaned page <span class="stale">→ marks 2 stages stale</span></span></li>
+    <li><span class="idx">10</span><span>Export — write the finished page</span></li>
+  </ul>
+
+  <h2><span class="n">02 — the headline</span>The second commit imported a different program, and the dependency file still describes it</h2>
+
+  <p>
+    Commit two landed five minutes and fifty-two seconds after <code>Initial commit</code>:
+    <strong>68 files, 8,675 insertions.</strong> They are not a manga library. They are a Flask web
+    application — <code>app.py</code>, <code>templates/index.html</code>, <code>static/js/app.js</code>,
+    <code>.dockerignore</code>, a trained <code>model/model.pt</code>, its training notebook, eight
+    example pages, and <code>.jules/bolt.md</code>. The repository is not a fork, and no attribution
+    file has ever existed in its history.
+  </p>
+
+  <p>
+    The web app was deleted in one commit on 18 May. <strong>That commit did not touch
+    <code>requirements.txt</code></strong> — whose entire history is six commits, all four days
+    earlier or more.
+  </p>
+
+  <div class="find bad">
+    <span class="tag">measured · ten of twenty-four</span>
+    <p>
+      Direct importers across all 152 Python files: <code>Flask</code> 0, <code>flask-socketio</code> 0,
+      <code>python-socketio</code> 0, <code>python-engineio</code> 0, <code>Werkzeug</code> 0,
+      <code>gunicorn</code> 0, <code>tqdm</code> 0, <code>cryptography</code> 0,
+      <code>sentencepiece</code> 0, <code>huggingface-hub</code> 0. <code>gunicorn</code>'s own PyPI
+      classifiers list only MacOS and POSIX — a UNIX-only web server pinned into a project whose sole
+      launcher is a Windows <code>.bat</code> file.
+    </p>
+  </div>
+
+  <p class="pull">
+    Deleting a program is not deleting its dependencies — and a dependency list is the last place
+    anybody looks for dead code. The purge removed 100% of the web app's source and 0% of its
+    install cost.
+  </p>
+
+  <p>
+    It is still being paid for in bandwidth, too. <code>.git</code> is 22 MB against a working tree
+    whose largest asset class is 9.2 MB of fonts. The biggest blobs ever written are
+    <code>model/model.pt</code> at 6.2 MB, eight example PNGs at about a megabyte each, and
+    <code>static/img/back.jpg</code> — every one of them deleted, and every one of them in every
+    clone forever.
+  </p>
+
+  <h2><span class="n">03 — the best finding</span>The agent's memory was deleted; the fix it prescribed is still running</h2>
+
+  <p>
+    Among the imported files was <code>.jules/bolt.md</code> — the directory convention of Jules,
+    Google's asynchronous coding agent. Three lines, one dated entry, written as a machine's lesson
+    journal:
+  </p>
+
+  <blockquote>
+    <p>
+      <strong>Learning:</strong> in Flask apps, heavy ML models should never be initialised inside
+      request handlers or per-request <code>__init__</code> methods — the model reloads from disk on
+      every request. <strong>Action:</strong> always use class-level caching or a global singleton.
+      Use <code>_model_cache</code> class attributes or a global registry.
+    </p>
+    <cite>.jules/bolt.md, entry dated 2024-05-23 — deleted 2026-05-18, recovered with git show</cite>
+  </blockquote>
+
+  <p>The file is gone. Both halves of that sentence are still in the tree, named exactly as the agent named them:</p>
+
+<pre><code># translator/translator.py:38
+        # self._nllb_model and self._nllb_tokenizer are now cached in _model_cache
+...
+# translator/translator.py:43
+    # Class-level cache for heavy models (shared across instances)
+    _model_cache = { "nllb_model": None, "nllb_tokenizer": None, "hf_pipeline": None }
+
+# detect_bubbles.py:6      ← "or a global registry", the other half
+_yolo_model_cache = {}</code></pre>
+
+  <div class="find watch">
+    <span class="tag">the rule</span>
+    <p>
+      Two comments survive that refer to a decision whose reasoning has been deleted from the working
+      tree. Line 38 is a <em>migration note</em> — "are <em>now</em> cached in <code>_model_cache</code>" —
+      pointing at a refactor whose rationale exists only inside the git pack. The next maintainer who
+      tidies this into a normal instance attribute reintroduces the exact blow-up the agent recorded.
+    </p>
+    <p>
+      <strong>v255 found that a stale label is safe when it is declared. This finds that a correct
+      mechanism is fragile when its declaration is deleted</strong> — and absence is worse than
+      staleness, because staleness is detectable.
+    </p>
+  </div>
+
+  <h2><span class="n">04 — the good design</span>A check that is declared, persisted, displayed, and deliberately not enforced</h2>
+
+  <p>
+    Three hand-written constants declare the blast radius of each kind of manual edit — and the mark
+    is written <em>into the cached artifact</em>, in machine-readable form, naming the stages:
+  </p>
+
+<pre><code>mmt_core/detection_edit.py:29  DOWNSTREAM_STALE_STAGES = ["ocr","translation","inpaint","render","export"]
+mmt_core/ocr_edit.py:23        DOWNSTREAM_STALE_STAGES = ["translation","inpaint","render","export"]
+mmt_core/render_edit.py:29     DOWNSTREAM_STALE_STAGES = ["render","export"]
+
+detection_edit.py:107          payload["downstream_stale"] = list(DOWNSTREAM_STALE_STAGES)</code></pre>
+
+  <p>
+    Not an <code>mtime</code> comparison. Not in-memory state. The GUI reads it and renders it as a
+    warning. And then it stops: 36 mentions, five write sites, and <strong>zero enforcement</strong> —
+    no stage runner gates on it, no <code>raise</code>, no abort. The README says so in its own
+    troubleshooting section: the cause is that you edited an earlier stage and have not re-run the
+    later ones; the fix is to remember to re-run them.
+  </p>
+
+  <div class="find good">
+    <span class="tag">the synthesis of six ships</span>
+    <p>
+      v250 called six rules "non-negotiable" and gated one. v252 headed a block "Automated, Zero
+      Tolerance" and automated none. v247 committed a CI gate its own merge history violates 66 times
+      out of 82. v254 built a weekly job and aimed it at the one decidable thing nobody doubted.
+    </p>
+    <p>
+      <strong>This subject has an unenforced check and claims nothing else.</strong> The label matches
+      the mechanism, and the human it defers to is in the loop by design.
+    </p>
+  </div>
+
+  <p class="pull">
+    An unenforced check is a defect only when something claims it is enforced.
+  </p>
+
+  <p>
+    The real defect is a different one: the stage sequence is declared four or more times — three
+    literal lists plus the GUI's panel ordering — with nothing reconciling them, and the three lists
+    do not even share a convention. Two are strictly downstream; <code>render_edit</code> includes
+    its own stage. Defensible on the merits, indistinguishable from a typo on the page.
+  </p>
+
+  <h2><span class="n">05 — the payoff</span>The segment-alignment guard, at five layers</h2>
+
+  <p>
+    Send N regions to a model in one request and get a list back. If that list is shifted by one, or
+    merged two entries, or dropped an empty one, every subsequent item is attributed to the wrong
+    region — <strong>and nothing crashes.</strong> In manga you get a character speaking someone
+    else's line. In a CV parser you get one candidate's employer attached to another's degree.
+  </p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Layer</th><th>Where</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="path">indexed_texts</td><td>every item carries a stable index, not just text</td></tr>
+        <tr><td class="num">2</td><td class="path">prompt_studio.py:31–36</td><td>five prohibitions: preserve keys, count, order; do not merge, split, drop or invent; no commentary outside the structure</td></tr>
+        <tr><td class="num">3</td><td class="path">gemini_translator.py:373</td><td>the expected count is interpolated into the prompt itself</td></tr>
+        <tr><td class="num">4</td><td class="path">openai_compatible_translator.py:355</td><td>per-item <em>index</em> check, not just length — "item index mismatch at position N"</td></tr>
+        <tr><td class="num">5</td><td class="path">deepseek_translator.py:450</td><td>on mismatch, pad or truncate <em>with the originals</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="find good">
+    <span class="tag">why layer 3 is load-bearing</span>
+    <p>
+      The reconciliation is a <code>zip()</code>, and Python's <code>zip</code> silently truncates to
+      the shorter sequence. In <code>context_memory.py</code> the length check sits at line 91 and the
+      <code>zip</code> at line 94 — three lines apart, for exactly that reason. Remove the guard and
+      the misalignment becomes invisible.
+    </p>
+    <p>
+      <strong>Untranslated-but-aligned beats translated-but-shifted.</strong> That is the call most
+      implementations get wrong, and it is a paragraph to copy, not an installation.
+    </p>
+  </div>
+
+  <h2><span class="n">06 — the gap</span>The flagship feature is unreachable because a dataclass lacks a field</h2>
+
+  <p>
+    The README's OCR section leads with <strong>"Online LLM (Claude, GPT, Gemini)"</strong> — send the
+    crop straight to a vision model — and recommends it in the document's most memorable line:
+    <span class="vn">"Giàu thì cứ Claude mà vã"</span>, roughly <em>if you're rich, just go hard on Claude.</em>
+  </p>
+
+  <p>
+    The authoritative registry has three entries: PaddleOCR-VL via llama.cpp, DeepSeek-OCR via
+    llama.cpp, and Chrome Lens. Across all 54,977 lines, <code>claude</code> appears six times, all in
+    one hardcoded model list — in the <em>translator</em>, not OCR.
+  </p>
+
+  <div class="find bad">
+    <span class="tag">unreachable by construction</span>
+    <p>
+      The two llama.cpp clients already post an OpenAI-shaped <code>chat/completions</code> payload with
+      an <code>image_url</code> data URI, so the wire format is right. But <code>OCRConfig</code> has
+      <strong>no <code>api_key</code> field at all</strong>, and no code path sets an
+      <code>Authorization</code> header. There is nowhere to put the credential.
+    </p>
+    <p>
+      This is a mismatch, not displacement. Nothing in the world moved: the feature was described and
+      never built, and the description is the part users read.
+    </p>
+  </div>
+
+  <h2><span class="n">07 — the licence</span>AGPL-3.0 asserted over Monotype's Arial and a MyFonts webfont kit</h2>
+
+  <p>
+    <code>fonts/</code> is 9.2 MB — larger than all the Python — and it is the one part of the tree the
+    author did not write. <code>LICENSE</code> was added by the project's final commit, fourteen days
+    in. Reading the name tables out of the binaries themselves:
+  </p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>File</th><th>What the binary itself says</th></tr></thead>
+      <tbody>
+        <tr><td class="path">ariali.ttf</td><td>"© 2017 The Monotype Corporation. All Rights Reserved." · Arial is a Monotype trademark · "Microsoft supplied font… <strong>Any other use is prohibited.</strong>"</td></tr>
+        <tr><td class="path">animeace_i.ttf</td><td>"Copyright (c) 2006 by Nate Piekos. Blambot.com. All rights reserved." + a licence URL — <strong>plus a modified name record carrying Vietnamese text and a blogspot URL</strong></td></tr>
+        <tr><td class="path">mangati.ttf</td><td>"(C)2001 Nate Piekos. www.piekosarts.com/blambotfonts"</td></tr>
+        <tr><td class="path">Yuki-CCMarian…ttf</td><td><code>com.myfonts.easy.comicraft.marian-churchland-journal.regular.wfkit2</code> — a MyFonts <em>webfont-kit</em> order slug for a Comicraft face</td></tr>
+        <tr><td class="path">Yuki-Gingerline DEMO…</td><td>the internal family name is literally "DEMO"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    And the negatives matter as much: <strong>zero open-font-licence strings across all 24 files</strong>,
+    no attribution file has ever existed, and the README mentions fonts seven times and their
+    licensing zero times.
+  </p>
+
+  <div class="find watch">
+    <span class="tag">forensic · the licence came from a browser</span>
+    <p>
+      Three of the 62 commits use the GitHub <code>users.noreply</code> identity, and they are exactly
+      the three things GitHub does on your behalf through the web UI, each with GitHub's default
+      message: <code>Initial commit</code>, <code>Merge pull request #1</code>, and
+      <strong><code>Create LICENSE</code></strong>. The other 59 are from the author's machine. The two
+      identities partition perfectly into browser and editor — and the licence is on the browser side.
+    </p>
+  </div>
+
+  <h2><span class="n">08 — the tests</span>One real test, excluded by the project's own rules</h2>
+
+  <p>
+    No CI has ever existed — not one <code>.yml</code> file in any commit on any ref. There is exactly
+    one test file, and three separate things make it incapable of producing a signal.
+  </p>
+
+  <ol>
+    <li>It asserts <strong>exact string equality</strong> against four live third-party translation services.</li>
+    <li><code>pytest</code> is not in <code>requirements.txt</code> — the documented install cannot run it.</li>
+    <li><code>.gitignore</code> line 49 is <code>test_*.py</code>. <code>git check-ignore --no-index</code> confirms the rule <em>would</em> exclude it; it survives only because it was tracked by the same commit that added the ignore file.</li>
+  </ol>
+
+  <p>
+    That ignore rule is the project's real testing policy, written down: tests are local scratch, not
+    repository content. Set against v255 — fourteen test files that ran green and asserted nothing —
+    <strong>both deliver exactly zero signal, reached from opposite ends.</strong>
+  </p>
+
+  <h2><span class="n">09 — the install</span>Unsatisfiable the day it was written</h2>
+
+  <p>
+    From PyPI's own published metadata, <code>transformers==4.57.3</code> requires
+    <code>huggingface-hub&lt;1.0,&gt;=0.34.0</code> and <code>safetensors&gt;=0.4.3</code>. The file
+    pins <code>huggingface-hub==0.22.2</code> and <code>safetensors==0.4.2</code>. The documented
+    command has two hard contradictions — and since <code>transformers 4.57.3</code> shipped in
+    November 2025, the conflict existed on the day the pin was typed in May 2026.
+  </p>
+
+  <p>
+    The pins span two and a half years: <code>torch==2.0.1</code> from May 2023 beside
+    <code>transformers==4.57.3</code> from November 2025 — the fossil half inherited from the imported
+    web app, the desktop app's needs bolted on top. Known advisories against the pinned set run past
+    twenty, including an unfixed RCE path in the pinned <code>transformers</code> that lands on
+    precisely the four <code>from_pretrained</code> call sites this app uses. There is no
+    <code>torch.load</code> anywhere — the exposure is narrower and sharper than the usual one.
+  </p>
+
+  <h2><span class="n">10 — the human</span>Ditme GPT</h2>
+
+  <p>
+    On 17 May at 01:56 the author committed a 121-line file under a subject line that is Vietnamese
+    profanity aimed at a language model. The file is a <strong>hallucination filter</strong>:
+    DeepSeek-OCR is a <em>document</em> OCR model, so pointed at a speech bubble it sometimes returns
+    document structure instead of dialogue.
+  </p>
+
+<pre><code>STRUCTURED_TAG_MARKERS = ("&lt;table","&lt;/table","&lt;thead","&lt;tbody","&lt;tr","&lt;td",
+                          "&lt;svg","&lt;path","&lt;math","&lt;figure","&lt;chart")
+
+class OCRTextFilterResult:  text: str;  rejected: bool;  reason: str = ""
+# reasons: empty_ocr_output · structured_json_non_text · structured_markup_non_text
+#          coordinate_geometry_non_text · structured_hallucination_non_text</code></pre>
+
+  <p>
+    A naive pipeline would have typeset a plausible HTML table into a speech bubble and shipped it.
+    This converts a confident wrong answer into a loud, named rejection carrying its cause — and it is
+    scoped honestly, returning unmodified text for every provider except the one whose failure mode it
+    was written against.
+  </p>
+
+  <div class="find watch">
+    <span class="tag">fourth null · and the most instructive</span>
+    <p>
+      The corpus's <code>silent</code> detector — <code>grep -rni "silent"</code> — returns
+      <strong>zero</strong> here, as do the Vietnamese equivalents. But the doctrine it looks for is
+      unmistakably present in this file. v255 narrowed the detector's domain to <em>artifacts whose
+      authors wrote down their reasoning about failure</em>; this author did exactly that, in five
+      reason-strings and a commit-message obscenity, and the grep still finds nothing.
+    </p>
+    <p>
+      <strong>The detector finds an English word, not a discipline.</strong> Grep the reason-strings
+      instead — <code>rejected</code>, <code>reason=</code>, <code>_non_text</code> — which found this
+      file instantly.
+    </p>
+  </div>
+
+  <h2><span class="n">11 — the synthesis</span>Three artifacts outlived their context. One carries its own.</h2>
+
+  <p>
+    Read separately, the dependency file, the surviving <code>_model_cache</code>, and a committed
+    batch script are three unrelated pieces of untidiness. Read together they are one thing.
+  </p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Artifact</th><th>The context that made it correct</th><th>Where that context is now</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="path">requirements.txt</td>
+          <td>app.py and templates/ — a Flask web application</td>
+          <td>deleted 18 May; the file's last edit predates the deletion by four days</td>
+        </tr>
+        <tr>
+          <td class="path">_model_cache<br>+ its two comments</td>
+          <td>.jules/bolt.md — an agent's recorded lesson, which names <code>_model_cache</code> and says why an instance attribute is wrong</td>
+          <td>deleted 18 May, in the same commit</td>
+        </tr>
+        <tr>
+          <td class="path">servers/paddleocr_vl/<br>run_server.bat</td>
+          <td>one run of <code>build_bat_content()</code> against one machine's config</td>
+          <td>the machine — and the generator that supersedes the file is still in the tree</td>
+        </tr>
+        <tr>
+          <td class="path">detectors/<br>comic_text_detector.py</td>
+          <td><code>matching.py</code>'s <code>assign_text_regions_to_bubbles</code>, imported on line 9 and called on line 456</td>
+          <td>deleted 17 May by the commit titled "Remove CTD" — the import was not. <strong>The module raises ImportError on load.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="find bad">
+    <span class="tag">the fourth row is the sharpest — and I missed it</span>
+    <p>
+      <code>detectors/matching.py</code> defines six functions and that is not one of them. The symbol
+      now appears exactly twice in the whole repository, both times inside the file that cannot
+      resolve it. So the module is unimportable — and the failure is <strong>latent, because nothing
+      imports it.</strong> A critic pass found it; I verified it before accepting it.
+    </p>
+    <p>
+      <strong>This is what "no CI, ever" costs, in one line.</strong> A 152-module Python project with
+      a module that has been unimportable since 17 May, and nothing in the world would tell you: no
+      CI, no test that imports the package, no linter. One <code>python -c "import
+      detectors.comic_text_detector"</code> would have caught it the day it was made. The file is not
+      merely dead — it is broken, and the brokenness is invisible precisely because the deadness is
+      total.
+    </p>
+  </div>
+
+  <p>
+    Each still <em>looks</em> authoritative. A dependency list looks like a statement of what the
+    program needs. A "class-level cache for heavy models" comment looks like a design note. A
+    committed <code>.bat</code> looks like how you start the server. All three are fossils, and none
+    of them says so.
+  </p>
+
+  <div class="find good">
+    <span class="tag">the counter-example, in the same repository</span>
+    <p>
+      <code>downstream_stale</code> carries its own context: the mark is written into the very artifact
+      it invalidates, it names the invalidated stages in machine-readable form rather than implying
+      them, the GUI states it to the person who must act, and the README declares that acting is the
+      human's job. Nothing about it depends on knowledge that lives somewhere else.
+    </p>
+  </div>
+
+  <p class="pull">
+    An artifact is safe when it carries its own context, and dangerous when its context lived
+    somewhere else and has since gone.
+  </p>
+
+  <p>
+    That names what "declared" actually buys you — and it identifies the failure mode that is worse
+    than staleness. <strong>A deleted rationale leaves an artifact that is currently correct and
+    unmaintainable</strong>, because staleness can be detected by comparison and absence cannot be
+    detected at all.
+  </p>
+
+  <p>
+    The uncomfortable part is that the vault has the same defect. Running the inventory script written
+    at the previous ship returned one failure: five state files present on disk and named nowhere in
+    the index — artifacts whose reason for existing lived only in the session that wrote them. Same
+    shape as <code>requirements.txt</code>, found in under a second, because a machine was finally
+    asked to look.
+  </p>
+
+  <h2><span class="n">12 — verdict</span>Read and borrow. Install nothing.</h2>
+
+  <p>
+    <strong>GOAL-ALIGNED INCLUDE 3/4</strong> — (a) fails under §41: <code>mranex</code> is a
+    pseudonymous individual, and a Vietnamese README plus an operator-locale match is exactly the
+    inference §41 forbids. (b) is <strong>MODERATE</strong>, with the off-goal reading recorded: this
+    is a manga app with zero agent surface, and the goal thread is real but narrow — a multi-provider
+    LLM client whose architecture is the shape the ratified candidate-LLM legibility ADR demands, and
+    an image-to-structured-text pipeline that hands over one directly usable guard.
+  </p>
+
+  <p>
+    <strong>NO MINT</strong>, on five grounds, decisively domain-not-capability: media localisation is
+    a domain, §C vocabulary is capability-shaped, the staged GUI comic translator is an established
+    category with far larger incumbents, and every capability that makes the product work is somebody
+    else's model. Counts unchanged at 46 / 11; 51 live standalones.
+  </p>
+
+  <p>
+    Four fences: AGPL-3.0 blocks vendoring into a commercial product; the font pack must not be
+    redistributed; the documented install cannot resolve; and the Chrome Lens provider must never be
+    pointed at candidate documents, for ToS reasons and because it would send personal data to a
+    consumer Google endpoint. In its favour, and verified: no bind-all, no CORS, no
+    <code>shell=True</code>, no plaintext egress, and API keys that are masked in the UI, stored in
+    <code>QSettings</code>, and never written into the project folder users are told to share.
+  </p>
+
+  <p class="pull">
+    The check most likely to survive is the one whose reason was written down beside it.
+  </p>
+
+  <footer>
+    Source verified: two independent clones, <code>diff -rq</code> clean both ways. HEAD
+    <code>f2318d384692192fc20e29425b8801c8bd5032e5</code> · 62 commits, one root, one merge, zero tags ·
+    186 files · 152 Python files, 54,977 lines · sole author, two identities · 2026-05-13 → 2026-05-27 ·
+    32 stars / 12 forks page-stated, not API-verified, so not a velocity claim.<br><br>
+    No Python was executed in this analysis: <code>python3</code> exists on the host and is SIGKILLed
+    on invocation, which is how one claim in an early draft came to be false — a killed process at the
+    head of a pipeline lets <code>tail</code>'s exit status stand in for its own.<br><br>
+    Ship v256 · GA:114 · OG:13 · 37 consecutive goal-aligned · audit 44 ships overdue.
+  </footer>
+
+</div>
