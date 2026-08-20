@@ -617,3 +617,29 @@ Forced-retired (the v79–v89 N=1 long-tail, non-exhaustive — these were never
 **`inflation_check` HELD** — 0 mints; the §C alternative recorded and declined per §28 + v242 D25; counts **46/11** unchanged; max pattern #85; **no N-bumps taken** on #88 / #12 / #57 / #83.
 
 **Streak: v251 `GA:109` → `GA:110 · OG:13 [7 ov]`** (**33 consecutive GA**, v220→v252); **§35 CLEAR** (window {v250 GA, v251 GA, v252 GA} = 0 OG); **no override** — (b) cleanly STRONG.
+
+---
+
+### §F running-log — v253 `andyrewlee/awesome-agent-orchestrators` (2026-08-20) — **NO MINT**
+
+**Subject:** a 180-entry curated list (163 active + 17 "Resting") of agent-orchestration tools. **ONE file (`README.md`) ever tracked in 188 commits; no LICENSE, no `contributing.md`, no CI, no scripts, no tests.** HEAD `78d02e2f`, source-verified by two clones with a clean bidirectional `diff -rq`. Page-stated 1.4k★ / 188 forks / 35 open PRs. Author `andyrewlee` — **§41 (a) FAIL** (no declared Anthropic affiliation; bio *"zip while zag"*, company/location/website all "not stated").
+
+**Rating:** GOAL-ALIGNED INCLUDE 3/4 [(a) FAIL · (b) STRONG · (c) STRONG ⚠️tempered · (d) STRONG] — cleanly GA, **no §40**.
+
+**DECISION: NO MINT — a clean instance-strengthening of CONFIRMED Pattern #68 "Awesome-List-Genre Meta-Pattern".** Lineage verified from vault state: #68 PROMOTED at the **v31** mini-audit (*"FIRST meta-pattern-at-N=3 promotion in corpus history"*) at N=3 across **build-your-own-x v8** / **awesome-design-md v25** / **awesome-mcp-servers v31**; refined at **v50** (awesome-claude-skills); later instances **v170** awesome-artificial-intelligence, **v201** awesome-llm-apps (code-carrying variant), **v218** ui-skills (CLI-served registry), **v240** awesome-dsh-plugin (compiled registry). v253 is the **link-list form at a narrower scope** = a scope variant of a confirmed genre.
+
+**FIVE GROUNDS:** (1) #68 covers it, 8 prior instances since v31; (2) **domain-not-capability** — a list scoped to one domain is a domain slice (v196 / v193 / v210 discipline); (3) **technique-not-capability (v211)** — the novel part is editorial *mechanism*; (4) **not world-first AND precedence NOT ESTABLISHED** — the fleet's first-mover claim rested on competitor `created_at` dates from the **mocked GitHub API**, so under **v222** (*world-canonical is not world-first*) canonical status cannot even be established; (5) **§28** at **51 live standalones**, cap 2/ship, clustering-first, against a **1.4k★ / 233-line / single-file / bus-factor-one** anchor.
+
+**⚠️ STRONGEST ALTERNATIVE RECORDED, reviewable, NOT SELF-EXECUTED:** a **§C standalone N=1 *"Curated Directory with a Declared Inclusion Criterion and a Dated Decay Section"*** — genuinely distinctive on **mechanism**: of the 8 prior #68 instances **none pairs (a) a four-way *functional* inclusion test decidable from a candidate's own README** (*"decides what an agent works on, when it runs, where it runs, or what happens to its output… memory backends, MCP servers, sandbox providers, skill libraries are out of scope"*) **with (b) a dated dormancy section carrying per-entry evidence and a stated re-promotion rule.** Most awesome lists have a topic and an alphabet; this one has an **admission** procedure and a **retirement** procedure. Loses on grounds 2–5, decisively §28 + technique-not-capability. **Flagged to the audit.**
+
+**N-BUMPS TAKEN: none.** **#57** — ⭐ **the widest corpus-recursive fan-in recorded, 10 prior numbered ships appear as single entries** (paperclip **v14**, multica **v15**, OpenHands **v30**, ruflo **v42**, rowboat **v43**, gh-aw **v48**, cmux **v99**, agent-of-empires **v162**, ai-maestro **v163**, loop-engineering **v189**; prior record was v239's four) — **recorded, NOT self-incremented**; an N-tally is audit bookkeeping. **#83** POSITIVE ×2 (`loki-mode` discloses BUSL-1.1 = a disadvantage; `humanlayer` kept with a verified-accurate inline deprecation caveat). **#12** — no `CLAUDE.md`, no `AGENTS.md`, no agent-facing surface at all. **NOT #52** (page-stated, API mocked). **#66** N/A for the artifact; the risk is the 180 things it points at.
+
+**NEW DEFERRED WATCH AXIS (N=1):** *"curation as engineering — a directory with a declared admission test, a dated decay section, and a measurable editorial budget."*
+
+**⭐ THE FINDING THE AUDIT SHOULD CARRY:** the maintainer diagnosed that *"length tracked how much each submitter promoted their own project rather than what the tool does"*, rewrote 127 descriptions to a stated **15–25 word** budget (max 74→31 words), **and wrote the standard only in the commit message.** Measured 22 days later: entries he normalized (n=154) mean **15.9** words / **3%** over-ceiling; entries added since (n=26) mean **30.7** / **65%** over-ceiling ⇒ **1.93× longer, 21× the breach rate**, with `ruflo` (68,400★) at **11 words** and `intentic` (18★) at **72**. ⭐ **A normalization recorded only in a commit message is an event, not a standard.** Directly applicable to §28, to the C22–C27 backlog, and to the shim's own thrice-compacted head blocks.
+
+**⚠️ v246 `silent` DETECTOR: ZERO — the seven-ship replication streak (v246→v252) BREAKS HERE.** Run and routed to a file; 0 hits in `README.md` and 0 across the worktree. ⭐ **The null is informative: the detector finds authors noticing an invisible FAILURE MODE, and a curated list has no runtime — its domain is artifacts that RUN.**
+
+**`inflation_check` HELD** — 0 mints; the §C alternative recorded and declined per §28 + v222 + v211; counts **46/11** unchanged; §C live standalones **51** unchanged; surface **≈58** unchanged; max pattern #85; **no N-bumps taken.**
+
+**Streak: v252 `GA:110` → `GA:111 · OG:13 [7 ov]`** (**34 consecutive GA**, v220→v253); **§35 CLEAR** (window {v251 GA, v252 GA, v253 GA} = 0 OG); **no override** — (b) cleanly STRONG. ⚠️ **Audit now 41 ships overdue** (last v212).

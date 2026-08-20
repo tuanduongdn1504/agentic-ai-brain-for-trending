@@ -1,0 +1,516 @@
+<title>The Orchestrator Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ground:#F2F4F3;
+    --card:#FBFCFB;
+    --ink:#16211F;
+    --ink-soft:#3A4845;
+    --muted:#6B7A77;
+    --faint:#93A19D;
+    --accent:#0F5E56;
+    --accent-soft:#E2EDEA;
+    --stamp:#8F3F2E;
+    --stamp-soft:#F3E5E1;
+    --rule:#CBD4D1;
+    --rule-soft:#E1E7E5;
+    --ok:#2F6B4F;
+    --shadow:rgba(22,33,31,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0E1413;
+      --card:#151D1B;
+      --ink:#E7EDEA;
+      --ink-soft:#C2CDC9;
+      --muted:#8C9B97;
+      --faint:#68766F;
+      --accent:#5CBFB0;
+      --accent-soft:#16302C;
+      --stamp:#DE8570;
+      --stamp-soft:#33201B;
+      --rule:#27332F;
+      --rule-soft:#1D2725;
+      --ok:#6FBF92;
+      --shadow:rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E1413;
+    --card:#151D1B;
+    --ink:#E7EDEA;
+    --ink-soft:#C2CDC9;
+    --muted:#8C9B97;
+    --faint:#68766F;
+    --accent:#5CBFB0;
+    --accent-soft:#16302C;
+    --stamp:#DE8570;
+    --stamp-soft:#33201B;
+    --rule:#27332F;
+    --rule-soft:#1D2725;
+    --ok:#6FBF92;
+    --shadow:rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,"Times New Roman",serif;
+    font-size:19px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px 96px}
+
+  /* ---- register label utility ---- */
+  .lbl{
+    font-family:"Archivo",system-ui,sans-serif;
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+  /* ---- masthead ---- */
+  header.mast{padding:64px 0 34px;border-bottom:2px solid var(--ink)}
+  .mast .rowtop{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+  h1{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:300;
+    font-size:clamp(38px,6.4vw,68px);
+    line-height:1.02;
+    letter-spacing:-.022em;
+    margin:0 0 18px;
+    text-wrap:balance;
+  }
+  h1 em{font-style:italic;color:var(--accent)}
+  .standfirst{
+    font-size:clamp(19px,2.1vw,22px);
+    color:var(--ink-soft);
+    max-width:64ch;
+    margin:0;
+    font-weight:300;
+  }
+  .slug{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:13px;
+    color:var(--accent);
+    word-break:break-all;
+  }
+
+  /* ---- accession strip ---- */
+  .accession{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(122px,1fr));
+    gap:0;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:56px;
+  }
+  .accession div{
+    padding:18px 16px 20px;
+    border-right:1px solid var(--rule-soft);
+  }
+  .accession div:last-child{border-right:none}
+  .accession .v{
+    display:block;
+    font-family:"IBM Plex Mono",monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:25px;
+    line-height:1.1;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .accession .v.hot{color:var(--stamp)}
+  .accession .v.good{color:var(--accent)}
+  .accession .k{font-family:"Archivo",sans-serif;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.35;display:block}
+
+  /* ---- sections ---- */
+  section{margin:0 0 62px}
+  .shead{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule);padding-bottom:9px;margin-bottom:26px}
+  .shead .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);flex:none;padding-top:4px}
+  h2{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(25px,3.1vw,33px);
+    letter-spacing:-.014em;
+    margin:0;
+    line-height:1.18;
+    text-wrap:balance;
+  }
+  h3{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:600;
+    font-size:20px;
+    margin:38px 0 12px;
+    letter-spacing:-.008em;
+    text-wrap:balance;
+  }
+  p{margin:0 0 17px;max-width:68ch}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  strong{font-weight:600}
+  em{font-style:italic}
+  code{font-family:"IBM Plex Mono",monospace;font-size:.83em;background:var(--accent-soft);color:var(--ink);padding:.11em .34em;border-radius:2px}
+
+  /* ---- pull quote ---- */
+  blockquote{
+    margin:26px 0;
+    padding:4px 0 4px 24px;
+    border-left:2px solid var(--accent);
+    font-size:21px;
+    font-style:italic;
+    font-weight:300;
+    color:var(--ink);
+    max-width:60ch;
+  }
+  blockquote .attr{
+    display:block;
+    margin-top:11px;
+    font-family:"IBM Plex Mono",monospace;
+    font-style:normal;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* ---- the thesis: proportional bars ---- */
+  .thesis{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-top:2px solid var(--accent);
+    padding:30px 28px 26px;
+    margin:32px 0;
+    box-shadow:0 1px 2px var(--shadow);
+  }
+  .thesis .cap{margin-bottom:22px}
+  .bar{display:grid;grid-template-columns:minmax(94px,auto) 1fr auto;gap:14px;align-items:center;margin-bottom:13px}
+  .bar .who{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+  .bar .track{height:20px;background:var(--rule-soft);position:relative;border-radius:1px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--accent);border-radius:1px}
+  .bar.alarm .fill{background:var(--stamp)}
+  .bar .num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted);white-space:nowrap;min-width:6.5ch;text-align:right}
+  .thesis .foot{margin:20px 0 0;font-size:16.5px;color:var(--ink-soft);max-width:70ch}
+
+  /* ---- tables ---- */
+  .scroll{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);background:var(--card)}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:520px}
+  th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+  th{
+    font-family:"Archivo",sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);background:var(--ground);white-space:nowrap;
+    border-bottom:1px solid var(--rule);
+  }
+  tbody tr:last-child td{border-bottom:none}
+  td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  td.mn{font-family:"IBM Plex Mono",monospace;font-size:13.5px}
+
+  /* ---- chips ---- */
+  .chip{
+    display:inline-block;font-family:"Archivo",sans-serif;font-size:9.5px;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;padding:2.5px 7px;border-radius:2px;white-space:nowrap;
+  }
+  .chip.ok{background:var(--accent-soft);color:var(--accent)}
+  .chip.bad{background:var(--stamp-soft);color:var(--stamp)}
+  .chip.ne{background:var(--rule-soft);color:var(--muted)}
+
+  /* ---- finding blocks ---- */
+  .find{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:26px 0}
+  .find.verified{border-left-color:var(--accent)}
+  .find.defect{border-left-color:var(--stamp)}
+  .find .ftitle{font-family:"Newsreader",serif;font-weight:600;font-size:18.5px;margin:0 0 9px;line-height:1.3}
+
+  /* ---- ledger list ---- */
+  ul.ledger{list-style:none;padding:0;margin:20px 0;max-width:74ch}
+  ul.ledger li{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding:8px 0;border-bottom:1px dotted var(--rule);font-size:16.5px;
+  }
+  ul.ledger li:last-child{border-bottom:none}
+  ul.ledger .r{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted);white-space:nowrap;flex:none}
+
+  ul.plain{padding-left:22px;margin:16px 0;max-width:68ch}
+  ul.plain li{margin-bottom:9px}
+
+  .verdictbox{
+    background:var(--card);border:1px solid var(--rule);padding:26px 26px 22px;margin:30px 0;
+    box-shadow:0 1px 2px var(--shadow);
+  }
+  .verdictbox h3{margin-top:0}
+
+  footer{border-top:2px solid var(--ink);padding-top:22px;margin-top:24px}
+  footer p{font-size:14.5px;color:var(--muted);max-width:76ch}
+
+  @media (max-width:640px){
+    body{font-size:18px}
+    .wrap{padding:0 18px 64px}
+    header.mast{padding-top:40px}
+    .bar{grid-template-columns:1fr;gap:5px}
+    .bar .num{text-align:left}
+    .accession div{border-right:none;border-bottom:1px solid var(--rule-soft)}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="rowtop">
+    <span class="lbl">LLM Wiki &middot; entry v253 &middot; 2026-08-20</span>
+    <span class="lbl">Goal-aligned include 3/4 &middot; no mint</span>
+  </div>
+  <h1>A register with an admission test, a dormant shelf, and <em>no way to hold its own line</em></h1>
+  <p class="standfirst">
+    <span class="slug">andyrewlee/awesome-agent-orchestrators</span> &mdash; 180 curated tools for orchestrating coding agents, in one Markdown file with no code, no CI, and no licence. Its maintainer diagnosed the exact bias his list suffers from, rewrote 127 entries to fix it, measured the result &mdash; and wrote the standard down in a commit message, where no contributor will ever read it.
+  </p>
+</header>
+
+<div class="accession">
+  <div><span class="v">180</span><span class="k">Entries<br>163 active / 17 resting</span></div>
+  <div><span class="v">188</span><span class="k">Commits<br>one root, one file</span></div>
+  <div><span class="v">78</span><span class="k">Identities<br>72 with one commit</span></div>
+  <div><span class="v good">0</span><span class="k">Ordering errors<br>with zero CI</span></div>
+  <div><span class="v hot">0</span><span class="k">Licence files<br>ever tracked</span></div>
+  <div><span class="v">10</span><span class="k">Prior vault ships<br>listed as one line</span></div>
+</div>
+
+<section>
+  <div class="shead"><span class="n">I</span><h2>The finding</h2></div>
+
+  <p>On 29 July 2026 the maintainer opened a commit message with the sharpest sentence in the repository:</p>
+
+  <blockquote>
+    The list had grown past the point where a reader could compare entries. Descriptions ranged from bare taglines to 90-word feature dumps, and length tracked how much each submitter promoted their own project rather than what the tool does.
+    <span class="attr">commit aeecb0d &mdash; &ldquo;Rewrite entry descriptions, add a routing guide, fix stale links (#121)&rdquo;</span>
+  </blockquote>
+
+  <p>In a self-submitted directory, <strong>description length measures promotional effort, not information.</strong> He rewrote 127 descriptions to a stated budget of <em>&ldquo;~15&ndash;25 words&rdquo;</em>, leading with mechanism. It worked: the longest entry in the file went from <strong>74 words to 31</strong>, entries over 45 words went from six to zero, and in-band compliance went from 26% to 60%.</p>
+
+  <p>His arithmetic checks out, too. I verified the commit message against its own diff: <em>&ldquo;add 11 entries&rdquo;</em> is <strong>exactly 11</strong>; <em>&ldquo;fix 15 stale repo URLs&rdquo;</em> is <strong>exactly 15</strong> (12 owner/repo migrations plus three case-only fixes); all five named rebrands are real; and the one entry he dropped as a duplicate is why the file has zero duplicates today.</p>
+
+  <p>Then, twenty-two days later, two populations coexist in the same file.</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Population</th><th class="num">n</th><th class="num">Median</th><th class="num">Mean words</th><th class="num">Max</th><th class="num">Over the 25-word ceiling</th></tr></thead>
+    <tbody>
+      <tr><td>Entries <strong>he normalised</strong></td><td class="num">154</td><td class="num">16</td><td class="num">15.9</td><td class="num">41</td><td class="num">5 &nbsp;<span class="chip ok">3%</span></td></tr>
+      <tr><td>Entries <strong>added since</strong></td><td class="num">26</td><td class="num">29</td><td class="num">30.7</td><td class="num">72</td><td class="num">17 &nbsp;<span class="chip bad">65%</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>The incoming population is 1.93&times; longer and breaches his ceiling at 21&times; the rate.</strong> Nothing was removed. Nothing shrank. And two entries he had personally cut were re-expanded by people affiliated with the projects &mdash; one of them merged with <code>Co-authored-by: Andrew Lee</code>, inserting the phrase <em>&ldquo;200+ models, and 75+ LLM providers&rdquo;</em> into a description he had trimmed a fortnight earlier.</p>
+
+  <div class="thesis">
+    <div class="cap"><span class="lbl">Words allotted, against page-stated stars</span></div>
+
+    <div class="bar"><span class="who">ruflo</span><div class="track"><div class="fill" style="width:15.3%"></div></div><span class="num">11 w &middot; 68,400&#9733;</span></div>
+    <div class="bar"><span class="who">QwenPaw</span><div class="track"><div class="fill" style="width:26.4%"></div></div><span class="num">19 w &middot; 34,100&#9733;</span></div>
+    <div class="bar"><span class="who">vibe-kanban</span><div class="track"><div class="fill" style="width:13.9%"></div></div><span class="num">10 w &middot; 27,900&#9733;</span></div>
+    <div class="bar"><span class="who">superset</span><div class="track"><div class="fill" style="width:13.9%"></div></div><span class="num">10 w &middot; 13,100&#9733;</span></div>
+    <div class="bar"><span class="who">humanlayer</span><div class="track"><div class="fill" style="width:30.6%"></div></div><span class="num">22 w &middot; 11,300&#9733;</span></div>
+    <div class="bar"><span class="who">mux</span><div class="track"><div class="fill" style="width:9.7%"></div></div><span class="num">7 w &middot; 2,000&#9733;</span></div>
+    <div class="bar"><span class="who">amux <span style="color:var(--faint)">(his own)</span></span><div class="track"><div class="fill" style="width:13.9%"></div></div><span class="num">10 w &middot; 147&#9733;</span></div>
+    <div class="bar alarm"><span class="who">intentic</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="num">72 w &middot; 18&#9733;</span></div>
+
+    <p class="foot">The project with <strong>68,400 stars gets 11 words</strong>. The project with <strong>18 gets 72</strong>. A ~3,800&times; spread in adoption, inverted into a 6.5&times; spread in words. To be fair to <code>intentic</code>: I fetched it, and all five of its specific claims are substantiated and its MIT licence is real. The problem is not accuracy. It is proportion.</p>
+  </div>
+
+  <div class="find defect">
+    <p class="ftitle">Why the fix could not hold</p>
+    <p>The editorial standard exists in exactly one place: the body of one commit message. There is no <code>contributing.md</code> &mdash; there never has been, across 188 commits &mdash; and nothing measures a word count. A submitter opening a pull request sees 180 entries ranging from 4 to 72 words and no stated budget at all.</p>
+  </div>
+
+  <blockquote>
+    A normalisation you perform by hand and record only in a commit message is an event, not a standard. Put the budget where the contributor writes, or measure it.
+    <span class="attr">the borrowable rule</span>
+  </blockquote>
+
+  <p>This is the precise inverse of the previous entry in this corpus. There, a working measurement instrument shipped and the reading was deleted. Here the <em>reading</em> is impeccable &mdash; his own diagnosis, his own arithmetic, all correct &mdash; and the instrument was never built.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">II</span><h2>Mechanically immaculate, with zero machinery</h2></div>
+
+  <p>This cuts against the last five entries in this corpus. I checked every mechanically-verifiable convention with scripts, routing results to files and counting the files.</p>
+
+  <ul class="ledger">
+    <li><span>Entries extracted, matching an independent count exactly</span><span class="r">180</span></li>
+    <li><span>Alphabetical-order violations, across all 8 sections</span><span class="r">0</span></li>
+    <li><span>Duplicate URLs</span><span class="r">0</span></li>
+    <li><span>Duplicate display names</span><span class="r">0</span></li>
+    <li><span>Malformed URLs &mdash; all are canonical <code>owner/repo</code></span><span class="r">0</span></li>
+    <li><span>In-document anchor links that resolve</span><span class="r">7 / 7</span></li>
+    <li><span>Lines of CI, lint, tests or scripts, ever</span><span class="r">0</span></li>
+  </ul>
+
+  <p>The anchors deserve a moment. The two hardest slugs in the file are <code>Parallel Coding Agents &mdash; Terminal (TUI/CLI)</code> and <code>Agent Infrastructure &amp; Primitives</code>, which resolve to <em>double</em>-hyphenated fragments because the platform deletes the em-dash and the ampersand but keeps the surrounding spaces. Hand-written, no CI, and correct.</p>
+
+  <p>Compare the entry two ships back: a project that shipped <strong>11,305 lines of verification code</strong> &mdash; 1.56&times; the size of the thing it checked &mdash; whose own README index was still missing 14 of 28 files with CI green. <strong>Gates are not what produces order here. One person reviewing a hundred squash-merged pull requests is.</strong></p>
+
+  <h3>The linter would fail this file 21 times and be wrong 21 times</h3>
+
+  <p>I fetched the official awesome-list requirements and tested the mechanical rules:</p>
+
+  <ul class="plain">
+    <li><strong>17 entries do not end with a period.</strong> All 17 are exactly the 17 Resting entries &mdash; and in <strong>17 of 17</strong> the sentence <em>is</em> correctly punctuated, then followed by the italic decay tag <code>_(last commit 2026-03)_</code>. The violation <em>is</em> the decay policy.</li>
+    <li><strong>4 descriptions start lowercase.</strong> All four begin <code>tmux</code> or <code>macOS</code> &mdash; proper nouns that must stay lowercase. Capitalising them would introduce an error.</li>
+  </ul>
+
+  <p><strong>Zero of the 21 are defects.</strong> The rules that are mechanisable here are the merely stylistic ones; the rules that matter &mdash; is this entry true, is it proportionate, does it satisfy the admission test &mdash; are the ones no linter can check.</p>
+
+  <p>Meanwhile it fails the requirements that carry consequences. Quoting what I fetched: <em>&ldquo;Place a file named <code>license</code> or <code>LICENSE</code> in the repo root&rdquo;</em> &mdash; absent, never existed. <em>&ldquo;Has contribution guidelines&hellip; named <code>contributing.md</code>&rdquo;</em> &mdash; absent. And the list is <strong>not on the official Awesome list</strong>; I fetched and searched it. <strong>The one requirement it satisfies is the badge in its own first line.</strong></p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">III</span><h2>What is genuinely well built</h2></div>
+
+  <div class="find verified">
+    <p class="ftitle">An admission test that is actually decidable</p>
+    <p>Line 5 states a four-way functional test: a tool qualifies if it decides <strong>what</strong> an agent works on, <strong>when</strong> it runs, <strong>where</strong> it runs, or <strong>what happens to its output</strong> &mdash; and takes whatever task you point it at. Excluded by name: <em>&ldquo;memory backends, MCP servers, sandbox providers, skill libraries.&rdquo;</em></p>
+    <p>It resolves hard cases. <em>Sandbox providers</em> are out, but <em>&ldquo;where it runs&rdquo;</em> is in &mdash; so E2B and Daytona are excluded, while a tool that <em>drives</em> agents into them, or places them in Kubernetes Pods, is included. That distinction is not obvious, and the test makes it decidable from a candidate&rsquo;s own README. I stress-tested it on the eight entries most likely to strain it; <strong>one clearly fails</strong> (a skill lockfile manager, against a named &ldquo;skill libraries&rdquo; exclusion) and one is borderline. Two boundary problems in 180 entries.</p>
+  </div>
+
+  <div class="find verified">
+    <p class="ftitle">A dormant shelf that keeps its evidence</p>
+    <p>The last section is titled <strong>Resting</strong>: <em>&ldquo;A watchlist of projects without a push in the last few months (checked 2026-07-28). They stay here until they&rsquo;re active again, then move back up.&rdquo;</em> Seventeen entries, each carrying its own per-entry evidence. Flag, never delete; evidence, not doubt.</p>
+    <p>And the judgements are sound. I fetched them: the <code>lettabot</code> claim is exact on all three components &mdash; archived on 26 May 2026, replaced by Letta Code. More telling, the list rested <code>vibe-kanban</code> at <strong>27,900 stars</strong>, a project twenty times more popular than the list itself. Of the nine entries surviving from the very first commit, four have already been moved to Resting, and I found <strong>zero rot</strong> among the oldest still-active ones.</p>
+  </div>
+
+  <div class="find verified">
+    <p class="ftitle">The self-listing is the most modest entry in the file</p>
+    <p>One entry in 180 belongs to the maintainer. There is <strong>no disclosure anywhere</strong> &mdash; I grepped for it and got zero hits, which is a real gap. And the entry is <strong>10 words</strong>: <em>&ldquo;Minimal TUI for spawning parallel coding agents in git worktrees.&rdquo;</em> No feature list, no harness list, no licence brag. Across six revisions in seven months it never left the 10-word class, and in the normalisation commit he added the word <em>&ldquo;Minimal&rdquo;</em> to his own entry while cutting 126 others. Both halves belong in the record: <strong>the disclosure is missing, and the abuse is not there.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="n">IV</span><h2>Bootstrapped by Claude, then handed over</h2></div>
+
+  <p>Counting properly &mdash; commits, not trailer lines, on a declared ref population &mdash; <strong>92 of 188 commits (48.9%) carry a Claude co-authorship trailer</strong>, and <strong>84 of those 92 are the maintainer&rsquo;s own</strong>: 82% of his 102 commits. The trailers record the model, giving a longitudinal record from Opus 4.5 through 4.6, 4.7 and 4.8. And the share collapses in a clean curve.</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Month</th><th class="num">Claude-trailered</th><th class="num">Total commits</th><th class="num">Share</th></tr></thead>
+    <tbody>
+      <tr><td class="mn">2026-01</td><td class="num">25</td><td class="num">25</td><td class="num">100.0%</td></tr>
+      <tr><td class="mn">2026-02</td><td class="num">33</td><td class="num">34</td><td class="num">97.1%</td></tr>
+      <tr><td class="mn">2026-03</td><td class="num">26</td><td class="num">36</td><td class="num">72.2%</td></tr>
+      <tr><td class="mn">2026-04</td><td class="num">2</td><td class="num">10</td><td class="num">20.0%</td></tr>
+      <tr><td class="mn">2026-05</td><td class="num">2</td><td class="num">5</td><td class="num">40.0%</td></tr>
+      <tr><td class="mn">2026-06</td><td class="num">3</td><td class="num">14</td><td class="num">21.4%</td></tr>
+      <tr><td class="mn">2026-07</td><td class="num">1</td><td class="num">40</td><td class="num">2.5%</td></tr>
+      <tr><td class="mn">2026-08</td><td class="num">0</td><td class="num">24</td><td class="num">0.0%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>The founding quarter was AI-built; the busiest quarter is human.</strong> July and August carry 64 of the 188 commits at roughly 1% Claude trailers, because those commits are other people&rsquo;s pull requests. The hardest part of an awesome list is the first hundred entries, and that is the part Claude did.</p>
+
+  <p>One honest limit: it is <span class="chip ne">not established</span> that the prose now in the file is Claude&rsquo;s. The July commit that rewrote 127 descriptions carries no Claude trailer at all.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">V</span><h2>The defects, in severity order</h2></div>
+
+  <div class="find defect">
+    <p class="ftitle">A dead project sits in the active list &mdash; and fixing its link is what hid it</p>
+    <p><code>Coworker</code> (10,900 stars, <strong>one commit</strong>) is listed as active. Its own README states verbatim: <em>&ldquo;This project is no longer supported.&rdquo;</em> It arrived in the 29 July <em>&ldquo;fix stale links&rdquo;</em> commit as one of the five named rebrands.</p>
+    <p><strong>The mechanism: the Resting policy keys on push recency, and a rename resets that clock.</strong> A renamed repository looks maximally fresh and is maximally dead at the same time &mdash; so correcting the stale URL is precisely what concealed the staleness.</p>
+  </div>
+
+  <div class="find defect">
+    <p class="ftitle">Licence disclosure is 4 of 180, and adversely selected</p>
+    <p>Three entries advertise MIT; one honourably declares BUSL-1.1, a disadvantage. But the two restrictive licences I happened to check are both <strong>silent</strong> and both high-profile: <code>coder/mux</code> is <strong>AGPL-3.0</strong> and <code>superset-sh/superset</code> is <strong>Elastic 2.0</strong>. Small projects advertise permissive terms as a selling point; larger projects with copyleft or source-available terms say nothing. <strong>You cannot filter this list by licence</strong> &mdash; and for a commercial product that is the single most consequential gap.</p>
+  </div>
+
+  <div class="find defect">
+    <p class="ftitle">The decay policy decayed</p>
+    <p>The <code>checked YYYY-MM-DD</code> stamp has had exactly <strong>two values in its life</strong> &mdash; 21 July and 28 July. Refreshed once, seven days apart, then never again across the 33 commits since. Today it is <strong>23 days old</strong>, and nothing detects a Resting project that has become active again, which the policy explicitly promises to do.</p>
+  </div>
+
+  <p>Also: no licence file at all, so the default is all-rights-reserved and nobody can cleanly fork 180 curated judgements; and a bus factor of one, with 72 of 78 identities holding a single commit and 35 pull requests open against 100 merged.</p>
+
+  <h3>One false finding I nearly filed</h3>
+  <p>I almost recorded <code>humanlayer</code> as a policy inconsistency: its newest commit is 19 June, two months before today, while a project last touched in April sits in Resting. But the stamp says <em>checked 28 July</em> &mdash; and on that date the gap was about five weeks, which is correctly not &ldquo;a few months&rdquo;. <strong>The policy was applied correctly; only the stamp has aged.</strong> Evaluate a dated claim against its own date, not against today.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">VI</span><h2>Ten of this vault&rsquo;s own ships are single lines here</h2></div>
+
+  <p>I extracted all 180 owner/repo pairs and matched them against the complete vault state &mdash; 24 files, 4,963,794 characters &mdash; then pinned each version number by command rather than by memory.</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Entry</th><th>owner/repo</th><th class="num">Vault</th><th>Section here</th></tr></thead>
+    <tbody>
+      <tr><td>paperclip</td><td class="mn">paperclipai/paperclip</td><td class="num">v14</td><td>Multi-Agent Swarms</td></tr>
+      <tr><td>multica</td><td class="mn">multica-ai/multica</td><td class="num">v15</td><td>Autonomous Task Runners</td></tr>
+      <tr><td>OpenHands</td><td class="mn">OpenHands/OpenHands</td><td class="num">v30</td><td>Autonomous Task Runners</td></tr>
+      <tr><td>ruflo</td><td class="mn">ruvnet/ruflo</td><td class="num">v42</td><td>Multi-Agent Swarms</td></tr>
+      <tr><td>rowboat</td><td class="mn">rowboatlabs/rowboat</td><td class="num">v43</td><td>Personal Assistants</td></tr>
+      <tr><td>gh-aw</td><td class="mn">github/gh-aw</td><td class="num">v48</td><td>Autonomous Task Runners</td></tr>
+      <tr><td>cmux</td><td class="mn">manaflow-ai/cmux</td><td class="num">v99</td><td>Terminal (TUI/CLI)</td></tr>
+      <tr><td>agent-of-empires</td><td class="mn">agent-of-empires/&hellip;</td><td class="num">v162</td><td>Terminal (TUI/CLI)</td></tr>
+      <tr><td>ai-maestro</td><td class="mn">23blocks-OS/ai-maestro</td><td class="num">v163</td><td>Desktop &amp; Web</td></tr>
+      <tr><td>Loop Engineering</td><td class="mn">cobusgreyling/&hellip;</td><td class="num">v189</td><td>Autonomous Loop Runners</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>An unaffiliated curator applying a written criterion selected ten of the same projects this vault chose to analyse in depth, spanning 175 versions of its history. That is genuine external validation of subject-selection instinct. The more useful reading runs the other way: <strong>this file is a 163-entry candidate pipeline of which ten are done and 153 have never been touched</strong> &mdash; including 66 parallel-agent tools, the exact niche where this vault has shipped roughly twenty wikis and piloted none.</p>
+
+  <p>The list also correctly attributes <code>HKUDS/nanobot</code>, a fact this corpus had to establish the hard way by discarding a confabulation. And one of its entries, <code>agent-deck</code>, is recorded in vault state as a deliberate near-miss &mdash; <em>&ldquo;a cataloguing hazard&hellip; a different TUI session manager&rdquo;</em>.</p>
+
+  <p>What the list does <em>not</em> carry is any of that: no warnings, no licences, no security posture. That is not a defect &mdash; a one-line directory entry is not the place for a review, and it never claims to be. It is a statement of what the list is not.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">VII</span><h2>The 180 entries as data</h2></div>
+
+  <p>Counted by entries mentioning each term, word-boundary matched, out of 180:</p>
+
+  <ul class="ledger">
+    <li><span>Claude (any mention)</span><span class="r">55 &nbsp; 30.6%</span></li>
+    <li><span>Codex</span><span class="r">52 &nbsp; 28.9%</span></li>
+    <li><span>Claude Code specifically</span><span class="r">50 &nbsp; 27.8%</span></li>
+    <li><span>OpenCode</span><span class="r">26 &nbsp; 14.4%</span></li>
+    <li><span>Gemini</span><span class="r">18 &nbsp; 10.0%</span></li>
+    <li><span>Cursor</span><span class="r">15 &nbsp; 8.3%</span></li>
+  </ul>
+
+  <p><strong>Claude Code and Codex are co-equal first-class targets</strong>, with Codex marginally ahead by entry count, and OpenCode a clear third at half the rate. That is a useful correction to a Claude-centric picture of this ecosystem &mdash; with the honest caveat that this measures what tool authors advertise supporting, not usage, share, or quality.</p>
+
+  <p>On mechanism, one primitive dominates everything: <strong><code>worktree</code> appears in 29 entries (16.1%)</strong>, nearly three times the next mechanical primitive and four times <code>tmux</code>. Mechanically, &ldquo;agent orchestration&rdquo; is mostly <strong>git-worktree isolation plus a review surface</strong>. Only six entries mention MCP, consistent with the admission test excluding MCP servers by name.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="n">VIII</span><h2>The verdict</h2></div>
+
+  <div class="verdictbox">
+    <h3>Goal-aligned include, 3 of 4 &mdash; and no mint</h3>
+    <p>Criterion (a) fails: the profile states no company, no location, and no Anthropic affiliation, and inference from a name or from notability is forbidden. (b) is cleanly strong: this is the definitive index of the one tool category with twenty ships and zero pilots behind it. (c) is strong but tempered by the defects above. (d) is strong &mdash; it converts a long-open decision into a ranked shortlist in an afternoon.</p>
+    <p><strong>No mint.</strong> Counts unchanged. This is a clean instance-strengthening of a genre pattern confirmed 222 ships ago, on five grounds: the pattern already covers it; a curated list scoped to one domain is domain-not-capability; the novel part is an editorial <em>technique</em>; it is not world-first and its precedence rests on a mocked API, so it is <span class="chip ne">not established</span>; and the anti-re-accumulation discipline stands at 51 live standalones against a 1.4k-star, 233-line anchor.</p>
+    <p>The strongest alternative is recorded rather than executed: a standalone for <em>a curated directory with a declared inclusion criterion and a dated decay section</em> &mdash; genuinely distinctive, because of the genre&rsquo;s prior instances <strong>none pairs an admission procedure with a retirement procedure</strong>. Most awesome lists have a topic and an alphabet. This one has both gates. It still loses on the five grounds above.</p>
+  </div>
+
+  <h3>What to actually do</h3>
+  <ul class="plain">
+    <li><strong>Take the admission test as a mint gate.</strong> Four ships&rsquo; worth of consistent capability-versus-technique-versus-domain rulings become one citable four-way test.</li>
+    <li><strong>Take the Resting section for the stale-row backlog</strong> that has been deferred roughly 65 ships. It has never happened because deletion demands certainty; moving a row is reversible, so it can happen this week.</li>
+    <li><strong>Then write the verification script that four consecutive ships have now specified and nobody has written</strong> &mdash; with two new clauses this entry supplies: a byte budget on the head blocks that have been hand-compacted three times, and a freshness check on every dated &ldquo;checked&rdquo; notice in the vault. Because the lesson here is not that the maintainer was careless. It is that he wrote an excellent standard in a place nothing reads, and 22 days later the numbers proved it.</li>
+  </ul>
+</section>
+
+<footer>
+  <p><span class="lbl">Provenance</span></p>
+  <p>Subject pinned at <code>78d02e2f</code>, verified by two independent clones with a clean bidirectional diff. Every count in this entry was settled by a command whose output was routed to a file and then counted &mdash; after an early histogram silently lost most of its rows to a dropped pipe. Star, fork and watcher figures are page-stated only: the API is mocked in this environment, so no velocity claim is possible. Roughly 16 of 180 target repositories were fetched; 164 were not. No subject code was executed, because there is none. Six of my own errors and eleven of the analysis fleet&rsquo;s are itemised in the accompanying verdict document &mdash; including the fleet&rsquo;s worst, four confidently-dated claims about the subject&rsquo;s own git history that one command each refuted, and a star count that turned out to have bled in from the previous entry in this corpus.</p>
+</footer>
+
+</div>
