@@ -26,6 +26,14 @@
 
 ## Completed
 
+### DeepSeek Harness — YouTube commentary layer vs source-verified corpus ✅
+- **Drained:** 2026-08-20 by `/loop` (operator anchor `f51ICIoHcjY` Chase AI + yt-search ×5: The Cef Experience / Turing Post TV / Code Bug VN / Better Stack / Firecrawl; anchor validation **PASS 1/1**)
+- **Raw analysis:** `raw/2026-08-20-deepseek-harness-youtube-commentary-vs-source.md`
+- **Wiki output:** [[../wiki/deepseek-harness/_index]] — 15 files; 32 wikilinks validated 0 broken; **47 claims: 24 CONFIRMED / 10 CBI / 4 PLAUSIBLE-NOT-PRIMARY / 4 MISLEADING / 1 FALSE / 3 UNRESOLVED / 1 UNVERIFIABLE / 0 FABRICATED**
+- **NotebookLM:** none (yt-dlp captions read in full — a claims scorecard cannot grade a paraphrase)
+- **Deepen candidates:** Cloud Codes architecture deep-dive (49,192 views) + NeuralNine (196,090, largest reach) + CloudYeti "Is the Hype Real? LIVE Testing" (891 views, below `MIN_VIEWS` so the rubric cannot pick it — **needs an anchor**)
+
+
 
 ### Engineer of the future — Addy Osmani AIEWF-2026 keynote + role-under-AI-agents bundle ✅
 - **Drained:** 2026-07-22 by `/loop` (operator anchor `n97BCfyFIvw` + yt-search ×5: Karpathy / Ng / Cursor-Truell / Gergely Orosz / Harrison Chase)
