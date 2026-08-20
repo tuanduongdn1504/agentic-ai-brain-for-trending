@@ -1,657 +1,421 @@
 <title>Verifiable Today?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 <style>
 :root{
-  --ground:#F6F7F8;
-  --surface:#FFFFFF;
-  --surface-2:#EDEFF2;
-  --ink:#14181D;
-  --ink-2:#3D4653;
-  --slate:#68727F;
-  --rule:#D9DDE3;
-  --rule-2:#C3C9D2;
-  --signal:#B26A0B;
-  --signal-soft:#FBF0DC;
-  --verified:#1B6F60;
-  --verified-soft:#E0F0EC;
-  --alert:#A8352A;
-  --alert-soft:#F8E5E2;
-  --shadow:rgba(20,24,29,.07);
+  --ground:#FBFAF7;
+  --raise:#F3F1EC;
+  --ink:#191C22;
+  --ink-soft:#41464F;
+  --muted:#6B7280;
+  --rule:#DCD8D0;
+  --rule-firm:#C3BDB2;
+  --accent:#A93B26;
+  --accent-wash:#F6E7E2;
+  --verified:#2C6B4F;
+  --verified-wash:#E4EFE8;
+  --code-bg:#F1EFE9;
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0E1216;
-    --surface:#161B21;
-    --surface-2:#1E252D;
-    --ink:#E7EBEF;
-    --ink-2:#B3BCC7;
-    --slate:#8994A2;
-    --rule:#2A323B;
-    --rule-2:#3A444F;
-    --signal:#E5A44B;
-    --signal-soft:#2C2313;
-    --verified:#4FBFA8;
-    --verified-soft:#122925;
-    --alert:#E07A6C;
-    --alert-soft:#2E1A18;
-    --shadow:rgba(0,0,0,.4);
+    --ground:#15171B;
+    --raise:#1D2026;
+    --ink:#E4E7EC;
+    --ink-soft:#B4BAC4;
+    --muted:#89909C;
+    --rule:#2B2F37;
+    --rule-firm:#3C424C;
+    --accent:#E0725A;
+    --accent-wash:#2E1E1A;
+    --verified:#6FBE95;
+    --verified-wash:#17251E;
+    --code-bg:#1F232A;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0E1216;
-  --surface:#161B21;
-  --surface-2:#1E252D;
-  --ink:#E7EBEF;
-  --ink-2:#B3BCC7;
-  --slate:#8994A2;
-  --rule:#2A323B;
-  --rule-2:#3A444F;
-  --signal:#E5A44B;
-  --signal-soft:#2C2313;
-  --verified:#4FBFA8;
-  --verified-soft:#122925;
-  --alert:#E07A6C;
-  --alert-soft:#2E1A18;
-  --shadow:rgba(0,0,0,.4);
+  --ground:#15171B;
+  --raise:#1D2026;
+  --ink:#E4E7EC;
+  --ink-soft:#B4BAC4;
+  --muted:#89909C;
+  --rule:#2B2F37;
+  --rule-firm:#3C424C;
+  --accent:#E0725A;
+  --accent-wash:#2E1E1A;
+  --verified:#6FBE95;
+  --verified-wash:#17251E;
+  --code-bg:#1F232A;
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
   margin:0;
   background:var(--ground);
   color:var(--ink);
-  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:17px;
-  line-height:1.62;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
-.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px 120px;}
 
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px 96px}
-
-/* ---------- header ---------- */
-header.top{
-  border-bottom:1px solid var(--rule);
-  background:var(--surface);
+/* ---------- masthead ---------- */
+.mast{padding:72px 0 0;}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);display:flex;flex-wrap:wrap;gap:14px;align-items:center;
 }
-.top-inner{
-  max-width:1180px;margin:0 auto;padding:14px 28px;
-  display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between;
-}
-.ship{
-  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--signal);
-}
-.topmeta{
-  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--slate);
-  letter-spacing:.04em;
-}
-
-/* ---------- hero ---------- */
-.hero{padding:64px 0 12px}
+.eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex:none;}
 h1{
-  font-family:"JetBrains Mono",monospace;
-  font-weight:700;
-  font-size:clamp(2.4rem,6.2vw,4.3rem);
-  line-height:1.02;
-  letter-spacing:-.035em;
-  margin:0 0 22px;
-  text-wrap:balance;
-  max-width:16ch;
+  font-family:"Newsreader",Georgia,serif;
+  font-weight:600;font-size:clamp(46px,8.5vw,78px);line-height:1.02;
+  letter-spacing:-.022em;margin:20px 0 0;text-wrap:balance;
 }
-h1 .q{color:var(--signal)}
-.standfirst{
-  font-size:clamp(1.08rem,2vw,1.32rem);
-  line-height:1.5;
-  color:var(--ink-2);
-  max-width:60ch;
-  margin:0 0 34px;
+h1 em{font-style:italic;color:var(--accent);}
+.thesis{
+  font-family:"Newsreader",Georgia,serif;
+  font-size:clamp(19px,2.6vw,23px);line-height:1.5;color:var(--ink-soft);
+  margin:22px 0 0;max-width:60ch;text-wrap:pretty;
 }
-.subject-line{
-  display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;
-  padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--slate);
+.pinbar{
+  margin-top:36px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 }
-.subject-line b{color:var(--ink);font-weight:500}
-
-/* ---------- the reveal device ---------- */
-.reveal{
-  margin:44px 0 8px;padding:26px 24px;
-  background:var(--surface);border:1px solid var(--rule);
-  border-radius:3px;
-  box-shadow:0 1px 2px var(--shadow);
-  overflow-x:auto;
+.pin{padding:14px 16px 14px 0;border-right:1px solid var(--rule);}
+.pin:last-child{border-right:none;}
+.pin dt{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 4px;
 }
-.reveal-label{
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--slate);
-  margin-bottom:14px;
-}
-.reveal-text{
-  font-family:"JetBrains Mono",monospace;font-size:14px;line-height:2.5;
-  white-space:nowrap;
-}
-.cp{
-  display:inline-block;padding:1px 6px;margin:0 1px;border-radius:2px;
-  background:var(--signal-soft);color:var(--signal);
-  font-size:11px;font-weight:700;letter-spacing:.03em;
-  border:1px solid color-mix(in srgb,var(--signal) 30%,transparent);
-  vertical-align:middle;
-}
-.reveal-note{
-  margin-top:16px;padding-top:14px;border-top:1px dashed var(--rule);
-  font-size:14.5px;color:var(--ink-2);white-space:normal;
-}
+.pin dd{margin:0;font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;}
 
 /* ---------- sections ---------- */
-section{margin-top:72px;scroll-margin-top:20px}
-.sec-head{
-  display:flex;align-items:baseline;gap:14px;
-  border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:28px;
-}
-.sec-num{
-  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
-  color:var(--signal);letter-spacing:.1em;flex:none;
-}
+section{margin-top:64px;}
 h2{
-  font-family:"JetBrains Mono",monospace;font-weight:700;
-  font-size:clamp(1.24rem,2.6vw,1.62rem);letter-spacing:-.02em;
-  margin:0;text-wrap:balance;
+  font-family:"Newsreader",Georgia,serif;font-weight:600;
+  font-size:clamp(28px,4vw,36px);line-height:1.15;letter-spacing:-.015em;
+  margin:0 0 6px;text-wrap:balance;
+}
+h2 .num{
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;
+  color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:10px;
 }
 h3{
-  font-family:"JetBrains Mono",monospace;font-weight:700;font-size:1.02rem;
-  letter-spacing:-.01em;margin:38px 0 12px;color:var(--ink);
+  font-family:"Public Sans",sans-serif;font-weight:700;font-size:15px;
+  letter-spacing:.02em;margin:32px 0 8px;
 }
-p{margin:0 0 18px;max-width:68ch}
-.lede{font-size:1.1rem;color:var(--ink-2);max-width:66ch}
-a{color:var(--signal);text-underline-offset:2px;text-decoration-thickness:1px}
-a:focus-visible,summary:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
-
-/* ---------- status chips ---------- */
-.chip{
-  display:inline-block;font-family:"JetBrains Mono",monospace;
-  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 8px;border-radius:2px;white-space:nowrap;vertical-align:middle;
+p{margin:16px 0;max-width:68ch;text-wrap:pretty;}
+.lede{font-size:18.5px;color:var(--ink-soft);}
+strong{font-weight:700;}
+code{
+  font-family:"JetBrains Mono",monospace;font-size:.855em;
+  background:var(--code-bg);padding:.13em .38em;border-radius:3px;
+  overflow-wrap:anywhere;
 }
-.chip-code{background:var(--verified-soft);color:var(--verified);border:1px solid color-mix(in srgb,var(--verified) 34%,transparent)}
-.chip-prose{background:var(--signal-soft);color:var(--signal);border:1px solid color-mix(in srgb,var(--signal) 34%,transparent)}
-.chip-none{background:var(--alert-soft);color:var(--alert);border:1px solid color-mix(in srgb,var(--alert) 34%,transparent)}
-.chip-neutral{background:var(--surface-2);color:var(--slate);border:1px solid var(--rule-2)}
 
-/* ---------- ledger ---------- */
-.ledger{border-top:1px solid var(--rule-2);margin:26px 0}
+/* ---------- the confession stack ---------- */
+.confess{display:flex;flex-direction:column;gap:2px;margin:28px 0;}
+.conf{
+  background:var(--raise);border-left:3px solid var(--accent);
+  padding:18px 20px;
+}
+.conf .src{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
+  letter-spacing:.03em;margin-bottom:8px;overflow-wrap:anywhere;
+}
+.conf q{
+  font-family:"Newsreader",Georgia,serif;font-size:18px;line-height:1.5;
+  font-style:italic;display:block;quotes:none;
+}
+.conf q b{font-style:normal;font-weight:600;}
+
+/* ---------- ledger: the two-state system ---------- */
+.ledger{margin:24px 0;display:flex;flex-direction:column;gap:1px;}
 .row{
-  display:grid;grid-template-columns:130px 1fr;gap:20px;
-  padding:17px 0;border-bottom:1px solid var(--rule);align-items:start;
+  display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;
+  padding:14px 16px 14px 0;background:var(--raise);
+  border-left:3px solid var(--rule-firm);
 }
-.row-k{padding-top:2px}
-.row-v{font-size:16px}
-.row-v p{margin:0 0 10px}
-.row-v p:last-child{margin-bottom:0}
-.cite{
-  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--slate);
-  background:var(--surface-2);padding:1px 5px;border-radius:2px;
-  white-space:nowrap;
+.row.ok{border-left-color:var(--verified);}
+.row.bad{border-left-color:var(--accent);}
+.row .tag{
+  font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;padding-left:16px;color:var(--muted);
 }
+.row.ok .tag{color:var(--verified);}
+.row.bad .tag{color:var(--accent);}
+.row .body{font-size:15.5px;line-height:1.55;}
+.row .body p{margin:0;max-width:none;}
+.row .body p + p{margin-top:8px;color:var(--ink-soft);font-size:14.5px;}
+
+.tally{
+  display:flex;flex-wrap:wrap;gap:0;margin:28px 0;border:1px solid var(--rule-firm);
+}
+.tally div{flex:1 1 200px;padding:20px 22px;border-right:1px solid var(--rule);}
+.tally div:last-child{border-right:none;}
+.tally .n{
+  font-family:"JetBrains Mono",monospace;font-size:38px;font-weight:700;
+  line-height:1;font-variant-numeric:tabular-nums;
+}
+.tally .ok .n{color:var(--verified);}
+.tally .bad .n{color:var(--accent);}
+.tally .lab{font-size:13.5px;color:var(--ink-soft);margin-top:8px;line-height:1.4;}
 
 /* ---------- tables ---------- */
-.tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
-th,td{padding:11px 15px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
-thead th{
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.11em;text-transform:uppercase;color:var(--slate);
-  background:var(--surface-2);border-bottom:1px solid var(--rule-2);
+.scroll{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px;}
+th{
+  text-align:left;font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  padding:12px 16px;border-bottom:1px solid var(--rule-firm);font-weight:700;
+  background:var(--raise);
 }
-tbody tr:last-child td{border-bottom:none}
-td.num{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
-td.f{font-family:"JetBrains Mono",monospace;font-size:12.5px;white-space:nowrap}
+td{padding:11px 16px;border-bottom:1px solid var(--rule);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.mono,th.mono{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;}
+td.num{text-align:right;font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;font-weight:700;}
 
-/* ---------- pull ---------- */
-blockquote{
-  margin:26px 0;padding:20px 24px;
-  background:var(--surface);border-left:3px solid var(--signal);
-  border-radius:0 3px 3px 0;
-  font-size:1.07rem;line-height:1.55;color:var(--ink);
-}
-blockquote p:last-child{margin-bottom:0}
-blockquote cite{
-  display:block;margin-top:12px;font-style:normal;
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--slate);
-}
-
-/* ---------- stat strip ---------- */
-.stats{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
-  gap:1px;background:var(--rule);border:1px solid var(--rule);
-  margin:30px 0;border-radius:3px;overflow:hidden;
-}
-.stat{background:var(--surface);padding:17px 16px}
-.stat-n{
-  font-family:"JetBrains Mono",monospace;font-weight:700;
-  font-size:1.6rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
-  color:var(--ink);line-height:1.1;
-}
-.stat-l{
-  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--slate);margin-top:6px;line-height:1.4;
-}
-
-/* ---------- timeline ---------- */
-.tl{margin:28px 0;border-left:2px solid var(--rule-2);padding-left:0}
-.tl-item{position:relative;padding:0 0 26px 26px}
-.tl-item::before{
-  content:"";position:absolute;left:-5px;top:7px;width:8px;height:8px;
-  border-radius:50%;background:var(--slate);border:2px solid var(--ground);
-}
-.tl-item.mark::before{background:var(--signal);width:10px;height:10px;left:-6px}
-.tl-d{
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
-  color:var(--signal);letter-spacing:.05em;
-}
-.tl-t{margin-top:3px;font-size:15.5px;max-width:62ch}
-.gap-badge{
-  display:inline-block;margin:2px 0 22px 26px;
-  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--signal);background:var(--signal-soft);
-  border:1px dashed color-mix(in srgb,var(--signal) 45%,transparent);
-  padding:5px 11px;border-radius:2px;
-}
-
-/* ---------- callout ---------- */
+/* ---------- callouts ---------- */
 .callout{
-  margin:26px 0;padding:20px 22px;border-radius:3px;
-  background:var(--surface);border:1px solid var(--rule);
-  border-top:3px solid var(--slate);
+  border:1px solid var(--rule-firm);border-left:3px solid var(--accent);
+  background:var(--raise);padding:20px 22px;margin:28px 0;
 }
-.callout.warn{border-top-color:var(--signal)}
-.callout.bad{border-top-color:var(--alert)}
-.callout.good{border-top-color:var(--verified)}
+.callout.good{border-left-color:var(--verified);}
 .callout h4{
-  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;margin:0 0 11px;color:var(--slate);
+  margin:0 0 8px;font-size:12px;font-family:"JetBrains Mono",monospace;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:700;
 }
-.callout.warn h4{color:var(--signal)}
-.callout.bad h4{color:var(--alert)}
-.callout.good h4{color:var(--verified)}
-.callout p:last-child{margin-bottom:0}
-.callout ul{margin:0;padding-left:20px}
-.callout li{margin-bottom:8px;max-width:64ch}
-.callout li:last-child{margin-bottom:0}
+.callout.good h4{color:var(--verified);}
+.callout p{margin:0;max-width:none;font-size:15.5px;}
+.callout p + p{margin-top:10px;}
 
-ul.plain{padding-left:20px;margin:0 0 18px}
-ul.plain li{margin-bottom:10px;max-width:66ch}
-
-/* ---------- verdict ---------- */
-.verdict{
-  margin:34px 0;border:1px solid var(--rule-2);border-radius:3px;overflow:hidden;
-  background:var(--surface);
+.never{list-style:none;padding:0;margin:20px 0;}
+.never li{
+  padding:10px 0 10px 26px;border-bottom:1px solid var(--rule);
+  position:relative;font-size:15.5px;
 }
-.verdict-head{
-  padding:15px 22px;background:var(--surface-2);border-bottom:1px solid var(--rule-2);
-  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--slate);
-}
-.verdict-body{padding:22px}
-.verdict-line{
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin-bottom:16px;
-}
-.verdict-k{
-  font-family:"JetBrains Mono",monospace;font-size:1.3rem;font-weight:700;
-  letter-spacing:-.02em;
-}
-.verdict-k.stop{color:var(--alert)}
-
-/* ---------- borrow cards ---------- */
-.borrow{display:grid;gap:16px;margin:26px 0}
-@media(min-width:820px){.borrow{grid-template-columns:repeat(3,1fr)}}
-.bcard{
-  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
-  padding:20px;display:flex;flex-direction:column;gap:10px;
-}
-.bcard-n{
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--signal);
-}
-.bcard h4{
-  font-family:"JetBrains Mono",monospace;font-size:.96rem;font-weight:700;
-  margin:0;line-height:1.35;letter-spacing:-.01em;
-}
-.bcard p{font-size:14.5px;margin:0;color:var(--ink-2)}
-
-footer{
-  margin-top:80px;padding-top:26px;border-top:1px solid var(--rule);
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--slate);
-  line-height:1.8;
+.never li:last-child{border-bottom:none;}
+.never li::before{
+  content:"—";position:absolute;left:0;color:var(--accent);font-weight:700;
+  font-family:"JetBrains Mono",monospace;
 }
 
-@media(max-width:640px){
-  body{font-size:16px}
-  .row{grid-template-columns:1fr;gap:9px}
-  .wrap{padding:0 20px 72px}
-  .top-inner{padding:12px 20px}
-  .hero{padding:42px 0 8px}
+.foot{
+  margin-top:80px;padding-top:24px;border-top:1px solid var(--rule-firm);
+  font-size:13.5px;color:var(--muted);
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.foot code{font-size:12.5px;}
+
+@media (max-width:560px){
+  .wrap{padding:0 20px 80px;}
+  .row{grid-template-columns:1fr;gap:6px;}
+  .row .tag{padding-left:0;}
+  .pin{border-right:none;border-bottom:1px solid var(--rule);}
+}
+@media (prefers-reduced-motion:no-preference){
+  .conf,.row{transition:border-color .18s ease;}
+}
 </style>
-
-<header class="top">
-  <div class="top-inner">
-    <span class="ship mono">LLM Wiki · v251</span>
-    <span class="topmeta">guillaumemeyer/watermarks-remover · MIT · HEAD 1cc2783 · 2026-08-19</span>
-  </div>
-</header>
 
 <div class="wrap">
 
-  <div class="hero">
-    <h1>Verifiable <span class="q">Today?</span></h1>
-    <p class="standfirst">Anthropic announced it would watermark Claude's output at 5:13 one August morning. By 9:32 the same morning, the removal tool had its first commit — built as a Claude Code skill. It reached 15,000 stars in eight days. Then its author wrote the case against it.</p>
+<header class="mast">
+  <div class="eyebrow">
+    <span>Wiki v251 · rebuilt</span><span class="dot"></span>
+    <span>guillaumemeyer / watermarks-remover</span><span class="dot"></span>
+    <span>2026-08-20</span>
+  </div>
+  <h1>Verifiable <em>today?</em></h1>
+  <p class="thesis">A tool for removing AI provenance marks built three separate detectors in nine days. Every one of them can only find a watermark it planted itself — and every one of them says so, in its own docstring, in the file you would open to check.</p>
 
-    <div class="subject-line">
-      <span><b>23,605</b> lines of Python</span>
-      <span><b>128</b> commits in <b>8</b> days</span>
-      <span><b>465</b> tests</span>
-      <span>verified by <b>2</b> independent clones</span>
+  <dl class="pinbar">
+    <div class="pin"><dt>Pin</dt><dd>d5563d2</dd></div>
+    <div class="pin"><dt>Commits</dt><dd>140 / 167</dd></div>
+    <div class="pin"><dt>Python</dt><dd>25,873</dd></div>
+    <div class="pin"><dt>Tests</dt><dd>549</dd></div>
+    <div class="pin"><dt>Age</dt><dd>9 days</dd></div>
+  </dl>
+</header>
+
+<section>
+  <h2><span class="num">01 — The headline</span>Three detectors, three closed loops</h2>
+  <p class="lede">The project exists because Anthropic began watermarking Claude's output. It has now shipped three independent detection paths. Each one is valid only against a mark generated with the same key and config the tool itself controls. None can be pointed at the thing the tool exists to remove.</p>
+
+  <div class="confess">
+    <div class="conf">
+      <div class="src">service/scripts/detect_text_watermark.py:8-10</div>
+      <q>It is an independent verification harness: detection is only valid against the SAME scheme config + keys used at generation. <b>It cannot certify that a vendor detector will fail on the given text.</b></q>
+    </div>
+    <div class="conf">
+      <div class="src">service/scripts/markdiffusion_harness.py:12-15</div>
+      <q>Detection is only valid against the same scheme config, model, and keys used at generation — <b>it cannot certify that a vendor detector will fail</b> on the given image.</q>
+    </div>
+    <div class="conf">
+      <div class="src">service/scripts/detect_gumbel.py:21-25 — added the day after the original ship</div>
+      <q>detection is a same-key replay… <b>A negative result establishes nothing</b>: unwatermarked text, another provider's key, and human text all sit at chance. <b>This detector is not a vendor oracle.</b></q>
+    </div>
+    <div class="conf">
+      <div class="src">service/scripts/bench_synthid_text.py:20-22 — the benchmark's own header</div>
+      <q>Google retired SynthID text watermarking on its API in Aug 2026, <b>so no vendor tier exists.</b></q>
     </div>
   </div>
 
-  <div class="reveal">
-    <div class="reveal-label">inspect_text.py — what the tool makes visible</div>
-    <div class="reveal-text">
-      The<span class="cp">U+200B</span>quick<span class="cp">U+00A0</span>brown<span class="cp">U+2060</span>fox<span class="cp">U+FEFF</span>jumps<span class="cp">U+200D</span>over
-    </div>
-    <div class="reveal-note">Layer&nbsp;A finds carriers like these and strips them. That part is deterministic, and the tool can prove it worked by counting codepoints. Everything below is about the parts where it can't.</div>
+  <p><code>bench_synthid_text.py</code> is 52,787 bytes of real measurement apparatus. It computes a clear rate, score deltas, lexical divergence, length ratio, numbers preserved, and clears per million tokens, and emits <code>report.md</code>, <code>results.json</code> and <code>results.csv</code>.</p>
+
+  <div class="callout">
+    <h4>The gap</h4>
+    <p>None of those files exist in the repository. <code>benchmarks/</code> holds exactly eleven: one README, two shell scripts, eight 500-byte corpus texts. <strong>The instrument ships. No reading from it does.</strong></p>
   </div>
 
-  <!-- 1 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">01</span><h2>The finding</h2></div>
+  <div class="callout good">
+    <h4>Verified at the vendor, not the repo</h4>
+    <p>Anthropic's own support page confirms two techniques — embedded text watermarks and signed C2PA file metadata — across API, Claude, Claude Code, Cowork and Tag, worldwide, for models launched on or after 2 August 2026. And on detection: <em>“We'll share details on detection mechanisms in forthcoming technical documentation.”</em></p>
+    <p>The repository's central caveat is not modesty. The vendor confirms it.</p>
+  </div>
+</section>
 
-    <p class="lede">They built a rigorous instrument to measure whether watermark removal works. That instrument is structurally incapable of measuring the one watermark the tool exists to remove. Rather than hide this, they wrote it into the README four times and into two of their own Python files' runtime output.</p>
+<section>
+  <h2><span class="num">02 — The delta</span>Nine of twelve commits are one defect</h2>
+  <p>The subject moved twelve commits in the twenty-four hours after the original analysis. Nine of them are the same bug: <strong>a failure being reported as a clean result.</strong> Eleven of the twelve were written by someone other than the author.</p>
 
-    <h3>The instrument is real</h3>
-    <p><span class="cite">bench_synthid_text.py</span> is 52,787 bytes — the fourth-largest file in the repository. It generates a watermarked and an unwatermarked corpus, runs removal variants, and measures <b>clear rate</b> (before-positive → after-negative), score suppression, quality cost as lexical divergence and length drift, and dollar cost at given prices. It emits <span class="cite">results.json</span>, <span class="cite">results.csv</span> and <span class="cite">report.md</span>. That is a properly specified experiment.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th class="mono">Commit</th><th>Subject</th><th class="mono">PR</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">ce90a71</td><td>treat a failed c2patool run as inconclusive, not as “no C2PA”</td><td class="mono">#156</td></tr>
+        <tr><td class="mono">3d2bac7</td><td>distinguish a failed cleaner from an already-clean file</td><td class="mono">#161</td></tr>
+        <tr><td class="mono">546a9f1</td><td>an unreadable text file is a failed scan, not a clean one</td><td class="mono">#169</td></tr>
+        <tr><td class="mono">1cf93d0</td><td>keep collected evidence when a later zip member fails to read</td><td class="mono">#175</td></tr>
+        <tr><td class="mono">0f41bd3</td><td>truncated ISOBMFF containers still run the C2PA byte-scan fallback</td><td class="mono">#176</td></tr>
+        <tr><td class="mono">8c9ff34</td><td>route website binary formats to their real scanners</td><td class="mono">#177</td></tr>
+        <tr><td class="mono">b77ad4b</td><td>a crashed cleaner blocks the commit instead of reading as clean</td><td class="mono">#179</td></tr>
+        <tr><td class="mono">d5563d2</td><td>keep the truncated tail instead of dropping it in png/isobmff strips</td><td class="mono">#182</td></tr>
+        <tr><td class="mono">197c36e</td><td>preserve MP4 media offsets when stripping metadata</td><td class="mono">#183</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <h3>And it cannot be pointed at Claude</h3>
-    <p>Detection, per <span class="cite">detect_text_watermark.py:8</span>, is <em>“only valid against the SAME scheme config + keys used at generation.”</em> The benchmark plants a watermark with a key it controls, removes it, and detects with the same key — a closed loop. Anthropic has not published its algorithm or keys, which the repo itself states at <span class="cite">how-claude-marks.md:21</span>.</p>
+  <p>The new tests explain the stakes better than any summary. From <code>tests/test_c2patool_report.py:171-174</code>: <em>“<code>has_c2pa: False</code> next to a silently dead probe is the actual hazard: it reads as ‘this asset carries no C2PA’ on the one check a user would trust.”</em></p>
+  <p>For a provenance-stripping tool a false <em>clean</em> is the only failure that matters, because the user acts on it and cannot see it. A stranger-driven sweep closing nine of them in a day is the most encouraging fact about this repository.</p>
+</section>
 
-    <blockquote>
-      <p>Until vendors ship public detectors and keys, <b>no tool can honestly certify</b> “this fails the official check.”</p>
-      <cite>README.md:739 — and again at :480, :651, :808, plus rewrite_text.py:495 and markdiffusion_harness.py:14</cite>
-    </blockquote>
+<section>
+  <h2><span class="num">03 — The line</span>Every guard on the file is code. Every guard on the world is prose.</h2>
+  <p>One grep over the entire Python surface, for the vocabulary of the project's own ethics document:</p>
+  <div class="scroll"><table><tbody>
+    <tr><td class="mono">grep -rn "consent\|authoriz\|you own\|ethic\|fraud\|academic" --include=*.py .</td><td class="num">10 hits</td></tr>
+  </tbody></table></div>
+  <p>All ten are <code>_authorized()</code> bearer-token checks in the two HTTP servers. <strong>Not one line implements “content you own.”</strong></p>
+  <p>What <em>is</em> compiled is everything decidable from bytes: SSRF with IPv4-mapped IPv6 unwrapping and per-hop redirect revalidation, zip-bomb caps at 128 MiB checked per member and cumulatively, unknown-format and binary-as-text refusals, body and batch limits.</p>
+  <p>The ethics file is titled <strong>“Intended use”</strong>, not “Policy”, and closes by disclaiming liability for misuse. That is an admission of non-enforcement, and it is the right one — <em>“do you own this content?”</em> is not decidable from the artifact. The project compiles what can be compiled, leaves the rest as prose addressed to a person, and does not pretend the prose is a gate.</p>
+</section>
 
-    <p>That last detail is the one worth keeping. The usual drift shape is a hedge buried in a reference file while the front page makes a bald claim. Here the hedge is in the README's top-level prose <em>and</em> compiled into strings the code prints at runtime — so it reaches the user, not just the reader.</p>
+<section>
+  <h2><span class="num">04 — The replication</span>What the first pass got right, and what it got wrong</h2>
+  <p class="lede">This ship was rebuilt from scratch against the same subject. Every claim from the original was tested against <em>its own pin</em>, not against today's HEAD — the only fair test.</p>
 
-    <div class="callout warn">
-      <h4>The corresponding gap</h4>
-      <p><b>No results are committed.</b> <span class="cite">benchmarks/</span> holds a README, two shell scripts and eight seed texts of roughly 500 bytes each. Nothing matching <span class="cite">results*</span> or <span class="cite">report.md</span> is tracked. The instrument ships; no reading from it does. Two fair readings: they built the measurement and never published a number, or they declined to publish a number they could not honestly generalise. The README quoting zero efficacy percentages is consistent with the second — but the absence is real either way.</p>
-    </div>
-  </section>
+  <div class="tally">
+    <div class="ok"><div class="n">16 / 16</div><div class="lab">Quotations and <code>file:line</code> citations, checked at the original pin. All correct.</div></div>
+    <div class="bad"><div class="n">0 / 4</div><div class="lab">Counts and directory inventories. All four wrong.</div></div>
+  </div>
 
-  <!-- 2 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">02</span><h2>Four hours and nineteen minutes</h2></div>
-
-    <div class="callout warn">
-      <h4>A correction, made during this analysis</h4>
-      <p>My first draft said “nine days,” measuring from August 2. That is the wrong interval — <b>August 2 is the date the EU AI Act Transparency Code took effect</b>, and the date from which newly-released Claude models carry marking. It is not an announcement. The announcement broke on <b>August 11</b>. Correcting it made the finding sharper, not weaker.</p>
-    </div>
-
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-d mono">2026-08-02</div>
-        <div class="tl-t">The EU AI Act Transparency Code takes effect. Anthropic's marking — embedded text watermarks plus signed C2PA provenance metadata — applies to all models released on or after this date, worldwide, under the Article 50(2) Code of Practice it has signed. <b>A regulatory effective date, not an announcement.</b></div>
-      </div>
-      <div class="tl-item mark">
-        <div class="tl-d mono">2026-08-11 · 05:13 PDT</div>
-        <div class="tl-t">The news breaks — TechCrunch, <em>“Anthropic says it will watermark text generated by its AI models.”</em></div>
-      </div>
-      <span class="gap-badge mono">4 h 19 min</span>
-      <div class="tl-item mark">
-        <div class="tl-d mono">2026-08-11 · 09:32 −0700</div>
-        <div class="tl-t">First commit: <em>“Initial skill: remove Claude text marks and C2PA metadata.”</em> Same morning, same timezone.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-d mono">2026-08-11 · commit 7</div>
-        <div class="tl-t">Already broadened: <em>“Release v0.0.1: multi-vendor AI marks skill and cleaners.”</em> The pivot from Claude-specific to multi-vendor took one day.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-d mono">2026-08-14</div>
-        <div class="tl-t">PR #60 splits the skill from the service. The skill becomes a thin client that ships no code at all.</div>
-      </div>
-      <div class="tl-item mark">
-        <div class="tl-d mono">2026-08-19</div>
-        <div class="tl-t">HEAD: 128 commits, 8 tagged releases, 26 contributor identities, ~15,100 stars.</div>
-      </div>
-    </div>
-
-    <div class="callout good">
-      <h4>Verified at the primary source</h4>
-      <p>Anthropic's help-centre article says literally: <em>“Claude models launched on or after August 2, 2026 will support machine-readable marking at launch”</em> and <em>“Anthropic has signed the EU AI Act's Article 50(2) Code of Practice on Transparency of AI-Generated Content.”</em> Every row of the repo's own policy table checks out against it. <b>The project's characterisation of Anthropic is accurate.</b></p>
-    </div>
-
-    <p>The delivery vehicle is the sharp part. This is not a web app — it is an <b>agent skill you install into Claude Code</b>. You use Claude to strip Claude's own compliance marks.</p>
-
-    <div class="stats">
-      <div class="stat"><div class="stat-n">15.1k</div><div class="stat-l">stars · page-stated</div></div>
-      <div class="stat"><div class="stat-n">1.7k</div><div class="stat-l">forks · page-stated</div></div>
-      <div class="stat"><div class="stat-n">106</div><div class="stat-l">of 128 commits · one author, 2 identities</div></div>
-      <div class="stat"><div class="stat-n">75%</div><div class="stat-l">of all additions by that author</div></div>
-      <div class="stat"><div class="stat-n">0</div><div class="stat-l">soft-failed CI steps</div></div>
-    </div>
-    <p style="font-size:14px;color:var(--slate);margin-top:-8px">Star and fork figures are page-stated only — the GitHub API is mocked in this environment, so no growth-velocity claim is made.</p>
-  </section>
-
-  <!-- 3 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">03</span><h2>Every guard that protects the file is code. Every guard that protects the world is prose.</h2></div>
-
-    <p>Grepping all Python for <span class="cite">consent|authoriz|you own|ethic|fraud|academic</span> returns <b>only HTTP <span class="mono">Authorization</span> header handling</b> — a different sense of the word entirely. Not one line implements “content you own or are authorized to process.”</p>
-
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>Constraint</th><th>Form</th><th>Evidence</th></tr></thead>
-        <tbody>
-          <tr><td>XXE — refuse a sitemap declaring a DTD</td><td><span class="chip chip-code">code</span></td><td class="f">audit_website.py:76</td></tr>
-          <tr><td>SSRF — refuse non-public addresses</td><td><span class="chip chip-code">code</span></td><td class="f">audit_website.py:211</td></tr>
-          <tr><td>Zip bomb — 128 MiB decompression budget</td><td><span class="chip chip-code">code</span></td><td class="f">container_meta.py:771</td></tr>
-          <tr><td>Refuse to treat binary as text</td><td><span class="chip chip-code">code</span></td><td class="f">inspect_text.py</td></tr>
-          <tr><td>Refuse to auto-clean unknown formats</td><td><span class="chip chip-code">code</span></td><td class="f">format_dispatch.py:74</td></tr>
-          <tr><td>Vendored engine must stay byte-identical</td><td><span class="chip chip-code">code</span></td><td class="f">test_lightweight_skill.py:79</td></tr>
-          <tr><td>“Content you own or are authorized to process”</td><td><span class="chip chip-prose">prose</span></td><td class="f">ethics.md:3</td></tr>
-          <tr><td>Not for academic fraud or false human-written claims</td><td><span class="chip chip-prose">prose</span></td><td class="f">ethics.md:14–16</td></tr>
-          <tr><td>Do not imply a metadata strip means no provenance left</td><td><span class="chip chip-prose">prose</span></td><td class="f">ethics.md:28</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>This is the correct call, not a shortcut</h3>
-    <p>The rule this corpus arrived at one ship ago: <em>you can only compile the part of your standard that becomes a lie when violated; the rest stays prose.</em> Apply it. <b>“Do you own this content?” is not decidable from the artifact.</b> The bytes of a PNG do not carry ownership. No amount of engineering makes that checkable.</p>
-
-    <p>The rule's second clause is <em>when you leave one in prose, do not call it non-negotiable</em>. This project passes that too. Its ethics file is titled <b>“Intended use”</b>, and it closes by disclaiming liability <em>“for potential misuse by users”</em> — which is an explicit admission that the constraint is not enforced.</p>
-
-    <div class="callout good">
-      <h4>Why it matters for the set</h4>
-      <p>Five consecutive ships have turned on which guarantees a project compiles and which it leaves as prose for a language model to honour. This is <b>the first to face a genuinely undecidable constraint</b> — and it handles both clauses correctly. The previous ship drew the boundary; this one stands on the far side of it and says so.</p>
-    </div>
-
-    <p>The prose itself is unusually disciplined. <span class="cite">ethics.md:18</span>: <em>“A removed mark does not mean the content was never AI-assisted.”</em> And in the vendor reference, addressed to the model reading it: <b><em>“Do not invent algorithm claims.”</em></b></p>
-  </section>
-
-  <!-- 4 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">04</span><h2>A capability matrix that answers “No” about itself</h2></div>
-
-    <p><span class="cite">removal-matrix.md</span> is a 23-row table whose final column is headed <b>“Verifiable today?”</b> — the phrase this page is named for. Here is what it says about the two capabilities that sell the tool.</p>
-
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>Target</th><th>Verifiable today?</th></tr></thead>
-        <tbody>
-          <tr><td>Invisible Unicode, exotic spaces, bidi, tag chars</td><td><span class="chip chip-code">yes — codepoint report</span></td></tr>
-          <tr><td>C2PA / EXIF / XMP across ~20 container formats</td><td><span class="chip chip-code">yes — re-inspect</span></td></tr>
-          <tr><td>PDF</td><td><span class="chip chip-neutral">partial</span></td></tr>
-          <tr><td><b>Statistical text watermark</b> (SynthID-class, Kirchenbauer)</td><td><span class="chip chip-none">no — without vendor key</span></td></tr>
-          <tr><td><b>Pixel image watermark</b> (Tree-Ring, StegaStamp)</td><td><span class="chip chip-none">no — without official detector</span></td></tr>
-          <tr><td>Audio/video marks · C2PA soft binding · model backdoors</td><td><span class="chip chip-neutral">out of scope</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>And the README argues against its own headline feature</h3>
-
-    <blockquote>
-      <p>If the plan is to rewrite the text with a cheaper model anyway, why pay for a premium model in the first place? Generating directly with the cheaper model is simpler, cheaper, and produces the same — or better — end result.</p>
-      <cite>README.md:757 — from the section titled “Disclaimer: what removing a text watermark costs”</cite>
-    </blockquote>
-
-    <p>The argument is technical, not performative. Statistical marks live in word choice, so removal means rewriting a substantial fraction of the text, which flattens tone and precision — <em>“the result cannot exceed the rewrite model's ceiling.”</em> The section ends by telling you <b>when to skip Layer B entirely</b>.</p>
-
-    <p>Fifteen thousand people starred a watermark remover whose own documentation dismantles the reason they starred it.</p>
-  </section>
-
-  <!-- 5 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">05</span><h2>The boring parts, which are good</h2></div>
-
-    <div class="ledger">
-      <div class="row">
-        <div class="row-k"><span class="chip chip-code">clean pass</span></div>
-        <div class="row-v"><p><b>CI gates are wired and none soft-fail.</b> Three workflows; <span class="mono">continue-on-error</span> = 0 and <span class="mono">|| true</span> = 0 in all of them. <span class="mono">pytest -q</span> runs the whole suite, plus ruff lint and format checks, OpenAPI validation, a Windows smoke test, <span class="mono">pip-audit</span>, and CodeQL. Second consecutive clean pass on this test.</p></div>
-      </div>
-      <div class="row">
-        <div class="row-k"><span class="chip chip-code">no triad</span></div>
-        <div class="row-v"><p><b>Authentication is not broken.</b> Default bind is <span class="mono">127.0.0.1</span>; there are no CORS headers anywhere, so a browser cannot reach it cross-origin. Auth does fail open when no key is set — but only behind a loopback bind, and it prints <em>“warning: no API key set”</em> rather than staying silent.</p></div>
-      </div>
-      <div class="row">
-        <div class="row-k"><span class="chip chip-code">strong</span></div>
-        <div class="row-v"><p><b>SSRF hardening is better than most production code.</b> It resolves the host, unwraps IPv4-mapped IPv6, strips zone identifiers, rejects on <span class="mono">is_global</span>, and refuses when nothing resolves. Redirects are refused outright so an <span class="mono">Authorization</span> header can never be re-sent to an unvalidated host.</p></div>
-      </div>
-      <div class="row">
-        <div class="row-k"><span class="chip chip-code">exemplary</span></div>
-        <div class="row-v"><p><b>Licence hygiene closes a three-ship set.</b> The Docker image table has a <b>“Published?” column derived from each upstream's licence</b> — including one dependency that <em>“ships no LICENSE”</em>, correctly treated as all-rights-reserved and never published. Repeated in the compose file three times, a README section, the changelog, and the sidecar's own docstring.</p></div>
-      </div>
-      <div class="row">
-        <div class="row-k"><span class="chip chip-neutral">465 tests</span></div>
-        <div class="row-v"><p>36 test files, 9,233 test lines against 13,305 service lines — a ratio of 0.69&nbsp;:&nbsp;1. Only five skip markers in the entire suite, so the “a skipped test reports as success” hazard does not meaningfully apply.</p></div>
+  <div class="ledger">
+    <div class="row bad">
+      <div class="tag">Wrong</div>
+      <div class="body">
+        <p><strong>“An agent skill that ships zero code.”</strong> The repository ships <em>two</em> skills. <code>remove-ai-marks/</code> is genuinely code-free and says so. <code>clean-user-facing-text/</code> ships four Python scripts — 1,038 lines — including a vendored, byte-identical copy of the 724-line Layer&nbsp;A engine, run locally with no service at all.</p>
+        <p>It compounds: the byte-equality test the original correctly cited and recommended as a takeaway exists <em>precisely because</em> a skill ships vendored code. The evidence against the headline was inside the artifact the headline's own lesson was drawn from.</p>
       </div>
     </div>
-
-    <h3>The silent-leak finding</h3>
-    <p>A one-command detector this corpus carries — <span class="cite">grep -rni "silent"</span> — returns six hits, and the species is new: a <b>false success</b>, the most dangerous failure a provenance stripper can have.</p>
-
-    <blockquote>
-      <p>ExifTool writes PDFs <em>incrementally</em>… the original metadata bytes stay in the file verbatim, and exiftool itself can undo the edit. The command exits <span class="mono">0</span>, viewers show no metadata, and the file gets <em>larger</em>, which is the tell. For a provenance-stripping tool that is a silent leak.</p>
-      <cite>README.md:788 — and the same paragraph opens tests/test_pdf_structural_rewrite.py</cite>
-    </blockquote>
-
-    <p>The fix follows exiftool with <span class="mono">qpdf --linearize</span>, and when qpdf is absent the clean still runs <b>but says so</b>. Elsewhere the doctrine is stated outright: <em>“Known scope limits (documented, not silently mishandled)”</em>, followed by an exact list of what is not handled.</p>
-  </section>
-
-  <!-- 6 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">06</span><h2>Defects</h2></div>
-
-    <div class="callout bad">
-      <h4>“Google confirmed” over-states its source</h4>
-      <p>The vendor notes claim Google confirmed the API no longer watermarks text <em>“and DETECT_TEXT_WATERMARK is rejected on current (3.x) models.”</em> I opened the cited developer-forum thread. It supports <em>“Generated text from the API is NOT SynthID-watermarked”</em> and <em>“Native text watermarking is not planned at the moment”</em> — but it <b>says nothing about DETECT_TEXT_WATERMARK</b>, and the responder's Google affiliation is not established on the page. A forum answer of unverified affiliation was upgraded to a vendor confirmation. The same file warns, three lines later, <em>“Do not invent algorithm claims.”</em></p>
-    </div>
-
-    <ul class="plain">
-      <li><b>No committed benchmark results</b> — the instrument ships, no reading from it does.</li>
-      <li><b>A filename that outlived its meaning.</b> <span class="cite">bench_synthid_text.py</span>'s own first docstring line reads <em>“Benchmark for MarkLLM text-watermark removal.”</em> A fossil of the pivot.</li>
-      <li><b>Seven of 27 service scripts are never named in the 65 KB README</b> — though most are internal modules, so this one is weak.</li>
-    </ul>
-
-    <div class="callout warn">
-      <h4>An error of mine, logged</h4>
-      <p>I flagged the SynthID scorer sidecar as “an entire second HTTP server undocumented in the README” because its <em>filename</em> appears there zero times. Wrong — the README documents it by <b>role</b>, as <span class="mono">wr-synthid-score</span>, and discloses its non-commercial licence in four places. This is the same trap that caught this corpus one ship ago: <b>a filename convention that omits its parent defeats inventory reasoning.</b> The fix, both times, is to stop diffing filenames and read the parent document.</p>
-    </div>
-  </section>
-
-  <!-- 7 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">07</span><h2>Verdict</h2></div>
-
-    <div class="verdict">
-      <div class="verdict-head">Rating</div>
-      <div class="verdict-body">
-        <div class="verdict-line">
-          <span class="verdict-k mono">GOAL-ALIGNED · 3/4</span>
-          <span class="chip chip-neutral">no mint</span>
-          <span class="chip chip-neutral">counts 46/11 unchanged</span>
-        </div>
-        <p style="margin-bottom:0">Affiliation fails; goal relevance, rigour and corpus value are all strong. No new capability class is minted: metadata scrubbing is exiftool's decades-old core function, the commercial “humanizer” industry predates this, and <b>the differentiating machinery is external</b> — MarkLLM, MarkDiffusion, CtrlRegen and reverse-SynthID are all upstream projects loaded from user-supplied checkouts. This repository is the wiring and the honesty layer, not the removal engine.</p>
+    <div class="row bad">
+      <div class="tag">Wrong</div>
+      <div class="body">
+        <p><strong>“106 of 128 commits.”</strong> At the pin, by name, the author holds <strong>80 of 128</strong>. No method produces 106 against that denominator — HEAD gives 81/140, all refs give 108/167. The numerator came from one ref population and the denominator from another.</p>
       </div>
     </div>
-
-    <div class="verdict">
-      <div class="verdict-head">Security</div>
-      <div class="verdict-body">
-        <div class="verdict-line"><span class="verdict-k mono">LOW</span></div>
-        <p style="margin-bottom:0">Loopback default, no CORS, real SSRF and XXE and zip-bomb guards, non-root read-only containers, env-only keys, redirect refusal, and an installer that writes to exactly one directory with staging and rollback and no network access.</p>
+    <div class="row bad">
+      <div class="tag">Verb</div>
+      <div class="body">
+        <p><strong>“Redirects refused.”</strong> They are <em>followed</em>, up to a limit, with the target revalidated and re-pinned on every hop. The security property is real — the origin is pinned after the first hop, so cross-origin redirects are rejected — but “refused” is not what the code does.</p>
       </div>
     </div>
-
-    <div class="verdict">
-      <div class="verdict-head">Pilot</div>
-      <div class="verdict-body">
-        <div class="verdict-line"><span class="verdict-k stop mono">READ AND BORROW · DO NOT INSTALL</span></div>
-        <p><b>Not on security grounds.</b> The engineering here is better than several tools this corpus has actually piloted. The blocker is purpose.</p>
-        <p style="margin-bottom:0">The operator ships a recruitment product handling candidate data under a ratified policy requiring every candidate-touching model path to be legible, audited and human-in-the-loop. EU AI Act Article 50 transparency obligations are live in that market. And recruitment is precisely the context the subject's <b>own ethics file</b> places out of bounds — it names “misrepresenting AI assistance where disclosure is required” as not appropriate. There is no configuration in which this belongs near that product.</p>
+    <div class="row bad">
+      <div class="tag">Half</div>
+      <div class="body">
+        <p><strong>“Format matrix checks both ways.”</strong> Docs&nbsp;→&nbsp;code is clean: no phantom formats. Code&nbsp;→&nbsp;docs is not. The dispatcher accepts 41 extensions; the README table names 21, omitting <code>.xlsx</code>, <code>.pptx</code> and the entire twelve-extension text class.</p>
       </div>
     </div>
-  </section>
-
-  <!-- 8 -->
-  <section>
-    <div class="sec-head"><span class="sec-num mono">08</span><h2>Take three things, install nothing</h2></div>
-
-    <div class="borrow">
-      <div class="bcard">
-        <div class="bcard-n mono">Borrow 01</div>
-        <h4>A “how would we know it worked?” column</h4>
-        <p>Put per-capability verifiability inside the capability table itself, and answer <em>No</em> where you must. This discharges the eval-gating clause of the ratified model-use policy, which has demanded it for months and still has no implementation.</p>
-      </div>
-      <div class="bcard">
-        <div class="bcard-n mono">Borrow 02</div>
-        <h4>Put the caveat in the response, not the docs</h4>
-        <p>Their “cannot certify” sentence is compiled into two Python files, so it reaches the user at runtime. For a candidate-matching explanation feature, the confidence caveat belongs in the <b>API response body</b> — every downstream consumer then inherits it.</p>
-      </div>
-      <div class="bcard">
-        <div class="bcard-n mono">Borrow 03</div>
-        <h4>Assert byte-equality on duplicated files</h4>
-        <p>A test asserts their two vendored copies are identical, and the comment records the drift incident that caused it. This vault has a chapter file whose name has been wrong for sixty-seven versions and nothing has ever noticed.</p>
+    <div class="row ok">
+      <div class="tag">Held</div>
+      <div class="body">
+        <p><strong>Everything quoted.</strong> All four README hedge citations, <code>rewrite_text.py:495</code>, <code>vendor-notes.md:47</code>, <code>how-claude-marks.md:21</code>, <code>test_lightweight_skill.py:79-85</code>, the 52,787-byte benchmark, 23,605 lines / 465 tests / 0.69:1, 61 trailer lines across 36 commits with all four AI-tool tallies, zero <code>continue-on-error</code>, the 128 MiB caps, the empty <code>benchmarks/</code>, the ethics grep, the licence-derived Docker column.</p>
       </div>
     </div>
+  </div>
 
-    <div class="callout">
-      <h4>The direction inversion</h4>
-      <p>This tool removes marks from output <b>you generated</b>. A recruitment product's live question points the other way: detecting AI authorship in <b>candidate input</b> — CVs, cover letters, take-homes. Same map, opposite direction.</p>
-      <p>Read that way, the useful half is the one nobody stars: <span class="cite">image_meta.py</span> and <span class="cite">container_meta.py</span> total 153,786 bytes of per-format inventory of exactly which bytes carry provenance across twenty-odd formats — that is what an upload pipeline must <b>preserve</b> rather than silently destroy on re-encode. <span class="cite">score_stylometry.py</span> is zero-LLM cadence scoring: detection with no model call and nothing leaving the box.</p>
-      <p style="margin-bottom:0"><b>But the hard limit belongs in the same breath.</b> Their own matrix answers <em>No</em> to “Verifiable today?” for statistical text marks, and their ethics file says <em>“a removed mark does not mean the content was never AI-assisted”</em> — whose converse binds equally: <b>an absent mark is not evidence of human authorship.</b> Stylometric AI-detection is a documented source of false accusations against non-native English writers. Read this to understand the terrain; do not deploy it against applicants.</p>
-    </div>
-  </section>
+  <div class="callout">
+    <h4>The transferable finding</h4>
+    <p>The failure is structural, not carelessness. <strong>Reading a file and quoting it is reliable. Enumerating a directory and generalising from one member is not.</strong> An inventory check only stays true in the direction it runs.</p>
+  </div>
+</section>
 
-  <section>
-    <div class="sec-head"><span class="sec-num mono">09</span><h2>Not established</h2></div>
-    <ul class="plain">
-      <li>Star and fork accuracy, and any growth velocity — page-stated only; the GitHub API is mocked in this environment.</li>
-      <li>Whether removal defeats any vendor detector. Unmeasurable here, and per section 01, unmeasurable by the project.</li>
-      <li>The author's identity beyond the repository. Reading “dgx” in a commit email as an NVIDIA machine is inference, not evidence.</li>
-      <li>Issue and pull-request contents beyond merge-commit subjects.</li>
-      <li>None of the subject's code was executed — <span class="mono">python3</span> is killed in this sandbox.</li>
-    </ul>
-  </section>
+<section>
+  <h2><span class="num">05 — Measured</span>The numbers, and where they moved</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Measure</th><th class="mono">At original pin</th><th class="mono">At rebuild pin</th></tr></thead>
+      <tbody>
+        <tr><td>Commits (HEAD / all refs)</td><td class="num">128 / 154</td><td class="num">140 / 167</td></tr>
+        <tr><td>Tracked files</td><td class="num">144</td><td class="num">150</td></tr>
+        <tr><td>Python lines</td><td class="num">23,605</td><td class="num">25,873</td></tr>
+        <tr><td>Test functions</td><td class="num">465</td><td class="num">549</td></tr>
+        <tr><td>Test-to-source ratio</td><td class="num">0.693</td><td class="num">0.749</td></tr>
+        <tr><td>README bytes</td><td class="num">65,768</td><td class="num">72,836</td></tr>
+        <tr><td>Contributor identities</td><td class="num">26</td><td class="num">30</td></tr>
+        <tr><td>Author's share of commits</td><td class="num">80 / 128</td><td class="num">81 / 140</td></tr>
+        <tr><td>Co-author trailer lines</td><td class="num">61</td><td class="num">91</td></tr>
+        <tr><td>Committed benchmark results</td><td class="num">0</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Two clones, byte-identical, <code>diff -rq</code> clean in both directions. One root commit. First commit <strong>2026-08-11 09:32:32 −0700</strong> — four hours and nineteen minutes after the announcement broke.</p>
+</section>
 
-  <footer>
-    LLM Wiki v251 · analysed 2026-08-19 · source verified by two independent clones, <span class="mono">diff -rq</span> clean both ways<br>
-    Streak GA:109 · OG:13 — 32 consecutive goal-aligned ships · full record in <span class="mono">_state/03c</span>
-  </footer>
+<section>
+  <h2><span class="num">06 — Security</span>Low, and better than most</h2>
+  <p>Zero CORS anywhere in the repository. Both HTTP servers default to loopback and warn on any other bind. Authentication fails open only when unconfigured, only behind loopback, and says so. Containers run read-only, non-root, on tmpfs. The installer is 102 lines and touches no network. Three CI workflows with <strong>zero</strong> <code>continue-on-error</code> and <strong>zero</strong> <code>|| true</code>, plus <code>pip-audit</code> and CodeQL.</p>
+  <p>One gap, unchanged: a fetched web page enters the agent's context and nothing treats it as untrusted text. Low severity — the worst realistic outcome is a bad clean — but the sentence is missing.</p>
+</section>
+
+<section>
+  <h2><span class="num">07 — Verdict</span>Read and borrow. Do not install.</h2>
+  <p>Goal-aligned, no mint, counts unchanged. The block is <strong>purpose, not security</strong>: the engineering here is better than several tools this corpus has piloted, but recruitment is precisely the context the subject's own ethics file places out of bounds.</p>
+
+  <h3>Take three things, install nothing</h3>
+  <p><strong>A “Verifiable today?” column</strong> in the feature matrix, answered before each feature ships. It is the smallest artifact that discharges an eval-gating requirement that still has no implementation.</p>
+  <p><strong>Put the caveat in the API response, not the docs.</strong> They compiled theirs into a <code>note</code> field that travels with the result. Documentation is read once by whoever integrates; a response field is read every time, by everyone downstream.</p>
+  <p><strong>A byte-equality assertion with the incident in the comment.</strong> Their test records why it exists, and the test immediately after it records the drift that already happened.</p>
+
+  <h3>Never</h3>
+  <ul class="never">
+    <li>Point it at candidate CVs, cover letters or portfolios.</li>
+    <li>Cite its removal as verified — its own matrix answers <strong>“No”</strong>, and it publishes zero results.</li>
+    <li>Cite the star or fork figures as verified. Page-stated only; the API is mocked here.</li>
+    <li>Build a candidate-facing AI-authorship detector on its stylometry scorer. The forensic-readiness study measures baseline false-negative rates of <strong>70–83% with nobody attacking</strong>. An absent mark is not evidence of human authorship, and a false accusation on a hiring decision is not recoverable.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">08 — Not established</span>What this did not settle</h2>
+  <p>Star and fork accuracy, and therefore any velocity claim — page-stated, API mocked. Whether removal defeats any real vendor detector. The author's role beyond his public profile. Issue and PR contents. The EU Code of Practice publication dates. No subject code was executed.</p>
+  <p>And one method limitation worth stating plainly: this rebuild was meant to run blind, with the agent fleet given no prior findings. It was not fully blind — this vault's context file is injected into every worker and carries the earlier summary. The workers derived their evidence independently and one of them contradicted the earlier headline on its first pass, but the blindness claim does not hold. <strong>A blind replication cannot be run inside a workspace whose state file is auto-loaded into the workers.</strong></p>
+</section>
+
+<footer class="foot">
+  Rebuilt from scratch 2026-08-20 at operator request, replacing the original v251 analysis. Original recoverable at <code>74c1b2a</code>. Subject re-pinned from <code>1cc2783</code> to <code>d5563d2</code>. Every figure on this page came from a command run against a local clone.
+</footer>
 
 </div>

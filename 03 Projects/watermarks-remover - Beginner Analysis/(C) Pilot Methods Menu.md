@@ -1,107 +1,87 @@
-# (C) watermarks-remover — Pilot Methods Menu
+# (C) watermarks-remover — Pilot Methods Menu (REBUILT)
 
-**Subject:** `guillaumemeyer/watermarks-remover` · **Wiki:** v251 · **Date:** 2026-08-19
-**Headline verdict: READ-AND-BORROW. Do NOT install.**
-
----
-
-## Why this is not an install, even though the engineering is good
-
-This is an unusual verdict shape for this corpus, so state the reasoning plainly.
-
-The **security** posture is genuinely LOW-concern: loopback-only bind, no CORS, real SSRF/XXE/zip-bomb guards, non-root read-only containers, env-only API keys, redirect refusal, a careful staged installer with rollback, SHA-pinned CI with `pip-audit` and CodeQL, 465 test functions. On the vault's usual axes this would pass an install fence comfortably — it is better engineered than several tools the corpus has piloted.
-
-**The blocker is purpose, not safety.**
-
-1. The operator ships **hireui**, a recruitment SaaS handling candidate data, under a **RATIFIED ADR** requiring any candidate-touching LLM path to be *fixed, legible, audited, human-in-loop and eval-gated*. A tool whose function is to **remove** provenance from AI output is the categorical opposite of that commitment.
-2. **EU AI Act Article 50** transparency obligations are live in the operator's market. Anthropic has signed the Article 50(2) Code of Practice ([verified at source](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)). Hiring is a high-stakes domain under that regime.
-3. Recruitment is precisely the context the subject's **own ethics file** names as out of bounds — `references/ethics.md:14-16` lists *"misrepresenting AI assistance where disclosure is required"* and *"Circumventing lawful transparency or platform disclosure rules"* as **not appropriate**.
-
-**There is no configuration in which this belongs near hireui.** That is not a criticism of the project; it is a statement about the operator's use case.
+> Rebuilt 2026-08-20. **Verdict: READ-AND-BORROW. Do not install.**
+> The block is *purpose*, not security — recruitment is the context the subject's own `ethics.md:14-16` places out of bounds.
 
 ---
 
-## Rung 0 — 20 minutes, zero install, zero risk: read four files
+## Rung 0 — 15 minutes, zero risk, zero install
 
-The value here is knowledge, and it is concentrated in four documents already on disk in the clone (or readable on GitHub):
+Read three files in the browser. Nothing else in this repository is as portable as these.
 
-| File | Why |
-|---|---|
-| `skills/remove-ai-marks/references/removal-matrix.md` | The **"Verifiable today?"** column — a capability matrix that answers *No* on its own headline features. The single most borrowable artifact. |
-| `README.md:745-766` — *"Disclaimer: what removing a text watermark costs"* | A project arguing against its own product, with a real technical argument. |
-| `skills/remove-ai-marks/references/ethics.md` | 32 lines; the three-way verifiable / best-effort / out-of-scope honesty taxonomy. |
-| `README.md:788-800` — the qpdf/exiftool section | The "silent leak" analysis: a tool that exits `0` while the data survives. |
+1. `skills/remove-ai-marks/references/removal-matrix.md` — the **"Verifiable today?"** column.
+2. `service/scripts/detect_gumbel.py`, lines 21-25 — the "Honesty caveat" block.
+3. `README.md:798-800` — the section that argues against the product, and then argues fairly for it.
 
-**Do this one regardless of everything below.**
+**The question Rung 0 answers:** what does a capability table look like when it is allowed to say *no* about the feature everyone came for?
 
 ---
 
-## Rung 1 — 2 hours, zero install: port three ideas into the vault and hireui
+## Rung 1 — 2 hours, zero install. **This is the rung that pays.**
 
-⭐ **This is the rung that pays.** None of it requires running the subject.
+### ⭐⭐⭐ 1. A "Verifiable today?" column in hireui's feature matrix
 
-### (a) Add a "How would we know it worked?" column
+Their matrix has five columns and the fifth is the honest one. Every hireui feature that touches an LLM gets the same column, answered before the feature ships:
 
-Port `removal-matrix.md`'s discipline to two places:
+| Feature | Method | Verifiable today? |
+|---|---|---|
+| Match-Explain | Claude, structured rubric | *(answer honestly)* |
+| CV parse | vision → confidence-scored JSON | *(answer honestly)* |
 
-- **hireui's feature matrix** — every LLM-touching capability gets a column stating *how you would verify it worked in production*. Anything that cannot answer becomes a labelled gap, not a silent assumption. This directly discharges the eval-gating clause of the RATIFIED candidate-LLM ADR, which still has no implementation.
-- **`PATTERN_LIBRARY.md`** — every CONFIRMED pattern gets a verifiability note. The corpus currently asserts N-counts without stating what would falsify them.
+**Why this matters more than it looks:** the RATIFIED candidate-LLM legibility ADR requires eval gating, and that clause **still has no implementation**. A column that forces "how would we know this worked?" to be answered in writing, per feature, is the smallest artifact that discharges it. If the honest answer for a feature is "No", that is not a blocker — it is the disclosure that has to ship next to the feature.
 
-### (b) Push the caveat into the response, not the docs
+### ⭐⭐⭐ 2. Put the caveat in the API response, not the docs
 
-The subject writes *"cannot certify…"* into `rewrite_text.py:495` and `markdiffusion_harness.py:14` — the hedge reaches the **user at runtime**, not just the reader of a README.
+`rewrite_text.py:509-510` compiles the hedge into a `note` field that travels with the result:
 
-Apply to **hireui Match-Explain**: the confidence caveat belongs in the **API response body** alongside the score, so every downstream consumer inherits it. A caveat that lives only in documentation is not a caveat, it is a footnote nobody reads. This composes with the v217 wardrobe CV-parse template (`vision → confidence-scored JSON → anti-fabrication → QA gate`) already recorded in memory.
+> "Layer B is best-effort against statistical token-sampling watermarks; cannot certify removal against a vendor detector."
 
-### (c) Byte-equality assertion for duplicated content
+Documentation is read once, by the person who integrates. A response field is read every time, by every consumer, including the next service down the chain. For Match-Explain, the confidence caveat belongs in the **response body**, not the README — and it composes with the v217 wardrobe CV-parse template already recorded.
 
-`tests/test_lightweight_skill.py:79-85` asserts two vendored copies of a file are byte-identical, and `:89` carries the incident that motivated it.
+### ⭐⭐ 3. A byte-equality assertion with the incident in the comment
 
-The vault has this disease: the `_state/03c-projects-v61-v183.md` filename label lags **68 versions** behind its contents, and the shim-vs-registry counts diverge. Fold this into the **`bin/verify-vault-inventory.sh`** already specified as v250's Rung 1 (bidirectional inventory over `_state/` ↔ `CLAUDE.md` and memory files ↔ `MEMORY.md`, in `node`/`awk` — **not** `python3`, which is SIGKILLed in this sandbox). Add a fourth clause: any file that exists in two places must be byte-identical, and the check's comment records why.
+`tests/test_lightweight_skill.py` (`:79-85` at the original pin, `:129-135` today):
 
----
+```python
+def test_vendored_text_unicode_is_identical_to_service_engine():
+    # The Layer A engine is vendored byte-for-byte; only the CLI wrappers
+    # (clean_text.py, inspect_text.py, common.py) may differ. Any engine
+    # change must be applied to both copies in the same commit.
+    assert service == vendored
+```
 
-## Rung 2 — the defensive read, 1–2 hours, zero install
+The comment records *why the test exists* — and the very next test in the file records the drift that already happened. Fold this into the still-unwritten `bin/verify-vault-inventory.sh` as a fourth clause.
 
-⭐ Treat the repository as a **map of where AI provenance marks live**, which is what a defender wants.
+### ⭐⭐ 4. **New this rebuild — make the inventory check bidirectional, and prove it**
 
-Read `service/scripts/image_meta.py` and `service/scripts/container_meta.py` (**153,786 bytes combined**) as a per-format reference for which bytes carry provenance across PNG, JPEG, WebP, AVIF, HEIC, BMP, GIF, TIFF, SVG, PDF, DOCX, XLSX, PPTX, EPUB, ODT, HTML, MD, MP4/MOV/M4A/M4V, WAV and MP3.
+This ship produced a controlled measurement of the vault's own failure mode. Across the original v251 write-up: **sixteen quotation-and-line-number checks, sixteen passes. Four count-and-inventory claims, four failures.**
 
-**Concrete hireui application:** if hireui ever generates a document for a candidate or client (an offer letter, a generated summary, an exported report), this tells you exactly where a C2PA manifest or an AI generator tag would live in that format — i.e. **what you must preserve** rather than strip, and what your pipeline might be destroying by accident. Note that many upload/re-encode pipelines strip C2PA silently; if hireui re-encodes uploads, it may already be destroying provenance it should keep.
+The lesson is not "be more careful." It is structural: **reading a file and quoting it is reliable; enumerating a directory and generalising from one member is not.** Both v250 and v251 flagged the filename-inventory trap; v251 then fell into it in its own headline.
 
-Pair with `score_stylometry.py` — zero-LLM cadence/burstiness scoring, **detection only, no model required**. This is the cheapest thing in the repo to reason about and the only part with a defensible read-only use.
+So `bin/verify-vault-inventory.sh` — still unwritten after two ships recommended it — should carry, in `node`/`awk` (**never `python3`; it is SIGKILLed in this sandbox**):
 
----
+1. `_state/` files on disk ↔ chapter index in `CLAUDE.md`, **both directions**
+2. memory files on disk ↔ `MEMORY.md` index, **both directions**
+3. the chapter **filename label** vs the newest entry it contains — the clause that would finally detect the `-v183` drift, now wrong for sixty-eight versions
+4. byte-equality for any content the vault stores twice
 
-## Rung 3 — NOT RECOMMENDED: running the service
-
-Documented for completeness only, since the ethical fence above is the binding constraint, not the technical one.
-
-If it were ever run for research on **your own** files, the fence would be:
-- `install-snapshot` first (standing vault skill)
-- `docker compose up` core profile only — **never** `--profile heavy` (that builds `ctrlregen` and `reverse-SynthID`, which carry a non-commercial Research License and a no-LICENSE-at-all upstream respectively; see `README.md:224`)
-- keep the default `127.0.0.1:8765` binding; set `WATERMARKS_SERVER_API_KEY` anyway (it fails open without one)
-- Layer A / metadata only — **never** Layer B, which sends your text to a model
-- scratch files only; **never** anything containing candidate or client data
-- pin to a tag (`v0.5.0`), auto-update off
-
-**Do not do this for the vault's purposes.** There is no question the vault needs answered that requires executing it.
-
----
-
-## What NOT to do — hard lines
-
-🔴 Never point it at candidate CVs, cover letters, or any submitted document.
-🔴 Never use it to make AI-assisted output appear human-written in a hiring, academic, or compliance context — the subject's own ethics file forbids this.
-🔴 Never cite its removal capability as verified. **Its own matrix answers "No" to "Verifiable today?"** on statistical text and pixel watermarks.
-🔴 Never repeat *"Google confirmed … DETECT_TEXT_WATERMARK is rejected"* — the cited forum thread does not say that, and the responder's affiliation is unestablished (see Deep Dive §10.1).
-🔴 Never cite the star count as verified — page-stated only; the GitHub API is mocked in this environment.
-🔴 Never install the Cursor skill on a machine used for client work — not because it is unsafe (it is well-built), but because its presence in a professional toolchain is itself a fact you would have to explain.
+**And a fifth clause this ship earned:** for every hardcoded count in `CLAUDE.md`, the command that regenerates it, so a stale number is a failing check rather than a sentence nobody re-reads.
 
 ---
 
-## Suggested sequence
+## Rung 2 — NOT RECOMMENDED
 
-**Rung 0 (20 min) → Rung 1(a) and 1(b) (2 h) → Rung 1(c) folded into the v250 `verify-vault-inventory.sh` item → Rung 2 only if hireui adds document generation.**
+Installing the service would mean running a provenance-stripping tool on a machine that also holds candidate data, under an ADR that requires every candidate-facing LLM path to be legible and audited. The tool is well built. The context is wrong. **Skip this rung.**
 
-Stop there.
+If a legitimate need ever arises for the operator's **own** content — stripping invisible Unicode from published documentation, for instance — the Layer A path is the deterministic, testable, low-risk part, and `skills/clean-user-facing-text/` runs it locally with no service at all. Fence it to a scratch directory, pin the commit, and never point it at anything a candidate sent you.
+
+---
+
+## 🔴 Never
+
+- Point it at candidate CVs, cover letters, or portfolios.
+- Present AI-assisted output as human-written in a hiring context.
+- Cite its removal as verified. Its own matrix answers **"No"** for both headline features, and the repository publishes **zero** benchmark results.
+- Repeat the `DETECT_TEXT_WATERMARK` claim at `vendor-notes.md:35` — the cited forum thread does not support it.
+- Cite the star or fork figures as verified. They are page-stated; the GitHub API is mocked in this environment. **No viral-velocity claim.**
+- **Build a candidate-facing AI-authorship detector on `score_stylometry.py`.** The forensic-readiness study (arXiv:2607.16010, verified at source) measures baseline false-negative rates of **70% / 83% / 80%** for KGW / Unigram / SynthID **before any attack at all**. An absent mark is not evidence of human authorship — that is the converse of the subject's own `ethics.md:18` — and stylometric detection is a documented source of false accusations against non-native English writers. On a hiring decision that error is not recoverable.
