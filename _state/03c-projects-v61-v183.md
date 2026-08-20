@@ -2511,4 +2511,4 @@ Wiki for `mranex/my_manga_translator` — *"Manga Translator Studio"*, a **PyQt6
 
 ⚠️ **Audit now 44 ships overdue** (last v212). This ship adds to its agenda: the §C alternative above; the **v232-row boundary question** (application-consumes vs gateway-re-exposes); the **fourth licence-vs-artifact instance** and the first where the artifact is not code; the **`silent`-detector vocabulary finding** (fourth null, fourth correction); the **#83 both-poles-in-one-document** tension; the **#12 inherited-then-deleted** refinement; and **D41–D44**.
 
-Docs `03 Projects/my_manga_translator - Beginner Analysis/` ((C) Deep Dive + (C) Verdict + (C) Pilot Methods Menu + wiki-v256.html). Shipped on branch `wiki/v256-my-manga-translator` off the v255 tip (`742f45f`); **NOT auto-merged.**
+Docs `03 Projects/my_manga_translator - Beginner Analysis/` ((C) Deep Dive + (C) Verdict + (C) Pilot Methods Menu + wiki-v256.html) + artifact https://claude.ai/code/artifact/2ad9558f-5ba7-4ebf-b029-dfa6de680675. Shipped on branch `wiki/v256-my-manga-translator` off the v255 tip (`742f45f`); **NOT auto-merged.**
