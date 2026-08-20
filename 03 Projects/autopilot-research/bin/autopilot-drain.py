@@ -181,7 +181,7 @@ def yt_meta(url: str) -> dict | None:
     """
     cmd = [
         "yt-dlp", "--skip-download",
-        "--print", '%(upload_date)s|%(title)s|%(channel)s|%(duration)s|%(view_count)s|%(like_count)s|%(channel_follower_count)s|%(webpage_url)s',
+        "--print", '%(upload_date)s|@@|%(title)s|@@|%(channel)s|@@|%(duration)s|@@|%(view_count)s|@@|%(like_count)s|@@|%(channel_follower_count)s|@@|%(webpage_url)s',
         url,
     ]
     try:
@@ -191,7 +191,11 @@ def yt_meta(url: str) -> dict | None:
     if r.returncode != 0 or not r.stdout.strip():
         return None
     line = r.stdout.strip().splitlines()[0]
-    parts = line.split("|")
+    # Delimiter is "|@@|", not "|": YouTube titles routinely contain a bare pipe
+    # ("... 64GB ram | quanIT"), which split("|") turned into 9 fields and this
+    # guard then rejected as unparseable -- silently dropping a valid anchor and
+    # mislabelling it "unreachable". Fixed 2026-08-20.
+    parts = line.split("|@@|")
     if len(parts) != 8:
         return None
     upload_date, title, channel, duration, view_count, like_count, follower, ret_url = parts
@@ -215,7 +219,7 @@ def yt_search(query: str) -> list[dict]:
     """Run yt-dlp and return list of video dicts."""
     cmd = [
         "yt-dlp", "--skip-download",
-        "--print", '%(upload_date)s|%(title)s|%(channel)s|%(duration)s|%(view_count)s|%(like_count)s|%(channel_follower_count)s|%(webpage_url)s',
+        "--print", '%(upload_date)s|@@|%(title)s|@@|%(channel)s|@@|%(duration)s|@@|%(view_count)s|@@|%(like_count)s|@@|%(channel_follower_count)s|@@|%(webpage_url)s',
         f"ytsearch{YT_SEARCH_N}:{query}",
     ]
     try:
@@ -226,9 +230,11 @@ def yt_search(query: str) -> list[dict]:
     if result.returncode != 0:
         log(f"  yt-dlp non-zero exit: {result.stderr[:200]}")
     videos = []
+    unparsed = 0
     for line in result.stdout.splitlines():
-        parts = line.split("|")
+        parts = line.split("|@@|")   # see yt_meta: bare "|" occurs inside titles
         if len(parts) != 8:
+            unparsed += 1
             continue
         upload_date, title, channel, duration, view_count, like_count, follower, url = parts
         try:
@@ -243,7 +249,10 @@ def yt_search(query: str) -> list[dict]:
                 "url": url.strip(),
             })
         except ValueError:
+            unparsed += 1
             continue
+    if unparsed:
+        log(f"  WARN: {unparsed} search result(s) unparseable, dropped (delimiter collision?)")
     return videos
 
 
@@ -451,7 +460,7 @@ def drain_topic(topic: dict, dry_run: bool = False) -> dict | None:
                 anchor_picks.append(meta)
                 log(f"    ✓ anchor: [{meta['upload_date']}] {meta['title'][:60]} — {meta['channel']} ({meta['view_count']:,} views)")
             else:
-                log(f"    ✗ anchor unreachable, skipping: {url}")
+                log(f"    ✗ anchor probe returned no usable metadata, skipping: {url}")
 
     remaining = max(0, SOURCES_PER_TOPIC - len(anchor_picks))
     log(f"  step 1/5: yt-search (filling {remaining} of {SOURCES_PER_TOPIC} slots; {len(anchor_picks)} from anchors)")

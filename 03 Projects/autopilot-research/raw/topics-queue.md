@@ -24,7 +24,18 @@
 
 ---
 
+
 ## Completed
+
+
+### Local LLM coding on Apple Silicon — the 64GB Mac mini M4 hardware ladder ✅
+- **Drained:** 2026-08-20 by `/loop` (operator anchor `GBf_mKxGqtk` Quân IT + yt-search ×5: WEBdoze / ForrestKnight / Samuel Gregory / Zen van Riel / Tech With Tim; anchor validation **PASS 1/1** — *after* fixing a delimiter bug in `bin/autopilot-drain.py` that had silently dropped it as "unreachable")
+- **+1 main-loop addition:** Apple WWDC26 session 232 `wykPErJ8M-8` (first-party; the rubric ranks engagement, not authority)
+- **Raw analysis:** `raw/2026-08-20-local-llm-coding-apple-silicon-hardware-ladder.md`
+- **Wiki output:** [[../wiki/local-llm-coding-hardware-ladder/_index]] — 11 files; 123 wikilinks validated 0 broken; **21 claims: 12 CONFIRMED / 5 CBI / 1 FALSE / 3 UNRESOLVED / 0 FABRICATED**
+- **NotebookLM:** none (yt-dlp captions read in full)
+- **Result:** TESTS AND CORRECTS `local-ai-coding-agents` — its "≥24 GB practical minimum" is **refuted** for agentic coding. Memory capacity is the wrong axis; prefill/bandwidth/repo-size are binding.
+- **Deepen candidates:** ⭐ an **M5-generation** agentic test against a real repo (the biggest open question — Apple claims 4× matmul, nobody has measured it on a large codebase) · Apple WWDC26 session **233** (distributed inference) · **OMLX** hands-on (SSD-persistent prefix cache) · **Alex Ziskind** bandwidth/TCO bundle (appeared in all 3 test queries, never won a slot) · Asad Tinkers "Ultimate Local Mac Agentic AI Coding Workflow" (951 views — **below `MIN_VIEWS=1000`, rubric structurally cannot pick it, needs an anchor**)
 
 ### DeepSeek Harness — YouTube commentary layer vs source-verified corpus ✅
 - **Drained:** 2026-08-20 by `/loop` (operator anchor `f51ICIoHcjY` Chase AI + yt-search ×5: The Cef Experience / Turing Post TV / Code Bug VN / Better Stack / Firecrawl; anchor validation **PASS 1/1**)
@@ -32,7 +43,6 @@
 - **Wiki output:** [[../wiki/deepseek-harness/_index]] — 15 files; 32 wikilinks validated 0 broken; **47 claims: 24 CONFIRMED / 10 CBI / 4 PLAUSIBLE-NOT-PRIMARY / 4 MISLEADING / 1 FALSE / 3 UNRESOLVED / 1 UNVERIFIABLE / 0 FABRICATED**
 - **NotebookLM:** none (yt-dlp captions read in full — a claims scorecard cannot grade a paraphrase)
 - **Deepen candidates:** Cloud Codes architecture deep-dive (49,192 views) + NeuralNine (196,090, largest reach) + CloudYeti "Is the Hype Real? LIVE Testing" (891 views, below `MIN_VIEWS` so the rubric cannot pick it — **needs an anchor**)
-
 
 
 ### Engineer of the future — Addy Osmani AIEWF-2026 keynote + role-under-AI-agents bundle ✅
