@@ -329,6 +329,50 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+head1 "CLAUSE 9 — audit cadence is a claim too (v259)"
+# WHY THIS CLAUSE EXISTS.
+#   The v259 audit amended routine §39 because the vault kept declining to apply
+#   its own auto-retire rule -- four audits running. It then closed with the line
+#   "next natural audit ~v268", which is the SAME SHAPE: a cadence stated in prose,
+#   enforced by nothing. The evidence that prose does not hold: v212 wrote
+#   "next natural audit ~v221" and the next audit landed at v259 -- 38 ships late.
+#   Historical gaps between audits: 5,4,5,5,5,5 (the v101-v130 era) then
+#   21,7,4,5,15,21,9,47. The cadence decayed and no gate noticed.
+#   So: compute it, and fail when it drifts past the point where deferral has
+#   historically started costing something (three audits' worth of accumulated
+#   inconsistency, per the v259 findings).
+AUDIT_WARN=${AUDIT_WARN:-14}
+AUDIT_FAIL=${AUDIT_FAIL:-25}
+
+newest_ship=$(grep -ohE '^#{1,3} \*{0,2}v([0-9]{2,3})' _state/03*.md 2>/dev/null \
+              | grep -oE '[0-9]{2,3}' | sort -n | tail -1)
+newest_audit=$(ls -1 "04 Reviews" 2>/dev/null \
+              | grep -oiE '(mini-)?audit \(?v?([0-9]{2,3})|v([0-9]{2,3}) (mini-)?audit' \
+              | grep -oE '[0-9]{2,3}' | sort -n | tail -1)
+
+if [ -z "$newest_ship" ] || [ -z "$newest_audit" ]; then
+  c_warn "could not derive both figures (newest ship='$newest_ship' newest audit='$newest_audit')"
+  c_info "ACTION: this clause reads ship headings from _state/03*.md and audit filenames from '04 Reviews'"
+else
+  gap=$(( newest_ship - newest_audit ))
+  [ "$gap" -lt 0 ] && gap=0
+  c_info "newest ship v$newest_ship | newest audit v$newest_audit | $gap ships since"
+  if [ "$gap" -ge "$AUDIT_FAIL" ]; then
+    c_fail "$gap ships since the last audit (fail threshold $AUDIT_FAIL)"
+    c_info "ACTION: run the audit. v212 deferred to ~v221 and it landed at v259 -- 38 ships late,"
+    c_info "        by which point the corpus was declining at N=5 what it had granted at N=4"
+    c_info "        and carrying an unenforced rule of its own for four audits running."
+  elif [ "$gap" -ge "$AUDIT_WARN" ]; then
+    c_warn "$gap ships since the last audit (warn $AUDIT_WARN / fail $AUDIT_FAIL)"
+    c_info "ACTION: schedule it. The healthy historical cadence was 4-5 ships; 9 is the recent nominal target."
+  else
+    c_pass "audit cadence within tolerance ($gap < $AUDIT_WARN)"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
 head1 "SUMMARY"
 printf "  %s FAIL   %s WARN\n" "$FAILED" "$WARNED"
 if [ "$FAILED" -eq 0 ]; then
@@ -340,4 +384,5 @@ echo
 echo "  Reminder (v250): a gate's AIM, not its quality, decides what rots."
 echo "  Reminder (v254): a DECLARATION is a form of aim. Ask what you have never declared."
 echo "  Reminder (v255): a stale label is safe when DECLARED and dangerous when merely COMPENSATED."
+echo "  Reminder (v259): a cadence stated in prose is not a cadence. CLAUSE 9 counts it."
 exit "$([ "$FAILED" -eq 0 ] && echo 0 || echo 1)"
