@@ -1,0 +1,288 @@
+<title>Forking Is Not Adopting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#FBFAF8; --surface:#FFFFFF; --sunken:#F1F0EC;
+    --ink:#171614; --ink-2:#3E3C38; --muted:#6B6862;
+    --rule:#E2E0DA; --rule-2:#CBC8C0;
+    --accent:#1B4FD1; --accent-bg:#E8EDFB;
+    --bad:#AE2A1E; --bad-bg:#FBEAE7;
+    --good:#186347; --good-bg:#E6F1EC;
+    --shadow:0 1px 2px rgba(23,22,20,.05),0 12px 30px -18px rgba(23,22,20,.24);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0D0E10; --surface:#151719; --sunken:#1D2023;
+      --ink:#ECEAE6; --ink-2:#C7C4BE; --muted:#8C8983;
+      --rule:#242729; --rule-2:#34383B;
+      --accent:#7BA0FF; --accent-bg:#141B2E;
+      --bad:#F2837A; --bad-bg:#2B1615;
+      --good:#5CC79A; --good-bg:#112420;
+      --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 30px -18px rgba(0,0,0,.75);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0D0E10; --surface:#151719; --sunken:#1D2023;
+    --ink:#ECEAE6; --ink-2:#C7C4BE; --muted:#8C8983;
+    --rule:#242729; --rule-2:#34383B;
+    --accent:#7BA0FF; --accent-bg:#141B2E;
+    --bad:#F2837A; --bad-bg:#2B1615;
+    --good:#5CC79A; --good-bg:#112420;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 30px -18px rgba(0,0,0,.75);
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--ground); color:var(--ink);
+    font-family:Newsreader,Georgia,serif; font-size:18px; line-height:1.66; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:70ch; margin:0 auto; padding:0 22px 92px}
+
+  header.mast{background:var(--surface); border-bottom:1px solid var(--rule); padding:52px 0 26px; margin-bottom:36px}
+  .kick{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.16em;
+        text-transform:uppercase; color:var(--accent); margin:0 0 15px}
+  h1{font-family:Archivo,system-ui,sans-serif; font-weight:700; font-size:clamp(2.1rem,5.5vw,3.35rem);
+     line-height:1.03; letter-spacing:-.025em; margin:0 0 15px; text-wrap:balance}
+  .dek{font-size:1.2rem; font-style:italic; color:var(--ink-2); margin:0 0 22px; max-width:58ch; text-wrap:pretty}
+  .slug{font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--muted); word-break:break-all; font-style:normal}
+
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(124px,1fr)); gap:1px;
+         background:var(--rule); border:1px solid var(--rule); border-radius:2px; overflow:hidden; margin-top:26px}
+  .fact{background:var(--surface); padding:12px 14px}
+  .fk{font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--muted); display:block; margin-bottom:5px}
+  .fv{font-family:Archivo,sans-serif; font-weight:600; font-size:14.5px; font-variant-numeric:tabular-nums}
+  .fv.ok{color:var(--good)} .fv.no{color:var(--bad)}
+
+  h2{font-family:Archivo,sans-serif; font-weight:600; font-size:1.5rem; line-height:1.22; letter-spacing:-.016em;
+     margin:56px 0 8px; padding-top:26px; border-top:1px solid var(--rule); text-wrap:balance}
+  h3{font-family:Archivo,sans-serif; font-weight:600; font-size:1.02rem; margin:30px 0 4px; letter-spacing:-.005em}
+  p{margin:14px 0}
+  a{color:var(--accent); text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  strong{font-weight:600}
+  code{font-family:"JetBrains Mono",monospace; font-size:.82em; background:var(--sunken);
+       padding:.13em .36em; border-radius:2px; font-style:normal; word-break:break-word}
+  ul,ol{padding-left:1.2em} li{margin:7px 0}
+  .lede{font-size:1.06rem; color:var(--ink-2)}
+
+  .note{background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--accent);
+        padding:16px 19px; margin:22px 0; border-radius:0 2px 2px 0; box-shadow:var(--shadow)}
+  .note.bad{border-left-color:var(--bad); background:var(--bad-bg)}
+  .note.good{border-left-color:var(--good); background:var(--good-bg)}
+  .note p:first-child{margin-top:0} .note p:last-child{margin-bottom:0}
+  .lbl{font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+       display:block; margin-bottom:7px; color:var(--accent); font-style:normal}
+  .note.bad .lbl{color:var(--bad)} .note.good .lbl{color:var(--good)}
+
+  /* the thesis: a two-sided split — the content IS a boundary, so the device is a boundary */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule-2);
+         border:1px solid var(--rule-2); border-radius:2px; margin:26px 0; overflow:hidden}
+  .split > div{background:var(--surface); padding:16px 18px}
+  .split h4{font-family:Archivo,sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.06em;
+            text-transform:uppercase; margin:0 0 10px; color:var(--accent)}
+  .split.det h4{color:var(--good)}
+  .split ul{margin:0; padding-left:1.1em; font-size:.94rem}
+  @media (max-width:620px){.split{grid-template-columns:1fr}}
+
+  .scroll{overflow-x:auto; margin:24px 0; border:1px solid var(--rule); border-radius:2px; background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:14.5px; font-family:Archivo,sans-serif}
+  th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--rule); vertical-align:top}
+  th{font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase;
+     color:var(--muted); font-weight:400; background:var(--sunken); white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.n{font-variant-numeric:tabular-nums; white-space:nowrap}
+  td.z{color:var(--bad); font-weight:600} td.y{color:var(--good); font-weight:600}
+  tr.hl td{background:var(--accent-bg)}
+
+  pre{font-family:"JetBrains Mono",monospace; font-size:12.5px; line-height:1.62; background:var(--surface);
+      border:1px solid var(--rule); border-radius:2px; padding:15px 17px; overflow-x:auto; margin:20px 0;
+      color:var(--ink-2); font-style:normal}
+  pre b{color:var(--ink); font-weight:600} pre .c{color:var(--muted)}
+  footer{border-top:1px solid var(--rule); margin-top:52px; padding-top:22px; font-size:14px; color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">LLM Wiki · v262 · 2026-08-21</p>
+    <h1>Forking Is Not Adopting</h1>
+    <p class="dek">The sixth URL in a five-repository sequence turned out to be someone else's work — and by accident it became the control the whole sequence needed.</p>
+    <p class="slug">hoquanghai/Auto-Create-Video · HEAD 8c2e0433 · 34 commits · 1,569 lines TS · 116 assertions</p>
+    <div class="facts">
+      <div class="fact"><span class="fk">Phase 0.9</span><span class="fv ok">3/4 Goal-aligned</span></div>
+      <div class="fact"><span class="fk">Mint</span><span class="fv">None</span></div>
+      <div class="fact"><span class="fk">Counts</span><span class="fv">46 / 12</span></div>
+      <div class="fact"><span class="fk">Tests</span><span class="fv ok">9 files · 116</span></div>
+      <div class="fact"><span class="fk">CI</span><span class="fv ok">2 workflows</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<h2>A correction I owe the record</h2>
+
+<p class="lede">The operator queued this as the sixth <code>mranex</code> repository, and I said in my own previous message that it would take the same-author control to N=6. That was wrong, and one command settles it.</p>
+
+<pre>$ git log --all --format='%an &lt;%ae&gt;' | sort | uniq -c
+  <b>34 Ho Quang Hai &lt;62106658+hoquanghai@users.noreply.github.com&gt;</b></pre>
+
+<p>All thirty-four commits are by Ho Quang Hai. Zero by <code>mranex</code>. The rendered GitHub page confirms it — <em>"forked from hoquanghai/Auto-Create-Video"</em>, one star, no description. The subject of this page is the upstream, and the credit is his.</p>
+
+<div class="note">
+  <span class="lbl">New rule</span>
+  <p><strong>A repository's namespace is not a claim about its authorship.</strong> Before attributing a repository to the account hosting it, run <code>git log --format='%an &lt;%ae&gt;' | sort -u</code> and check the page for a fork notice. Forks, transfers and org membership all put other people's work under a given name.</p>
+  <p>I nearly skipped that command because five URLs in a row had been genuine. It is one line, and it inverted the ship.</p>
+</div>
+
+<h2>Why the fork is a better control than a sixth data point</h2>
+
+<p>The five-repository sequence found exactly one habit that replicated <em>without a single exception</em> — across four domains, three GUI toolkits, two languages, durations from eighty-seven minutes to thirty-one days, and eight thousand to fifty-five thousand lines of code: <strong>zero tests, zero CI, zero agent surface.</strong></p>
+
+<p>This repository sits in the same namespace, the same language and country context, the same "automate a media pipeline" domain, the same weeks. And it has all of it.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th></th><th>the five mranex repos</th><th>this repository</th></tr></thead>
+  <tbody>
+    <tr><td>test files</td><td class="z">0, all five</td><td class="y">9 files · 44 it() · 116 expect()</td></tr>
+    <tr><td>negative fixtures</td><td class="z">0</td><td class="y">3 deliberately invalid</td></tr>
+    <tr><td>CI</td><td class="z">0 .yml ever, all five</td><td class="y">2 workflows</td></tr>
+    <tr><td>agent surface</td><td class="z">0</td><td class="y">a 378-line Claude Code skill</td></tr>
+    <tr><td>secrets</td><td class="z">plaintext key, no warning</td><td class="y">.env.example committed, .env ignored</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>And the dates are the finding</h3>
+
+<pre>2026-04-26   v257  translate-LN-pipeline   created     <b>0 tests, 0 CI</b>
+2026-04-29   ──►  <b>Auto-Create-Video begins            9 tests, 2 CI workflows</b>
+2026-05-02   ──►  Auto-Create-Video last commit
+2026-05-13   v256  my_manga_translator     created     <b>0 tests, 0 CI</b>
+2026-05-24   v258  VOCra                   created     <b>0 tests, 0 CI</b>
+2026-05-27   v260  Anime_Vault             created     <b>0 tests, 0 CI</b>
+2026-05-30   v261  novel_studio            created     <b>0 tests, 0 CI</b></pre>
+
+<p>He forked a repository with a real test suite and working CI, and then created four more projects over the following twenty-eight days, every one with neither. <strong>The example was in his own account the entire time.</strong></p>
+
+<div class="note">
+  <span class="lbl">The rule, stated fairly</span>
+  <p>The previous ship established that <strong>code moves forward in time and never backward</strong> — an improvement reaches project N+1 by copy-forward and never reaches N−1, because nothing carries it back. This extends it sideways: <strong>it does not even move forward from a repository you own.</strong></p>
+  <p>But forking is not a commitment to adopt — people fork to read, to bookmark, to try once. So this is not a character finding. The honest claim is structural: <strong>a practice does not transfer by proximity. Having the example in your account, in your language, in your domain, in the same month, is not having the habit. Practices transfer by doing, not by possessing.</strong></p>
+</div>
+
+<p>And that closes the arc. The previous ship's lesson was that <strong>a protocol without a gate is decorative</strong> — nine excellent sections, not one of them a precondition, zero evidence records ever written. This one's is that <strong>an example without practice is inert</strong>. Together: declaration is not enforcement, and possession is not practice. Those two sentences are the entire failure mode of the preceding five repositories.</p>
+
+<h2>The thesis, and it holds</h2>
+
+<p>What the project actually is: a pipeline that turns a Vietnamese tech article — a URL or a <code>.txt</code> file — into a TikTok-ready 9:16 news video of about sixty seconds, with Vietnamese voiceover, sound effects, Ken Burns image motion, GSAP kinetic typography and an auto-injected follow card. There is a live demo linked from the README.</p>
+
+<p>Its README states the design decision in one sentence, and it is the best statement of the agent-pipeline principle in this entire run:</p>
+
+<div class="split">
+  <div><h4>AI for content</h4><ul><li>read the article</li><li>decide what matters</li><li>write the sixty-second script</li><li>produce <code>script.json</code></li></ul></div>
+  <div><h4 class="det">Deterministic code for production</h4><ul><li>scene timing</li><li>audio concat + silence</li><li>HTML/CSS/JS → frames</li><li>FFmpeg → <code>video.mp4</code></li></ul></div>
+</div>
+
+<p><em>"— same input → identical frames every time."</em> I checked it.</p>
+
+<div class="note good">
+  <span class="lbl">Verified</span>
+  <p><strong>Zero <code>Math.random()</code> across all of <code>src/</code></strong> (worth noting against the previous ship, which shipped two biased comparator shuffles). <strong>Zero network calls inside the render path.</strong> Exactly one <code>new Date()</code>, at <code>rerender.ts:137</code>, writing <code>createdAt</code> into a sidecar <code>meta.json</code> — and a timestamp search across the render directory and the templates returns nothing.</p>
+  <p><strong>No timestamp reaches a pixel.</strong> The <em>architecture</em> claim is honoured exactly. <strong>But do not generalise that to the README as a whole</strong> — see the correction below, which I got wrong on the first pass.</p>
+  <p>Scope: read-derived. Byte-identical <em>encoded</em> output also depends on the FFmpeg build, which I could not execute.</p>
+</div>
+
+<h2>The skill, read as an artifact</h2>
+
+<p>The Claude Code skill is 378 lines and it is serious work. Its frontmatter carries both the trigger phrases — in the Vietnamese a user would actually type — and the output contract. Its workflow is numbered and prefixed <em>"MUST follow these steps in order."</em> Step 2 embeds an extraction prompt naming four required JSON fields with types. And it specifies what to do when the fetch fails:</p>
+
+<pre><span class="c">SKILL.md, step 2</span>
+If WebFetch fails (paywall, JS-rendered, 4xx) → tell user to save
+content to a .txt file and pass that instead. <b>Stop.</b></pre>
+
+<div class="note">
+  <span class="lbl">Set that against the previous ship</span>
+  <p>That author wrote <em>"If the agent finds a blocker: do not silently skip it"</em> into a 149-line protocol and enforced it nowhere. <strong>This author never wrote that sentence — he built the stop into step 2.</strong></p>
+  <p><strong>Enforcement lives in the artifact, not in the manifesto.</strong></p>
+</div>
+
+<h2>The defect, and it is a remarkable callback</h2>
+
+<pre><span class="c">package.json</span>
+"test": "vitest run <b>--passWithNoTests</b>"</pre>
+
+<p>That flag makes the command exit zero when no tests are collected — and <code>test.yml</code> runs exactly <code>npm test</code>. Move a directory, rename a suffix, edit the vitest config, and the Tests badge stays green on an empty suite, on every push, silently.</p>
+
+<p>The callback: at v261 the fleet's synthesis asserted that <code>pytest</code> against nonexistent paths <em>"will run zero tests and exit 0."</em> I rejected that as contrary to pytest's documented exit codes, and I was right about pytest. <strong>But the mechanism it described is real — and it is here, opted into deliberately, in the one repository of the six that actually has tests.</strong></p>
+
+<div class="note bad">
+  <span class="lbl">And this one is worse</span>
+  <p><strong>A gate that cannot fail is worse than a gate nobody invokes.</strong> The previous ship's verification command fails loudly and was therefore never run by anyone. This one cannot fail loudly and runs constantly.</p>
+  <p>If you take the workflows, drop the flag. If you need it, assert the collected-test count against a floor instead.</p>
+</div>
+
+<h2>The correction — and it is the better finding</h2>
+
+<p class="lede">My first pass concluded this README was the strongest claim-versus-code result of the run. That was wrong, and the fleet caught it. The verified picture is more interesting than the flattering one.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>README claim</th><th>Reality</th><th>Gated?</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>44 unit tests</td><td class="y">44, exactly</td><td>CI runs them</td></tr>
+    <tr class="hl"><td>1080×1920 @ 30fps</td><td class="y">correct</td><td>asserted in a test</td></tr>
+    <tr class="hl"><td>3-tier SFX selector</td><td class="y">implemented</td><td>20 assertions</td></tr>
+    <tr class="hl"><td>every dependency version</td><td class="y">correct</td><td>package.json</td></tr>
+    <tr><td>"12 Smart Templates"</td><td class="z">SIX</td><td>no</td></tr>
+    <tr><td>"6 theme palettes", named</td><td class="z">ZERO in code</td><td>no</td></tr>
+    <tr><td>Gemini thumbnail stage</td><td class="z">absent</td><td>no</td></tr>
+    <tr><td>voiceChunks sync</td><td class="z">absent</td><td>no</td></tr>
+    <tr><td>hyperframes quality gates</td><td class="z">absent</td><td>no</td></tr>
+    <tr><td>sns_post.txt output</td><td class="z">absent</td><td>no</td></tr>
+    <tr><td>Manrope + Anton + Lora</td><td class="z">Inter + Anton + Bebas</td><td>no</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The claim at <code>README:201</code> is worth quoting because it is a claim about a specific code artefact: <em>"Zod ^4 discriminated unions (12 template variants)."</em> The union has six. The six theme names — <code>tech-blue</code>, <code>growth-green</code>, <code>finance-gold</code>, <code>warning-red</code>, <code>creator-purple</code>, <code>news-mono</code> — appear only in <code>README.md</code> and <code>README.vi.md</code>; a search across <code>src/</code> returns nothing.</p>
+
+<pre><span class="c">and the final commit in the entire repository is titled</span>
+8c2e043  <b>docs: refresh README tech sections to match current codebase</b></pre>
+
+<div class="note bad">
+  <span class="lbl">The finding</span>
+  <p><strong>Everything the code can check is right. Everything only the prose asserts is inflated.</strong> The test count, the frame dimensions, the dependency versions and the SFX tiers are correct to the digit. The template count is doubled, the theme system does not exist, and a whole rendering stage is advertised with no code behind it.</p>
+  <p>He built real gates and aimed every one of them at the code. The prose has no gate, so the prose is where the drift lives — and a hand-reconciliation performed once, even one explicitly titled <em>"to match current codebase"</em>, did not converge. <strong>A gate's aim, not its quality, decides what rots.</strong></p>
+  <p>Which sharpens the whole six-ship conclusion: the five repositories before this one had no gates anywhere, and both their code and their docs drifted. This one has gates on the code, and its claims are honest <em>precisely where something checks them</em>. <strong>Tests do not make you honest. They make you honest about the things they test.</strong></p>
+</div>
+
+<div class="note">
+  <span class="lbl">My own error, same shape as always</span>
+  <p>I initially <em>refuted</em> the theme finding, because <code>grep -rn 'tech-blue' .</code> returned four hits and I read that as "the themes exist". All four were in the two README files. I counted matches without looking at the paths. <strong><code>grep -c</code> answers "how many"; only <code>grep -l</code> tells you whether the thing exists in the code.</strong></p>
+</div>
+
+<h2>No mint — and the catalogue earned its keep</h2>
+
+<p>The candidate was a second instance of a standing row: <em>"Agent-First End-to-End Generative-Media (Video) Production System"</em>, anchored on OpenMontage (v188). A routine collision grep surfaced it; reading its definition killed it. That row requires <em>the coding agent IS the runtime, no orchestrator</em>, plus YAML pipelines, a multi-provider generative-media abstraction and a free local path. This project's <strong>defining feature is a deterministic TypeScript orchestrator</strong> — the opposite commitment on the same rendering substrate — with a Zod-validated <code>script.json</code>, multi-provider TTS only, and a paid key requirement.</p>
+
+<p><strong>Adjacency, not instance. Counts unchanged.</strong></p>
+
+<div class="note good">
+  <span class="lbl">First live demonstration</span>
+  <p>The v259 audit declined to retire thirty-eight single-instance rows because <em>"retiring them would destroy the mechanism that makes collision-detection possible."</em> Here that mechanism did exactly its job: the row surfaced from a routine grep, its definition was read, a false second instance was prevented, and the boundary is now recorded so nobody re-derives it. <strong>The catalogue paid for itself.</strong></p>
+</div>
+
+<h2>Verdict</h2>
+
+<p><strong>Goal-aligned 3/4, cleanly.</strong> A Claude Code skill is the recommended entry point, Claude is the content engine, and the AI-versus-deterministic boundary is exactly the question hireui's first LLM feature has to answer. <strong>Read and borrow — and this is the first subject in six whose engineering <em>practice</em> is worth copying rather than just cautioning against.</strong></p>
+
+<p>What to take, in one sentence: <strong>put the model where judgement is required and deterministic code everywhere the output must be reproducible — then write the boundary down, in the code, not just in your head.</strong> For hireui that means the model may summarise, explain and draft; it may never do the arithmetic a candidate could contest. Plus two patterns worth stealing outright: <strong>negative fixtures as first-class test data</strong> (three files that exist to be rejected), and <strong>mocked HTTP for provider tests</strong>, which is what makes an eval gate affordable rather than theoretical.</p>
+
+<footer>
+  <p>Hand-verified throughout, with a thirteen-agent fleet used for breadth on claims, determinism, code quality, tests, the skill and the pipeline — each assessment followed by an adversarial review aimed at its own citations and numbers.</p>
+  <p>Nothing was executed: no node, no ffmpeg, and Python is killed on invocation in this sandbox. Every runtime claim is read-derived and labelled. Star counts are not cited — the page I fetched was the fork's, not the upstream's, and the API is mocked here.</p>
+</footer>
+
+</div>
