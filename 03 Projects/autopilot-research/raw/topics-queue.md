@@ -24,10 +24,16 @@
 
 ---
 
-
 ## Completed
 
 
+### Homebrew — the macOS package-manager layer (VN anchor + 6.0 release) ✅
+- **Drained:** 2026-08-21 by `/loop` (operator anchor `A_nvIGTNfuw` Kunkka + yt-search ×5 on query `Homebrew macOS package manager terminal setup`, selected via `bin/autopilot-drain.py --dry-run`; anchor validation **PASS 1/1, overlap 100%**)
+- **Raw analysis:** `raw/2026-08-21-homebrew-macos-package-manager-layer.md`
+- **Wiki output:** [[../wiki/homebrew-macos-package-manager/_index]] — 11 files; 109 wikilinks validated 0 broken; **46 claims: 29 CONFIRMED / 5 CORRECTED / 4 CBI / 3 UNVERIFIED / 2 TIME-BOUND / 1 MISLEADING / 1 UNFALSIFIABLE / 1 CONTRADICTED-IN-BUNDLE / 0 FABRICATED**
+- **NotebookLM:** none (yt-dlp captions read in full — a claims scorecard cannot grade a paraphrase)
+- **Result:** the anchor is a design-history essay, not a tutorial, and its three central critiques of Homebrew are confirmed verbatim by `docs.brew.sh`. **The headline finding is original to the ingest**: this machine (Apple M4 Pro) runs its primary Homebrew as **x86_64 under Rosetta 2** at `/usr/local` while a native arm64 install sits unused at `/opt/homebrew` — which diagnoses the long-standing "broken `python3` shim" note in the project `CLAUDE.md`, and lands on Homebrew's **Intel → Tier 3 September 2026** deprecation path.
+- **Deepen candidates:** ⭐⭐ run the prefix migration and write it up (bounded, measurable, Sept-2026 deadline) · ⭐⭐ assert one transcript file per selected video before compiling (silent-fetch-failure guard) · ⭐ a **docs-first** ingest of `docs.brew.sh` Tap-Trust + Support-Tiers (the docs outperformed every video here) · ⭐ **Nix on macOS** — two sources place the boundary there and the corpus has no Nix topic · Rosetta 2's own deprecation timeline (deliberately unverified) · `brew bundle` vs real fleet reproducibility · Kunkka's back catalogue
 ### Local LLM coding on Apple Silicon — the 64GB Mac mini M4 hardware ladder ✅
 - **Drained:** 2026-08-20 by `/loop` (operator anchor `GBf_mKxGqtk` Quân IT + yt-search ×5: WEBdoze / ForrestKnight / Samuel Gregory / Zen van Riel / Tech With Tim; anchor validation **PASS 1/1** — *after* fixing a delimiter bug in `bin/autopilot-drain.py` that had silently dropped it as "unreachable")
 - **+1 main-loop addition:** Apple WWDC26 session 232 `wykPErJ8M-8` (first-party; the rubric ranks engagement, not authority)
@@ -43,7 +49,6 @@
 - **Wiki output:** [[../wiki/deepseek-harness/_index]] — 15 files; 32 wikilinks validated 0 broken; **47 claims: 24 CONFIRMED / 10 CBI / 4 PLAUSIBLE-NOT-PRIMARY / 4 MISLEADING / 1 FALSE / 3 UNRESOLVED / 1 UNVERIFIABLE / 0 FABRICATED**
 - **NotebookLM:** none (yt-dlp captions read in full — a claims scorecard cannot grade a paraphrase)
 - **Deepen candidates:** Cloud Codes architecture deep-dive (49,192 views) + NeuralNine (196,090, largest reach) + CloudYeti "Is the Hype Real? LIVE Testing" (891 views, below `MIN_VIEWS` so the rubric cannot pick it — **needs an anchor**)
-
 
 ### Engineer of the future — Addy Osmani AIEWF-2026 keynote + role-under-AI-agents bundle ✅
 - **Drained:** 2026-07-22 by `/loop` (operator anchor `n97BCfyFIvw` + yt-search ×5: Karpathy / Ng / Cursor-Truell / Gergely Orosz / Harrison Chase)
