@@ -1461,3 +1461,19 @@ Window v135→v151 (16 ships since the v134–v135 audit). Routine v2.6. Branch 
 **Pending operator sign-off (carried from v151, NOT auto-adopted):** (i) off-goal-intake lever (re-baseline override trigger OR outlier-track-by-default — recommended) · (ii) (a)-rescue tightening (require solid (a) signal, not name-heritage inference). [(iii) time-aware auto-retire window was ADOPTED at v151.]
 
 **Audit document:** `04 Reviews/(C) 2026-06-05 Pattern Library mini-audit v158 (OVERDUE ~v156-v157; T2 observability sub-archetype CONFIRM + 2 sub-flavors + double-count reconcile, LV-C7 N=3 PROMOTE #22, override DISCHARGE).md`
+
+---
+
+## v259 audit (2026-08-21) — window v213 → v258 (46 ships, 46 overdue)
+
+**Doc:** `04 Reviews/(C) 2026-08-21 — v259 audit (v213–v258)` · **Routine delta:** `05 Skills/llm-wiki-routine-v2.8.md` · **Branch:** `wiki/audit-v259` off `df7570b`.
+
+**Five decisions.** (1) ⭐⭐⭐ **PROMOTED** §C row C40 → **CONFIRMED Library-vocab #24** *"Product-First Native Application Retrofitted with a First-Party MCP Server"* at N=4 (v192 palmier-pro + v212 tabularis + v229 voicebox + v230 worldmonitor — cross-author, cross-domain, none a port). CONFIRMED **11 → 12**. v212's condition (*a fully-independent non-port N=3*) met three times over; precedent #23 promoted at N=4 (v182). (2) **HELD** the v207 subscription-gateway row at N=2 — its 2nd instance is a port, and v231/v232 belong to the adjacent free-entitlement class (v257's boundary upheld). (3) ⭐⭐ **Count reconciled — the registry's 51 was RIGHT and my measurement was wrong** (two hardcoded-line-range passes gave 50 and 52); definitive marker-derived count 56 physical → **51 live** → **50 after the promotion**; **stable `C##` markers added**, closing clause 7's standing WARN and making the count `grep -c` derivable. (4) ⭐⭐⭐ **§C BIFURCATED** — the retire pass deferred by four consecutive audits resolved by **amending the rule, not deferring again**: §C-1 live promotion candidates (N≥2) **= 12**, §39 applies; §C-2 recorded corpus-firsts (N=1) **= 38**, §39 does not. **Zero rows destroyed.** §28 recalibrated against §C-1 and demoted to a supporting ground. (5) ⭐⭐⭐ **ROUTINE v2.8** — §42 the same-author control as method, §43 D31–D47 consolidated (+ the standing self-diagnosis, the ground-truth-amplifier hazard, fleet scope), §44 the bifurcation.
+
+**Bookkeeping verified:** `GA:116 · OG:13 [7 ov]`, 39 consecutive GA v220→v258 (arithmetic reconciled against v212's GA:72 — exactly 2 OFF-GOAL in-window, v216 and v219). Override review **DISCHARGED, 11th consecutive** (v153→v258 = 0). **§35 CLEAR.** Top-level patterns **46 UNCHANGED**, max #85 — none minted in 46 ships. #18 B1-MCP ≈N=15. #57 widest fan-in record 16 (v254). Model/Inference-Substrate descriptive N=5.
+
+**✅ v212's #1 infra item DISCHARGED:** the shim no longer blocks workflows — 197,662 bytes / 22 head blocks, and three fleets (20/16/14 agents) ran successfully in the v256–v258 session where every ship v200→v212 had failed `prompt-too-long`.
+
+**Carried forward to ~v268:** the v207 promotion; §C-1 hygiene; the `03c` rename; ⭐ **the vault's own copy-forward problem** (`05 Skills/` copies and v2.1→v2.8 deltas — a fix in the newest copy will not reach the older ones, for exactly the reason it did not reach v257).
+
+**State after: 46 patterns / 12 CONFIRMED Library-vocab · §C 50 live (12 §C-1 + 38 §C-2) · surface ≈19 · max #85.**
