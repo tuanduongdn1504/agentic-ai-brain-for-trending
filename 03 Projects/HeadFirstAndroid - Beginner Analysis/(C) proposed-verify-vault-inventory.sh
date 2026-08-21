@@ -284,19 +284,56 @@ head1 "CLAUSE 7 — assert a count against a count (v254)"
 # compared it to the 300 entry lines beside it. Seventeen weeks of a green job next to a wrong file.
 # Rule: wherever a count is already computable, assert it against the count it must equal.
 
-# 7a — the §C live-standalone figure quoted in CLAUDE.md vs the rows actually in _patterns/06
-CLAIMED=$($GREP -ohE '§C live standalones ([0-9]+)|([0-9]+) live standalones' CLAUDE.md 2>/dev/null | $GREP -oE '[0-9]+' | sort -n | tail -1)
-if [ -n "${CLAIMED:-}" ] && [ -e "$REG" ]; then
-  printf "        CLAUDE.md claims §C live standalones = %s\n" "$CLAIMED"
-  c_warn "the physical §C row count is not machine-derivable from _patterns/06 without a stable row marker"
-  c_info "ACTION: give each live §C row a unique line prefix (e.g. '| C##' or '§C-###') and then this"
-  c_info "        clause becomes exact. Until then this is the vault's own printed-295-beside-300."
-  c_info "        The v203 audit already spent a session reconciling this by hand (45 physical rows"
-  c_info "        -> 40 maintained). A row marker makes that reconciliation a one-liner, forever."
+# 7a — §C bookkeeping, NOW MACHINE-DERIVABLE (rewritten at v260).
+# v259's routine v2.8 §44 clause 4 added a stable C## marker to every §C row and DECLARED that this
+# "closes the standing WARN in clause 7". It did not: the markers landed in the registry and this
+# clause was never changed, so it kept printing an ACTION that was already done — the vault's own
+# instance of the v260 subject's headline (a declaration describing a superseded state of the world).
+# v250's lesson applies: check BOTH directions. A one-way check is green while it is wrong.
+if [ -e "$REG" ]; then
+  PHYS=$($GREP -c '^| \*\*C[0-9][0-9]\*\*' "$REG" 2>/dev/null || echo 0)
+  printf "        physical C## rows in _patterns/06: %s\n" "$PHYS"
+  SEC_OK=1
+  for sec in 1 2; do
+    LINE=$($GREP -m1 "^| \*\*§C-$sec " "$REG" 2>/dev/null)
+    if [ -z "$LINE" ]; then
+      c_warn "§C-$sec membership index row not found in _patterns/06"; SEC_OK=0; continue
+    fi
+    DECL=$(echo "$LINE" | $GREP -oE '\*\*[0-9]+\*\*' | $GREP -oE '[0-9]+' | tail -1)
+    MARKS=$(echo "$LINE" | $GREP -oE 'C[0-9][0-9]' | sort -u)
+    LISTED=$(echo "$MARKS" | $GREP -c 'C' || echo 0)
+    printf "        §C-%s: declares %s, lists %s markers\n" "$sec" "${DECL:-?}" "$LISTED"
+    if [ "${DECL:-x}" = "$LISTED" ]; then
+      c_pass "§C-$sec declared total matches its own marker list"
+    else
+      c_fail "§C-$sec says $DECL but lists $LISTED markers — the count and the list disagree"; SEC_OK=0
+    fi
+    # reverse direction: every listed marker must exist as a physical row
+    MISS=""
+    for m in $MARKS; do
+      $GREP -q "^| \*\*$m\*\*" "$REG" 2>/dev/null || MISS="$MISS $m"
+    done
+    if [ -n "$MISS" ]; then
+      c_fail "§C-$sec lists markers with no physical row:$MISS"; SEC_OK=0
+    else
+      c_pass "§C-$sec: every listed marker has a row (reverse direction checked)"
+    fi
+  done
+  # residual: physical rows not in either live section are promoted-out / retired, which is legitimate.
+  D1=$($GREP -m1 '^| \*\*§C-1 ' "$REG" 2>/dev/null | $GREP -oE '\*\*[0-9]+\*\*' | $GREP -oE '[0-9]+' | tail -1)
+  D2=$($GREP -m1 '^| \*\*§C-2 ' "$REG" 2>/dev/null | $GREP -oE '\*\*[0-9]+\*\*' | $GREP -oE '[0-9]+' | tail -1)
+  if [ -n "${D1:-}" ] && [ -n "${D2:-}" ]; then
+    RES=$(( PHYS - D1 - D2 ))
+    printf "        residual rows (promoted-out / retired): %s = %s physical - %s - %s\n" "$RES" "$PHYS" "$D1" "$D2"
+    [ "$RES" -ge 0 ] && c_pass "residual is non-negative (promoted-out rows legitimately remain)" \
+                     || c_fail "live sections claim MORE rows than exist physically"
+  fi
+  # the shim's own figure: post-v259 a ship's "§C live standalones" means §C-1, not the catalogue.
+  c_info "NOTE (v2.8 §44 clause 3): a ship's \"§C live standalones\" figure means §C-1 only."
+  c_info "      Historical head blocks quote pre-bifurcation totals; those are correct for their date."
 else
-  c_warn "no §C standalone count found in CLAUDE.md — clause 7a skipped"
+  c_warn "_patterns/06 not found — clause 7a skipped"
 fi
-
 # 7b — pattern counts must agree wherever they are stated
 CNTS=$($GREP -ohE '[0-9]+ confirmed (top-level )?patterns' CLAUDE.md 2>/dev/null | $GREP -oE '^[0-9]+' | sort -u | tr '\n' ' ')
 NCNT=$(echo "$CNTS" | wc -w | tr -d ' ')
