@@ -1,0 +1,343 @@
+<title>Every Gate For The Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --ground:#F6F7F8; --surface:#FFFFFF; --sunken:#ECEFF1;
+    --ink:#10161D; --ink-2:#38434F; --muted:#5C6773;
+    --rule:#DFE3E7; --rule-2:#C6CDD3;
+    --accent:#0F6E5C; --accent-bg:#E2F0EC;
+    --bad:#A82A22; --bad-bg:#FAEAE8;
+    --good:#1A6340; --good-bg:#E5F0E9;
+    --shadow:0 1px 2px rgba(16,22,29,.05),0 12px 32px -20px rgba(16,22,29,.28);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0C1116; --surface:#131A21; --sunken:#1B242C;
+      --ink:#E8ECEF; --ink-2:#C3CBD2; --muted:#8B96A2;
+      --rule:#1F2830; --rule-2:#2D3841;
+      --accent:#4FC3A8; --accent-bg:#0F2622;
+      --bad:#EF8278; --bad-bg:#2A1614;
+      --good:#59C288; --good-bg:#12251B;
+      --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 32px -20px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0C1116; --surface:#131A21; --sunken:#1B242C;
+    --ink:#E8ECEF; --ink-2:#C3CBD2; --muted:#8B96A2;
+    --rule:#1F2830; --rule-2:#2D3841;
+    --accent:#4FC3A8; --accent-bg:#0F2622;
+    --bad:#EF8278; --bad-bg:#2A1614;
+    --good:#59C288; --good-bg:#12251B;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 12px 32px -20px rgba(0,0,0,.8);
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--ground); color:var(--ink);
+    font-family:Literata,Georgia,serif; font-size:17.5px; line-height:1.68; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:71ch; margin:0 auto; padding:0 22px 94px}
+
+  header.mast{background:var(--surface); border-bottom:1px solid var(--rule); padding:54px 0 28px; margin-bottom:36px}
+  .kick{font-family:"Space Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.14em;
+        text-transform:uppercase; color:var(--accent); margin:0 0 16px}
+  h1{font-family:Sora,system-ui,sans-serif; font-weight:700; font-size:clamp(2.05rem,5.3vw,3.25rem);
+     line-height:1.06; letter-spacing:-.028em; margin:0 0 16px; text-wrap:balance}
+  .dek{font-size:1.19rem; font-style:italic; color:var(--ink-2); margin:0 0 22px; max-width:58ch; text-wrap:pretty}
+  .slug{font-family:"Space Mono",monospace; font-size:12px; color:var(--muted); word-break:break-all; font-style:normal}
+
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(126px,1fr)); gap:1px;
+         background:var(--rule); border:1px solid var(--rule); border-radius:2px; overflow:hidden; margin-top:26px}
+  .fact{background:var(--surface); padding:12px 14px}
+  .fk{font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.11em; text-transform:uppercase;
+      color:var(--muted); display:block; margin-bottom:5px}
+  .fv{font-family:Sora,sans-serif; font-weight:600; font-size:14px; font-variant-numeric:tabular-nums}
+  .fv.ok{color:var(--good)} .fv.no{color:var(--bad)}
+
+  h2{font-family:Sora,sans-serif; font-weight:600; font-size:1.48rem; line-height:1.24; letter-spacing:-.018em;
+     margin:56px 0 8px; padding-top:26px; border-top:1px solid var(--rule); text-wrap:balance}
+  h3{font-family:Sora,sans-serif; font-weight:600; font-size:1rem; margin:30px 0 4px; letter-spacing:-.006em}
+  p{margin:14px 0} .lede{font-size:1.05rem; color:var(--ink-2)}
+  a{color:var(--accent); text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  strong{font-weight:600}
+  code{font-family:"Space Mono",monospace; font-size:.79em; background:var(--sunken);
+       padding:.14em .36em; border-radius:2px; font-style:normal; word-break:break-word}
+  ul,ol{padding-left:1.2em} li{margin:7px 0}
+
+  .note{background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--accent);
+        padding:16px 19px; margin:22px 0; border-radius:0 2px 2px 0; box-shadow:var(--shadow)}
+  .note.bad{border-left-color:var(--bad); background:var(--bad-bg)}
+  .note.good{border-left-color:var(--good); background:var(--good-bg)}
+  .note p:first-child{margin-top:0} .note p:last-child{margin-bottom:0}
+  .lbl{font-family:"Space Mono",monospace; font-size:10px; letter-spacing:.11em; text-transform:uppercase;
+       display:block; margin-bottom:7px; color:var(--accent); font-style:normal}
+  .note.bad .lbl{color:var(--bad)} .note.good .lbl{color:var(--good)}
+
+  /* the asymmetry — the content IS an asymmetry, so the device is two unequal columns */
+  .asym{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule-2);
+        border:1px solid var(--rule-2); border-radius:2px; margin:26px 0; overflow:hidden}
+  .asym > div{background:var(--surface); padding:16px 18px}
+  .asym > div.empty{background:var(--bad-bg)}
+  .asym h4{font-family:Sora,sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.07em;
+           text-transform:uppercase; margin:0 0 10px; color:var(--good)}
+  .asym > div.empty h4{color:var(--bad)}
+  .asym ul{margin:0; padding-left:1.05em; font-size:.92rem}
+  .asym .none{font-family:"Space Mono",monospace; font-size:1.5rem; color:var(--bad); margin:14px 0 6px}
+  @media (max-width:620px){.asym{grid-template-columns:1fr}}
+
+  /* the ladder — a real sequence, so it is stepped and numbered */
+  ol.ladder{list-style:none; counter-reset:rung; padding:0; margin:24px 0}
+  ol.ladder li{counter-increment:rung; position:relative; background:var(--surface); border:1px solid var(--rule);
+    border-radius:2px; padding:14px 18px 14px 58px; margin:0 0 8px}
+  ol.ladder li::before{content:"v" counter(rung); position:absolute; left:14px; top:14px;
+    font-family:"Space Mono",monospace; font-size:11px; font-weight:700; color:var(--accent)}
+  ol.ladder li.a::before{content:"v261"; left:12px}
+  ol.ladder li.b::before{content:"v262"; left:12px}
+  ol.ladder li.c::before{content:"v263"; left:12px}
+  ol.ladder .mode{font-family:Sora,sans-serif; font-weight:600; display:block; margin-bottom:2px}
+
+  .scroll{overflow-x:auto; margin:24px 0; border:1px solid var(--rule); border-radius:2px; background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:14px; font-family:Sora,sans-serif}
+  th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--rule); vertical-align:top}
+  th{font-family:"Space Mono",monospace; font-size:9.5px; letter-spacing:.09em; text-transform:uppercase;
+     color:var(--muted); font-weight:400; background:var(--sunken); white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.n{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+  pre{font-family:"Space Mono",monospace; font-size:12px; line-height:1.66; background:var(--surface);
+      border:1px solid var(--rule); border-radius:2px; padding:15px 17px; overflow-x:auto; margin:20px 0;
+      color:var(--ink-2); font-style:normal}
+  pre b{color:var(--ink); font-weight:700} pre .c{color:var(--muted)}
+  footer{border-top:1px solid var(--rule); margin-top:54px; padding-top:22px; font-size:14px; color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="kick">LLM Wiki · v263 · 2026-08-21</p>
+    <h1>Every Gate For The Agent</h1>
+    <p class="dek">A three-way stop guard, a budget kill-switch that waits for a safe boundary, free loop detection, and four hundred and three test functions that nothing has ever run.</p>
+    <p class="slug">voocel/ainovel-cli · HEAD d98aa0fb · 200 commits · 43,843 lines of Go · 403 tests · 0 test runs</p>
+    <div class="facts">
+      <div class="fact"><span class="fk">Phase 0.9</span><span class="fv ok">3/4 Goal-aligned</span></div>
+      <div class="fact"><span class="fk">Mint</span><span class="fv">None</span></div>
+      <div class="fact"><span class="fk">Counts</span><span class="fv">46 / 12</span></div>
+      <div class="fact"><span class="fk">Tests written</span><span class="fv ok">403 funcs</span></div>
+      <div class="fact"><span class="fk">Tests run by CI</span><span class="fv no">never</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<h2>D49 first — and it earned its N=2 in one ship</h2>
+
+<p class="lede">The rule minted last ship — <em>a repository's namespace is not a claim about its authorship</em> — was applied before anything else, and fired immediately.</p>
+
+<pre>$ git log --all --format='%an &lt;%ae&gt;' | sort | uniq -c
+ <b>185 voocel &lt;voocel@gmail.com&gt;</b>
+   7 cheemsadoge   6 武穆逸仙   1 不李李李李你   1 ducat</pre>
+
+<p>Zero commits by the account that hosts it. The page confirms <em>"forked from voocel/ainovel-cli."</em> <strong>Two consecutive supplied URLs, two forks by other people.</strong></p>
+
+<div class="note">
+  <span class="lbl">A cheaper detector, found here</span>
+  <p>The upstream was already named <em>inside the commit log</em>: <code>78fd97b Merge branch 'main' of github.com:voocel/ainovel-cli</code>. <strong>A merge commit's message often names the upstream</strong> — no network call required.</p>
+</div>
+
+<h2>And it forces a correction to the last ship</h2>
+
+<p>At v262 I wrote that the forker <em>"forked this on or after 2026-04-29 and then created four more projects over the following twenty-eight days … the example was in his own account the whole time."</em> <strong>That is not established, and the reasoning was wrong.</strong></p>
+
+<div class="note bad">
+  <span class="lbl">D50</span>
+  <p>A fork's clone contains the upstream's history <strong>up to the fork moment</strong>, so the fork's HEAD date is a <strong>lower bound</strong> on when the fork was made — never the fork date. GitHub does not expose fork dates in a clone.</p>
+  <p><strong>A fork's clone gives you a lower bound on the fork date, never the fork date. Do not build a timeline argument on when someone forked something.</strong></p>
+</div>
+
+<p>This repository is the counter-case that makes it unavoidable: its HEAD is dated <strong>2026-06-24</strong>, necessarily <em>after</em> all five of the forker's own projects. So at least one of the two forks postdates his own work in the same domain — which is ordinary, healthy behaviour and evidence of nothing. <strong>"Forking is not adopting" is walked back</strong> to a claim about the present state: two repositories in that account have real tests and CI, his own five have none. That is still true and needs no dates. The v262 documents were corrected in place as part of this ship.</p>
+
+<h2>What it is</h2>
+
+<p><strong>「全自动 AI 长篇小说创作引擎」</strong> — a fully automatic AI long-form novel engine. From a one-sentence premise a Coordinator dispatches Architect, Writer and Editor sub-agents, writes chapter by chapter, reviews on seven dimensions, and is built to run <strong>unattended across 500+ chapter works</strong> with chapter-level breakpoint recovery, rolling arc planning, and live intervention that does not pause the run. Go 1.25, a Bubble Tea TUI, multi-provider.</p>
+
+<p>200 commits over three and a half months, five contributors, seven merged pull requests, MIT. <strong>The harness engineering is the substance — the novels are the payload</strong>, and it is by a wide margin the most substantial subject of this run.</p>
+
+<h2>The engineering worth the ship</h2>
+
+<h3>A three-way decision on "the agent wants to stop"</h3>
+
+<pre><span class="c">internal/host/reminder/stop_guard.go:26-62</span>
+func NewStopGuard(...) agentcore.StopGuard {
+  return func(_ context.Context, info agentcore.StopInfo) agentcore.StopDecision {
+    ... return agentcore.StopDecision{<b>Allow: true</b>}
+    ... return agentcore.StopDecision{<b>Allow: false, Escalate: true</b>}
+    ... return agentcore.StopDecision{<b>Allow: false, InjectMessage: inject</b>}</pre>
+
+<p>Allow the stop, refuse and escalate, or <strong>refuse and inject a message telling the model what to do instead.</strong> Premature termination is the characteristic failure of a long-running agent, and this is the cleanest treatment of it in this corpus.</p>
+
+<h3>A budget kill-switch that waits for a safe boundary</h3>
+
+<pre><span class="c">internal/host/budget.go:17-18</span>
+budgetStopPending  <span class="c">// 已越线，等子代理边界停机
+                   //   crossed the line; wait for a sub-agent boundary to stop</span>
+budgetStopped      <span class="c">// 已执行停机  — stop executed</span>
+
+<span class="c">and the test names are the specification:</span>
+<b>TestBudgetSentinelWarnOnceThenBoundaryStop</b>
+<b>TestBudgetSentinelJumpStraightPastLimit</b>
+TestBudgetSentinelHardStop  <span class="c">// BookUSD: 10, WarnRatio: 0.8, HardStop: true</span></pre>
+
+<p>Warn once at 80%, hard-stop at 100% — but <strong>do not kill mid-operation.</strong> Killing an agent mid-write corrupts the state you would resume from; entering a pending state and stopping at a sub-agent boundary keeps the checkpoint clean. And the nastiest case — cost leaping past the warn threshold in a single call — <strong>has its own test</strong>, which is why the warn and the stop must be independent checks rather than an if/else.</p>
+
+<h3>Loop detection for free, out of the state you already keep</h3>
+
+<pre><span class="c">internal/diag/runtime.go:37-38, 83</span>
+StuckStep  string  <span class="c">// 尾部连续同 step；"" = 不卡
+                   //   trailing consecutive identical step; "" = not stuck</span>
+StuckCount int     <span class="c">// 连续次数 — consecutive count</span>
+
+rc.CurrentStep, rc.StuckStep, rc.StuckCount = <b>analyzeCheckpoints</b>(s.Checkpoints.All())</pre>
+
+<p>Read the tail of the checkpoint log, count consecutive identical steps, raise a severity — <code>"StuckStep": SevCritical</code> in the rule tests. <strong>It costs nothing extra, because the checkpoints already exist for resume.</strong> The general form is the transferable one: <em>if you persist progress for resumability, you have already persisted a stuck-detector.</em></p>
+
+<h3>And two smaller ones</h3>
+
+<p><code>internal/notify</code> takes a user-supplied command as its channel, filters by event kind, and <strong>kills it on timeout</strong> (<code>TestCommandChannelTimeoutKill</code>) — alerting for an unattended run is the worst place to introduce a hang. And <code>internal/tools/novel_context.go:477</code> declares an entire eviction policy in one comment line, with a <strong>protected tail that is never trimmed</strong>:</p>
+
+<pre>&lt; recent_state_changes &lt; foreshadow_ledger &lt; relationship_state &lt; <b>其余（不裁剪）</b>
+                                                                  <span class="c">the rest (not trimmed)</span></pre>
+
+<p>Most systems trim ad hoc at the call site and nobody can say what gets dropped first. This one writes the order down. <code>foreshadow_ledger</code> is a real domain type, and it is the mechanism behind a genuinely novel idea from the commit log — <strong>back-filling long-unresolved foreshadowing into context by age, to reduce long-form forgetting.</strong> Dangling plot threads as aged receivables.</p>
+
+<h2>The centrepiece: routing is code, deciding is the model</h2>
+
+<p class="lede">My own read found the guards. It missed the architecture they hang off — which is the most valuable thing here. A fleet agent found it; its adversarial reviewer then caught three fabricated numbers in the same report. I verified both halves.</p>
+
+<pre><span class="c">internal/host/host.go:32-34</span>
+// Host 是运行时薄外壳。
+// 职责：启动/恢复/干预注入/事件投影/模型管理。
+// <b>不做任何调度决策，不做空闲续跑。</b>
+   <span class="c">Host is a thin runtime shell. Start / resume / intervention-injection /
+   event-projection / model-management. It makes NO scheduling decisions.</span></pre>
+
+<p>Scheduling lives instead in <code>internal/host/flow/router.go</code> — 160 lines ending in <code>func Route(s State) *Instruction</code>, a numbered decision table running cases 1 through 12 over persisted state. The Coordinator itself is an agent configured with <code>agentcore.WithMaxTurns(100_000)</code> at <code>agents/build.go:314</code>.</p>
+
+<div class="note good">
+  <span class="lbl">The pattern</span>
+  <p><strong>The agent does not choose what to do next. Code chooses, from state already persisted for resumability, and the agent executes.</strong> Semantic work — planning, adjudication, writing — stays with the model; sequencing does not.</p>
+  <p>And cases 2, 4 and 5 are the discipline that makes it honest: the router explicitly <em>declines</em> to route when the decision genuinely belongs to the model, rather than pretending everything is mechanical.</p>
+</div>
+
+<h3>He measured why, before he built it — and kept the document</h3>
+
+<p><code>docs/refactor-flow-driven.md</code> is the rationale for that refactor, retained at HEAD. Its own numbers:</p>
+
+<pre><span class="c">docs/refactor-flow-driven.md:97-99</span>
+其中 <b>~90% 是纯路由（LLM 复述 reminder）</b>，~10% 是裁定
+每章 <b>~3500-7000 tokens</b> 花在 Coordinator 决策上，<b>95% 是冗余</b>
+
+<span class="c">:446-448  the target</span>
+Coordinator prompt 从 ~3000 tokens 压到 ~800 … 总计 <b>~1000-1500 tokens</b></pre>
+
+<p>He diagnosed that roughly nine in ten of his Coordinator's LLM turns were the model restating an instruction code had already computed, priced it, called ninety-five percent of it redundant, and moved the decision into a pure function.</p>
+
+<div class="note">
+  <span class="lbl">Where the run's arc closes</span>
+  <p>One earlier subject built a three-arm evaluation and <strong>deleted the results</strong> in the commit that claimed the win. The ship before this one wrote a 676-line plan and <strong>deleted it</strong> in the commit titled <em>"Done 11 phase."</em> <strong>This one wrote the analysis, kept it, and the code matches it.</strong> The design document is the only reason any of this is checkable.</p>
+  <p>⚠️ And do not repeat the fleet's numbers here: its report claimed <em>"~100 tokens per chapter"</em> and <em>"3.5M tokens saved (~$175)"</em>. The reviewer refuted both — the repo's own figure is 1,000–1,500 tokens per chapter, and no file contains a dollar amount.</p>
+</div>
+
+<h3>The stall detector — the best twenty lines in the repository</h3>
+
+<pre><span class="c">internal/host/flow/dispatcher.go:112-140</span>
+// trackRepeat 记录连续相同指令的下达次数…
+// 用 <b>Agent+Task 相等性（不比 Reason，因为 Reason 是给人看的辅助文本）</b>
+// 次数<b>恰好</b>到 repeatNotifyAt 时<b>在锁外</b>触发一次 onRepeat</pre>
+
+<p>Four separate pieces of care in one small function:</p>
+
+<ul>
+  <li><strong>Equality on <code>Agent+Task</code> only, deliberately excluding <code>Reason</code></strong> — because Reason is human-facing prose that can vary while the instruction does not. A detector comparing the whole instruction would be silently defeated. <strong>He found that failure mode and wrote down why he excluded the field.</strong></li>
+  <li><strong>Fires once, exactly at the threshold</strong> — one alert, not a storm; <code>router_test.go:289</code> asserts precisely that.</li>
+  <li><strong>Fires outside the lock</strong> — a slow notification handler cannot block the dispatcher.</li>
+  <li><strong><code>ResetRepeat()</code> on resume</strong>, so recovery does not inherit a stale count.</li>
+</ul>
+
+<div class="note good">
+  <span class="lbl">The chain is complete</span>
+  <p>Router detects a stall from persisted state → dispatcher counts it on the semantic key → fires exactly once, outside the lock → <code>notify</code> runs a user command → killed on timeout if it hangs. <strong>The most complete unattended-safety path in this corpus.</strong></p>
+  <p>And the philosophy is the transferable half: it does <em>not</em> hard-fail on a repeat. It <strong>injects the evidence and lets the model reason about the stall</strong> — the same move as <code>StopGuard</code>'s <code>InjectMessage</code>. <em>Instead of a retry limit: block the attempt, hand over the evidence, let the agent decide.</em></p>
+</div>
+
+<h3>And twice, he tested the case where his own safety net would betray him</h3>
+
+<p>Checkpoints are idempotent by digest — <em>"if the same Scope + Step + Digest already exists, skip the write and return the existing record"</em> — so a retried tool call finds its own prior result. And <code>checkpoints_test.go:71</code> is <strong><code>TestCheckpointStore_EmptyDigestNotIdempotent</code></strong>: two artifacts with <em>no</em> digest must not be treated as the same artifact.</p>
+
+<p>That is the same instinct as <code>TestBudgetSentinelJumpStraightPastLimit</code>. <strong>In both places where his mechanism could produce a false negative, he wrote the test for it — which makes the absence of anything to run those tests the sharpest fact in the ship.</strong></p>
+
+<h2>The defect</h2>
+
+<p><strong>403 test functions. 11,868 lines of tests. Nothing has ever run them.</strong></p>
+
+<p>Extent, stated: zero hits for <code>go test</code>, <code>go vet</code>, <code>gotestsum</code> or <code>golangci</code> anywhere in <code>.github/</code>; only four <code>.yml</code> files have existed on <em>any ref</em>, and grepping the content of every yml blob ever committed across all 200 commits finds no <code>go test</code>; no Makefile, justfile or Taskfile exists. And the triggers are the kicker — <strong>both workflows fire only on <code>push: tags: v*</code>.</strong> Nothing runs on a branch push. Nothing runs on a pull request.</p>
+
+<div class="asym">
+  <div>
+    <h4>Gates built for the agent</h4>
+    <ul>
+      <li>three-way <code>StopGuard</code></li>
+      <li>budget warn → boundary stop → hard stop</li>
+      <li>checkpoint-derived loop detection at <code>SevCritical</code></li>
+      <li>a five-file diag rule engine</li>
+      <li><code>redact.go</code> before diagnostic export</li>
+      <li>alerting killed on timeout</li>
+      <li>ordered context eviction, protected tail</li>
+    </ul>
+  </div>
+  <div class="empty">
+    <h4>Gates built for the code</h4>
+    <p class="none">none</p>
+    <ul>
+      <li>no CI on push</li>
+      <li>no CI on pull request</li>
+      <li>seven PRs from four outside contributors, merged with zero automated checks</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Three ships, three ways the same thing fails</h3>
+
+<ol class="ladder">
+  <li class="a"><span class="mode">The claim without the test</span>Zero tests, <code>pytest</code> declared in requirements, and a published <code>Verification:</code> command naming two directories that had never existed.</li>
+  <li class="b"><span class="mode">The gate that cannot fail</span>Nine test files and real CI — running <code>npm test</code> with <code>--passWithNoTests</code>, which exits zero on an empty suite.</li>
+  <li class="c"><span class="mode">The test without the gate</span>Sixty-three test files, four hundred and three test functions, genuinely good — and no gate invokes them. CI fires only on tags.</li>
+</ol>
+
+<div class="note bad">
+  <span class="lbl">The rule, final form</span>
+  <p>Tests don't make you honest. They make you honest about the things they test — <strong>and only if something runs them. A test that nothing invokes is documentation.</strong></p>
+  <p>And v263 is the most poignant of the three, because the tests are <em>good</em>: 916 lines for the context builder, 579 for chapter commit, 496 for foundation saving. The only thing that has ever run them is a person who remembered to type <code>go test ./...</code>.</p>
+</div>
+
+<h2>No mint — and the catalogue worked twice in a row</h2>
+
+<p>The candidate was a second instance of the standing <em>Loop-Engineering Codification Kit</em> row, anchored on loop-engineering (v189). The collision grep surfaced it; reading its definition killed it. That row describes a <em>named-methodology pattern collection with starters, readiness-scoring CLIs, a maker/checker split, an L0→L3 autonomy ladder and cross-harness reach</em>. This is a single Go application for novel writing. The one shared element — token-budget governance with an 80% throttle and a kill-switch — is <em>one bullet</em> of that definition, not the class.</p>
+
+<div class="note good">
+  <span class="lbl">Second consecutive demonstration</span>
+  <p>Last ship, reading a row's <em>"the coding agent IS the runtime"</em> clause prevented a false second instance. This ship, the codification-kit-versus-application distinction did the same. <strong>The v259 audit kept the single-instance catalogue on the argument that retiring it "would destroy the mechanism that makes collision-detection possible." That mechanism now has two demonstrations, in consecutive ships.</strong></p>
+</div>
+
+<h2>Verdict</h2>
+
+<p><strong>Goal-aligned 3/4, cleanly — the strongest goal-relevance of this seven-ship run.</strong> No mint: domain-not-capability, not world-first, and the differentiating primitive doesn't even ship here — <code>StopGuard</code> and <code>StopDecision</code> are types in <code>voocel/agentcore</code>, a separate library by the same author, who also wrote the Go <code>litellm</code> this depends on.</p>
+
+<p><strong>Read and borrow — the richest borrow-list of the run.</strong> And the first rung is uncomfortable, because it is about this vault rather than the subject: the vault's own inventory script now has nine clauses and reports zero failures, and <strong>nothing invokes it.</strong> It runs when someone remembers, by hand, mid-ship. That is precisely this repository's defect, one level up. Wire it to a git hook — ten lines — and move it out of a ship's folder into <code>bin/</code>, which is itself a small instance of the drift it exists to catch.</p>
+
+<footer>
+  <p>Two clones, <code>diff -rq</code> clean both ways. Hand-verified throughout, with a seventeen-agent fleet across eight dimensions, each assessment followed by an adversarial review aimed at its own citations and numbers.</p>
+  <p>Nothing was executed — there is no Go toolchain in this sandbox, so every claim is read from source. Star counts are not cited: the page fetched was the fork's, not the upstream's, and the API is mocked here. Comments and commit messages are largely Simplified Chinese; originals are quoted with glosses. A third unanchored-substring trap was caught in the collision grep — <code>agentcore</code> matched <code>PageAgentCore</code> from an unrelated prior subject, so this is not a corpus-recursive dependency.</p>
+</footer>
+
+</div>
