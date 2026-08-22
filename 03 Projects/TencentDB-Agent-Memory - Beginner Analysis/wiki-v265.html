@@ -1,0 +1,424 @@
+<title>Which Safe Defaults Were Free</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#F4F5F3; --paper-2:#EAEDE9; --paper-3:#DFE3DE;
+  --ink:#1B2027; --ink-2:#3D4650; --ink-3:#6E7570;
+  --rule:#C9CFC8;
+  --verdigris:#2E7166; --verdigris-soft:#DCE8E4;
+  --oxide:#A8442A; --oxide-soft:#F3E1DB;
+  --brass:#8A7433; --brass-soft:#EFE9D8;
+  --shadow:rgba(27,32,39,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14181C; --paper-2:#1C2126; --paper-3:#252B31;
+    --ink:#E8EBE7; --ink-2:#B6BDB8; --ink-3:#8B938D;
+    --rule:#333A40;
+    --verdigris:#6FBFAE; --verdigris-soft:#1B2E2A;
+    --oxide:#E08A6C; --oxide-soft:#2E1F1A;
+    --brass:#CFB86A; --brass-soft:#2A2519;
+    --shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14181C; --paper-2:#1C2126; --paper-3:#252B31;
+  --ink:#E8EBE7; --ink-2:#B6BDB8; --ink-3:#8B938D;
+  --rule:#333A40;
+  --verdigris:#6FBFAE; --verdigris-soft:#1B2E2A;
+  --oxide:#E08A6C; --oxide-soft:#2E1F1A;
+  --brass:#CFB86A; --brass-soft:#2A2519;
+  --shadow:rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:68ch}
+
+/* ── masthead ─────────────────────────── */
+header.mast{padding:76px 0 40px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
+}
+h1{
+  font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(2.5rem,6.4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.018em;margin:.28em 0 .34em;text-wrap:balance;
+}
+.standfirst{
+  font-family:Newsreader,Georgia,serif;font-size:clamp(1.12rem,2.1vw,1.42rem);
+  line-height:1.5;color:var(--ink-2);max-width:56ch;margin:0
+}
+.subj{
+  font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--verdigris);
+  margin-top:26px;font-weight:500
+}
+
+/* ── verdict strip ────────────────────── */
+.verdict{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:38px 0 0
+}
+.vcell{background:var(--paper);padding:15px 17px}
+.vk{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px
+}
+.vv{font-family:Newsreader,Georgia,serif;font-size:1.32rem;line-height:1.15;font-variant-numeric:tabular-nums}
+.vv.pos{color:var(--verdigris)} .vv.neg{color:var(--oxide)}
+
+/* ── sections ─────────────────────────── */
+section{padding-top:60px}
+h2{
+  font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(1.6rem,3.2vw,2.3rem);
+  line-height:1.14;letter-spacing:-.012em;margin:0 0 .5em;text-wrap:balance
+}
+h3{
+  font-family:"Public Sans",sans-serif;font-weight:700;font-size:1.02rem;
+  letter-spacing:-.005em;margin:2.1em 0 .55em
+}
+.slug{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:9px;margin-bottom:16px
+}
+.chip{width:9px;height:9px;flex:none;border-radius:1px}
+.chip.ok{background:var(--verdigris)} .chip.warn{background:var(--brass)} .chip.bad{background:var(--oxide)}
+p{margin:0 0 1.05em}
+strong{font-weight:700}
+em{font-style:italic}
+code{
+  font-family:"IBM Plex Mono",monospace;font-size:.855em;
+  background:var(--paper-2);padding:.13em .38em;border-radius:2px;
+  border:1px solid var(--rule);white-space:nowrap
+}
+a{color:var(--verdigris);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px}
+
+/* ── pull / evidence ──────────────────── */
+blockquote{
+  margin:1.5em 0;padding:2px 0 2px 22px;border-left:3px solid var(--verdigris);
+  font-family:Newsreader,Georgia,serif;font-size:1.12rem;line-height:1.48;color:var(--ink-2)
+}
+blockquote.bad{border-left-color:var(--oxide)}
+blockquote .src{
+  display:block;margin-top:.6em;font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;color:var(--ink-3);letter-spacing:.02em
+}
+pre{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.62;
+  background:var(--paper-2);border:1px solid var(--rule);border-left:3px solid var(--ink-3);
+  padding:14px 16px;overflow-x:auto;margin:1.4em 0;white-space:pre
+}
+pre b{color:var(--oxide);font-weight:600}
+pre i{color:var(--verdigris);font-style:normal;font-weight:600}
+
+/* ── callout ──────────────────────────── */
+.note{
+  margin:1.6em 0;padding:16px 19px;background:var(--paper-2);
+  border:1px solid var(--rule);border-top:2px solid var(--brass)
+}
+.note.ok{border-top-color:var(--verdigris)}
+.note.bad{border-top-color:var(--oxide)}
+.note .nt{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:7px
+}
+.note p:last-child{margin-bottom:0}
+
+/* ── chain ────────────────────────────── */
+.chain{list-style:none;padding:0;margin:1.6em 0;counter-reset:s}
+.chain li{
+  counter-increment:s;position:relative;padding:11px 0 11px 46px;
+  border-top:1px solid var(--rule);font-size:15.5px
+}
+.chain li:last-child{border-bottom:1px solid var(--rule)}
+.chain li::before{
+  content:counter(s);position:absolute;left:0;top:11px;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+  color:var(--paper);background:var(--ink);width:22px;height:22px;
+  display:grid;place-items:center;border-radius:2px
+}
+.chain li:last-child::before{background:var(--oxide)}
+
+/* ── table ────────────────────────────── */
+.tw{overflow-x:auto;margin:1.7em 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);background:var(--paper-2);font-weight:500
+}
+tbody tr:last-child td{border-bottom:none}
+td.v{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── diagram ──────────────────────────── */
+figure{margin:2.2em 0}
+figure svg{display:block;width:100%;height:auto}
+figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);
+  margin-top:12px;line-height:1.55;max-width:62ch
+}
+
+/* ── ledger ───────────────────────────── */
+.ledger{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.7em 0}
+.lrow{background:var(--paper);padding:13px 16px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.lrow .m{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--oxide);padding-top:2px}
+.lrow .m.ok{color:var(--verdigris)}
+.lrow p{margin:0;font-size:14.8px}
+
+footer{
+  margin-top:76px;padding-top:26px;border-top:2px solid var(--ink);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.9
+}
+@media (prefers-reduced-motion:no-preference){
+  .fade{animation:f .7s ease both}
+  @keyframes f{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  header.mast{padding-top:48px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast fade">
+  <div class="eyebrow">
+    <span>Wiki v265</span><span>2026-08-22</span><span>Goal-aligned 3/4</span><span>No mint</span>
+  </div>
+  <h1>Which Safe Defaults Were Free</h1>
+  <p class="standfirst">Tencent Cloud built an excellent lock for the filing cabinet and shipped the building with the front door open. Both decisions were reasoned. Both were written down. The difference was cost.</p>
+  <p class="subj">TencentCloud/TencentDB-Agent-Memory · MIT · HEAD 97f9465 · verified by two clones</p>
+
+  <div class="verdict">
+    <div class="vcell"><span class="vk">TypeScript</span><span class="vv">183,339</span></div>
+    <div class="vcell"><span class="vk">Test files</span><span class="vv neg">0</span></div>
+    <div class="vcell"><span class="vk">Vitest configs</span><span class="vv">4</span></div>
+    <div class="vcell"><span class="vk">Git roots</span><span class="vv neg">3</span></div>
+    <div class="vcell"><span class="vk">Dead doc pointers</span><span class="vv neg">97</span></div>
+    <div class="vcell"><span class="vk">Agents served</span><span class="vv">7</span></div>
+  </div>
+</header>
+
+<section class="col">
+  <div class="slug"><span class="chip ok"></span>What it is</div>
+  <h2>One memory server, seven coding agents, no MCP</h2>
+  <p>A self-hosted, <strong>team-scoped</strong> memory platform: conversations distilled <code>L0 → L1 → L2 → L3</code>, plus Skills, a Wiki and a CodeGraph, all registered as <em>Memory Assets</em> under one ownership, ACL and versioning model. Claude Code, DeepSeek Harness, Codex, CodeBuddy, WorkBuddy, Hermes and OpenClaw share it.</p>
+  <p>The integration model is the thesis, and it is genuinely clever — <a href="#curl">§5</a> explains how it works without a plugin, a hook, or an MCP server.</p>
+</section>
+
+<section>
+  <div class="col">
+    <div class="slug"><span class="chip warn"></span>Finding 01 · Provenance</div>
+    <h2>Three histories that never meet, and the newest orphan is the default</h2>
+    <p><code>merge-base main feat/server_team</code> returns <strong>no common ancestor</strong>. Each major version was published as a fresh orphan branch rather than a continuation — so a plain clone reports <strong>17 commits and 4 authors</strong> for a repository that holds <strong>148 commits and 26 authors</strong>.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 900 260" role="img" aria-label="Three disjoint git histories: main with 108 commits, feat/server with 20, and the default branch feat/server_team with 17. No branch shares an ancestor with any other.">
+      <g font-family="IBM Plex Mono, monospace" font-size="12">
+        <!-- main -->
+        <line x1="80" y1="60" x2="80" y2="215" stroke="var(--ink-3)" stroke-width="2"/>
+        <circle cx="80" cy="215" r="6" fill="var(--paper)" stroke="var(--ink-3)" stroke-width="2"/>
+        <circle cx="80" cy="60" r="5" fill="var(--ink-3)"/>
+        <text x="102" y="52" fill="var(--ink)" font-weight="600">main</text>
+        <text x="102" y="70" fill="var(--ink-3)">108 commits · flat src/</text>
+        <text x="102" y="219" fill="var(--ink-3)">root 2026-04-09 “feat: init Agent-Memory”</text>
+
+        <!-- feat/server -->
+        <line x1="380" y1="60" x2="380" y2="150" stroke="var(--ink-3)" stroke-width="2"/>
+        <circle cx="380" cy="150" r="6" fill="var(--paper)" stroke="var(--ink-3)" stroke-width="2"/>
+        <circle cx="380" cy="60" r="5" fill="var(--ink-3)"/>
+        <text x="402" y="52" fill="var(--ink)" font-weight="600">feat/server</text>
+        <text x="402" y="70" fill="var(--ink-3)">20 commits</text>
+        <text x="402" y="154" fill="var(--ink-3)">root = v1.0.0-beta.1 release</text>
+
+        <!-- default -->
+        <line x1="680" y1="60" x2="680" y2="112" stroke="var(--oxide)" stroke-width="3"/>
+        <circle cx="680" cy="112" r="6" fill="var(--paper)" stroke="var(--oxide)" stroke-width="3"/>
+        <circle cx="680" cy="60" r="5" fill="var(--oxide)"/>
+        <text x="702" y="52" fill="var(--oxide)" font-weight="600">feat/server_team</text>
+        <text x="702" y="70" fill="var(--ink-3)">17 commits · DEFAULT</text>
+        <text x="702" y="116" fill="var(--ink-3)">root = v2.0.0-beta.1 release</text>
+
+        <text x="80" y="248" fill="var(--ink-3)">no shared ancestor</text>
+        <line x1="205" y1="243" x2="360" y2="243" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 4"/>
+        <line x1="505" y1="243" x2="660" y2="243" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 4"/>
+        <text x="372" y="248" fill="var(--rule)">✕</text>
+        <text x="672" y="248" fill="var(--rule)">✕</text>
+      </g>
+    </svg>
+    <figcaption>Tree diff between <code>main</code> and the default branch: 954 files, 209,564 insertions. <code>main</code> has zero files under <code>MemoryCore/</code>.</figcaption>
+  </figure>
+
+  <div class="col">
+    <p><strong>The cost is 21 people.</strong> Twenty-four authors have committed to <code>main</code>; four to the default branch; <strong>twenty-one only to <code>main</code></strong> — a real <code>[good first issue]</code> programme with PR numbers into the 900s, invisible on the branch the world clones.</p>
+    <div class="note">
+      <div class="nt">Correction against my own first reading</div>
+      <p>The <em>files</em> mostly survived, under a <code>MemoryCore/</code> prefix. What was lost is history, attribution — and one security fix.</p>
+    </div>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip bad"></span>Finding 02 · The gate</div>
+  <h2>A guard that prints <span style="font-family:'IBM Plex Mono',monospace;font-size:.8em">PASS</span> on the file it exists to block</h2>
+  <p>The single CI workflow fires <code>on: pull_request: branches: [main]</code> — but the default branch is <code>feat/server_team</code>, so a PR opened against it (GitHub's default base) runs nothing. And <code>main</code>, the only branch it does fire on, has no <code>MemoryCore/</code> directory — which is the workflow's <code>working-directory</code>.</p>
+  <p>Its red-line guard lists forbidden paths as <code>src/core/state/types.ts</code> and tests them with <code>grep -qx</code>, an exact whole-line match. On this branch the code lives at <code>MemoryCore/src/…</code>, and <code>git diff --name-only</code> always emits repo-root-relative paths. So I appended one line to the <strong>first file on the forbidden list</strong> and ran the guard exactly as CI does:</p>
+<pre>--- git diff --name-only, from inside MemoryCore ---
+<b>MemoryCore/src/core/state/types.ts</b>
+--- the guard, run as CI runs it ---
+[skill-queue-isolation] BASE_REF=origin/main MODE=working-tree
+[skill-queue-isolation] <b>PASS</b>
+GUARD EXIT=0</pre>
+  <p>Three independent ways for one guard never to protect anything: the script is missing on the branch CI fires on; CI never fires on the branch the script is on; and where it does run, its paths cannot match.</p>
+  <div class="note bad">
+    <div class="nt">And the remediation pointer is dangling too</div>
+    <p>The guard's failure message ends <em>“参考 ADR: docs/design/2026-06-16-skill-extract-queue.md”</em>. That file has never existed on any commit on any ref. <strong>The broken pointer is protected from discovery by the broken gate</strong> — the one moment a developer would read that line is a moment the guard cannot produce.</p>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip bad"></span>Finding 03 · The reversion</div>
+  <h2>A merged security fix, undone by the rewrite, with its test deleted in the same move</h2>
+  <p>On <code>main</code>, commit <code>823b478</code> — <em>“fix(security): enable L1 prompt injection filtering (#175)”</em>, from an outside contributor — uncommented one line and added 22 lines of regression test.</p>
+<pre>-  <b>// if (looksLikePromptInjection(text)) return false;</b>
++  <i>if (looksLikePromptInjection(text)) return false;</i></pre>
+  <p>On the default branch — the published <code>v2.0.1-beta.2</code> — it is commented out again, <code>sanitize.test.ts</code> is gone, and <code>looksLikePromptInjection</code> is exported at <code>sanitize.ts:217</code> with <strong>exactly zero callers</strong>. No superseding filter exists anywhere in the three source trees.</p>
+  <p>The detector is expert work — seventeen-plus patterns across instruction override, role hijack and system-prompt probing, including one that guards <em>their own</em> context-boundary tag. And the live call site still advertises the filter:</p>
+  <blockquote class="bad">Quality gate: filter messages through L1 extraction rules (length, symbols, prompt injection, etc.) before sending to the LLM.
+    <span class="src">l1-extractor.ts:161–164 — of the three responsibilities named, exactly one is implemented</span></blockquote>
+  <p>It matters because of where memory lands. Injection point is <code>system.suffix</code>: untrusted conversation text → L1 extraction with the filter off → persisted memory atom → <strong>re-injected into the system prompt of every future request, across sessions and across agents</strong>. One poisoned memory becomes a persistent, cross-agent, system-level instruction.</p>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip warn"></span>Finding 04 · The export boundary</div>
+  <h2>Ninety-seven pointers to a directory that has never existed</h2>
+  <p>Twenty-six distinct design documents are cited 97 times — credential plans, a multinode state audit referenced by its <code>P0-2</code> item, an internal telemetry plan cited by section number from five files. The whole repository contains two files under any <code>docs/</code> path, and <code>docs/design/</code> has never existed on any commit on any ref.</p>
+  <p>These were not comments that went stale. <strong>They were correct in the repository they were written in, and were invalidated by the act of publishing.</strong> Nothing rotted — the code was copied across a boundary and the thing it pointed at was not.</p>
+  <div class="note ok">
+    <div class="nt">The transferable rule</div>
+    <p>When you export, mirror or extract a subset of a repository, every internal cross-reference in the copied files silently becomes a dangling pointer — and <strong>no linter in either repository can see it</strong>. In the source they all resolve; in the destination nothing knows they were ever supposed to.</p>
+  </div>
+</section>
+
+<section class="col" id="curl">
+  <div class="slug"><span class="chip ok"></span>Finding 05 · The mechanism</div>
+  <h2>How to extend an agent you cannot modify</h2>
+  <p>L3 persona goes straight into the <code>system</code> field as <code>&lt;l3_core_memory&gt;</code>. L2 goes in as a <em>path index</em> only. L0 and L1 are never auto-recalled — instead the proxy appends a curl recipe to the system prompt and lets the agent fetch them with the shell it already has, while the proxy injects the credentials on the way out so the recipe holds no secrets.</p>
+  <blockquote>⚠️ 重要：这不是文档，这是你的可用能力 … <strong>禁止</strong>回答类似「我没有这个工具 / 需要 MCP / 需要斜杠命令」
+    <span class="src">tdai-profile-memory-injector.ts:164 — “this is not documentation, this is your available capability” … “forbidden: answering ‘I don't have this tool / this needs MCP’”</span></blockquote>
+  <p>They discovered the model's trained instinct is to reply <em>“I'd need an MCP server for that”</em>, and wrote a prohibition against it into the prompt. The read surface is properly fenced: the bridge allow-list contains only search, query, ls and read.</p>
+  <p>One more detail worth the whole file: the Anthropic adapter <strong>preserves <code>cache_control</code> prompt-cache breakpoints</strong> across its parse-and-reserialize round trip. A naive rewriting proxy would silently destroy Claude's prompt caching and multiply your bill.</p>
+</section>
+
+<section>
+  <div class="col">
+    <div class="slug"><span class="chip bad"></span>Finding 06 · The thesis</div>
+    <h2>The lock is excellent. The door ships open.</h2>
+    <p>The asset ACL is a small masterclass. <code>private</code> refuses <strong>team admins</strong>, enforced by ordering — the owner check returns first, so admin-ness is never consulted. The comment enumerates its own blast radius. The only escape hatch requires the owner to act. And a second predicate closes the door an ACL over human reads would leave open: <code>restricted</code> assets cannot be bound to an agent at all.</p>
+    <p>Its default was <em>changed to</em> <code>private</code> in July.</p>
+    <p>Meanwhile the gateway that stores those assets ships with authentication disabled. The team did not overlook this — their startup logging is the best I have read in a corpus subject, warning harder when the service is non-loopback without a key and naming the four exposed endpoints. Their own comment says that combination <em>“is what the security audit flagged as a real exposure.”</em></p>
+    <p>And the documented one-command install produces exactly it:</p>
+    <ol class="chain">
+      <li><code>.env.example:80</code> ships <code>MEMORY_CORE_GATEWAY_API_KEY=</code> — empty, and with no <code>REPLACE_ME</code> marker, while the two keys you <em>are</em> told to fill both have one</li>
+      <li>the installer passes it through as an empty string</li>
+      <li><code>config.ts:815</code> coerces <code>""</code> to <code>undefined</code> — <code>return v || undefined</code></li>
+      <li><code>server.ts:1118</code> — <code>if (!expected) return "ok"; // auth disabled</code></li>
+    </ol>
+    <p>Two of my drafts died here, and the truth is better than both. It is not that the installer is careless, and it is not that they forgot. The <code>.env.example</code> says so outright:</p>
+    <blockquote class="bad">留空（默认）—— 关闭 Bearer gate … 非空 —— proxy 目前不发这个 header，因此 proxy 的 auth/sessionInit 会失败。生产环境后续需在 proxy 侧修复后再启用非空 key。
+      <span class="src">.env.example:74–79 — “empty (default) turns off the Bearer gate … non-empty: the proxy does not send this header, so its auth/sessionInit will fail. For production this must be fixed on the proxy side before enabling a non-empty key.”</span></blockquote>
+    <p><strong>Authentication is off by default because turning it on breaks the product.</strong> The two available states are off-and-working or on-and-broken — and that sentence ships inside the default configuration of a released version.</p>
+  </div>
+
+  <div class="col">
+    <div class="note ok">
+      <div class="nt">The rule this ship contributes</div>
+      <p>The ACL default moved to safety because nothing broke. The auth default stayed unsafe because the proxy would break. Same organisation, same release, both reasoned, both written down. <strong>A discipline travels freely wherever it is free, and stops wherever the safe choice would cost something.</strong></p>
+      <p>Which means <em>“do they take security seriously?”</em> is the wrong audit question. The right one is: <strong>which of your safe defaults were free?</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip warn"></span>Context</div>
+  <h2>Four ships, four species of gate</h2>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Ship</th><th>The gate</th></tr></thead>
+    <tbody>
+      <tr><td class="v">v263</td><td>The test without the gate — 403 tests, nothing invokes them</td></tr>
+      <tr><td class="v">v262</td><td>The gate that cannot fail — <code>--passWithNoTests</code></td></tr>
+      <tr><td class="v">v264</td><td>The gate that runs, checks real things, skips the rest, and prints which</td></tr>
+      <tr><td class="v"><strong>v265</strong></td><td><strong>The gate that is wired, would fail loudly, and is never invoked</strong> — four vitest configs and five test scripts over zero test files, with <code>passWithNoTests</code> set nowhere, so <code>npm test</code> is guaranteed to fail in a repository where nothing runs it</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Which is why there is no test job in CI. One would have gone red on day one of v2.</p>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip ok"></span>Credit where it is due</div>
+  <h2>What is good here, stated plainly</h2>
+  <p><strong>A default chosen by asymmetric harm, with the reasoning in the code.</strong> The billing path picks the fallback that under-charges rather than over-charges, and says why: <em>“风险不对称”</em> — the risk is asymmetric.</p>
+  <p><strong>Telemetry off by default</strong>, endpoint a placeholder, writes architecturally forbidden from throwing, a 90-day TTL, and a field cap specifically to stop a log-wording change exploding column cardinality. No covert phone-home anywhere. The SDK does <em>not</em> default to Tencent's cloud — that address appears only in docstrings.</p>
+  <p><strong>Attribution disclosed, not hidden.</strong> The README credits <code>colbymchenry/codegraph</code> — a prior subject in this corpus — with <em>“uses code from this project”</em>, credits Hermes Agent, and credits Karpathy's LLM Wiki gist by URL as the direct influence on its Wiki layer. That is this vault's own founding pattern, productized by a cloud vendor, and the sharp contrast to a prior subject that bundled corpus code silently and uncredited.</p>
+  <div class="note">
+    <div class="nt">But</div>
+    <p>There is no NOTICE file and no third-party licence file — only a <code>LICENSE</code> naming Tencent alone, while MIT requires the notice in all copies. <strong>The acknowledgement is in the README; the obligation is in the LICENSE file. Prose credit is not licence compliance.</strong></p>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip bad"></span>Do not cite</div>
+  <h2>Three numbers that will not survive contact</h2>
+  <div class="ledger">
+    <div class="lrow"><span class="m">01</span><p><strong>PersonaMem 48% → 76%.</strong> Appears in exactly two files, both READMEs. No harness, no model named, no config, no link — while the README invites “benchmark reproductions”.</p></div>
+    <div class="lrow"><span class="m">02</span><p><strong>The version.</strong> Four surfaces, four answers: README says v2.0.0, ROADMAP says v2.0.1-beta.1, the latest tag is v2.0.1-beta.2, and <code>package.json</code> says 2.0.0-beta.1 — the manifest a machine reads is the oldest of the four.</p></div>
+    <div class="lrow"><span class="m">03</span><p><strong>“Memory returned nothing.”</strong> Their own known-limitations section documents silent session bypass: when registration fails you get an agent with no memory that looks exactly like an agent with memory.</p></div>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip warn"></span>Method</div>
+  <h2>What went wrong on my side</h2>
+  <p>Hand-verified throughout, with a twenty-agent fleet for breadth and adversarial verification. Two dimensions hit the structured-output retry cap; both were areas I had already covered by hand.</p>
+  <p><strong>One refuter disputed my commit count</strong> with a reproduction string showing the command returning 50. The same command returns 108, as do two other methods. A refuter's reproduction string is itself a claim, not a check — it will present a wrong number in the format of a verified one.</p>
+  <div class="ledger">
+    <div class="lrow"><span class="m">✕</span><p>“The README's clone command is broken.” It redirects and works.</p></div>
+    <div class="lrow"><span class="m">✕</span><p>“The installer takes the safe default and makes it unsafe.” A container binding all interfaces behind a published port is ordinary Docker, and the installer does set the variable.</p></div>
+    <div class="lrow"><span class="m">✕</span><p>“Hermes and OpenClaw are unsupported.” They use the generic path, which is the architecture's whole point.</p></div>
+    <div class="lrow"><span class="m ok">→</span><p><strong>Three of those are one shape: I inferred the absence of a capability from the absence of a file.</strong> The fix is not to search harder. It is to open the thing the measurement measured.</p></div>
+  </div>
+</section>
+
+<section class="col">
+  <div class="slug"><span class="chip ok"></span>Pilot</div>
+  <h2>Read and borrow. Nothing to install.</h2>
+  <p><strong>Forty-five minutes, and it pays for the ship.</strong> Add an export-boundary pointer check to the vault's inventory script: extract every internal path referenced from any vault document and assert it exists. Ten lines. It would have caught the chapter-filename drift, the five unindexed state files found at v255, and the copy-forward exposure the last audit handed forward.</p>
+  <p><strong>Then a default-cost register</strong> in the ratified candidate-LLM policy: for each safety-relevant default, record the safe value, what it costs, whether we took it — and where we didn't, what would have to change to make the safe value free. That, not a warning, is the remediation.</p>
+  <p><strong>Then the ACL.</strong> Port its shape into candidate-data authorization: owner check before the visibility switch, blast radius in the comment, owner-only escape hatch, and a separate bind predicate defaulting to refusal. Then write the test it enables — a private candidate record must not be bindable to a shared screening agent. That closes the standing top risk in the API-security thread with a worked example from a subject that got it right.</p>
+  <div class="note bad">
+    <div class="nt">Never</div>
+    <p>Point it at anything containing candidate data. Leave the memory port reachable beyond loopback. Rely on the ACL without testing it — there are no tests to run. Or assume the injection filter is on. It is not.</p>
+  </div>
+</section>
+
+<footer>
+  Wiki v265 · TencentCloud/TencentDB-Agent-Memory · MIT · shipped 2026-08-22<br>
+  Goal-aligned include 3/4 — (a) fail, (b) strong, (c) strong, (d) strong · no mint · counts 46/12 unchanged<br>
+  Streak GA:122 · OG:13 — 45 consecutive goal-aligned ships, v220 → v265<br>
+  Source verified: two independent clones, identical HEAD, diff clean both ways. Nothing executed except one local read-only guard experiment, reverted.
+</footer>
+
+</div>
