@@ -1,0 +1,502 @@
+<title>NeMo Agent Toolkit v264</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#F2F5F3;
+  --paper:#FBFCFB;
+  --ink:#14191A;
+  --ink-soft:#3D4745;
+  --muted:#6B7674;
+  --rule:#D8DFDC;
+  --rule-strong:#A8B5B1;
+  --accent:#0B6349;
+  --accent-soft:#E2EDE7;
+  --signal:#A83E1B;
+  --signal-soft:#F6E7E0;
+  --good:#2F6B4F;
+  --shadow:rgba(20,25,26,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1110;
+    --paper:#141A18;
+    --ink:#E8EDEA;
+    --ink-soft:#BAC4C0;
+    --muted:#8B9793;
+    --rule:#252E2B;
+    --rule-strong:#41504B;
+    --accent:#57BC92;
+    --accent-soft:#16241E;
+    --signal:#E08A5F;
+    --signal-soft:#2A1D16;
+    --good:#6FC49A;
+    --shadow:rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1110;
+  --paper:#141A18;
+  --ink:#E8EDEA;
+  --ink-soft:#BAC4C0;
+  --muted:#8B9793;
+  --rule:#252E2B;
+  --rule-strong:#41504B;
+  --accent:#57BC92;
+  --accent-soft:#16241E;
+  --signal:#E08A5F;
+  --signal-soft:#2A1D16;
+  --good:#6FC49A;
+  --shadow:rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:19px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,44px) 96px}
+
+/* ---------- masthead ---------- */
+header.mast{
+  border-bottom:2px solid var(--ink);
+  padding:clamp(38px,7vw,72px) 0 22px;
+  margin-bottom:34px;
+}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:20px;
+}
+.eyebrow b{color:var(--accent);font-weight:700}
+h1{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:700;
+  font-size:clamp(2.15rem,5.6vw,4rem);
+  line-height:1.02;
+  letter-spacing:-.028em;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+.h1sub{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:13px;color:var(--muted);letter-spacing:.01em;margin-bottom:26px;
+}
+.deck{
+  font-size:clamp(1.08rem,2.1vw,1.32rem);
+  line-height:1.5;color:var(--ink-soft);max-width:64ch;margin:0 0 26px;
+  font-weight:300;
+}
+.deck strong{font-weight:500;color:var(--ink)}
+
+.verdict{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;
+}
+.chip{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 12px;border:1px solid var(--rule-strong);
+  background:var(--paper);color:var(--ink-soft);
+  display:flex;align-items:center;gap:7px;
+}
+.chip.ok{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.chip.warn{border-color:var(--signal);color:var(--signal);background:var(--signal-soft)}
+
+/* ---------- generic ---------- */
+h2{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:600;font-size:clamp(1.4rem,2.9vw,2rem);
+  letter-spacing:-.016em;line-height:1.14;
+  margin:64px 0 4px;text-wrap:balance;
+}
+h2 .num{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.55em;font-weight:400;color:var(--accent);
+  letter-spacing:.08em;margin-right:.7em;vertical-align:.16em;
+}
+h3{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:600;font-size:1.06rem;letter-spacing:-.005em;
+  margin:32px 0 6px;text-wrap:balance;
+}
+p{margin:0 0 14px;max-width:68ch}
+.lead{font-size:1.06em}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:500;color:var(--ink)}
+em{font-style:italic}
+code,.mono{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
+  font-size:.82em;
+}
+code{
+  background:var(--paper);border:1px solid var(--rule);
+  padding:.08em .34em;border-radius:2px;color:var(--ink-soft);
+  overflow-wrap:break-word;
+}
+ul{margin:0 0 16px;padding-left:1.15em;max-width:68ch}
+li{margin-bottom:7px}
+hr.div{border:0;border-top:1px solid var(--rule);margin:52px 0}
+
+/* ---------- fact strip ---------- */
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  border:1px solid var(--rule);background:var(--paper);
+  margin:30px 0 8px;
+}
+.fact{padding:15px 16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.fact .v{
+  font-family:"Archivo",system-ui,sans-serif;font-weight:700;
+  font-size:1.42rem;letter-spacing:-.02em;line-height:1.05;
+  font-variant-numeric:tabular-nums;display:block;
+}
+.fact .k{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);margin-top:5px;display:block;line-height:1.35;
+}
+.caption{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;color:var(--muted);letter-spacing:.02em;
+  margin:0 0 30px;max-width:74ch;line-height:1.6;
+}
+
+/* ---------- the seam: the page's one bold element ---------- */
+.seam{
+  border:1px solid var(--ink);background:var(--paper);
+  margin:26px 0 10px;overflow-x:auto;
+}
+.seamhead{
+  display:grid;grid-template-columns:minmax(150px,1.05fr) minmax(200px,1.35fr) minmax(200px,1.35fr);
+  border-bottom:1px solid var(--ink);
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  min-width:640px;
+}
+.seamhead > div{padding:11px 15px;color:var(--muted)}
+.seamhead .present{color:var(--good);border-left:1px solid var(--rule)}
+.seamhead .absent{color:var(--signal);border-left:3px solid var(--ink)}
+.seamrow{
+  display:grid;grid-template-columns:minmax(150px,1.05fr) minmax(200px,1.35fr) minmax(200px,1.35fr);
+  border-bottom:1px solid var(--rule);min-width:640px;
+}
+.seamrow:last-child{border-bottom:0}
+.seamrow > div{padding:15px;font-size:.87rem;line-height:1.48}
+.seamrow .what{
+  font-family:"Archivo",system-ui,sans-serif;font-weight:600;
+  font-size:.93rem;line-height:1.28;
+}
+.seamrow .present{border-left:1px solid var(--rule);color:var(--ink-soft)}
+.seamrow .absent{border-left:3px solid var(--ink);color:var(--ink-soft)}
+.seamrow .absent b{color:var(--signal);font-weight:600}
+.seamrow .present b{color:var(--good);font-weight:600}
+.thesis{
+  border-left:3px solid var(--accent);
+  background:var(--accent-soft);
+  padding:18px 22px;margin:22px 0 8px;
+  font-size:1.1rem;line-height:1.48;max-width:70ch;
+}
+.thesis strong{font-weight:600}
+
+/* ---------- callouts ---------- */
+.call{
+  border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
+  background:var(--paper);padding:16px 20px;margin:22px 0;
+}
+.call.bad{border-left-color:var(--signal)}
+.call.good{border-left-color:var(--good)}
+.call .tag{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:8px;
+}
+.call.bad .tag{color:var(--signal)}
+.call.good .tag{color:var(--good)}
+.call p:last-child{margin-bottom:0}
+.call p{max-width:66ch}
+
+pre{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12.5px;line-height:1.6;
+  background:var(--paper);border:1px solid var(--rule);
+  padding:14px 16px;margin:16px 0;overflow-x:auto;color:var(--ink-soft);
+}
+pre b{color:var(--signal);font-weight:700}
+blockquote{
+  margin:18px 0;padding:2px 0 2px 20px;border-left:2px solid var(--rule-strong);
+  font-style:italic;color:var(--ink-soft);max-width:64ch;
+}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:460px;background:var(--paper)}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule);font-size:.88rem;line-height:1.45}
+th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--ink);font-weight:400;
+}
+td.n{font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.8rem;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ---------- ladder ---------- */
+.rung{
+  display:grid;grid-template-columns:auto 1fr;gap:0 18px;
+  border-top:1px solid var(--rule);padding:18px 0;align-items:start;
+}
+.rung:last-child{border-bottom:1px solid var(--rule)}
+.rung .lvl{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.1em;color:var(--accent);
+  padding-top:4px;white-space:nowrap;font-weight:500;
+}
+.rung h3{margin:0 0 5px}
+.rung p{margin:0;font-size:.94rem;max-width:64ch}
+.rung.never .lvl{color:var(--signal)}
+
+footer{
+  margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;color:var(--muted);line-height:1.75;letter-spacing:.02em;
+}
+footer a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:620px){
+  body{font-size:17.5px}
+  .fact{border-right:0}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">
+    <span>LLM Wiki <b>v264</b></span>
+    <span>2026-08-22</span>
+    <span>Routine v2.8</span>
+    <span>Apache-2.0</span>
+  </div>
+
+  <h1>NeMo Agent Toolkit</h1>
+  <div class="h1sub">NVIDIA/NeMo-Agent-Toolkit &nbsp;·&nbsp; pypi nvidia-nat &nbsp;·&nbsp; cli nat &nbsp;·&nbsp; HEAD c933737c</div>
+
+  <p class="deck">NVIDIA's library for wrapping <strong>nine</strong> existing agent frameworks behind one typed primitive, then profiling, evaluating and optimizing whatever runs inside. It is the largest and most heavily tested subject in the corpus — and it ships an adapter that runs <strong>Claude Code as a workflow</strong> and scores the result.</p>
+
+  <div class="verdict">
+    <span class="chip ok">Goal-aligned 3/4</span>
+    <span class="chip">No mint · 46/12 unchanged</span>
+    <span class="chip ok">Source verified · two clones</span>
+    <span class="chip ok">Licence clean</span>
+    <span class="chip warn">Nothing executed</span>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="fact"><span class="v">321,288</span><span class="k">python lines</span></div>
+  <div class="fact"><span class="v">6,294</span><span class="k">test functions</span></div>
+  <div class="fact"><span class="v">0.88</span><span class="k">test : code ratio</span></div>
+  <div class="fact"><span class="v">34</span><span class="k">distributions</span></div>
+  <div class="fact"><span class="v">131</span><span class="k">authors</span></div>
+  <div class="fact"><span class="v">84</span><span class="k">tags in 17 mo</span></div>
+  <div class="fact"><span class="v">11</span><span class="k">agent skills</span></div>
+  <div class="fact"><span class="v">5</span><span class="k">coding-agent adapters</span></div>
+</div>
+<p class="caption">All figures derived from the clone with the command whose semantics are the definition — <code>rev-list --count</code>, <code>ls-files</code>, line-anchored <code>git grep</code>. Star and fork counts are page-stated only and are used for nothing: the GitHub API is mocked in this environment.</p>
+
+<h2><span class="num">01</span>The thesis</h2>
+
+<p class="lead">Every subsystem in this repository is well built. That is what makes the pattern legible. Four times, in four different corners, a discipline that one team plainly holds does not reach the team next door — and in each case the defect is sitting exactly where the practice stopped.</p>
+
+<div class="seam">
+  <div class="seamhead">
+    <div>The discipline</div>
+    <div class="present">Where it is present</div>
+    <div class="absent">Where it is absent</div>
+  </div>
+  <div class="seamrow">
+    <div class="what">Held-out validation</div>
+    <div class="present">Fine-tuning ships a <code>--validation_dataset</code> flag and warns about overfitting in <b>five separate documents</b>.</div>
+    <div class="absent"><code>nat optimize</code> runs a <b>genetic algorithm over prompts</b> scored on one dataset. 1,377 lines of docs and skills, <b>zero</b> mentions — and guidance that says <em>"never shrink the dataset."</em></div>
+  </div>
+  <div class="seamrow">
+    <div class="what">Human-in-the-loop approval</div>
+    <div class="present"><code>nat/middleware/hitl/</code> exists as a <b>composable function middleware</b>, with a whole <code>examples/HITL/</code> directory.</div>
+    <div class="absent">The entire MCP server surface. <b>Zero hits</b> for approval, read-only or dry-run across both MCP packages. The only control is a startup name allow-list.</div>
+  </div>
+  <div class="seamrow">
+    <div class="what">Prose gating</div>
+    <div class="present">Vale runs over every <code>.md</code> and <code>.rst</code>, with an enforced vocabulary — notebooks converted to markdown and linted too.</div>
+    <div class="absent"><code>skills/</code>, <b>excluded by name with a written reason</b>. The one stale list I found is inside it.</div>
+  </div>
+  <div class="seamrow">
+    <div class="what">A comment matching its code</div>
+    <div class="present">6,294 tests, path checks, copyright checks, licence diffing, SBOM generation, a prose linter.</div>
+    <div class="absent"><code>loader.py:138</code> promises <code>aiq</code> backwards compatibility that <b>no distribution in the repository declares anywhere</b>.</div>
+  </div>
+</div>
+<p class="caption">Each "absent" cell carries the extent of the search that produced it. A negative without an extent is not a negative.</p>
+
+<div class="thesis">
+  <strong>In a large, well-engineered, multi-team repository, a discipline stops at the edge of the team that holds it.</strong> Find an internal seam — subsystem to subsystem, code to prose, feature to feature — and ask what carries the practice across it. Nothing does, unless something was built to.
+</div>
+
+<p>This is the run's own argument arriving at its smallest scale. <strong>v258:</strong> code moves forward in time and never backward. <strong>v262:</strong> a practice does not transfer by proximity — the example sat in his own account for a month, unused. <strong>v264:</strong> it does not transfer between two directories of one repository, in one release, written by colleagues. Time, ownership, organisational distance — three axes, one mechanism. Practices travel only along paths someone builds for them.</p>
+
+<h2><span class="num">02</span>Claude Code as a workflow</h2>
+
+<p><code>examples/experimental/</code> holds <strong>five</strong> coding-agent adapters — Claude Code, Codex, Cursor, Hermes and OpenClaw — all landed in a single commit on 2026-06-04. The Claude one is 302 lines and works like this:</p>
+
+<pre>nat run --config_file config-relay.yml --input "..."
+   └─ nemo-relay run --agent claude --plugin-config {...}
+        └─ claude --print "&lt;prompt&gt;" --permission-mode plan ...
+
+Relay observes the process → events.jsonl (ATOF)
+   └─ inject_atof_jsonl() → toolkit telemetry → <b>one Phoenix trace</b>
+        └─ nat eval → avg_workflow_runtime · avg_num_llm_calls · avg_tokens_per_llm_end</pre>
+
+<p>The trace covers the toolkit's workflow span <em>and</em> Claude Code's own agent, model and tool spans. It uses your local Claude Code credentials — nothing goes in the YAML. <strong>That is a measurement harness pointed at Claude Code, and nothing in 263 prior subjects is closer to the standing observability and cost threads.</strong></p>
+
+<div class="call good">
+  <span class="tag">The shipped config is the safest coding-agent integration in the corpus</span>
+  <p>Eleven lines, four deliberate decisions: <code>permission_mode: plan</code> · every mutating tool denied by name (<code>Bash</code>, <code>Edit</code>, <code>MultiEdit</code>, <code>NotebookEdit</code>, <code>Write</code>) · <code>setting_sources: [project]</code> so it does not inherit your personal Claude settings · <code>max_budget_usd: 1.00</code>. The safe configuration is the default <em>and</em> it still does the interesting thing — which is exactly what v247 could not manage.</p>
+</div>
+
+<div class="call bad">
+  <span class="tag">And the defect is on the operator's exact thread</span>
+  <p><code>register.py:130-132</code> computes <code>prompt_tokens</code> and <code>completion_tokens</code> as <code>len(text.split())</code> — <strong>whitespace word counts</strong> — and hands them back as <code>ChatResponse.usage</code>. Meanwhile <code>relay_telemetry_bridge.py:243-256</code> extracts <em>real</em> usage from Relay's events for the trace and the evaluation.</p>
+  <p><strong>Two token accountings in one run: the trace and <code>nat eval</code> are measured, the response object is invented.</strong> And the split falls exactly on the tested/untested line — the shared bridge got a 153-line test the day it was written; none of the five adapters has a single test.</p>
+</div>
+
+<h2><span class="num">03</span>The best consent code in 264 subjects</h2>
+
+<p>The last three ships asked one question — <em>is the declared rule enforced?</em> — and got no three times: a protocol with no evidence records, a gate that could not fail, 403 tests nothing ran. <code>utils/telemetry/consent.py</code> is 310 lines and answers <strong>yes</strong>, with mechanism.</p>
+
+<h3>A three-TTY gate, with the failure mode written down</h3>
+<blockquote>Interactive prompt — only if all three of <code>stdin</code>, <code>stdout</code>, and <code>stderr</code> are TTYs … The prompt itself is rendered to <code>stderr</code>, so a captured stderr would be <strong>invisible-but-effectful</strong>; gating on all three streams prevents that footgun.</blockquote>
+<p>Someone identified <em>a control the user cannot see but whose answer still binds them</em> — the precise class of defect this run has documented three times — named it, and closed it.</p>
+
+<h3>A version number whose only job is to expire consent in one direction</h3>
+<div class="tw"><table>
+<tr><th>Stored decision, stale version</th><th>Result</th><th>Stated reason</th></tr>
+<tr><td class="n">disabled</td><td><strong>stays disabled</strong></td><td>"we never silently re-enable telemetry for someone who said no"</td></tr>
+<tr><td class="n">enabled</td><td><strong>re-prompts</strong></td><td>"a stale 'yes' should not silently authorize collection under a new (potentially broader) disclosure"</td></tr>
+</table></div>
+
+<p>Then a second, opposite asymmetry: a failed write during the <em>first-run prompt</em> is swallowed, because you will simply be re-asked — but an explicit <code>nat configure telemetry --disable</code> <strong>reads back and raises</strong> if it did not persist. Both asymmetries are correct, and both are argued in comments.</p>
+
+<p>The disclosure text lives inline in the code <em>"so tests can assert on its contents and reviewers see any wording change in PR diffs."</em> <code>NAT_TELEMETRY_ENDPOINT=stdout</code> prints the exact payload to stderr so you can read the wire before trusting it. The subsystem carries <strong>1,363 lines of tests</strong> across eight files.</p>
+
+<p><em>One real criticism:</em> the prompt is <code>[Y/n]</code> and Enter opts you in. Against that — Ctrl-C and EOF opt you out, and every non-interactive context and every library import defaults to off.</p>
+
+<h2><span class="num">04</span>What the gates do — and a third species</h2>
+
+<p><code>copy-pr-bot</code> mirrors an approved PR into a <code>pull-request/NNNN</code> branch, and <em>that</em> push runs CI across Python 3.11, 3.12 and 3.13. There is deliberately <strong>no <code>pull_request:</code> trigger</strong>, so untrusted fork code never touches NVIDIA's secrets or GPU runners. A gate and a gap, on purpose.</p>
+
+<div class="call good">
+  <span class="tag">The strongest idea in the CI answers a question this corpus keeps asking</span>
+  <p><code>run_tests.py</code> gives <strong>each of 86 discovered projects its own exactly-synced environment</strong> — <code>uv sync --all-extras</code>, <em>"exact by default … removes extraneous packages"</em> — then runs pytest inside it. For a project whose central claim is framework-agnosticism, <strong>the dependency isolation is the test of the abstraction</strong>, enforced by the runner rather than by discipline. The CrewAI adapter's tests cannot pass because LangChain happened to be installed.</p>
+</div>
+
+<p>And <code>tests.sh</code> independently implements the vault's own rule D41 correctly: <code>set +e</code>, run the command, capture <code>$?</code> on the very next line, exit with it. The <code>set +e</code> is not a bypass — it is what lets the real status survive.</p>
+
+<div class="tw"><table>
+<tr><th>Ship</th><th>The gate</th><th>What it tells you</th></tr>
+<tr><td class="n">v263</td><td>None — both workflows fire only on a version tag</td><td>403 tests, nothing ever ran them</td></tr>
+<tr><td class="n">v262</td><td>Runs on every push, with <code>--passWithNoTests</code></td><td>A gate that cannot fail, and says nothing</td></tr>
+<tr><td class="n">v264</td><td>Runs, checks real things, skips the rest — and <strong>prints which</strong></td><td><code>"(no tests)"</code>, returning 0, for <strong>19 of 86</strong> projects</td></tr>
+</table></div>
+
+<p>The five coding-agent adapters sit in that group: <strong>their dependency graph is verified on every run; their behaviour never is.</strong> Separately, <code>--run_integration</code> is not passed in GitHub CI, so the 131 integration tests do not run there.</p>
+
+<h2><span class="num">05</span>Pattern outcome — no mint</h2>
+
+<p>Counts unchanged: <strong>46 top-level patterns / 12 confirmed Library-vocab · §C-1 12 · §C-2 38.</strong> Declined on four independent grounds, with <code>inflation_check</code> held and §28 doing none of the work.</p>
+
+<ul>
+<li><strong>Not world-first.</strong> Two prior-art lenses returned "partially" and "no". LangChain, LlamaIndex, Haystack, AutoGen, Semantic Kernel, Griptape and Dify all predate 2025-03-14, and the observability layer is Arize / Langfuse / LangSmith / Weave territory — <em>several of which this toolkit integrates rather than replaces.</em></li>
+<li><strong>The corpus already ruled on the shape.</strong> v222: world-canonical is not world-first. v227 and v236: a form factor within a genre is not a new primitive.</li>
+<li><strong>Scale is not a class.</strong> The unusual thing is breadth, not a primitive.</li>
+<li><strong>The novel parts are components, not the product.</strong> The versioned consent record and the isolated-environment runner are the two ideas worth reusing, and neither is a capability the toolkit delivers to a user — <em>v242's D25 applied to a component.</em></li>
+</ul>
+
+<p>Closest collision, checked by hand: <strong>C29, the Agent Protocol Inspector</strong> (claude-tap, v173). It loses on the layer — claude-tap intercepts the HTTPS traffic; NeMo Relay wraps the process and emits lifecycle events. Different mechanism, different object.</p>
+
+<div class="call">
+  <span class="tag">Recorded for the next audit, not self-executed</span>
+  <p><code>NVIDIA/NeMo-Relay</code> is arguably the more novel artifact — <em>"visibility into and control over agent runs without requiring changes to the existing agent stack."</em> A harness-agnostic middleware that wraps a third-party coding agent from outside. <strong>It is a separate repository, so it is a separate subject;</strong> a mint decision belongs to a ship that reads it.</p>
+</div>
+
+<h2><span class="num">06</span>Method — the refuters fabricated five refutations</h2>
+
+<p>Every adversarial reviewer was told to <em>"default to refuted when you cannot independently reproduce a claim."</em> That instruction is what makes an adversary useful. It also converted broken environments into five confident false negatives, each with an evidence string indistinguishable from a real one.</p>
+
+<div class="tw"><table>
+<tr><th>The refuter said</th><th>Reality, from my own command</th></tr>
+<tr><td>No skill has a <code>references/</code> directory</td><td><strong>Eight do.</strong> One cited file is 7,552 bytes</td></tr>
+<tr><td>Three skills have a README</td><td><strong>Exactly one</strong></td></tr>
+<tr><td><code>documentation_checks.sh</code> does not exist — "a fabricated citation"</td><td><strong>It exists</strong> — and holds the ship's best finding</td></tr>
+<tr><td>24 <code>.mdc</code> files</td><td><strong>26</strong></td></tr>
+<tr><td>Two skills lack YAML frontmatter</td><td><strong>Both have it at line 1</strong></td></tr>
+</table></div>
+
+<div class="call bad">
+  <span class="tag">New rule D51</span>
+  <p>An agent told to default to "refuted" <strong>cannot distinguish "this claim is false" from "my command returned nothing."</strong> A refuter's negative needs the same extent-of-search discipline as an assessor's, and the orchestrator must re-run it — because a refuter's failure mode is textually identical to its success mode.</p>
+  <p>And the sharper half: the same run was <em>excellent</em> on the other side of the line, catching a citation to <code>type_registry.py:1546</code> in a 1,448-line file and an inflated "150+ exports" against an <code>__all__</code> of 94. <strong>A refuter is reliable when refuting requires it to find something, and unreliable when refuting requires it to fail to find something.</strong> v241's D21 was a verifier confirming a wrong framing; this is the mirror image, from the same root cause — the verifier's output is a claim, not a check.</p>
+</div>
+
+<p><strong>Error ledger — two, both mine, both caught pre-publication.</strong> An <code>atif</code> collision grep that lit up six vault files, every hit the substring inside <em>RATIFIED</em> — the fourth consecutive ship with this trap. And framing <code>nvidia_nat_redis</code> as "the package without tests" when it has no <em>code</em>: three files, a deprecation stub. Both the same shape — reporting the shape of a measurement without opening what it measured.</p>
+
+<h2><span class="num">07</span>The pilot ladder</h2>
+
+<div class="rung">
+  <div class="lvl">Rung 0 · 30 min</div>
+  <div>
+    <h3>Read five files, install nothing</h3>
+    <p><code>consent.py</code> whole · <code>config-relay.yml</code> · <code>register.py:130-132</code> · <code>documentation_checks.sh:19-21</code> · <code>loader.py:138</code>. Then run <code>grep -rn "backwards compatib\|legacy\|kept for"</code> against your own repositories: every hit is a claim about code that may no longer exist.</p>
+  </div>
+</div>
+<div class="rung">
+  <div class="lvl">Rung 1 · 30 min</div>
+  <div>
+    <h3>The asymmetric consent rule, into the ratified ADR</h3>
+    <p>The candidate-LLM legibility ADR has a version and nothing that invalidates a stale consent. Stamp a <code>disclosure_version</code>; on mismatch a stored refusal stands and a stored agreement expires. Under Art. 50(4) — deployer duties, which are yours — that is not a nicety.</p>
+  </div>
+</div>
+<div class="rung">
+  <div class="lvl">Rung 2 · 45 min</div>
+  <div>
+    <h3>The split rule for <code>evals/METHOD.md</code></h3>
+    <p><em>A held-out split is a precondition of the optimizer, not a property of the harness.</em> Anything that selects a prompt, threshold or config by score must be scored on data it did not select against. The counter-example is already in the corpus: v178 SkillOpt, whose defining feature is held-out gates that reject non-improving edits.</p>
+  </div>
+</div>
+<div class="rung">
+  <div class="lvl">Rung 3 · 45 min</div>
+  <div>
+    <h3>Audit your own exemptions</h3>
+    <p>They wrote down where they were <em>not</em> aiming the linter, gave a defensible reason, and the drift appeared in the gap. So: list every <code>grep -v</code>, every excluded path, every clause that warns instead of failing. Write the justification beside each. Then look for drift <em>inside</em> each one — starting with <code>05 Skills/</code>.</p>
+  </div>
+</div>
+<div class="rung never">
+  <div class="lvl">Never</div>
+  <div>
+    <h3>Five things not to do</h3>
+    <p>Do not put the MCP server in front of candidate data — no approval gate, no read-only mode, extent verified. Do not use <code>nat optimize</code> to tune anything a candidate could contest. Do not trust <code>ChatResponse.usage</code>. Do not expect Claude's reasoning blocks to survive the LangChain ReAct path — <code>base.py:48-57</code> discards them. Do not read the GitHub releases page for dates; it returns 2024 for 2026.</p>
+  </div>
+</div>
+
+<footer>
+  <div>v264 · <span class="mono">NVIDIA/NeMo-Agent-Toolkit</span> · HEAD <span class="mono">c933737c7a1696fbf2217683fcea64e4eed35cc9</span> · source verified, two clones, <span class="mono">diff -rq</span> clean both ways</div>
+  <div>Streak <span class="mono">GA:121 · OG:13 [7 ov]</span> · 44 consecutive goal-aligned · §35 clear · no override · counts 46/12 unchanged</div>
+  <div>Method: hand-verified throughout, with a 17-agent fleet plus a 4-agent recovery run. Every <span class="mono">path:line</span> above was read in the orchestrator's own command output. <strong>Nothing was executed</strong> — no Python, uv, node, cargo or git-lfs in this sandbox.</div>
+</footer>
+
+</div>
