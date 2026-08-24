@@ -1231,3 +1231,39 @@ Every defect in this subject is a promise about the future — 「持续进行�
 ⚠️ **METHOD — the v272 hazard did NOT recur, and an older one did.** v272 minted the rule that *a fleet agent can import the previous ship's findings unprompted*; the mitigation (naming the prior subject and stating that none of its facts transfer) was applied and **no cross-ship contamination appeared in 28 agents**. What did recur: **the 50-commit artifact**, in an agent that wrote *"all 50 commits in the clone"* against a truth of **986** — **while the ground-truth block stated 986 explicitly** ⇒ ⭐ **a supplied ground truth does not immunise an agent against its own silently-truncated command output** (D39 family, 4th data point). Also **D51 at another data point** — seven line-number errors with the underlying fact correct — and one verifier "correction" that was itself wrong (55 deleted paths "corrected" to 34 by a command that counts log lines, not paths). ⭐ **And three of my own negatives were produced by searches narrower than the claims they answered** (memory bounding lives in `reflect.ts`, not `memory.ts`; the paid tier exists behind a pricing calculator my grep terms missed; the typecheck gate is 99.1%, not narrow) — **§43.1 verbatim, three times in one ship, with the two that mattered caught by re-measurement rather than re-reading.**
 
 **Streak: v272 `GA:129` → `GA:130 · OG:13 [7 ov]` — 53 consecutive goal-aligned ships v220→v273; §35 CLEAR** ({v271, v272, v273} = 0 OG); **override review 13th consecutive discharge** (v153→v273 = 0). **Docs:** `03 Projects/munder-difflin - Beginner Analysis/`. Shipped on `wiki/v273-munder-difflin` off the v272 tip (`adf0140`); not auto-merged.
+
+---
+
+### §F — v274 unlazy (`Leonxlnx/unlazy`) — 2026-08-24 — **NO MINT**
+
+**Subject.** A cross-harness **agent skill** enforcing task-completion discipline via a machine-checked acceptance ledger (`GATES.md`) whose gates carry runnable, **approval-gated** oracles (`CHECK:`/`EXPECT:`/`CWD:`/`EVIDENCE:`), plus an optional **Claude Code Stop hook** returning `decision:"block"` while gates are unmet. MIT · v2.1.0 untagged · zero runtime deps · 2,860 lines `.mjs` · **13 days old** · **64/64 tests pass (I ran them)** · 9-job CI on push **and** PR, both actions SHA-pinned. Author Leon Lin (`Leonxlnx`), solo Munich indie dev, **NOT Anthropic** (§41). **⭐ SAME AUTHOR AS v81** (`taste-skill`) — §42 control at a 193-ship gap.
+
+**Verdict: GOAL-ALIGNED INCLUDE 3/4** [(a) FAIL · (b) STRONG · (c) STRONG · (d) STRONG]. **NO MINT. Counts 46/12 UNCHANGED · §C-1 12 · §C-2 39.**
+
+**Why no mint — four grounds, and §28 is NOT among the load-bearing ones (§44.5):**
+
+1. **Form-factor within a genre.** It is an agent skill, a genre this corpus has ruled on repeatedly — **v168** ponytail (a cross-harness behavioural ruleset), **v204** hallmark (a design skill with enforcement machinery), **v218** ui-skills (a served skill registry). A skill that adds a runnable checker is a stronger instance of the genre, not a new class.
+2. **Not world-first, and the prior art is the vault's own.** **v107 `claude-code-harness`** registered *"Autonomous Plan→Work→Review Operating-Loop Harness (**Enforced-Gate**)"* as a T1 sub-archetype at PROVISIONAL N=1; **v189 loop-engineering** already ships a REJECT-first verifier and an 80%/100% budget kill-switch for unattended loops. The surface is occupied.
+3. **Better used to resolve a standing N=1 than to open a 40th catalogue row** — see the promotion candidate below.
+4. **§28** as a *supporting* ground only, per §44.5.
+
+**⭐⭐⭐⭐⭐ PROMOTION CANDIDATE RECORDED, NOT EXECUTED — and it is the ship's headline audit item.** `_state/03c:246` records the **v107** sub-archetype at **PROVISIONAL N=1**; `_patterns/01-audit-history.md:1407` holds it *"PROVISIONAL N=1 (N=2 watch)"* and **:1439 schedules that watch — *"Spillover to ~v115: … v107 Enforced-Gate sub-archetype N=2."*** **It is now v274: the watch has been open for 167 ships.** **unlazy is the cleanest possible N=2** — independent author, cross-domain (v107 was Japan-located), **non-port**, and literally an enforced-gate operating loop whose gates are runnable and whose enforcement is a harness hook. **Recorded, NOT self-executed — a promotion is an audit act** (§42.5; the v235 discipline). ⭐ **A watch the vault declared, scheduled and never enforced, handed forward by a ship about enforcement.**
+
+**Recorded instance-strengthening (not self-incremented):**
+- **#88** 88c machinery-with-enforcement — on a **new sub-domain axis**: anti-**laziness**/completion rather than aesthetic slop. (#88 was domain-generalised at v110; this extends it to the *completion* layer, as v108 extended it to text/prose.)
+- **#84** 84c cross-vendor ecosystem tolerance — Claude Code + Codex CLI + `agents/openai.yaml`, distributed through the `npx skills` CLI (the same install path as v81 — a same-author disposition, not #57).
+- **#83** honest-deficiency-disclosure — **at its corpus maximum.** Five separate documents retract the author's own headline benchmark numbers as unreproducible (`README.md:209` · `CHANGELOG.md:65` · `references/method.md:5` · `references/token-economy.md:39` · `research/validation-protocol.md:12` and `:14`). Compare **v238**, whose inflated figure was retracted by *someone else's issue*.
+
+**Two DEFERRED watch axes (N=1 each, not filed as §C-2 rows):**
+- *A retracted claim surviving in repository **metadata** — outside CI and outside the author's own editing habit.* The GitHub description still advertises the arithmetic effort-multiplier claim the repo retracted in three places on day one; a grep of all 28 tracked files finds it in **zero**.
+- *A skill whose activation `description` names a different harness than the one it integrates with.* `SKILL.md:3` says *"Use when **Codex** faces…"* while `Claude` appears 46× , `Anthropic` 0× , and the only deep integration is the Claude Code Stop hook. No test reads that field.
+
+**⭐⭐⭐ Cross-ship rule confirmations (the reason this entry matters to the registry):**
+- **v269's rule reproduces at N=2 in an independent codebase.** `tests/self-check.mjs:95`, under a check *named* "every reference doc the skill links to exists," whitelists three directory prefixes and therefore covers **6 of SKILL.md's 8 links** — both invisible ones being `SECURITY.md`, the threat model. **A hand-written list cannot see a class nobody listed.** Coverage, not breakage (the v268 distinction).
+- **v262's rule, in the repository best equipped to have avoided it.** CI runs Windows in 3 of 9 jobs and every suite passes, while `gate-check.mjs:440` kills only the immediate process on win32 where Unix kills the group — because **no test covers timeout-orphaning**. Open PR #20 fixes it.
+- **The corpus's own v262 vocabulary arrived independently in this project twice** — merged commit `ce2092b` *"three authoring rules for gates that cannot fail"* and open **PR #17** *"lint ledgers for oracles that cannot fail."*
+- **§C-2's evidential value demonstrated again** (the v259 argument for keeping the catalogue): reading v107's and v189's recorded definitions is what turned a plausible new mint into a promotion candidate.
+
+**Streak: v273 `GA:130` → `GA:131 · OG:13 [7 ov]` — 54 consecutive goal-aligned ships v220→v274; §35 CLEAR** ({v272, v273, v274} = 0 OG); **override review 14th consecutive discharge** (v153→v274 = 0).
+
+**Docs:** `03 Projects/unlazy - Beginner Analysis/` — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Artifact: https://claude.ai/code/artifact/e3cf2d81-5445-4d38-ade7-f462a10d40b5. Shipped on `wiki/v274-unlazy` off the v273 tip (`14387b7`); not auto-merged.
