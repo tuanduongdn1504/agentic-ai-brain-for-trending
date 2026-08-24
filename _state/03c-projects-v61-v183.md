@@ -1,6 +1,8 @@
 # Project entries v61-v183
 
-> **⚠️ SOURCE OF TRUTH — read this if the filename confuses you.** The **entries below are authoritative**, and they run through **v263**. The version range in this file's **NAME** (`-v183`) is **STALE**. The chapter index in `CLAUDE.md` is correct. **If the filename and this notice disagree, this notice wins.**
+> **⚠️ SOURCE OF TRUTH — read this if the filename confuses you.** The **entries below are authoritative**, and they run through **v271**. The version range in this file's **NAME** (`-v183`) is **STALE**. The chapter index in `CLAUDE.md` is correct. **If the filename and this notice disagree, this notice wins.**
+>
+> ⚠️ **This notice itself went stale, and the v271 ship caught it.** It read *"through v263"* while the file held entries through **v270** — the D32 mitigation (adopted at v245 precisely because mechanising the rename was impractical) had drifted **seven ships** because nothing updates it either. **Bumping this number is now part of the per-ship append.** That is the v271 rule in the vault's own file: *a gate's scope is inherited from its location, not its subject* — the notice guards the filename and nothing guards the notice.
 >
 > **v255 note (2026-08-20) — this notice had gone stale a THIRD time (v247 → v250 → v254), and it is now MACHINE-CHECKED.** The script this notice has demanded since v250 was finally written at the v255 ship: `03 Projects/HeadFirstAndroid - Beginner Analysis/(C) proposed-verify-vault-inventory.sh`. Its **clause 2** implements exactly what the v250 note below specifies — except CORRECTED: it does not test *does the label match the content* (that formulation flags deliberate, correct compensation as a defect — `dogriffiths/HeadFirstAndroid` is the counter-example, where the README maps chapter 7 to `chap10img.png` and is RIGHT). It tests **is the lag DECLARED**. This file PASSES that clause. And its **clause 2b**, which the v255 ship did not expect to need, is what caught the number above: **a declaration is itself a claim, so its stated version must also be current.** ⇒ **v255 rule (D40 candidate, extending D32): a stale label is safe when DECLARED and dangerous when merely COMPENSATED — and check the declaration's own number too.**
 >
@@ -3039,3 +3041,194 @@ Docs `03 Projects/qiaomu-anything-to-notebooklm - Beginner Analysis/` ((C) Deep 
 **Docs:** `03 Projects/Foundations-of-LLMs - Beginner Analysis/` — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Shipped on `wiki/v270-foundations-of-llms` off the v269 tip (`6c07ea5`); **NOT auto-merged.**
 
 **v270 artifact:** https://claude.ai/code/artifact/9ff15b12-311a-4991-8ab6-edaed69a3f8f (wiki-v270.html — "Four Blank Lines").
+
+---
+
+## v271 — HiThink-Tech/Financial-API (同花顺金融数据服务 / hithink finance) — 2026-08-24
+
+**Subject:** `https://github.com/HiThink-Tech/Financial-API` · brand 同花顺金融数据服务 (hithink finance) · service host `fuyao.aicubes.cn` · npm `@hithink-tech/hithink-finance-cli` · **MIT** (but see LICENCE below).
+
+**Rating: GOAL-ALIGNED INCLUDE 3/4** — (a) **FAIL** (`HiThink-Tech` = a corporate org, **not Anthropic**; §41, #19 19a) · (b) **STRONG** (a vendor-official agent capability layer: 11 agent skills, machine-readable capability/schema discovery, two-tier progressive disclosure, generated-from-code skill contracts with sha256 integrity, four hosted MCP servers — goal-#1 substrate core, **no §40 needed**) · (c) **STRONG** · (d) **STRONG**. Cleanly GA; **no override**. **§35 CLEAR** ({v269 GA, v270 GA, v271 GA} = 0 OG). **Streak `GA:127` → `GA:128 · OG:13 [7 ov]` — 51 consecutive GA v220→v271.**
+
+**MINT: NO NEW MINT. §C row C16 N=1 → N=2.** Counts **46/12 UNCHANGED**; §C-1 **12**, §C-2 **39** (both unchanged — C16 is a §C-1 row already at N≥2 after this ship).
+
+### Source verification
+
+✅ Two independent clones, `diff -rq` clean **both** ways. HEAD **`9dbef74d2ce535857e610eec265bcb9302942d48`**. **21 commits** (`rev-list --count HEAD` = `--all`), **1 root** (`0615769`, 2026-06-15), **0 merges**, **6 tags** (`v0.1.0`–`v0.1.5`), **402 tracked files**, 11 MB (4.5 MB `.git`), **NOT a fork**. **ONE author identity across all 21 commits: `HiThink-Tech` with a literally EMPTY email (`<none>`).**
+
+⚠️ **v270's `git log` narrowing HOLDS and is reinforced:** `log --oneline | wc -l` = **21** = `rev-list --count`. The 50-commit cap seen at v267/v269 **did not reproduce**. v270 concluded the cap is repo- or session-conditional, not environment-wide; v271 is a third data point consistent with that. `rev-list --count` stays preferred because it emits one line and cannot be truncated.
+
+⚠️ **`python3` is BLOCKED in this sandbox** (permission denied — distinct from the v236 SIGKILL). The repo's own gate is a Python script, so it was **hand-simulated, not executed** (see below). `awk`/`sed`/`grep`/`git`/`node` only.
+
+### What it is
+
+A **vendor-official, multi-surface agent access layer for a hosted commercial A-share market-data API.** One API key reaches the same data through **five parallel surfaces** — REST (`docs/api/`), **four hosted remote MCP servers**, an npm CLI (10,141 LOC TS), a Python SDK + local DuckDB `marketdb` (5,051 LOC), and full-market Parquet dumps — fronted by **one unified Agent Skill** whose job is to **route between them**.
+
+⭐ **There is no MCP server source in this repository** and the CLI exposes no MCP server. `docs/mcp/` documents a **remote service**; agents invoke the CLI as a **subprocess**, and the **skill is the integration mechanism**. That distinction is what the subject *is*.
+
+### ⭐⭐⭐ THE HEADLINE — a gate's scope is inherited from its location, not its subject
+
+**The declared discipline is REAL and SATISFIED.** `scripts/sync_skill_contracts.py` (137 lines) is byte-exact (`read_bytes() != read_bytes()`), checks **both directions** (`missing` *and* `unexpected` — the v240 inventory rule handled correctly), **fails closed** (`return 1` at `:130`), and its `--check` path **recomputes the generator's own transform** (`api_entry_content()` `:33-43`), so the check cannot drift from the generator because it *is* the generator. Wired at `hithink-finance-python-ci.yml:36` on PR **and** push, **and again** as a subprocess assertion in `test_public_docs_governance.py:120-127`.
+
+✅ **I hand-simulated all 17 mirror pairs at HEAD: 11/11 API files byte-identical, 5/5 MCP files identical, `docs/mcp.md` identical, 0 orphan mirrors both directions, and the transform diff = exactly the 3 documented transformations and nothing else.** After four consecutive ships documenting declared-but-unenforced rules, **this one holds**.
+
+**⭐⭐⭐ AND `test_public_docs_governance.py` (215 lines) is the most comprehensive documentation-enforcement suite in the corpus — NINE tests:** the README's brand H1 / 4 access modes / 4 MCP server names, **and `readme.index("npm install -g …") < readme.index("cd hithink-finance-cli")`** (the recommended path must appear *before* the fallback) · **five specific ISO changelog dates still present** (a test that history is not rewritten) · `skills/` **exactly** `{hithink-finance}` and `references/*.md` **exactly** `{api,cli,mcp,python-sdk}.md` with subdirs exactly those four (set equality both ways) · 11 files byte-compared **plus** the sync gate run as a subprocess · **internal endpoint paths (`/api/a-share/special-data/temporary-`) absent from all public markdown — a LEAK-PREVENTION test** · four **legacy skill names** absent everywhere (**a test that a rename was completed**) with `llms-full` required in docs and **forbidden in the skill** (so the skill stays self-contained — the transform verified from the other side) · `python/toolkit/fuyao/docs` must not exist and `## 响应字段` must not appear in the Python README · `HITHINK_FINANCE_API_KEY` in 8 named entry docs · **a full relative-link checker over every public `.md`**, correctly excluding image links `(?<!!)`, anchors, `://`, `mailto:`, `<>`, `%20`.
+
+**🔴 AND ITS TRIGGER CANNOT SEE THE DOCUMENTS IT TESTS.** The Python CI `paths:` filter is exactly `python/** · docs/api/** · docs/mcp.md · docs/mcp/** · skills/hithink-finance/** · scripts/sync_skill_contracts.py · (own yml)`. **`README.md` is not in it. Nor `AGENTS.md`, `CHANGELOG.md`, `docs/README.md`, `docs/monorepo-migration.md`, `examples/**`, or `hithink-finance-cli/**/*.md`.** So the three tests whose entire subject is the root README, the CHANGELOG, and *every markdown file in the repository* **do not run when you change those files.** A commit touching only `README.md` triggers **neither** workflow.
+
+⚠️ **Stated honestly:** commit `7df0473` ("调整README") is README-only and triggers nothing, **but it predates the Python CI** (added `2b626da`, 2026-07-24), so it *illustrates* the shape rather than proving a missed run. Of the 3 commits after that CI existed, 2 correctly didn't need it and 1 ran it. **The snapshot cadence masks the hole** — bulk commits touch `python/**` anyway. **A verified finding about DESIGN, not observed damage.** ⭐ **A `paths:` filter is a build-cost optimisation; here it silently became the scope of a correctness gate.**
+
+### ⭐⭐⭐ THE POSITIVE COUNTER-EXAMPLE — the fix v269's subject lacked
+
+`hithink-finance-cli/skills/` holds **10 skill packages / 84 files**; the Python gate never touches them (**zero** mentions of `hithink-finance-cli` in the script). They are protected **better**. `tests/contract/generated-contracts.test.ts`: regenerates everything into a tmpdir via `generate-contracts.mjs`, then byte-compares **8** checked-in files — **and one of the 8 is `skills/manifest.json`, which pins all 84 files by sha256.**
+
+✅ **Verified both directions: 84/84 files on disk pinned, 0 missing, 0 orphaned** (raw key count 86 = 84 + `protocolVersion` + `cliVersion`). ⭐ **One byte-comparison covers 84 files by construction** — change any skill file without regenerating and the fresh manifest differs → CI fails. Runs via `vitest` → `test:built` → `npm run verify` → CI on **10 matrix combinations** (5 OS/arch × Node 22, 24).
+
+⭐ **This is precisely what v269's subject lacked**, where a byte-check's hardcoded list covered 82 of 103 because the generator and the test each hardcoded the same four config lists and diverged. **Here the test delegates the list to a generated artifact instead of restating it.** Cross-organisation, independent, and the single best engineering idea in the repository. Same file also: **a regression test that one specific piece of WRONG pagination advice cannot return** (`fund-news.md` must contain `` `has_more=false` `` and must NOT contain 「返回条数小于 limit」) and **a test that newly-routed intents appear BEFORE `## Shortcuts`** (agent-discoverability ordering inside a generated skill).
+
+### ⭐⭐⭐ WORKSPACE vs DESTINATION — answered by the repo itself
+
+**16 of 21 commit messages are 「快照 YYYY.MM.DD.N」 (*snapshot*).** One author identity, empty email. **0 merges, 0 branches, 0 PR/issue refs, 0 `Co-Authored-By`, 0 AI-authorship trailers.** Bulk commits: `45d49cd` = **317 files**, `77d9469` = 115, `9dbef74` = 78. `.gitignore` excludes named project-specific paths — `refer-to/`, `feature/`, `sdd-docs/*`, `.workbuddy` — **none ever tracked in any commit**.
+
+⭐⭐⭐ **`python/tests/test_monorepo_layout.py:87-93` proves it:**
+```python
+skill_root = MONOREPO_ROOT / "internal" / "skills" / "export-snapshot"
+if not skill_root.exists():
+    pytest.skip("internal export policy is intentionally absent from public snapshots")
+```
+Its remaining assertions describe the export machinery — `scripts/sync_snapshot.py`, `references/public-policy.yml`, `source: git-tracked-files`, `default: include`, `- sdd-docs/**`, and pointedly **`assert "PUBLIC_INCLUDE" not in sync_script`**. Three consequences: (1) **the public repo is GENERATED BY AN AGENT SKILL** in a private monorepo — the 21 commits are 21 exports; (2) **the export polarity is the safer one and it is TESTED** (default-include + denylist, with an assertion that no allowlist exists — an allowlist silently drops new files, a denylist ships them); (3) ⭐ **it is the ONLY conditional skip in the entire Python suite** (1 of 137 test functions; the TS suite has **zero** `.skip`/`.todo`) — **it ships everywhere and can only run where it is not needed.**
+
+⚠️ **THIS CORRECTS MY OWN FIRST READING.** I flagged `README.md:571` — 「`internal/` 和 `sdd-docs/` 属于内部治理与开发记录，不是公开使用入口」 — as a **v265-style phantom citation**, since neither directory has ever been tracked. **It is not.** It is an accurate disclosure of a real private structure, now documented by the skip-test. **My fleet flagged it as "documentation drift" in FOUR separate dimensions; every one got the fact right and the interpretation wrong.**
+
+⭐ **A new shape for the ladder:** v268 = a gate nothing invokes · v269 = a gate whose list is incomplete · v270 = a claim no gate can fire on · **v271 = a gate that travels with the artifact and is inert exactly where it lands.**
+
+### ⭐⭐⭐ THE LICENCE — MIT as far as the publication mechanism could see
+
+| Declaration | Value |
+|---|---|
+| `LICENSE` (root) · `hithink-finance-cli/LICENSE` · `package.json` · README's final line | **MIT** |
+| **`python/pyproject.toml:11`** | **`license = { text = "Proprietary" }`** |
+| SPDX headers in source | **0** |
+
+**Chronology, verified commit by commit:** **2026-06-15** `b837e7b` (first code commit) — `pyproject.toml` says **Proprietary**, and **no `LICENSE` file exists anywhere** · **2026-07-10** `45d49cd` — `hithink-finance-cli/LICENSE` (MIT) arrives for the npm subpackage; root `pyproject.toml` moves to `python/` **carrying Proprietary** · **2026-07-13** `05903e9` ("发布 hithink finance CLI 0.1.1") — root `LICENSE` (MIT) arrives, **28 days after the first commit, in an npm-publication commit**.
+
+**Why:** `hithink-finance-cli/docs/maintainers/npm-publishing.md:1` — *"Obtain team approval for an open-source license and add `hithink-finance-cli/LICENSE`; **publishing is blocked until this exists**."* ⭐ **The MIT grant arrived BECAUSE publishing required it, and was applied at the two paths npm cares about. `pyproject.toml` was outside npm's field of view, so nothing prompted it.**
+
+⭐ **And the gate is TEN LINES:** `scripts/check-license.mjs` calls `access('../LICENSE')`. It **never reads the file** — so it cannot see a licence contradiction, a wrong SPDX id, or a `package.json` mismatch. Its error message says *"an **approved** LICENSE is required"* — the doc's sentence had two clauses (*obtain team approval* **and** *add LICENSE*) and **the script implements only the mechanical one, while the message claims the other.** It runs in `prepublishOnly`, the highest-stakes moment.
+
+🔴 **Pilot consequence:** `pip install -e ./python` builds a distribution declaring **Proprietary**. Any licence scanner (pip-licenses/FOSSA/Snyk) reports Proprietary for those 5,051 lines. **v245's "Apache metadata over an AGPL wheel" INVERTED, and stronger than v269's licence-by-omission — this is an affirmative contrary declaration.**
+
+**Data rights:** only **7 lines** in 402 files touch them, and the substantive ones repeat once (`README.md:501`, `:612`): 「数据权限、调用频率和可访问 capability 以官网与账号授权为准。」 **ZERO** hits for 商用 / 转售 / 再分发 / redistribution / 服务条款 / ToS. **No terms-of-service document exists in the repo**, and nothing states whether a key is free, metered or paid. ⭐ **MIT on the client says nothing about the data.**
+
+⭐ **`python/pyproject.toml:12` — `authors = [{ name = "haoruilee" }]` is the ONLY named individual in 402 files**; zero email addresses anywhere in the tree. The snapshot export leaked exactly one identity, through the same file carrying the contradictory licence.
+
+### ⭐⭐ SUPPLY CHAIN — all 206 dependencies resolve to a Chinese mirror
+
+`npm-shrinkwrap.json` (which, unlike `package-lock.json`, **is always included in the published tarball and is authoritative for consumers**): **206** `resolved` entries · **206 → `registry.npmmirror.com`** · **0 → `registry.npmjs.org`** · **206 carry a `sha512` integrity hash**.
+
+**What it is NOT:** a code-substitution risk — integrity is verified post-download; a hostile mirror cannot serve different bytes. **What it IS:** every consumer inherits a lockfile directing all 206 fetches to a third-party PRC host — a **privacy/observability** exposure (the mirror sees installer IP + full dependency graph) and an **availability** coupling to a host the publisher doesn't control. **Cause visible in the repo:** README recommends 「国内用户可使用 npmmirror 镜像加速」 with `--registry=https://registry.npmmirror.com`; the maintainer installed with it configured and the lockfile recorded it. **Why nothing caught it:** CI runs `npm ci --ignore-scripts`, which *uses* the lockfile as written and passes; `npm pack --dry-run` passes; `tests/release/package-contents.test.ts` checks **contents, not hosts**; `check-license.mjs` checks a filename. **Nothing in this repository looks at where its dependencies come from.** ⭐ **The v260 §42 workspace leak at its purest** — an artifact of *where the work was done*, published to everyone. ⚠️ **My fleet asserted the opposite** ("all network calls use HTTPS" — true but irrelevant) and never inspected `resolved` hosts.
+
+**Otherwise strong:** all 5 direct deps + 206 locked packages **exact-pinned** (no `^`/`~`) · API keys in the **OS keychain** (`@napi-rs/keyring`) + `redact.ts` + `tests/security/secret-leak.test.ts` + `auth login --api-key-stdin` (key never in argv) · `update-check.mjs` (23 lines) hits **only** `registry.npmjs.org`, 15 s timeout, cache at **mode `0o600`**, **atomic temp+rename with PID**, and a swallowed catch **with a written rationale**; it records a version, it does **not** install · 3 dedicated security test files (`injection`, `path-traversal`, `secret-leak`) · release uses `npm publish --provenance`, Trusted Publisher, protected environment, tag↔version equality, idempotent republish guard, *"Never use a long-lived npm token"* · `npm ci --ignore-scripts` **everywhere** in CI. **Weak:** **9 `uses:` clauses, 0 SHA-pinned** · **2 of 4 workflows have no `permissions:` block** (`cli-ci`, `python-ci`; the canary correctly sets `contents: read`).
+
+🔴 **THE POSTINSTALL: `npm install -g` writes 85 skill files into your global agent skills directory (`skills add … --global --copy --all --full-depth`), no prompt, no documented opt-out — and the word "postinstall" appears in ZERO markdown files.** ⭐ In the same 27 lines it **sets `DISABLE_TELEMETRY: '1'`** on that dependency and stays **non-fatal** on failure: **it protects your privacy from a third party while writing to your home directory without telling you.**
+
+### ⭐⭐ TWO IMPLEMENTATIONS OF ONE ON-DISK FORMAT
+
+The TS CLI (`src/infrastructure/duckdb/*`, `migrations/001-initial.sql`) and Python `marketdb` (`sql/schema.sql`, `views.sql`) **both** init/sync/query/migrate a DuckDB store, with **identical table and view names** and **incompatible definitions**.
+
+`raw_kline_daily` — TS: OHLCV **NOT NULL**, **`amount`**, **`batch_id`**, **`prev_close`**, 10 cols. Python: nullable, **`turnover`**, **`source_batch_id`**, plus **`currency`/`interval`/`adjusted`**, 12 cols.
+`raw_adjustment_events` (the table feeding the adjustment calc) — TS: **`rights_ratio`**, **`rights_price`**, `batch_id`, NOT NULL DEFAULT 0. Python: **`allotment_ratio`**, **`allotment_price`**, `source_batch_id`, nullable, plus `ticker`/`currency`.
+Also `stg_symbol` vs **`stg_symbols`**; `_meta.updated_at` only in Python. **Six diverging column names.** All four view names identical (`v_symbol`, `v_daily`, `v_daily_qfq`, `v_daily_hfq`) and `v_daily` selects **different columns** in each.
+
+⭐ **Root cause visible: 配股 renders into English as either "rights issue" or "allotment"** — two implementations built from one Chinese spec, each choosing independently. **No test in either suite reads both schemas.** **Collision is SILENT** because both use `CREATE TABLE IF NOT EXISTS` and `CREATE OR REPLACE VIEW`: the first tool's tables are accepted, the second's views replace the first's, the DDL succeeds and reports nothing.
+
+⚠️ **The mitigating fact, which must LEAD the risk framing: the DEFAULT PATHS DIFFER** — TS uses `<platform dataDir>/market.duckdb` (`platform-paths.ts:164`), Python `./data/market.duckdb` (`config.py:48`). **The common case never collides.** You must point them at one path — which `.env.example` and every README `marketdb` example do use — and the README presents both as ways to manage "the local database" without saying they are different databases.
+
+⭐ **And the elegant part:** the TS side has a real migration system — `_meta.schema_version` + `schema_checksum`, `SUPPORTED_SCHEMA_VERSION`, and `migrations/manifest.json` pinning `001-initial.sql` by **sha256**. **It verifies its own schema cryptographically and cannot see the other implementation of the same schema in the same repository.** v264's rule (*a discipline stops at the edge of the team that holds it*) — **here the edge is the LANGUAGE.**
+
+**The Python data layer is genuinely good.** `calculations/adjustment.py` (125 lines) is the best code here and the highest-stakes: the standard A-share ex-rights formula stated in a header comment with every variable defined **and the net effect spelled out**; **ex-dates mapped to the next real trading day** (`MIN(k.date) WHERE k.date >= e.ex_date`); `prev_close` via `LAG(close) OVER (...)`; **`EXP(SUM(LN(ratio)))`** for cumulative products (twice); log-domain guard `WHERE ratio > 0`; `NULLIF` divide-by-zero guard; correct 前复权 normalisation via `LAST_VALUE`; **`factor_version = '1.0'` stored per row**; idempotent full recompute with batch provenance. ⚠️ **A caveat I raised and then REFUTED myself:** I suspected it assumed unadjusted input without checking; `importers/parquet.py:41-77` scopes every operation to `WHERE adjusted = 'none'` **with a comment saying why**, and the tests seed `adjusted='none'`. Narrow residual: `adjustment.py` itself doesn't filter it, so **the guard lives at the writer, not the reader** — safe today because nothing writes a non-`'none'` row.
+
+### ⭐⭐⭐ THE AGENT SURFACE — the most transferable material
+
+**Two tiers, 11 skills, 327,920 bytes.** `skills/hithink-finance/` = **1** unified router (`SKILL.md` 14,495 B; 26 files / **154,555 B** total). `hithink-finance-cli/skills/` = **10** domain packages (85 files / **173,365 B**), generated from code, sha256-pinned. ⚠️ **CORRECTION: 10 CLI packages, not 11** (10 + the router = 11 skills total).
+
+**Progressive-disclosure ladder, measured:** router only **14,495 B** → everything **154,555 B** = ⭐ **a 10.7× reduction**, and `test_root_skills_are_consolidated` asserts the words 「渐进」/「按需」 are present (weak enforcement — the vocabulary, not the behaviour — but more than prose).
+
+**⭐⭐⭐ THE NEGATIVE ROUTING CLAUSE — 10 of 10 descriptions, verified programmatically.** Every CLI skill description ends by naming where to go **instead**: financials 「价格行情转 …-market，指数财务**不在本 skill 范围**」 · fund/index/symbol/special-data each redirect to their siblings by name · valuation 「历史估值、ROE 和投资建议**不在本 skill 范围**」 · research 「**不用于**实时取数、荐股、择时、组合建议或投资结论」 · shared 「**不要用于**行情、财务、指数、特色数据或研究取数」 · data 「远端实时数据转对应业务 skill」. ⭐ **Ten descriptions forming a routing mesh where every node names its neighbours, in the one field the model always sees** — attacking the hardest problem in any multi-skill collection.
+
+**Instructions telling the agent to distrust documentation:** `hithink-finance-cli/README.md:70` 「**Agent 不应只凭 README 猜参数。** 先读取 `capabilities`，再对目标 capability 读取 `schema`。」 ⭐ **= v269's rule at independent cross-organisation N=2** · `AGENTS.md:52` 「**离线测试不能证明线上认证或实时服务可用；只有实际授权请求才能称为线上验证。**」 ⭐ **and this one is MECHANISED** by `hithink-finance-cli-live-canary.yml` (weekly cron, 3 real authorized requests, asserts `ok` + `meta.request_id`) · `README.md:29` 「**不要在终端指引中把源码安装伪装成正式发布安装**」 · `python/toolkit/fuyao/README.md:144` 「**不要从旧文档推断当前签名**」 · templated across ~40 reference files: 「**不要猜字段名**」.
+
+**Anti-fabrication, and WHERE it is placed:** the general rule appears 4× in README, but the effective placements are narrower — `docs/api/README.md:62` on error **`3002` 数据尚未准备**: 「**不得补零或使用模拟数据**」 · `docs/mcp/capability-map.md:58` on a revoked key: 「**不要改用模拟数据**」 · `examples/.../02:20` 「**`null` 保持缺失，不补零**…不要编造估值、行业均值和评分」. ⭐ **The instruction is attached to the specific error condition that would tempt fabrication** — and for financial data 「`null` 保持缺失，不补零」 is load-bearing: a zero is a real value, a null is absence.
+
+### THE EXAMPLES — a disclosure that stops at the file boundary
+
+16 numbered dashboards; **16/16 complete** (README + HTML + JPG); **all fully static** (0 network calls, 0 credential leaks). Two claims, measured separately **inside the `example.html`**: investment-advice disclaimer **16/16** ✅ · **simulated-data disclosure 8/16** (examples 09–16 only).
+
+⚠️ **A CORRECTION I CAUGHT PRE-PUBLICATION:** my first grep used only 「非投资建议」 and reported 8/16 for the *advice* disclaimer too. Examples 01–08 use a **different wording** — 「仅供信息展示，不构成投资建议」. **Grepping one phrasing for a semantic property produces false negatives on half the corpus.**
+
+**The chronology is sharper than "forward only":** commit `77d9469` (2026-07-17) **added 07–16 AND simultaneously modified 01–06's `example.html`**. So in one commit, one author, one day: the simulated-data label went into 09–16 (8 new files), **not** into 07–08 (2 new files in the same commit), **not** into 01–06 (6 files whose HTML was open and being edited). ⭐ **The improvement failed to travel SIDEWAYS within a single change** — v259's copy-forward problem compressed into one commit.
+
+**And the consequence is load-bearing:** `README.md:471` offers, for the example it bills as the 默认示例, `- [直接打开静态 HTML](examples/inspirations/01-stock-overview/example.html)` — **a link that bypasses the README carrying the label.** `01`'s HTML is 70,049 B titled 「同花顺行情工作台」 with no in-file synthesis notice, and the data **is** synthetic: **616 of its 1,880 decimal values (32.8%) carry a repeating-sevenths fingerprint** (`192.72142857142853`) while Chinese exchanges quote to two decimals. ⭐ **The honesty label is welded into the DOCUMENTATION and absent from the ARTIFACT — the exact inverse of v270**, where the freshness claim was welded into the artifact nine times and the age was absent. **In fairness: 16/16 example READMEs carry both labels, so the repo's own 「冒充」 rule is discharged for any reader arriving via the README. A boundary defect, not dishonesty.**
+
+### CODE QUALITY
+
+**CLI `src` 10,141 LOC / `tests` 2,879 (45 files, ratio 0.28); `python` 5,051 / tests 3,156 (23 files, ratio 0.62); 253 test functions** (116 vitest `^\s*(it|test)\(` + 137 pytest `^def test_`). ⭐ **`vitest` include `tests/**/*.test.ts` covers all 7 subdirectories** (unit/integration/contract/e2e/performance/release/security) — **no orphaned test directory**, unlike v264 where a whole language's tests never ran; `npm run verify` = `format:check && lint && typecheck && build && test:built` on **10 matrix combos**; **0 skipped TS tests**, 1 in Python (the necessary export skip).
+
+**Best code besides `adjustment.py`:** `retry.ts` — `min(1000·2^attempt, 8000)` with **±20% jitter and a written explanation of WHY** (thundering herd), worked delay examples, **both `Retry-After` formats**, `random` and `sleep` **injected as parameters** for determinism, `RETRYABLE_BUSINESS_CODES` a named export with per-code rationale. Also a uniform JSON **envelope** (`ok`, `meta.request_id`, `error.code/category/hint`) generated from code and CI-verified fresh, `ErrorCategory` → stable POSIX exit codes, and ⭐ **`source-policy.ts` makes local-vs-remote a PURE FUNCTION, not a model decision — v263's rule (*routing is code, deciding is the model*) at N=2.** Bilingual CLI (`zh-CN`/`en`) with a written both-branches rule at `i18n.ts:23` + `tests/e2e/help-locales.test.ts`.
+
+**Weaknesses:** ⭐ **the architecture is declared in directory names and enforced nowhere** — `src/{application,domains,infrastructure,contracts,ports}`, including `application/ports/auth-provider.ts` (the explicit ports-and-adapters marker, proving they know the pattern), while **`src/application/**` imports from `src/infrastructure/**` 12 times** (`data-sync.ts` pulls 5 infrastructure modules; `config.ts` imports `platform-paths`) and **`eslint.config.js` is 12 lines with NO boundary rule** — `lint` runs and has no opinion · ⭐ **`ruff` is declared at `pyproject.toml:26`, installed by CI, and invoked by NOTHING** (no ruff/mypy/format check on the Python side, while TS gets all three across 10 combos; `.gitignore:47-48` anticipates `.mypy_cache/`+`.ruff_cache/`), **and the visible evidence is `test_public_docs_governance.py:104-105` — two entries of the `contract_files` set literal indented 12 spaces while the other nine sit at 8, inside the file that enforces the repo's documentation consistency** ⇒ ⭐ **the only rule broken is the one whose breach breaks nothing — v268's rule at N=2, different repo, different language** · **`scripts/verify_project_tests.py` (137 lines) is referenced by NOTHING** (only match outside its own file is `.git/index`), despite being careful code (`Gate` dataclass, `ThreadPoolExecutor`, `--dry-run`, `--json`, correct `all(...)` aggregation) whose docstring even justifies its *scope*; ⭐ **and it is the only automated caller of `release-smoke.mjs`, which appears in no workflow and no npm script — so the "release smoke test" does not run at release** · a drift the sync gate structurally cannot see: `docs/api/README.md:64` defines `4001` as **限流 (rate limit)** while `retry.ts`'s comment calls it 「服务暂时不可用」 (behaviour identical; **the gate does not read TypeScript comments**).
+
+### ⭐ CLAIM AUDIT — the countable claims are ACCURATE
+
+| Claim | Measured | Verdict |
+|---|---|---|
+| 「**新增**… **21 项**基金…能力」 | commit `9dbef74` adds **exactly 21** fund reference files | ✅ **exact** |
+| + 集合竞价快照 / 短期基准 / 跌停池 / 炸板池 | the 4 other files added in that commit | ✅ **21+4 = 25 = every skill file added** |
+| 4 hosted MCP servers · 16 examples · Node ≥22.12 · Python 3.11+ · 69 capabilities | all verified | ✅ |
+| Performance / speed / coverage claims | **none exist anywhere** | ✅ nothing to inflate |
+
+⚠️ **FLEET ERROR:** it raised as high-significance that "README claims 21 fund capabilities but `endpoints-fund.md` has 28 sections." **The README says 「新增…21 項」 — *ADDED* 21, a release delta, not a total.** The fleet compared a delta against a total. **Not a discrepancy; the claim is exact.**
+
+**⭐ v270's rotting-promise test finds NOTHING to catch.** Scope statements are present-tense with an explicit hedge — 「分钟 K、tick、海外行情…**目前**不在公开能力范围内」 — not commitments to future action. And the repo **dates itself**: ISO dates per changelog entry (a test asserts five survive), 6 dated tags, CLI self-versioning. ⚠️ One caveat on the *mechanism*: the weekly live canary publishes to a **7-day GitHub artifact visible to maintainers** — no badge, no status page, no committed result. **A freshness check whose result the reader cannot see does not inform the reader.**
+
+### DOCUMENTATION — excellent, and Chinese-only
+
+Method: `tr -d '\000-\177'` per file counting residual non-ASCII bytes, cross-validated with `grep -cP '[\x{4e00}-\x{9fff}]'`. **164 tracked `.md` · 161 contain Chinese · 3 pure ASCII** — `hithink-finance-cli/AGENTS.md` (11 lines), `SECURITY.md` (**3 lines**), `docs/maintainers/npm-publishing.md` (7 lines) = **21 lines of English total, all stubs.** No `en/`, no `README.en.md`, no switcher. ⚠️ **FLEET ERROR: it claimed "all 164 files contain both Chinese and English, zero English-only."** I read all three English files verbatim. ⭐ **Honest impact: an LLM reads Chinese fluently, so the AGENT is unaffected — it is the HUMAN who cannot audit what the agent is being told.** A 327,920-byte Chinese-only skill surface installed globally by an undisclosed postinstall is a real barrier for an operator whose discipline is *verify the claim yourself*. **The CLI is bilingual at runtime; its documentation is not.**
+
+### THE SHIP'S RULE
+
+> **Every gate here is correct about what it checks and silent about the adjacent thing you would assume it checks. Each gate's scope is inherited from WHERE IT LIVES, not from WHAT IT CLAIMS.**
+
+`sync_skill_contracts.py` guards 17 mirror pairs and not `references/cli*`/`python-sdk*` (the parts describing what this repo changes every release) · the doc-governance suite guards nine properties and its trigger excludes README/CHANGELOG/AGENTS.md/`examples/**` · `check-license.mjs` guards a filename and not `pyproject.toml` · `migrations/manifest.json` guards one SQL file by sha256 and not the other implementation of the same schema · `eslint` guards style and not 12 layering violations · `npm ci` guards reproducibility and not 206 mirror URLs · the export test guards the denylist polarity and **skips wherever it ships** · ⭐ **and `generated-contracts.test.ts` is the one that got it right, by delegating its list to a hashed manifest.**
+
+**Ladder:** v267 the discipline stops where the artifact stops being code · v268 a gate exists where a reader can refuse · v269 no gate can see an entry that was never added · v270 no gate can fire on a claim true when written · **v271 a gate's scope is inherited from its location, not its subject.**
+
+⭐ **What makes this subject different from the previous four: I could not find a single declared-but-absent discipline.** Everything declared is implemented; every countable claim is accurate. **The gaps are all SCOPE gaps** — a `paths:` filter, a directory boundary, a language boundary, a registry field — **the kind you get from building carefully in one place and shipping to another.**
+
+### MINT — NO NEW MINT; §C row **C16 N=1 → N=2**
+
+**Corpus-first (grep-verified):** `hithink` / 同花顺 / `fuyao` / `aicubes` / `Financial-API` have **never** appeared in the corpus — first appearance of this vendor and of the A-share market-data domain.
+
+**Decisive collision = §C-1 row C16 "Agent-Native Vendor CLI (CLI surface co-designed for AI-agent consumption)"**, N=1, anchored **v143 `larksuite/cli`**, explicitly ***"PROMOTION-ELIGIBLE at N=2 (a 2nd explicitly agent-native vendor CLI with comparable agent-auth affordances)."*** v271 matches every axis: a **vendor's official CLI** ✓ · **surface architected for agents** ✓ (`capabilities --format json` → `schema <id>` discovery, uniform envelope, stdout/stderr separation, stable codes → POSIX exit codes) · **agent-auth affordance** ✓ (`auth login --api-key-stdin --replace`, atomic, plus a skill rule forbidding a second prompt when switching surfaces) · **bundled agent-Skills layer** ✓ **stronger** (10 packages + router + `skills` command + sha256 manifest + runtime drift detection + CI freshness) · **distributed via `npx skills add`** ✓ **and it takes `skills@1.5.15` as a RUNTIME DEPENDENCY**, invoked directly from `postinstall.mjs` — **a mechanically checkable link to the C16 anchor's own `npx skills` distribution-chain note.**
+
+**Stronger than the anchor** on skill integrity; **weaker** on auth/identity (one API key; no `--as user|bot`). ⇒ **Instance-strengthening, C16 N=1 → N=2, NO NEW MINT.** Per **v235** (*a promotion is an audit act*) and the **v259** precedent (C40 promoted at N=4), **the promotion question is RECORDED and NOT self-executed.** This is a fully independent, cross-vendor, cross-domain, **NON-PORT** N=2 — the strongest form. ⚠️ **C16 also carries a "5-wiki stale-watch ~v158" that has been blown for 113 ships** — this ship supplies the instance that resolves it either way.
+
+**Alternatives declined:** a new §C row for *"vendor-official multi-surface agent access layer for a hosted commercial data API"* — the five-surface fan-out is a **delivery** shape, and **C48** (firecrawl v214) already covers hosted-API + OSS client + SDKs + first-party MCP + Skill in another domain; **domain-not-capability (v191/v197/v220) decisive** · **CONFIRMED #24** (product-first native app + first-party MCP) — the MCP servers here are **hosted/remote** and the product is a data API, not a native app · **#18 B1-MCP** — **no MCP server is implemented in this repository.**
+
+**Secondary instance-strengthening (recorded, not self-incremented):** **#19** 19a · **#66** · **#88** (machinery-with-enforcement — the doc-governance suite).
+
+**Two DEFERRED watch axes registered, NOT self-executed:** (1) *"public GitHub repository generated from a private monorepo by an agent skill, carrying a test of its own export policy that can only skip where it ships"* (N=1 — a publishing **posture**, the counterpart to v270's PDF-only/ND posture) · (2) *"negative-routing skill descriptions — a multi-skill collection where every description names its sibling destinations"* (N=1 — a skill-**authoring technique**; distinct from the domain-vertical skill-collection family because the novelty is in the `description` field, not the corpus of skills).
+
+### METHOD
+
+**Fleet:** 12 dimensions, **9 returned, 3 died** on the StructuredOutput retry cap (`phantom-refs`, `agent-surface`, `vendor-context`); **21 agents, 2.73M subagent tokens, 777 tool uses, 42.9 min.** All three dead dimensions were hand-covered — and `vendor-context` produced the LICENCE chronology, the ship's most pilot-decisive finding, **entirely by hand.**
+
+**FIVE fleet errors caught, three substantive:** ⭐ (1) **"CLI skills merge without drift verification" raised CRITICAL and CONFIRMED by its own adversarial verifier** — refuted by `generated-contracts.test.ts` + the sha256 manifest; `drift.ts`'s own docstring says it checks 「已安装的」 (*installed*) files against canonical, i.e. **a runtime integrity check for the user's copy** that would have nothing to compare against in CI. Both agents answered "is `detectSkillDrift` invoked?" (no) instead of "are these files gated?" (yes, elsewhere) ⇒ **D51 + v241's D21 (*a verifier checks the claim you hand it, not the question*) in one event; caught by reading the test directory instead of grepping one symbol name** · ⭐ (2) the **21-vs-28** delta/total category error · ⭐ (3) the **language census** inversion · (4) wrong line numbers 107/109 vs 130/133 (its verifier caught this one) · (5) `internal/`/`sdd-docs/` as "drift" in four dimensions.
+
+**FOUR corrections to my own work, all pre-publication:** ⭐ (1) the **simulated-data vs investment-advice** disclaimer counts (one phrasing → false negative on half the corpus) · ⭐ (2) **`internal/`/`sdd-docs/` as a v265-style phantom citation — refuted by the skip-test** · (3) **"11 CLI skill packages" → 10** · (4) the `adjusted`-column caveat, refuted by `importers/parquet.py:41-77`.
+
+**TWO method failures worth recording:** ⚠️ ⭐ **`LC_ALL=C grep '[\xe4-\xe9]'` silently reported all 164 files as English-only** — zsh does not interpret `\xNN` in a bracket expression, so it matched literal characters and **produced a confidently wrong answer with no error**. Replaced with `tr -d '\000-\177'` and cross-validated ⇒ **a companion to v242's D23: declare the language basis of a count AND prove the counting method fires** · ⚠️ the vault's flaky shell dropped piped-grep output repeatedly ("N matches in 0 files"), once yielding an internally inconsistent census (206 total but 0+0+3 by host); **every load-bearing count in the supply-chain section was re-derived by routing to a file and using `awk`.**
+
+**Docs:** `03 Projects/Financial-API - Beginner Analysis/` — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Shipped on `wiki/v271-hithink-financial-api` off the v270 tip (`4ad3a02`); **NOT auto-merged.**
+
+**v271 artifact:** https://claude.ai/code/artifact/7a813312-6098-4d23-9a28-6762efc5dd82 (wiki-v271.html — "Scope Inherited"; the nine-gate scope-band visualization is the ship's core finding rendered in one view).
