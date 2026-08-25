@@ -1,0 +1,656 @@
+<title>Graft, Reverted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --paper:#f6f8f4;
+  --surface:#ffffff;
+  --surface-2:#eef2ea;
+  --ink:#151b17;
+  --ink-2:#3d4842;
+  --ink-3:#6b7871;
+  --rule:#d8e0d6;
+  --rule-soft:#e6ece3;
+  --accent:#2f6f4e;
+  --accent-soft:#e0efe5;
+  --amber:#8a5c12;
+  --amber-soft:#f7eeda;
+  --clay:#9c4227;
+  --clay-soft:#f8e6df;
+  --shadow:0 1px 2px rgba(21,27,23,.05), 0 8px 24px -12px rgba(21,27,23,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1310;
+    --surface:#151c18;
+    --surface-2:#1c2520;
+    --ink:#e8eee9;
+    --ink-2:#b3c0b8;
+    --ink-3:#7f8d85;
+    --rule:#2a352e;
+    --rule-soft:#212b25;
+    --accent:#6fc294;
+    --accent-soft:#1a2f24;
+    --amber:#d9a94e;
+    --amber-soft:#2c2415;
+    --clay:#d98466;
+    --clay-soft:#2e1c16;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1310;
+  --surface:#151c18;
+  --surface-2:#1c2520;
+  --ink:#e8eee9;
+  --ink-2:#b3c0b8;
+  --ink-3:#7f8d85;
+  --rule:#2a352e;
+  --rule-soft:#212b25;
+  --accent:#6fc294;
+  --accent-soft:#1a2f24;
+  --amber:#d9a94e;
+  --amber-soft:#2c2415;
+  --clay:#d98466;
+  --clay-soft:#2e1c16;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:68ch}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 30px;
+  margin-bottom:44px;
+}
+.kicker{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:20px;
+  display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.kicker .dot{width:4px;height:4px;border-radius:50%;background:var(--rule);flex:none}
+h1{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-weight:400;font-size:clamp(46px,7.4vw,82px);
+  line-height:1.02;letter-spacing:-.015em;margin:0 0 22px;
+  text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--accent)}
+.standfirst{
+  font-size:20px;line-height:1.55;color:var(--ink-2);
+  max-width:60ch;margin:0 0 30px;
+}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;
+}
+.chip{
+  border:1px solid var(--rule);border-radius:2px;
+  padding:5px 10px;color:var(--ink-3);background:var(--surface);
+}
+.chip strong{color:var(--ink);font-weight:500}
+.chip.ok{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- type ---------- */
+h2{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-weight:400;font-size:clamp(30px,3.6vw,40px);line-height:1.12;
+  letter-spacing:-.01em;margin:0 0 6px;text-wrap:balance;
+}
+h3{
+  font-size:16px;font-weight:700;letter-spacing:-.005em;
+  margin:34px 0 10px;color:var(--ink);
+}
+section{margin:0 0 64px}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 14px;display:block;
+}
+p{margin:0 0 17px}
+.col p:last-child{margin-bottom:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.875em}
+code{background:var(--surface-2);padding:1.5px 5px;border-radius:3px;color:var(--ink)}
+strong{font-weight:700}
+em.q{font-style:italic;color:var(--ink-2)}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:0 0 44px}
+
+/* ---------- commit chain ---------- */
+.chain{display:flex;flex-direction:column;gap:0;margin:30px 0 8px}
+.node{
+  display:grid;grid-template-columns:118px 1fr;gap:0 26px;
+  position:relative;padding-bottom:26px;
+}
+.node:last-child{padding-bottom:0}
+.node .spine{
+  position:relative;display:flex;flex-direction:column;align-items:flex-end;
+  padding-top:3px;
+}
+.node .spine::after{
+  content:"";position:absolute;right:-14px;top:12px;bottom:-26px;
+  width:1px;background:var(--rule);
+}
+.node:last-child .spine::after{display:none}
+.node .spine::before{
+  content:"";position:absolute;right:-18px;top:8px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--rule);z-index:1;
+}
+.node.add .spine::before{border-color:var(--ink-3)}
+.node.fix .spine::before{border-color:var(--accent);background:var(--accent)}
+.node.rev .spine::before{border-color:var(--clay);background:var(--clay)}
+.sha{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;font-weight:700;color:var(--ink)}
+.when{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;color:var(--ink-3);margin-top:2px}
+.body{padding-left:8px}
+.who{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;
+  color:var(--ink-3);margin-bottom:7px;
+}
+.who b{color:var(--ink-2);font-weight:500}
+.who .ai{color:var(--accent);font-weight:700}
+.msg{
+  font-size:14.5px;line-height:1.5;color:var(--ink-2);
+  border-left:2px solid var(--rule-soft);padding-left:14px;margin-bottom:12px;
+}
+.delta{display:flex;flex-direction:column;gap:6px}
+.line{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;
+  padding:6px 11px;border-radius:3px;line-height:1.45;
+  overflow-x:auto;white-space:nowrap;
+}
+.line.plus{background:var(--accent-soft);color:var(--ink)}
+.line.minus{background:var(--clay-soft);color:var(--ink);text-decoration:line-through;text-decoration-color:var(--clay)}
+.line.kept{background:var(--surface-2);color:var(--ink-3)}
+.verdict-strip{
+  margin-top:24px;border:1px solid var(--clay);border-left-width:3px;
+  background:var(--clay-soft);border-radius:3px;padding:16px 18px;
+  font-size:15px;line-height:1.55;color:var(--ink);
+}
+
+/* ---------- measure ---------- */
+.measure{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  border-radius:4px;overflow:hidden;margin:28px 0 18px;
+}
+.cell{background:var(--surface);padding:20px 20px 18px}
+.cell .lab{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:11px;
+}
+.cell .big{
+  font-family:"Instrument Serif",Georgia,serif;font-size:40px;line-height:1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+}
+.cell.claimed .big{color:var(--clay)}
+.cell.actual .big{color:var(--accent)}
+.cell .sub{font-size:13px;color:var(--ink-3);margin-top:9px;line-height:1.45}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 0}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.pane{
+  border:1px solid var(--rule);border-radius:4px;background:var(--surface);
+  padding:22px 22px 20px;box-shadow:var(--shadow);
+}
+.pane.gated{border-top:3px solid var(--accent)}
+.pane.ungated{border-top:3px solid var(--clay)}
+.pane h4{
+  margin:0 0 4px;font-size:15px;font-weight:700;
+}
+.pane .n{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.11em;text-transform:uppercase;margin-bottom:14px;
+}
+.pane.gated .n{color:var(--accent)}
+.pane.ungated .n{color:var(--clay)}
+.pane ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.pane li{font-size:14.5px;line-height:1.5;color:var(--ink-2);padding-left:17px;position:relative}
+.pane li::before{
+  content:"";position:absolute;left:0;top:.55em;
+  width:6px;height:6px;border-radius:1px;
+}
+.pane.gated li::before{background:var(--accent)}
+.pane.ungated li::before{background:var(--clay)}
+.pane li b{color:var(--ink);font-weight:600}
+
+/* ---------- findings ---------- */
+.finds{display:flex;flex-direction:column;gap:0;margin-top:24px}
+.find{
+  display:grid;grid-template-columns:32px 1fr;gap:0 18px;
+  padding:19px 0;border-top:1px solid var(--rule-soft);
+}
+.find:last-child{border-bottom:1px solid var(--rule-soft)}
+.find .num{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12px;font-weight:700;color:var(--ink-3);padding-top:2px;
+}
+.find h4{margin:0 0 5px;font-size:15.5px;font-weight:700;line-height:1.35}
+.find p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.find .cite{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;
+  color:var(--ink-3);margin-top:7px;display:block;
+  overflow-x:auto;white-space:nowrap;
+}
+
+/* ---------- ladder ---------- */
+.ladder{margin:26px 0 0;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.rung{
+  display:grid;grid-template-columns:62px 1fr;gap:0 16px;
+  padding:13px 18px;border-bottom:1px solid var(--rule-soft);
+  background:var(--surface);align-items:baseline;
+}
+.rung:last-child{border-bottom:0}
+.rung.now{background:var(--accent-soft)}
+.rung .v{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12px;font-weight:700;color:var(--ink-3);
+}
+.rung.now .v{color:var(--accent)}
+.rung .t{font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.rung.now .t{color:var(--ink);font-weight:600}
+
+/* ---------- pull ---------- */
+.pull{
+  margin:34px 0;padding:26px 0 26px 26px;
+  border-left:3px solid var(--accent);
+}
+.pull p{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(22px,2.7vw,29px);line-height:1.28;
+  color:var(--ink);margin:0;text-wrap:balance;
+}
+.pull .attr{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;color:var(--ink-3);margin-top:14px;letter-spacing:.04em;
+}
+
+/* ---------- verdict ---------- */
+.axes{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  border-radius:4px;overflow:hidden;margin:24px 0 0;
+}
+.ax{background:var(--surface);padding:17px 18px}
+.ax .k{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;
+}
+.ax .v{font-size:19px;font-weight:700;font-family:"Public Sans",sans-serif}
+.ax.pass .v{color:var(--accent)}
+.ax.fail .v{color:var(--clay)}
+.ax .d{font-size:12.5px;color:var(--ink-3);margin-top:6px;line-height:1.45}
+
+.fence{
+  border:1px solid var(--amber);border-left-width:3px;background:var(--amber-soft);
+  border-radius:3px;padding:18px 20px;margin-top:26px;
+}
+.fence .h{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);
+  font-weight:700;margin-bottom:12px;
+}
+.fence ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:9px}
+.fence li{font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.fence li b{color:var(--ink)}
+
+footer{
+  border-top:1px solid var(--rule);margin-top:12px;padding-top:26px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;color:var(--ink-3);line-height:1.8;
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:620px){
+  .node{grid-template-columns:1fr;gap:0}
+  .node .spine{align-items:flex-start;flex-direction:row;gap:10px;padding-bottom:8px}
+  .node .spine::after,.node .spine::before{display:none}
+  .body{padding-left:0;border-left:2px solid var(--rule);padding-left:14px}
+  .find{grid-template-columns:1fr;gap:4px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">
+    <span>LLM Wiki v275</span><span class="dot"></span>
+    <span>NanoNets / Graft</span><span class="dot"></span>
+    <span>2026-08-25</span>
+  </div>
+  <h1>The correction was right.<br>It got <em>reverted.</em></h1>
+  <p class="standfirst">
+    Graft turns your codebase into a markdown wiki so your coding agent stops re-reading it every
+    session. It is carefully built — 904 tests, an exemplary privacy allowlist, a
+    <code>pull_request_target</code> workflow that names its own attack surface and then obeys it.
+    It also carries a headline its own repository already caught, fixed, and un-fixed.
+  </p>
+  <div class="meta">
+    <span class="chip">MIT · <strong>v0.13.0</strong></span>
+    <span class="chip">HEAD <strong>ee1ef035</strong></span>
+    <span class="chip"><strong>402</strong> commits · 52 days</span>
+    <span class="chip"><strong>41,918</strong> lines TS</span>
+    <span class="chip">test ratio <strong>0.87</strong></span>
+    <span class="chip ok">GOAL-ALIGNED 3/4 · NO MINT</span>
+  </div>
+</header>
+
+<section>
+  <div class="col">
+    <span class="eyebrow">The finding</span>
+    <h2>Three commits</h2>
+    <p>
+      The largest text under the product name reads <em class="q">“Up to 4× cheaper and 3× faster.”</em>
+      It points at a section called <em class="q">“Tested on your popular repos”</em> — plural throughout,
+      <em class="q">“across these repos,” “per-repo detail below”</em> — which contains exactly one repository.
+    </p>
+  </div>
+
+  <div class="chain" aria-label="The commit chain behind the hero claim">
+
+    <div class="node add">
+      <div class="spine"><span class="sha">94a5d80</span><span class="when">2026-07-24</span></div>
+      <div class="body">
+        <div class="who">author <b>Shrish Dwivedi</b> · the maintainer</div>
+        <div class="msg">docs: hero + benchmark headline — up to 4x cheaper and 4x faster (real-repo Opus results)</div>
+        <div class="delta">
+          <div class="line plus">+ ### Up to **4× cheaper** and **3× faster**</div>
+          <div class="line plus">+ &lt;sub&gt;…the biggest single-task wins from a separate real-repo sweep (PocketBase, ollama, Excalidraw).&lt;/sub&gt;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="node fix">
+      <div class="spine"><span class="sha">630cd1d</span><span class="when">2026-08-11</span></div>
+      <div class="body">
+        <div class="who">author <span class="ai">Claude &lt;noreply@anthropic.com&gt;</span> · co-authored Claude Sonnet 5 · carries a Claude-Session URL</div>
+        <div class="msg">
+          docs: reword hero headline to match the efficiency table's own numbers —
+          <em class="q">“…so the headline <strong>overstated what the adjacent table showed</strong>. Rewords to 2x/2.5x, backed by this table alone.”</em>
+        </div>
+        <div class="delta">
+          <div class="line plus">+ ### Up to **2× cheaper** and **2.5× faster**</div>
+          <div class="line minus">− &lt;sub&gt;…the biggest single-task wins from a separate real-repo sweep (PocketBase, ollama, Excalidraw).&lt;/sub&gt;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="node rev">
+      <div class="spine"><span class="sha">35ac2ae</span><span class="when">2026-08-12</span></div>
+      <div class="body">
+        <div class="who">author <b>Shrish Dwivedi</b> · <b>one line, no rationale</b></div>
+        <div class="msg">docs: revert hero headline to 'up to 4x cheaper, 3x faster'</div>
+        <div class="delta">
+          <div class="line plus">+ ### Up to **4× cheaper** and **3× faster**</div>
+          <div class="line kept">  (the attribution footnote stays deleted — the revert did not reach it)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="verdict-strip">
+    <strong>At HEAD the strong claim stands and its attribution does not — and neither commit produced that state.</strong>
+    The AI's correction removed the disclosure; the human's revert restored the claim. The composite is a
+    stronger assertion with weaker sourcing than either author wrote.
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="col">
+    <span class="eyebrow">The arithmetic</span>
+    <h2>What the evidence section actually measures</h2>
+    <p>
+      The one repository in that section is PocketBase. Here is its own aggregate table,
+      beside the headline it is cited to support.
+    </p>
+  </div>
+
+  <div class="measure">
+    <div class="cell claimed">
+      <div class="lab">Headline claim</div>
+      <div class="big">4× / 3×</div>
+      <div class="sub">cheaper / faster, <span class="mono">README.md:20</span></div>
+    </div>
+    <div class="cell actual">
+      <div class="lab">PocketBase, measured</div>
+      <div class="big">1.27× / 1.16×</div>
+      <div class="sub">−21% cost, −14% wall-clock</div>
+    </div>
+    <div class="cell">
+      <div class="lab">Best single task disclosed</div>
+      <div class="big">2.6×</div>
+      <div class="sub">one query, $2.19 → $0.84</div>
+    </div>
+    <div class="cell">
+      <div class="lab">Repos in “these repos”</div>
+      <div class="big">1</div>
+      <div class="sub">verified: only one <span class="mono">###</span> heading exists after line 500</div>
+    </div>
+  </div>
+
+  <div class="col">
+    <p style="margin-top:22px">
+      The three-repo sweep that justified the number was <strong>never published in this repository.</strong>
+      Scanning all 402 commits, an <code>### Excalidraw</code> or <code>### ollama</code> heading has never
+      existed. The word “Excalidraw” appears in exactly two commits: the one that added the footnote,
+      and the one that deleted it.
+    </p>
+    <p>
+      The detail sections deserve better than the hero gives them. The SWE-bench write-up states
+      <strong>“50 instances”</strong> in its own body, names the grader (<code>swebench 4.1.0</code>),
+      declares its own subsetting, admits <em class="q">“the sweep above is our harness measuring our
+      mechanism,”</em> and reports a null result against itself — correctness <strong>93% vs 93%,
+      equal</strong>. The research is honest. The table above it blends two experiments: the efficiency
+      rows come from the run where correctness was flat, the correctness row from the run whose
+      efficiency numbers were roughly half as good.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="col">
+    <span class="eyebrow">The pattern</span>
+    <h2>Gated for maintainers, unguarded for buyers</h2>
+    <p>
+      This is not a careless project. The same hands wrote both columns, in the same seven weeks.
+    </p>
+  </div>
+
+  <div class="split">
+    <div class="pane gated">
+      <div class="n">Gated · runs on every push</div>
+      <h4>What a maintainer reads</h4>
+      <ul>
+        <li><b>904 test cases, 2,858 assertions</b> over 41,918 lines — ratio 0.87.</li>
+        <li>A privacy allowlist tested with a <b>real secret path</b>: it asserts the string <code>secret</code> cannot appear in the serialized event.</li>
+        <li>A <code>pull_request_target</code> workflow that names its own hazard, then <b>obeys the invariant absolutely</b> — the only <code>npm ci</code> runs in <code>base</code>; the PR is read as data.</li>
+        <li>Every CI action SHA-pinned · CodeQL · OpenSSF Scorecard · <b>zero</b> <code>paths:</code> filters.</li>
+        <li>76/76 lockfile entries integrity-hashed, <b>one registry</b>.</li>
+        <li>CI comments that name silent-failure modes: <em class="q">“the Windows CI leg reported failure while actually running zero tests.”</em></li>
+      </ul>
+    </div>
+    <div class="pane ungated">
+      <div class="n">Ungated · held by attention</div>
+      <h4>What a buyer reads</h4>
+      <ul>
+        <li>The <b>hero multiplier</b> — corrected once, reverted the next day.</li>
+        <li><b>No benchmark artifacts exist.</b> <code>git ls-files | grep -iE "bench|swe|eval"</code> is empty; <code>swe-bench</code> appears in the README and nowhere else.</li>
+        <li><b>Nothing reads <code>TELEMETRY.md</code></b> — the file the project calls <i>“the complete, authoritative contract.”</i></li>
+        <li>The event list exists in <b>three</b> copies; the test pins copy 2 against copy 3.</li>
+        <li>A rename unfinished in <b>7 places</b>, including the privacy-policy URL shown to users.</li>
+        <li><code>scripts/graph-quality.mjs</code> — a 124-line invariant checker with <code>--strict</code>, <b>invoked by nothing</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pull">
+    <p>The capability is aimed at every markdown file Graft <em>writes</em>, and at none of the markdown files Graft <em>publishes about itself.</em></p>
+    <div class="attr">Its tests read GEMINI.md, INDEX.md and generated cards. They never read TELEMETRY.md.</div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="col">
+    <span class="eyebrow">Also found</span>
+    <h2>Six more, hand-verified</h2>
+  </div>
+
+  <div class="finds">
+    <div class="find">
+      <div class="num">01</div>
+      <div>
+        <h4>The author's laptop path is in the public repo</h4>
+        <p>Two shipped helper files carry <code>BAKED = "/Users/shrishdwivedi/Documents/Context graphs/…"</code>. They are generated by <code>graft init</code> — the author ran it in his own repo and committed the result. <code>.gitignore</code> reasons correctly about per-machine files and explicitly keeps these tracked. <b>The rule was right; its population was typed by hand and one member was misclassified.</b></p>
+        <span class="cite">.claude/helpers/graft-hooks.cjs:7 · graft-statusline.cjs:7 · src/claude/shim-template.ts</span>
+      </div>
+    </div>
+    <div class="find">
+      <div class="num">02</div>
+      <div>
+        <h4>Twelve stale <code>.context/</code> comments — two of them contradictory</h4>
+        <p>Doc-comments across seven source files describe an output directory the product abandoned, and two say the graph is <b>committed</b> when the product's central design is that it never is. The pivot reached the README, the <code>.gitignore</code> and the CLI — not the prose inside the files that implement it, which is exactly what an agent reads when it opens the source.</p>
+        <span class="cite">src/context/check.ts:2 · src/engine.ts:70 · +10 more</span>
+      </div>
+    </div>
+    <div class="find">
+      <div class="num">03</div>
+      <div>
+        <h4>Raw source goes to your LLM with no secret-scanning</h4>
+        <p><code>graft build --deep</code> sends file contents to your provider. A full-extent grep for <code>redact|sanitiz|secret|credential</code> across <code>src/**/*.ts</code> finds zero. <b>Real mitigation:</b> indexing sources its file set from <code>git ls-files</code>, so a gitignored <code>.env</code> is never read — but a credential hardcoded in a tracked file is. <code>SECURITY.md</code> is 18 lines and does not mention it.</p>
+        <span class="cite">src/context/build.ts:181 · src/ingest/fs.ts:60</span>
+      </div>
+    </div>
+    <div class="find">
+      <div class="num">04</div>
+      <div>
+        <h4>One of four granted permissions isn't scoped to Graft</h4>
+        <p><code>graft init</code> adds four <code>permissions.allow</code> entries. Three name its own CLI. <code>Bash(node dist/cli.js:*)</code> does not — in your repository that is your build output, now pre-approved to run unprompted with arbitrary arguments. A development convenience leaked into every user's config.</p>
+        <span class="cite">src/claude/settings-merge.ts:9-14</span>
+      </div>
+    </div>
+    <div class="find">
+      <div class="num">05</div>
+      <div>
+        <h4>Release bookkeeping drifts both ways</h4>
+        <p>Six tags against nine CHANGELOG versions. <code>v0.7.1</code> and <code>v0.12.1</code> have no changelog entry; <code>0.12.0</code>, <code>0.11.0</code>, <code>0.8.0</code>, <code>0.7.0</code> and <code>0.6.0</code> have no tag. There is no <code>0.10.x</code> anywhere.</p>
+        <span class="cite">git tag · CHANGELOG.md</span>
+      </div>
+    </div>
+    <div class="find">
+      <div class="num">06</div>
+      <div>
+        <h4>And one thing done better than almost anyone</h4>
+        <p><code>CREDITS.md</code> thanks eight contributors by handle and PR number for language support their PRs did <b>not</b> land — the maintainer built a generic tier instead and credited them for the idea anyway. It closes: <em class="q">“the omission is an oversight, not a slight.”</em> Set that beside <b>v270</b>, whose README said <i>“we list them all here”</i> above four blank lines, against 62 issues.</p>
+        <span class="cite">CREDITS.md · five credited handles verified as real commit authors</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="col">
+    <span class="eyebrow">The rule</span>
+    <h2>A check cannot survive someone with standing to overrule it</h2>
+    <p>
+      The gap here is not between checked and unchecked. It is between the surfaces a
+      <strong>maintainer</strong> reads and the surface a <strong>buyer</strong> reads — and the
+      difference is not care. A maintainer is afraid of getting the code wrong. Nobody is afraid of
+      getting the pitch wrong.
+    </p>
+    <p>
+      The proof is that the correction actually happened. The repository's own AI collaborator read
+      the hero, diagnosed it precisely, and fixed it. A human reverted it the next day in one line
+      with no reason given, and because the revert targeted only the sentence above the footnote,
+      the disclosure stayed deleted. <strong>The gate was not missing. It fired, it was right, and
+      overruling it was free.</strong>
+    </p>
+  </div>
+
+  <div class="ladder">
+    <div class="rung"><span class="v">v270</span><span class="t">No gate fires on a claim that was true when it was written.</span></div>
+    <div class="rung"><span class="v">v271</span><span class="t">A gate's scope is inherited from where it lives, not from what it claims.</span></div>
+    <div class="rung"><span class="v">v272</span><span class="t">A gate holds when something else already requires it.</span></div>
+    <div class="rung"><span class="v">v273</span><span class="t">A check is only as permanent as the place you put it.</span></div>
+    <div class="rung"><span class="v">v274</span><span class="t">Neither a gate nor a habit reaches a claim stored outside the repository.</span></div>
+    <div class="rung now"><span class="v">v275</span><span class="t">A check that reaches the claim, is correct, and is applied can still be reverted by someone with the standing to do it.</span></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="col">
+    <span class="eyebrow">Verdict</span>
+    <h2>Goal-aligned, no mint, genuinely pilotable</h2>
+  </div>
+
+  <div class="axes">
+    <div class="ax fail"><div class="k">(a) Peer</div><div class="v">FAIL</div><div class="d">NanoNets is a company. Not Anthropic, no registered vendor axis.</div></div>
+    <div class="ax pass"><div class="k">(b) Relevance</div><div class="v">STRONG</div><div class="d">Goal #1 substrate. Claude Code first-class: hooks, skill, statusline, MCP.</div></div>
+    <div class="ax pass"><div class="k">(c) Rigour</div><div class="v">STRONG</div><div class="d">904 tests · SHA-pinned CI · CodeQL · Scorecard · single-registry lockfile.</div></div>
+    <div class="ax pass"><div class="k">(d) Novelty</div><div class="v">STRONG</div><div class="d">Corpus-first. First #23 instance storing the graph as editable markdown.</div></div>
+  </div>
+
+  <div class="col">
+    <p style="margin-top:26px">
+      <strong>NO MINT.</strong> A clean instance of CONFIRMED Library-vocab <strong>#23</strong> —
+      <em class="q">pre-indexed read-only code knowledge-graph queried by coding agents via MCP</em> —
+      taking the anchor from N=5 to <strong>N=6</strong> (graphify v16 · GitNexus v33 · codegraph v70 ·
+      codebase-memory-mcp v172 · code-review-graph v226 · <strong>Graft v275</strong>). All six MCP
+      tools are read-only. Counts unchanged: <strong>46 / 12</strong>, §C-1 12, §C-2 39.
+    </p>
+    <p>
+      Two watch axes recorded at N=1, not minted: an agent code-graph persisted as an
+      <strong>editable linked-markdown wiki rather than a database</strong> — <code>src/context/node-file.ts:4</code>
+      says plainly <em class="q">“There is no database”</em>, and it emits <code>[[wikilinks]]</code>, which is this
+      vault's own founding pattern automated in this vault's own file format — and
+      <strong>a claim corrected by an AI collaborator and reverted by its human maintainer.</strong>
+    </p>
+  </div>
+
+  <div class="fence">
+    <div class="h">Pilot — read-and-borrow, then a fenced install</div>
+    <ol>
+      <li><b>Always <code>graft init --dry-run</code> first</b>, then <code>--agents claude --no-global</code> — otherwise you write <code>~/.codex/hooks.json</code>, a hook that fires in every repository you open.</li>
+      <li><b>Delete <code>Bash(node dist/cli.js:*)</code></b> from <code>permissions.allow</code> after init.</li>
+      <li><b>Never <code>--deep</code> a repo with credentials in tracked source.</b> Telemetry is opt-out and on by default — honest, bucketed, path-free, honours <code>DO_NOT_TRACK</code>, and cannot send from a clone.</li>
+      <li><b>Never cite 4× / 3×,</b> and never present the hero table as one experiment.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  Ship v275 · branch <span class="mono">wiki/v275-graft</span> off the v274 tip (5678ea0) · not auto-merged<br>
+  Source verified: two clones, <span class="mono">diff -rq</span> clean both directions · HEAD <span class="mono">ee1ef03538c4e94b1a8552b13984b9fc2992dd29</span><br>
+  Fleet: 13 dimensions × read-then-refute = 26 agents, 0 errors. The adversarial layer caught a 47× test-count undercount, hallucinated YAML, and two false security findings.<br>
+  I ran 55 tests to completion: 55 pass, 0 fail. The full suite could not run here — node-gyp needs Python, which this sandbox kills.<br>
+  My own errors, both caught by re-measurement: “7 days / 50 commits” (git log truncates at 50 here — it is 52 days / 402), and an unanchored corpus-first grep.
+</footer>
+
+</div>

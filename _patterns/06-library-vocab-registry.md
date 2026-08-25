@@ -1267,3 +1267,42 @@ Every defect in this subject is a promise about the future — 「持续进行�
 **Streak: v273 `GA:130` → `GA:131 · OG:13 [7 ov]` — 54 consecutive goal-aligned ships v220→v274; §35 CLEAR** ({v272, v273, v274} = 0 OG); **override review 14th consecutive discharge** (v153→v274 = 0).
 
 **Docs:** `03 Projects/unlazy - Beginner Analysis/` — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Artifact: https://claude.ai/code/artifact/e3cf2d81-5445-4d38-ade7-f462a10d40b5. Shipped on `wiki/v274-unlazy` off the v273 tip (`14387b7`); not auto-merged.
+
+---
+
+### §F — v275 Graft (`NanoNets/Graft`) — 2026-08-25 — **NO MINT**
+
+**Counts UNCHANGED: 46 top-level / 12 CONFIRMED Library-vocab · §C-1 12 · §C-2 39.**
+
+**Subject.** npm `@nanonets/graft` v0.13.0, MIT. A repo-context layer for coding agents: an LLM writes a wiki of your codebase once, and it lives on disk as plain markdown for the agent to read instead of re-exploring. Six CLI verbs, a **six-tool read-only MCP server**, and a `graft init` that wires eight agent hosts. Authors Shrish Dwivedi + Anirudh Kumar (NanoNets — a company, **NOT Anthropic**, §41). 402 commits / 52 days / 28 authors / 41,918 lines TS / **904 test cases, 2,858 assertions, test-to-code 0.87**. HEAD `ee1ef035`, two clones `diff -rq` clean both directions.
+
+**DECISION — NO MINT.** A clean instance of **CONFIRMED Library-vocab #23** — *"Pre-Indexed Read-Only Code Knowledge-Graph Queried by Coding Agents via MCP"* — taking the anchor from **N=5 → N=6**:
+
+> graphify **v16** · GitNexus **v33** · codegraph **v70** · codebase-memory-mcp **v172** · code-review-graph **v226** · **Graft v275**
+
+All six MCP tools (`graft_find_code`, `graft_find_all`, `graft_file_api`, `graft_trace_calls`, `graft_repo_map`, `graft_check_freshness`) are read-only. *(N-tally is audit bookkeeping — recorded here, not self-incremented.)*
+
+**Grounds for declining:** capability-not-storage-format · a sub-variant within a CONFIRMED pattern strengthens rather than mints · not world-first for the class. **§28 was NOT the sole ground (§44.5)** — the anti-inflation argument is made against §C-1's 12, and the decisive grounds above stand without it.
+
+**TWO DEFERRED WATCH AXES (N=1, recorded not minted):**
+
+1. ⭐ **"Agent code-knowledge-graph persisted as an editable linked-markdown wiki rather than a queryable database."** The first #23 instance whose store is human-readable markdown: `src/context/node-file.ts:1-5` states *"**The files ARE the graph** … the body is human/agent-readable prose. **There is no database.**"*; `:188` and `src/graph/cards.ts:82` emit **`[[wikilinks]]`**; and a `<!-- context:generated:end -->` marker means **everything a human writes below it is preserved verbatim across rebuilds**. The prior five instances use SQLite / Cypher / networkx. ⭐⭐ **This is the vault's own founding pattern automated in the vault's own file format** — the fourth third-party productisation of it (v252 context-os · v268 `lat.md` · v269 OpenViking's Karpathy-named `llm-wiki` skill · **v275 Graft**) and the closest yet. Eligible at a clean, independent N=2.
+2. **"A documentation claim corrected by an AI collaborator and reverted by the human maintainer, leaving a composite neither party authored."** See the ship's rule below.
+
+**Recorded instance-strengthening (not self-incremented):** **#18** sub-archetype B1-MCP · **#19** 19a · **#66** supply-chain awareness (a `postinstall`, a `prepare`, native tree-sitter builds).
+
+⚠️ **CANDIDATE #57 — NOT ESTABLISHED.** `.claude/proven-config.json` declares `"schema": "ruflo.proven-config/v1"` and `"compatibility": {"ruflo": ">=3.24.0"}`; `ruflo` is corpus **v42**. But `git grep -in ruflo` across all 267 tracked files returns **only those two lines** — no dependency, no documentation, no other reference. Recorded as a candidate link and an **undocumented orphan config artifact**. **Not counted as a #57.**
+
+**Corpus-first VERIFIED at full vault extent** (`.git` excluded): `NanoNets` 0 · `nanonets` 0 · `context-graph-engine` 0 · `Shrish` 0 · `graft.nanonets` 0. The eight `\bgraft\b` markdown hits are all the **git term** — *"a graft hides a young project inside an old repository's age"*, from the vault's own v240/v241/v245 provenance findings. Positive controls fire: `codegraph` 167 · `GitNexus` 259 · `codebase-memory-mcp` 66 · `code-review-graph` 9 · `unlazy` 6.
+
+**⭐⭐⭐⭐⭐ THE SHIP'S RULE: a check cannot survive someone with standing to overrule it — and a partial correction composed with a partial revert produces a claim neither party wrote.** `README.md:20` claims *"Up to **4× cheaper** and **3× faster**"*; its own evidence section is plural about repositories, contains **one**, and measures **1.27× / 1.16×**. On 2026-08-11 commit `630cd1d`, **authored by `Claude <noreply@anthropic.com>`**, diagnosed it exactly (*"the headline overstated what the adjacent table showed"*), corrected it to 2×/2.5×, **and deleted the footnote attributing 4×/3× to single-task peaks from a three-repo sweep**. On 2026-08-12 the human maintainer reverted **only the headline**, in one line, with no rationale. At HEAD the strong claim stands and its attribution does not. Scanning all 402 commits, the sweep's other two repos have **never appeared in the README** — "Excalidraw" exists in exactly two commits, the one that added the footnote and the one that deleted it.
+
+**⭐⭐⭐ The registry-relevant corollary — v250's rule reached independently.** `TELEMETRY.md:8-13` promises *"if an event or property is not listed here, graft does not send it … the code and this file are kept in lockstep."* The **mechanism** is the best-tested privacy surface in the corpus (a full-extent search finds 15+ assertions including negative controls fed a real secret path; **I ran 55 tests, 55 pass**). But a full-extent grep across every `.ts`/`.mjs`/`.cjs`/`.yml` shows **nothing reads `TELEMETRY.md`** — 7 hits, all comments, one string, one URL. The event list exists in **three** copies and the gate compares copy 2 to copy 3. ⭐ **And the codebase demonstrably knows how to assert on markdown** — its tests read `GEMINI.md`, `INDEX.md` and generated cards. **The capability is aimed at every markdown file graft writes and at none it publishes about itself.**
+
+**⭐⭐ Cross-author N=2 of v273's `pull_request_target` finding, one ship later.** `blast-pages.yml:6-13` names the hazard in its header and the file obeys the invariant absolutely (D34-tested: the only `npm ci` runs `working-directory: base`; the PR is checked out credential-less to `pr/` and read as data). ⭐ `:79-83` — the required override flag *"refuses a fork's PR ref … unless the workflow opts in — **the review that opt-in asks for is the header of this file**."*
+
+**LADDER:** v270 no gate fires on a claim true when written · v271 a gate's scope is inherited from where it lives · v272 a gate holds when something else already requires it · v273 a check is only as permanent as the place you put it · v274 neither a gate nor a habit reaches a claim stored outside the repository · **v275 a check that reaches the claim, is correct, and is applied can still be reverted by someone with the standing to do it.**
+
+**Streak: v274 `GA:131` → `GA:132 · OG:13 [7 ov]` — 55 consecutive goal-aligned ships v220→v275; §35 CLEAR** ({v273, v274, v275} = 0 OG); **override review 15th consecutive discharge** (v153→v275 = 0).
+
+**Docs:** `03 Projects/Graft - Beginner Analysis/` — (C) Deep Dive · (C) Verdict · (C) Pilot Methods Menu. Artifact: https://claude.ai/code/artifact/b5281fe2-f909-45c2-8187-6a84dc5a547a. Shipped on `wiki/v275-graft` off the v274 tip (`5678ea0`); not auto-merged.
