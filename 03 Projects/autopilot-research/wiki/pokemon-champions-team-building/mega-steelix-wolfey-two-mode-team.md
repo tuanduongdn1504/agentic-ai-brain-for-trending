@@ -1,6 +1,7 @@
 # Worked Example #3 — Wolfey's two-mode Mega Steelix (the tournament build)
 
 > **Source:** [Wolfey's MEGA STEELIX Team COUNTERED the Meta!](https://www.youtube.com/watch?v=sYzs73TeFR8) — `sYzs73TeFR8`, **MrSteelixYourGirl**, 2026-06-01, 37:14, ~37.5K views. The team is **Wolfey's** ([@WolfeyVGC](https://www.youtube.com/@WolfeyVGC)) — piloted to **2nd place at the Indianapolis Regional**; EV spreads by **Justin Tang** (@Unironicpanda-vgc).
+> **Also sourced (enrichment):** Wolfey's own first-person vlog [I Entered the First Pokémon Champions Tournament](https://www.youtube.com/watch?v=inQoYsuK2qE) (`inQoYsuK2qE`, **WolfeyVGC**, 2026-08-21, 2:17:55) — the *build journey* (why he abandoned Mega Gengar for Steelix) and the *full tournament run* (Worlds qualification → 2nd place), from the pilot's side. See the [dedicated section](#wolfeys-own-vlog--the-build-journey--the-full-run) below.
 > **Verified** in [PokéSynergy](https://pokesynergy.app): imported clean (1 warning — Talonflame's `Covert Cloak` item unrecognized, swap it); all abilities/moves Champions-legal; the **two-Mega build (Steelixite + Tyranitarite) is accepted**.
 > **Visual guide (⭐):** [interactive synergy + game-plan Artifact](https://claude.ai/code/artifact/5f8135b5-13a2-4afa-a3be-3d2af7da0989) · in-vault copy: [`steelix-synergy-guide.html`](steelix-synergy-guide.html). Mermaid maps below render in Obsidian.
 
@@ -79,9 +80,23 @@ The operator's read is the payload: **this graphic format is a product feature.*
 - ⚠️ **ASR catch (Rule 12 / wiki-verify):** the auto-caption repeatedly says "Cinccino" for the Trick Room setter; the creator's on-screen graphic **and** the per-Pokémon breakdown both show **Sinistcha** (Hospitality — heal + redirect). Corrected to Sinistcha throughout. ("Cinccino" is not on the team.)
 - The exact EVs are Justin Tang's; treat the sets here as validated-legal reconstructions, the rental code (from the video) as the source of truth.
 
+## Wolfey's own vlog — the build journey & the full run
+
+*Added from Wolfe Glick's first-person vlog (`inQoYsuK2qE`, 2:17:55) — the same Indianapolis event told from the pilot's chair. This is what the third-party breakdown above doesn't cover: **why** the team exists and **how the run actually went.** Claims spot-checked against the topic's other Indianapolis entries.*
+
+**Why Steelix (the build journey).** Wolfey's whole season was on the line: after a 4-month break he'd attended only ~4 majors and had **not yet qualified for Worlds** — his streak of *every* Worlds since 2011, in the 10-year-anniversary year of his 2016 title. He first tried to build around his personal favourite, **Mega Gengar** (Poison threatens Floette; Shadow Tag traps Charizard while a partner overwrites its sun) — but **couldn't make it work**: Regulation M-A is "chock full of powerful physical attackers" that all pressure Gengar and aren't threatened back. He pivoted to **Mega Steelix** — a nostalgic pick (he'd run Mega Steelix back in 2018) that happens to *counter this meta*: enormous bulk, Sand Force damage, and **Wide Guard** to blank the spread Earthquakes/Rock Slides the format leans on.
+
+**Why the second Mega is Tyranitar (the two-mode key, in his words).** The reason to give Tyranitar its *own* Mega Stone is the **weather war**: if Charizard and Tyranitar both Mega-evolve on the same turn, **Tyranitar wins the speed tie and its Sand overwrites Charizard's Sun** — cutting off Solar Beam and the sun-boosted damage that is "the single [scariest thing]" in the format. Because Mega Charizard-Y is the format's defining threat, a dual-Mega that can *flip the weather on demand* is worth the deckbuilding cost. That, plus a **Dragon Dance** Tyranitar that snowballs into a sweeper ("the Queen," Mode A), is the team's second win-condition — no Trick Room required.
+
+**The run — 2nd place, and Worlds locked.** A strong Swiss phase (**~11–1**) into top cut; a grindy **Top 16** (almost every set went to game 3) survived by a triple-Swords-Dance Talonflame behind Rage Powder; **Top 8** vs an unusual **dual-Mega Dragonite + Mega Froslass** team, won on a clutch **Dire Claw paralysis** — and *making Top 8 clinched his 2026 Worlds invite* (the emotional peak of the vlog). **Semifinals** vs a **Hisuian Arcanine** (Rock Head + Focus Sash Head Smash) / Corviknight / Garchomp / Mega Froslass team, where the long-hidden Steelix ground out a **setup-less Corviknight** 1-on-1 (that Corviknight had no Bulk Up / Iron Defense / Body Press / recovery, so Steelix simply out-bulked it). **Finals** vs a **Mega Charizard-Y sun team** (Focus-Sash Charizard + Sleep-Powder Venusaur + Choice-Scarf Garchomp) → **2nd place** — the loss dissected in [[pokemon-champions-team-building/finals-case-study-sand-vs-sun]].
+
+**A piloting meta-note (from the casters).** Wolfey **never showed Steelix on stream for ~24 hours** of the event — opponents kept team-previewing into "the spectre of a Steelix they hadn't seen." The team's shape (two hidden Megas, mode chosen at preview) is *what makes that bluff possible* — a real edge on top of the raw matchup math.
+
 ## Key Takeaways
 
 - **Two Megas, two modes, pick by matchup** — the most flexible of the three Steelix builds; the plan is a *decision*, not a fixed line.
+- **Born from a meta read, not a gimmick** — Wolfey reached for Steelix only after his favourite Mega Gengar folded to the physical-attacker-heavy Reg M-A meta; the dual-Mega Tyranitar exists specifically to **win the weather war vs Mega Charizard-Y**.
+- **Tournament-validated end-to-end** — ~11–1 Swiss → Top 8 (**Worlds qualification**) → **2nd place** at the first-ever Champions tournament, with a 24-hour "hidden Steelix" bluff as a bonus edge.
 - **The "enemy team → step-by-step plan" graphic is the reusable product idea** — a niche tool that recommends a game plan, not just a calc (ties to [[pokesynergy-niche-business-tool/hireui-translation]]).
 - **Rotom-Wash is the engine** here (Light Screen + Will-O-Wisp make the sand core un-KO'able), and **Sinistcha** is the glue (TR + heal + redirect).
 - Tournament-proven (Wolfey, 2nd @ Indianapolis) — the "meta/pro" counterpart to #1 (off-meta gimmick) and #2 (ladder-traditional).
