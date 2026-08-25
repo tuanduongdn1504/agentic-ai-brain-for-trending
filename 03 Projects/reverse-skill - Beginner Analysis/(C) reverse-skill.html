@@ -1,0 +1,270 @@
+<title>The Router and the Gate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ground:#f3f1ec; --surface:#faf9f6; --surface-2:#ece9e2; --line:#d8d4c9;
+    --ink:#1b1e26; --ink-soft:#4a4d56; --ink-faint:#7c7d84;
+    --amber:#a86412; --amber-bg:#f4e9d4; --cyan:#1f6379; --cyan-bg:#dcecef;
+    --good:#2c6f48; --good-bg:#dcebdf; --bad:#a92b1f; --bad-bg:#f3ddd8;
+    --shadow:0 1px 2px rgba(20,22,28,.06),0 6px 22px rgba(20,22,28,.06);
+    --maxw:73ch;
+  }
+  :root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
+    --ground:#0f1116; --surface:#171a21; --surface-2:#1e222b; --line:#2b3038;
+    --ink:#e7e5de; --ink-soft:#b0b1b8; --ink-faint:#7f8189;
+    --amber:#e0a13c; --amber-bg:#2a2115; --cyan:#5fabc4; --cyan-bg:#132530;
+    --good:#5fb98a; --good-bg:#122619; --bad:#e2685f; --bad-bg:#2c1613;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0f1116; --surface:#171a21; --surface-2:#1e222b; --line:#2b3038;
+    --ink:#e7e5de; --ink-soft:#b0b1b8; --ink-faint:#7f8189;
+    --amber:#e0a13c; --amber-bg:#2a2115; --cyan:#5fabc4; --cyan-bg:#132530;
+    --good:#5fb98a; --good-bg:#122619; --bad:#e2685f; --bad-bg:#2c1613;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Source Serif 4",Georgia,serif; font-size:18px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  h1,h2,h3,.eyebrow,.badge,.chip,th,.stat-n,.gatehdr,.vs-tag{font-family:"Archivo",system-ui,sans-serif}
+  a{color:var(--cyan); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--cyan) 40%,transparent)}
+
+  /* masthead */
+  header{border-bottom:1px solid var(--line); padding:56px 0 30px; margin-bottom:8px}
+  .eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); font-weight:700; display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block}
+  h1{font-size:clamp(2.5rem,7vw,4.1rem); font-weight:900; line-height:.98; letter-spacing:-.02em; margin:.35em 0 .3em; text-wrap:balance}
+  h1 .amp{color:var(--amber); font-weight:500}
+  .dek{font-size:1.16rem; color:var(--ink-soft); max-width:60ch; margin:0 0 26px}
+  .repo{font-size:13px; color:var(--ink-faint)}
+  .repo a{color:var(--ink-soft)}
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+  .badge{font-size:12px; font-weight:700; letter-spacing:.02em; padding:6px 11px; border-radius:6px; border:1px solid var(--line); background:var(--surface); display:inline-flex; gap:7px; align-items:center}
+  .badge b{font-weight:800}
+  .badge.ga{color:var(--good); border-color:color-mix(in srgb,var(--good) 45%,var(--line)); background:var(--good-bg)}
+  .badge.nom{color:var(--amber); border-color:color-mix(in srgb,var(--amber) 45%,var(--line)); background:var(--amber-bg)}
+
+  section{padding:38px 0; border-bottom:1px solid var(--line)}
+  h2{font-size:1.7rem; font-weight:800; letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance}
+  .kicker{font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px}
+  p{margin:0 0 16px}
+  .lead{font-size:1.12rem}
+  strong{font-weight:600}
+  .mk{background:var(--amber-bg); padding:.05em .28em; border-radius:3px; font-weight:600}
+
+  /* stat strip */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:6px 0 0}
+  .stat{background:var(--surface); padding:16px 14px}
+  .stat-n{font-size:1.5rem; font-weight:800; letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1}
+  .stat-l{font-size:11.5px; color:var(--ink-faint); font-family:"JetBrains Mono",monospace; letter-spacing:.03em; margin-top:6px; line-height:1.35}
+  @media(max-width:620px){ .stats{grid-template-columns:repeat(2,1fr)} }
+
+  /* the spine: two opposed panels */
+  .vs{display:grid; grid-template-columns:1fr auto 1fr; gap:0; margin:24px 0 4px; align-items:stretch}
+  .panel{background:var(--surface); border:1px solid var(--line); padding:22px}
+  .panel.stop{border-left:4px solid var(--good); border-radius:10px 0 0 10px}
+  .panel.go{border-right:4px solid var(--amber); border-radius:0 10px 10px 0}
+  .gatehdr{font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; display:flex; gap:9px; align-items:center; margin-bottom:10px}
+  .panel.stop .gatehdr{color:var(--good)}
+  .panel.go .gatehdr{color:var(--amber)}
+  .panel h4{font-family:"Archivo"; font-size:1.05rem; font-weight:700; margin:0 0 8px}
+  .panel p{font-size:.96rem; color:var(--ink-soft); margin:0}
+  .vs-mid{display:flex; align-items:center; justify-content:center; padding:0 4px}
+  .vs-tag{font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--ink-faint); background:var(--ground); border:1px solid var(--line); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; transform:rotate(-90deg)}
+  @media(max-width:640px){ .vs{grid-template-columns:1fr} .panel.stop{border-radius:10px 10px 0 0; border-left:none; border-top:4px solid var(--good)} .panel.go{border-radius:0 0 10px 10px; border-right:none; border-top:4px solid var(--amber)} .vs-mid{padding:8px 0} .vs-tag{transform:none} }
+
+  /* gated vs ungated split */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px}
+  .col{border:1px solid var(--line); border-radius:10px; padding:18px; background:var(--surface)}
+  .col.gated{border-top:4px solid var(--good)}
+  .col.ungated{border-top:4px solid var(--bad)}
+  .col h4{font-family:"Archivo"; font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin:0 0 12px; display:flex; gap:8px; align-items:center}
+  .col.gated h4{color:var(--good)} .col.ungated h4{color:var(--bad)}
+  .col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+  .col li{font-size:.9rem; line-height:1.4; padding-left:20px; position:relative; color:var(--ink-soft)}
+  .col.gated li::before{content:"✓"; position:absolute; left:0; color:var(--good); font-weight:800}
+  .col.ungated li::before{content:"✕"; position:absolute; left:0; color:var(--bad); font-weight:800}
+  .col li .mono{font-size:.82em; color:var(--ink-faint)}
+  @media(max-width:560px){ .split{grid-template-columns:1fr} }
+
+  /* count drift table */
+  .drift{width:100%; border-collapse:collapse; margin-top:6px; font-family:"JetBrains Mono",monospace; font-size:13.5px}
+  .drift th,.drift td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line)}
+  .drift th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); font-weight:700}
+  .drift td:first-child{color:var(--ink-soft)}
+  .drift .num{font-weight:700; font-variant-numeric:tabular-nums}
+  .drift .wrong{color:var(--bad)}
+  .drift .right{color:var(--good)}
+  .drift tr.hl td{background:var(--good-bg)}
+  .scroll{overflow-x:auto}
+
+  /* pilot ladder */
+  .rungs{display:flex; flex-direction:column; gap:10px; margin-top:8px}
+  .rung{display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+  .rung.star{border-color:color-mix(in srgb,var(--amber) 50%,var(--line)); background:var(--amber-bg)}
+  .rung-n{font-family:"Archivo"; font-weight:900; font-size:1.5rem; color:var(--ink-faint); line-height:1; font-variant-numeric:tabular-nums; min-width:1.2em}
+  .rung.star .rung-n{color:var(--amber)}
+  .rung h4{font-family:"Archivo"; font-size:1rem; font-weight:700; margin:0 0 4px}
+  .rung p{font-size:.9rem; color:var(--ink-soft); margin:0}
+  .rung .t{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--ink-faint); float:right; margin-left:10px}
+
+  .nevers{background:var(--bad-bg); border:1px solid color-mix(in srgb,var(--bad) 35%,var(--line)); border-radius:10px; padding:18px 20px; margin-top:8px}
+  .nevers h4{font-family:"Archivo"; color:var(--bad); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin:0 0 12px}
+  .nevers ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px}
+  .nevers li{font-size:.9rem; color:var(--ink-soft); padding-left:20px; position:relative}
+  .nevers li::before{content:"⛔"; position:absolute; left:0; font-size:.85em}
+
+  blockquote{margin:22px 0 6px; padding:18px 22px; border-left:3px solid var(--amber); background:var(--surface); border-radius:0 8px 8px 0; font-size:1.08rem; color:var(--ink); font-style:italic}
+  footer{padding:34px 0 60px; color:var(--ink-faint); font-size:12.5px; font-family:"JetBrains Mono",monospace; line-height:1.7}
+  .foot-rule{color:var(--ink-soft)}
+  ::selection{background:var(--amber-bg)}
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:2px}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> LLM Wiki · v279 · security teardown</div>
+    <h1>The Router <span class="amp">&amp;</span> the Gate</h1>
+    <p class="dek">A cybersecurity skills router for AI agents — the most-gated skill collection this corpus has reviewed, shipping one folder away from the most explicit manual for defeating an agent's hesitation.</p>
+    <p class="repo mono">zhaoxuya520/reverse-skill · MIT · 16 days public · HEAD <a href="https://github.com/zhaoxuya520/reverse-skill">914f74ad</a></p>
+    <div class="badges">
+      <span class="badge ga">GOAL-ALIGNED <b>3/4</b></span>
+      <span class="badge nom">NO MINT</span>
+      <span class="badge">counts <b>46 / 12</b> unchanged</span>
+      <span class="badge">streak <b>GA:136</b> · 59 consecutive</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <p class="kicker">what it is</p>
+    <p class="lead">When an AI coding agent is handed an APK, an ELF, encrypted frontend JS, or an authorized pentest target, <strong>reverse-skill</strong> routes it to exactly one methodology, forces it through a hard authorization gate before any target action, and runs a repeatable workflow instead of guessing commands. It is deliberately <em>not</em> an autonomous system — its own identity file defines it against the red-team platforms it refuses to become. A router and an instruction manual, <span class="mono">git clone</span> and go.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">43</div><div class="stat-l">route rules<br>R0–R44, one JSON SoT</div></div>
+      <div class="stat"><div class="stat-n">173</div><div class="stat-l">benchmark cases<br>hint → PRIMARY, CI-gated</div></div>
+      <div class="stat"><div class="stat-n">44</div><div class="stat-l">skill modules<br>+ 42 CTF sub-skills</div></div>
+      <div class="stat"><div class="stat-n">17</div><div class="stat-l">authors · 22 merges<br>owner is 3rd by commits</div></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">the spine</p>
+    <h2>Two systems, opposite directions</h2>
+    <p>The same 585-file repository builds the corpus's most careful <strong>pre-action authorization gate</strong> and its most explicit <strong>manual for suppressing agent hesitation</strong>. One is engineered to make the agent stop until it is authorized. The next folder is engineered to make it never stop once it is working.</p>
+    <div class="vs">
+      <div class="panel stop">
+        <div class="gatehdr">◧ STOP · the auth gate</div>
+        <h4>case-guard reads a contract</h4>
+        <p><span class="mono">auth.status=granted</span> + a legal network profile before ACT. Fields forged outside their <span class="mono">## section</span> are ignored. <span class="mono">--force</span> prints a refusal and <span class="mono">exit 2</span> anyway — no code path yields exit 0 with unmet auth. CI proves it on every push.</p>
+      </div>
+      <div class="vs-mid"><span class="vs-tag">VS</span></div>
+      <div class="panel go">
+        <div class="gatehdr">▶ GO · the obedience layer</div>
+        <h4>"If you only reply 'understood' — you have failed"</h4>
+        <p>An excuse-rebuttal table, RFC-2119 directives, opaque "code words" for 100% param compliance, attention-window exploits. <strong>~73%</strong> of rebuttals suppress hesitation with no user re-involvement. No "do not use for" scope disclaimer.</p>
+      </div>
+    </div>
+    <blockquote>Coherent only if a single check at the front door is enough to trust everything the agent does after it — on an offensive-security toolchain, forever. That assumption is the one thing in the repo no test can check.</blockquote>
+  </section>
+
+  <section>
+    <p class="kicker">where the discipline stops</p>
+    <h2>What it gates reveals what it fears</h2>
+    <p>The CI protects exactly what can <em>drift</em> and be machine-checked. It ignores exactly what can <em>harm</em> and can't. The seam runs precisely between the router and the skills.</p>
+    <div class="split">
+      <div class="col gated">
+        <h4>▣ gated obsessively</h4>
+        <ul>
+          <li>173-case routing regression, Win + Ubuntu</li>
+          <li>route table ↔ docs coherence gate</li>
+          <li>supply-chain pin gate <span class="mono">— fails on one unpinned dep</span></li>
+          <li>Burp count derived from Java source</li>
+          <li><span class="mono">VERSION == CHANGELOG</span>, INDEX drift, leak-scan</li>
+          <li>the auth gate itself — <span class="mono">--force</span> can't bypass</li>
+          <li>actions SHA-pinned <span class="mono">@3d3c42e5</span></li>
+        </ul>
+      </div>
+      <div class="col ungated">
+        <h4>▨ gated not at all</h4>
+        <ul>
+          <li>40 of 41 CTF competitions — zero coverage</li>
+          <li>44 skill modules — no functional test</li>
+          <li>burp-mcp Java extension — never built in CI</li>
+          <li><span class="mono">mcp-bridge.test.js</span> (141 lines) — never run</li>
+          <li>78 offensive Burp tools — code review only</li>
+          <li>journal auto-merge — no human approval gate</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">v278's clause (g), in the wild</p>
+    <h2>One number is anchored. My own fleet still missed it three ways.</h2>
+    <p>reverse-skill derives exactly one count from source with an anchored command: <span class="mono">verify-doc-facts.ps1</span> reads the Java <span class="mono">getToolList()</span> body and gates the docs' "78-tool" against it. That number is bulletproof. Then my own adversarial fleet re-counted it — and reproduced the exact v278 phenomenon.</p>
+    <div class="scroll">
+    <table class="drift">
+      <thead><tr><th>command</th><th>result</th><th>verdict</th></tr></thead>
+      <tbody>
+        <tr><td>naive whole-file <span class="mono">grep</span></td><td class="num wrong">96</td><td class="wrong">artifact</td></tr>
+        <tr><td>body grep, different pattern</td><td class="num wrong">83</td><td class="wrong">artifact</td></tr>
+        <tr><td>regex dropping digit-names, truncated span</td><td class="num wrong">74</td><td class="wrong">filed as "docs overstate by 4"</td></tr>
+        <tr class="hl"><td>the anchored CI method (getToolList body)</td><td class="num right">78</td><td class="right">✓ matches docs, gated</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:16px">On a repo that gets the count right, <span class="mk">four naive re-counts still disagreed</span>. By contrast its <strong>43 / 173 / 44</strong> counts are correct today but <em>not</em> gated — correct by maintenance, not by construction. The cleanest field validation of the clause-(g) proposal the arc has produced.</p>
+  </section>
+
+  <section>
+    <p class="kicker">the mint call</p>
+    <h2>No mint — and the honest reason</h2>
+    <p>The subject leads with "Skills Router," but routing a task to a skill is the <strong>universal convention</strong> of every agent skill system — form-factor within the cybersecurity Domain-Vertical genre (already confirmed via v98), the ground v238 declined a routing preset on. The genuinely corpus-first thing here is <strong>not</strong> the router: it is the <span class="mk">hard, un-bypassable, section-scoped pre-action authorization state machine</span>. It ships, it's CI-tested, no corpus subject implements its shape. But it is bundled inside a form-factor package — so it is <strong>recorded as the audit-reviewable §C-2 candidate</strong>, not minted by a ship. Also recorded: #18 B1-MCP ≈N=16 → ≈N=17 (the 78-tool first-party Burp MCP server).</p>
+  </section>
+
+  <section>
+    <p class="kicker">pilot — read &amp; borrow</p>
+    <h2>Clone-and-read is safe here. Installs are not.</h2>
+    <p>Pure markdown + shell/pwsh, macOS-supported; the bootstrap is version-pinned + SHA256-checksummed with no <span class="mono">curl | bash</span>. Read the good parts; run none of the offensive toolchain.</p>
+    <div class="rungs">
+      <div class="rung"><div class="rung-n">0</div><div><span class="t">20 min</span><h4>Read the auth gate + skill-supply-chain gate as forms</h4><p>Four files: the section-scoped consent gate, its CI proof, the AST10 vetting checklist, and the obedience doc — read as a hazard specimen, not a template.</p></div></div>
+      <div class="rung star"><div class="rung-n">1</div><div><span class="t">30 min</span><h4>★ The vault item — extend clause (g), borrow the gate shape</h4><p>Add clause (g) to the inventory script, citing verify-doc-facts as exemplar and the ungated 43/173 as counter-example — and run it, 24 ships overdue. Write the section-scoped, force-proof gate into the hireui candidate-LLM legibility ADR.</p></div></div>
+      <div class="rung"><div class="rung-n">2</div><div><span class="t">30 min</span><h4>Vet 05 Skills/ with the supply-chain gate</h4><p>The AST10 checklist is pure documentation — walk the vault's own skills through it by hand. Pairs with v276's scanner as a two-tool bench.</p></div></div>
+      <div class="rung"><div class="rung-n">3</div><div><span class="t">45 min</span><h4>Router-as-answer-to-catalog-overload</h4><p>Its thesis — deep skills + a router that loads only PRIMARY &gt; a flat stack — independently confirms v238 and the vault's ~54K tool-catalog problem. Design only; port no offensive content.</p></div></div>
+    </div>
+    <div class="nevers">
+      <h4>never</h4>
+      <ul>
+        <li>Run the bootstrap offensive-toolchain installs on a machine you care about.</li>
+        <li>Wire burp-mcp or the IDA/Ghidra MCP servers at candidate or production data.</li>
+        <li>Treat the obedience layer as a template for the vault's own skills.</li>
+        <li>Cite the Burp count from a naive grep — it is <b>78</b>, not 74 / 83 / 96.</li>
+        <li>Reuse burp-mcp-full as licensed (it carries none), or assume the AGPL Pentest Swarm is present (zero code hits).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="border-bottom:none">
+    <p class="kicker">the blunt line</p>
+    <p class="lead">v278 gated nothing and put a debugger's memory-write on the open internet with no password. v279 gates almost everything a machine can check — 173 routing cases, a supply-chain pin gate that fails on one unpinned dependency, a doc-count derived from source, a consent gate whose <span class="mono">--force</span> flag prints a refusal and exits nonzero anyway — and gates nothing a machine cannot: forty-four skill modules, forty-one CTF competitions, seventy-eight offensive tools, verified by nothing but code review. The discipline stops exactly where the artifact stops being machine-checkable. And the folder engineered to make the agent stop until authorized sits beside the folder engineered to make it never stop once it is.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-rule">(C) Claude · LLM Wiki v279 · 2026-08-25</span><br>
+    Source-verified: 2 clones, diff -rq clean both ways · HEAD 914f74ad · corpus-first at 23,292 md<br>
+    Method: 11 dimensions × (read → adversarially refute) = 22 agents · fleet corrected age 7→16d · I refuted the fleet's Burp "74"<br>
+    Not verified without network: star velocity, sponsor claims, the "Skill Engineering 2026" / AST10 citations, world-first priority · never built, never run
+  </div>
+</footer>
