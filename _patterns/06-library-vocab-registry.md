@@ -1435,3 +1435,30 @@ All six MCP tools (`graft_find_code`, `graft_find_all`, `graft_file_api`, `graft
 **Counts 46/12 UNCHANGED; §C-1 13, §C-2 39 UNCHANGED.**
 
 **Streak: v279 `GA:136` → `GA:137 · OG:13 [7 ov]` — 60 consecutive GA v220→v280; §35 CLEAR** ({v278, v279, v280} = 0 OG); **override review 20th consecutive discharge.** Tier **T3 Education** (+ T1 experiment-collection facet).
+
+---
+
+### §F — v281 ComfyUI (`Comfy-Org/ComfyUI`) — 2026-08-26 — **NO MINT**
+
+**Subject.** A GPL-3.0 node-graph engine for generative media (v0.33.0; 5,819 commits, 358 authors, 887 node classes, 1,301 tests). ✅ Source-verified: two clones byte-identical, HEAD `7a054eb4`. **GOAL-ALIGNED INCLUDE 3/4** [(a) FAIL · (b) MODERATE · (c) STRONG · (d) STRONG] under **§40** (operator-requested, goal-adjacent). No override.
+
+**DECISION: NO MINT. Counts 46/12 UNCHANGED. §C-1 13, §C-2 39 UNCHANGED.**
+
+**Three candidate classes tested, all declined — by hand, against their own written definitions:**
+
+1. **"Node-Based Visual Workflow Engine for Generative Media"** — the corpus's **first** subject in this domain. All **58 §C rows read**; nothing adjacent (**C37** *Agent-First End-to-End Generative-Media (Video) Production System* is the nearest and is **agent-first**, i.e. the coding agent IS the runtime — ComfyUI is a human-facing GUI, so C37's own definition excludes it). **DECLINED: domain-not-capability**, on the settled **v212 tabularis** precedent (*"the corpus's FIRST database-GUI / SQL-client DOMAIN subject — corpus-first-DOMAIN data-point, NOT a §C mint"*), reinforced by **v196** meetily and **v210** AIRI. Also **decisively NOT world-first** — node-graph media tools long predate it (Houdini, TouchDesigner, Nuke), and AUTOMATIC1111 preceded it within diffusion GUIs. Recorded as a **corpus-first-DOMAIN data-point**.
+
+2. **`AGENTS.md` (361 lines, sole-owned, bound into an enforcing LLM reviewer)** — **DECLINED as a mint because it is already covered**: a clean instance of **CONFIRMED Library-vocab #12** (*LLM-routing artifacts*), whose written definition names `AGENTS.md` explicitly in its member list. **Instance-strengthening only**; the N-tally on #12 is audit bookkeeping and is **recorded, not self-incremented**. ⭐ Noted for the audit as an unusually strong instance: most corpus `AGENTS.md` files are prose with no enforcement path, whereas this one is bound via `.coderabbit.yaml`'s `knowledge_base.code_guidelines.filePatterns → AGENTS.md` and an instruction to *"treat AGENTS.md as mandatory repository policy."*
+
+3. **"CI-Enforced Erasure of AI-Agent Authorship Trailers"** (`check-ai-co-authors.yml` + script: 12 named vendors + 12 catch-alls, fails the PR, instructs rebase + force-push) — **a PRACTICE / technique, not a capability layer** ⇒ **DECLINED**, on the **v211** discipline (*corpus-first-for-a-technique ≠ a mintable §C class*) and the **v279/v280** handling. ⚠️ **RECORDED as the audit-reviewable §C-2 candidate, NOT minted.**
+
+**RECORDED for the audit (not self-executed):**
+
+- ⭐⭐ **A genuine two-pole AI-PROVENANCE axis is now visible across five ships.** **v239 dsh-web-ui** = the *required-metadata* pole (AI authorship treated as mandatory provenance, naming Claude Code). **v281 ComfyUI** = the *erasure* pole (CI fails the PR until the agent's name is removed). Between them sit three *left-on-default* observations: **v243** ToolJet (905 trailer lines, uncurated default), **v273** munder-difflin (599 of 986 commits crediting a named Claude model), **v280** ai-agent-book (**1** of 2,055). ⇒ The axis is **required / default-on / erased**, and the corpus now holds cross-author instances of all three. Whether this is a mintable class or a descriptive tier is an audit question; **recorded, not decided.**
+- **Method-rule candidate (D-class):** *a squash-merge concatenates every constituent commit's trailers, so a trailer **LINE** count and a trailer **COMMIT** count differ by design.* Live instance: this repository's history carries **62 trailer lines across exactly 5 commits** (one PR alone holds 31). My first two measurements produced 62 and 5 and I treated them as contradictory; **both were correct.** Reconcile before publishing either — the v278 enumerate-then-reconcile rule extended to a specific mechanism.
+- **Method-rule confirmation (v267):** `git log` truncated at **50 commits** under git 2.19 here, reporting **13 authors** and a **2026-08-14 first commit** for a repo with **358 authors** and a **2023-01-03** root. **Second independent instance** of the v267 pathology. Use `git rev-list` for all counting.
+- **§C-2 hygiene note:** reading **C37**'s full written definition is what prevented a false mint here — the second live demonstration (after **v262**) of the v259 argument for keeping the §C-2 catalogue.
+
+**Streak: `GA:137` → `GA:138 · OG:13 [7 ov]` — 61 consecutive GA v220→v281. §35 CLEAR** (window {v279 GA, v280 GA, v281 GA} = 0 OG). **Override review: 21st consecutive discharge.**
+
+⚠️ **METHOD CAVEAT ON THIS ENTRY.** The 20-agent fleet largely failed (machine slept mid-run; 9/15 agents errored, 8.6 h, **~5.73M subagent tokens — past the 3M per-ship soft cap**); the ship was completed in **report-only mode with zero further fan-outs** per the binding loop-budget rule. **Every claim in this §F entry was made by hand** — the §C collision sweep, all 58 row titles, the #12 definition check, the C37 boundary test, and the v212/v196/v210/v211 precedent reads. Fleet output contributed **no** mint reasoning, and three of its findings were corrected or discarded (one fabricated `AGENTS.md` quote, one wrong author breakdown from truncating `git log`, two `--all`-vs-HEAD scope mismatches).
