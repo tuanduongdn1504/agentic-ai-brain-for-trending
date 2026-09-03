@@ -3,7 +3,26 @@
 ## Source
 Refute-first workflow `wf_06a79485-687` (evidence + corrections) + 2 completeness critics + main-loop primary checks. Companion to [[claims-scorecard]].
 
-## Corrections (Rule 12 — fail loud)
+## 🔄 Corrections added by the 2026-09-03 revisit
+
+New corrections from the second drain. Full evidence + the 78-claim scorecard: [[revisit-2026-09-03]].
+
+7. **"Windows support requires WSL 2" → FALSE.** Windows is **native** — the README ships `iex (irm https://hermes-agent.nousresearch.com/install.ps1)`, installing to `%LOCALAPPDATA%\hermes`. WSL2 is an alternative.
+8. **"16 platforms including iMessage and WeChat" → FALSE.** The README enumerates **8** entry points (Telegram, Discord, Slack, WhatsApp, Signal, Email, Home Assistant, CLI). **WeChat is a third-party community bridge** (`AaronWong1999/hermesclaw`); iMessage is not listed.
+9. **"Ollama is the easiest way to run local models" → FALSE, and it matters most.** The documented integration is **"Ollama Cloud"** — a cloud service requiring an API key, default endpoint `https://ollama.com/v1`. Ollama is not named in Hermes' own docs; official local-model guidance is "your own endpoint". **The bundle's most-recommended "private" path is a third-party cloud by default.** Directly compounds the data-residency blocker below.
+10. **"Requires a 64,000-token context window to provide agent tools" → FALSE (unanimous, 3/3 lenses).** No minimum exists; tools activate when present and defer their schemas. ~60K is a *tool-listing budget ceiling*, not a requirement.
+11. **"Claude Code is available as a provider / is positioned as a companion tool" → FALSE.** Claude Code appears **nowhere in the README**. ⚠️ But the repo's **GitHub topics do include `claude-code`, `claude`, `codex`, `anthropic`, `openai`** — a plausible seed for this recurring confusion ([[the-vendor-seeded-false-claim]]).
+12. **"6 execution backends" → 7.** `+ Vercel Sandbox`, verified verbatim in the README.
+13. **"20+ platforms" and "60+ built-in tools" → DOWNGRADED to UNVERIFIABLE.** Neither string is in the README; the docs site is JS-rendered and unreadable by `curl`. 8 entry points is the confirmed floor. *(A grounder agent fabricated a 20-name enumeration during this drain — see the process failures in [[revisit-2026-09-03]].)*
+14. **Nous Portal tiers → STALE.** Free/Plus/Super/Ultra has **no 2026-09-03 corroboration**; the Portal is behind a Vercel Security Checkpoint. Do not cite ([[pricing-license-and-skill-hub]]).
+15. **Desktop "macOS 12+/Windows 10-11" version floors → UNVERIFIED.** `apps/desktop/README.md` names the three platforms with no floors. These figures were previously in this wiki and a critic agent "confirmed" them *by reading this wiki* — circular ([[hermes-desktop]]).
+16. **"~90 skills pre-installed" → do not pin a number, and do not conflate skills with tools.** Skills are *generated* from experience and grow per user; tools ship fixed. No primary source states a built-in skill count.
+
+**Still standing from 2026-07-18, now independently corroborated:** the "runs under Claude Code" correction (C17) drew **2 contradictions and 0 repeats** across six fresh sources — the field now agrees with the corpus.
+
+**Still standing and now traced to its source:** "the only agent with a built-in learning loop" (H4) is **the vendor's own README text, live on 2026-09-03**, which is why it recurs. [[the-vendor-seeded-false-claim]].
+
+## Corrections (2026-07-18 — Rule 12, fail loud)
 1. **"22K stars" → 216,731 stars.** Widely-repeated SEO blogs undercount by ~10× (H2). The real figure makes Hermes the **largest single repo by stars in the corpus** (> AutoGPT 184,043).
 2. **"Launched February 2026" → first release March 12, 2026 (v0.2.0).** Repo created 2025-07-22; no Feb release. (H5.)
 3. **"Only agent with a built-in learning loop" → FALSE.** Refuted by Hermes' own OpenClaw-import tool (H4).

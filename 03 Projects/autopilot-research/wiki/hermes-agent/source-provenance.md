@@ -7,7 +7,9 @@
 - **Primary grounding (main loop):** GitHub API ×2 endpoints, official README, [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com) + `/docs/`.
 - Full manifest: `raw/2026-07-18-hermes-agent/_sources.md`.
 
-## The 8 sources
+> 🔄 **A second drain added 6 more sources on 2026-09-03** — 0 of 6 overlap the 8 below (1 creator overlap, different episode). Their manifest, stance balance, per-source accuracy and the high-reach candidates the rubric dropped are in `raw/2026-09-03-hermes-agent-revisit/_sources.md` and [[revisit-2026-09-03]]. **Stance note: that bundle has zero critical-comparison sources** — all six are install/tutorial content, which is a known gap.
+
+## The 8 sources (2026-07-18 drain)
 | # | Channel | Views | Len | Uploaded | Stance | Notes |
 |---|---------|-------|-----|----------|--------|-------|
 | 1 ⚓ | Phan Dong Giang - Learn AI (VN) | 4,022 | 39:29 | 2026-07-16 | **promotional** | Operator anchor. No-code A-Z, "Dễ Hơn OpenClaw". EN auto-translation used; VN original retained. |

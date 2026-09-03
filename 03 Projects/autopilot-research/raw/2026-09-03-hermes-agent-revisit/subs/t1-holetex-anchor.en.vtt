@@ -1,0 +1,2912 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.340 --> 00:00:05.248
+Imagine you’re a programmer with a
+personal assistant that summarizes the top
+tech
+
+00:00:05.248 --> 00:00:10.087
+news, automatically reads your work
+emails, and sorts your tasks every morning
+at
+
+00:00:10.087 --> 00:00:10.437
+nine.
+
+00:00:10.437 --> 00:00:15.346
+Or maybe you’re a salesperson, and it
+summarizes your orders and customer
+messages
+
+00:00:15.346 --> 00:00:16.257
+every evening.
+
+00:00:16.257 --> 00:00:19.483
+Or you’re an investor, and this assistant
+helps you...
+
+00:00:19.483 --> 00:00:24.881
+automatically monitor prices and
+proactively send you notifications about
+technical
+
+00:00:24.881 --> 00:00:25.537
+analysis.
+
+00:00:25.537 --> 00:00:30.424
+The special thing about this assistant is
+that it can work around the clock, even
+
+00:00:30.424 --> 00:00:31.445
+while you sleep.
+
+00:00:31.445 --> 00:00:36.260
+You can easily interact with it entirely
+through your phone, using messages or
+
+00:00:36.260 --> 00:00:36.697
+voice.
+
+00:00:36.697 --> 00:00:40.636
+And the more you use it, the smarter and
+more effective it becomes
+
+00:00:40.636 --> 00:00:43.279
+through its automatic learning mechanism.
+
+00:00:43.279 --> 00:00:45.636
+This assistant is called Hermes Agent.
+
+00:00:45.636 --> 00:00:49.636
+In today’s video, I’ll guide you through
+everything from scratch.
+
+00:00:49.636 --> 00:00:54.564
+We’ll start by looking at what Hermes
+Agent is, how its architecture works, and
+how
+
+00:00:54.564 --> 00:00:55.421
+to install it.
+
+00:00:55.421 --> 00:00:56.850
+Now, let’s get started.
+
+00:01:00.720 --> 00:01:02.774
+Back at Hotech—I’m Tùng!
+
+00:01:03.380 --> 00:01:08.185
+For those watching for the first time, I
+make videos about programming and
+
+00:01:08.185 --> 00:01:09.038
+technology.
+
+00:01:09.038 --> 00:01:11.673
+This is the GitHub page for Hermes Agent.
+
+00:01:11.673 --> 00:01:16.246
+As you can see, it’s described as an AI
+Agent that can learn by itself and
+
+00:01:16.246 --> 00:01:19.346
+continuously improve, built by Nous
+Research.
+
+00:01:19.346 --> 00:01:23.686
+It’s also the only Agent with a feature
+called the Learning Loop, or
+
+00:01:23.686 --> 00:01:24.823
+the learning loop.
+
+00:01:24.823 --> 00:01:29.515
+We’ll look at exactly how the Learning
+Loop works later, in the section where we
+
+00:01:29.515 --> 00:01:31.861
+explore Hermes Agent’s architecture.
+
+00:01:31.861 --> 00:01:36.766
+Basically, it automatically creates skills
+from its experience working with us.
+
+00:01:36.766 --> 00:01:41.031
+And besides the Learning Loop, it also has
+another very useful feature:
+
+00:01:42.340 --> 00:01:47.350
+it can understand many separate
+conversations over time while sharing one
+common
+
+00:01:47.350 --> 00:01:47.858
+memory.
+
+00:01:47.858 --> 00:01:52.795
+This is different from how we usually work
+with Claude Code, where each session or
+
+00:01:52.795 --> 00:01:57.587
+project has its own memory system, so we
+can’t know what we discussed in another
+
+00:01:57.587 --> 00:01:58.168
+session.
+
+00:01:58.168 --> 00:01:59.001
+But
+
+00:02:02.160 --> 00:02:07.580
+with Hermes Agent, there’s a system that
+can remember all of our conversations and
+
+00:02:07.580 --> 00:02:08.287
+sessions.
+
+00:02:08.287 --> 00:02:13.472
+It only launched this year, in 2026, but
+as you can see, Hermes Agent has already
+
+00:02:13.472 --> 00:02:16.457
+passed two hundred thousand stars on
+GitHub.
+
+00:02:16.457 --> 00:02:19.207
+And it’s available under the MIT License.
+
+00:02:21.100 --> 00:02:24.006
+So we can use it completely free of
+charge.
+
+00:02:24.006 --> 00:02:29.071
+We only pay for the LLM services, meaning
+we only pay for the tokens we use.
+
+00:02:29.071 --> 00:02:31.646
+The Agent itself is completely free.
+
+00:02:31.646 --> 00:02:34.635
+There are several ways to use Hermes
+Agent.
+
+00:02:34.635 --> 00:02:37.458
+We can run it on a personal laptop, on a
+PC,
+
+00:02:39.060 --> 00:02:39.780
+or on a VPS.
+
+00:02:39.780 --> 00:02:45.062
+But keep in mind that if we want an
+assistant that works twenty-four seven,
+even
+
+00:02:45.062 --> 00:02:48.343
+while we sleep, we should usually host it
+on a VPS.
+
+00:02:48.343 --> 00:02:53.625
+If we install it on our personal computer,
+the computer may go to sleep, and then
+
+00:02:53.625 --> 00:02:55.866
+any automatically running tasks
+
+00:02:57.900 --> 00:02:59.102
+may stop working.
+
+00:02:59.102 --> 00:03:04.388
+So in today’s video, I’ll show you how to
+install Hermes Agent on a VPS, giving us
+
+00:03:04.388 --> 00:03:09.275
+an assistant that can work for us
+twenty-four seven, even while we sleep.
+
+00:03:09.275 --> 00:03:14.722
+Simply put, a VPS is like having a
+computer running twenty-four seven in the
+cloud
+
+00:03:15.300 --> 00:03:16.616
+on a cloud system.
+
+00:03:16.616 --> 00:03:22.668
+To talk with Hermes Agent, we can easily
+use apps such as Telegram, Slack, Discord,
+
+00:03:22.668 --> 00:03:23.501
+and more.
+
+00:03:25.580 --> 00:03:28.450
+Next, let’s look at how Hermes Agent
+works.
+
+00:03:31.920 --> 00:03:36.856
+Here, we have a VPS, essentially a
+computer running in the cloud and
+operating
+
+00:03:36.856 --> 00:03:38.147
+twenty-four seven.
+
+00:03:38.147 --> 00:03:43.084
+Once we install Hermes Agent on this VPS,
+I’ll show you later in the video how to
+
+00:03:43.084 --> 00:03:44.071
+set it up there.
+
+00:03:44.071 --> 00:03:45.362
+Once it’s installed
+
+00:03:50.840 --> 00:03:56.251
+on a VPS, we can easily interact and talk
+with Hermes Agent through apps such as
+
+00:03:56.251 --> 00:03:59.582
+Telegram, WhatsApp, Discord, Slack, and
+more.
+
+00:03:59.582 --> 00:04:04.743
+We can use these apps on our phones or an
+iPad, and that’s all we need to start
+
+00:04:04.743 --> 00:04:06.658
+talking with Hermes Agent.
+
+00:04:11.329 --> 00:04:16.435
+Now I’ll walk you through the entire
+process, from sending a message in
+Telegram to
+
+00:04:16.435 --> 00:04:18.656
+seeing how Hermes Agent handles it.
+
+00:04:18.656 --> 00:04:23.466
+In our app, when we send a message through
+Telegram, Hermes Agent on the VPS has
+
+00:04:23.466 --> 00:04:24.650
+something called a
+
+00:04:31.300 --> 00:04:31.913
+gateway.
+
+00:04:31.913 --> 00:04:34.669
+It’s like a door that receives the
+message.
+
+00:04:34.669 --> 00:04:39.799
+Once it receives that message, it passes
+it to a component called the Agent Loop.
+
+00:04:39.799 --> 00:04:45.006
+The Agent Loop reads and records the
+memories, and it also manages a collection
+of
+
+00:04:45.006 --> 00:04:45.925
+tools so it can
+
+00:04:50.660 --> 00:04:51.287
+use them.
+
+00:04:51.287 --> 00:04:56.381
+It also has another important job: acting
+as the main point of contact with the
+
+00:04:56.381 --> 00:05:00.299
+LLMs, or with model providers such as
+OpenAI and Anthropic.
+
+00:05:00.299 --> 00:05:03.512
+These are the companies providing the AI
+models.
+
+00:05:03.512 --> 00:05:06.333
+All the parts like the gateway, Agent
+Loop,
+
+00:05:09.340 --> 00:05:12.149
+memory, and tools belong to Hermes Agent.
+
+00:05:12.149 --> 00:05:16.643
+The external LLM providers are where we
+actually use the AI models.
+
+00:05:16.643 --> 00:05:22.100
+So when the Agent Loop receives a request
+from the user through apps like these, it
+
+00:05:22.100 --> 00:05:25.711
+sends a request to the LLMs, to the
+external providers
+
+00:05:28.920 --> 00:05:29.578
+outside.
+
+00:05:29.578 --> 00:05:35.092
+When the model replies, if the LLM’s
+response says that a tool is also needed,
+the
+
+00:05:35.092 --> 00:05:40.853
+Agent Loop knows to call the appropriate
+tools—for example, to browse the web, open
+
+00:05:40.853 --> 00:05:44.145
+a terminal, or use tools for generating
+images.
+
+00:05:45.680 --> 00:05:50.336
+And this is what we call the Harness—the
+part that wraps around a model, which I
+
+00:05:50.336 --> 00:05:52.269
+introduced in an earlier video.
+
+00:05:52.269 --> 00:05:55.994
+If you'd like, you can go back and watch
+my video about Harness.
+
+00:05:55.994 --> 00:06:00.864
+Once it finishes running the tools, it
+remembers the relevant memories, and then
+
+00:06:00.864 --> 00:06:02.082
+sends its response.
+
+00:06:03.392 --> 00:06:05.325
+This is our Telegram message.
+
+00:06:05.325 --> 00:06:10.350
+So, this is the complete lifecycle of a
+message when we work with Hermes Agent.
+
+00:06:10.350 --> 00:06:15.375
+Now we'll go into more detail to see how
+it stores memory, and how it creates and
+
+00:06:15.375 --> 00:06:16.457
+updates skills.
+
+00:06:16.457 --> 00:06:17.290
+So now we'll
+
+00:06:21.972 --> 00:06:24.608
+describe how its self-learning loop works.
+
+00:06:24.608 --> 00:06:28.811
+Suppose it's working and notices that a
+certain task keeps recurring.
+
+00:06:28.811 --> 00:06:33.656
+At that point, it automatically recognizes
+the pattern and writes the necessary
+
+00:06:33.656 --> 00:06:37.005
+skills itself, so we don't have to create
+them manually.
+
+00:06:37.005 --> 00:06:40.567
+Of course, you can still create skills
+manually if you want.
+
+00:06:40.567 --> 00:06:42.063
+But because Hermes Agent
+
+00:06:42.063 --> 00:06:47.021
+comes with the ability to learn on its
+own, create skills, and update existing
+
+00:06:47.021 --> 00:06:51.216
+skills, it becomes smarter over time and
+works more efficiently.
+
+00:06:51.216 --> 00:06:56.327
+It's just like an employee: when someone
+is new to a job, they will naturally take
+
+00:06:56.327 --> 00:06:59.988
+longer than someone with five or ten years
+of experience.
+
+00:06:59.988 --> 00:07:00.675
+This agent
+
+00:07:00.675 --> 00:07:02.796
+now has that same ability to learn.
+
+00:07:02.796 --> 00:07:07.697
+Whenever it encounters a similar task
+again, it can use the skills it remembered
+
+00:07:07.697 --> 00:07:08.502
+from before.
+
+00:07:08.502 --> 00:07:12.525
+So it only needs to retrieve that skill
+and apply it in the same way.
+
+00:07:12.525 --> 00:07:17.572
+As a result, both its working time and the
+quality of its work improve compared with
+
+00:07:17.572 --> 00:07:18.742
+the first attempt.
+
+00:07:18.742 --> 00:07:21.668
+That's the self-learning loop in Hermes
+Agent.
+
+00:07:21.668 --> 00:07:26.432
+For example, the first time it creates a
+skill, but the second time, the time it
+
+00:07:26.432 --> 00:07:31.342
+takes to complete the task drops, and the
+number of tokens it consumes also drops
+
+00:07:31.342 --> 00:07:32.368
+significantly.
+
+00:07:32.368 --> 00:07:37.425
+This is one of the biggest strengths of
+Hermes Agent: its self-learning loop, also
+
+00:07:37.425 --> 00:07:39.037
+called its learning loop.
+
+00:07:39.037 --> 00:07:41.749
+If you're not yet clear on what this skill
+is,
+
+00:07:41.749 --> 00:07:44.303
+you can watch my video about agent skills.
+
+00:07:44.303 --> 00:07:48.828
+Through this learning loop, as it creates
+skills like these, it builds up a
+
+00:07:48.828 --> 00:07:50.214
+collection of skills.
+
+00:07:50.214 --> 00:07:55.177
+If you've watched my video about agent
+skills, you also know that a simple skill
+is
+
+00:07:55.177 --> 00:07:57.658
+just a Markdown file, or simply a piece of
+
+00:07:57.658 --> 00:07:58.478
+basic text.
+
+00:07:58.478 --> 00:08:03.892
+It has a section enclosed by three dashes,
+like this, and that section is called
+
+00:08:03.892 --> 00:08:04.876
+frontmatter.
+
+00:08:04.876 --> 00:08:10.536
+The reason this works better than using
+rules is that, by default, a rules file
+will
+
+00:08:10.536 --> 00:08:11.369
+usually be
+
+00:08:15.532 --> 00:08:20.881
+loaded in its entirety into the context
+window, regardless of its length, and it
+
+00:08:20.881 --> 00:08:23.755
+occupies a certain number of tokens there.
+
+00:08:23.755 --> 00:08:25.512
+Skills work differently.
+
+00:08:25.512 --> 00:08:30.541
+Even if we have a large collection of
+skills, we can think of each one as a work
+
+00:08:30.541 --> 00:08:35.012
+skill—for example, the skill used to
+export a PDF file, or the skill
+
+00:08:35.012 --> 00:08:40.411
+used to convert a piece of text into a
+speakable file, or text to speech, or to
+
+00:08:40.411 --> 00:08:42.725
+convert an audio file into text.
+
+00:08:42.725 --> 00:08:44.953
+Each of these is called a skill.
+
+00:08:44.953 --> 00:08:50.438
+It's just like us: we can have many
+skills, such as working with Excel, giving
+
+00:08:50.438 --> 00:08:52.323
+presentations, and so on.
+
+00:08:52.323 --> 00:08:53.156
+So now
+
+00:08:54.212 --> 00:08:56.763
+agents are equipped with skills as well.
+
+00:08:56.763 --> 00:09:01.864
+With Hermes Agent, there may be many
+skills, and it can automatically create
+many
+
+00:09:01.864 --> 00:09:06.965
+more, but it still works efficiently
+because, although there are lots of
+skills,
+
+00:09:06.965 --> 00:09:09.741
+the amount of text it places into the
+context
+
+00:09:12.412 --> 00:09:14.261
+window is actually very small.
+
+00:09:14.261 --> 00:09:19.309
+That's because it only sends in this
+frontmatter section, the part between
+these two
+
+00:09:19.309 --> 00:09:20.233
+sets of dashes.
+
+00:09:20.233 --> 00:09:25.436
+The specific content of the skill isn't
+placed into the context window when we
+first
+
+00:09:25.436 --> 00:09:26.699
+start a new session.
+
+00:09:26.699 --> 00:09:30.489
+So the number of tokens it occupies there
+is extremely small.
+
+00:09:30.489 --> 00:09:33.537
+Think of the left side here as a table of
+contents.
+
+00:09:33.537 --> 00:09:37.327
+The agent only reads these headings and
+their descriptions,
+
+00:09:39.412 --> 00:09:42.374
+then checks whether they match the user's
+request.
+
+00:09:45.292 --> 00:09:50.224
+If it finds a match, only then does it
+read the entire skill and load it into the
+
+00:09:50.224 --> 00:09:51.303
+context window.
+
+00:09:51.303 --> 00:09:55.928
+So even with many skills, these agents can
+still work very efficiently.
+
+00:09:55.928 --> 00:09:59.473
+Now let's look at the memory structure of
+Hermes Agent.
+
+00:09:59.473 --> 00:10:01.785
+During its operation, Hermes Agent
+
+00:10:04.892 --> 00:10:09.571
+as we chat with it, through messages,
+images, or files that we provide,
+
+00:10:09.571 --> 00:10:15.042
+automatically creates files for us, such
+as the user file, the memory file, and the
+
+00:10:15.042 --> 00:10:16.311
+file called sound.
+
+00:10:16.311 --> 00:10:20.117
+These contain information it has compiled
+and keeps very
+
+00:10:23.552 --> 00:10:27.014
+briefly: who we are and who uses the
+agent.
+
+00:10:27.932 --> 00:10:31.673
+In my own experience, it only takes up
+around 10 kilobytes.
+
+00:10:31.673 --> 00:10:37.093
+Every conversation is placed into that
+conversation's context window when we
+first
+
+00:10:37.093 --> 00:10:37.703
+start it.
+
+00:10:37.703 --> 00:10:43.200
+User contains user information, while
+memory contains some summarized details
+that
+
+00:10:43.200 --> 00:10:45.566
+it has automatically compiled using
+
+00:10:46.052 --> 00:10:46.604
+the LLM.
+
+00:10:46.604 --> 00:10:49.364
+Sound describes the user's personality.
+
+00:10:49.364 --> 00:10:53.701
+These three files are always loaded into
+every new conversation.
+
+00:10:53.701 --> 00:10:55.278
+That's the first layer.
+
+00:10:55.278 --> 00:10:59.851
+The second layer is where it stores all
+the conversations we have with
+
+00:11:03.532 --> 00:11:04.460
+Hermes Agent.
+
+00:11:04.460 --> 00:11:06.317
+It uses SQLite at this layer.
+
+00:11:06.317 --> 00:11:11.269
+Since the amount of data can become very
+large, it doesn't automatically put
+
+00:11:11.269 --> 00:11:15.292
+everything into the context window when we
+open a new session.
+
+00:11:15.292 --> 00:11:18.232
+Instead, it only looks things up when
+needed.
+
+00:11:18.232 --> 00:11:22.101
+Finally, the last layer can be expanded
+through additional
+
+00:11:23.112 --> 00:11:28.182
+For third-party memory, we have a range of
+tools such as memzero, Hisight, and
+
+00:11:28.182 --> 00:11:29.040
+Overviking.
+
+00:11:29.040 --> 00:11:34.344
+There are many external memory providers
+like these, and we can configure Hermes
+
+00:11:34.344 --> 00:11:35.514
+Agent to use them.
+
+00:11:35.514 --> 00:11:38.322
+In terms of memory, there are three
+layers.
+
+00:11:38.322 --> 00:11:39.155
+First—
+
+00:11:42.292 --> 00:11:46.327
+And that is the overall architecture I
+wanted to share with you.
+
+00:11:46.327 --> 00:11:50.896
+Now, we will move on to configuring and
+installing Hermes Agent on a VPS.
+
+00:11:50.896 --> 00:11:53.789
+The VPS service I will use today is
+Hostinger.
+
+00:11:53.789 --> 00:11:58.662
+Since I have a partnership with Hostinger,
+please visit the link in the video
+
+00:11:58.662 --> 00:11:59.652
+description to
+
+00:12:02.052 --> 00:12:06.073
+receive a 10% discount when you purchase a
+VPS from Hostinger.
+
+00:12:06.073 --> 00:12:10.404
+When you visit the link in the
+description, this website will open.
+
+00:12:10.404 --> 00:12:13.652
+We will go to the section where we can
+choose a plan.
+
+00:12:13.652 --> 00:12:17.673
+For our needs with Hermes Agent, the KVM2
+plan here will be very
+
+00:12:20.344 --> 00:12:22.740
+It comes with 8 GB of RAM.
+
+00:12:22.984 --> 00:12:24.704
+Or if you want more...
+
+00:12:26.144 --> 00:12:31.042
+If you want a more powerful VPS, you can
+choose one of the options here.
+
+00:12:31.042 --> 00:12:33.659
+However, I will select the KVM2 plan.
+
+00:12:33.659 --> 00:12:39.063
+Here, we can choose to purchase the VPS
+for one month, 12 months, or 24 months.
+
+00:12:39.063 --> 00:12:44.552
+Please note that my discount code, Holtech
+Agent, can only be applied to plans
+
+00:12:44.552 --> 00:12:45.385
+lasting
+
+00:12:46.024 --> 00:12:47.472
+12 months or longer.
+
+00:12:47.472 --> 00:12:51.389
+In other words, you can use it for either
+12 or 24 months.
+
+00:12:51.389 --> 00:12:55.561
+For the one-month option, my discount code
+does not apply.
+
+00:12:55.561 --> 00:12:57.350
+Please keep that in mind.
+
+00:12:57.350 --> 00:13:00.330
+For example, I will select 12 months here.
+
+00:13:00.330 --> 00:13:05.322
+And I will enter the discount code here:
+Holtech Agents, with an S at the end.
+
+00:13:05.322 --> 00:13:06.670
+Then I will apply it.
+
+00:13:06.670 --> 00:13:11.028
+You will receive a 10% discount when using
+the Holtech Agent code.
+
+00:13:11.028 --> 00:13:16.417
+Next, we will move down to the section
+where we can choose the server that will
+host
+
+00:13:16.417 --> 00:13:16.972
+our VPS.
+
+00:13:16.972 --> 00:13:19.349
+Here, the nearest option for me will
+
+00:13:19.349 --> 00:13:20.211
+be Malaysia.
+
+00:13:20.211 --> 00:13:24.051
+Malaysia has the lowest latency here, at
+43 milliseconds.
+
+00:13:24.051 --> 00:13:29.301
+You should choose the server closest to
+you, with the lowest latency available.
+
+00:13:29.301 --> 00:13:30.868
+I will select Malaysia.
+
+00:13:30.868 --> 00:13:36.118
+Since our goal is to configure Hermes
+Agent, you can first go to the
+Applications
+
+00:13:36.118 --> 00:13:36.951
+section
+
+00:13:38.314 --> 00:13:40.829
+here and choose from the available apps.
+
+00:13:40.829 --> 00:13:45.562
+In this case, I want to install Hermes
+Agent, and Hostinger already provides
+
+00:13:45.562 --> 00:13:48.964
+templates that make it easy to configure
+Hermes Agent.
+
+00:13:48.964 --> 00:13:52.736
+So, you can go to the Applications section
+and select it here.
+
+00:13:52.736 --> 00:13:56.878
+I will choose Hermes Agent and click the
+confirmation button here.
+
+00:13:56.878 --> 00:13:57.174
+Then
+
+00:13:57.204 --> 00:14:00.815
+after selecting Hermes Agent, we will see
+a few options.
+
+00:14:00.815 --> 00:14:04.119
+One option is to sign up for the AI router
+from Nexus.
+
+00:14:04.119 --> 00:14:09.268
+However, I will show you how to use the
+subscription included with the Plus or Pro
+
+00:14:09.268 --> 00:14:11.419
+plans you have already purchased
+
+00:14:15.864 --> 00:14:18.049
+so that you can use it with Hermes Agent.
+
+00:14:18.049 --> 00:14:22.353
+This means you will not need to spend
+extra money buying more tokens, and I will
+
+00:14:22.353 --> 00:14:24.075
+show you how to do that shortly.
+
+00:14:24.075 --> 00:14:28.379
+When you click Continue here, you will be
+taken to the page where you can sign in
+
+00:14:28.379 --> 00:14:29.836
+and complete the payment.
+
+00:14:29.836 --> 00:14:32.551
+Once the purchase is complete, click Start
+here.
+
+00:14:32.551 --> 00:14:34.824
+This is the page where we will configure
+
+00:14:34.864 --> 00:14:35.753
+Hermes Agent.
+
+00:14:35.753 --> 00:14:40.420
+This is the default username, so enter
+your own personal information here.
+
+00:14:40.420 --> 00:14:43.679
+You should not leave the default details
+as they are.
+
+00:14:43.679 --> 00:14:48.717
+Since this is only a demo, I will
+temporarily leave the name as Hermes Agent
+and use
+
+00:14:48.717 --> 00:14:50.791
+the default password shown here.
+
+00:14:51.704 --> 00:14:53.424
+Change your passwords.
+
+00:14:54.944 --> 00:14:57.879
+I will not use keys from Nexus or OCLabs.
+
+00:14:57.879 --> 00:15:01.882
+Instead, I will use my own ChatGPT Plus
+subscription.
+
+00:15:01.882 --> 00:15:03.750
+Now, I will click Deploy.
+
+00:15:03.750 --> 00:15:09.620
+We will wait for a moment while our VPS is
+installed and Hermes Agent is set up and
+
+00:15:09.620 --> 00:15:11.310
+made available for us.
+
+00:15:11.310 --> 00:15:12.143
+Then
+
+00:15:14.324 --> 00:15:19.442
+After a short wait, Hostinger has
+automatically installed Hermes Agent for
+us.
+
+00:15:19.442 --> 00:15:21.657
+Make sure you can see two services,
+
+00:15:22.964 --> 00:15:27.867
+two projects running: one called JFix, and
+the other called Hermes Agent, both
+
+00:15:27.867 --> 00:15:30.095
+showing a running status like this.
+
+00:15:30.095 --> 00:15:32.918
+That means the installation was
+successful.
+
+00:15:32.918 --> 00:15:35.221
+Each one must have its own container.
+
+00:15:35.221 --> 00:15:38.415
+Here, you will also see an option to open
+a terminal.
+
+00:15:38.415 --> 00:15:41.757
+The terminal is a workspace where you
+enter commands.
+
+00:15:41.757 --> 00:15:44.803
+Click the Terminal section here, and it
+will open
+
+00:15:44.803 --> 00:15:47.565
+in a new tab, where you can type commands.
+
+00:15:47.565 --> 00:15:50.652
+This is the simplest way to open the
+terminal.
+
+00:15:50.652 --> 00:15:56.095
+However, for a more proper setup, after
+registering a VPS, you will receive an IP
+
+00:15:56.095 --> 00:15:56.745
+address.
+
+00:15:56.745 --> 00:16:02.270
+Use the SSH command with your username and
+the VPS IP address so that we can connect
+
+00:16:02.270 --> 00:16:04.057
+and configure it using the
+
+00:16:04.057 --> 00:16:09.651
+username and the VPS IP address,
+connecting and configuring it with private
+and
+
+00:16:09.651 --> 00:16:10.569
+public keys.
+
+00:16:10.569 --> 00:16:13.993
+This makes the connection to the VPS more
+secure.
+
+00:16:13.993 --> 00:16:19.253
+In fact, I previously made a video
+explaining this part in my lesson on how
+to
+
+00:16:19.253 --> 00:16:19.837
+deploy a
+
+00:16:19.837 --> 00:16:23.013
+You can refer back to that video for the
+full process.
+
+00:16:23.644 --> 00:16:28.934
+So, for convenience, we can use the
+feature that opens a terminal directly on
+this
+
+00:16:28.934 --> 00:16:29.245
+VPS.
+
+00:16:29.245 --> 00:16:32.590
+Once you open it, you'll see an interface
+like this.
+
+00:16:32.590 --> 00:16:36.480
+This is the computer running on a cloud
+computing platform.
+
+00:16:36.824 --> 00:16:41.627
+Now, to install it, open this website so
+we can access the instruction file.
+
+00:16:41.627 --> 00:16:43.762
+I'll scroll down to this section.
+
+00:16:43.762 --> 00:16:47.955
+To begin the installation, we'll run the
+command “Hermes setup.”
+
+00:16:47.955 --> 00:16:53.139
+I'll select this part first, then return
+to the terminal window so we can enter the
+
+00:16:53.139 --> 00:16:54.130
+command there.
+
+00:16:56.764 --> 00:16:58.484
+Enter Hermes setup here.
+
+00:16:59.984 --> 00:17:02.741
+Here, we have a few options to choose
+from.
+
+00:17:02.741 --> 00:17:08.098
+First, there's quick setup, which uses a
+Node Portal with a free OAuth login and no
+
+00:17:08.098 --> 00:17:08.650
+API key.
+
+00:17:08.650 --> 00:17:13.928
+But as I mentioned, we'll be using our
+existing subscription plan for this setup
+
+00:17:13.928 --> 00:17:17.237
+rather than relying on a separate login or
+API key.
+
+00:17:18.224 --> 00:17:20.741
+So I'll choose the full setup option here.
+
+00:17:20.741 --> 00:17:22.252
+Then we'll select Space.
+
+00:17:24.404 --> 00:17:27.625
+Use the Space key and then Enter to make a
+selection.
+
+00:17:27.625 --> 00:17:32.119
+At this step, we can choose from several
+providers, as I explained in the
+
+00:17:32.119 --> 00:17:34.142
+architecture of a Hermes Agent.
+
+00:17:35.444 --> 00:17:40.707
+This is where we choose an LLM
+provider—the company providing the models
+we want to
+
+00:17:40.707 --> 00:17:41.013
+use.
+
+00:17:41.013 --> 00:17:46.047
+Models from Anthropic are known for very
+high quality, as are OpenAI's models.
+
+00:17:46.047 --> 00:17:51.082
+And as you can see, there are many
+providers listed here, practically all of
+the
+
+00:17:51.082 --> 00:17:53.828
+most popular providers in the world today.
+
+00:17:54.424 --> 00:17:57.950
+There are ROP, Anthropic, OpenAI, and so
+on.
+
+00:17:57.950 --> 00:18:01.666
+There are many models here, but now I'll
+choose
+
+00:18:03.284 --> 00:18:06.692
+I'll choose ChatGPT and Codex
+subscription.
+
+00:18:07.416 --> 00:18:12.424
+And this is also one of the advantages of
+using a ChatGPT subscription: it can be
+
+00:18:12.424 --> 00:18:13.866
+much more beneficial.
+
+00:18:13.866 --> 00:18:19.254
+That's because using Hermes Agent now
+consumes only from the subscription plans,
+so
+
+00:18:19.254 --> 00:18:21.986
+we don't have to pay separately for the
+API.
+
+00:18:21.986 --> 00:18:23.655
+On the other hand, if we use
+
+00:18:26.676 --> 00:18:29.583
+Anthropic here, we'd have to use the APIs.
+
+00:18:29.583 --> 00:18:34.732
+And as we know, Anthropic's models are
+extremely expensive and cost a lot.
+
+00:18:34.732 --> 00:18:37.639
+So I'll choose OpenAI here for this setup.
+
+00:18:39.036 --> 00:18:44.811
+I'll press Space, and here we'll have two
+choices: either use the ChatGPT and Codex
+
+00:18:44.811 --> 00:18:48.076
+subscription directly, or use the OpenAI
+API.
+
+00:18:48.076 --> 00:18:51.005
+So of course, we'll use the subscription.
+
+00:18:51.005 --> 00:18:52.344
+I'll select it now.
+
+00:18:52.344 --> 00:18:57.952
+The next thing I need to do is simply open
+the—uh, the instructions tell me to open
+
+00:18:57.952 --> 00:19:00.212
+this website, so I'll open it and
+
+00:19:00.212 --> 00:19:01.340
+enter this code.
+
+00:19:01.340 --> 00:19:03.032
+Right-click and copy it.
+
+00:19:03.032 --> 00:19:04.966
+Don't press Ctrl C to copy it.
+
+00:19:04.966 --> 00:19:09.720
+In the terminal window, Ctrl C means that
+the command will be canceled.
+
+00:19:09.720 --> 00:19:15.361
+Just remember that, use your mouse to
+select the code, right-click, and choose
+Copy
+
+00:19:15.361 --> 00:19:17.859
+instead of pressing Ctrl C, or it will
+
+00:19:18.296 --> 00:19:20.016
+exit now.
+
+00:19:21.056 --> 00:19:22.888
+And we'll open this website.
+
+00:19:22.888 --> 00:19:24.872
+Here, I'll log in to my account.
+
+00:19:24.872 --> 00:19:27.467
+Once I'm logged in, I'll click Continue.
+
+00:19:30.216 --> 00:19:35.366
+And now I'll paste the eight digits shown
+here—the “enter this code” section—to log
+
+00:19:35.366 --> 00:19:35.587
+in.
+
+00:19:35.587 --> 00:19:38.603
+I'll right-click, paste it, and click
+Continue.
+
+00:19:38.603 --> 00:19:43.385
+That's it, I've successfully logged in to
+Codex, and it immediately opens the
+
+00:19:43.385 --> 00:19:45.666
+interface where I can choose a model.
+
+00:19:48.716 --> 00:19:51.123
+So, there are many models here.
+
+00:19:51.123 --> 00:19:57.510
+At the time I'm recording this video, the
+5.6 Son model is the most powerful, right?
+
+00:19:57.510 --> 00:20:01.398
+I'll choose a cheaper model instead, GPT
+5.6 Luna.
+
+00:20:01.906 --> 00:20:06.390
+The more powerful the model you choose,
+the faster it will use up your tokens.
+
+00:20:06.390 --> 00:20:09.193
+So choose whichever model fits your needs
+here.
+
+00:20:09.193 --> 00:20:13.747
+To get started, as you get familiar with
+it, you'll certainly use it a lot while
+
+00:20:13.747 --> 00:20:16.269
+configuring everything at the beginning.
+
+00:20:16.269 --> 00:20:17.269
+So we'll choose a
+
+00:20:21.156 --> 00:20:24.698
+reasonably priced model here, since I
+mainly use Claude.
+
+00:20:26.196 --> 00:20:31.302
+But Claude, when used through Hermes with
+OAuth login, makes me purchase an
+
+00:20:31.302 --> 00:20:35.355
+additional package—basically, it requires
+using the API.
+
+00:20:35.355 --> 00:20:41.567
+It charges a very expensive API usage
+rate, so I bought a ChatGPT Plus plan too.
+
+00:20:41.567 --> 00:20:45.464
+So, to get started, I think I'll just
+choose 5.6 Luna.
+
+00:20:45.464 --> 00:20:48.653
+I'll press Space and select Luna, 5.6
+Luna.
+
+00:20:48.653 --> 00:20:52.018
+Next, it asks me to choose a terminal
+backend.
+
+00:20:52.018 --> 00:20:57.598
+It selects Keep current by default, so
+I'll leave that as is and press Space.
+
+00:20:57.598 --> 00:20:59.901
+Then it asks me to choose one...
+
+00:20:59.996 --> 00:21:01.761
+the platform to configure.
+
+00:21:01.761 --> 00:21:06.519
+As I mentioned, we’ll be using Telegram as
+our messaging platform, right?
+
+00:21:06.519 --> 00:21:09.819
+So I can select Telegram here, and then
+press Space.
+
+00:21:09.819 --> 00:21:14.817
+If you want, you can select multiple
+services here, such as iMessage, Microsoft
+
+00:21:14.817 --> 00:21:16.682
+Teams, or WhatsApp, and so on.
+
+00:21:16.682 --> 00:21:20.411
+There are plenty of options, but here I'll
+choose Telegram.
+
+00:21:20.411 --> 00:21:24.365
+I can select several options at once, and
+then I'll press Enter.
+
+00:21:26.536 --> 00:21:29.464
+Here it asks whether I want to create a
+Telegram bot.
+
+00:21:29.464 --> 00:21:34.163
+Since I want to use Telegram to
+communicate with this Hermes Agent, I need
+to create
+
+00:21:34.163 --> 00:21:35.049
+a Telegram bot.
+
+00:21:35.049 --> 00:21:39.066
+So here I'll choose the option to create a
+Telegram bot automatically.
+
+00:21:39.066 --> 00:21:40.837
+I'll select option number one.
+
+00:21:47.476 --> 00:21:49.118
+and I'll just press Enter.
+
+00:21:49.118 --> 00:21:50.834
+Now it will show me a QR code.
+
+00:21:50.834 --> 00:21:54.864
+You can use your own phone, open the
+camera, and scan this QR code.
+
+00:21:54.864 --> 00:21:58.670
+That will open the Telegram interface for
+creating a new bot.
+
+00:21:58.670 --> 00:22:00.536
+Or you can click the link here.
+
+00:22:02.836 --> 00:22:07.658
+When I open the link, it automatically
+launches the desktop app and opens the
+
+00:22:07.658 --> 00:22:09.767
+interface for creating a new bot.
+
+00:22:09.767 --> 00:22:12.555
+I'll leave the default name as Hermes
+Agent.
+
+00:22:12.555 --> 00:22:16.397
+If you want, you can customize it and
+choose a different name.
+
+00:22:16.397 --> 00:22:18.958
+I'll keep Hermes Agent and click Create.
+
+00:22:18.958 --> 00:22:21.369
+Once I click Create, our bot is created
+
+00:22:22.016 --> 00:22:23.595
+It happens very quickly.
+
+00:22:23.595 --> 00:22:26.679
+Remember to press Start here to activate
+the bot.
+
+00:22:27.576 --> 00:22:32.705
+After activating it and sending the Start
+command, we'll return to Hostinger.
+
+00:22:32.705 --> 00:22:36.902
+As you can see, it has automatically
+detected the Telegram user.
+
+00:22:36.902 --> 00:22:41.953
+We need to send a message so the bot can
+identify the ID of our logged-in account
+
+00:22:41.953 --> 00:22:43.974
+and automatically send it over
+
+00:22:47.076 --> 00:22:48.445
+to the Hermes Agent.
+
+00:22:48.445 --> 00:22:53.034
+Here it asks whether this Telegram account
+is allowed to use the bot.
+
+00:22:53.034 --> 00:22:56.334
+By default, it selects Yes, shown as the
+letter Y.
+
+00:22:56.334 --> 00:23:01.084
+If you want to be explicit, type Y again
+to confirm Yes and allow access.
+
+00:23:01.084 --> 00:23:06.237
+For example, if you have multiple accounts
+and want to add them so they can use
+
+00:23:06.237 --> 00:23:11.314
+the bot to communicate with the Hermes
+Agent, you can add them here, separated by
+
+00:23:11.314 --> 00:23:13.133
+commas between the user IDs.
+
+00:23:13.626 --> 00:23:17.601
+But I'm only using one account, so I won't
+select anything else.
+
+00:23:18.856 --> 00:23:22.451
+It's asking whether I want to use my user
+ID as a home channel.
+
+00:23:22.451 --> 00:23:27.053
+The default is Yes, and it already has Yes
+selected, so I can just press Enter.
+
+00:23:27.053 --> 00:23:31.295
+That means I've successfully configured
+the platform for messaging.
+
+00:23:31.295 --> 00:23:35.034
+You can follow the same process for other
+messaging platforms
+
+00:23:37.476 --> 00:23:39.219
+such as WhatsApp or Discord.
+
+00:23:39.219 --> 00:23:41.108
+Just follow the instructions.
+
+00:23:41.108 --> 00:23:45.901
+Now it's asking whether I want to restart
+the gateway to apply these changes, so
+
+00:23:45.901 --> 00:23:48.443
+I'll keep the default Yes and press Enter.
+
+00:23:48.443 --> 00:23:53.382
+Basically, we've connected our personal
+Telegram account to this Hermes Agent.
+
+00:23:53.382 --> 00:23:54.215
+In a moment
+
+00:23:57.376 --> 00:24:00.582
+we'll try sending messages and
+communicating with it.
+
+00:24:00.582 --> 00:24:01.697
+Next are the tools.
+
+00:24:01.697 --> 00:24:06.575
+You can look back at the section where I
+described the Hermes Agent architecture
+and
+
+00:24:06.575 --> 00:24:07.202
+its tools.
+
+00:24:07.202 --> 00:24:11.732
+The Agent Loop has a collection of tools
+it can use, and here we have a whole list
+
+00:24:11.732 --> 00:24:13.967
+of them, with many enabled by default.
+
+00:24:16.784 --> 00:24:22.255
+This Hermes Agent automatically selects
+tools for us, such as Code Execution,
+which
+
+00:24:22.255 --> 00:24:26.570
+we'll leave at its default, and Image
+Generate, among many others.
+
+00:24:26.570 --> 00:24:32.118
+These tools expand the Agent's
+capabilities, giving it more ways to
+handle different
+
+00:24:32.118 --> 00:24:32.581
+tasks.
+
+00:24:32.581 --> 00:24:35.817
+Among those tasks, one is particularly
+important
+
+00:24:36.784 --> 00:24:41.685
+for running automation automatically on a
+schedule: the tool is Cron Jobs.
+
+00:24:41.685 --> 00:24:43.707
+Be sure to check Cron Jobs here.
+
+00:24:48.064 --> 00:24:53.048
+So now I'll basically just press Enter to
+install these tools for our Hermes Agent.
+
+00:24:53.048 --> 00:24:53.881
+Next, I'll
+
+00:24:57.784 --> 00:24:58.896
+choose the browser.
+
+00:24:58.896 --> 00:25:03.276
+It recommends using the local browser
+here, so I think we should go with the
+local
+
+00:25:03.276 --> 00:25:07.788
+browser recommended by Hermes rather than
+changing that recommendation for this
+
+00:25:07.788 --> 00:25:08.621
+setup.
+
+00:25:11.684 --> 00:25:12.786
+I'll press Space.
+
+00:25:12.786 --> 00:25:16.238
+Then we'll wait a moment while it installs
+all our tools.
+
+00:25:18.544 --> 00:25:20.887
+Next is the image creation section.
+
+00:25:22.304 --> 00:25:28.313
+Here, for image generation, because we’re
+using an OpenAI subscription, we’ll choose
+
+00:25:28.313 --> 00:25:33.993
+the option here to use Codex OAuth,
+specifically gpt-image-2 through ChatGPT
+and
+
+00:25:33.993 --> 00:25:34.899
+Codex OAuth.
+
+00:25:34.899 --> 00:25:40.578
+That way, it’s completely free, since it’s
+covered by the subscription we already
+
+00:25:40.578 --> 00:25:40.990
+have.
+
+00:25:40.990 --> 00:25:45.380
+If you use other models, you’ll have to
+pay their API fees separately.
+
+00:25:45.380 --> 00:25:48.711
+So a ChatGPT subscription is extremely
+convenient.
+
+00:25:48.711 --> 00:25:53.858
+All the money we paid for the bundle has
+already been spent upfront, and we only
+use
+
+00:25:53.858 --> 00:25:58.930
+the tokens included in the plan we
+purchased, rather than paying separately
+for
+
+00:25:58.930 --> 00:26:00.141
+every API request.
+
+00:26:00.141 --> 00:26:02.262
+That makes it very convenient.
+
+00:26:02.262 --> 00:26:06.994
+Also, as you may know, ChatGPT recently
+removed the five-hour limit.
+
+00:26:06.994 --> 00:26:12.622
+So with the Plus plan, we can use it quite
+comfortably, because ChatGPT now only has
+
+00:26:12.622 --> 00:26:13.683
+a weekly limit.
+
+00:26:13.683 --> 00:26:15.839
+That means we can use it quite
+comfortably.
+
+00:26:15.839 --> 00:26:19.552
+Another thing is that I’m using the Luna
+model, and its pricing was updated
+
+00:26:19.552 --> 00:26:21.708
+recently, so it’s extremely inexpensive.
+
+00:26:21.708 --> 00:26:25.901
+You can use it almost without restriction
+to generate images or chat with the Hermes
+
+00:26:25.901 --> 00:26:26.260
+Agent.
+
+00:26:26.260 --> 00:26:30.213
+This is especially convenient for this
+workflow, because you can keep using it
+
+00:26:30.213 --> 00:26:31.890
+freely within the subscription.
+
+00:26:31.890 --> 00:26:34.345
+So I’ll choose ChatGPT OAuth here for this
+setup.
+
+00:26:34.345 --> 00:26:36.065
+Next, I’ll...
+
+00:26:36.065 --> 00:26:39.347
+Next, choose the model for image
+generation.
+
+00:26:39.347 --> 00:26:45.134
+It depends on how you plan to use it: for
+the highest quality, choose gpt-image-2
+
+00:26:45.134 --> 00:26:46.948
+with airforce set to two.
+
+00:26:46.948 --> 00:26:49.712
+It’s slower, but the quality is best.
+
+00:26:49.712 --> 00:26:52.005
+So here, I’ll go with the Medium plan.
+
+00:26:52.005 --> 00:26:57.256
+Next, I’ll choose the text-to-speech
+provider to convert the text into a voice
+track
+
+00:26:57.256 --> 00:26:59.770
+for the voice output in our application.
+
+00:26:59.770 --> 00:27:01.817
+Here, we have several options.
+
+00:27:01.817 --> 00:27:06.619
+If we use the available Microsoft S TTS,
+which is recommended, it’s free.
+
+00:27:06.619 --> 00:27:12.130
+And if something is free, go ahead and use
+it, because I’ve already tested Microsoft
+
+00:27:12.130 --> 00:27:13.940
+S TTS and it works very well.
+
+00:27:13.940 --> 00:27:19.136
+Recently, I also made an extension that
+can automatically provide voice-over
+
+00:27:19.136 --> 00:27:23.634
+when watching English content on Coursera,
+Netflix, or YouTube.
+
+00:27:23.634 --> 00:27:29.031
+I also use these Microsoft S TTS models
+myself, and they read extremely well and
+
+00:27:29.031 --> 00:27:29.931
+accurately.
+
+00:27:29.931 --> 00:27:34.674
+So, for this kind of tutorial, I’ll use
+Microsoft S here too, since the
+
+00:27:34.674 --> 00:27:37.782
+pronunciation is both natural and
+accurate.
+
+00:27:37.782 --> 00:27:39.502
+And next, I’ll...
+
+00:27:39.502 --> 00:27:42.073
+It asks which search provider I want to
+use.
+
+00:27:42.073 --> 00:27:45.859
+I’ll just choose a free one, since I’m not
+using a subscription.
+
+00:27:45.859 --> 00:27:48.403
+So here, I think I’ll use DuckDuckGo.
+
+00:27:48.403 --> 00:27:52.671
+As you can see, it’s free, requires no
+key, and is search-only.
+
+00:27:52.671 --> 00:27:54.230
+I’ll use this service.
+
+00:27:54.230 --> 00:27:58.826
+That means the basic installation is now
+complete and successful.
+
+00:27:58.826 --> 00:28:04.653
+Now I’ll open the chat window—uh, the
+Telegram window—so we can try talking,
+without
+
+00:28:04.653 --> 00:28:06.787
+needing any additional setup.
+
+00:28:06.787 --> 00:28:09.991
+with this Hermes Agent to see whether it’s
+working yet.
+
+00:28:09.991 --> 00:28:14.589
+If you want to change any of the providers
+later, you simply run the Hermes Setup
+
+00:28:14.589 --> 00:28:15.494
+command again.
+
+00:28:15.494 --> 00:28:20.161
+Or, once our Telegram is already connected
+to Hermes Agent through the bot and we
+
+00:28:20.161 --> 00:28:24.619
+can communicate with it, then we can use
+that connection to manage the setup.
+
+00:28:24.619 --> 00:28:29.048
+we can simply use the Telegram window to
+chat with this Hermes Agent, and have it
+
+00:28:29.048 --> 00:28:32.068
+automatically change these providers for
+us as well.
+
+00:28:32.068 --> 00:28:34.132
+Now I’ll open my Hermes Agent bot.
+
+00:28:34.132 --> 00:28:37.966
+I’ll try talking to it right now and say,
+“Are you running yet?”
+
+00:28:37.966 --> 00:28:39.686
+No response.
+
+00:28:39.744 --> 00:28:41.464
+So I’ll...
+
+00:28:41.544 --> 00:28:42.746
+Let me check again.
+
+00:28:42.746 --> 00:28:44.850
+I’ll open Hermes Agent once more.
+
+00:28:44.850 --> 00:28:48.081
+I’ll open—not the Terminal, but this
+section here.
+
+00:28:48.081 --> 00:28:53.114
+Notice that you need to sign in with the
+account you created when we bought the VPS
+
+00:28:53.114 --> 00:28:53.716
+earlier.
+
+00:28:53.716 --> 00:28:58.524
+That section contains a username and
+password, which you can use to log in and
+
+00:28:58.524 --> 00:29:00.778
+access Hermes Agent successfully.
+
+00:29:00.778 --> 00:29:05.741
+There, once you enter that information,
+you can log in, and you’ll see an
+interface
+
+00:29:05.741 --> 00:29:06.388
+like this.
+
+00:29:06.388 --> 00:29:11.423
+Here, Active Sessions is still showing
+zero, which means it hasn’t been
+configured
+
+00:29:11.423 --> 00:29:11.711
+yet.
+
+00:29:11.711 --> 00:29:14.228
+So let’s check the Channel section again.
+
+00:29:14.944 --> 00:29:16.052
+Ah, there you go.
+
+00:29:16.052 --> 00:29:21.352
+As you can see, our Telegram has been
+configured, but it says we need to restart
+to
+
+00:29:21.352 --> 00:29:23.646
+apply the configuration changes.
+
+00:29:24.124 --> 00:29:27.616
+Alright, now I’ll simply click Restart for
+this Gateway.
+
+00:29:27.616 --> 00:29:29.580
+Here, I’ll restart the Gateway.
+
+00:29:29.580 --> 00:29:34.381
+The Gateway is one part of the Hermes
+Agent architecture that I explained at the
+
+00:29:34.381 --> 00:29:36.273
+beginning of the video, right?
+
+00:29:36.273 --> 00:29:39.183
+You can go back and review all those
+components.
+
+00:29:39.183 --> 00:29:41.365
+It says Telegram is connecting now.
+
+00:29:41.564 --> 00:29:46.404
+As you can see, it has now switched to the
+connected state, so I think it should be
+
+00:29:46.404 --> 00:29:47.210
+working now.
+
+00:29:47.210 --> 00:29:49.557
+I’ll reopen Telegram and ask it again.
+
+00:29:51.304 --> 00:29:53.024
+Are you up and running yet?
+
+00:29:54.424 --> 00:29:56.572
+Are you up and running yet?
+
+00:29:56.572 --> 00:29:58.524
+There, it’s typing now.
+
+00:29:58.524 --> 00:30:00.184
+Great, that worked.
+
+00:30:00.184 --> 00:30:06.626
+It says, “Codex GPT 5.6 Luna, the context
+is 900,000, and it will automatically
+
+00:30:06.626 --> 00:30:10.238
+compact the tokens when usage exceeds
+85%.”
+
+00:30:10.238 --> 00:30:13.167
+So, we’ve connected successfully.
+
+00:30:13.167 --> 00:30:14.143
+It replies:
+
+00:30:14.143 --> 00:30:15.285
+“It’s running now.
+
+00:30:15.285 --> 00:30:17.283
+You can start working right away.
+
+00:30:17.283 --> 00:30:19.138
+Type help to see the commands.”
+
+00:30:19.138 --> 00:30:24.486
+So, we’ve successfully connected Telegram,
+and I can now send messages to this
+
+00:30:24.486 --> 00:30:25.458
+Hermes Agent.
+
+00:30:25.458 --> 00:30:30.968
+Basically, I’ve shown you how to buy a
+VPS, configure it to run Hermes Agent on
+that
+
+00:30:30.968 --> 00:30:34.047
+VPS, and set up a Telegram bot so we can
+use it as
+
+00:30:37.868 --> 00:30:40.741
+a channel for communicating with Hermes
+Agent.
+
+00:30:40.741 --> 00:30:45.552
+Since this is a completely new Hermes
+Agent and it doesn’t know anything about
+me
+
+00:30:45.552 --> 00:30:47.922
+yet, I’ve kept this demo fairly simple.
+
+00:30:47.922 --> 00:30:51.369
+Once you reach this setup stage, you can
+start talking and
+
+00:30:55.988 --> 00:31:00.202
+When you talk to Hermes Agent and ask what
+it can do, think of it as one of your
+
+00:31:00.202 --> 00:31:04.825
+employees—someone who has just joined the
+company, or simply a new friend you've
+
+00:31:04.825 --> 00:31:05.369
+just met.
+
+00:31:05.369 --> 00:31:10.059
+You definitely wouldn't want to share too
+much information with them, such as your
+
+00:31:10.059 --> 00:31:12.438
+Gmail accounts or other account details.
+
+00:31:16.208 --> 00:31:18.661
+related to your code, and so on.
+
+00:31:18.788 --> 00:31:23.417
+There are many things like that which you
+won’t want to share immediately with
+
+00:31:23.417 --> 00:31:25.126
+someone you don’t trust yet.
+
+00:31:25.126 --> 00:31:29.827
+So, talk to it as you would to an
+employee, and adjust your mindset
+accordingly.
+
+00:31:29.827 --> 00:31:33.815
+Instead of treating it as just a chatbot,
+think of it as an employee.
+
+00:31:33.815 --> 00:31:37.162
+You assign it a task and expect that task
+to be completed.
+
+00:31:37.162 --> 00:31:38.515
+For example, let’s say
+
+00:31:38.515 --> 00:31:44.632
+For example, I might give it a task: every
+day at around 8 a.m., please compile all
+
+00:31:44.632 --> 00:31:47.554
+the hottest tech news right now for me.
+
+00:31:47.554 --> 00:31:49.928
+Then, at 8 a.m., I'd say to it...
+
+00:31:51.248 --> 00:31:53.016
+Hermes Agent exactly that.
+
+00:31:53.016 --> 00:31:57.396
+Since I’m recording a demo for you, I’m
+using Telegram Desktop here.
+
+00:31:57.396 --> 00:32:00.317
+In practice, you can also use it on your
+phone.
+
+00:32:00.748 --> 00:32:04.924
+If you use the Telegram app, you can chat
+with Hermes Agent there as well.
+
+00:32:04.924 --> 00:32:05.924
+Let’s try it now.
+
+00:32:07.588 --> 00:32:12.928
+Now, create a job for me that runs at
+around eight every morning and gathers all
+the
+
+00:32:12.928 --> 00:32:14.655
+hottest technology news.
+
+00:32:17.488 --> 00:32:22.683
+It seems that because I spoke Vietnamese,
+it didn’t understand my message.
+
+00:32:22.683 --> 00:32:24.414
+So, I’ll just type it now.
+
+00:32:24.414 --> 00:32:27.218
+Here I go: create a job that runs every
+day
+
+00:32:30.588 --> 00:32:34.668
+at eight in the morning and summarizes the
+hottest technology news.
+
+00:32:36.768 --> 00:32:39.179
+There, I’ll send this to Hermes Agent.
+
+00:32:39.179 --> 00:32:44.076
+As you can see, when we send a job like
+this, it automatically knows which skill
+
+00:32:44.076 --> 00:32:46.111
+from the Hermes skill set to use.
+
+00:32:46.111 --> 00:32:50.556
+By default, Hermes already includes a
+collection of built-in skills.
+
+00:32:50.556 --> 00:32:55.152
+While working with us, Hermes can also
+automatically create additional
+
+00:32:56.688 --> 00:33:00.022
+skills, and update existing ones when
+necessary.
+
+00:33:00.848 --> 00:33:05.395
+Right, whenever it creates something or
+updates it, it lets us know, so we don't
+
+00:33:05.395 --> 00:33:06.842
+need to worry about this.
+
+00:33:06.842 --> 00:33:08.633
+It all happens automatically.
+
+00:33:08.633 --> 00:33:12.629
+The simplest way to think about it is as
+if we're working with a person.
+
+00:33:12.629 --> 00:33:17.176
+We need to change our mindset when working
+with Hermes Agent in exactly the same
+
+00:33:17.176 --> 00:33:21.791
+way: we assign a task to this employee and
+expect it to know automatically what to
+
+00:33:21.791 --> 00:33:21.998
+do.
+
+00:33:21.998 --> 00:33:23.718
+And now, let's try it.
+
+00:33:23.718 --> 00:33:25.653
+I'll choose Vietnam time here.
+
+00:33:27.148 --> 00:33:29.346
+It knows I'm in Vietnam, right?
+
+00:33:29.346 --> 00:33:30.361
+Vietnam time.
+
+00:33:31.828 --> 00:33:37.556
+But if we wait until, uh, eight tomorrow
+morning, it’ll be very hard to demo for
+
+00:33:37.556 --> 00:33:38.389
+you.
+
+00:33:38.648 --> 00:33:43.386
+So in a moment, I'll tell it to trigger
+this cronjob right now, so we can see
+
+00:33:43.386 --> 00:33:45.872
+exactly what content it returns to us.
+
+00:33:48.028 --> 00:33:52.023
+It says it created the Daily Tech News job
+for 8:00 a.m.
+
+00:33:52.023 --> 00:33:57.173
+Vietnam time, with up to seven top tech
+stories from the past 24 hours.
+
+00:33:57.173 --> 00:34:00.951
+Since we'd have to wait until tomorrow,
+I'll say, trigger
+
+00:34:02.328 --> 00:34:04.048
+Now.
+
+00:34:05.208 --> 00:34:09.856
+I can see it says it was sent to the
+background and will appear in this chat
+when it
+
+00:34:09.856 --> 00:34:10.689
+finishes.
+
+00:34:12.108 --> 00:34:15.564
+I'll wait a moment for Hermes Agent to run
+and respond to me.
+
+00:34:15.564 --> 00:34:19.867
+It also tells us that my web search
+tool—the one I registered earlier with
+
+00:34:19.867 --> 00:34:24.029
+DuckDuckGo, right?—is failing because it
+hasn't been installed yet.
+
+00:34:24.029 --> 00:34:27.415
+Let's see whether it can fix this problem
+automatically.
+
+00:34:29.018 --> 00:34:32.430
+And it says it doesn't have permission to
+write to Hermes.
+
+00:34:34.208 --> 00:34:37.790
+So now it has another route: using RSS
+instead.
+
+00:34:38.378 --> 00:34:40.616
+From what I can see, is it smart?
+
+00:34:42.328 --> 00:34:46.791
+When it tried searching with our search
+tool, such as DuckDuckGo, it wasn't
+
+00:34:46.791 --> 00:34:47.624
+successful.
+
+00:34:50.048 --> 00:34:54.782
+it immediately looked for other options,
+and we didn't have to intervene at all
+
+00:34:54.782 --> 00:34:56.288
+throughout the process.
+
+00:34:56.288 --> 00:35:00.735
+It found another route: using a script of
+its own to retrieve the RSS feeds.
+
+00:35:00.735 --> 00:35:04.618
+Now I'll tell it to run the script it just
+created and see whether
+
+00:35:08.588 --> 00:35:10.308
+it runs.
+
+00:35:10.968 --> 00:35:11.394
+See?
+
+00:35:11.394 --> 00:35:15.014
+It gives us, uh, seven tech news stories.
+
+00:35:15.848 --> 00:35:17.994
+August 21 tech news.
+
+00:35:17.994 --> 00:35:18.294
+See?
+
+00:35:18.294 --> 00:35:22.869
+I give it a task, and it knows how to find
+other options instead of using the
+
+00:35:22.869 --> 00:35:25.569
+approach we typically take with chatbots.
+
+00:35:25.569 --> 00:35:28.643
+We usually co-work with them, working
+together.
+
+00:35:28.643 --> 00:35:33.743
+But with Hermes Agent, we can think of it
+as an employee—an extremely intelligent
+
+00:35:33.743 --> 00:35:34.576
+employee.
+
+00:35:36.388 --> 00:35:40.542
+and it will figure out on its own how to
+meet the requirement we gave it.
+
+00:35:40.542 --> 00:35:42.190
+So, that was our first demo.
+
+00:35:42.190 --> 00:35:46.988
+To make this search tool properly
+reusable, you can run the Hermes Setup
+command
+
+00:35:46.988 --> 00:35:50.498
+again and choose a different web search
+provider, because
+
+00:35:55.728 --> 00:35:57.873
+DuckDuckGo no longer works.
+
+00:35:58.728 --> 00:36:02.100
+Now, this is the kind of task that
+requires web search.
+
+00:36:02.100 --> 00:36:07.120
+So I’ll tell Hermes Agent: create a daily
+reminder for me to take my medication at
+
+00:36:07.120 --> 00:36:08.993
+eight o’clock every evening.
+
+00:36:10.448 --> 00:36:15.546
+So, once I give it a request like this,
+every evening at eight o’clock, the Agent
+
+00:36:15.546 --> 00:36:20.335
+will automatically send me a message
+reminding me that it is time to take my
+
+00:36:20.335 --> 00:36:21.184
+medication.
+
+00:36:21.184 --> 00:36:26.359
+In the past, I would typically use N8N for
+tasks like this, but with N8N I still had
+
+00:36:26.359 --> 00:36:30.067
+to set up workflows, and that could be
+quite complicated.
+
+00:36:30.067 --> 00:36:34.893
+So now, as you can see, using Hermes Agent
+makes everything much simpler.
+
+00:36:34.893 --> 00:36:40.036
+We simply chat with it in natural
+language, as if we were talking to an
+ordinary
+
+00:36:40.036 --> 00:36:45.259
+employee, and it automatically runs in the
+background on our VPS, acting like a
+
+00:36:45.259 --> 00:36:46.999
+24/7 personal assistant.
+
+00:36:46.999 --> 00:36:48.740
+You can also see this here.
+
+00:36:48.740 --> 00:36:50.205
+Here, can you see this?
+
+00:36:50.205 --> 00:36:55.141
+There is a message saying, “Self
+improvement review user profile updated.”
+
+00:36:55.141 --> 00:36:58.303
+That means it has automatically
+self-improved.
+
+00:36:58.303 --> 00:37:03.546
+This is an AI agent that improves itself,
+making itself smarter by automatically
+
+00:37:03.546 --> 00:37:05.397
+updating this user profile.
+
+00:37:05.397 --> 00:37:07.171
+We do not need to worry about
+
+00:37:07.171 --> 00:37:12.069
+what Hermes Agent does behind the scenes;
+whenever it does something, it lets us
+
+00:37:12.069 --> 00:37:12.435
+know.
+
+00:37:12.435 --> 00:37:14.606
+It does all of this automatically.
+
+00:37:14.606 --> 00:37:19.548
+We can view everything we just set up in
+this UI, including the Cron Job section.
+
+00:37:19.548 --> 00:37:21.494
+These are the jobs I requested.
+
+00:37:21.494 --> 00:37:22.618
+I have two, right?
+
+00:37:22.618 --> 00:37:26.960
+One reminds me to take my medicine in the
+evening, and it appears here.
+
+00:37:26.960 --> 00:37:29.655
+The second is the daily tech news
+briefing.
+
+00:37:29.655 --> 00:37:30.479
+In addition,
+
+00:37:30.479 --> 00:37:35.088
+you can also talk with Hermes Agent
+through Telegram, and it will handle
+things
+
+00:37:35.088 --> 00:37:36.414
+automatically for us.
+
+00:37:36.414 --> 00:37:40.885
+If you want to see more details in the UI,
+you can open the Hermes Agent UI.
+
+00:37:42.088 --> 00:37:48.266
+In addition, to expand an agent’s
+capabilities, once you trust this
+assistant tool,
+
+00:37:48.266 --> 00:37:50.876
+you can install and use MCPs with it.
+
+00:37:50.876 --> 00:37:53.747
+MCP stands for Model Context Protocol.
+
+00:37:56.508 --> 00:38:01.149
+This is a way for agents to expand the
+scope of what they can do and retrieve
+
+00:38:01.149 --> 00:38:04.344
+additional context from external
+applications.
+
+00:38:04.344 --> 00:38:08.604
+If you work in IT, you are probably
+familiar with Atlassian, right?
+
+00:38:08.604 --> 00:38:13.777
+It provides tools such as Jira and
+Bitbucket, which we can use to work and
+push code
+
+00:38:16.468 --> 00:38:18.516
+as well as create tasks there.
+
+00:38:18.516 --> 00:38:24.087
+By clicking the Install button here, we
+expand Hermes Agent’s capabilities even
+
+00:38:24.087 --> 00:38:24.743
+further.
+
+00:38:24.743 --> 00:38:29.249
+Similarly, this section includes many
+other MCPs, such as Figma,
+
+00:38:31.868 --> 00:38:33.133
+N8N, and Notion.
+
+00:38:33.133 --> 00:38:37.017
+We can install them directly through a UI
+like this.
+
+00:38:37.017 --> 00:38:38.372
+And besides that,
+
+00:38:39.868 --> 00:38:42.190
+there is another task I use quite often.
+
+00:38:42.190 --> 00:38:47.116
+When we deploy apps, many of them continue
+running while users are still using them,
+
+00:38:47.116 --> 00:38:47.538
+right?
+
+00:38:47.538 --> 00:38:52.111
+As a best practice, we usually need a page
+where we can monitor their status and
+
+00:38:52.111 --> 00:38:55.489
+health status, to check whether everything
+is currently
+
+00:38:59.088 --> 00:39:02.728
+online, or whether our service has
+encountered an error.
+
+00:39:02.728 --> 00:39:07.201
+We can also create a Cron Job to monitor
+these services automatically.
+
+00:39:07.201 --> 00:39:12.357
+For example, every two minutes or every
+minute, this job automatically calls the
+
+00:39:12.357 --> 00:39:17.665
+services through their health check URLs,
+and immediately sends a notification to
+
+00:39:17.665 --> 00:39:18.499
+Telegram for
+
+00:39:18.499 --> 00:39:18.754
+us.
+
+00:39:18.754 --> 00:39:21.894
+This is also one of the tasks I use very
+often.
+
+00:39:21.894 --> 00:39:26.733
+Basically, Hermes Agent is now very
+suitable for repetitive tasks.
+
+00:39:26.733 --> 00:39:32.505
+For more intensive coding tasks, I still
+use tools such as Codex or Claude Code for
+
+00:39:32.505 --> 00:39:33.948
+deeper coding when I
+
+00:39:36.848 --> 00:39:38.127
+work on a computer.
+
+00:39:38.127 --> 00:39:43.324
+Normally, I use Hermes Agent when I am
+out, taking a walk, or even just enjoying
+
+00:39:43.324 --> 00:39:43.884
+myself.
+
+00:39:43.884 --> 00:39:48.682
+If I suddenly have a good idea, I can tell
+this assistant to save it for me.
+
+00:39:48.682 --> 00:39:53.239
+Or, when working in a particular field, I
+might suddenly notice that
+
+00:39:53.239 --> 00:39:56.815
+a competitor, take a photo, and send it to
+Hermes Agent.
+
+00:39:56.815 --> 00:40:01.869
+The Agent can automatically save it so we
+know that we want to keep track of this
+
+00:40:01.869 --> 00:40:03.346
+competitor, and so on.
+
+00:40:03.346 --> 00:40:08.400
+In other words, any tasks we normally
+handle on our phones, while away from our
+
+00:40:08.400 --> 00:40:13.220
+computers, are a great fit for Hermes
+Agent, and it is especially powerful
+
+00:40:13.220 --> 00:40:18.261
+as we use it more and more, because Hermes
+Agent becomes increasingly intelligent
+
+00:40:18.261 --> 00:40:22.863
+through the Learning Loop system I
+described at the beginning of the video.
+
+00:40:22.863 --> 00:40:25.274
+Or, here is a very quick request: Create
+
+00:40:26.048 --> 00:40:27.768
+for me
+
+00:40:27.968 --> 00:40:33.499
+Let’s make a 4K image of a beautiful
+field, with a little boy herding buffaloes
+and
+
+00:40:33.499 --> 00:40:36.508
+happily making that cute “chiu chiu”
+sound.
+
+00:40:37.588 --> 00:40:38.932
+That’s basically it.
+
+00:40:38.932 --> 00:40:42.515
+I kept it simple because I’d already set
+up the image tool.
+
+00:40:42.515 --> 00:40:43.348
+I’m using my
+
+00:40:44.948 --> 00:40:48.397
+Codex subscription, and I’m asking the
+tool to make it.
+
+00:40:49.168 --> 00:40:53.956
+These are the typical tasks you can handle
+once you’ve granted Hermes Agent the
+
+00:40:53.956 --> 00:40:55.479
+necessary permissions.
+
+00:40:55.479 --> 00:41:00.049
+We can give it access to Google Drive so
+it can review our revenue figures and
+
+00:41:00.049 --> 00:41:01.718
+financial reports, right?
+
+00:41:01.718 --> 00:41:06.505
+Then we can have it create a job that
+summarizes everything quarterly, weekly,
+
+00:41:06.505 --> 00:41:07.666
+monthly, and so on.
+
+00:41:08.548 --> 00:41:13.613
+Or we can connect it to Gmail to
+automatically update our invoices at the
+end of
+
+00:41:13.613 --> 00:41:14.470
+every month.
+
+00:41:14.470 --> 00:41:19.146
+Instead of doing all that manually, once
+we grant Hermes Agent the right
+
+00:41:19.146 --> 00:41:24.055
+permissions, connections, and MCPs, it can
+handle those tasks completely
+
+00:41:24.055 --> 00:41:25.536
+automatically for us.
+
+00:41:28.458 --> 00:41:32.963
+automatically, saving us a lot of work and
+acting like a real assistant.
+
+00:41:32.963 --> 00:41:35.967
+And here, you can see the image it created
+for me.
+
+00:41:35.967 --> 00:41:38.144
+It looks pretty beautiful, right?
+
+00:41:39.328 --> 00:41:44.290
+GPT Image 2 is quite powerful, so it
+creates very nice images.
+
+00:41:44.488 --> 00:41:49.804
+So now I practically have an all-purpose
+assistant that can do almost anything for
+
+00:41:49.804 --> 00:41:51.498
+us, even create a website.
+
+00:41:51.498 --> 00:41:56.891
+Here, you can see that it automatically
+refreshed these skills and updated them
+for
+
+00:41:56.891 --> 00:41:57.122
+us.
+
+00:41:57.122 --> 00:41:57.739
+See that?
+
+00:41:57.739 --> 00:42:01.051
+Self improve review, skill schedule, news
+digest.
+
+00:42:01.051 --> 00:42:04.518
+We can view all the skills in the Skills
+tab right here.
+
+00:42:04.518 --> 00:42:08.975
+We can also see a whole list of skills
+here, including the ones that were already
+
+00:42:08.975 --> 00:42:09.650
+available.
+
+00:42:09.650 --> 00:42:14.175
+Hermes Agent comes with a large collection
+of built-in skills, and any skills it
+
+00:42:14.175 --> 00:42:16.673
+creates automatically are listed here too.
+
+00:42:16.673 --> 00:42:19.780
+You can look through this section and find
+everything.
+
+00:42:19.780 --> 00:42:22.074
+Now I’ll try searching for the Schedule
+
+00:42:23.248 --> 00:42:24.504
+news digest skill.
+
+00:42:24.504 --> 00:42:26.074
+I’ll search for it here.
+
+00:42:26.074 --> 00:42:26.389
+See?
+
+00:42:26.389 --> 00:42:30.079
+It found the skill it just updated for us,
+schedule news.
+
+00:42:30.079 --> 00:42:32.748
+We can even edit it directly on this page.
+
+00:42:32.748 --> 00:42:38.087
+But we only need to edit the things that
+matter; otherwise, we can let Hermes Agent
+
+00:42:38.087 --> 00:42:40.678
+handle all those tasks automatically.
+
+00:42:42.084 --> 00:42:43.998
+We don’t need to worry about that.
+
+00:42:43.998 --> 00:42:46.116
+Now, let me show you one more thing.
+
+00:42:47.604 --> 00:42:52.204
+I’ll tell Hermes Agent to create a website
+that tracks the Bitcoin price and
+
+00:42:52.204 --> 00:42:54.833
+automatically deploys it to Vercel for me.
+
+00:42:54.833 --> 00:42:56.009
+Let me say that now.
+
+00:42:57.744 --> 00:43:02.611
+You can simply tell it what you need in
+plain language, and the more specific you
+
+00:43:02.611 --> 00:43:03.643
+are, the better.
+
+00:43:03.643 --> 00:43:07.920
+For example, I’ll say: create a website
+that tracks the Bitcoin price
+
+00:43:09.824 --> 00:43:11.119
+deploy Vercel
+
+00:43:13.784 --> 00:43:18.664
+This task takes a little while, so I’ll
+wait for it to finish before we continue.
+
+00:43:18.664 --> 00:43:19.255
+See that?
+
+00:43:19.255 --> 00:43:23.913
+Even though I haven’t logged in to Vercel,
+it says it will create a temporary
+
+00:43:23.913 --> 00:43:24.726
+deployment.
+
+00:43:24.726 --> 00:43:29.310
+In other words, it will make a temporary
+deployment so the site can still be
+
+00:43:29.310 --> 00:43:30.937
+deployed to Vercel for us.
+
+00:43:30.937 --> 00:43:31.770
+As for the
+
+00:43:33.644 --> 00:43:38.201
+part where you want to set things up so
+you can log in to Vercel, you can simply
+
+00:43:38.201 --> 00:43:39.792
+tell this Agent to do that.
+
+00:43:39.792 --> 00:43:44.566
+Now I’ll open the website and see what the
+site created by this Agent looks like.
+
+00:43:44.566 --> 00:43:44.855
+See?
+
+00:43:44.855 --> 00:43:49.918
+In less than five minutes, it created a
+website for me and deployed it
+successfully.
+
+00:43:49.918 --> 00:43:50.751
+So,
+
+00:43:52.204 --> 00:43:56.725
+Bitcoin is really taking off today, up by
+as much as ten percent.
+
+00:43:56.725 --> 00:43:57.408
+See that?
+
+00:43:57.408 --> 00:44:02.014
+We have a very simple page like this, but
+this is only a basic demo.
+
+00:44:02.014 --> 00:44:05.426
+Still, you can see how powerful Hermes
+Agent is.
+
+00:44:05.426 --> 00:44:08.327
+We can use many different LLM providers.
+
+00:44:08.327 --> 00:44:12.080
+And if you use the ChatGPT ecosystem, it’s
+extremely
+
+00:44:12.080 --> 00:44:17.436
+convenient and extremely beneficial,
+because one subscription account gives you
+
+00:44:17.436 --> 00:44:19.043
+access to so many things.
+
+00:44:19.043 --> 00:44:22.792
+And while you’re working, Tibo resets
+quite often, right?
+
+00:44:22.792 --> 00:44:24.806
+So you get a lot of value from it.
+
+00:44:24.806 --> 00:44:30.074
+It resets around two or three times a
+week, which makes it very comfortable to
+use.
+
+00:44:30.074 --> 00:44:35.419
+Personally, I can use the Plus plan quite
+freely because I still handle the heavier
+
+00:44:35.419 --> 00:44:36.814
+tasks in Claude Code.
+
+00:44:36.814 --> 00:44:41.307
+The tasks I run through Hermes aren’t very
+demanding, so I also use the
+
+00:44:41.307 --> 00:44:44.690
+ChatGPT Plus plan, and that’s more than
+enough for me.
+
+00:44:44.690 --> 00:44:47.170
+Now let’s move on to checking security.
+
+00:44:47.170 --> 00:44:52.282
+Hermes also provides a tool that lets us
+check its security using a command called
+
+00:44:52.282 --> 00:44:53.485
+Hermes, Security.
+
+00:44:56.344 --> 00:45:01.808
+Now, if you have a question, or if you
+want to ask Hermes Agent itself to
+check—just
+
+00:45:01.808 --> 00:45:07.030
+say, in the ordinary way, “check security
+for us,” or “check security for me,”
+
+00:45:08.504 --> 00:45:09.337
+.
+
+00:45:09.824 --> 00:45:11.970
+But Hermes already has a command,
+
+00:45:14.024 --> 00:45:19.126
+right here, for checking the security
+level of Hermes Agent, so we can simply
+tell
+
+00:45:19.126 --> 00:45:19.959
+it, “um...
+
+00:45:22.644 --> 00:45:25.882
+Hermes, please run the Hermes Security
+check for me.
+
+00:45:28.544 --> 00:45:33.343
+It reports that it couldn't find a single
+vulnerability in any of the 152
+
+00:45:33.343 --> 00:45:34.223
+components.
+
+00:45:34.223 --> 00:45:39.421
+Since I had only just installed everything
+from scratch, and this was also the
+
+00:45:39.421 --> 00:45:44.940
+latest version of Hermes at the time I
+recorded this video, around August 2016,
+the
+
+00:45:44.940 --> 00:45:50.059
+system had already received a number of
+important security updates and many
+
+00:45:50.059 --> 00:45:51.266
+security patches.
+
+00:45:51.266 --> 00:45:55.039
+So at this point, there are essentially no
+security issues.
+
+00:45:55.039 --> 00:45:58.208
+And that's all the demos I wanted to share
+with you.
+
+00:45:58.208 --> 00:46:02.283
+Now I'd like to leave you with one final,
+open-ended suggestion.
+
+00:46:02.283 --> 00:46:06.735
+Imagine that right now we have just one
+Agent, the Hermes Agent, right?
+
+00:46:06.735 --> 00:46:09.602
+And imagine that, when you want to expand
+it to
+
+00:46:09.602 --> 00:46:14.404
+the scale of a company, you might want to
+create additional Agents specialized in
+
+00:46:14.404 --> 00:46:19.417
+marketing, finance, operations—the
+day-to-day running of the business—or
+sales.
+
+00:46:19.417 --> 00:46:24.148
+Once we divide the work among separate
+Agents like this, and give each one a
+clear
+
+00:46:24.148 --> 00:46:27.608
+role, they will definitely operate more
+efficiently than
+
+00:46:27.608 --> 00:46:28.586
+That is certain.
+
+00:46:28.586 --> 00:46:32.499
+But we must balance whether creating
+another Agent is worthwhile.
+
+00:46:32.564 --> 00:46:36.763
+In practice, start by working with the
+first Agent, the Hermes Agent.
+
+00:46:36.763 --> 00:46:41.758
+Then, as you work with it, if you find
+that creating another Agent is necessary,
+you
+
+00:46:41.758 --> 00:46:46.535
+can simply chat with Hermes Agent, and it
+will guide you through automatically
+
+00:46:46.535 --> 00:46:48.200
+creating new Agents for us.
+
+00:46:48.200 --> 00:46:49.648
+Each Agent will have its
+
+00:46:51.404 --> 00:46:54.749
+own context, its own permissions, and its
+own tools.
+
+00:46:54.749 --> 00:46:58.474
+That makes it much easier to scale up and
+expand the system.
+
+00:46:58.474 --> 00:47:03.720
+This is just an open-ended suggestion from
+me, because in reality Hermes Agent has
+
+00:47:03.720 --> 00:47:08.433
+much more knowledge than I could possibly
+cover in a short video like this.
+
+00:47:08.433 --> 00:47:13.420
+Now you can start working with Hermes
+Agent and gradually build these Agents up
+over
+
+00:47:13.420 --> 00:47:14.253
+time.
+
+00:47:14.434 --> 00:47:16.159
+That's all I wanted to share today.
+
+00:47:16.159 --> 00:47:18.277
+I hope you learned something useful.
+
+00:47:19.564 --> 00:47:23.818
+If you find my videos useful, please leave
+a like and subscribe below.
+
+00:47:23.818 --> 00:47:25.065
+Thank you, goodbye!
+

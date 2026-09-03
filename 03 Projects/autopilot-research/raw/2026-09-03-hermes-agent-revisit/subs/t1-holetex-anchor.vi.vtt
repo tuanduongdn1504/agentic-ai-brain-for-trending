@@ -1,0 +1,4096 @@
+WEBVTT
+Kind: captions
+Language: vi
+
+00:00:00.340 --> 00:00:01.960
+Hãy tưởng tượng bạn là một lập trình viên
+
+00:00:01.960 --> 00:00:04.100
+và có một trợ lý cá nhân giúp bạn tổng hợp
+
+00:00:04.100 --> 00:00:05.900
+các tin tức công nghệ nổi bật hay tự động
+
+00:00:05.900 --> 00:00:07.460
+đọc mail công việc và phân loại những
+
+00:00:07.460 --> 00:00:09.880
+việc cần làm vào mỗi 9 giờ sáng. Hoặc bạn
+
+00:00:09.880 --> 00:00:12.100
+là một người bán hàng và trợ lý này giúp
+
+00:00:12.100 --> 00:00:14.260
+bạn tổng hợp các đơn hàng cũng như là tin
+
+00:00:14.260 --> 00:00:16.360
+nhắn của khách hàng vào mỗi tối. Hoặc bạn
+
+00:00:16.360 --> 00:00:18.419
+là một nhà đầu tư và trợ lý này sẽ giúp
+
+00:00:18.420 --> 00:00:20.640
+bạn tự động canh giá cũng như là gửi thông
+
+00:00:20.640 --> 00:00:22.280
+báo về các phân tích kỹ thuật một cách
+
+00:00:22.280 --> 00:00:24.200
+chủ động. Và điểm đặc biệt của trợ lý này
+
+00:00:24.200 --> 00:00:26.640
+đó là nó có thể hoạt động 24/7 ngay cả lúc
+
+00:00:26.640 --> 00:00:28.550
+bạn ngủ. Và chúng ta có thể dễ dàng tương
+
+00:00:28.550 --> 00:00:30.840
+tác với người trợ lý này hoàn toàn ở trên
+
+00:00:30.840 --> 00:00:32.420
+một chiếc điện thoại thông qua tin nhắn
+
+00:00:32.420 --> 00:00:34.440
+hay là giọng nói. Và khi các bạn dùng nó
+
+00:00:34.440 --> 00:00:36.400
+càng nhiều thì nó sẽ ngày càng trở nên
+
+00:00:36.400 --> 00:00:38.020
+thông minh và hoạt động một cách hiệu quả
+
+00:00:38.020 --> 00:00:40.280
+hơn thông qua cơ chế tự động học hỏi của
+
+00:00:40.280 --> 00:00:42.220
+nó. Và trợ lý đó nó có tên là Hermes
+
+00:00:42.220 --> 00:00:44.120
+Agent. Và trong video ngày hôm nay, mình
+
+00:00:44.120 --> 00:00:46.040
+sẽ hướng dẫn các bạn từ con số 0. Chúng ta
+
+00:00:46.040 --> 00:00:47.640
+sẽ bắt đầu từ cái khái niệm xem là cái
+
+00:00:47.640 --> 00:00:49.600
+Hermes Agent là gì, cái kiến trúc hoạt
+
+00:00:49.600 --> 00:00:51.320
+động của nó thế nào cũng như là cái cách
+
+00:00:51.320 --> 00:00:53.020
+cài đặt ra sao. Và bây giờ chúng ta sẽ
+
+00:00:53.020 --> 00:00:53.660
+cùng nhau bắt đầu nhé.
+
+00:01:00.720 --> 00:01:02.000
+[nhạc hiệu chương trình] Chào mừng các bạn
+
+00:01:02.000 --> 00:01:03.380
+đã quay trở lại với Hotech. Mình là Tùng.
+
+00:01:03.380 --> 00:01:05.099
+Đối với những bạn lần đầu xem video thì
+
+00:01:05.099 --> 00:01:06.860
+mình làm các video chia sẻ về lập trình và
+
+00:01:06.860 --> 00:01:09.040
+công nghệ. Và đây là cái trang GitHub của
+
+00:01:09.040 --> 00:01:11.160
+Hermes Agent. Thì như các bạn thấy thì ở
+
+00:01:11.160 --> 00:01:13.360
+đây họ mô tả là Hermes Agent là một cái AI
+
+00:01:13.360 --> 00:01:15.500
+Agent có khả năng tự học hỏi, tự cải
+
+00:01:15.500 --> 00:01:18.540
+thiện chính nó và được build bởi Nous
+
+00:01:18.540 --> 00:01:20.800
+Research. Và nó là cái Agent duy nhất mà
+
+00:01:20.800 --> 00:01:23.220
+có cái tính năng đó là Learning Loop hay
+
+00:01:23.220 --> 00:01:24.900
+còn gọi là vòng lặp học. Thì cái Learning
+
+00:01:24.900 --> 00:01:26.400
+Loop nó hoạt động như thế nào thì chúng ta
+
+00:01:26.400 --> 00:01:28.580
+sẽ tìm hiểu nó chi tiết thêm ở trong cái
+
+00:01:28.580 --> 00:01:30.120
+phần sau. Đó là cái phần chúng ta tìm hiểu
+
+00:01:30.120 --> 00:01:32.180
+cái kiến trúc hoạt động của cái Hermes
+
+00:01:32.180 --> 00:01:34.640
+Agent nó sẽ như thế nào. Và hiểu cơ bản
+
+00:01:34.640 --> 00:01:37.040
+thì nó sẽ tự động tạo ra các cái skill từ
+
+00:01:37.040 --> 00:01:38.500
+cái kinh nghiệm làm việc với chính chúng
+
+00:01:38.500 --> 00:01:40.580
+ta. Và ngoài cái tính năng là Learning
+
+00:01:40.580 --> 00:01:42.340
+Loop ra thì nó còn có một cái tính năng
+
+00:01:42.340 --> 00:01:45.180
+rất là hay nữa đó là nó có thể hiểu xuyên
+
+00:01:45.180 --> 00:01:47.220
+suốt nhiều đoạn hội thoại khác nhau, nhưng
+
+00:01:47.220 --> 00:01:49.360
+nó sẽ có một cái bộ nhớ chung chứ không
+
+00:01:49.360 --> 00:01:50.800
+giống như là cách mà chúng ta-- thường thì
+
+00:01:50.800 --> 00:01:52.460
+chúng ta làm việc với Claude Code, mỗi
+
+00:01:52.460 --> 00:01:53.520
+một cái phiên làm việc hay mỗi một cái
+
+00:01:53.520 --> 00:01:55.620
+project thì nó sẽ có cái hệ thống memory
+
+00:01:55.620 --> 00:01:57.880
+khác nhau và chúng ta sẽ không thể biết
+
+00:01:57.880 --> 00:01:59.950
+được là ở cái phiên làm việc kia nó đang--
+
+00:01:59.950 --> 00:02:02.160
+chúng ta đã thảo luận những cái gì. Còn
+
+00:02:02.160 --> 00:02:03.960
+ngược lại, đối với Hermes Agent thì nó sẽ
+
+00:02:03.960 --> 00:02:05.700
+có một cái hệ thống để có thể ghi nhớ lại
+
+00:02:05.700 --> 00:02:07.360
+được toàn bộ các cái hội thoại, các cái
+
+00:02:07.360 --> 00:02:09.820
+session. Chỉ mới ra mắt ở trong năm nay,
+
+00:02:09.820 --> 00:02:12.740
+trong năm 2026. Nhưng các bạn thấy là cái
+
+00:02:12.740 --> 00:02:15.940
+số sao của cái Hermes Agent này cũng đã
+
+00:02:15.940 --> 00:02:18.530
+vượt hơn 200 ngàn star trên GitHub rồi. Và
+
+00:02:19.160 --> 00:02:21.100
+nó được cung cấp dưới dạng là MIT License.
+
+00:02:21.100 --> 00:02:22.820
+Thế cho nên là chúng ta có thể hoàn toàn
+
+00:02:22.820 --> 00:02:24.460
+sử dụng nó một cách miễn phí và chúng ta
+
+00:02:24.460 --> 00:02:26.860
+chỉ mất phí để sử dụng các dịch vụ LLM hay
+
+00:02:26.860 --> 00:02:28.200
+còn gọi là chúng ta chỉ mất phí để sử
+
+00:02:28.200 --> 00:02:30.020
+dụng các token thôi. Còn cái Agent này là
+
+00:02:30.020 --> 00:02:32.160
+hoàn toàn là miễn phí. Thì ở đây chúng ta
+
+00:02:32.160 --> 00:02:34.100
+sẽ có nhiều cách để có thể sử dụng được
+
+00:02:34.100 --> 00:02:36.220
+cái Hermes Agent này. Chúng ta có thể sử
+
+00:02:36.220 --> 00:02:39.060
+dụng ở trên máy laptop cá nhân, trên PC
+
+00:02:39.060 --> 00:02:42.220
+hay là trên một cái VPS. Nhưng chúng ta
+
+00:02:42.220 --> 00:02:44.160
+cần phải lưu ý là bởi vì nếu như chúng ta
+
+00:02:44.160 --> 00:02:46.160
+muốn có một cái người trợ lý mà hoạt động
+
+00:02:46.160 --> 00:02:49.300
+24/7 ngay cả lúc chúng ta ngủ á, thì chúng
+
+00:02:49.300 --> 00:02:50.340
+ta thường thì nên
+
+00:02:50.860 --> 00:02:53.120
+host nó ở trên một cái VPS. Bởi vì nếu như
+
+00:02:53.120 --> 00:02:54.600
+chúng ta cài đặt trên máy cá nhân thì rất
+
+00:02:54.600 --> 00:02:56.000
+có thể cái máy chúng ta khi mà nó bị
+
+00:02:56.000 --> 00:02:57.900
+sleep á, các tác vụ chạy tự động nó sẽ
+
+00:02:57.900 --> 00:02:59.180
+không có thể hoạt động được. Thế cho nên
+
+00:02:59.180 --> 00:03:01.320
+là ở trong cái video ngày hôm nay mình sẽ
+
+00:03:01.320 --> 00:03:03.280
+hướng dẫn các bạn là để có thể cài đặt cái
+
+00:03:03.280 --> 00:03:05.519
+Hermes Agent này ở trên một cái VPS để
+
+00:03:05.520 --> 00:03:06.960
+giúp chúng ta có thể có một cái người trợ
+
+00:03:06.960 --> 00:03:09.400
+lý để làm việc cho chúng ta 24/7 ngay cả
+
+00:03:09.400 --> 00:03:11.100
+lúc chúng ta ngủ. Thì các bạn có thể hiểu
+
+00:03:11.100 --> 00:03:12.940
+đơn giản thì cái VPS giống như là chúng ta
+
+00:03:12.940 --> 00:03:15.299
+có một cái máy tính chạy 24/7 ở trên các
+
+00:03:15.300 --> 00:03:18.000
+cái hệ thống đám mây. Và để có thể nói
+
+00:03:18.000 --> 00:03:19.760
+chuyện với cái Hermes Agent này thì chúng
+
+00:03:19.760 --> 00:03:21.540
+ta có thể dễ dàng sử dụng thông qua các
+
+00:03:21.540 --> 00:03:24.700
+cái app như là Telegram, Slack, Discord,
+
+00:03:24.700 --> 00:03:24.980
+vân vân.
+
+00:03:25.580 --> 00:03:27.040
+Và chúng ta sẽ đi vào phần tiếp theo để
+
+00:03:27.040 --> 00:03:29.680
+mình sẽ mô tả cho các bạn xem vậy thì cái
+
+00:03:29.680 --> 00:03:31.920
+Hermes Agent này nó hoạt động như thế nào.
+
+00:03:31.920 --> 00:03:33.960
+Thì ở đây chúng ta sẽ có một cái VPS hay
+
+00:03:33.960 --> 00:03:35.760
+còn gọi là một cái máy tính nhưng mà chạy
+
+00:03:35.760 --> 00:03:38.460
+ở trên cloud và nó hoạt động 24/7. Thì khi
+
+00:03:38.460 --> 00:03:41.400
+mà chúng ta cài đặt xong cái Hermes Agent
+
+00:03:41.400 --> 00:03:43.579
+lên trên cái VPS này thì ở cái phần sau
+
+00:03:43.580 --> 00:03:45.520
+của video thì mình sẽ hướng dẫn để cho các
+
+00:03:45.520 --> 00:03:47.560
+bạn có thể cài đặt cái Hermes Agent này ở
+
+00:03:47.560 --> 00:03:50.840
+trên một cái VPS. Thì khi mà đã cài đặt
+
+00:03:50.840 --> 00:03:53.260
+Hermes Agent ở trên một cái VPS xong thì
+
+00:03:53.260 --> 00:03:55.680
+chúng ta có thể dễ dàng tương tác và nói
+
+00:03:55.680 --> 00:03:57.800
+chuyện với cái Hermes Agent đó thông qua
+
+00:03:57.800 --> 00:04:00.460
+các cái app như là Telegram, WhatsApp hay
+
+00:04:00.460 --> 00:04:02.580
+là Discord hoặc là Slack, vân vân. Đấy,
+
+00:04:02.580 --> 00:04:04.380
+chúng ta có thể dễ dàng dùng các cái app
+
+00:04:04.380 --> 00:04:06.280
+đó thông qua ở trên các cái điện thoại,
+
+00:04:06.280 --> 00:04:08.300
+trên cái máy iPad là chúng ta đã có thể dễ
+
+00:04:08.300 --> 00:04:10.250
+dàng nói chuyện được với cái Hermes Agent
+
+00:04:10.250 --> 00:04:10.560
+này rồi.
+
+00:04:11.329 --> 00:04:13.060
+Thì bây giờ mình sẽ mô tả cho các bạn về
+
+00:04:13.060 --> 00:04:15.000
+nguyên một cái tiến trình từ cái việc
+
+00:04:15.000 --> 00:04:17.180
+chúng ta gửi một cái tin nhắn ở trong
+
+00:04:17.180 --> 00:04:20.060
+Telegram cho tới cái cách mà cái Hermes
+
+00:04:20.060 --> 00:04:22.400
+Agent này nó hoạt động như thế nào. Thì ở
+
+00:04:22.400 --> 00:04:24.500
+trên cái app của chúng ta, khi mà chúng ta
+
+00:04:24.500 --> 00:04:27.100
+gửi một cái tin nhắn vào trong cái
+
+00:04:27.100 --> 00:04:29.039
+Telegram thì lúc này cái Hermes Agent ở
+
+00:04:29.040 --> 00:04:31.300
+trên cái VPS nó sẽ có một cái được gọi là
+
+00:04:31.300 --> 00:04:32.980
+một cái gateway, giống như là một, một cái
+
+00:04:32.980 --> 00:04:35.400
+cổng và nó sẽ nhận cái tin nhắn đó. Và
+
+00:04:35.400 --> 00:04:37.600
+khi mà nhận cái tin nhắn này xong thì nó
+
+00:04:37.600 --> 00:04:39.920
+sẽ gửi qua một cái thành phần được gọi là
+
+00:04:39.920 --> 00:04:41.880
+một cái Agent Loop. Và nhiệm vụ của cái
+
+00:04:41.880 --> 00:04:45.080
+Agent Loop này đó là nó sẽ đọc và ghi lại
+
+00:04:45.080 --> 00:04:48.400
+các cái memory cũng như là nó sẽ quản lý
+
+00:04:48.400 --> 00:04:50.660
+một hệ thống các cái tool để cho nó có thể
+
+00:04:50.660 --> 00:04:52.300
+sử dụng. Và ngoài ra thì nó có một cái
+
+00:04:52.300 --> 00:04:54.740
+nhiệm vụ quan trọng khác đó là nó sẽ là
+
+00:04:54.740 --> 00:04:57.660
+người liên lạc chính với các cái LLM hay
+
+00:04:57.660 --> 00:04:59.200
+là liên lạc chính với các cái model
+
+00:04:59.200 --> 00:05:02.180
+provider, ví dụ như là OpenAI hay là
+
+00:05:02.180 --> 00:05:04.420
+Anthropic. Đó là những cái nhà cung cấp ra
+
+00:05:04.420 --> 00:05:06.760
+các cái AI, các cái model. Toàn bộ các
+
+00:05:06.760 --> 00:05:09.340
+cái phần như là gateway, Agent Loop,
+
+00:05:09.340 --> 00:05:12.060
+memory hay là tool, nó là thuộc về cái
+
+00:05:12.060 --> 00:05:14.940
+Hermes Agent. Còn các cái nhà cung cấp LLM
+
+00:05:14.940 --> 00:05:16.940
+ở phía bên ngoài mới là lúc đó chúng ta
+
+00:05:16.940 --> 00:05:19.590
+mới sử dụng các cái AI. Thì Agent Loop khi
+
+00:05:19.590 --> 00:05:21.900
+mà nó nhận được một cái yêu cầu từ phía
+
+00:05:21.900 --> 00:05:24.120
+người dùng thông qua các cái app như thế
+
+00:05:24.120 --> 00:05:26.800
+này thì nó sẽ gửi request sang các cái
+
+00:05:26.800 --> 00:05:28.920
+LLM, sang cho các cái nhà cung cấp phía
+
+00:05:28.920 --> 00:05:30.800
+bên ngoài. Khi mà model nó trả lời lại cho
+
+00:05:30.800 --> 00:05:32.620
+chúng ta, thì lúc đó khi nhận được kết
+
+00:05:32.620 --> 00:05:34.820
+quả trả về của LLM là cần phải sử dụng
+
+00:05:34.820 --> 00:05:37.180
+thêm cái tool này thì Agent Loop nó sẽ
+
+00:05:37.180 --> 00:05:38.980
+biết để nó gọi ra các cái tool tương ứng
+
+00:05:38.980 --> 00:05:41.400
+như là nó cần phải duyệt web hay là cần
+
+00:05:41.400 --> 00:05:43.620
+phải mở cái terminal lên hay là phải mở
+
+00:05:43.620 --> 00:05:45.680
+các cái tool như là để tạo ảnh, vân vân.
+
+00:05:45.680 --> 00:05:47.480
+Và đây chính là cái phần được gọi là phần
+
+00:05:47.480 --> 00:05:49.440
+Harness, là cái phần bao bọc xung quanh
+
+00:05:49.440 --> 00:05:51.920
+của một cái model mà mình đã cũng đã giới
+
+00:05:51.920 --> 00:05:53.620
+thiệu cho các bạn trong một cái video ở
+
+00:05:53.620 --> 00:05:54.960
+phần trước thì các bạn nếu muốn thì có thể
+
+00:05:54.960 --> 00:05:56.560
+tham khảo lại cái video về Harness của
+
+00:05:56.560 --> 00:05:58.780
+mình nhé. Đấy và khi mà nó đã thực thi các
+
+00:05:58.780 --> 00:06:00.980
+cái tool xong và nó sẽ ghi nhớ lại các
+
+00:06:00.980 --> 00:06:03.392
+cái memory, rồi sau đó nó sẽ trả lời lại.
+
+00:06:03.392 --> 00:06:05.172
+Cái tin nhắn Telegram của chúng ta. Đấy,
+
+00:06:05.172 --> 00:06:06.812
+thì đây là nguyên một cái vòng đời, một
+
+00:06:06.812 --> 00:06:08.552
+cái tin nhắn mà chúng ta khi mà làm việc
+
+00:06:08.552 --> 00:06:10.432
+với cái Hermes Agent nó sẽ như vậy. Thì
+
+00:06:10.432 --> 00:06:11.912
+bây giờ chúng ta sẽ đi vào phần chi tiết
+
+00:06:11.912 --> 00:06:14.952
+hơn để xem được là cái việc nó ghi nhớ
+
+00:06:14.952 --> 00:06:18.112
+memory ở đây cũng như là cái cách mà nó
+
+00:06:18.112 --> 00:06:19.832
+tạo các skill cũng như là update skill nó
+
+00:06:19.832 --> 00:06:21.971
+sẽ như thế nào. Đấy, thì bây giờ mình sẽ
+
+00:06:21.972 --> 00:06:23.752
+mô tả cho các bạn thấy được là cái vòng
+
+00:06:23.752 --> 00:06:25.912
+lặp tự học của nó sẽ như thế nào. Thì giả
+
+00:06:25.912 --> 00:06:28.472
+sử như khi mà nó làm việc và nó thấy là có
+
+00:06:28.472 --> 00:06:30.072
+một cái công việc nào đó nó lặp lại thì
+
+00:06:30.072 --> 00:06:32.052
+lúc đó nó sẽ tự động nó biết và nó tự động
+
+00:06:32.052 --> 00:06:34.472
+nó viết các cái skill. Và chúng ta không
+
+00:06:34.472 --> 00:06:36.232
+cần phải làm một cách thủ công. Nếu muốn
+
+00:06:36.232 --> 00:06:37.932
+thì các bạn vẫn có thể tạo thủ công các
+
+00:06:37.932 --> 00:06:40.872
+cái skill. Nhưng bởi vì cái Hermes Agent
+
+00:06:40.872 --> 00:06:42.592
+nó đã trang bị cái tính năng để có thể tự
+
+00:06:42.592 --> 00:06:44.492
+học hỏi, tự tạo skill cũng như là update
+
+00:06:44.492 --> 00:06:47.132
+lại các skill. Thế cho nên là nó sẽ ngày
+
+00:06:47.132 --> 00:06:49.112
+càng nó thông minh hơn, nó làm việc một
+
+00:06:49.112 --> 00:06:50.672
+cách hiệu quả hơn. Cũng như là một cái
+
+00:06:50.672 --> 00:06:52.732
+người nhân viên thôi, khi mà họ chưa quen
+
+00:06:52.732 --> 00:06:54.432
+việc thì cái thời gian làm việc của họ
+
+00:06:54.432 --> 00:06:55.832
+chắc chắn là nó sẽ phải mất nhiều thời
+
+00:06:55.832 --> 00:06:58.352
+gian hơn so một cái người là đã có 5 hay
+
+00:06:58.352 --> 00:07:00.552
+là 10 năm kinh nghiệm. Thì cái agent này
+
+00:07:00.552 --> 00:07:02.292
+bây giờ nó đã có được cái khả năng tự học
+
+00:07:02.292 --> 00:07:04.752
+hỏi như vậy. Cứ một lần sau mà gặp lại một
+
+00:07:04.752 --> 00:07:06.752
+cái tác vụ tương tự, bởi vì nó đã ghi nhớ
+
+00:07:06.752 --> 00:07:08.412
+lại các skill trước đó. Thế cho nên là
+
+00:07:08.412 --> 00:07:09.912
+bây giờ nó chỉ cần lấy cái skill đó ra và
+
+00:07:09.912 --> 00:07:11.752
+nó apply đúng như vậy thôi. Thế cho nên là
+
+00:07:11.752 --> 00:07:13.112
+cái thời gian làm việc của nó cũng như là
+
+00:07:13.112 --> 00:07:14.751
+cái chất lượng công việc nó sẽ được tốt
+
+00:07:14.752 --> 00:07:16.832
+hơn so với cái lần đầu tiên. Thì đó là cái
+
+00:07:16.832 --> 00:07:19.052
+khái niệm vòng lặp tự học của cái Hermes
+
+00:07:19.052 --> 00:07:19.532
+Agent này.
+
+00:07:20.452 --> 00:07:22.132
+Đấy, thì ví dụ như ở đây, lần đầu tiên nó
+
+00:07:22.132 --> 00:07:23.391
+sẽ có một skill nhưng mà lần thứ 2 cái
+
+00:07:23.392 --> 00:07:25.251
+thời gian làm việc của nó sẽ giảm đi cũng
+
+00:07:25.252 --> 00:07:27.152
+như là số lượng token nó tiêu tốn của
+
+00:07:27.152 --> 00:07:29.072
+chúng ta nó sẽ giảm đi rất là nhiều. Đây
+
+00:07:29.072 --> 00:07:30.472
+cũng chính là một trong các cái điểm mạnh
+
+00:07:30.472 --> 00:07:32.832
+nhất của cái Hermes Agent này. Đó là cái
+
+00:07:32.832 --> 00:07:34.672
+vòng lặp tự học hay còn gọi là learning
+
+00:07:34.672 --> 00:07:36.992
+loop của nó. Vậy thì nếu như mà các bạn
+
+00:07:36.992 --> 00:07:38.852
+chưa rõ về cái skill này ở đây nó là cái
+
+00:07:38.852 --> 00:07:41.232
+gì thì có thể xem lại cái video về agent
+
+00:07:41.232 --> 00:07:42.992
+skill của mình nhé. Thông qua cái quá
+
+00:07:42.992 --> 00:07:46.172
+trình mà nó learning loop và nó tạo ra các
+
+00:07:46.172 --> 00:07:48.452
+skill như vậy thì lúc này nó đã có một bộ
+
+00:07:48.452 --> 00:07:49.891
+các cái skill như thế này. Thì nếu như
+
+00:07:49.892 --> 00:07:51.532
+các bạn đã xem lại cái video về agent
+
+00:07:51.532 --> 00:07:52.832
+skill của mình thì các bạn cũng biết được
+
+00:07:52.832 --> 00:07:55.072
+là một cái skill đơn giản nó là các file
+
+00:07:55.072 --> 00:07:57.012
+markdown hay là đơn giản nó là các cái
+
+00:07:57.012 --> 00:07:59.832
+text cơ bản thôi. Và nó sẽ có một cái phần
+
+00:07:59.832 --> 00:08:03.212
+text nằm ở trong cái dấu gạch ngang, 3
+
+00:08:03.212 --> 00:08:04.892
+dấu gạch ngang như thế này và nó được gọi
+
+00:08:04.892 --> 00:08:07.012
+là một cái frontmaster. Thì cái lý do vì
+
+00:08:07.012 --> 00:08:09.132
+sao mà nó lại hiệu quả hơn so với các việc
+
+00:08:09.132 --> 00:08:11.192
+mà chúng ta sử dụng các cái rules, đó là
+
+00:08:11.192 --> 00:08:12.971
+cái rules thì nếu như mà mặc định thì nó
+
+00:08:12.971 --> 00:08:15.532
+sẽ thường nó sẽ-- cái file rule đó nó có
+
+00:08:15.532 --> 00:08:17.212
+độ dài bao nhiêu nó sẽ đưa hết vào trong
+
+00:08:17.212 --> 00:08:19.932
+cái context window và nó sẽ chiếm một cái
+
+00:08:19.932 --> 00:08:21.692
+lượng token nhất định ở trong cái, trong
+
+00:08:21.692 --> 00:08:23.632
+cái context window đó. Nhưng ngược lại với
+
+00:08:23.632 --> 00:08:25.932
+các skill này, tuy là chúng ta có một bộ
+
+00:08:25.932 --> 00:08:27.532
+rất nhiều các cái skill, chúng ta hình
+
+00:08:27.532 --> 00:08:29.072
+dung mỗi một skill này như là một cái kỹ
+
+00:08:29.072 --> 00:08:30.972
+năng làm việc. Ví dụ như kỹ năng được dùng
+
+00:08:30.972 --> 00:08:34.132
+để export ra một file PDF hoặc là kỹ năng
+
+00:08:34.132 --> 00:08:36.472
+để chuyển từ một đoạn text, chuyển đổi nó
+
+00:08:36.472 --> 00:08:39.432
+từ text sang một file có thể nói, text to
+
+00:08:39.432 --> 00:08:42.032
+speech, hoặc là từ một cái file âm thanh
+
+00:08:42.032 --> 00:08:44.412
+chúng ta convert nó về cái dạng là các cái
+
+00:08:44.412 --> 00:08:46.172
+text. Đấy, thì mỗi một cái được gọi là
+
+00:08:46.172 --> 00:08:47.712
+một cái skill. Đấy, thì giống như con
+
+00:08:47.712 --> 00:08:48.992
+người của chúng ta thôi, chúng ta có nhiều
+
+00:08:48.992 --> 00:08:51.052
+cái kỹ năng, kỹ năng làm việc về Excel,
+
+00:08:51.052 --> 00:08:53.252
+kỹ năng làm thuyết trình, vân vân. Đấy,
+
+00:08:53.252 --> 00:08:53.612
+thì bây giờ
+
+00:08:54.212 --> 00:08:56.372
+các cái agent nó cũng có được trang bị
+
+00:08:56.372 --> 00:08:59.172
+những cái skill như vậy. Và với Hermes
+
+00:08:59.172 --> 00:09:01.752
+Agent ấy thì các cái skill này tuy là nó
+
+00:09:01.752 --> 00:09:03.532
+có rất là nhiều và nó tự động nó tạo ra
+
+00:09:03.532 --> 00:09:05.292
+rất nhiều các skill nhưng nó vẫn hoạt động
+
+00:09:05.292 --> 00:09:07.432
+một cách hiệu quả là bởi vì tuy là nhiều
+
+00:09:07.432 --> 00:09:09.372
+cái skill như này nhưng mà cái
+
+00:09:09.972 --> 00:09:12.412
+lượng text mà nó đẩy vào trong cái context
+
+00:09:12.412 --> 00:09:15.232
+window á, nó sẽ rất là nhỏ. Bởi vì nó chỉ
+
+00:09:15.232 --> 00:09:17.182
+đẩy cái phần là frontmaster này vào thôi,
+
+00:09:17.182 --> 00:09:19.752
+giữa 2 cái phần dấu gạch ngang ở đây này.
+
+00:09:19.752 --> 00:09:21.752
+Còn cái nội dung cụ thể của cái skill ấy,
+
+00:09:21.752 --> 00:09:23.332
+nó sẽ không có đẩy vào cái context window
+
+00:09:23.332 --> 00:09:25.172
+ngay từ khi mà chúng ta bắt đầu một phiên
+
+00:09:25.172 --> 00:09:27.011
+làm việc mới. Thế cho nên là cái lượng
+
+00:09:27.012 --> 00:09:29.472
+token nó chiếm ở trong cái context window
+
+00:09:29.472 --> 00:09:30.952
+nó cực kỳ là nhỏ. Các bạn hình dung cái
+
+00:09:30.952 --> 00:09:32.592
+phần phía bên trái ở đây này, phần phía
+
+00:09:32.592 --> 00:09:33.932
+bên trái ở đây giống như là các cái mục
+
+00:09:33.932 --> 00:09:37.072
+lục thì agent nó sẽ chỉ đọc các cái mục
+
+00:09:37.072 --> 00:09:39.412
+lục này, các cái mô tả của các mục lục này
+
+00:09:39.412 --> 00:09:41.952
+và nó xem cái yêu cầu của người dùng gửi
+
+00:09:41.952 --> 00:09:43.852
+lên cho nó, xem là hai phần này nó có
+
+00:09:43.852 --> 00:09:45.291
+matching với nhau hay không.
+
+00:09:45.292 --> 00:09:47.492
+Nếu mà đúng thì nó mới lấy toàn bộ-- nó
+
+00:09:47.492 --> 00:09:49.752
+mới đọc toàn bộ cái nội dung của cái skill
+
+00:09:49.752 --> 00:09:51.412
+đó và nó đưa vào trong cái context
+
+00:09:51.412 --> 00:09:53.792
+window. Đấy, thế cho nên là tuy là có
+
+00:09:53.792 --> 00:09:55.821
+nhiều skill nhưng mà cái, các cái agent
+
+00:09:55.821 --> 00:09:56.992
+này nó vẫn hoạt động một cách rất là hiệu
+
+00:09:56.992 --> 00:09:58.252
+quả. Và bây giờ chúng ta sẽ cùng nhau tìm
+
+00:09:58.252 --> 00:10:01.072
+hiểu xem vậy thì cái, cái cấu trúc memory
+
+00:10:01.072 --> 00:10:02.652
+của cái Hermes Agent này nó sẽ như thế
+
+00:10:02.652 --> 00:10:04.892
+nào. Thì cái Hermes Agent này trong cái
+
+00:10:04.892 --> 00:10:06.592
+quá trình mà chúng ta nhắn tin với cái
+
+00:10:06.592 --> 00:10:08.032
+Hermes Agent này, thông qua các cái tin
+
+00:10:08.032 --> 00:10:09.692
+nhắn hay là các cái hình ảnh hay là các
+
+00:10:09.692 --> 00:10:12.412
+cái file mà chúng ta cung cấp cho cái
+
+00:10:12.412 --> 00:10:15.112
+Hermes Agent này thì lúc đó nó sẽ tự động
+
+00:10:15.112 --> 00:10:16.992
+nó tạo cho chúng ta được các cái file như
+
+00:10:16.992 --> 00:10:20.072
+là user này, file memory và cái file là
+
+00:10:20.072 --> 00:10:21.751
+file sound. Đây là các cái thông tin nó
+
+00:10:21.752 --> 00:10:23.551
+tổng hợp lại và nó giữ một cách rất là
+
+00:10:23.552 --> 00:10:25.892
+ngắn gọn. Xem là chúng ta là ai, cái người
+
+00:10:25.892 --> 00:10:27.931
+mà đang tương tác với cái agent là ai.
+
+00:10:27.932 --> 00:10:29.712
+Thì như cá nhân mình sử dụng thì mình thấy
+
+00:10:29.712 --> 00:10:31.992
+là nó chỉ đâu đó chiếm khoảng 10 kilobyte
+
+00:10:31.992 --> 00:10:34.592
+thôi. Và đây sẽ là cái phần mà mọi cái
+
+00:10:34.592 --> 00:10:37.012
+cuộc hội thoại khi chúng ta mới bắt đầu nó
+
+00:10:37.012 --> 00:10:39.312
+đều đưa vào trong cái context window của
+
+00:10:39.312 --> 00:10:41.312
+cuộc hội thoại đó. User là thông tin user,
+
+00:10:41.312 --> 00:10:43.592
+memory thì bao gồm một số các cái thông
+
+00:10:43.592 --> 00:10:46.052
+tin tổng hợp, nó đã tự tổng hợp bằng các
+
+00:10:46.052 --> 00:10:49.012
+cái LLM cũng như là sound là cái tính cách
+
+00:10:49.012 --> 00:10:51.592
+của cái người dùng nó như thế nào thì
+
+00:10:51.592 --> 00:10:54.152
+luôn luôn nó đẩy ba cái file này vào trong
+
+00:10:54.152 --> 00:10:55.912
+mọi cuộc hội thoại mới. Thì đó là cái
+
+00:10:55.912 --> 00:10:58.652
+tầng đầu tiên. Và cái tầng thứ hai mới là
+
+00:10:58.652 --> 00:11:00.892
+cái tầng mà nó lưu trữ lại toàn bộ các cái
+
+00:11:00.892 --> 00:11:03.532
+cuộc hội thoại mà chúng ta nói chuyện với
+
+00:11:03.532 --> 00:11:06.311
+cái Hermes Agent này. Thì nó sẽ sử dụng
+
+00:11:06.312 --> 00:11:08.352
+cái SQLite ở cái tầng này. Bởi vì khối
+
+00:11:08.352 --> 00:11:10.172
+lượng dữ liệu nó sẽ rất là lớn thế cho nên
+
+00:11:10.172 --> 00:11:12.792
+là nó sẽ không có tự động nó đưa vào
+
+00:11:12.792 --> 00:11:14.432
+trong cái context window khi mà chúng ta
+
+00:11:14.432 --> 00:11:16.612
+làm việc mở một cái session mới. Mà thay
+
+00:11:16.612 --> 00:11:19.292
+vì vậy nó sẽ chỉ tra khi mà cần thôi. Và ở
+
+00:11:19.292 --> 00:11:20.912
+cái tầng cuối cùng đó là cái tầng nó có
+
+00:11:20.912 --> 00:11:23.112
+thể là mở rộng ra thêm qua các cái
+
+00:11:23.112 --> 00:11:25.612
+third-party memory như là chúng ta có một
+
+00:11:25.612 --> 00:11:28.192
+loạt các cái công cụ như là memzero hay là
+
+00:11:28.192 --> 00:11:30.752
+Hisight, Overviking. Đấy, có rất nhiều
+
+00:11:30.752 --> 00:11:33.092
+các cái nhà cung cấp cái memory phía bên
+
+00:11:33.092 --> 00:11:35.372
+ngoài như vậy thì chúng ta có thể là cấu
+
+00:11:35.372 --> 00:11:37.672
+hình để có thể sử dụng được các memory này
+
+00:11:37.672 --> 00:11:40.492
+ở trong cái Hermes Agent. Về mặt memory
+
+00:11:40.492 --> 00:11:42.292
+thì sẽ có ba cái tầng như vậy. Thứ nhất--
+
+00:11:42.292 --> 00:11:43.892
+và đó là toàn bộ cái kiến trúc mà mình
+
+00:11:43.892 --> 00:11:45.292
+muốn chia sẻ cho các bạn. Và bây giờ chúng
+
+00:11:45.292 --> 00:11:46.912
+ta sẽ đi vào cái phần để chúng ta có thể
+
+00:11:46.912 --> 00:11:49.812
+là cấu hình để cài đặt cái Hermes Agent
+
+00:11:49.812 --> 00:11:52.672
+này ở trên một cái VPS. Và dịch vụ VPS
+
+00:11:52.672 --> 00:11:54.032
+mình sẽ sử dụng trong ngày hôm nay đó
+
+00:11:54.032 --> 00:11:56.172
+chính là Hostinger. Bởi vì mình có quan hệ
+
+00:11:56.172 --> 00:11:57.952
+đối tác với Hostinger đấy cho nên là các
+
+00:11:57.952 --> 00:11:59.592
+bạn hãy truy cập vào trong cái đường link
+
+00:11:59.592 --> 00:12:02.052
+mình để trong phần mô tả của video để có
+
+00:12:02.052 --> 00:12:04.192
+thể nhận được cái ưu đãi là giảm giá 10%
+
+00:12:04.192 --> 00:12:06.112
+khi mà các bạn mua các cái VPS ở trên
+
+00:12:06.112 --> 00:12:07.904
+Hostinger này. Thì khi mà các bạn truy cập
+
+00:12:07.904 --> 00:12:09.824
+vào trong cái đường link mình để trong
+
+00:12:09.824 --> 00:12:12.204
+phần mô tả thì sẽ mở ra được cái trang web
+
+00:12:12.204 --> 00:12:13.824
+này thì chúng ta sẽ vào cái phần để có
+
+00:12:13.824 --> 00:12:15.924
+thể chọn cái gói. Đấy thì ở đây với cái
+
+00:12:15.924 --> 00:12:17.604
+nhu cầu của chúng ta là sử dụng cái Hermes
+
+00:12:17.604 --> 00:12:20.344
+Agent ấy, thì cái gói KVM2 này sẽ rất là
+
+00:12:20.344 --> 00:12:22.983
+phù hợp và nó được trang bị là 8 GB RAM.
+
+00:12:22.984 --> 00:12:25.444
+Hoặc là nếu như các bạn muốn dùng các cái
+
+00:12:26.144 --> 00:12:29.124
+VPS nó có sức mạnh nhiều hơn thì các bạn
+
+00:12:29.124 --> 00:12:31.444
+có thể chọn các option ở đây. Đấy nhưng ở
+
+00:12:31.444 --> 00:12:34.084
+đây mình sẽ chọn cái gói là KVM2. Và tại
+
+00:12:34.084 --> 00:12:35.984
+đây thì chúng ta sẽ có các lựa chọn là
+
+00:12:35.984 --> 00:12:38.244
+chúng ta có thể lựa chọn mua cái gói VPS
+
+00:12:38.244 --> 00:12:40.444
+một tháng hoặc là 12 tháng hoặc là 24
+
+00:12:40.444 --> 00:12:42.424
+tháng. Đấy nhưng mà các bạn lưu ý là với
+
+00:12:42.424 --> 00:12:44.364
+cái mã giảm giá là Holtech Agent của mình
+
+00:12:44.364 --> 00:12:46.024
+ấy, thì chúng ta sẽ chỉ áp dụng được cho
+
+00:12:46.024 --> 00:12:48.824
+các cái gói là 12 tháng trở lên thôi. Có
+
+00:12:48.824 --> 00:12:50.304
+nghĩa là chúng ta có thể áp dụng cho 12
+
+00:12:50.304 --> 00:12:52.364
+tháng hoặc là 24 tháng. Còn với một tháng
+
+00:12:52.364 --> 00:12:53.864
+này thì cái mã giảm giá của mình nó sẽ
+
+00:12:53.864 --> 00:12:55.364
+không có áp dụng được. Đấy các bạn lưu ý
+
+00:12:55.364 --> 00:12:56.924
+cho mình cái phần này nhé. Đấy ví dụ như
+
+00:12:56.924 --> 00:12:58.144
+mình chọn ở đây là 12 tháng này
+
+00:12:58.904 --> 00:13:00.684
+và mình sẽ nhập cái mã giảm giá ở đây, đó
+
+00:13:00.684 --> 00:13:04.424
+là Holtech Agents, có chữ S C nhé. Và mình
+
+00:13:04.424 --> 00:13:06.184
+áp dụng này. Đấy thì các bạn sẽ được giảm
+
+00:13:06.184 --> 00:13:08.444
+giá là 10% khi mà sử dụng cái mã Holtech
+
+00:13:08.444 --> 00:13:10.724
+Agent này. Và chúng ta sẽ di chuyển tiếp
+
+00:13:10.724 --> 00:13:12.283
+xuống phần phía dưới, đó là chúng ta có
+
+00:13:12.283 --> 00:13:14.564
+thể lựa chọn các cái máy chủ để host cái
+
+00:13:14.564 --> 00:13:15.914
+VPS của chúng ta. Thì ở đây,
+
+00:13:16.584 --> 00:13:18.764
+ờ, gần nhất thì mình sẽ sử dụng ở đây sẽ
+
+00:13:18.764 --> 00:13:21.124
+là Malaysia. Đấy, Malaysia có độ trễ thấp
+
+00:13:21.124 --> 00:13:23.384
+nhất là 43 milliseconds này. Đấy các bạn
+
+00:13:23.384 --> 00:13:25.784
+sẽ lựa chọn các cái máy chủ ở gần các bạn
+
+00:13:25.784 --> 00:13:27.484
+nhất và cái độ trễ ở đây là thấp nhất này
+
+00:13:27.484 --> 00:13:28.884
+thì các bạn hãy lựa chọn nhé. Thì bây giờ
+
+00:13:28.884 --> 00:13:30.984
+mình chọn là Malaysia. Ờ, bởi vì chúng ta
+
+00:13:30.984 --> 00:13:32.884
+đang-- mục đích là chúng ta đang muốn cấu
+
+00:13:32.884 --> 00:13:35.364
+hình cái Hermes Agent đúng không? Thế cho
+
+00:13:35.364 --> 00:13:36.804
+nên là các bạn có thể vào-- thứ nhất là
+
+00:13:36.824 --> 00:13:38.314
+các bạn có thể vào trong cái phần ứng dụng
+
+00:13:38.314 --> 00:13:40.984
+ở đây và các bạn lựa chọn các cái app. Và
+
+00:13:40.984 --> 00:13:42.504
+cụ thể ở đây là mình đang muốn cài đặt
+
+00:13:42.504 --> 00:13:45.164
+cái Hermes Agent này thì ở trên Hostinger
+
+00:13:45.164 --> 00:13:47.114
+đã có sẵn các cái template để chúng ta có
+
+00:13:47.114 --> 00:13:49.684
+thể dễ dàng cấu hình cái Hermes Agent này
+
+00:13:49.684 --> 00:13:51.364
+rồi. Thì cho các bạn-- thì các bạn có thể
+
+00:13:51.364 --> 00:13:53.264
+vào trong phần ứng dụng và chọn ở đây. Đấy
+
+00:13:53.264 --> 00:13:54.984
+mình sẽ chọn là Hermes Agent này và mình
+
+00:13:54.984 --> 00:13:57.204
+sẽ nhấn vào cái phần xác nhận ở đây. Đấy
+
+00:13:57.204 --> 00:13:58.784
+và khi mà lựa chọn cái Hermes Agent này
+
+00:13:58.784 --> 00:14:00.564
+xong thì chúng ta sẽ có một số các cái lựa
+
+00:14:00.564 --> 00:14:03.664
+chọn là ở đây có thể là chúng ta có thể
+
+00:14:03.664 --> 00:14:04.164
+đăng ký
+
+00:14:04.764 --> 00:14:07.864
+sử dụng cái AI router từ Nexus. Nhưng mà
+
+00:14:07.864 --> 00:14:10.324
+mình sẽ hướng dẫn cho các bạn là có thể sử
+
+00:14:10.324 --> 00:14:13.424
+dụng luôn cái gói subscription ở trong
+
+00:14:13.424 --> 00:14:15.864
+các cái gói Plus hay Pro các bạn mua luôn
+
+00:14:15.864 --> 00:14:17.874
+để các bạn sử dụng nó với cái Hermes Agent
+
+00:14:17.874 --> 00:14:19.484
+này. Và chúng ta sẽ không cần phải bỏ
+
+00:14:19.484 --> 00:14:21.524
+tiền ra để mua thêm các token nữa, thì
+
+00:14:21.524 --> 00:14:22.464
+chút nữa mình sẽ hướng dẫn các bạn cái
+
+00:14:22.464 --> 00:14:23.924
+phần này nhé. Thì khi mà nhấn tiếp tục ở
+
+00:14:23.924 --> 00:14:26.004
+đây thì các bạn sẽ đi đến cái trang là để
+
+00:14:26.004 --> 00:14:28.064
+có thể tiến hành đăng nhập cũng như là
+
+00:14:28.064 --> 00:14:29.524
+tiến hành thanh toán. Đấy và khi mà các
+
+00:14:29.524 --> 00:14:31.124
+bạn đã mua xong thì chúng ta sẽ nhấn vào
+
+00:14:31.124 --> 00:14:32.984
+phần bắt đầu ở chỗ này. Đấy thì đây sẽ là
+
+00:14:32.984 --> 00:14:34.864
+cái trang để chúng ta sẽ cấu hình cái
+
+00:14:34.864 --> 00:14:37.024
+Hermes Agent. Đấy thì đây sẽ là một cái
+
+00:14:37.024 --> 00:14:39.424
+username mặc định thì các bạn hãy nhập các
+
+00:14:39.424 --> 00:14:41.524
+cái thông tin theo cá nhân của các bạn
+
+00:14:41.524 --> 00:14:43.364
+nhé. Các bạn không nên để các cái thông
+
+00:14:43.364 --> 00:14:45.404
+tin mặc định như thế này. Đấy nhưng mà ở
+
+00:14:45.404 --> 00:14:47.304
+đây mình đang làm demo thì mình cứ để tạm
+
+00:14:47.304 --> 00:14:49.884
+cái tên là Hermes Agent ở đây và mình dùng
+
+00:14:49.884 --> 00:14:51.703
+luôn cái password mặc định như thế này.
+
+00:14:51.704 --> 00:14:53.644
+Đấy các bạn hãy thay đổi lại các password
+
+00:14:53.644 --> 00:14:54.224
+của các bạn nhé.
+
+00:14:54.944 --> 00:14:56.824
+Đấy và mình sẽ không sử dụng các cái key
+
+00:14:56.824 --> 00:14:59.304
+từ Nexus hay là từ OCLabs mà mình sẽ dùng
+
+00:14:59.304 --> 00:15:02.224
+chính cái gói đăng ký Plus của mình ở trên
+
+00:15:02.224 --> 00:15:04.664
+cái ChatGPT. Đấy thì bây giờ mình sẽ nhấn
+
+00:15:04.664 --> 00:15:07.124
+vào phần triển khai này. Đấy thì chúng ta
+
+00:15:07.124 --> 00:15:10.024
+sẽ đợi một lúc để cho cái VPS của chúng
+
+00:15:10.024 --> 00:15:12.284
+ta nó sẽ được cài đặt cũng như là sẽ có
+
+00:15:12.284 --> 00:15:14.324
+sẵn cái Hermes Agent cho chúng ta. Đấy và
+
+00:15:14.324 --> 00:15:16.024
+sau một khoảng thời gian thì Hostinger đã
+
+00:15:16.024 --> 00:15:18.084
+tự động đã cài đặt được cho chúng ta cái
+
+00:15:18.084 --> 00:15:20.004
+Hermes Agent này rồi. Đấy các bạn phải đảm
+
+00:15:20.004 --> 00:15:22.004
+bảo là chúng ta thấy là có 2 cái service,
+
+00:15:22.964 --> 00:15:25.224
+có 2 cái dự án đang chạy, một là cái JFix
+
+00:15:25.224 --> 00:15:26.904
+với một cái là cái Hermes Agent nó ghi là
+
+00:15:26.904 --> 00:15:28.624
+đang chạy như thế này mới là thành công
+
+00:15:28.624 --> 00:15:30.184
+nhé. Phải có một cái container cho từng
+
+00:15:30.184 --> 00:15:31.864
+cái này. Rồi và tại đây thì các bạn sẽ
+
+00:15:31.864 --> 00:15:33.984
+thấy là chúng ta sẽ có một cái option để
+
+00:15:33.984 --> 00:15:36.244
+mở một cái terminal. Thì cái terminal các
+
+00:15:36.244 --> 00:15:38.824
+bạn hiểu là đây là một cái cửa sổ làm việc
+
+00:15:38.824 --> 00:15:41.124
+bằng các cái câu lệnh. Các bạn sẽ nhấn
+
+00:15:41.124 --> 00:15:42.624
+vào cái phần terminal ở đây thì nó sẽ mở
+
+00:15:42.624 --> 00:15:44.544
+cho chúng ta lên một cái tab mới và chúng
+
+00:15:44.544 --> 00:15:46.544
+ta có thể gõ được các câu lệnh ở phía
+
+00:15:46.544 --> 00:15:48.404
+trong đây. Đấy thì đây là cái cách đơn
+
+00:15:48.404 --> 00:15:49.763
+giản nhất để chúng ta có thể mở được cái
+
+00:15:49.764 --> 00:15:51.274
+terminal. Đấy còn ở đây nhé,
+
+00:15:51.924 --> 00:15:54.124
+ờ, nếu mà để làm chuẩn chỉ hơn thì các bạn
+
+00:15:54.124 --> 00:15:55.984
+khi mà đăng ký một cái VPS xong thì chúng
+
+00:15:55.984 --> 00:15:58.344
+ta sẽ có được một cái địa chỉ IP. Thì các
+
+00:15:58.344 --> 00:16:01.804
+bạn hãy sử dụng cái lệnh là SSH với cái
+
+00:16:01.804 --> 00:16:05.124
+username cùng với đó là cái địa chỉ IP của
+
+00:16:05.124 --> 00:16:06.834
+cái VPS đó để chúng ta kết nối và cấu
+
+00:16:06.834 --> 00:16:09.203
+hình nó bằng cách là sử dụng các cái
+
+00:16:09.204 --> 00:16:11.764
+private key và public key. Thì như vậy thì
+
+00:16:11.764 --> 00:16:13.484
+chúng ta kết nối tới cái VPS này nó sẽ an
+
+00:16:13.484 --> 00:16:15.144
+toàn hơn. Thực tế là cái phần này trước
+
+00:16:15.144 --> 00:16:16.824
+đó mình cũng làm video chia sẻ cho các bạn
+
+00:16:16.824 --> 00:16:19.324
+ở trong cái bài học hướng dẫn deploy một
+
+00:16:19.324 --> 00:16:22.164
+cái Next.js app lên một cái VPS. Đấy thì
+
+00:16:22.164 --> 00:16:23.644
+các bạn có thể tham khảo lại cái video đó.
+
+00:16:23.644 --> 00:16:25.363
+Đấy nhưng mà ở đây để có thể thuận tiện
+
+00:16:25.363 --> 00:16:26.764
+nhất thì chúng ta có thể sử dụng luôn cái
+
+00:16:26.764 --> 00:16:29.184
+tính năng là mở một cái terminal ở trên
+
+00:16:29.184 --> 00:16:30.984
+cái VPS này luôn. Khi mà các bạn mở lên
+
+00:16:30.984 --> 00:16:32.164
+thì chúng ta sẽ có được một cái giao diện
+
+00:16:32.164 --> 00:16:33.704
+như thế này. Đây chính là cái máy tính mà
+
+00:16:33.704 --> 00:16:35.684
+đang chạy ở trên các cái nền tảng điện
+
+00:16:35.684 --> 00:16:36.064
+toán đám mây.
+
+00:16:36.824 --> 00:16:38.124
+Rồi thì bây giờ để có thể tiến hành cài
+
+00:16:38.124 --> 00:16:40.864
+đặt được thì các bạn mở lên cho mình cái
+
+00:16:40.864 --> 00:16:43.123
+trang web ở đây để chúng ta sẽ có một cái
+
+00:16:43.124 --> 00:16:44.944
+file hướng dẫn. Đấy thì mình sẽ di chuyển
+
+00:16:44.944 --> 00:16:46.404
+xuống phần phía dưới này. Thì bây giờ để
+
+00:16:46.404 --> 00:16:48.084
+có thể bắt đầu được cài đặt được thì chúng
+
+00:16:48.084 --> 00:16:49.584
+ta sẽ chạy cái câu lệnh là
+
+00:16:50.224 --> 00:16:52.724
+Hermes, à, setup này. Đấy mình sẽ chọn cái
+
+00:16:52.724 --> 00:16:54.584
+phần này đầu tiên và mình sẽ quay trở lại
+
+00:16:54.584 --> 00:16:56.764
+bên cái cửa sổ terminal này và chúng ta
+
+00:16:56.764 --> 00:16:59.044
+sẽ gõ cái câu lệnh là Hermes, à, setup vào
+
+00:16:59.044 --> 00:16:59.244
+đây.
+
+00:16:59.984 --> 00:17:03.224
+Đấy thì ở đây sẽ có một, à, vài cái, à,
+
+00:17:03.224 --> 00:17:05.063
+option chúng ta có thể lựa chọn. Một là
+
+00:17:05.064 --> 00:17:07.744
+chúng ta có thể là quick setup để sử dụng
+
+00:17:07.744 --> 00:17:10.644
+một cái Node Portal, dùng một cái free
+
+00:17:10.644 --> 00:17:14.424
+OAuth login, no API key. Nhưng mà bởi vì
+
+00:17:14.424 --> 00:17:15.864
+như mình đã nói với các bạn đó là chúng ta
+
+00:17:15.864 --> 00:17:18.224
+sẽ sử dụng luôn cái gói, à, đăng ký của
+
+00:17:18.224 --> 00:17:20.604
+chúng ta với Codex. Thế cho nên là mình sẽ
+
+00:17:20.604 --> 00:17:22.364
+chọn cái option ở đây sẽ là full setup
+
+00:17:22.364 --> 00:17:24.404
+nhé. Và chúng ta sẽ lựa chọn là Space này.
+
+00:17:24.404 --> 00:17:27.204
+Đấy, phím Space và phím Enter để lựa
+
+00:17:27.204 --> 00:17:29.264
+chọn. Đấy thì tại cái bước này chúng ta sẽ
+
+00:17:29.264 --> 00:17:32.064
+có thể lựa chọn được nhiều cái provider
+
+00:17:32.064 --> 00:17:33.904
+như ở cái kiến trúc của một cái Hermes
+
+00:17:33.904 --> 00:17:35.443
+Agent mà mình đã chia sẻ cho các bạn đấy.
+
+00:17:35.444 --> 00:17:37.224
+Đây chính là cái phần mà lựa chọn một cái
+
+00:17:37.224 --> 00:17:39.244
+LLM provider đấy. Đây chính là cái nhà
+
+00:17:39.244 --> 00:17:41.244
+cung cấp các cái model mà chúng ta sẽ muốn
+
+00:17:41.244 --> 00:17:43.504
+sử dụng. Chắc chắn là với các cái model
+
+00:17:43.504 --> 00:17:45.563
+từ nhà Anthropic thì chắc chắn nó sẽ có
+
+00:17:45.564 --> 00:17:47.004
+một cái chất lượng rất là tốt cũng như là
+
+00:17:47.004 --> 00:17:49.424
+các cái model từ OpenAI. Và như các bạn
+
+00:17:49.424 --> 00:17:51.204
+thấy ở đây là nó có rất nhiều các cái
+
+00:17:51.204 --> 00:17:52.784
+provider ở đây, gần như là tất cả các cái
+
+00:17:52.784 --> 00:17:54.424
+provider mà phổ biến nhất trên thế giới
+
+00:17:54.424 --> 00:17:57.464
+hiện nay như là ROP này, Anthropic này,
+
+00:17:57.464 --> 00:17:59.984
+OpenAI này, đấy, vân vân. Đấy rất nhiều
+
+00:17:59.984 --> 00:18:02.004
+các cái model ở đây nhưng bây giờ mình sẽ
+
+00:18:02.004 --> 00:18:02.404
+lựa chọn,
+
+00:18:03.284 --> 00:18:05.584
+đó là mình sẽ lựa chọn cái ChatGPT và
+
+00:18:05.584 --> 00:18:06.744
+Codex subscription.
+
+00:18:07.416 --> 00:18:08.856
+Đấy, và đây cũng chính là một cái lợi của
+
+00:18:08.856 --> 00:18:11.316
+cái việc mà chúng ta khi mà sử dụng, ờ,
+
+00:18:11.316 --> 00:18:13.756
+một cái gói của ChatGPT á, nó sẽ có lợi
+
+00:18:13.756 --> 00:18:15.186
+hơn rất là nhiều. Bởi vì bây giờ ấy,
+
+00:18:15.836 --> 00:18:18.536
+các cái việc mà sử dụng cái Hermes Agent
+
+00:18:18.536 --> 00:18:20.896
+này nó chỉ tiêu tốn thông qua các cái gói
+
+00:18:20.896 --> 00:18:22.256
+subscription luôn chứ chúng ta không phải
+
+00:18:22.256 --> 00:18:24.495
+trả tiền riêng cho cái phần API. Đấy, còn
+
+00:18:24.496 --> 00:18:25.886
+ngược lại nhé, nếu mà sử dụng
+
+00:18:26.676 --> 00:18:28.726
+với cái Anthropic ở đây á, thì
+
+00:18:28.726 --> 00:18:29.936
+[tiếng hít mũi] chúng ta phải sử dụng
+
+00:18:29.936 --> 00:18:31.596
+thông qua các API mà chúng ta đã biết được
+
+00:18:31.596 --> 00:18:34.036
+là các cái model của, ờ, Anthropic thì nó
+
+00:18:34.036 --> 00:18:36.306
+cực kỳ là đắt đỏ, nó rất là tốn tiền. Thế
+
+00:18:36.306 --> 00:18:37.896
+cho nên là ở đây mình sẽ lựa chọn là của
+
+00:18:37.896 --> 00:18:38.356
+OpenAI.
+
+00:18:39.036 --> 00:18:41.156
+Đấy, mình nhấn phím Space và ở đây sẽ có 2
+
+00:18:41.156 --> 00:18:42.956
+lựa chọn. Một là dùng luôn cái gói
+
+00:18:42.956 --> 00:18:45.956
+subscription của ChatGPT và Codex hoặc là
+
+00:18:45.956 --> 00:18:47.836
+sử dụng OpenAI API thì chắc chắn là chúng
+
+00:18:47.836 --> 00:18:49.266
+ta sẽ sử dụng luôn cái gói subscription
+
+00:18:49.266 --> 00:18:51.936
+nhé. Đấy, mình lựa chọn luôn này. Đấy, thì
+
+00:18:51.936 --> 00:18:53.176
+bây giờ cái công việc tiếp theo đó là
+
+00:18:53.176 --> 00:18:55.336
+mình chỉ cần đơn giản mình mở cái-- ờ,
+
+00:18:55.336 --> 00:18:56.896
+hướng-hướng dẫn mình là mở cái trang web
+
+00:18:56.896 --> 00:18:58.516
+này lên. Đây, mở cái trang web này lên và
+
+00:18:58.516 --> 00:19:00.916
+nhập cái mã code này vào. Chuột phải và
+
+00:19:00.916 --> 00:19:03.255
+copy nha. Các bạn đừng nhấn phím Ctrl C
+
+00:19:03.256 --> 00:19:05.676
+copy nha. Tại vì cái phím Ctrl C ở trong
+
+00:19:05.676 --> 00:19:07.376
+cái cửa sổ terminal ấy, có nghĩa là nó
+
+00:19:07.376 --> 00:19:10.396
+đã-- nó sẽ, nó sẽ hủy, nó cancel cái lệnh
+
+00:19:10.396 --> 00:19:12.516
+này. Đấy, các bạn cứ biết như vậy và các
+
+00:19:12.516 --> 00:19:14.756
+bạn dùng chuột này, các bạn lựa chọn nó và
+
+00:19:14.756 --> 00:19:16.416
+các bạn chuột phải, các bạn chọn copy cho
+
+00:19:16.416 --> 00:19:18.296
+mình chứ đừng nhấn phím Ctrl C nha, nó sẽ
+
+00:19:18.296 --> 00:19:20.096
+bị thoát khỏi cái cửa sổ terminal đấy.
+
+00:19:21.056 --> 00:19:22.356
+Đấy và chúng ta sẽ mở cái trang web này
+
+00:19:22.356 --> 00:19:24.336
+lên. Đấy thì ở đây thì mình sẽ đăng nhập
+
+00:19:24.336 --> 00:19:27.076
+vào cái tài khoản này của mình nhé. Rồi,
+
+00:19:27.076 --> 00:19:28.756
+thì khi mà đăng nhập xong thì mình sẽ nhấn
+
+00:19:28.756 --> 00:19:29.436
+Continue tiếp.
+
+00:19:30.216 --> 00:19:31.616
+Đấy và bây giờ sẽ là cái bước mà mình sẽ
+
+00:19:31.616 --> 00:19:34.556
+dán cái, ờ, 8 cái con số ở đây này. Đấy,
+
+00:19:34.556 --> 00:19:36.476
+enter this code này này. Đấy, để mình đăng
+
+00:19:36.476 --> 00:19:38.156
+nhập vào nhé. Mình sẽ chuột phải và mình
+
+00:19:38.156 --> 00:19:40.296
+sẽ paste vào và mình sẽ nhấn phím
+
+00:19:40.296 --> 00:19:42.196
+Continue. Đấy, vậy là mình đã đăng nhập
+
+00:19:42.196 --> 00:19:44.076
+vào Codex thành công và ngay lập tức nó
+
+00:19:44.076 --> 00:19:46.436
+cũng tự động nó mở tiếp cho mình cái giao
+
+00:19:46.436 --> 00:19:47.936
+diện để có thể lựa chọn được cái model.
+
+00:19:48.716 --> 00:19:50.415
+Thì, ờ, ở đây sẽ có rất nhiều các cái
+
+00:19:50.416 --> 00:19:52.096
+model, thì cái thời điểm mình quay video
+
+00:19:52.096 --> 00:19:55.256
+này thì cái model, ờ, 5.6 Son ở đây là
+
+00:19:55.256 --> 00:19:57.016
+model mạnh nhất đúng không? Mình sẽ lựa
+
+00:19:57.016 --> 00:20:00.275
+chọn một cái model nó rẻ thôi, nó là GPT
+
+00:20:00.276 --> 00:20:01.016
+5.6 Luna.
+
+00:20:01.906 --> 00:20:04.376
+Ờ, chọn cái model nó càng mạnh ấy thì chắc
+
+00:20:04.376 --> 00:20:06.846
+chắn là nó sẽ nhanh hết token hơn. Đấy,
+
+00:20:06.846 --> 00:20:08.556
+thế cho nên là các bạn sẽ lựa chọn các cái
+
+00:20:08.556 --> 00:20:10.716
+model cho nó phù hợp ở đây nhé. Thì để
+
+00:20:10.716 --> 00:20:13.096
+bắt đầu ấy thì các bạn-- bởi vì trong cái
+
+00:20:13.096 --> 00:20:14.876
+quá trình mà các bạn làm quen ấy thì, thì
+
+00:20:14.876 --> 00:20:17.056
+chắc chắn là các bạn sẽ dùng nó rất là
+
+00:20:17.056 --> 00:20:19.076
+nhiều để chúng ta cấu hình ở cái thời điểm
+
+00:20:19.076 --> 00:20:21.156
+bắt đầu đấy. Thì chúng ta sẽ lựa chọn một
+
+00:20:21.156 --> 00:20:23.216
+cái model nó phù hợp thôi, bởi vì mình,
+
+00:20:23.216 --> 00:20:26.196
+ờ, dùng chính là dùng ở trên cái Claude.
+
+00:20:26.196 --> 00:20:28.456
+Nhưng mà cái Claude thì nó lại, ờ, dùng ở
+
+00:20:28.456 --> 00:20:30.616
+trên cái Hermes này ấy, nếu mà đăng nhập
+
+00:20:30.616 --> 00:20:32.596
+bằng cái OAuth ấy, nó bắt mình mua thêm
+
+00:20:32.596 --> 00:20:34.856
+cái-- giống như là sử dụng cái API cơ.
+
+00:20:34.856 --> 00:20:37.056
+Đấy, nó tính tiền theo cái giá sử dụng API
+
+00:20:37.056 --> 00:20:38.696
+nó rất là đắt. Đấy, thế cho nên là mình
+
+00:20:38.696 --> 00:20:41.236
+mua thêm một cái gói Plus của ChatGPT.
+
+00:20:41.236 --> 00:20:42.876
+Đấy, thế thì để bắt đầu thì mình nghĩ là
+
+00:20:42.876 --> 00:20:45.536
+mình, ờ, chọn luôn cái 5.6 Luna đi. Đấy,
+
+00:20:45.536 --> 00:20:47.316
+thì mình sẽ nhấn phím Space, mình chọn cái
+
+00:20:47.316 --> 00:20:50.016
+Luna, 5.6 Luna. Và cái tiếp theo sẽ hỏi
+
+00:20:50.016 --> 00:20:52.016
+mình là, à, lựa chọn một cái terminal
+
+00:20:52.016 --> 00:20:53.776
+backend. Mặc định nó chọn cho mình cái
+
+00:20:53.776 --> 00:20:55.696
+Keep current này. Đấy thì mình cứ giữ mặc
+
+00:20:55.696 --> 00:20:57.876
+định thôi, mình nhấn phím Space. Rồi, cái
+
+00:20:57.876 --> 00:20:59.996
+tiếp đến nó đang hỏi mình là lựa chọn một
+
+00:20:59.996 --> 00:21:02.136
+cái platform để cấu hình. Thì, ờ, tại đây
+
+00:21:02.136 --> 00:21:03.836
+thì mình sẽ sử dụng-- mình đã nói với các
+
+00:21:03.836 --> 00:21:05.396
+bạn là mình sẽ sử dụng cái Telegram đúng
+
+00:21:05.396 --> 00:21:07.336
+không? Đấy thì mình có thể sử dụng cái
+
+00:21:07.336 --> 00:21:09.376
+Telegram ở đây và mình nhấn phím Space.
+
+00:21:09.376 --> 00:21:11.676
+Đấy, còn các bạn muốn thì có thể lựa chọn
+
+00:21:11.676 --> 00:21:13.636
+nhiều các cái đơn vị ở đây nhé, như là
+
+00:21:13.636 --> 00:21:15.035
+dùng có thể dùng ở chính iMessage cũng
+
+00:21:15.036 --> 00:21:17.576
+được, hoặc là dùng, ờ, Microsoft Teams
+
+00:21:17.576 --> 00:21:20.076
+hoặc là WhatsApp, vân vân. Đấy, chúng ta
+
+00:21:20.076 --> 00:21:21.236
+có nhiều cái lựa chọn đấy nhưng ở đây mình
+
+00:21:21.236 --> 00:21:22.636
+sẽ lựa chọn là cái Telegram. Mình có thể
+
+00:21:22.636 --> 00:21:24.076
+lựa chọn được nhiều option ở đây một lúc
+
+00:21:24.076 --> 00:21:25.676
+này. Đấy và mình nhấn phím Enter.
+
+00:21:26.536 --> 00:21:29.216
+Và ở đây đang hỏi mình là có muốn, ờ, tạo
+
+00:21:29.216 --> 00:21:32.236
+một cái, ờ, Telegram bot. Đấy, bởi vì mình
+
+00:21:32.236 --> 00:21:35.016
+muốn sử dụng, ờm, cái Telegram á để có
+
+00:21:35.016 --> 00:21:37.476
+thể giao tiếp được với cái Hermes Agent
+
+00:21:37.476 --> 00:21:39.196
+này thì sẽ phải tạo ra một cái Telegram
+
+00:21:39.196 --> 00:21:40.535
+bot. Đấy, thế cho nên ở đây mình sẽ lựa
+
+00:21:40.536 --> 00:21:42.696
+chọn cái option là tạo một cái Telegram
+
+00:21:42.696 --> 00:21:44.956
+bot với chế độ là automatic, đấy, chế độ
+
+00:21:44.956 --> 00:21:46.476
+tự động nhé. Mình sẽ lựa chọn số một này
+
+00:21:47.476 --> 00:21:49.256
+và mình nhấn phím Enter thôi. Đấy, thì bây
+
+00:21:49.256 --> 00:21:51.896
+giờ nó sẽ đưa cho mình một cái mã QR. Đấy
+
+00:21:51.896 --> 00:21:53.176
+thì bây giờ các bạn sẽ dùng chính cái
+
+00:21:53.176 --> 00:21:55.016
+điện thoại của các bạn. Các bạn, ờ, dùng
+
+00:21:55.016 --> 00:21:57.396
+camera và các bạn quét cái mã QR này thì
+
+00:21:57.396 --> 00:21:59.256
+nó sẽ mở lên cái giao diện của cái
+
+00:21:59.256 --> 00:22:01.276
+Telegram để tạo một cái bot mới. Hoặc là
+
+00:22:01.276 --> 00:22:02.836
+các bạn có thể nhấn vào đường link ở đây.
+
+00:22:02.836 --> 00:22:04.396
+Đấy thì khi mà mình mở cái đường link lên
+
+00:22:04.396 --> 00:22:07.095
+thì nó sẽ tự động nó mở cái desktop app và
+
+00:22:07.095 --> 00:22:08.616
+nó mở sẵn cái giao diện để tạo một cái
+
+00:22:08.616 --> 00:22:10.956
+bot mới. Mình cứ để mặc định là Hermes
+
+00:22:10.956 --> 00:22:12.716
+Agent nhé. Đấy và các bạn muốn thì có thể
+
+00:22:12.716 --> 00:22:14.556
+tùy biến lại cái tên này thành một cái tên
+
+00:22:14.556 --> 00:22:16.406
+khác. Mình sẽ để mặc định là Hermes Agent
+
+00:22:16.406 --> 00:22:18.716
+này và mình nhấn, a, Create. Đấy, thì khi
+
+00:22:18.716 --> 00:22:20.636
+mà mình nhấn Create thì lúc này cái bot,
+
+00:22:20.636 --> 00:22:22.016
+con bot của chúng ta nó được tạo một cách
+
+00:22:22.016 --> 00:22:23.336
+rất là nhanh chóng. Các bạn phải nhớ là
+
+00:22:23.336 --> 00:22:25.755
+các bạn phải bấm phím Start ở đây này để
+
+00:22:25.755 --> 00:22:27.576
+lúc đó mới kích hoạt cái con bot này lên.
+
+00:22:27.576 --> 00:22:30.376
+Đấy, thì sau khi đã kích hoạt và nhấn cái
+
+00:22:30.376 --> 00:22:32.036
+lệnh là Start rồi thì chúng ta sẽ quay trở
+
+00:22:32.036 --> 00:22:34.216
+lại với cái Hostinger. Thì các bạn có thể
+
+00:22:34.216 --> 00:22:37.016
+để ý thấy là nó cũng đã tự động nó detect
+
+00:22:37.016 --> 00:22:39.215
+được cái Telegram user. Đấy, chúng ta
+
+00:22:39.216 --> 00:22:41.416
+phải gửi một cái message thì lúc đó là cái
+
+00:22:41.416 --> 00:22:42.976
+con bot đó nó mới tự động nó biết được là
+
+00:22:42.976 --> 00:22:44.676
+cái ID của cái tài khoản đăng nhập của
+
+00:22:44.676 --> 00:22:47.076
+mình là gì và nó tự động nó gửi lên cho
+
+00:22:47.076 --> 00:22:49.056
+cái Hermes Agent này này. Đấy, và ở đây nó
+
+00:22:49.056 --> 00:22:51.136
+chọn là nó hỏi là có cho phép cái tài
+
+00:22:51.136 --> 00:22:52.716
+khoản Telegram này sử dụng cái bot hay
+
+00:22:52.716 --> 00:22:55.276
+không thì mình mặc định thì nó sẽ chọn là
+
+00:22:55.276 --> 00:22:57.506
+Yes, cái chữ Y. Thì nếu muốn rõ tường minh
+
+00:22:57.506 --> 00:22:59.816
+thì các bạn gõ lại chữ Y này ra thì là
+
+00:22:59.816 --> 00:23:02.056
+Yes là mình sẽ cho phép. Ví dụ các bạn có
+
+00:23:02.056 --> 00:23:03.976
+nhiều cái tài khoản và các bạn muốn thêm
+
+00:23:03.976 --> 00:23:05.996
+các cái tài khoản này để có thể sử dụng
+
+00:23:05.996 --> 00:23:07.976
+được cái bot để giao tiếp với cái Hermes
+
+00:23:07.976 --> 00:23:09.376
+Agent ấy, thì các bạn có thể thêm vào đây
+
+00:23:09.376 --> 00:23:09.846
+và thêm, ơ,
+
+00:23:10.516 --> 00:23:12.096
+bằng cách là thêm các cái dấu phẩy nhé
+
+00:23:12.096 --> 00:23:13.016
+giữa các cái user ID.
+
+00:23:13.626 --> 00:23:14.916
+Đấy, nhưng ở đây mình sẽ chỉ có sử dụng
+
+00:23:14.916 --> 00:23:16.996
+một tài khoản. Thế cho nên là mình, ờ,
+
+00:23:16.996 --> 00:23:18.856
+optional mình không có lựa chọn gì thêm.
+
+00:23:18.856 --> 00:23:20.606
+Ờ, nó đang hỏi mình là có muốn sử dụng, ờ,
+
+00:23:20.606 --> 00:23:23.335
+cái user ID của mình ấy như là một cái
+
+00:23:23.336 --> 00:23:25.096
+home channel hay không thì mặc định là
+
+00:23:25.096 --> 00:23:27.496
+Yes, nó sẽ chọn, chọn sẵn là Yes luôn nên
+
+00:23:27.496 --> 00:23:29.556
+mình có thể nhấn phím Enter luôn. Đấy, vậy
+
+00:23:29.556 --> 00:23:32.076
+là mình đã cấu hình được cái platform để
+
+00:23:32.076 --> 00:23:33.776
+có thể nhắn tin thành công. Đấy và các bạn
+
+00:23:33.776 --> 00:23:37.476
+làm tương tự cho các cái platform nhắn
+
+00:23:37.476 --> 00:23:39.656
+tin khác như là WhatsApp hoặc là Discord
+
+00:23:39.656 --> 00:23:41.736
+gì đó thì các bạn có thể làm theo hướng
+
+00:23:41.736 --> 00:23:44.056
+dẫn. Đấy và đây mình-- nó hỏi mình là có
+
+00:23:44.056 --> 00:23:46.636
+muốn restart lại cái gateway để apply các
+
+00:23:46.636 --> 00:23:48.336
+cái thay đổi đấy thì mình sẽ chọn Yes mặc
+
+00:23:48.336 --> 00:23:50.576
+định nhấn phím Enter thôi. Đấy, vậy là cơ
+
+00:23:50.576 --> 00:23:53.296
+bản là chúng ta đã kết nối được với, ờ,
+
+00:23:53.296 --> 00:23:55.116
+tài khoản Telegram cá nhân của chúng ta
+
+00:23:55.116 --> 00:23:57.376
+với cái con Hermes Agent này. Và một chút
+
+00:23:57.376 --> 00:23:59.696
+nữa thì chúng ta sẽ cùng nhau thử nhắn tin
+
+00:23:59.696 --> 00:24:01.516
+để trao đổi với nó nhé. Đấy, cái tiếp
+
+00:24:01.516 --> 00:24:03.286
+theo là sẽ là các cái tool. Các bạn có thể
+
+00:24:03.286 --> 00:24:05.876
+mở lại cái phần mình mô tả cho các bạn về
+
+00:24:05.876 --> 00:24:07.996
+các cái tool, về kiến trúc của cái Hermes
+
+00:24:07.996 --> 00:24:10.456
+Agent thì chúng ta sẽ có một bộ các cái
+
+00:24:10.456 --> 00:24:13.436
+công cụ mà cái Agent Loop nó sẽ sử dụng
+
+00:24:13.436 --> 00:24:14.774
+đúng không? Đây chúng ta có một loạt các
+
+00:24:14.774 --> 00:24:16.784
+cái tool này và đã được, à, mặc định cái
+
+00:24:16.784 --> 00:24:18.764
+Hermes Agent này nó tự động nó lựa chọn
+
+00:24:18.764 --> 00:24:21.144
+cho chúng ta như là Code Execution này thì
+
+00:24:21.144 --> 00:24:23.064
+chúng ta cứ để mặc định thôi, đấy, như là
+
+00:24:23.064 --> 00:24:25.303
+Image Generate, đấy, vân vân. Rất nhiều
+
+00:24:25.304 --> 00:24:27.404
+các cái công cụ ở đây. Các cái công cụ này
+
+00:24:27.404 --> 00:24:29.944
+sẽ giúp cho cái Agent nó giống như nó mở
+
+00:24:29.944 --> 00:24:31.744
+rộng các cái cánh tay, các khả năng của nó
+
+00:24:31.744 --> 00:24:33.184
+để có thể làm được các cái việc khác
+
+00:24:33.184 --> 00:24:34.823
+nhau. Đấy, và ở đây thì trong các cái
+
+00:24:34.824 --> 00:24:36.034
+task, à, rất là quan trọng
+
+00:24:36.784 --> 00:24:39.004
+để giúp cho nó có thể chạy automation một
+
+00:24:39.004 --> 00:24:40.704
+cách tự động theo cái lịch mà chúng ta cài
+
+00:24:40.704 --> 00:24:43.244
+đặt, đó là cái, à, cái tool đó là Cron
+
+00:24:43.244 --> 00:24:45.424
+Jobs. Đấy, các bạn lưu ý là chắc chắn là
+
+00:24:45.424 --> 00:24:47.104
+phải check lên cái Cron Jobs này cho mình
+
+00:24:47.104 --> 00:24:47.244
+nha.
+
+00:24:48.064 --> 00:24:49.664
+Đấy thì bây giờ mình cơ bản là mình nhấn
+
+00:24:49.664 --> 00:24:51.924
+phím Enter thôi, đấy, để cho nó cài đặt
+
+00:24:51.924 --> 00:24:53.824
+các cái tool này cho cái Agent Hermes của
+
+00:24:53.824 --> 00:24:57.024
+chúng ta. Rồi cái tiếp đến là mình sẽ
+
+00:24:57.784 --> 00:24:59.944
+lựa chọn, à, mình sẽ lựa chọn cái trình
+
+00:24:59.944 --> 00:25:02.444
+duyệt. Thì ở đây thì mình, à, mình thấy nó
+
+00:25:02.444 --> 00:25:05.004
+recommend là sử dụng cái local browser
+
+00:25:05.004 --> 00:25:06.644
+thì mình nghĩ là mình nên chọn luôn cái
+
+00:25:06.644 --> 00:25:10.004
+local browser này đi theo cái mà Hermes nó
+
+00:25:10.004 --> 00:25:10.944
+recommend nhé.
+
+00:25:11.684 --> 00:25:13.324
+Đấy, mình nhấn phím Space này. Đấy, thì
+
+00:25:13.324 --> 00:25:14.824
+chúng ta sẽ đợi một chút để cho nó tiến
+
+00:25:14.824 --> 00:25:17.324
+hành nó cài đặt các cái công cụ của chúng
+
+00:25:17.324 --> 00:25:17.524
+ta.
+
+00:25:18.544 --> 00:25:21.244
+Đấy, thì tiếp đến là cái phần mà dùng để
+
+00:25:21.244 --> 00:25:21.704
+tạo ảnh.
+
+00:25:22.304 --> 00:25:24.864
+Đấy, phần tạo ảnh này thì, ờ, bởi vì mình
+
+00:25:24.864 --> 00:25:27.324
+đã dùng cái gói, à, subscription của
+
+00:25:27.324 --> 00:25:29.584
+OpenAI đúng không? Đấy, thế cho nên là
+
+00:25:29.584 --> 00:25:31.404
+chúng ta sẽ lựa chọn cái option ở đây sẽ
+
+00:25:31.404 --> 00:25:34.864
+là dùng cái Codex OAuth, à, gpt-image-2
+
+00:25:34.864 --> 00:25:36.804
+này này thông qua cái ChatGPT và Codex
+
+00:25:36.804 --> 00:25:39.004
+OAuth này thì nó sẽ miễn phí hoàn toàn.
+
+00:25:39.004 --> 00:25:41.284
+Còn nếu như mà các bạn sử dụng các cái
+
+00:25:41.284 --> 00:25:43.004
+model khác á là các bạn sẽ phải trả phí
+
+00:25:43.004 --> 00:25:45.044
+API riêng đấy. Đấy, thế cho nên là dùng
+
+00:25:45.044 --> 00:25:47.784
+cái gói đăng ký của cái ChatGPT nó cực kỳ
+
+00:25:47.784 --> 00:25:50.024
+tiện lợi, nó là như vậy. Đấy, tất cả những
+
+00:25:50.024 --> 00:25:52.664
+cái tiền chúng ta đã mua bằng cái gói
+
+00:25:52.664 --> 00:25:53.884
+trọn gói đấy rồi, chúng ta chỉ mất cái
+
+00:25:53.884 --> 00:25:55.984
+token ở trên cái gói chúng ta đã mua thôi.
+
+00:25:55.984 --> 00:25:58.004
+Đấy, nó rất là tiện như vậy. Đấy và cũng
+
+00:25:58.004 --> 00:26:00.124
+như với cái việc mà các bạn biết được là
+
+00:26:00.124 --> 00:26:02.224
+gần đây thì cái ChatGPT nó đã bỏ giới hạn
+
+00:26:02.224 --> 00:26:04.324
+5 giờ rồi. Thế cho nên là với cái gói Plus
+
+00:26:04.324 --> 00:26:05.624
+thì chúng ta cũng sử dụng một cách rất là
+
+00:26:05.624 --> 00:26:07.184
+thoải mái. Bởi vì bây giờ cái gói của
+
+00:26:07.184 --> 00:26:09.764
+ChatGPT nó chỉ có giới hạn theo tuần thôi.
+
+00:26:09.764 --> 00:26:11.064
+Thế cho nên là cái việc mà chúng ta sử
+
+00:26:11.064 --> 00:26:13.084
+dụng nó khá là thoải mái. Mà cái thứ 2 nữa
+
+00:26:13.084 --> 00:26:15.244
+là mình sử dụng cái model là Luna á, thì
+
+00:26:15.244 --> 00:26:16.724
+cái giá của nó đã được update gần đây ấy,
+
+00:26:16.724 --> 00:26:18.604
+thế cho nên là cái giá của nó cực kỳ rẻ và
+
+00:26:18.604 --> 00:26:20.584
+các bạn sẽ sử dụng gần như là thoải mái
+
+00:26:20.584 --> 00:26:23.064
+để có thể tạo ảnh hay là nhắn tin với, ơm,
+
+00:26:23.064 --> 00:26:25.584
+Hermes Agent. Đấy, thì mình sẽ lựa chọn
+
+00:26:25.584 --> 00:26:29.024
+cái, ơm, ChatGPT OAuth ở đây nhé. Đấy, cái
+
+00:26:29.024 --> 00:26:30.004
+tiếp đến là mình sẽ
+
+00:26:30.804 --> 00:26:32.983
+lựa chọn cái model để tạo ảnh. Thì các
+
+00:26:32.984 --> 00:26:34.204
+bạn-- tùy vào cách các bạn sử dụng thôi,
+
+00:26:34.204 --> 00:26:35.364
+các bạn muốn chất lượng cao nhất thì các
+
+00:26:35.364 --> 00:26:38.804
+bạn sử dụng, à, cái gpt-image-2 với cái
+
+00:26:38.804 --> 00:26:40.064
+airforce là 2.
+
+00:26:41.384 --> 00:26:42.824
+Thì lúc tạo thì nó sẽ lâu hơn một chút
+
+00:26:42.824 --> 00:26:44.364
+nhưng mà cái chất lượng nó là cao nhất.
+
+00:26:44.364 --> 00:26:46.244
+Đấy, thế cho nên ở đây mình, à, mình sẽ
+
+00:26:46.244 --> 00:26:48.364
+lựa chọn theo gói Medium thôi. Đấy, cái
+
+00:26:48.364 --> 00:26:51.324
+tiếp đến là mình sẽ lựa chọn cái nhà cung
+
+00:26:51.324 --> 00:26:53.904
+cấp cái dịch vụ là text-to-speech để
+
+00:26:53.904 --> 00:26:55.644
+chuyển đổi từ văn bản thành giọng nói.
+
+00:26:55.644 --> 00:26:57.594
+Thì, à, ở đây sẽ có một số các lựa chọn
+
+00:26:57.594 --> 00:26:59.944
+này như là nếu như mà chúng ta sử dụng sẵn
+
+00:26:59.944 --> 00:27:02.624
+cái Microsoft S, à, TTS thì recommend thì
+
+00:27:02.624 --> 00:27:04.704
+nó sẽ free này. Cái gì free thì các bạn
+
+00:27:04.704 --> 00:27:06.424
+cứ xài đi tại bởi vì mình cũng đã trải
+
+00:27:06.424 --> 00:27:08.864
+nghiệm cái Microsoft S TTS này rồi, nó
+
+00:27:08.864 --> 00:27:11.404
+dùng rất là tốt. Bởi vì gần đây mình cũng
+
+00:27:11.404 --> 00:27:13.024
+làm một cái extension để có thể tự động
+
+00:27:13.024 --> 00:27:13.444
+thuyết minh
+
+00:27:14.104 --> 00:27:15.864
+khi mà xem các cái nội dung tiếng Anh ở
+
+00:27:15.864 --> 00:27:18.144
+trên Coursera hay là trên Netflix hay là
+
+00:27:18.144 --> 00:27:19.964
+trên YouTube. Đấy, và mình cũng dùng chính
+
+00:27:19.964 --> 00:27:20.984
+cái các cái, ơm,
+
+00:27:21.584 --> 00:27:24.464
+model của cái Microsoft S, à, TTS này, à,
+
+00:27:24.464 --> 00:27:26.724
+nó đọc cực kỳ là hay và chính xác. Đấy,
+
+00:27:26.724 --> 00:27:28.224
+thế thì ở đây mình cũng dùng luôn cái
+
+00:27:28.224 --> 00:27:29.564
+Microsoft S này nhé.
+
+00:27:30.484 --> 00:27:31.284
+Và cái tiếp đến là mình--
+
+00:27:32.064 --> 00:27:34.144
+nó hỏi mình là cái search provider nào,
+
+00:27:34.144 --> 00:27:35.624
+mình muốn dùng cái công cụ search nào thì
+
+00:27:35.624 --> 00:27:37.964
+mình, à, tìm cái nào nó free thôi. Bởi vì
+
+00:27:37.964 --> 00:27:40.344
+mình không dùng cái no subscription này.
+
+00:27:40.344 --> 00:27:41.824
+Đấy, thì mình nghĩ là ở ở đây mình sẽ sử
+
+00:27:41.824 --> 00:27:44.984
+dụng cái dịch vụ của DuckDuckGo nhé. Đây
+
+00:27:44.984 --> 00:27:46.924
+này, mình thấy là nó free này, no key này,
+
+00:27:46.924 --> 00:27:48.884
+search only này. Đấy, thì mình sẽ sử dụng
+
+00:27:48.884 --> 00:27:51.404
+cái dịch vụ này. Đấy, vậy là chúng ta cơ
+
+00:27:51.404 --> 00:27:53.784
+bản là đã cài đặt xong và cài đặt thành
+
+00:27:53.784 --> 00:27:55.584
+công rồi. Đấy, thì bây giờ mình sẽ mở cái
+
+00:27:55.584 --> 00:27:57.744
+cửa sổ chat lên, cái cửa sổ t-- à,
+
+00:27:57.744 --> 00:27:59.684
+Telegram lên để chúng ta thử nói chuyện
+
+00:27:59.684 --> 00:28:02.624
+với, à, cái Hermes Agent này để xem nó
+
+00:28:02.624 --> 00:28:04.444
+hoạt động được hay chưa. Đấy, còn nếu như
+
+00:28:04.444 --> 00:28:06.224
+mà các bạn muốn thay đổi lại một số các
+
+00:28:06.224 --> 00:28:07.724
+cái nhà cung cấp gì đó thì các bạn chỉ cần
+
+00:28:07.724 --> 00:28:09.944
+đơn giản là chạy lại cái lệnh là Hermes,
+
+00:28:09.944 --> 00:28:12.804
+à, Setup này thôi. Hoặc là bây giờ nếu như
+
+00:28:12.804 --> 00:28:14.684
+mà đã-- cái Telegram của chúng ta đã nói
+
+00:28:14.684 --> 00:28:16.484
+chuyện được với cái Hermes Agent rồi ạ,
+
+00:28:16.484 --> 00:28:18.704
+thông qua cái con bot á, thì lúc đó là
+
+00:28:18.704 --> 00:28:20.504
+chúng ta hoàn toàn có thể là dùng chính
+
+00:28:20.504 --> 00:28:23.024
+cái cửa sổ ter-- à, cái cửa sổ Telegram để
+
+00:28:23.024 --> 00:28:24.424
+chúng ta có thể trò chuyện được với cái
+
+00:28:24.424 --> 00:28:26.064
+Hermes Agent này để cho nó tự động nó thay
+
+00:28:26.064 --> 00:28:27.374
+đổi các cái nhà cung cấp này cũng được
+
+00:28:27.374 --> 00:28:27.564
+luôn.
+
+00:28:28.344 --> 00:28:30.244
+Thế bây giờ mình sẽ thử mở lên cái Hermes
+
+00:28:30.244 --> 00:28:31.904
+Agent bot này của mình đấy. Đấy, bây giờ
+
+00:28:31.904 --> 00:28:33.423
+mình sẽ thử nói chuyện này. Mình sẽ thử
+
+00:28:33.423 --> 00:28:35.784
+nói là [gõ] "Bạn chạy được chưa?"
+
+00:28:37.024 --> 00:28:38.624
+Ừm, hiện tại thì mình chưa thấy nó phản
+
+00:28:38.624 --> 00:28:38.904
+hồi.
+
+00:28:39.744 --> 00:28:40.644
+Thế thì mình sẽ
+
+00:28:41.544 --> 00:28:43.623
+kiểm tra lại một chút nào. Mình sẽ mở lại
+
+00:28:43.624 --> 00:28:45.964
+cái Hermes, à, Agent này lên. Mình sẽ mở--
+
+00:28:45.964 --> 00:28:47.564
+không mở cái Terminal nhé, mà mình mở cái
+
+00:28:47.564 --> 00:28:49.364
+phần này lên này. Đấy, thì tại đây thì
+
+00:28:49.364 --> 00:28:50.864
+các bạn lưu ý là các bạn đăng nhập bằng
+
+00:28:50.864 --> 00:28:52.884
+cái tài khoản mà các bạn đã tạo lúc mà
+
+00:28:52.884 --> 00:28:54.804
+chúng ta vừa mua cái VPS xong đấy, thì có
+
+00:28:54.804 --> 00:28:57.124
+cái phần là có username và password để
+
+00:28:57.124 --> 00:28:59.924
+chúng ta dùng được cái Hermes Agent này.
+
+00:28:59.924 --> 00:29:01.644
+Đấy, các bạn nhập cái thông tin đó vào thì
+
+00:29:01.644 --> 00:29:03.124
+các bạn sẽ đăng nhập và chúng ta sẽ có
+
+00:29:03.124 --> 00:29:05.204
+được một cái giao diện như thế này. Thì
+
+00:29:05.204 --> 00:29:06.884
+tại đây mình thấy là cái phần Active
+
+00:29:06.884 --> 00:29:08.864
+Sessions ở đây nó vẫn là-- đang là không,
+
+00:29:08.864 --> 00:29:10.444
+cho nên là có nghĩa là nó chưa có cấu hình
+
+00:29:10.444 --> 00:29:12.084
+được. Đấy, thế cho nên ở đây mình có thể
+
+00:29:12.084 --> 00:29:14.284
+là kiểm tra lại trong cái phần Channel.
+
+00:29:14.944 --> 00:29:17.424
+À, đây, các bạn thấy chưa? Cái Telegram
+
+00:29:17.484 --> 00:29:19.084
+của chúng ta là chúng ta đã cấu hình được
+
+00:29:19.084 --> 00:29:21.424
+rồi nhưng mà nó bảo mình là phải restart
+
+00:29:21.424 --> 00:29:23.364
+lại để có thể apply các cái cấu hình.
+
+00:29:24.124 --> 00:29:26.004
+Đấy, thế bây giờ mình sẽ đơn giản là mình
+
+00:29:26.004 --> 00:29:27.624
+sẽ nhấn vào cái phần Restart cái Gateway
+
+00:29:27.624 --> 00:29:29.164
+này thôi. Đây, mình sẽ restart cái
+
+00:29:29.164 --> 00:29:30.883
+Gateway. Đấy, cái Gateway nó là một cái
+
+00:29:30.884 --> 00:29:33.184
+phần ở trong cái kiến trúc của cái Hermes
+
+00:29:33.184 --> 00:29:34.764
+Agent mình đã chia sẻ cho các bạn ở trong
+
+00:29:34.764 --> 00:29:36.304
+phần đầu video rồi đúng không? Đấy, thì
+
+00:29:36.304 --> 00:29:37.804
+các bạn có thể mở lại để xem được tất cả
+
+00:29:37.804 --> 00:29:39.524
+các cái phần này. Đấy, nó đang báo là nó
+
+00:29:39.524 --> 00:29:41.564
+đang Telegram, nó đang connecting này.
+
+00:29:41.564 --> 00:29:42.924
+Đấy, các bạn thấy là bây giờ nó đã chuyển
+
+00:29:42.924 --> 00:29:44.934
+sang trạng thái là connected rồi, thì mình
+
+00:29:44.934 --> 00:29:46.604
+nghĩ là bây giờ nó mới có thể hoạt động
+
+00:29:46.604 --> 00:29:48.764
+được. Thì bây giờ mình sẽ mở lại cái, cái,
+
+00:29:48.764 --> 00:29:50.304
+ơ, Telegram nhé. Mình hỏi lại này
+
+00:29:51.304 --> 00:29:52.104
+[gõ] "Bạn chạy được chưa?
+
+00:29:54.424 --> 00:29:57.074
+Bạn chạy được chưa?" Đấy, nó-- mình thấy
+
+00:29:57.074 --> 00:29:58.684
+là đang typing này. Đấy, vậy là được rồi
+
+00:29:58.684 --> 00:30:03.304
+này. Nó bảo là, à, Codex GPT 5.6 Luna, cái
+
+00:30:03.304 --> 00:30:06.304
+context là 900.000 và nó sẽ tự động nó
+
+00:30:06.304 --> 00:30:08.904
+compact, nó nén lại cái token khi mà vượt
+
+00:30:08.904 --> 00:30:11.484
+quá 85%. Đấy, vậy là chúng ta đã kết nối
+
+00:30:11.484 --> 00:30:12.964
+được thành công rồi này. Đấy, nó trả lời
+
+00:30:12.964 --> 00:30:15.204
+cho mình là "Mình chạy được rồi nhé. Bạn
+
+00:30:15.204 --> 00:30:16.944
+có thể bắt đầu làm việc ngay bây giờ. Gõ
+
+00:30:16.944 --> 00:30:17.994
+help để xem các cái lệnh".
+
+00:30:18.608 --> 00:30:20.248
+Đấy, vậy là mình đã kết nối được Telegram
+
+00:30:20.248 --> 00:30:22.148
+thành công và mình cũng đã có thể nhắn tin
+
+00:30:22.148 --> 00:30:25.148
+được với cái Hermes Agent này rồi. Đấy,
+
+00:30:25.148 --> 00:30:26.348
+vậy là cơ bản là mình đã hướng dẫn các bạn
+
+00:30:26.348 --> 00:30:28.718
+có thể là mua một cái VPS cũng như là có
+
+00:30:28.718 --> 00:30:30.548
+thể là cấu hình để làm sao có thể chạy
+
+00:30:30.548 --> 00:30:32.608
+được một cái Hermes Agent ở trên cái VPS
+
+00:30:32.608 --> 00:30:35.048
+này, cũng như là đã có thể setup được một
+
+00:30:35.048 --> 00:30:37.868
+cái Telegram bot để chúng ta có thể là đây
+
+00:30:37.868 --> 00:30:40.448
+là một cái kênh để chúng ta giao tiếp với
+
+00:30:40.448 --> 00:30:42.828
+cái Hermes Agent đó. Đấy, thì bởi vì đây
+
+00:30:42.828 --> 00:30:45.868
+là một cái, ờm, Hermes Agent mới hoàn toàn
+
+00:30:45.868 --> 00:30:48.108
+và nó chưa hề biết gì về mình hết. Đấy,
+
+00:30:48.108 --> 00:30:50.148
+thế cho nên là, à, cái phần demo này mình
+
+00:30:50.148 --> 00:30:52.288
+cũng làm một cách nó đơn giản thôi. Còn
+
+00:30:52.288 --> 00:30:54.068
+nếu muốn ấy, khi mà cài đặt được đến bước
+
+00:30:54.068 --> 00:30:55.988
+này thì các bạn sẽ bắt đầu nói chuyện, trò
+
+00:30:55.988 --> 00:30:58.428
+chuyện với cái Hermes Agent đó và bạn
+
+00:30:58.428 --> 00:31:00.688
+hỏi, à, những gì Hermes Agent này có thể
+
+00:31:00.688 --> 00:31:02.988
+làm được. Bởi vì nó cũng giống như là một
+
+00:31:02.988 --> 00:31:04.768
+cái người nhân viên của các bạn đi, một
+
+00:31:04.768 --> 00:31:06.748
+người nhân viên mới vừa vào công ty hoặc
+
+00:31:06.748 --> 00:31:08.148
+là một người bạn vừa mới quen thì chắc
+
+00:31:08.148 --> 00:31:10.648
+chắn là bạn sẽ không có muốn là chia sẻ
+
+00:31:10.648 --> 00:31:12.468
+quá nhiều thông tin của các bạn, ví dụ như
+
+00:31:12.468 --> 00:31:14.868
+là các cái tài khoản về Gmail, các cái
+
+00:31:14.868 --> 00:31:15.488
+tài khoản,
+
+00:31:16.208 --> 00:31:18.788
+à, liên quan đến phần code, ấy, vân vân.
+
+00:31:18.788 --> 00:31:20.108
+Rất nhiều các cái phần như vậy mình sẽ
+
+00:31:20.108 --> 00:31:21.368
+không muốn chia sẻ ngay với những người mà
+
+00:31:21.368 --> 00:31:23.248
+mình chưa có sự tin tưởng. Thì các bạn cứ
+
+00:31:23.248 --> 00:31:25.628
+trò chuyện như là một cái người nhân viên
+
+00:31:25.628 --> 00:31:28.148
+và các bạn cũng nên thay đổi lại cái
+
+00:31:28.148 --> 00:31:30.288
+mindset của chúng ta. Thay vì là chúng ta
+
+00:31:30.288 --> 00:31:32.268
+coi chỉ là một cái chatbot thì các bạn hãy
+
+00:31:32.268 --> 00:31:34.208
+coi đây là một cái người nhân viên. Bạn
+
+00:31:34.208 --> 00:31:36.568
+giao một việc và bạn mong đợi là sẽ cái
+
+00:31:36.568 --> 00:31:38.208
+việc đó nó sẽ phải hoàn thành. Bây giờ ví
+
+00:31:38.208 --> 00:31:40.388
+dụ như mình nói một cái công việc, à, đó
+
+00:31:40.388 --> 00:31:43.648
+là mình muốn là cứ khoảng, à, 8h sáng hàng
+
+00:31:43.648 --> 00:31:46.008
+ngày thì hãy tổng hợp cho mình tất cả
+
+00:31:46.008 --> 00:31:48.408
+những cái tin công nghệ hot nhất hiện nay
+
+00:31:48.408 --> 00:31:50.508
+vào 8h sáng thì mình sẽ nói với cái,
+
+00:31:51.248 --> 00:31:53.268
+à, Hermes Agent này nhé. Đấy, bởi vì ở đây
+
+00:31:53.268 --> 00:31:55.148
+là mình đang quay demo cho các bạn thì
+
+00:31:55.148 --> 00:31:57.558
+mình dùng luôn cái Telegram Desktop. Nhưng
+
+00:31:57.558 --> 00:31:59.248
+mà thực tế là các bạn có thể sử dụng nó ở
+
+00:31:59.248 --> 00:32:00.748
+trên cái điện thoại của các bạn luôn nha.
+
+00:32:00.748 --> 00:32:02.968
+Đấy, các bạn sử dụng cái app Telegram á
+
+00:32:02.968 --> 00:32:04.488
+là chúng ta cũng có thể trò chuyện được
+
+00:32:04.488 --> 00:32:06.108
+với cái Hermes Agent này rồi. Thì bây giờ
+
+00:32:06.108 --> 00:32:06.688
+mình sẽ thử này.
+
+00:32:07.588 --> 00:32:09.808
+Giờ tạo giúp tôi, ờm,
+
+00:32:10.448 --> 00:32:13.248
+một cái job chạy vào khoảng 8h sáng để
+
+00:32:13.248 --> 00:32:15.488
+tổng hợp cho tôi tất cả các tin tức công
+
+00:32:15.488 --> 00:32:16.888
+nghệ hot nhất hiện nay.
+
+00:32:17.488 --> 00:32:19.688
+Đấy [cười], và có vẻ như là mình nói tiếng
+
+00:32:19.688 --> 00:32:22.008
+Việt nên là nó không hiểu được cái
+
+00:32:22.008 --> 00:32:24.268
+message của mình. Rồi bây giờ mình-- thôi
+
+00:32:24.268 --> 00:32:25.608
+mình gõ luôn nhé. Bây giờ mình gõ luôn
+
+00:32:25.608 --> 00:32:29.568
+này. Tạo một job chạy hàng ngày
+
+00:32:30.588 --> 00:32:35.908
+8h sáng, tổng hợp tin tức hot nhất về công
+
+00:32:35.908 --> 00:32:36.148
+nghệ.
+
+00:32:36.768 --> 00:32:39.328
+Đấy, mình gửi, a, cho cái Hermes Agent
+
+00:32:39.328 --> 00:32:41.488
+nhé. Đấy, thì các bạn thấy là khi mà chúng
+
+00:32:41.488 --> 00:32:43.748
+ta gửi một job này, nó tự động nó biết là
+
+00:32:43.748 --> 00:32:45.768
+nó sẽ dùng cái skill nào trong cái bộ
+
+00:32:45.768 --> 00:32:47.948
+skill của Hermes đấy. Mặc định thì nó đã
+
+00:32:47.948 --> 00:32:50.248
+có một tập các cái bộ skill của Hermes nó
+
+00:32:50.248 --> 00:32:52.328
+cung cấp sẵn rồi. Đấy, còn trong cái quá
+
+00:32:52.328 --> 00:32:54.648
+trình mà làm việc với chúng ta ấy thì
+
+00:32:54.648 --> 00:32:56.688
+Hermes nó cũng tự động nó tạo thêm các cái
+
+00:32:56.688 --> 00:32:58.768
+skill khác và nó cũng tự động nó update
+
+00:32:58.768 --> 00:33:00.848
+lại các skill sẵn có nếu mà cần thiết.
+
+00:33:00.848 --> 00:33:02.708
+Đấy, còn khi mà nó tạo hoặc là nó, hoặc là
+
+00:33:02.708 --> 00:33:04.287
+nó update ấy, nó đều thông báo cho chúng
+
+00:33:04.288 --> 00:33:05.828
+ta nên chúng ta không cần phải lo lắng về
+
+00:33:05.828 --> 00:33:07.368
+cái vấn đề này. Đấy, nó làm một cách tự
+
+00:33:07.368 --> 00:33:09.208
+động và chúng ta hiểu đơn giản là như là
+
+00:33:09.208 --> 00:33:11.168
+đang làm việc với một con người. Chúng ta
+
+00:33:11.168 --> 00:33:12.888
+cần phải thay đổi lại cái mindset khi mà
+
+00:33:12.888 --> 00:33:14.308
+làm việc với Hermes Agent nó cũng là như
+
+00:33:14.308 --> 00:33:16.168
+vậy luôn. Đấy, chúng ta giao một cái việc
+
+00:33:16.168 --> 00:33:18.108
+cho cái người nhân viên này luôn và chúng
+
+00:33:18.108 --> 00:33:19.968
+ta mong đợi là nó sẽ tự động phải biết làm
+
+00:33:19.968 --> 00:33:21.548
+những công việc gì. Đấy và bây giờ mình
+
+00:33:21.548 --> 00:33:22.628
+sẽ trả lời thử nhé.
+
+00:33:23.348 --> 00:33:25.528
+Đấy, mình sẽ lựa chọn ở đây là cái múi giờ
+
+00:33:25.528 --> 00:33:26.388
+sẽ là giờ Việt Nam.
+
+00:33:27.148 --> 00:33:28.508
+Đấy, nó cũng tự động nó biết là mình đang
+
+00:33:28.508 --> 00:33:30.608
+ở Việt Nam đúng không? Đấy, mình sẽ nói là
+
+00:33:30.608 --> 00:33:31.208
+giờ Việt Nam này.
+
+00:33:31.828 --> 00:33:33.528
+Đấy, nhưng mà bởi vì nếu mà mình đợi đến,
+
+00:33:33.528 --> 00:33:36.008
+ơ, 8h sáng ngày mai thì sẽ quay demo cho
+
+00:33:36.008 --> 00:33:38.088
+các bạn nó rất, rất là khó đúng không?
+
+00:33:38.648 --> 00:33:40.368
+Đấy, thế cho nên là một chút nữa mình sẽ
+
+00:33:40.368 --> 00:33:42.588
+nói nó là trigger cái cronjob này luôn ở
+
+00:33:42.588 --> 00:33:44.928
+ngay cái thời điểm hiện tại để xem thử cái
+
+00:33:44.928 --> 00:33:46.968
+nội dung nó trả về cho chúng ta nó sẽ như
+
+00:33:46.968 --> 00:33:47.348
+thế nào.
+
+00:33:48.028 --> 00:33:50.048
+Đấy, nó, nó thông báo là nó đã tạo được
+
+00:33:50.048 --> 00:33:51.668
+một cái job là bản tin công nghệ hàng ngày
+
+00:33:51.668 --> 00:33:54.368
+này và thời gian là 8h sáng Việt Nam, tối
+
+00:33:54.368 --> 00:33:55.888
+đa là 7 tin công nghệ nóng nhất 24 giờ
+
+00:33:55.888 --> 00:33:56.068
+qua.
+
+00:33:56.888 --> 00:33:58.148
+Đấy, nhưng mà bởi vì bây giờ sẽ phải đợi
+
+00:33:58.148 --> 00:33:59.948
+đến 8h sáng mai thế cho nên mình nói luôn
+
+00:33:59.948 --> 00:34:01.308
+là, à, trigger
+
+00:34:02.328 --> 00:34:03.628
+ngay cho tôi xem.
+
+00:34:05.208 --> 00:34:07.268
+Đấy, và mình thấy là nó báo là đã được gửi
+
+00:34:07.268 --> 00:34:09.308
+vào chế độ nền và sẽ được gửi vào cái
+
+00:34:09.308 --> 00:34:11.428
+cuộc hội thoại này khi nào nó chạy xong.
+
+00:34:12.108 --> 00:34:13.268
+Đấy, mình sẽ đợi một chút để cho cái
+
+00:34:13.268 --> 00:34:14.968
+Hermes Agent này nó chạy và nó trả về--
+
+00:34:14.968 --> 00:34:16.748
+trả lời cho mình này. Đấy, nó cũng báo
+
+00:34:16.748 --> 00:34:18.628
+luôn cho mình biết được là cái công cụ web
+
+00:34:18.628 --> 00:34:20.507
+search của mình ấy, lúc nãy mình đăng ký
+
+00:34:20.508 --> 00:34:22.708
+là với cái DuckDuckGo đúng không? Nhưng mà
+
+00:34:22.708 --> 00:34:24.328
+do là chưa cài đặt nên nó đang bị lỗi
+
+00:34:24.328 --> 00:34:26.048
+này, thì mình để xem thử xem là nó có thể
+
+00:34:26.048 --> 00:34:29.018
+tự động nó sửa lỗi này cho mình hay không.
+
+00:34:29.018 --> 00:34:31.768
+Đấy và nó nói là do là nó không có quyền
+
+00:34:31.768 --> 00:34:33.348
+ghi ở trên cái Hermes.
+
+00:34:34.208 --> 00:34:35.568
+Đấy, thế cho nên là bây giờ nó sẽ có một
+
+00:34:35.568 --> 00:34:38.378
+cái đường khác đó là nó sử dụng cái RSS.
+
+00:34:38.378 --> 00:34:40.348
+Đấy, theo như những gì mình thấy là-- các
+
+00:34:40.348 --> 00:34:41.628
+bạn thấy là nó có thông minh không?
+
+00:34:42.328 --> 00:34:43.938
+Khi mà nó, ừm,
+
+00:34:44.568 --> 00:34:46.788
+thử search với cái công cụ search của
+
+00:34:46.788 --> 00:34:48.837
+chúng ta như là DuckDuckGo ấy mà nó không
+
+00:34:48.837 --> 00:34:49.138
+thành công
+
+00:34:50.048 --> 00:34:51.967
+thì ngay lập tức nó đã tìm các phương án
+
+00:34:51.968 --> 00:34:54.428
+khác và chúng ta không hề can thiệp bất kỳ
+
+00:34:54.428 --> 00:34:56.948
+gì trong cái quá trình này cả. Đấy và nó
+
+00:34:56.948 --> 00:34:58.568
+đã tìm được một cái đường khác là nó dùng
+
+00:34:58.568 --> 00:35:00.518
+chính một cái script luôn để nó lấy các
+
+00:35:00.518 --> 00:35:03.288
+nguồn RSS. Đấy, thì bây giờ mình sẽ nói
+
+00:35:03.288 --> 00:35:07.188
+với nó là chạy luôn đi để xem là cái
+
+00:35:07.188 --> 00:35:08.587
+script nó vừa mới chạy ấy, cái script nó
+
+00:35:08.588 --> 00:35:10.288
+vừa mới tạo ấy, nó có chạy được hay không.
+
+00:35:10.968 --> 00:35:12.568
+Đấy, các bạn thấy không? Nó trả về cho
+
+00:35:12.568 --> 00:35:15.108
+chúng ta được, à, bảy cái tin công nghệ
+
+00:35:15.108 --> 00:35:15.188
+này.
+
+00:35:15.848 --> 00:35:17.748
+Đấy, bản tin công nghệ 21 tháng 8 này.
+
+00:35:17.748 --> 00:35:19.348
+Đấy, các bạn thấy không? Mình giao cho nó
+
+00:35:19.348 --> 00:35:21.928
+một việc và nó tự biết cách để tìm các cái
+
+00:35:21.928 --> 00:35:24.168
+phương án khác thay vì là cái cách mà
+
+00:35:24.168 --> 00:35:26.128
+chúng ta vẫn dùng với các cái, các cái
+
+00:35:26.128 --> 00:35:28.048
+chatbot. Chúng ta làm việc với nó là
+
+00:35:28.048 --> 00:35:30.268
+thường là co-work, cùng làm việc. Nhưng
+
+00:35:30.268 --> 00:35:32.508
+bây giờ với cái Hermes Agent này thì chúng
+
+00:35:32.508 --> 00:35:34.528
+ta hiểu nó như là một cái người nhân viên
+
+00:35:34.528 --> 00:35:36.388
+và người nhân viên đó rất là thông minh
+
+00:35:36.388 --> 00:35:38.708
+và nó sẽ tự biết làm sao để cho đạt được
+
+00:35:38.728 --> 00:35:40.588
+cái yêu cầu mà chúng ta đưa ra. Đấy, thì
+
+00:35:40.588 --> 00:35:42.568
+đấy là một cái demo đầu tiên. Rồi, thì ở
+
+00:35:42.568 --> 00:35:44.368
+đây mình để có thể chuẩn chỉ và sử dụng
+
+00:35:44.368 --> 00:35:47.508
+lại được cái, a, cái, ừm, cái công cụ để
+
+00:35:47.508 --> 00:35:49.848
+có thể tìm kiếm đấy, thì các bạn, à, có
+
+00:35:49.848 --> 00:35:52.128
+thể chạy lại cái lệnh, lệnh Hermes Setup
+
+00:35:52.128 --> 00:35:53.587
+đấy để chúng ta có thể lựa chọn lại cái
+
+00:35:53.588 --> 00:35:55.728
+nhà cung cấp mà web search khác nhé. Bởi
+
+00:35:55.728 --> 00:35:57.628
+vì cái DuckDuckGo này nó hoạt động không
+
+00:35:57.628 --> 00:35:58.548
+được rồi.
+
+00:35:58.728 --> 00:36:00.468
+Rồi thì đây là một cái công việc mà phải
+
+00:36:00.468 --> 00:36:02.088
+cần một cái web search. Thì bây giờ mình
+
+00:36:02.088 --> 00:36:03.668
+sẽ, bây giờ mình sẽ nói với cái Hermes
+
+00:36:03.668 --> 00:36:06.428
+Agent này, à, tạo cho tôi một cái lịch
+
+00:36:06.428 --> 00:36:08.748
+nhắc uống thuốc vào 8h tối
+
+00:36:09.388 --> 00:36:09.748
+mỗi ngày.
+
+00:36:10.448 --> 00:36:12.428
+Đấy, thì khi mà mình đã đưa ra một yêu cầu
+
+00:36:12.428 --> 00:36:14.888
+như vậy thì cứ 8h tối thì cái Agent này
+
+00:36:14.888 --> 00:36:16.548
+nó sẽ tự động nó gửi một cái message cho
+
+00:36:16.548 --> 00:36:18.888
+mình để nhắc mình 8h là mình sẽ uống
+
+00:36:18.888 --> 00:36:20.708
+thuốc. Thông thường như trước kia là mình
+
+00:36:20.708 --> 00:36:22.818
+thường mình sẽ sử dụng cái công cụ là N8N
+
+00:36:22.818 --> 00:36:24.128
+để làm những công việc như này. Nhưng bây
+
+00:36:24.128 --> 00:36:26.508
+giờ bởi vì N8N thì mình vẫn phải setup các
+
+00:36:26.508 --> 00:36:28.708
+cái workflow và nó cũng khá là phức tạp.
+
+00:36:28.708 --> 00:36:29.708
+Thế cho nên là bây giờ các bạn thấy không,
+
+00:36:29.708 --> 00:36:31.568
+khi mà mình dùng với cái Hermes Agent
+
+00:36:31.568 --> 00:36:33.587
+này, mọi thứ nó đã đơn giản đi hơn rất là
+
+00:36:33.588 --> 00:36:35.768
+nhiều. Chúng ta chỉ đơn giản là chat cho
+
+00:36:35.768 --> 00:36:38.088
+nó các từ ngữ như là nói chuyện với một
+
+00:36:38.088 --> 00:36:40.307
+người nhân viên thông thường thì nó tự
+
+00:36:40.308 --> 00:36:42.868
+động nó chạy ở dưới nền, ở trên cái VPS
+
+00:36:42.868 --> 00:36:44.788
+của chúng ta và nó như là một người trợ lý
+
+00:36:44.788 --> 00:36:46.608
+247. Đấy và các bạn cũng có thể thấy này.
+
+00:36:46.608 --> 00:36:48.628
+Đây các bạn thấy không? Nó có một cái
+
+00:36:48.628 --> 00:36:51.967
+message là Self improvement review user
+
+00:36:51.967 --> 00:36:54.748
+profile updated. Đấy có nghĩa là nó đã tự
+
+00:36:54.748 --> 00:36:57.088
+động nó self improve. Đây là một cái AI
+
+00:36:57.088 --> 00:36:59.928
+agent self improve, tự động cải tiến nó,
+
+00:36:59.928 --> 00:37:01.808
+tự động làm cho nó thông minh hơn bằng
+
+00:37:01.808 --> 00:37:03.628
+cách là tự động cập nhật lại cái user
+
+00:37:03.628 --> 00:37:05.068
+profile này. Chúng ta không cần phải quan
+
+00:37:05.068 --> 00:37:07.388
+tâm đến những cái gì mà cái Hermes Agent
+
+00:37:07.388 --> 00:37:09.608
+này nó làm ở phía sau nữa, mà khi mà nó
+
+00:37:09.608 --> 00:37:11.028
+làm cái gì nó đều thông báo cho chúng ta
+
+00:37:11.028 --> 00:37:11.208
+biết.
+
+00:37:11.908 --> 00:37:13.888
+Và những cái nó làm nó đều làm một cách tự
+
+00:37:13.888 --> 00:37:15.768
+động. Đấy và những cái gì mà chúng ta vừa
+
+00:37:15.768 --> 00:37:17.428
+thao tác ấy, chúng ta có thể xem được ở
+
+00:37:17.428 --> 00:37:20.028
+trên UI này như là cái phần Cron Job. Đấy
+
+00:37:20.028 --> 00:37:22.188
+là những cái job mà mình yêu cầu nó. Mình
+
+00:37:22.188 --> 00:37:24.048
+có hai cái job đúng không? Một cái job là
+
+00:37:24.048 --> 00:37:26.508
+nhắc uống thuốc buổi tối, nó cũng đã hiển
+
+00:37:26.508 --> 00:37:28.628
+thị ra đây. Và cái job thứ 2 là cái job
+
+00:37:28.628 --> 00:37:30.068
+bản tin công nghệ hàng ngày. Ngoài ra, các
+
+00:37:30.068 --> 00:37:33.108
+bạn cứ trao đổi với Hermes Agent thông
+
+00:37:33.108 --> 00:37:35.607
+qua cái Telegram thì nó cũng làm cho chúng
+
+00:37:35.607 --> 00:37:37.247
+ta một cách tự động. Còn nếu các bạn muốn
+
+00:37:37.247 --> 00:37:40.148
+xem chi tiết hơn ở trên UI thì có thể mở
+
+00:37:40.148 --> 00:37:42.088
+cái giao diện của Hermes Agent UI này lên.
+
+00:37:42.088 --> 00:37:44.708
+Ngoài ra, để nâng được sức mạnh của một
+
+00:37:44.708 --> 00:37:46.528
+cái agent ấy, thì khi mà các bạn đã tin
+
+00:37:46.528 --> 00:37:48.968
+tưởng cái cái công cụ trợ lý này rồi thì
+
+00:37:48.968 --> 00:37:51.728
+các bạn có thể là dùng kết hợp thêm là cài
+
+00:37:51.728 --> 00:37:53.908
+đặt thêm các cái MCP vào đây thì nó là
+
+00:37:53.908 --> 00:37:56.508
+viết tắt của cái Model Context Protocol.
+
+00:37:56.508 --> 00:37:59.668
+Nó là cái cách mà sẽ giúp cho các agent có
+
+00:37:59.668 --> 00:38:01.388
+thể mở rộng cái khả năng phạm vi làm việc
+
+00:38:01.388 --> 00:38:03.448
+của nó ra, có thể lấy thêm các context từ
+
+00:38:03.448 --> 00:38:05.768
+các cái ứng dụng phía bên ngoài. Đấy thì
+
+00:38:05.768 --> 00:38:07.348
+nếu như mà các bạn làm việc trong lĩnh vực
+
+00:38:07.348 --> 00:38:09.628
+IT thì các bạn sẽ rất quen thuộc với cái
+
+00:38:09.628 --> 00:38:11.368
+công ty Atlassian đúng không? Có rất nhiều
+
+00:38:11.368 --> 00:38:14.408
+các công cụ như là Jira hay là Bitbucket
+
+00:38:14.408 --> 00:38:16.468
+để chúng ta có thể làm việc và push code
+
+00:38:16.468 --> 00:38:18.788
+cũng như là tạo các task ở trên đây. Đấy
+
+00:38:18.788 --> 00:38:20.548
+thì khi mà cài đặt bằng cách là nhấn vào
+
+00:38:20.548 --> 00:38:22.728
+phím Install ở đây này thì chúng ta sẽ làm
+
+00:38:22.728 --> 00:38:24.708
+cho cái Hermes Agent nó có thể mở rộng
+
+00:38:24.708 --> 00:38:27.048
+cái khả năng làm việc của nó ra nữa. Đấy,
+
+00:38:27.048 --> 00:38:28.988
+tương tự trong này sẽ có rất nhiều các cái
+
+00:38:28.988 --> 00:38:30.908
+MCP khác nhau như là Figma,
+
+00:38:31.868 --> 00:38:34.708
+N8N hay là Notion. Đấy và chúng ta hoàn
+
+00:38:34.708 --> 00:38:37.088
+toàn có thể cài đặt thông qua là bằng cái
+
+00:38:37.088 --> 00:38:38.988
+giao diện UI như thế này. Đấy và ngoài ra
+
+00:38:38.988 --> 00:38:39.148
+thì,
+
+00:38:39.868 --> 00:38:42.268
+ờ, cũng có một cái tác vụ mình cũng rất
+
+00:38:42.268 --> 00:38:44.328
+hay sử dụng, đó là các bạn biết là chúng
+
+00:38:44.328 --> 00:38:46.308
+ta khi mà chúng ta deploy các cái app ấy
+
+00:38:46.308 --> 00:38:47.708
+thì sẽ có rất nhiều các cái app nó đang
+
+00:38:47.708 --> 00:38:49.268
+chạy và người dùng vẫn đang sử dụng đúng
+
+00:38:49.268 --> 00:38:51.008
+không? Chúng ta luôn luôn thường thì best
+
+00:38:51.008 --> 00:38:52.808
+practice chúng ta sẽ phải có một cái trang
+
+00:38:52.808 --> 00:38:55.728
+để chúng ta theo dõi xem là cái cái trạng
+
+00:38:55.728 --> 00:38:59.088
+thái, cái health status xem là nó có đang
+
+00:38:59.088 --> 00:39:01.068
+là online hay không, hay là cái-cái-cái
+
+00:39:01.068 --> 00:39:02.548
+service của chúng ta nó đang bị lỗi. Đấy
+
+00:39:02.548 --> 00:39:03.728
+thì chúng ta cũng có thể tạo ra một cái
+
+00:39:03.728 --> 00:39:06.528
+Cron Job để nó tự động nó monitor các cái
+
+00:39:06.528 --> 00:39:08.248
+service này của chúng ta. Thì ví dụ như
+
+00:39:08.248 --> 00:39:10.068
+sau cứ sau khoảng là 2 phút hoặc là một
+
+00:39:10.068 --> 00:39:12.328
+phút thì nó-- cái job này của chúng ta nó
+
+00:39:12.328 --> 00:39:15.128
+tự động nó gọi đến các cái service với cái
+
+00:39:15.128 --> 00:39:16.728
+đường dẫn health check đó thì nó sẽ ngay
+
+00:39:16.728 --> 00:39:18.208
+lập tức thông báo vào cái Telegram cho
+
+00:39:18.208 --> 00:39:19.848
+chúng ta. Thì đây cũng là một trong các
+
+00:39:19.848 --> 00:39:22.628
+tác vụ mà mình sử dụng rất là nhiều. Đấy
+
+00:39:22.628 --> 00:39:24.188
+thì cơ bản thì Hermes Agent
+
+00:39:24.828 --> 00:39:26.928
+bây giờ nó rất là phù hợp với những tác vụ
+
+00:39:26.928 --> 00:39:28.948
+mà lặp đi lặp lại. Còn những tác vụ mà
+
+00:39:28.948 --> 00:39:31.808
+code chuyên sâu thì mình vẫn sử dụng các
+
+00:39:31.808 --> 00:39:35.088
+công cụ như là Codex hay là Claude Code
+
+00:39:35.088 --> 00:39:36.848
+đấy để để mình code chuyên sâu khi mà làm
+
+00:39:36.848 --> 00:39:39.188
+việc trên máy tính. Còn thông thường thì
+
+00:39:39.188 --> 00:39:41.808
+dùng Hermes Agent này, ví dụ như các bạn
+
+00:39:41.808 --> 00:39:43.208
+đang đi ngoài đường, các bạn đang đi chơi,
+
+00:39:43.208 --> 00:39:45.287
+thậm chí đang đi chơi, các bạn thấy một ý
+
+00:39:45.287 --> 00:39:47.148
+tưởng nào đó hay thì các bạn nói với
+
+00:39:47.148 --> 00:39:48.908
+người trợ lý này là hãy lưu lại ý tưởng
+
+00:39:48.908 --> 00:39:50.408
+này. Hoặc là các bạn làm việc trong một
+
+00:39:50.408 --> 00:39:52.068
+lĩnh vực nào đó, các bạn bất chợt thấy là
+
+00:39:52.928 --> 00:39:53.648
+[tiếng hít mũi] một cái đối thủ nào đó,
+
+00:39:53.648 --> 00:39:56.268
+các bạn có thể chụp ảnh lại và gửi cho cái
+
+00:39:56.268 --> 00:39:59.108
+Hermes Agent này để cho cái agent này nó
+
+00:39:59.108 --> 00:40:00.708
+tự động nó lưu lại cho chúng ta biết được
+
+00:40:00.708 --> 00:40:02.288
+là chúng ta đang muốn theo dõi thêm một
+
+00:40:02.288 --> 00:40:04.628
+đối thủ nào đó, vân vân. Đấy, có nghĩa là
+
+00:40:04.628 --> 00:40:06.348
+những tác vụ nào mà chúng ta làm việc ở
+
+00:40:06.348 --> 00:40:08.328
+trên điện thoại, chúng ta không đang ngồi
+
+00:40:08.328 --> 00:40:10.388
+máy tính thì rất là phù hợp với cái Hermes
+
+00:40:10.388 --> 00:40:12.268
+Agent này và đặc biệt là nó rất là mạnh
+
+00:40:12.268 --> 00:40:14.408
+mẽ trong cái quá trình mà khi mà chúng ta
+
+00:40:14.408 --> 00:40:15.928
+càng làm việc nhiều với cái Hermes Agent
+
+00:40:15.928 --> 00:40:17.448
+thì nó càng ngày nó càng thông minh hơn
+
+00:40:17.448 --> 00:40:19.928
+thông qua cái hệ thống Learning Loop như
+
+00:40:19.928 --> 00:40:21.528
+mình đã mô tả cho các bạn ở trong phần đầu
+
+00:40:21.528 --> 00:40:23.268
+video. Đấy hoặc bây giờ mình sẽ có một
+
+00:40:23.268 --> 00:40:25.268
+yêu cầu nói rất là nhanh thôi. Tạo
+
+00:40:26.048 --> 00:40:26.548
+cho tôi
+
+00:40:27.968 --> 00:40:31.168
+[tiếng gõ phím] một bức ảnh 4K về một cánh
+
+00:40:31.168 --> 00:40:36.768
+đồng và có một cậu bé chăn trâu chiu
+
+00:40:36.768 --> 00:40:36.988
+chiu.
+
+00:40:37.588 --> 00:40:39.008
+Đấy, cơ bản như này. Đấy mình gửi đơn giản
+
+00:40:39.008 --> 00:40:40.787
+vậy thôi. Tại vì lúc trước mình đã setup
+
+00:40:40.787 --> 00:40:42.928
+cái công cụ để có thể tạo ảnh rồi mà. Mình
+
+00:40:42.928 --> 00:40:44.058
+dùng-dùng chính cái
+
+00:40:44.948 --> 00:40:47.148
+gói Codex subscription của mình đấy. Mình
+
+00:40:47.148 --> 00:40:49.168
+nhờ cái công cụ này để tạo cho mình thôi.
+
+00:40:49.168 --> 00:40:51.127
+Đây là những tác vụ thông thường khi mà
+
+00:40:51.128 --> 00:40:53.867
+các bạn đã cung cấp quyền cho cái Hermes
+
+00:40:53.868 --> 00:40:55.268
+Agent này. Chúng ta cung cấp cái quyền
+
+00:40:55.268 --> 00:40:58.188
+truy cập vào Google Drive để từ đấy có thể
+
+00:40:58.188 --> 00:40:59.628
+xem được các cái
+
+00:41:00.248 --> 00:41:02.668
+doanh thu, báo cáo tài chính của chúng ta
+
+00:41:02.668 --> 00:41:04.128
+đúng không? Chúng ta hoàn toàn có thể tạo
+
+00:41:04.128 --> 00:41:05.928
+được một cái job nhờ nó tổng hợp theo hàng
+
+00:41:05.928 --> 00:41:08.548
+quý, hàng tuần, hàng tháng, vân vân. Đấy.
+
+00:41:08.548 --> 00:41:11.308
+Hoặc là chúng ta có thể là kết nối với,
+
+00:41:11.308 --> 00:41:13.688
+à, Gmail để tự động cập nhật lại các cái
+
+00:41:13.688 --> 00:41:16.088
+hóa đơn mỗi cuối tháng. Thay vì là hiện
+
+00:41:16.088 --> 00:41:17.408
+tại là chúng ta phải làm một cách thủ công
+
+00:41:17.408 --> 00:41:19.308
+thì bây giờ những cái việc như vậy khi mà
+
+00:41:19.308 --> 00:41:21.768
+chúng ta cấp đủ quyền, đủ kết nối, đủ các
+
+00:41:21.768 --> 00:41:24.428
+connection hay là đủ các cái MCP này cho
+
+00:41:24.428 --> 00:41:26.548
+Hermes Agent ấy, thì Hermes Agent này nó
+
+00:41:26.548 --> 00:41:28.458
+sẽ làm những cái tác vụ đó hoàn toàn một
+
+00:41:28.458 --> 00:41:30.268
+cách tự động cho chúng ta và chúng ta sẽ
+
+00:41:30.268 --> 00:41:32.608
+nhẹ việc đi rất là nhiều và chúng ta coi
+
+00:41:32.608 --> 00:41:34.788
+nó như là một người trợ lý thực sự. Đấy và
+
+00:41:34.788 --> 00:41:36.488
+đây các bạn có thể thấy là đã tạo được
+
+00:41:36.488 --> 00:41:38.008
+cho mình một cái ảnh này này. Đấy cũng rất
+
+00:41:38.008 --> 00:41:38.677
+là đẹp rồi đúng không?
+
+00:41:39.328 --> 00:41:42.288
+Bởi vì cái model GPT Image 2 là cũng khá
+
+00:41:42.288 --> 00:41:44.488
+là mạnh nên là nó tạo ảnh cũng khá là đẹp.
+
+00:41:44.488 --> 00:41:45.968
+Đấy, bây giờ mình đã có một người trợ lý
+
+00:41:45.968 --> 00:41:47.708
+gần như là toàn năng và làm được mọi thứ
+
+00:41:47.708 --> 00:41:49.168
+cho chúng ta, ngay cả là tạo một cái trang
+
+00:41:49.168 --> 00:41:51.348
+web. Đấy và ở đây khi bạn thấy là nó--
+
+00:41:51.348 --> 00:41:52.948
+khi mà nó tự động nó cập nhật lại các cái
+
+00:41:52.948 --> 00:41:54.468
+skill này, có update lại cho chúng ta thấy
+
+00:41:54.468 --> 00:41:55.988
+ở đây này. Đấy các bạn thấy chưa? Self
+
+00:41:55.988 --> 00:41:59.308
+improve review này, skill schedule, news
+
+00:41:59.308 --> 00:42:01.328
+digest. Đấy và chúng ta có thể hoàn toàn
+
+00:42:01.328 --> 00:42:04.088
+xem được các cái skill, ờ, nằm trong cái
+
+00:42:04.088 --> 00:42:06.688
+phần tab Skills ở chỗ này này. Chúng ta
+
+00:42:06.688 --> 00:42:08.348
+cũng thấy được là nó sẽ có một loạt các
+
+00:42:08.348 --> 00:42:10.408
+cái skill trong đây, bao gồm cả những cái
+
+00:42:10.408 --> 00:42:12.668
+skill nó đã sẵn có. Nó có một bộ rất nhiều
+
+00:42:12.668 --> 00:42:14.968
+các cái skill sẵn có của cái Hermes Agent
+
+00:42:14.968 --> 00:42:17.648
+này và những cái skill mà nó tự động tạo
+
+00:42:17.648 --> 00:42:18.908
+thêm thì nó cũng nằm trong đây. Đấy các
+
+00:42:18.908 --> 00:42:20.508
+bạn tìm trong đây nó sẽ có-- nó sẽ có đầy
+
+00:42:20.508 --> 00:42:23.248
+đủ. Thế và mình thử tìm cái skill Schedule
+
+00:42:23.248 --> 00:42:26.548
+new digest này nhé. Đây mình tìm này,
+
+00:42:26.548 --> 00:42:28.624
+search này. Đấy các bạn thấy không, nó ra
+
+00:42:28.624 --> 00:42:30.664
+được cái skill mà nó vừa mới, à, update
+
+00:42:30.664 --> 00:42:32.824
+lại cho chúng ta này, schedule news. Và
+
+00:42:32.824 --> 00:42:34.424
+chúng ta thậm chí là có thể edit trực tiếp
+
+00:42:34.424 --> 00:42:36.744
+ở trên đây luôn cũng được. Đấy nhưng mà
+
+00:42:36.744 --> 00:42:37.923
+cái nào cần thiết thì mình làm thôi, còn
+
+00:42:37.924 --> 00:42:39.944
+lại là những cái đó là để cho Hermes Agent
+
+00:42:39.944 --> 00:42:42.083
+nó tự động nó làm hết những tác vụ đó,
+
+00:42:42.084 --> 00:42:43.524
+chúng ta không cần phải quan tâm. Rồi bây
+
+00:42:43.524 --> 00:42:45.604
+giờ ví dụ như mình, a, demo cho các bạn
+
+00:42:45.604 --> 00:42:46.684
+thêm một cái nữa đó là,
+
+00:42:47.604 --> 00:42:50.063
+mình nói với Hermes Agent này là tạo cho
+
+00:42:50.064 --> 00:42:52.684
+mình một cái trang web để theo dõi, à, giá
+
+00:42:52.684 --> 00:42:55.364
+Bitcoin và tự động deploy lên cho mình
+
+00:42:55.364 --> 00:42:57.744
+lên Vercel. Đấy thì mình để mình nói nhé.
+
+00:42:57.744 --> 00:42:59.464
+Các bạn có yêu cầu gì các bạn cứ nói bằng
+
+00:42:59.464 --> 00:43:01.404
+lời một cách trực tiếp ở trong đây,
+
+00:43:02.044 --> 00:43:04.544
+cụ thể càng tốt. Đây ví dụ mình nói là tạo
+
+00:43:04.544 --> 00:43:08.444
+một trang web theo dõi giá Bitcoin
+
+00:43:09.824 --> 00:43:11.764
+và deploy lên Vercel.
+
+00:43:13.784 --> 00:43:15.304
+Đối với cái tác vụ này nó cũng khá là mất
+
+00:43:15.304 --> 00:43:17.524
+thời gian thì, à, mình sẽ đợi cho đến khi
+
+00:43:17.524 --> 00:43:19.404
+nó hoàn thành xong thì chúng ta sẽ bắt đầu
+
+00:43:19.404 --> 00:43:21.644
+làm tiếp nhé. Này các bạn thấy chưa, dù
+
+00:43:21.644 --> 00:43:23.744
+mình chưa có đăng nhập vào Vercel nhưng nó
+
+00:43:23.744 --> 00:43:23.984
+cũng,
+
+00:43:24.624 --> 00:43:26.984
+à, nói là nó sẽ tạo một cái temporary, có
+
+00:43:26.984 --> 00:43:29.044
+nghĩa là nó sẽ tạo một cái, a, deployment
+
+00:43:29.044 --> 00:43:31.883
+tạm thời. Đấy, miễn sao là nó deploy được
+
+00:43:31.883 --> 00:43:33.644
+lên một cái Vercel cho chúng ta. Còn cái
+
+00:43:33.644 --> 00:43:35.584
+việc chúng ta muốn-- các bạn muốn cài đặt
+
+00:43:35.584 --> 00:43:37.084
+để có thể đăng nhập vào Vercel thì có thể
+
+00:43:37.084 --> 00:43:38.963
+nói trực tiếp với cái Agent này thôi. Đấy
+
+00:43:38.964 --> 00:43:40.504
+thì bây giờ mình sẽ thử mở cái trang web
+
+00:43:40.504 --> 00:43:42.184
+này lên để xem là cái trang web mà cái
+
+00:43:42.184 --> 00:43:43.984
+Agent này nó tạo được cho mình á, nó sẽ
+
+00:43:43.984 --> 00:43:45.964
+trông như thế nào nhé. Đây các bạn thấy
+
+00:43:45.964 --> 00:43:48.274
+chưa? Chỉ-- chắc chỉ trong vòng chưa tới 5
+
+00:43:48.274 --> 00:43:50.004
+phút nó đã tạo được cho mình một trang
+
+00:43:50.004 --> 00:43:52.204
+web và có thể deploy hoàn chỉnh. Đấy,
+
+00:43:52.204 --> 00:43:54.804
+Bitcoin hôm nay khá là bay và nó tăng tới
+
+00:43:54.804 --> 00:43:56.324
+10% trong ngày hôm nay. Đấy các bạn thấy
+
+00:43:56.324 --> 00:43:57.944
+không? Đấy chúng ta có một cái trang rất
+
+00:43:57.944 --> 00:43:59.344
+đơn giản như này, nhưng đây chỉ là một cái
+
+00:43:59.344 --> 00:44:01.164
+demo rất là cơ bản thôi. Nhưng mà các bạn
+
+00:44:01.164 --> 00:44:02.964
+thấy là cái khả năng của cái Hermes Agent
+
+00:44:02.964 --> 00:44:04.864
+nó mạnh mẽ tới thế nào chưa? Chúng ta có
+
+00:44:04.864 --> 00:44:06.944
+thể sử dụng rất nhiều các cái nhà cung cấp
+
+00:44:06.944 --> 00:44:09.463
+LLM khác nhau. Còn nếu mà các bạn dùng
+
+00:44:09.464 --> 00:44:11.484
+cái hệ sinh thái của ChatGPT thì nó cực kỳ
+
+00:44:11.484 --> 00:44:13.804
+là thuận tiện và cũng như là cực kỳ là có
+
+00:44:13.804 --> 00:44:15.984
+lợi. Bởi vì cùng một cái tài khoản
+
+00:44:15.984 --> 00:44:17.644
+subscription nhưng các bạn dùng được rất
+
+00:44:17.644 --> 00:44:19.344
+nhiều thứ. Và trong khi các bạn làm,
+
+00:44:19.964 --> 00:44:21.924
+à, Tibo thì rất hay là reset đúng không?
+
+00:44:21.924 --> 00:44:23.884
+Thì các bạn, à, dùng rất là có lợi. Đấy
+
+00:44:23.884 --> 00:44:26.444
+lâu lâu là một tuần cỡ reset khoảng hai ba
+
+00:44:26.444 --> 00:44:28.144
+lần thì các bạn dùng thực sự là nó quá
+
+00:44:28.144 --> 00:44:30.204
+thoải mái. Với mình thì cái gói Plus này
+
+00:44:30.204 --> 00:44:31.564
+mình cũng dùng khá thoải mái bởi vì,
+
+00:44:32.164 --> 00:44:33.804
+à, những cái gì tác vụ nặng chính thì mình
+
+00:44:33.804 --> 00:44:35.464
+vẫn dùng ở trên Claude Code. Còn những
+
+00:44:35.464 --> 00:44:37.714
+tác vụ ở trên Hermes này thì nó không đáng
+
+00:44:37.714 --> 00:44:39.564
+bao nhiêu cả nên mình dùng thêm cái gói,
+
+00:44:39.564 --> 00:44:39.574
+a,
+
+00:44:40.284 --> 00:44:43.084
+ChatGPT Plus là quá đủ với mình rồi. Đấy
+
+00:44:43.084 --> 00:44:44.744
+thì bây giờ mình sẽ đi vào cái phần, à,
+
+00:44:44.744 --> 00:44:47.064
+kiểm tra về cái độ bảo mật thì cái công cụ
+
+00:44:47.064 --> 00:44:49.744
+Hermes này cũng cung cấp cho chúng ta một
+
+00:44:49.744 --> 00:44:52.364
+cái công cụ để chúng ta có thể kiểm tra
+
+00:44:52.364 --> 00:44:53.964
+về cái độ bảo mật bằng cách một cái lệnh
+
+00:44:53.964 --> 00:44:55.624
+đó là Hermes, à, Security.
+
+00:44:56.344 --> 00:44:58.064
+Đấy, còn nếu bạn muốn thắc mắc á hoặc là
+
+00:44:58.064 --> 00:45:00.924
+muốn nói với chính cái Hermes Agent này là
+
+00:45:00.924 --> 00:45:02.684
+kiểm tra-- nói một, một cách thông thường
+
+00:45:02.684 --> 00:45:05.624
+thôi là kiểm tra security cho chúng ta,
+
+00:45:05.624 --> 00:45:07.264
+kiểm tra security cho tôi
+
+00:45:08.504 --> 00:45:09.824
+[gõ phím] thì các bạn có thể gửi đi luôn.
+
+00:45:09.824 --> 00:45:11.764
+Đấy nhưng mà ở đây mình đã biết sẵn là cái
+
+00:45:11.764 --> 00:45:13.074
+Hermes này nó có một cái lệnh,
+
+00:45:14.024 --> 00:45:16.564
+đây, nó có một cái lệnh để, à, kiểm tra về
+
+00:45:16.564 --> 00:45:19.324
+cái mức độ security của cái Hermes Agent
+
+00:45:19.324 --> 00:45:21.744
+này thì mình có thể nói với nó là, ừm,
+
+00:45:22.644 --> 00:45:27.124
+Hermes, Hermes Security
+
+00:45:28.544 --> 00:45:30.494
+[gõ phím]. Thì nó báo là hiện tại là không
+
+00:45:30.494 --> 00:45:33.904
+có tìm được bất cứ một cái lỗ hổng nào ở
+
+00:45:33.904 --> 00:45:36.584
+trên 152 cái component. Đấy thì bây giờ
+
+00:45:36.584 --> 00:45:38.544
+thì hiện tại thì bởi vì mình mới cài đặt
+
+00:45:38.544 --> 00:45:41.083
+từ đầu cũng như là cái phiên bản, à, mới
+
+00:45:41.084 --> 00:45:42.924
+của Hermes ở cái thời điểm mình quay video
+
+00:45:42.924 --> 00:45:45.504
+là khoảng tháng 8 năm 2016 á, thì nó cũng
+
+00:45:45.504 --> 00:45:48.504
+đã cải thiện và có rất nhiều các cái bản
+
+00:45:48.504 --> 00:45:50.064
+vá bảo mật rồi. Thế cho nên hiện tại là
+
+00:45:50.064 --> 00:45:51.624
+gần như là không có một cái lỗi bảo mật
+
+00:45:51.624 --> 00:45:53.244
+nào ở cái thời điểm hiện tại. Đấy và đó là
+
+00:45:53.244 --> 00:45:54.404
+tất cả những demo mình muốn chia sẻ cho
+
+00:45:54.404 --> 00:45:56.164
+các bạn. Và bây giờ mình sẽ có một phần
+
+00:45:56.164 --> 00:45:59.224
+cuối cùng đó là một cái gợi ý mở. Đó là
+
+00:45:59.224 --> 00:46:00.904
+các bạn hình dung là hiện tại chúng ta chỉ
+
+00:46:00.904 --> 00:46:02.984
+có một cái Agent duy nhất đó là Hermes
+
+00:46:02.984 --> 00:46:04.604
+Agent đúng không? Và các bạn hình dung là
+
+00:46:04.604 --> 00:46:06.904
+khi mà các bạn muốn mở rộng nó ra cho theo
+
+00:46:06.904 --> 00:46:09.104
+quy mô của một công ty thì các bạn muốn
+
+00:46:09.104 --> 00:46:12.104
+là tạo thêm các cái Agent để chuyên biệt
+
+00:46:12.104 --> 00:46:14.224
+về cho marketing, chuyên biệt về cho
+
+00:46:14.224 --> 00:46:17.864
+finance, chuyên biệt về cho operation là
+
+00:46:17.864 --> 00:46:20.604
+về cái phần, à, vận hành hay là chuyên
+
+00:46:20.604 --> 00:46:22.204
+biệt cho cái phần sales. Thì khi mà chúng
+
+00:46:22.204 --> 00:46:25.004
+ta chia ra từng cái Agent như vậy thì cái
+
+00:46:25.004 --> 00:46:26.904
+việc nó hoạt động một cách hiệu quả hơn là
+
+00:46:26.904 --> 00:46:28.784
+một cái điều chắc chắn. Nhưng mà chúng ta
+
+00:46:28.784 --> 00:46:30.884
+cũng cần phải cân bằng lại giữa cái việc
+
+00:46:30.884 --> 00:46:32.564
+là có nên tạo một cái Agent mới hay không.
+
+00:46:32.564 --> 00:46:35.124
+Thực tế là các bạn cứ làm việc với một
+
+00:46:35.124 --> 00:46:36.724
+cái Agent đầu tiên trước đi, với cái
+
+00:46:36.724 --> 00:46:39.404
+Hermes Agent trước đi. Rồi khi mà các bạn
+
+00:46:39.404 --> 00:46:41.064
+làm việc và các bạn thấy là cần thiết mà
+
+00:46:41.064 --> 00:46:42.864
+phải tạo ra một cái Agent mới thì có thể
+
+00:46:42.864 --> 00:46:45.564
+hoàn toàn chat với cái Hermes Agent này
+
+00:46:45.564 --> 00:46:47.084
+thì nó sẽ hướng dẫn các bạn để nó tự động
+
+00:46:47.084 --> 00:46:48.924
+nó tạo cho chúng ta các cái Agent mới. Và
+
+00:46:48.924 --> 00:46:50.724
+mỗi một Agent thì nó sẽ có cái
+
+00:46:51.404 --> 00:46:53.744
+context riêng, nó có permission riêng, có
+
+00:46:53.744 --> 00:46:55.644
+tool riêng thì như vậy chúng ta sẽ
+
+00:46:56.244 --> 00:46:58.674
+dễ dàng có thể scale up nó lên và mở rộng
+
+00:46:58.674 --> 00:47:00.504
+nó ra. Đấy thì đây chỉ là một cái gợi ý mở
+
+00:47:00.504 --> 00:47:02.204
+của mình thôi. Bởi vì thực tế là cái
+
+00:47:02.204 --> 00:47:04.664
+Hermes Agent này nó còn rất nhiều các cái
+
+00:47:04.664 --> 00:47:06.144
+kiến thức mình không thể nói hết được
+
+00:47:06.144 --> 00:47:08.224
+trong một cái video quá ngắn như thế này.
+
+00:47:08.224 --> 00:47:09.644
+Đấy thì bây giờ các bạn có thể là bắt đầu
+
+00:47:09.644 --> 00:47:12.484
+làm việc với Hermes Agent và từ đó từ từ
+
+00:47:12.484 --> 00:47:14.434
+nâng cấp dần các cái Agent này lên.
+
+00:47:14.434 --> 00:47:14.884
+[tiếng hiệu ứng chuyển cảnh] Và đó là tất
+
+00:47:14.884 --> 00:47:16.224
+cả những gì mình muốn chia sẻ cho các bạn
+
+00:47:16.224 --> 00:47:17.884
+trong video ngày hôm nay. Hy vọng là các
+
+00:47:17.884 --> 00:47:19.564
+bạn đã có thêm được một kiến thức bổ ích.
+
+00:47:19.564 --> 00:47:21.104
+Và nếu như các bạn thấy các video của mình
+
+00:47:21.104 --> 00:47:22.334
+hữu ích thì có thể để lại cho mình một
+
+00:47:22.334 --> 00:47:24.164
+like cũng như là một đăng ký kênh ở phía
+
+00:47:24.164 --> 00:47:25.984
+bên dưới nhé. Cảm ơn và xin chào các bạn!
+
+00:47:26.883 --> 00:47:31.684
+[tiếng chuông]
+
+00:47:33.424 --> 00:47:33.554
+[nhạc sôi động]
+
