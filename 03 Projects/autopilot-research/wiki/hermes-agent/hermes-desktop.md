@@ -73,7 +73,7 @@ This bears directly on [[caveats-and-corrections]] H6 (*"no-code / easier than O
 
 A high-reach video the rubric surfaced but did not select — Tina Huang's `1CLc-VeEivk` "My FULL Hermes Agent Setup (**HermesOS**)", 141,888 views — names a product called HermesOS.
 
-**It is a creator coinage.** A GitHub search for `HermesOS org:NousResearch` returns **0 results**, and the string appears nowhere in the main README. Recorded here so a future ingest does not adopt it as a product name on the strength of a video title.
+**It is a creator coinage.** The string appears **nowhere in the main README** (`grep`, 0 hits — verified by hand on a locally saved copy) and nowhere in `apps/desktop/README.md`. A grounder agent additionally reported that a GitHub search for `HermesOS org:NousResearch` returns **0 results**; that search was **not** independently re-verified (API rate limit), but it points the same way as the two checks that were. Recorded here so a future ingest does not adopt it as a product name on the strength of a video title.
 
 ## Open questions a deployer would ask, unanswered by any source or doc
 
