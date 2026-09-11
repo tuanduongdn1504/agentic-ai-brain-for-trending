@@ -90,7 +90,7 @@ true is being executed; what lets it drift is being written about something, som
   `listTools()` before calling, SSRF-guarded URL, attributable `scope` tag, closed in `finally`. **The model
   never picks the tool.**
 - **Three README claims verified TRUE**: explicit approval for actions, read-only viewer (zero mutating verbs),
-  and observed/inferred/simulated kept distinct end-to-end through 9 gates.
+  and observed/inferred/simulated kept distinct end-to-end (⚠️ corrected at final verification: `claim.state` is referenced at **9 sites**, 4 of them in the viewer where the CSS class IS the state; the *enforcing* is done by two adjacent fields — `evidence.status` at 3 sites and `artifact.securityState` at 2 — which I had folded into one count).
 - **631/631 lockfile entries hashed**, zero non-npm registries, zero install hooks, zero TODOs.
 
 ## 🔴 Risks
