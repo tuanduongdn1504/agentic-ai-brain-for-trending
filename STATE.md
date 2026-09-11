@@ -1,6 +1,6 @@
 # Loop State — Storm Bear vault
 
-Last run: 2026-09-03 (manual — v282 scroll-craft wiki ship, wiki/v282-scroll-craft)
+Last run: 2026-09-11 (manual — v283 biosecurity-agent wiki ship, wiki/v283-biosecurity-agent)
 
 > Operational state file (loop-engineering v189 convention, adapted from `starters/minimal-loop/STATE.md.example` @ `f18df04`).
 > **(C)-prefix waiver:** operator waived the prefix for the five loop convention files (STATE.md / LOOP.md / loop-budget.md / loop-run-log.md / loop-constraints.md) on 2026-07-02 — "operational state, not knowledge notes."
