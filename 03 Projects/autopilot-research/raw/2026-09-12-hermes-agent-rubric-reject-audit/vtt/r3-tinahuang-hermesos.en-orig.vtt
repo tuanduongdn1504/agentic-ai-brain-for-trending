@@ -1,0 +1,4208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.390 align:start position:0%
+ 
+Hello<00:00:00.280><c> friends.</c><00:00:00.640><c> In</c><00:00:00.720><c> this</c><00:00:00.840><c> video,</c><00:00:01.120><c> I</c><00:00:01.160><c> want</c><00:00:01.320><c> to</c>
+
+00:00:01.390 --> 00:00:01.400 align:start position:0%
+Hello friends. In this video, I want to
+ 
+
+00:00:01.400 --> 00:00:03.670 align:start position:0%
+Hello friends. In this video, I want to
+give<00:00:01.520><c> you</c><00:00:01.680><c> a</c><00:00:01.760><c> tour</c><00:00:02.160><c> of</c><00:00:02.320><c> my</c><00:00:02.520><c> Hermes</c><00:00:03.080><c> setup,</c><00:00:03.560><c> my</c>
+
+00:00:03.670 --> 00:00:03.680 align:start position:0%
+give you a tour of my Hermes setup, my
+ 
+
+00:00:03.680 --> 00:00:06.470 align:start position:0%
+give you a tour of my Hermes setup, my
+Hermes<00:00:04.240><c> OS.</c><00:00:04.720><c> It</c><00:00:04.880><c> is</c><00:00:05.120><c> a</c><00:00:05.280><c> multi-agent</c><00:00:05.920><c> system</c>
+
+00:00:06.470 --> 00:00:06.480 align:start position:0%
+Hermes OS. It is a multi-agent system
+ 
+
+00:00:06.480 --> 00:00:08.505 align:start position:0%
+Hermes OS. It is a multi-agent system
+that<00:00:06.680><c> autonomously</c><00:00:07.280><c> builds</c><00:00:07.640><c> software,</c><00:00:08.200><c> acts</c>
+
+00:00:08.505 --> 00:00:08.515 align:start position:0%
+that autonomously builds software, acts
+ 
+
+00:00:08.515 --> 00:00:10.070 align:start position:0%
+that autonomously builds software, acts
+[music]<00:00:08.520><c> as</c><00:00:08.760><c> a</c><00:00:08.800><c> COO</c><00:00:09.320><c> of</c><00:00:09.440><c> my</c><00:00:09.560><c> company,</c>
+
+00:00:10.070 --> 00:00:10.080 align:start position:0%
+[music] as a COO of my company,
+ 
+
+00:00:10.080 --> 00:00:12.110 align:start position:0%
+[music] as a COO of my company,
+assistant,<00:00:10.760><c> and</c><00:00:10.920><c> my</c><00:00:11.040><c> personal</c><00:00:11.400><c> productivity</c>
+
+00:00:12.110 --> 00:00:12.120 align:start position:0%
+assistant, and my personal productivity
+ 
+
+00:00:12.120 --> 00:00:13.630 align:start position:0%
+assistant, and my personal productivity
+and<00:00:12.360><c> health</c><00:00:12.600><c> coach,</c><00:00:12.880><c> too.</c><00:00:13.040><c> Honestly,</c><00:00:13.100><c> [music]</c>
+
+00:00:13.630 --> 00:00:13.640 align:start position:0%
+and health coach, too. Honestly, [music]
+ 
+
+00:00:13.640 --> 00:00:15.350 align:start position:0%
+and health coach, too. Honestly, [music]
+I<00:00:13.760><c> love</c><00:00:14.040><c> Hermes.</c><00:00:14.520><c> I</c><00:00:14.600><c> use</c><00:00:14.760><c> it</c><00:00:14.880><c> every</c><00:00:15.120><c> single</c>
+
+00:00:15.350 --> 00:00:15.360 align:start position:0%
+I love Hermes. I use it every single
+ 
+
+00:00:15.360 --> 00:00:16.870 align:start position:0%
+I love Hermes. I use it every single
+day,<00:00:15.600><c> and</c><00:00:15.720><c> I</c><00:00:15.760><c> have</c><00:00:15.920><c> so</c><00:00:16.080><c> much</c><00:00:16.280><c> fun</c><00:00:16.480><c> building</c><00:00:16.760><c> new</c>
+
+00:00:16.870 --> 00:00:16.880 align:start position:0%
+day, and I have so much fun building new
+ 
+
+00:00:16.880 --> 00:00:18.710 align:start position:0%
+day, and I have so much fun building new
+functionalities.<00:00:17.720><c> So,</c><00:00:18.040><c> I</c><00:00:18.120><c> hope</c><00:00:18.280><c> this</c><00:00:18.440><c> video</c>
+
+00:00:18.710 --> 00:00:18.720 align:start position:0%
+functionalities. So, I hope this video
+ 
+
+00:00:18.720 --> 00:00:20.190 align:start position:0%
+functionalities. So, I hope this video
+gives<00:00:18.880><c> you</c><00:00:18.960><c> some</c><00:00:19.120><c> ideas</c><00:00:19.520><c> to</c><00:00:19.680><c> build</c><00:00:19.920><c> yours,</c>
+
+00:00:20.190 --> 00:00:20.200 align:start position:0%
+gives you some ideas to build yours,
+ 
+
+00:00:20.200 --> 00:00:22.270 align:start position:0%
+gives you some ideas to build yours,
+too.<00:00:20.520><c> Now,</c><00:00:20.720><c> without</c><00:00:21.000><c> further</c><00:00:21.240><c> ado,</c><00:00:21.640><c> let's</c><00:00:21.800><c> go.</c>
+
+00:00:22.270 --> 00:00:22.280 align:start position:0%
+too. Now, without further ado, let's go.
+ 
+
+00:00:22.280 --> 00:00:23.710 align:start position:0%
+too. Now, without further ado, let's go.
+A<00:00:22.320><c> portion</c><00:00:22.680><c> of</c><00:00:22.720><c> this</c><00:00:22.880><c> video</c><00:00:23.120><c> is</c><00:00:23.240><c> sponsored</c><00:00:23.600><c> by</c>
+
+00:00:23.710 --> 00:00:23.720 align:start position:0%
+A portion of this video is sponsored by
+ 
+
+00:00:23.720 --> 00:00:28.470 align:start position:0%
+A portion of this video is sponsored by
+Hostinger.
+
+00:00:28.470 --> 00:00:28.480 align:start position:0%
+ 
+ 
+
+00:00:28.480 --> 00:00:30.150 align:start position:0%
+ 
+So,<00:00:28.600><c> first</c><00:00:28.880><c> off,</c><00:00:29.040><c> I</c><00:00:29.080><c> want</c><00:00:29.200><c> to</c><00:00:29.280><c> show</c><00:00:29.400><c> you</c><00:00:29.600><c> Coder,</c>
+
+00:00:30.150 --> 00:00:30.160 align:start position:0%
+So, first off, I want to show you Coder,
+ 
+
+00:00:30.160 --> 00:00:32.150 align:start position:0%
+So, first off, I want to show you Coder,
+a<00:00:30.320><c> multi-agent</c><00:00:31.040><c> software</c><00:00:31.480><c> building</c><00:00:31.720><c> system.</c>
+
+00:00:32.150 --> 00:00:32.160 align:start position:0%
+a multi-agent software building system.
+ 
+
+00:00:32.160 --> 00:00:33.190 align:start position:0%
+a multi-agent software building system.
+So,<00:00:32.240><c> let's</c><00:00:32.360><c> actually</c><00:00:32.599><c> build</c><00:00:32.800><c> something</c><00:00:33.080><c> right</c>
+
+00:00:33.190 --> 00:00:33.200 align:start position:0%
+So, let's actually build something right
+ 
+
+00:00:33.200 --> 00:00:35.070 align:start position:0%
+So, let's actually build something right
+now.<00:00:33.440><c> This</c><00:00:33.680><c> is</c><00:00:33.800><c> my</c><00:00:33.960><c> Discord</c><00:00:34.480><c> where</c><00:00:34.640><c> I</c><00:00:34.720><c> talk</c><00:00:34.960><c> to</c>
+
+00:00:35.070 --> 00:00:35.080 align:start position:0%
+now. This is my Discord where I talk to
+ 
+
+00:00:35.080 --> 00:00:36.870 align:start position:0%
+now. This is my Discord where I talk to
+my<00:00:35.240><c> Hermes</c><00:00:35.680><c> bot,</c><00:00:35.960><c> so</c><00:00:36.080><c> I</c><00:00:36.120><c> can</c><00:00:36.280><c> say,</c><00:00:36.440><c> "Hermes</c>
+
+00:00:36.870 --> 00:00:36.880 align:start position:0%
+my Hermes bot, so I can say, "Hermes
+ 
+
+00:00:36.880 --> 00:00:40.790 align:start position:0%
+my Hermes bot, so I can say, "Hermes
+bot,<00:00:37.200><c> draft</c><00:00:37.720><c> me</c><00:00:38.000><c> a</c><00:00:38.120><c> spec</c><00:00:38.800><c> to</c><00:00:39.200><c> add</c><00:00:39.600><c> on</c><00:00:39.840><c> to</c><00:00:40.360><c> my</c>
+
+00:00:40.790 --> 00:00:40.800 align:start position:0%
+bot, draft me a spec to add on to my
+ 
+
+00:00:40.800 --> 00:00:44.390 align:start position:0%
+bot, draft me a spec to add on to my
+Pomodoro<00:00:41.480><c> app</c><00:00:41.800><c> the</c><00:00:42.000><c> ability</c><00:00:42.720><c> to</c><00:00:43.360><c> switch</c>
+
+00:00:44.390 --> 00:00:44.400 align:start position:0%
+Pomodoro app the ability to switch
+ 
+
+00:00:44.400 --> 00:00:46.870 align:start position:0%
+Pomodoro app the ability to switch
+skins."<00:00:45.520><c> So,</c><00:00:45.680><c> here's</c><00:00:46.000><c> my</c><00:00:46.120><c> little</c><00:00:46.400><c> desktop</c>
+
+00:00:46.870 --> 00:00:46.880 align:start position:0%
+skins." So, here's my little desktop
+ 
+
+00:00:46.880 --> 00:00:48.390 align:start position:0%
+skins." So, here's my little desktop
+Pomodoro<00:00:47.360><c> app.</c><00:00:47.800><c> I</c><00:00:47.840><c> can</c><00:00:47.960><c> just</c><00:00:48.080><c> put</c><00:00:48.200><c> in</c><00:00:48.280><c> the</c>
+
+00:00:48.390 --> 00:00:48.400 align:start position:0%
+Pomodoro app. I can just put in the
+ 
+
+00:00:48.400 --> 00:00:54.350 align:start position:0%
+Pomodoro app. I can just put in the
+time,<00:00:49.040><c> label</c><00:00:49.440><c> it,</c><00:00:49.880><c> start</c><00:00:50.120><c> the</c><00:00:50.160><c> timer.</c>
+
+00:00:54.350 --> 00:00:54.360 align:start position:0%
+ 
+ 
+
+00:00:54.360 --> 00:00:56.710 align:start position:0%
+ 
+And<00:00:54.520><c> once</c><00:00:54.720><c> it's</c><00:00:54.840><c> done,</c><00:00:55.400><c> it</c><00:00:55.720><c> shows</c><00:00:56.080><c> up</c><00:00:56.320><c> in</c><00:00:56.480><c> my</c>
+
+00:00:56.710 --> 00:00:56.720 align:start position:0%
+And once it's done, it shows up in my
+ 
+
+00:00:56.720 --> 00:00:58.030 align:start position:0%
+And once it's done, it shows up in my
+Obsidian<00:00:57.120><c> vault.</c><00:00:57.480><c> I</c><00:00:57.560><c> think</c><00:00:57.720><c> it's</c><00:00:57.840><c> already</c>
+
+00:00:58.030 --> 00:00:58.040 align:start position:0%
+Obsidian vault. I think it's already
+ 
+
+00:00:58.040 --> 00:01:00.350 align:start position:0%
+Obsidian vault. I think it's already
+very<00:00:58.280><c> cute</c><00:00:58.560><c> with</c><00:00:58.680><c> this</c><00:00:58.800><c> little</c><00:00:59.040><c> avocado,</c><00:01:00.000><c> but</c>
+
+00:01:00.350 --> 00:01:00.360 align:start position:0%
+very cute with this little avocado, but
+ 
+
+00:01:00.360 --> 00:01:01.870 align:start position:0%
+very cute with this little avocado, but
+it<00:01:00.440><c> would</c><00:01:00.560><c> be</c><00:01:00.640><c> even</c><00:01:00.880><c> cuter</c><00:01:01.320><c> if</c><00:01:01.480><c> it</c><00:01:01.600><c> had</c><00:01:01.760><c> the</c>
+
+00:01:01.870 --> 00:01:01.880 align:start position:0%
+it would be even cuter if it had the
+ 
+
+00:01:01.880 --> 00:01:04.790 align:start position:0%
+it would be even cuter if it had the
+ability<00:01:02.320><c> to</c><00:01:02.520><c> switch</c><00:01:02.920><c> skins.</c><00:01:03.720><c> Right</c><00:01:03.920><c> now,</c><00:01:04.400><c> it's</c>
+
+00:01:04.790 --> 00:01:04.800 align:start position:0%
+ability to switch skins. Right now, it's
+ 
+
+00:01:04.800 --> 00:01:08.350 align:start position:0%
+ability to switch skins. Right now, it's
+only<00:01:05.320><c> an</c><00:01:05.840><c> avocado.</c><00:01:06.440><c> Please</c><00:01:07.120><c> create</c><00:01:08.040><c> three</c>
+
+00:01:08.350 --> 00:01:08.360 align:start position:0%
+only an avocado. Please create three
+ 
+
+00:01:08.360 --> 00:01:10.910 align:start position:0%
+only an avocado. Please create three
+other<00:01:08.720><c> skins</c><00:01:09.560><c> it</c><00:01:09.800><c> can</c><00:01:10.000><c> change</c><00:01:10.360><c> to.</c><00:01:10.800><c> For</c>
+
+00:01:10.910 --> 00:01:10.920 align:start position:0%
+other skins it can change to. For
+ 
+
+00:01:10.920 --> 00:01:14.070 align:start position:0%
+other skins it can change to. For
+example,<00:01:11.480><c> cat,</c><00:01:11.840><c> dog,</c><00:01:12.400><c> uh</c><00:01:12.720><c> tomato</c><00:01:13.320><c> in</c><00:01:13.480><c> the</c><00:01:13.600><c> same</c>
+
+00:01:14.070 --> 00:01:14.080 align:start position:0%
+example, cat, dog, uh tomato in the same
+ 
+
+00:01:14.080 --> 00:01:17.110 align:start position:0%
+example, cat, dog, uh tomato in the same
+style.<00:01:14.720><c> The</c><00:01:14.840><c> user</c><00:01:15.320><c> should</c><00:01:15.640><c> be</c><00:01:15.840><c> able</c><00:01:16.240><c> to</c><00:01:16.480><c> switch</c>
+
+00:01:17.110 --> 00:01:17.120 align:start position:0%
+style. The user should be able to switch
+ 
+
+00:01:17.120 --> 00:01:20.470 align:start position:0%
+style. The user should be able to switch
+skins<00:01:17.880><c> easily.</c><00:01:18.680><c> Keep</c><00:01:19.080><c> everything</c><00:01:19.920><c> else</c><00:01:20.400><c> the</c>
+
+00:01:20.470 --> 00:01:20.480 align:start position:0%
+skins easily. Keep everything else the
+ 
+
+00:01:20.480 --> 00:01:21.470 align:start position:0%
+skins easily. Keep everything else the
+same.
+
+00:01:21.470 --> 00:01:21.480 align:start position:0%
+same.
+ 
+
+00:01:21.480 --> 00:01:23.230 align:start position:0%
+same.
+And<00:01:21.560><c> click</c><00:01:21.760><c> enter.</c><00:01:22.480><c> And</c><00:01:22.680><c> then,</c><00:01:22.840><c> a</c><00:01:22.880><c> few</c><00:01:23.040><c> minutes</c>
+
+00:01:23.230 --> 00:01:23.240 align:start position:0%
+And click enter. And then, a few minutes
+ 
+
+00:01:23.240 --> 00:01:25.070 align:start position:0%
+And click enter. And then, a few minutes
+later,<00:01:23.480><c> we</c><00:01:23.600><c> see</c><00:01:23.720><c> that</c><00:01:24.080><c> Hermes</c><00:01:24.400><c> bot</c><00:01:24.680><c> does</c><00:01:24.920><c> its</c>
+
+00:01:25.070 --> 00:01:25.080 align:start position:0%
+later, we see that Hermes bot does its
+ 
+
+00:01:25.080 --> 00:01:27.230 align:start position:0%
+later, we see that Hermes bot does its
+thing.<00:01:25.480><c> It</c><00:01:25.600><c> comes</c><00:01:25.880><c> up</c><00:01:26.040><c> with</c><00:01:26.200><c> a</c><00:01:26.320><c> Pomodoro</c><00:01:26.840><c> skin</c>
+
+00:01:27.230 --> 00:01:27.240 align:start position:0%
+thing. It comes up with a Pomodoro skin
+ 
+
+00:01:27.240 --> 00:01:29.510 align:start position:0%
+thing. It comes up with a Pomodoro skin
+that<00:01:27.440><c> switcher</c><00:01:28.000><c> PRD,</c><00:01:28.640><c> tells</c><00:01:28.920><c> me</c><00:01:29.080><c> the</c><00:01:29.200><c> goal</c><00:01:29.440><c> is</c>
+
+00:01:29.510 --> 00:01:29.520 align:start position:0%
+that switcher PRD, tells me the goal is
+ 
+
+00:01:29.520 --> 00:01:30.830 align:start position:0%
+that switcher PRD, tells me the goal is
+to<00:01:29.600><c> add</c><00:01:29.720><c> a</c><00:01:29.760><c> skin</c><00:01:30.040><c> switching</c><00:01:30.400><c> system</c><00:01:30.680><c> to</c><00:01:30.760><c> the</c>
+
+00:01:30.830 --> 00:01:30.840 align:start position:0%
+to add a skin switching system to the
+ 
+
+00:01:30.840 --> 00:01:32.750 align:start position:0%
+to add a skin switching system to the
+Pixel<00:01:31.160><c> Pomodoro</c><00:01:31.560><c> Electron</c><00:01:32.000><c> app,</c><00:01:32.280><c> so</c><00:01:32.400><c> the</c><00:01:32.520><c> user</c>
+
+00:01:32.750 --> 00:01:32.760 align:start position:0%
+Pixel Pomodoro Electron app, so the user
+ 
+
+00:01:32.760 --> 00:01:34.790 align:start position:0%
+Pixel Pomodoro Electron app, so the user
+can<00:01:32.920><c> pick</c><00:01:33.080><c> between</c><00:01:33.400><c> existing</c><00:01:33.800><c> pixel</c><00:01:34.160><c> arts</c>
+
+00:01:34.790 --> 00:01:34.800 align:start position:0%
+can pick between existing pixel arts
+ 
+
+00:01:34.800 --> 00:01:36.276 align:start position:0%
+can pick between existing pixel arts
+with<00:01:34.920><c> three</c><00:01:35.080><c> different</c><00:01:35.400><c> skins.</c><00:01:35.800><c> And</c><00:01:35.960><c> it</c><00:01:36.120><c> goes</c>
+
+00:01:36.276 --> 00:01:36.286 align:start position:0%
+with three different skins. And it goes
+ 
+
+00:01:36.286 --> 00:01:38.110 align:start position:0%
+with three different skins. And it goes
+[music]<00:01:36.360><c> on</c><00:01:36.880><c> with</c><00:01:37.040><c> a</c><00:01:37.080><c> lot</c><00:01:37.280><c> of</c><00:01:37.360><c> details</c><00:01:37.840><c> about</c>
+
+00:01:38.110 --> 00:01:38.120 align:start position:0%
+[music] on with a lot of details about
+ 
+
+00:01:38.120 --> 00:01:40.070 align:start position:0%
+[music] on with a lot of details about
+the<00:01:38.240><c> approach</c><00:01:38.680><c> for</c><00:01:38.800><c> doing</c><00:01:39.040><c> this.</c><00:01:39.600><c> And</c><00:01:39.840><c> I</c><00:01:39.880><c> think</c>
+
+00:01:40.070 --> 00:01:40.080 align:start position:0%
+the approach for doing this. And I think
+ 
+
+00:01:40.080 --> 00:01:41.110 align:start position:0%
+the approach for doing this. And I think
+it<00:01:40.120><c> looks</c><00:01:40.240><c> pretty</c><00:01:40.440><c> good.</c><00:01:40.680><c> So,</c><00:01:40.840><c> I'm</c><00:01:40.920><c> going</c><00:01:41.040><c> to</c>
+
+00:01:41.110 --> 00:01:41.120 align:start position:0%
+it looks pretty good. So, I'm going to
+ 
+
+00:01:41.120 --> 00:01:43.270 align:start position:0%
+it looks pretty good. So, I'm going to
+say,<00:01:41.480><c> "Looks</c><00:01:41.760><c> good.</c><00:01:42.280><c> Let's</c><00:01:42.440><c> build</c><00:01:42.640><c> it."</c><00:01:43.000><c> And</c>
+
+00:01:43.270 --> 00:01:43.280 align:start position:0%
+say, "Looks good. Let's build it." And
+ 
+
+00:01:43.280 --> 00:01:44.830 align:start position:0%
+say, "Looks good. Let's build it." And
+once<00:01:43.440><c> it's</c><00:01:43.560><c> done,</c><00:01:43.840><c> it</c><00:01:43.960><c> should</c><00:01:44.120><c> show</c><00:01:44.280><c> up</c><00:01:44.440><c> in</c><00:01:44.560><c> my</c>
+
+00:01:44.830 --> 00:01:44.840 align:start position:0%
+once it's done, it should show up in my
+ 
+
+00:01:44.840 --> 00:01:46.430 align:start position:0%
+once it's done, it should show up in my
+builds<00:01:45.360><c> channel.</c><00:01:45.800><c> So,</c><00:01:45.960><c> we'll</c><00:01:46.040><c> let</c><00:01:46.160><c> this</c><00:01:46.280><c> build</c>
+
+00:01:46.430 --> 00:01:46.440 align:start position:0%
+builds channel. So, we'll let this build
+ 
+
+00:01:46.440 --> 00:01:47.630 align:start position:0%
+builds channel. So, we'll let this build
+for<00:01:46.520><c> now,</c><00:01:46.800><c> and</c><00:01:46.960><c> after</c><00:01:47.200><c> it</c><00:01:47.240><c> finishes,</c><00:01:47.600><c> I</c>
+
+00:01:47.630 --> 00:01:47.640 align:start position:0%
+for now, and after it finishes, I
+ 
+
+00:01:47.640 --> 00:01:48.830 align:start position:0%
+for now, and after it finishes, I
+promise<00:01:47.960><c> I'll</c><00:01:48.040><c> explain</c><00:01:48.320><c> a</c><00:01:48.360><c> little</c><00:01:48.520><c> bit</c><00:01:48.640><c> more</c>
+
+00:01:48.830 --> 00:01:48.840 align:start position:0%
+promise I'll explain a little bit more
+ 
+
+00:01:48.840 --> 00:01:50.430 align:start position:0%
+promise I'll explain a little bit more
+about<00:01:49.240><c> how</c><00:01:49.480><c> this</c><00:01:49.640><c> is</c><00:01:49.720><c> all</c><00:01:49.840><c> working</c><00:01:50.120><c> under</c><00:01:50.360><c> the</c>
+
+00:01:50.430 --> 00:01:50.440 align:start position:0%
+about how this is all working under the
+ 
+
+00:01:50.440 --> 00:01:51.870 align:start position:0%
+about how this is all working under the
+hood,<00:01:50.640><c> as</c><00:01:50.800><c> well.</c><00:01:50.960><c> But,</c><00:01:51.280><c> in</c><00:01:51.360><c> the</c><00:01:51.440><c> meantime,</c><00:01:51.840><c> I</c>
+
+00:01:51.870 --> 00:01:51.880 align:start position:0%
+hood, as well. But, in the meantime, I
+ 
+
+00:01:51.880 --> 00:01:53.350 align:start position:0%
+hood, as well. But, in the meantime, I
+want<00:01:52.000><c> to</c><00:01:52.080><c> show</c><00:01:52.240><c> you</c><00:01:52.400><c> another</c><00:01:52.720><c> functionality</c>
+
+00:01:53.350 --> 00:01:53.360 align:start position:0%
+want to show you another functionality
+ 
+
+00:01:53.360 --> 00:01:56.030 align:start position:0%
+want to show you another functionality
+in<00:01:53.520><c> my</c><00:01:53.680><c> Hermes</c><00:01:54.120><c> setup</c><00:01:54.440><c> called</c><00:01:54.800><c> Lifebot.</c><00:01:55.760><c> So,</c>
+
+00:01:56.030 --> 00:01:56.040 align:start position:0%
+in my Hermes setup called Lifebot. So,
+ 
+
+00:01:56.040 --> 00:01:58.790 align:start position:0%
+in my Hermes setup called Lifebot. So,
+this<00:01:56.640><c> is</c><00:01:56.800><c> Lifebot.</c><00:01:57.440><c> Now,</c><00:01:57.640><c> Lifebot</c><00:01:58.200><c> I</c><00:01:58.280><c> talk</c><00:01:58.560><c> to</c>
+
+00:01:58.790 --> 00:01:58.800 align:start position:0%
+this is Lifebot. Now, Lifebot I talk to
+ 
+
+00:01:58.800 --> 00:02:00.430 align:start position:0%
+this is Lifebot. Now, Lifebot I talk to
+using<00:01:59.120><c> Telegram.</c><00:01:59.760><c> And</c><00:02:00.000><c> as</c><00:02:00.120><c> its</c><00:02:00.240><c> name</c>
+
+00:02:00.430 --> 00:02:00.440 align:start position:0%
+using Telegram. And as its name
+ 
+
+00:02:00.440 --> 00:02:02.550 align:start position:0%
+using Telegram. And as its name
+suggests,<00:02:01.040><c> it</c><00:02:01.200><c> is</c><00:02:01.320><c> my</c><00:02:01.440><c> productivity</c><00:02:02.280><c> and</c>
+
+00:02:02.550 --> 00:02:02.560 align:start position:0%
+suggests, it is my productivity and
+ 
+
+00:02:02.560 --> 00:02:04.990 align:start position:0%
+suggests, it is my productivity and
+health<00:02:03.160><c> life</c><00:02:03.479><c> coach.</c><00:02:04.000><c> So,</c><00:02:04.120><c> I</c><00:02:04.160><c> can</c><00:02:04.320><c> ask</c><00:02:04.600><c> it,</c>
+
+00:02:04.990 --> 00:02:05.000 align:start position:0%
+health life coach. So, I can ask it,
+ 
+
+00:02:05.000 --> 00:02:08.590 align:start position:0%
+health life coach. So, I can ask it,
+"How<00:02:05.400><c> is</c><00:02:05.680><c> my</c><00:02:05.920><c> productivity</c><00:02:07.240><c> so</c><00:02:07.560><c> far</c><00:02:08.080><c> today?"</c>
+
+00:02:08.590 --> 00:02:08.600 align:start position:0%
+"How is my productivity so far today?"
+ 
+
+00:02:08.600 --> 00:02:10.630 align:start position:0%
+"How is my productivity so far today?"
+It's<00:02:08.759><c> running</c><00:02:09.000><c> some</c><00:02:09.200><c> terminal</c><00:02:09.600><c> commands.</c>
+
+00:02:10.630 --> 00:02:10.640 align:start position:0%
+It's running some terminal commands.
+ 
+
+00:02:10.640 --> 00:02:12.830 align:start position:0%
+It's running some terminal commands.
+Cool.<00:02:11.080><c> And</c><00:02:11.280><c> it</c><00:02:11.360><c> tells</c><00:02:11.680><c> me</c><00:02:12.000><c> I</c><00:02:12.080><c> have</c><00:02:12.240><c> had</c><00:02:12.520><c> three</c>
+
+00:02:12.830 --> 00:02:12.840 align:start position:0%
+Cool. And it tells me I have had three
+ 
+
+00:02:12.840 --> 00:02:15.990 align:start position:0%
+Cool. And it tells me I have had three
+sessions<00:02:13.360><c> today</c><00:02:13.760><c> of</c><00:02:13.959><c> 27</c><00:02:14.680><c> minutes.</c><00:02:15.360><c> So,</c><00:02:15.720><c> film</c>
+
+00:02:15.990 --> 00:02:16.000 align:start position:0%
+sessions today of 27 minutes. So, film
+ 
+
+00:02:16.000 --> 00:02:17.949 align:start position:0%
+sessions today of 27 minutes. So, film
+prep,<00:02:16.400><c> run</c><00:02:16.560><c> script,</c><00:02:17.080><c> and</c><00:02:17.200><c> it</c><00:02:17.320><c> also</c><00:02:17.560><c> logged</c><00:02:17.880><c> a</c>
+
+00:02:17.949 --> 00:02:17.959 align:start position:0%
+prep, run script, and it also logged a
+ 
+
+00:02:17.959 --> 00:02:19.750 align:start position:0%
+prep, run script, and it also logged a
+couple<00:02:18.280><c> of</c><00:02:18.320><c> test</c><00:02:18.600><c> pomodoros</c><00:02:19.120><c> that</c><00:02:19.280><c> I</c><00:02:19.320><c> did.</c><00:02:19.600><c> Can</c>
+
+00:02:19.750 --> 00:02:19.760 align:start position:0%
+couple of test pomodoros that I did. Can
+ 
+
+00:02:19.760 --> 00:02:22.949 align:start position:0%
+couple of test pomodoros that I did. Can
+also<00:02:20.040><c> ask</c><00:02:20.360><c> it,</c><00:02:20.880><c> "How</c><00:02:20.959><c> many</c><00:02:21.160><c> steps</c><00:02:22.080><c> have</c><00:02:22.320><c> I</c><00:02:22.760><c> done</c>
+
+00:02:22.949 --> 00:02:22.959 align:start position:0%
+also ask it, "How many steps have I done
+ 
+
+00:02:22.959 --> 00:02:25.110 align:start position:0%
+also ask it, "How many steps have I done
+today?"<00:02:23.720><c> And</c><00:02:23.880><c> it</c><00:02:23.920><c> says</c><00:02:24.120><c> no</c><00:02:24.240><c> data</c><00:02:24.480><c> yet,</c><00:02:24.800><c> but</c><00:02:25.080><c> the</c>
+
+00:02:25.110 --> 00:02:25.120 align:start position:0%
+today?" And it says no data yet, but the
+ 
+
+00:02:25.120 --> 00:02:26.390 align:start position:0%
+today?" And it says no data yet, but the
+iCloud<00:02:25.440><c> place</c><00:02:25.640><c> order</c><00:02:25.800><c> hasn't</c><00:02:26.040><c> downloaded</c>
+
+00:02:26.390 --> 00:02:26.400 align:start position:0%
+iCloud place order hasn't downloaded
+ 
+
+00:02:26.400 --> 00:02:28.670 align:start position:0%
+iCloud place order hasn't downloaded
+locally.<00:02:26.760><c> Okay,</c><00:02:26.959><c> fine.</c><00:02:27.240><c> I</c><00:02:27.360><c> sync</c><00:02:27.920><c> my</c><00:02:28.240><c> steps</c>
+
+00:02:28.670 --> 00:02:28.680 align:start position:0%
+locally. Okay, fine. I sync my steps
+ 
+
+00:02:28.680 --> 00:02:30.790 align:start position:0%
+locally. Okay, fine. I sync my steps
+from<00:02:28.840><c> my</c><00:02:28.959><c> phone</c><00:02:29.360><c> every</c><00:02:29.600><c> 2</c><00:02:29.840><c> hours</c><00:02:30.240><c> to</c><00:02:30.360><c> Lifebot.</c>
+
+00:02:30.790 --> 00:02:30.800 align:start position:0%
+from my phone every 2 hours to Lifebot.
+ 
+
+00:02:30.800 --> 00:02:32.190 align:start position:0%
+from my phone every 2 hours to Lifebot.
+So,<00:02:31.040><c> hasn't</c><00:02:31.320><c> done</c><00:02:31.440><c> that</c><00:02:31.600><c> yet.</c><00:02:31.720><c> That's</c><00:02:31.920><c> okay.</c>
+
+00:02:32.190 --> 00:02:32.200 align:start position:0%
+So, hasn't done that yet. That's okay.
+ 
+
+00:02:32.200 --> 00:02:33.350 align:start position:0%
+So, hasn't done that yet. That's okay.
+You<00:02:32.240><c> know</c><00:02:32.360><c> what?</c><00:02:32.520><c> Let's</c><00:02:32.680><c> just</c><00:02:32.880><c> say</c><00:02:33.160><c> I'm</c><00:02:33.240><c> going</c>
+
+00:02:33.350 --> 00:02:33.360 align:start position:0%
+You know what? Let's just say I'm going
+ 
+
+00:02:33.360 --> 00:02:34.870 align:start position:0%
+You know what? Let's just say I'm going
+to<00:02:33.440><c> say,</c><00:02:33.680><c> "What</c><00:02:33.800><c> about</c><00:02:34.040><c> yesterday?</c><00:02:34.560><c> How</c><00:02:34.680><c> many</c>
+
+00:02:34.870 --> 00:02:34.880 align:start position:0%
+to say, "What about yesterday? How many
+ 
+
+00:02:34.880 --> 00:02:38.110 align:start position:0%
+to say, "What about yesterday? How many
+steps?"<00:02:35.680><c> It</c><00:02:35.800><c> said</c><00:02:36.200><c> I</c><00:02:36.280><c> took</c><00:02:36.600><c> 11,502</c>
+
+00:02:38.110 --> 00:02:38.120 align:start position:0%
+steps?" It said I took 11,502
+ 
+
+00:02:38.120 --> 00:02:40.230 align:start position:0%
+steps?" It said I took 11,502
+steps.<00:02:38.560><c> Strong</c><00:02:38.920><c> for</c><00:02:39.040><c> a</c><00:02:39.080><c> Sunday.</c><00:02:39.680><c> Above</c><00:02:40.080><c> my</c>
+
+00:02:40.230 --> 00:02:40.240 align:start position:0%
+steps. Strong for a Sunday. Above my
+ 
+
+00:02:40.240 --> 00:02:41.910 align:start position:0%
+steps. Strong for a Sunday. Above my
+average.<00:02:40.760><c> Nice.</c><00:02:41.240><c> So,</c><00:02:41.400><c> this</c><00:02:41.560><c> is</c><00:02:41.640><c> all</c><00:02:41.720><c> great,</c>
+
+00:02:41.910 --> 00:02:41.920 align:start position:0%
+average. Nice. So, this is all great,
+ 
+
+00:02:41.920 --> 00:02:42.630 align:start position:0%
+average. Nice. So, this is all great,
+you<00:02:41.959><c> know,</c><00:02:42.040><c> just</c><00:02:42.200><c> like</c><00:02:42.320><c> telling</c><00:02:42.560><c> me</c>
+
+00:02:42.630 --> 00:02:42.640 align:start position:0%
+you know, just like telling me
+ 
+
+00:02:42.640 --> 00:02:45.110 align:start position:0%
+you know, just like telling me
+information,<00:02:43.200><c> right?</c><00:02:43.720><c> But</c><00:02:44.080><c> what</c><00:02:44.360><c> is</c><00:02:44.760><c> really</c>
+
+00:02:45.110 --> 00:02:45.120 align:start position:0%
+information, right? But what is really
+ 
+
+00:02:45.120 --> 00:02:47.670 align:start position:0%
+information, right? But what is really
+valuable<00:02:45.880><c> is</c><00:02:46.120><c> actually</c><00:02:46.480><c> hidden</c><00:02:47.040><c> over</c><00:02:47.280><c> here.</c>
+
+00:02:47.670 --> 00:02:47.680 align:start position:0%
+valuable is actually hidden over here.
+ 
+
+00:02:47.680 --> 00:02:48.949 align:start position:0%
+valuable is actually hidden over here.
+You<00:02:47.760><c> see</c><00:02:47.920><c> it</c><00:02:48.000><c> has</c><00:02:48.160><c> all</c><00:02:48.280><c> this</c><00:02:48.400><c> data</c><00:02:48.720><c> that's</c>
+
+00:02:48.949 --> 00:02:48.959 align:start position:0%
+You see it has all this data that's
+ 
+
+00:02:48.959 --> 00:02:50.830 align:start position:0%
+You see it has all this data that's
+being<00:02:49.240><c> logged</c><00:02:49.560><c> into</c><00:02:49.840><c> it,</c><00:02:50.280><c> and</c><00:02:50.400><c> it's</c><00:02:50.520><c> able</c><00:02:50.720><c> to</c>
+
+00:02:50.830 --> 00:02:50.840 align:start position:0%
+being logged into it, and it's able to
+ 
+
+00:02:50.840 --> 00:02:52.790 align:start position:0%
+being logged into it, and it's able to
+give<00:02:51.040><c> me</c><00:02:51.200><c> custom</c><00:02:51.680><c> advice.</c><00:02:52.240><c> I</c><00:02:52.360><c> can</c><00:02:52.520><c> ask</c><00:02:52.720><c> it</c>
+
+00:02:52.790 --> 00:02:52.800 align:start position:0%
+give me custom advice. I can ask it
+ 
+
+00:02:52.800 --> 00:02:54.030 align:start position:0%
+give me custom advice. I can ask it
+questions<00:02:53.280><c> like,</c><00:02:53.440><c> "What's</c><00:02:53.640><c> my</c><00:02:53.760><c> average</c>
+
+00:02:54.030 --> 00:02:54.040 align:start position:0%
+questions like, "What's my average
+ 
+
+00:02:54.040 --> 00:02:55.990 align:start position:0%
+questions like, "What's my average
+amount<00:02:54.320><c> of</c><00:02:54.440><c> log</c><00:02:54.680><c> time</c><00:02:55.200><c> right</c><00:02:55.240><c> now?</c><00:02:55.600><c> And</c><00:02:55.880><c> what</c>
+
+00:02:55.990 --> 00:02:56.000 align:start position:0%
+amount of log time right now? And what
+ 
+
+00:02:56.000 --> 00:02:57.230 align:start position:0%
+amount of log time right now? And what
+do<00:02:56.080><c> you</c><00:02:56.120><c> think</c><00:02:56.240><c> I</c><00:02:56.320><c> can</c><00:02:56.480><c> do</c><00:02:56.640><c> to</c><00:02:56.760><c> help</c><00:02:56.959><c> boost</c><00:02:57.200><c> the</c>
+
+00:02:57.230 --> 00:02:57.240 align:start position:0%
+do you think I can do to help boost the
+ 
+
+00:02:57.240 --> 00:02:58.670 align:start position:0%
+do you think I can do to help boost the
+amount<00:02:57.480><c> of</c><00:02:57.560><c> focused</c><00:02:57.880><c> time</c><00:02:58.080><c> I</c><00:02:58.160><c> work?</c><00:02:58.520><c> Like</c>
+
+00:02:58.670 --> 00:02:58.680 align:start position:0%
+amount of focused time I work? Like
+ 
+
+00:02:58.680 --> 00:03:00.270 align:start position:0%
+amount of focused time I work? Like
+should<00:02:58.880><c> I</c><00:02:58.959><c> consider</c><00:02:59.440><c> switching</c><00:02:59.840><c> around</c><00:03:00.120><c> my</c>
+
+00:03:00.270 --> 00:03:00.280 align:start position:0%
+should I consider switching around my
+ 
+
+00:03:00.280 --> 00:03:02.070 align:start position:0%
+should I consider switching around my
+times<00:03:00.840><c> for</c><00:03:01.000><c> when</c><00:03:01.160><c> I</c><00:03:01.200><c> do</c><00:03:01.360><c> certain</c><00:03:01.600><c> tasks,</c><00:03:01.959><c> or</c>
+
+00:03:02.070 --> 00:03:02.080 align:start position:0%
+times for when I do certain tasks, or
+ 
+
+00:03:02.080 --> 00:03:03.390 align:start position:0%
+times for when I do certain tasks, or
+take<00:03:02.320><c> more</c><00:03:02.480><c> breaks?"</c><00:03:02.920><c> And</c><00:03:03.040><c> it</c><00:03:03.080><c> can</c><00:03:03.200><c> actually</c>
+
+00:03:03.390 --> 00:03:03.400 align:start position:0%
+take more breaks?" And it can actually
+ 
+
+00:03:03.400 --> 00:03:04.630 align:start position:0%
+take more breaks?" And it can actually
+tell<00:03:03.600><c> me</c><00:03:03.720><c> like</c><00:03:03.840><c> what</c><00:03:03.959><c> the</c><00:03:04.040><c> pattern</c><00:03:04.400><c> looks</c>
+
+00:03:04.630 --> 00:03:04.640 align:start position:0%
+tell me like what the pattern looks
+ 
+
+00:03:04.640 --> 00:03:06.310 align:start position:0%
+tell me like what the pattern looks
+like.<00:03:04.880><c> "Your</c><00:03:05.080><c> strongest</c><00:03:05.519><c> windows</c><00:03:05.840><c> by</c><00:03:05.959><c> session</c>
+
+00:03:06.310 --> 00:03:06.320 align:start position:0%
+like. "Your strongest windows by session
+ 
+
+00:03:06.320 --> 00:03:08.949 align:start position:0%
+like. "Your strongest windows by session
+count<00:03:06.840><c> is</c><00:03:07.360><c> around</c><00:03:07.760><c> like</c><00:03:07.959><c> 12:00</c><00:03:08.239><c> p.m.</c><00:03:08.800><c> That's</c>
+
+00:03:08.949 --> 00:03:08.959 align:start position:0%
+count is around like 12:00 p.m. That's
+ 
+
+00:03:08.959 --> 00:03:10.590 align:start position:0%
+count is around like 12:00 p.m. That's
+when<00:03:09.080><c> I'm</c><00:03:09.160><c> doing</c><00:03:09.400><c> mostly</c><00:03:09.680><c> tasks,</c><00:03:10.080><c> organizing</c>
+
+00:03:10.590 --> 00:03:10.600 align:start position:0%
+when I'm doing mostly tasks, organizing
+ 
+
+00:03:10.600 --> 00:03:12.790 align:start position:0%
+when I'm doing mostly tasks, organizing
+light<00:03:10.840><c> work.</c><00:03:11.160><c> Around</c><00:03:11.480><c> 5:00</c><00:03:11.800><c> p.m.</c><00:03:12.320><c> I'm</c><00:03:12.440><c> doing</c>
+
+00:03:12.790 --> 00:03:12.800 align:start position:0%
+light work. Around 5:00 p.m. I'm doing
+ 
+
+00:03:12.800 --> 00:03:14.830 align:start position:0%
+light work. Around 5:00 p.m. I'm doing
+mixed<00:03:13.000><c> development</c><00:03:13.440><c> and</c><00:03:13.560><c> task.</c><00:03:14.280><c> Around</c><00:03:14.560><c> 7:00</c>
+
+00:03:14.830 --> 00:03:14.840 align:start position:0%
+mixed development and task. Around 7:00
+ 
+
+00:03:14.840 --> 00:03:16.270 align:start position:0%
+mixed development and task. Around 7:00
+p.m.<00:03:15.239><c> I'm</c><00:03:15.360><c> doing</c><00:03:15.600><c> deep</c><00:03:15.840><c> development,</c>
+
+00:03:16.270 --> 00:03:16.280 align:start position:0%
+p.m. I'm doing deep development,
+ 
+
+00:03:16.280 --> 00:03:18.430 align:start position:0%
+p.m. I'm doing deep development,
+scripting,<00:03:16.680><c> and</c><00:03:16.760><c> research."</c><00:03:17.519><c> And</c><00:03:17.720><c> etc.</c><00:03:18.080><c> etc.,</c>
+
+00:03:18.430 --> 00:03:18.440 align:start position:0%
+scripting, and research." And etc. etc.,
+ 
+
+00:03:18.440 --> 00:03:19.830 align:start position:0%
+scripting, and research." And etc. etc.,
+right?<00:03:18.680><c> And</c><00:03:18.800><c> it's</c><00:03:18.920><c> telling</c><00:03:19.160><c> me</c><00:03:19.280><c> that</c><00:03:19.440><c> the</c><00:03:19.560><c> gap</c>
+
+00:03:19.830 --> 00:03:19.840 align:start position:0%
+right? And it's telling me that the gap
+ 
+
+00:03:19.840 --> 00:03:21.390 align:start position:0%
+right? And it's telling me that the gap
+that<00:03:20.000><c> I</c><00:03:20.080><c> have</c><00:03:20.360><c> is</c><00:03:20.440><c> actually</c><00:03:20.720><c> 9:00</c><00:03:21.000><c> a.m.</c><00:03:21.239><c> to</c>
+
+00:03:21.390 --> 00:03:21.400 align:start position:0%
+that I have is actually 9:00 a.m. to
+ 
+
+00:03:21.400 --> 00:03:22.990 align:start position:0%
+that I have is actually 9:00 a.m. to
+11:00<00:03:21.760><c> a.m.</c><00:03:22.040><c> It's</c><00:03:22.239><c> saying</c><00:03:22.480><c> that</c><00:03:22.600><c> you're</c><00:03:22.720><c> using</c>
+
+00:03:22.990 --> 00:03:23.000 align:start position:0%
+11:00 a.m. It's saying that you're using
+ 
+
+00:03:23.000 --> 00:03:24.990 align:start position:0%
+11:00 a.m. It's saying that you're using
+the<00:03:23.080><c> 9:00</c><00:03:23.320><c> a.m.</c><00:03:23.560><c> hour</c><00:03:23.760><c> exactly</c><00:03:24.239><c> once,</c><00:03:24.640><c> and</c><00:03:24.760><c> it</c>
+
+00:03:24.990 --> 00:03:25.000 align:start position:0%
+the 9:00 a.m. hour exactly once, and it
+ 
+
+00:03:25.000 --> 00:03:26.590 align:start position:0%
+the 9:00 a.m. hour exactly once, and it
+produced<00:03:25.200><c> two</c><00:03:25.440><c> solid</c><00:03:25.800><c> sessions.</c><00:03:26.320><c> So,</c><00:03:26.519><c> it</c>
+
+00:03:26.590 --> 00:03:26.600 align:start position:0%
+produced two solid sessions. So, it
+ 
+
+00:03:26.600 --> 00:03:28.150 align:start position:0%
+produced two solid sessions. So, it
+tells<00:03:26.840><c> me</c><00:03:26.920><c> to</c><00:03:27.040><c> try</c><00:03:27.200><c> out</c><00:03:27.320><c> that</c><00:03:27.480><c> 9:00</c><00:03:27.720><c> to</c><00:03:27.840><c> 11:00</c>
+
+00:03:28.150 --> 00:03:28.160 align:start position:0%
+tells me to try out that 9:00 to 11:00
+ 
+
+00:03:28.160 --> 00:03:30.110 align:start position:0%
+tells me to try out that 9:00 to 11:00
+a.m.<00:03:28.440><c> slot</c><00:03:28.880><c> to</c><00:03:28.959><c> try</c><00:03:29.080><c> to</c><00:03:29.160><c> get</c><00:03:29.360><c> more</c><00:03:29.519><c> deep</c><00:03:29.880><c> work</c>
+
+00:03:30.110 --> 00:03:30.120 align:start position:0%
+a.m. slot to try to get more deep work
+ 
+
+00:03:30.120 --> 00:03:31.630 align:start position:0%
+a.m. slot to try to get more deep work
+in<00:03:30.239><c> earlier</c><00:03:30.600><c> during</c><00:03:30.840><c> the</c><00:03:30.920><c> day.</c><00:03:31.160><c> And</c><00:03:31.280><c> it</c><00:03:31.360><c> says</c>
+
+00:03:31.630 --> 00:03:31.640 align:start position:0%
+in earlier during the day. And it says
+ 
+
+00:03:31.640 --> 00:03:33.990 align:start position:0%
+in earlier during the day. And it says
+to<00:03:31.760><c> don't</c><00:03:32.040><c> overthink</c><00:03:32.640><c> breaks.</c><00:03:33.200><c> TLDR,</c><00:03:33.920><c> you</c>
+
+00:03:33.990 --> 00:03:34.000 align:start position:0%
+to don't overthink breaks. TLDR, you
+ 
+
+00:03:34.000 --> 00:03:35.150 align:start position:0%
+to don't overthink breaks. TLDR, you
+don't<00:03:34.200><c> need</c><00:03:34.360><c> more</c><00:03:34.519><c> breaks</c><00:03:34.760><c> for</c><00:03:34.880><c> longer</c>
+
+00:03:35.150 --> 00:03:35.160 align:start position:0%
+don't need more breaks for longer
+ 
+
+00:03:35.160 --> 00:03:36.910 align:start position:0%
+don't need more breaks for longer
+sessions.<00:03:35.760><c> You</c><00:03:35.880><c> need</c><00:03:36.120><c> one</c><00:03:36.280><c> more</c><00:03:36.440><c> session</c><00:03:36.760><c> per</c>
+
+00:03:36.910 --> 00:03:36.920 align:start position:0%
+sessions. You need one more session per
+ 
+
+00:03:36.920 --> 00:03:38.830 align:start position:0%
+sessions. You need one more session per
+day,<00:03:37.200><c> ideally</c><00:03:37.720><c> up</c><00:03:37.840><c> in</c><00:03:37.920><c> the</c><00:03:38.000><c> 9:00</c><00:03:38.239><c> to</c><00:03:38.360><c> 11:00</c>
+
+00:03:38.830 --> 00:03:38.840 align:start position:0%
+day, ideally up in the 9:00 to 11:00
+ 
+
+00:03:38.840 --> 00:03:40.630 align:start position:0%
+day, ideally up in the 9:00 to 11:00
+a.m.<00:03:39.160><c> dead</c><00:03:39.440><c> zone,</c><00:03:39.760><c> or</c><00:03:40.000><c> by</c><00:03:40.120><c> protecting</c><00:03:40.560><c> the</c>
+
+00:03:40.630 --> 00:03:40.640 align:start position:0%
+a.m. dead zone, or by protecting the
+ 
+
+00:03:40.640 --> 00:03:42.630 align:start position:0%
+a.m. dead zone, or by protecting the
+3:00<00:03:40.880><c> p.m.</c><00:03:41.120><c> to</c><00:03:41.239><c> 5:00</c><00:03:41.480><c> p.m.</c><00:03:41.840><c> from</c><00:03:42.040><c> task</c><00:03:42.400><c> creep.</c>
+
+00:03:42.630 --> 00:03:42.640 align:start position:0%
+3:00 p.m. to 5:00 p.m. from task creep.
+ 
+
+00:03:42.640 --> 00:03:43.949 align:start position:0%
+3:00 p.m. to 5:00 p.m. from task creep.
+That<00:03:42.800><c> alone</c><00:03:43.080><c> will</c><00:03:43.200><c> push</c><00:03:43.440><c> you</c><00:03:43.560><c> from</c><00:03:43.720><c> four</c><00:03:43.880><c> to</c>
+
+00:03:43.949 --> 00:03:43.959 align:start position:0%
+That alone will push you from four to
+ 
+
+00:03:43.959 --> 00:03:45.910 align:start position:0%
+That alone will push you from four to
+five<00:03:44.160><c> sessions</c><00:03:44.800><c> to</c><00:03:44.959><c> five</c><00:03:45.200><c> to</c><00:03:45.320><c> six,</c><00:03:45.640><c> and</c><00:03:45.760><c> from</c>
+
+00:03:45.910 --> 00:03:45.920 align:start position:0%
+five sessions to five to six, and from
+ 
+
+00:03:45.920 --> 00:03:48.470 align:start position:0%
+five sessions to five to six, and from
+around<00:03:46.160><c> 90</c><00:03:46.440><c> minutes</c><00:03:46.840><c> to</c><00:03:47.040><c> 110</c><00:03:47.600><c> plus</c><00:03:48.040><c> minutes</c>
+
+00:03:48.470 --> 00:03:48.480 align:start position:0%
+around 90 minutes to 110 plus minutes
+ 
+
+00:03:48.480 --> 00:03:50.190 align:start position:0%
+around 90 minutes to 110 plus minutes
+per<00:03:48.600><c> day</c><00:03:48.880><c> of</c><00:03:49.080><c> deep</c><00:03:49.239><c> work.</c><00:03:49.260><c> [music]</c><00:03:49.560><c> Anyways,</c><00:03:50.120><c> I</c>
+
+00:03:50.190 --> 00:03:50.200 align:start position:0%
+per day of deep work. [music] Anyways, I
+ 
+
+00:03:50.200 --> 00:03:51.990 align:start position:0%
+per day of deep work. [music] Anyways, I
+have<00:03:50.320><c> dived</c><00:03:50.560><c> a</c><00:03:50.600><c> lot</c><00:03:50.800><c> deeper</c><00:03:51.080><c> into</c><00:03:51.320><c> this</c><00:03:51.840><c> with</c>
+
+00:03:51.990 --> 00:03:52.000 align:start position:0%
+have dived a lot deeper into this with
+ 
+
+00:03:52.000 --> 00:03:53.350 align:start position:0%
+have dived a lot deeper into this with
+Lifebot<00:03:52.360><c> as</c><00:03:52.519><c> well,</c><00:03:52.680><c> but</c><00:03:52.800><c> I</c><00:03:52.840><c> hope</c><00:03:53.000><c> this</c><00:03:53.120><c> gives</c>
+
+00:03:53.350 --> 00:03:53.360 align:start position:0%
+Lifebot as well, but I hope this gives
+ 
+
+00:03:53.360 --> 00:03:54.870 align:start position:0%
+Lifebot as well, but I hope this gives
+you<00:03:53.440><c> a</c><00:03:53.480><c> good</c><00:03:53.680><c> idea</c><00:03:53.960><c> about</c><00:03:54.240><c> how</c><00:03:54.400><c> powerful</c><00:03:54.800><c> it</c>
+
+00:03:54.870 --> 00:03:54.880 align:start position:0%
+you a good idea about how powerful it
+ 
+
+00:03:54.880 --> 00:03:56.550 align:start position:0%
+you a good idea about how powerful it
+can<00:03:55.000><c> be</c><00:03:55.120><c> when</c><00:03:55.280><c> you</c><00:03:55.360><c> can</c><00:03:55.440><c> get</c><00:03:55.600><c> custom</c><00:03:56.120><c> advice</c>
+
+00:03:56.550 --> 00:03:56.560 align:start position:0%
+can be when you can get custom advice
+ 
+
+00:03:56.560 --> 00:03:58.390 align:start position:0%
+can be when you can get custom advice
+based<00:03:56.800><c> upon</c><00:03:57.200><c> the</c><00:03:57.320><c> patterns</c><00:03:57.720><c> that</c><00:03:57.880><c> you</c><00:03:58.000><c> have.</c>
+
+00:03:58.390 --> 00:03:58.400 align:start position:0%
+based upon the patterns that you have.
+ 
+
+00:03:58.400 --> 00:03:59.510 align:start position:0%
+based upon the patterns that you have.
+As<00:03:58.560><c> I'm</c><00:03:58.680><c> working</c><00:03:59.000><c> as</c><00:03:59.160><c> well,</c><00:03:59.360><c> you</c><00:03:59.440><c> know,</c>
+
+00:03:59.510 --> 00:03:59.520 align:start position:0%
+As I'm working as well, you know,
+ 
+
+00:03:59.520 --> 00:04:00.710 align:start position:0%
+As I'm working as well, you know,
+there's<00:03:59.680><c> sometimes</c><00:04:00.000><c> I'm</c><00:04:00.120><c> just</c><00:04:00.280><c> like,</c><00:04:00.440><c> man,</c>
+
+00:04:00.710 --> 00:04:00.720 align:start position:0%
+there's sometimes I'm just like, man,
+ 
+
+00:04:00.720 --> 00:04:02.630 align:start position:0%
+there's sometimes I'm just like, man,
+like<00:04:00.880><c> I'm</c><00:04:01.040><c> so</c><00:04:01.240><c> tired.</c><00:04:01.880><c> What</c><00:04:02.080><c> should</c><00:04:02.240><c> I</c><00:04:02.360><c> do?</c>
+
+00:04:02.630 --> 00:04:02.640 align:start position:0%
+like I'm so tired. What should I do?
+ 
+
+00:04:02.640 --> 00:04:04.030 align:start position:0%
+like I'm so tired. What should I do?
+Like<00:04:02.800><c> should</c><00:04:02.960><c> I</c><00:04:03.000><c> like</c><00:04:03.200><c> take</c><00:04:03.360><c> a</c><00:04:03.440><c> break</c><00:04:03.840><c> right</c>
+
+00:04:04.030 --> 00:04:04.040 align:start position:0%
+Like should I like take a break right
+ 
+
+00:04:04.040 --> 00:04:05.430 align:start position:0%
+Like should I like take a break right
+now<00:04:04.360><c> or</c><00:04:04.520><c> should</c><00:04:04.680><c> I</c><00:04:04.720><c> like</c><00:04:04.920><c> keep</c><00:04:05.120><c> pushing</c>
+
+00:04:05.430 --> 00:04:05.440 align:start position:0%
+now or should I like keep pushing
+ 
+
+00:04:05.440 --> 00:04:06.270 align:start position:0%
+now or should I like keep pushing
+through<00:04:05.600><c> it,</c><00:04:05.680><c> right?</c><00:04:05.840><c> So</c><00:04:05.920><c> I</c><00:04:05.960><c> can</c><00:04:06.120><c> ask</c>
+
+00:04:06.270 --> 00:04:06.280 align:start position:0%
+through it, right? So I can ask
+ 
+
+00:04:06.280 --> 00:04:09.270 align:start position:0%
+through it, right? So I can ask
+something<00:04:06.560><c> like,</c><00:04:06.880><c> hey,</c><00:04:07.240><c> I</c><00:04:07.560><c> feel</c><00:04:08.040><c> a</c><00:04:08.120><c> bit</c><00:04:08.360><c> tired.</c>
+
+00:04:09.270 --> 00:04:09.280 align:start position:0%
+something like, hey, I feel a bit tired.
+ 
+
+00:04:09.280 --> 00:04:12.230 align:start position:0%
+something like, hey, I feel a bit tired.
+Should<00:04:09.560><c> I</c><00:04:09.760><c> take</c><00:04:10.000><c> a</c><00:04:10.080><c> break</c><00:04:10.920><c> right</c><00:04:11.160><c> now</c><00:04:11.959><c> or</c>
+
+00:04:12.230 --> 00:04:12.240 align:start position:0%
+Should I take a break right now or
+ 
+
+00:04:12.240 --> 00:04:15.310 align:start position:0%
+Should I take a break right now or
+should<00:04:12.560><c> I</c><00:04:12.760><c> push</c><00:04:13.160><c> through</c><00:04:13.720><c> another</c><00:04:14.480><c> Pomodoro,</c>
+
+00:04:15.310 --> 00:04:15.320 align:start position:0%
+should I push through another Pomodoro,
+ 
+
+00:04:15.320 --> 00:04:16.710 align:start position:0%
+should I push through another Pomodoro,
+for<00:04:15.440><c> example?</c><00:04:16.079><c> And</c><00:04:16.200><c> it's</c><00:04:16.320><c> telling</c><00:04:16.519><c> me</c><00:04:16.600><c> it's</c>
+
+00:04:16.710 --> 00:04:16.720 align:start position:0%
+for example? And it's telling me it's
+ 
+
+00:04:16.720 --> 00:04:18.990 align:start position:0%
+for example? And it's telling me it's
+like<00:04:16.799><c> 11:06</c><00:04:17.440><c> a.m.</c><00:04:18.040><c> You've</c><00:04:18.200><c> done</c><00:04:18.519><c> one</c><00:04:18.760><c> real</c>
+
+00:04:18.990 --> 00:04:19.000 align:start position:0%
+like 11:06 a.m. You've done one real
+ 
+
+00:04:19.000 --> 00:04:20.789 align:start position:0%
+like 11:06 a.m. You've done one real
+session<00:04:19.560><c> and</c><00:04:19.959><c> two</c><00:04:20.040><c> one-minute</c><00:04:20.400><c> tasks,</c><00:04:20.720><c> so</c>
+
+00:04:20.789 --> 00:04:20.799 align:start position:0%
+session and two one-minute tasks, so
+ 
+
+00:04:20.799 --> 00:04:22.430 align:start position:0%
+session and two one-minute tasks, so
+that's<00:04:21.000><c> like</c><00:04:21.120><c> 27</c><00:04:21.640><c> minutes</c><00:04:21.880><c> in</c><00:04:21.959><c> total,</c><00:04:22.280><c> so</c><00:04:22.360><c> you</c>
+
+00:04:22.430 --> 00:04:22.440 align:start position:0%
+that's like 27 minutes in total, so you
+ 
+
+00:04:22.440 --> 00:04:23.710 align:start position:0%
+that's like 27 minutes in total, so you
+haven't<00:04:22.640><c> actually</c><00:04:22.880><c> logged</c><00:04:23.120><c> a</c><00:04:23.160><c> single</c><00:04:23.440><c> break</c>
+
+00:04:23.710 --> 00:04:23.720 align:start position:0%
+haven't actually logged a single break
+ 
+
+00:04:23.720 --> 00:04:25.190 align:start position:0%
+haven't actually logged a single break
+yet.<00:04:24.000><c> It</c><00:04:24.160><c> tells</c><00:04:24.400><c> me</c><00:04:24.520><c> that</c><00:04:24.680><c> my</c><00:04:24.800><c> strongest</c>
+
+00:04:25.190 --> 00:04:25.200 align:start position:0%
+yet. It tells me that my strongest
+ 
+
+00:04:25.200 --> 00:04:27.030 align:start position:0%
+yet. It tells me that my strongest
+window<00:04:25.640><c> at</c><00:04:25.880><c> 12:00</c><00:04:26.120><c> p.m.</c><00:04:26.440><c> opens</c><00:04:26.720><c> in</c><00:04:26.800><c> less</c><00:04:26.919><c> than</c>
+
+00:04:27.030 --> 00:04:27.040 align:start position:0%
+window at 12:00 p.m. opens in less than
+ 
+
+00:04:27.040 --> 00:04:29.710 align:start position:0%
+window at 12:00 p.m. opens in less than
+an<00:04:27.160><c> hour.</c><00:04:27.760><c> So</c><00:04:28.160><c> you're</c><00:04:28.360><c> only</c><00:04:28.520><c> at</c><00:04:28.640><c> 27%</c><00:04:29.520><c> of</c><00:04:29.600><c> your</c>
+
+00:04:29.710 --> 00:04:29.720 align:start position:0%
+an hour. So you're only at 27% of your
+ 
+
+00:04:29.720 --> 00:04:31.270 align:start position:0%
+an hour. So you're only at 27% of your
+typical<00:04:30.160><c> an</c><00:04:30.240><c> hour</c><00:04:30.440><c> and</c><00:04:30.560><c> 40</c><00:04:30.800><c> minute</c><00:04:31.040><c> day</c><00:04:31.160><c> of</c>
+
+00:04:31.270 --> 00:04:31.280 align:start position:0%
+typical an hour and 40 minute day of
+ 
+
+00:04:31.280 --> 00:04:33.470 align:start position:0%
+typical an hour and 40 minute day of
+deep<00:04:31.520><c> work,</c><00:04:31.760><c> so</c><00:04:31.840><c> the</c><00:04:31.960><c> data</c><00:04:32.200><c> says</c><00:04:32.520><c> to</c><00:04:32.720><c> push.</c><00:04:33.200><c> But</c>
+
+00:04:33.470 --> 00:04:33.480 align:start position:0%
+deep work, so the data says to push. But
+ 
+
+00:04:33.480 --> 00:04:35.070 align:start position:0%
+deep work, so the data says to push. But
+if<00:04:33.600><c> you</c><00:04:33.680><c> do</c><00:04:33.840><c> break,</c><00:04:34.200><c> make</c><00:04:34.360><c> it</c><00:04:34.480><c> 10</c><00:04:34.640><c> minutes,</c><00:04:34.919><c> no</c>
+
+00:04:35.070 --> 00:04:35.080 align:start position:0%
+if you do break, make it 10 minutes, no
+ 
+
+00:04:35.080 --> 00:04:36.590 align:start position:0%
+if you do break, make it 10 minutes, no
+more,<00:04:35.320><c> no</c><00:04:35.520><c> less,</c><00:04:35.919><c> because</c><00:04:36.280><c> we</c><00:04:36.360><c> went</c><00:04:36.520><c> through</c>
+
+00:04:36.590 --> 00:04:36.600 align:start position:0%
+more, no less, because we went through
+ 
+
+00:04:36.600 --> 00:04:38.270 align:start position:0%
+more, no less, because we went through
+this<00:04:36.760><c> before.</c><00:04:37.360><c> If</c><00:04:37.520><c> I</c><00:04:37.600><c> take</c><00:04:37.800><c> breaks</c><00:04:38.080><c> that</c><00:04:38.200><c> are</c>
+
+00:04:38.270 --> 00:04:38.280 align:start position:0%
+this before. If I take breaks that are
+ 
+
+00:04:38.280 --> 00:04:40.190 align:start position:0%
+this before. If I take breaks that are
+like<00:04:38.520><c> five</c><00:04:38.880><c> minutes,</c><00:04:39.480><c> it's</c><00:04:39.640><c> basically</c><00:04:40.040><c> just</c>
+
+00:04:40.190 --> 00:04:40.200 align:start position:0%
+like five minutes, it's basically just
+ 
+
+00:04:40.200 --> 00:04:41.790 align:start position:0%
+like five minutes, it's basically just
+procrastination.<00:04:41.000><c> And</c><00:04:41.160><c> if</c><00:04:41.280><c> I</c><00:04:41.320><c> take</c><00:04:41.560><c> breaks</c>
+
+00:04:41.790 --> 00:04:41.800 align:start position:0%
+procrastination. And if I take breaks
+ 
+
+00:04:41.800 --> 00:04:43.390 align:start position:0%
+procrastination. And if I take breaks
+that<00:04:41.919><c> are</c><00:04:41.960><c> 15</c><00:04:42.280><c> minutes</c><00:04:42.560><c> long,</c><00:04:42.960><c> I</c><00:04:43.040><c> just</c><00:04:43.200><c> like</c>
+
+00:04:43.390 --> 00:04:43.400 align:start position:0%
+that are 15 minutes long, I just like
+ 
+
+00:04:43.400 --> 00:04:44.750 align:start position:0%
+that are 15 minutes long, I just like
+take<00:04:43.560><c> the</c><00:04:43.640><c> break,</c><00:04:43.919><c> leave,</c><00:04:44.160><c> and</c><00:04:44.320><c> just</c><00:04:44.480><c> like</c>
+
+00:04:44.750 --> 00:04:44.760 align:start position:0%
+take the break, leave, and just like
+ 
+
+00:04:44.760 --> 00:04:46.630 align:start position:0%
+take the break, leave, and just like
+never<00:04:45.040><c> come</c><00:04:45.160><c> back.</c><00:04:45.600><c> Oh,</c><00:04:45.760><c> cool.</c><00:04:46.040><c> It</c><00:04:46.160><c> also</c><00:04:46.360><c> tells</c>
+
+00:04:46.630 --> 00:04:46.640 align:start position:0%
+never come back. Oh, cool. It also tells
+ 
+
+00:04:46.640 --> 00:04:48.150 align:start position:0%
+never come back. Oh, cool. It also tells
+me<00:04:46.880><c> that</c><00:04:47.200><c> it</c><00:04:47.280><c> has</c><00:04:47.680><c> decided</c><00:04:47.960><c> to</c><00:04:48.040><c> do</c><00:04:48.120><c> a</c>
+
+00:04:48.150 --> 00:04:48.160 align:start position:0%
+me that it has decided to do a
+ 
+
+00:04:48.160 --> 00:04:49.470 align:start position:0%
+me that it has decided to do a
+self-improvement<00:04:48.760><c> review.</c><00:04:49.040><c> So</c><00:04:49.280><c> that's</c>
+
+00:04:49.470 --> 00:04:49.480 align:start position:0%
+self-improvement review. So that's
+ 
+
+00:04:49.480 --> 00:04:51.390 align:start position:0%
+self-improvement review. So that's
+another<00:04:49.800><c> like</c><00:04:50.120><c> Hermie</c><00:04:50.400><c> specialty,</c><00:04:50.960><c> which</c><00:04:51.280><c> if</c>
+
+00:04:51.390 --> 00:04:51.400 align:start position:0%
+another like Hermie specialty, which if
+ 
+
+00:04:51.400 --> 00:04:52.470 align:start position:0%
+another like Hermie specialty, which if
+you<00:04:51.480><c> don't</c><00:04:51.600><c> know</c><00:04:51.680><c> what</c><00:04:51.800><c> that</c><00:04:51.919><c> means,</c>
+
+00:04:52.470 --> 00:04:52.480 align:start position:0%
+you don't know what that means,
+ 
+
+00:04:52.480 --> 00:04:53.510 align:start position:0%
+you don't know what that means,
+definitely<00:04:52.760><c> check</c><00:04:52.919><c> out</c><00:04:53.000><c> the</c><00:04:53.080><c> video</c><00:04:53.360><c> which</c>
+
+00:04:53.510 --> 00:04:53.520 align:start position:0%
+definitely check out the video which
+ 
+
+00:04:53.520 --> 00:04:54.750 align:start position:0%
+definitely check out the video which
+I'll<00:04:53.640><c> link</c><00:04:53.800><c> over</c><00:04:53.960><c> here,</c><00:04:54.200><c> which</c><00:04:54.440><c> is</c><00:04:54.640><c> the</c>
+
+00:04:54.750 --> 00:04:54.760 align:start position:0%
+I'll link over here, which is the
+ 
+
+00:04:54.760 --> 00:04:56.070 align:start position:0%
+I'll link over here, which is the
+fundamentals<00:04:55.200><c> video.</c><00:04:55.480><c> Anyway,</c><00:04:55.760><c> I</c><00:04:55.800><c> hope</c><00:04:55.960><c> this</c>
+
+00:04:56.070 --> 00:04:56.080 align:start position:0%
+fundamentals video. Anyway, I hope this
+ 
+
+00:04:56.080 --> 00:04:59.230 align:start position:0%
+fundamentals video. Anyway, I hope this
+little<00:04:56.280><c> demo</c><00:04:56.640><c> showcases</c><00:04:57.760><c> how</c><00:04:58.320><c> useful</c><00:04:58.880><c> it</c><00:04:59.000><c> is</c>
+
+00:04:59.230 --> 00:04:59.240 align:start position:0%
+little demo showcases how useful it is
+ 
+
+00:04:59.240 --> 00:05:01.190 align:start position:0%
+little demo showcases how useful it is
+to<00:04:59.400><c> have</c><00:04:59.640><c> something</c><00:04:59.919><c> like</c><00:05:00.080><c> Life</c><00:05:00.320><c> Bot.</c><00:05:00.760><c> I</c><00:05:00.919><c> can</c>
+
+00:05:01.190 --> 00:05:01.200 align:start position:0%
+to have something like Life Bot. I can
+ 
+
+00:05:01.200 --> 00:05:03.070 align:start position:0%
+to have something like Life Bot. I can
+really<00:05:01.480><c> say</c><00:05:01.720><c> it</c><00:05:01.800><c> has</c><00:05:02.040><c> honestly,</c><00:05:02.560><c> genuinely</c>
+
+00:05:03.070 --> 00:05:03.080 align:start position:0%
+really say it has honestly, genuinely
+ 
+
+00:05:03.080 --> 00:05:04.590 align:start position:0%
+really say it has honestly, genuinely
+changed<00:05:03.440><c> my</c><00:05:03.520><c> life.</c><00:05:03.840><c> Now</c><00:05:04.000><c> let's</c><00:05:04.160><c> talk</c><00:05:04.320><c> about</c>
+
+00:05:04.590 --> 00:05:04.600 align:start position:0%
+changed my life. Now let's talk about
+ 
+
+00:05:04.600 --> 00:05:06.070 align:start position:0%
+changed my life. Now let's talk about
+how<00:05:04.800><c> Life</c><00:05:05.000><c> Bot</c><00:05:05.160><c> actually</c><00:05:05.480><c> works</c><00:05:05.760><c> under</c><00:05:06.000><c> the</c>
+
+00:05:06.070 --> 00:05:06.080 align:start position:0%
+how Life Bot actually works under the
+ 
+
+00:05:06.080 --> 00:05:07.909 align:start position:0%
+how Life Bot actually works under the
+hood.<00:05:06.440><c> So</c><00:05:06.520><c> Life</c><00:05:06.720><c> Bot</c><00:05:06.960><c> is</c><00:05:07.160><c> an</c><00:05:07.360><c> agent</c><00:05:07.680><c> that</c><00:05:07.800><c> is</c>
+
+00:05:07.909 --> 00:05:07.919 align:start position:0%
+hood. So Life Bot is an agent that is
+ 
+
+00:05:07.919 --> 00:05:10.150 align:start position:0%
+hood. So Life Bot is an agent that is
+part<00:05:08.160><c> of</c><00:05:08.240><c> my</c><00:05:08.400><c> entire</c><00:05:08.840><c> multi-agent</c><00:05:09.640><c> Hermie's</c>
+
+00:05:10.150 --> 00:05:10.160 align:start position:0%
+part of my entire multi-agent Hermie's
+ 
+
+00:05:10.160 --> 00:05:13.030 align:start position:0%
+part of my entire multi-agent Hermie's
+setup.<00:05:10.560><c> And</c><00:05:10.720><c> its</c><00:05:10.960><c> job</c><00:05:11.360><c> is</c><00:05:11.560><c> to</c><00:05:11.800><c> use</c><00:05:12.280><c> data</c><00:05:12.760><c> in</c>
+
+00:05:13.030 --> 00:05:13.040 align:start position:0%
+setup. And its job is to use data in
+ 
+
+00:05:13.040 --> 00:05:15.110 align:start position:0%
+setup. And its job is to use data in
+order<00:05:13.360><c> to</c><00:05:13.720><c> give</c><00:05:13.960><c> me</c><00:05:14.160><c> life</c><00:05:14.400><c> coaching</c><00:05:14.720><c> advice,</c>
+
+00:05:15.110 --> 00:05:15.120 align:start position:0%
+order to give me life coaching advice,
+ 
+
+00:05:15.120 --> 00:05:16.350 align:start position:0%
+order to give me life coaching advice,
+whether<00:05:15.320><c> that</c><00:05:15.520><c> be</c><00:05:15.680><c> health</c><00:05:16.000><c> goals</c><00:05:16.240><c> or</c>
+
+00:05:16.350 --> 00:05:16.360 align:start position:0%
+whether that be health goals or
+ 
+
+00:05:16.360 --> 00:05:17.790 align:start position:0%
+whether that be health goals or
+productivity<00:05:16.880><c> goals.</c><00:05:17.240><c> Of</c><00:05:17.360><c> course,</c><00:05:17.600><c> as</c><00:05:17.720><c> you</c>
+
+00:05:17.790 --> 00:05:17.800 align:start position:0%
+productivity goals. Of course, as you
+ 
+
+00:05:17.800 --> 00:05:19.510 align:start position:0%
+productivity goals. Of course, as you
+may<00:05:17.919><c> have</c><00:05:18.080><c> guessed,</c><00:05:18.440><c> how</c><00:05:18.600><c> good</c><00:05:18.800><c> Life</c><00:05:19.000><c> Bot</c><00:05:19.240><c> is</c>
+
+00:05:19.510 --> 00:05:19.520 align:start position:0%
+may have guessed, how good Life Bot is
+ 
+
+00:05:19.520 --> 00:05:21.750 align:start position:0%
+may have guessed, how good Life Bot is
+depends<00:05:20.120><c> on</c><00:05:20.240><c> the</c><00:05:20.400><c> data</c><00:05:20.760><c> it</c><00:05:20.880><c> actually</c><00:05:21.240><c> has.</c><00:05:21.600><c> And</c>
+
+00:05:21.750 --> 00:05:21.760 align:start position:0%
+depends on the data it actually has. And
+ 
+
+00:05:21.760 --> 00:05:23.790 align:start position:0%
+depends on the data it actually has. And
+right<00:05:21.919><c> now</c><00:05:22.120><c> it</c><00:05:22.240><c> has</c><00:05:22.480><c> three</c><00:05:22.840><c> primary</c><00:05:23.320><c> sources</c>
+
+00:05:23.790 --> 00:05:23.800 align:start position:0%
+right now it has three primary sources
+ 
+
+00:05:23.800 --> 00:05:25.270 align:start position:0%
+right now it has three primary sources
+of<00:05:23.880><c> data.</c><00:05:24.240><c> The</c><00:05:24.320><c> Pomodoro</c><00:05:24.840><c> logs</c><00:05:25.080><c> which</c><00:05:25.240><c> I</c>
+
+00:05:25.270 --> 00:05:25.280 align:start position:0%
+of data. The Pomodoro logs which I
+ 
+
+00:05:25.280 --> 00:05:26.430 align:start position:0%
+of data. The Pomodoro logs which I
+showed<00:05:25.440><c> you</c><00:05:25.520><c> earlier,</c><00:05:25.840><c> whenever</c><00:05:26.120><c> I</c><00:05:26.200><c> do</c>
+
+00:05:26.430 --> 00:05:26.440 align:start position:0%
+showed you earlier, whenever I do
+ 
+
+00:05:26.440 --> 00:05:28.150 align:start position:0%
+showed you earlier, whenever I do
+Pomodoros,<00:05:27.120><c> I</c><00:05:27.200><c> use</c><00:05:27.320><c> my</c><00:05:27.440><c> little</c><00:05:27.640><c> desktop</c><00:05:28.000><c> app</c>
+
+00:05:28.150 --> 00:05:28.160 align:start position:0%
+Pomodoros, I use my little desktop app
+ 
+
+00:05:28.160 --> 00:05:29.909 align:start position:0%
+Pomodoros, I use my little desktop app
+to<00:05:28.280><c> track</c><00:05:28.560><c> how</c><00:05:28.640><c> many</c><00:05:28.840><c> minutes</c><00:05:29.120><c> I'm</c><00:05:29.200><c> doing</c><00:05:29.760><c> and</c>
+
+00:05:29.909 --> 00:05:29.919 align:start position:0%
+to track how many minutes I'm doing and
+ 
+
+00:05:29.919 --> 00:05:31.350 align:start position:0%
+to track how many minutes I'm doing and
+what<00:05:30.040><c> I'm</c><00:05:30.160><c> doing</c><00:05:30.360><c> during</c><00:05:30.560><c> that</c><00:05:30.720><c> time.</c><00:05:31.120><c> And</c><00:05:31.240><c> all</c>
+
+00:05:31.350 --> 00:05:31.360 align:start position:0%
+what I'm doing during that time. And all
+ 
+
+00:05:31.360 --> 00:05:32.909 align:start position:0%
+what I'm doing during that time. And all
+that<00:05:31.560><c> gets</c><00:05:31.720><c> stored</c><00:05:32.000><c> locally</c><00:05:32.480><c> into</c><00:05:32.760><c> this</c>
+
+00:05:32.909 --> 00:05:32.919 align:start position:0%
+that gets stored locally into this
+ 
+
+00:05:32.919 --> 00:05:34.909 align:start position:0%
+that gets stored locally into this
+Obsidian<00:05:33.400><c> vault.</c><00:05:33.800><c> So</c><00:05:34.200><c> here's</c><00:05:34.480><c> some</c><00:05:34.680><c> of</c><00:05:34.760><c> my</c>
+
+00:05:34.909 --> 00:05:34.919 align:start position:0%
+Obsidian vault. So here's some of my
+ 
+
+00:05:34.919 --> 00:05:36.830 align:start position:0%
+Obsidian vault. So here's some of my
+logs.<00:05:35.520><c> The</c><00:05:35.640><c> second</c><00:05:35.880><c> source</c><00:05:36.080><c> of</c><00:05:36.160><c> data</c><00:05:36.440><c> is</c><00:05:36.600><c> this</c>
+
+00:05:36.830 --> 00:05:36.840 align:start position:0%
+logs. The second source of data is this
+ 
+
+00:05:36.840 --> 00:05:38.510 align:start position:0%
+logs. The second source of data is this
+Typewriter<00:05:37.520><c> desktop</c><00:05:37.880><c> app,</c><00:05:38.040><c> which</c><00:05:38.240><c> I</c><00:05:38.320><c> also</c>
+
+00:05:38.510 --> 00:05:38.520 align:start position:0%
+Typewriter desktop app, which I also
+ 
+
+00:05:38.520 --> 00:05:40.270 align:start position:0%
+Typewriter desktop app, which I also
+custom<00:05:38.840><c> built.</c><00:05:39.160><c> And</c><00:05:39.320><c> on</c><00:05:39.480><c> here</c><00:05:39.800><c> I</c><00:05:39.880><c> collect</c><00:05:40.160><c> my</c>
+
+00:05:40.270 --> 00:05:40.280 align:start position:0%
+custom built. And on here I collect my
+ 
+
+00:05:40.280 --> 00:05:41.830 align:start position:0%
+custom built. And on here I collect my
+to-do<00:05:40.640><c> lists,</c><00:05:41.120><c> they</c><00:05:41.280><c> today's</c><00:05:41.640><c> video</c>
+
+00:05:41.830 --> 00:05:41.840 align:start position:0%
+to-do lists, they today's video
+ 
+
+00:05:41.840 --> 00:05:43.270 align:start position:0%
+to-do lists, they today's video
+production<00:05:42.240><c> day,</c><00:05:42.600><c> also</c><00:05:42.800><c> different</c><00:05:43.080><c> study</c>
+
+00:05:43.270 --> 00:05:43.280 align:start position:0%
+production day, also different study
+ 
+
+00:05:43.280 --> 00:05:44.550 align:start position:0%
+production day, also different study
+plans,<00:05:43.600><c> and</c><00:05:43.680><c> then</c><00:05:43.840><c> I</c><00:05:43.880><c> can</c><00:05:44.040><c> like</c><00:05:44.200><c> check</c><00:05:44.360><c> things</c>
+
+00:05:44.550 --> 00:05:44.560 align:start position:0%
+plans, and then I can like check things
+ 
+
+00:05:44.560 --> 00:05:46.230 align:start position:0%
+plans, and then I can like check things
+off<00:05:44.960><c> as</c><00:05:45.120><c> I</c><00:05:45.240><c> do</c><00:05:45.480><c> them.</c><00:05:45.760><c> And</c><00:05:45.919><c> they're</c><00:05:46.000><c> also</c>
+
+00:05:46.230 --> 00:05:46.240 align:start position:0%
+off as I do them. And they're also
+ 
+
+00:05:46.240 --> 00:05:47.670 align:start position:0%
+off as I do them. And they're also
+tracked<00:05:46.560><c> over</c><00:05:46.720><c> here</c><00:05:46.960><c> Obsidian</c><00:05:47.520><c> with</c>
+
+00:05:47.670 --> 00:05:47.680 align:start position:0%
+tracked over here Obsidian with
+ 
+
+00:05:47.680 --> 00:05:49.150 align:start position:0%
+tracked over here Obsidian with
+timestamps.<00:05:48.360><c> And</c><00:05:48.480><c> finally,</c><00:05:48.800><c> the</c><00:05:48.920><c> third</c>
+
+00:05:49.150 --> 00:05:49.160 align:start position:0%
+timestamps. And finally, the third
+ 
+
+00:05:49.160 --> 00:05:51.510 align:start position:0%
+timestamps. And finally, the third
+source<00:05:49.400><c> of</c><00:05:49.520><c> data</c><00:05:49.960><c> is</c><00:05:50.240><c> from</c><00:05:50.440><c> my</c><00:05:50.640><c> Apple</c><00:05:51.000><c> Health.</c>
+
+00:05:51.510 --> 00:05:51.520 align:start position:0%
+source of data is from my Apple Health.
+ 
+
+00:05:51.520 --> 00:05:53.190 align:start position:0%
+source of data is from my Apple Health.
+I<00:05:51.640><c> use</c><00:05:51.840><c> iCloud</c><00:05:52.200><c> and</c><00:05:52.360><c> there</c><00:05:52.480><c> to</c><00:05:52.600><c> sync</c><00:05:52.960><c> health</c>
+
+00:05:53.190 --> 00:05:53.200 align:start position:0%
+I use iCloud and there to sync health
+ 
+
+00:05:53.200 --> 00:05:54.950 align:start position:0%
+I use iCloud and there to sync health
+data<00:05:53.760><c> from</c><00:05:54.000><c> my</c><00:05:54.120><c> phone.</c><00:05:54.520><c> Right</c><00:05:54.680><c> now,</c><00:05:54.840><c> I'm</c>
+
+00:05:54.950 --> 00:05:54.960 align:start position:0%
+data from my phone. Right now, I'm
+ 
+
+00:05:54.960 --> 00:05:57.230 align:start position:0%
+data from my phone. Right now, I'm
+mostly<00:05:55.280><c> only</c><00:05:55.480><c> just</c><00:05:55.720><c> tracked</c><00:05:56.040><c> the</c><00:05:56.120><c> steps,</c><00:05:57.000><c> but</c>
+
+00:05:57.230 --> 00:05:57.240 align:start position:0%
+mostly only just tracked the steps, but
+ 
+
+00:05:57.240 --> 00:05:58.430 align:start position:0%
+mostly only just tracked the steps, but
+I<00:05:57.320><c> have</c><00:05:57.520><c> been</c><00:05:57.640><c> thinking</c><00:05:57.920><c> of</c><00:05:58.040><c> whether</c><00:05:58.240><c> I</c><00:05:58.320><c> should</c>
+
+00:05:58.430 --> 00:05:58.440 align:start position:0%
+I have been thinking of whether I should
+ 
+
+00:05:58.440 --> 00:05:59.870 align:start position:0%
+I have been thinking of whether I should
+get<00:05:58.560><c> like</c><00:05:58.720><c> an</c><00:05:58.800><c> Apple</c><00:05:59.200><c> Watch</c><00:05:59.440><c> or</c><00:05:59.520><c> something</c><00:05:59.800><c> so</c>
+
+00:05:59.870 --> 00:05:59.880 align:start position:0%
+get like an Apple Watch or something so
+ 
+
+00:05:59.880 --> 00:06:01.510 align:start position:0%
+get like an Apple Watch or something so
+I<00:05:59.960><c> can</c><00:06:00.160><c> have</c><00:06:00.360><c> more</c><00:06:00.480><c> data</c><00:06:01.080><c> as</c><00:06:01.240><c> well.</c><00:06:01.360><c> Let</c><00:06:01.480><c> me</c>
+
+00:06:01.510 --> 00:06:01.520 align:start position:0%
+I can have more data as well. Let me
+ 
+
+00:06:01.520 --> 00:06:03.070 align:start position:0%
+I can have more data as well. Let me
+know<00:06:01.600><c> in</c><00:06:01.680><c> the</c><00:06:01.760><c> comments</c><00:06:02.120><c> if</c><00:06:02.280><c> you</c><00:06:02.520><c> have</c><00:06:03.000><c> an</c>
+
+00:06:03.070 --> 00:06:03.080 align:start position:0%
+know in the comments if you have an
+ 
+
+00:06:03.080 --> 00:06:04.230 align:start position:0%
+know in the comments if you have an
+Apple<00:06:03.320><c> Watch.</c><00:06:03.640><c> Do</c><00:06:03.720><c> you</c><00:06:03.800><c> think</c><00:06:03.920><c> it's</c><00:06:04.080><c> worth</c>
+
+00:06:04.230 --> 00:06:04.240 align:start position:0%
+Apple Watch. Do you think it's worth
+ 
+
+00:06:04.240 --> 00:06:05.910 align:start position:0%
+Apple Watch. Do you think it's worth
+getting?<00:06:04.600><c> Cuz</c><00:06:04.840><c> there</c><00:06:05.040><c> are</c><00:06:05.200><c> like</c><00:06:05.400><c> a</c><00:06:05.480><c> lot</c><00:06:05.800><c> of</c>
+
+00:06:05.910 --> 00:06:05.920 align:start position:0%
+getting? Cuz there are like a lot of
+ 
+
+00:06:05.920 --> 00:06:07.950 align:start position:0%
+getting? Cuz there are like a lot of
+health<00:06:06.240><c> metrics</c><00:06:06.840><c> that</c><00:06:07.080><c> I</c><00:06:07.160><c> could</c><00:06:07.360><c> be</c><00:06:07.440><c> tracking.</c>
+
+00:06:07.950 --> 00:06:07.960 align:start position:0%
+health metrics that I could be tracking.
+ 
+
+00:06:07.960 --> 00:06:10.190 align:start position:0%
+health metrics that I could be tracking.
+But<00:06:08.080><c> anyways,</c><00:06:08.560><c> those</c><00:06:08.840><c> are</c><00:06:09.080><c> my</c><00:06:09.320><c> three</c><00:06:09.600><c> sources</c>
+
+00:06:10.190 --> 00:06:10.200 align:start position:0%
+But anyways, those are my three sources
+ 
+
+00:06:10.200 --> 00:06:12.590 align:start position:0%
+But anyways, those are my three sources
+of<00:06:10.440><c> data</c><00:06:10.840><c> and</c><00:06:11.040><c> my</c><00:06:11.160><c> Hermes</c><00:06:11.520><c> Life</c><00:06:11.760><c> Bot</c><00:06:12.120><c> is</c><00:06:12.360><c> able</c>
+
+00:06:12.590 --> 00:06:12.600 align:start position:0%
+of data and my Hermes Life Bot is able
+ 
+
+00:06:12.600 --> 00:06:14.630 align:start position:0%
+of data and my Hermes Life Bot is able
+to<00:06:12.760><c> access</c><00:06:13.280><c> all</c><00:06:13.480><c> of</c><00:06:13.560><c> this</c><00:06:13.720><c> data</c><00:06:14.240><c> and</c><00:06:14.400><c> that's</c>
+
+00:06:14.630 --> 00:06:14.640 align:start position:0%
+to access all of this data and that's
+ 
+
+00:06:14.640 --> 00:06:16.470 align:start position:0%
+to access all of this data and that's
+how<00:06:14.800><c> it's</c><00:06:14.960><c> able</c><00:06:15.240><c> to</c><00:06:15.400><c> analyze</c><00:06:15.800><c> it</c><00:06:16.000><c> and</c><00:06:16.160><c> give</c><00:06:16.360><c> me</c>
+
+00:06:16.470 --> 00:06:16.480 align:start position:0%
+how it's able to analyze it and give me
+ 
+
+00:06:16.480 --> 00:06:18.584 align:start position:0%
+how it's able to analyze it and give me
+very<00:06:16.760><c> constant</c><00:06:17.560><c> based</c><00:06:17.919><c> upon</c><00:06:18.480><c> the</c><00:06:18.560><c> data</c>
+
+00:06:18.584 --> 00:06:18.594 align:start position:0%
+very constant based upon the data
+ 
+
+00:06:18.594 --> 00:06:20.390 align:start position:0%
+very constant based upon the data
+[music]<00:06:18.919><c> about</c><00:06:19.080><c> me.</c><00:06:19.320><c> Oh,</c><00:06:19.440><c> and</c><00:06:19.600><c> right</c><00:06:19.800><c> now,</c><00:06:20.240><c> the</c>
+
+00:06:20.390 --> 00:06:20.400 align:start position:0%
+[music] about me. Oh, and right now, the
+ 
+
+00:06:20.400 --> 00:06:22.270 align:start position:0%
+[music] about me. Oh, and right now, the
+model<00:06:20.720><c> that's</c><00:06:20.919><c> powering</c><00:06:21.280><c> Life</c><00:06:21.560><c> Bot</c><00:06:21.960><c> is</c>
+
+00:06:22.270 --> 00:06:22.280 align:start position:0%
+model that's powering Life Bot is
+ 
+
+00:06:22.280 --> 00:06:24.190 align:start position:0%
+model that's powering Life Bot is
+DeepSeek<00:06:22.800><c> V4</c><00:06:23.160><c> Pro.</c><00:06:23.480><c> Although</c><00:06:23.760><c> I</c><00:06:23.800><c> do</c><00:06:23.960><c> change</c>
+
+00:06:24.190 --> 00:06:24.200 align:start position:0%
+DeepSeek V4 Pro. Although I do change
+ 
+
+00:06:24.200 --> 00:06:25.390 align:start position:0%
+DeepSeek V4 Pro. Although I do change
+that<00:06:24.320><c> model</c><00:06:24.600><c> out.</c><00:06:24.720><c> Like</c><00:06:24.840><c> that's</c><00:06:25.040><c> a</c><00:06:25.080><c> hosted</c>
+
+00:06:25.390 --> 00:06:25.400 align:start position:0%
+that model out. Like that's a hosted
+ 
+
+00:06:25.400 --> 00:06:26.750 align:start position:0%
+that model out. Like that's a hosted
+version<00:06:25.600><c> from</c><00:06:25.760><c> the</c><00:06:25.840><c> cloud,</c><00:06:26.240><c> but</c><00:06:26.400><c> sometimes</c><00:06:26.680><c> I</c>
+
+00:06:26.750 --> 00:06:26.760 align:start position:0%
+version from the cloud, but sometimes I
+ 
+
+00:06:26.760 --> 00:06:29.510 align:start position:0%
+version from the cloud, but sometimes I
+also<00:06:27.040><c> switch</c><00:06:27.480><c> to</c><00:06:27.800><c> a</c><00:06:27.919><c> local</c><00:06:28.320><c> model</c><00:06:29.000><c> that</c><00:06:29.160><c> I</c><00:06:29.240><c> have</c>
+
+00:06:29.510 --> 00:06:29.520 align:start position:0%
+also switch to a local model that I have
+ 
+
+00:06:29.520 --> 00:06:31.150 align:start position:0%
+also switch to a local model that I have
+on<00:06:29.680><c> my</c><00:06:30.040><c> Mac</c><00:06:30.200><c> Studio</c><00:06:30.520><c> 2.</c><00:06:30.680><c> Anyways,</c><00:06:31.000><c> I</c><00:06:31.040><c> don't</c>
+
+00:06:31.150 --> 00:06:31.160 align:start position:0%
+on my Mac Studio 2. Anyways, I don't
+ 
+
+00:06:31.160 --> 00:06:32.390 align:start position:0%
+on my Mac Studio 2. Anyways, I don't
+want<00:06:31.280><c> to</c><00:06:31.320><c> go</c><00:06:31.360><c> into</c><00:06:31.520><c> way</c><00:06:31.640><c> too</c><00:06:31.760><c> much</c><00:06:31.919><c> more</c><00:06:32.080><c> detail</c>
+
+00:06:32.390 --> 00:06:32.400 align:start position:0%
+want to go into way too much more detail
+ 
+
+00:06:32.400 --> 00:06:33.870 align:start position:0%
+want to go into way too much more detail
+about<00:06:32.640><c> this</c><00:06:32.880><c> and</c><00:06:32.960><c> exactly</c><00:06:33.360><c> how</c><00:06:33.520><c> I</c><00:06:33.600><c> built</c><00:06:33.800><c> it</c>
+
+00:06:33.870 --> 00:06:33.880 align:start position:0%
+about this and exactly how I built it
+ 
+
+00:06:33.880 --> 00:06:35.230 align:start position:0%
+about this and exactly how I built it
+cuz<00:06:34.000><c> that</c><00:06:34.120><c> would</c><00:06:34.320><c> be</c><00:06:34.520><c> like</c><00:06:34.720><c> a</c><00:06:34.760><c> really</c><00:06:35.040><c> really</c>
+
+00:06:35.230 --> 00:06:35.240 align:start position:0%
+cuz that would be like a really really
+ 
+
+00:06:35.240 --> 00:06:36.510 align:start position:0%
+cuz that would be like a really really
+long<00:06:35.440><c> video.</c><00:06:35.800><c> But</c><00:06:35.960><c> I'm</c><00:06:36.040><c> going</c><00:06:36.160><c> to</c><00:06:36.200><c> put</c><00:06:36.440><c> a</c>
+
+00:06:36.510 --> 00:06:36.520 align:start position:0%
+long video. But I'm going to put a
+ 
+
+00:06:36.520 --> 00:06:39.110 align:start position:0%
+long video. But I'm going to put a
+summary<00:06:37.040><c> of</c><00:06:37.240><c> Life</c><00:06:37.520><c> Bot's</c><00:06:37.919><c> specs</c><00:06:38.600><c> on</c><00:06:38.800><c> screen</c>
+
+00:06:39.110 --> 00:06:39.120 align:start position:0%
+summary of Life Bot's specs on screen
+ 
+
+00:06:39.120 --> 00:06:40.750 align:start position:0%
+summary of Life Bot's specs on screen
+right<00:06:39.320><c> now.</c><00:06:39.560><c> So,</c><00:06:39.840><c> please</c><00:06:40.160><c> do</c><00:06:40.560><c> take</c><00:06:40.720><c> a</c>
+
+00:06:40.750 --> 00:06:40.760 align:start position:0%
+right now. So, please do take a
+ 
+
+00:06:40.760 --> 00:06:42.230 align:start position:0%
+right now. So, please do take a
+screenshot.<00:06:41.320><c> This</c><00:06:41.600><c> as</c><00:06:41.760><c> usual</c><00:06:42.000><c> would</c><00:06:42.120><c> of</c>
+
+00:06:42.230 --> 00:06:42.240 align:start position:0%
+screenshot. This as usual would of
+ 
+
+00:06:42.240 --> 00:06:44.350 align:start position:0%
+screenshot. This as usual would of
+course<00:06:42.480><c> also</c><00:06:42.800><c> be</c><00:06:43.120><c> in</c><00:06:43.320><c> the</c><00:06:43.480><c> free</c><00:06:43.720><c> guide</c><00:06:44.120><c> linked</c>
+
+00:06:44.350 --> 00:06:44.360 align:start position:0%
+course also be in the free guide linked
+ 
+
+00:06:44.360 --> 00:06:45.710 align:start position:0%
+course also be in the free guide linked
+in<00:06:44.400><c> the</c><00:06:44.480><c> description.</c><00:06:45.080><c> And</c><00:06:45.200><c> you</c><00:06:45.280><c> know</c><00:06:45.360><c> what?</c><00:06:45.600><c> I</c>
+
+00:06:45.710 --> 00:06:45.720 align:start position:0%
+in the description. And you know what? I
+ 
+
+00:06:45.720 --> 00:06:47.070 align:start position:0%
+in the description. And you know what? I
+have<00:06:46.000><c> actually</c><00:06:46.240><c> been</c><00:06:46.400><c> thinking</c><00:06:46.760><c> whether</c><00:06:47.000><c> I</c>
+
+00:06:47.070 --> 00:06:47.080 align:start position:0%
+have actually been thinking whether I
+ 
+
+00:06:47.080 --> 00:06:49.230 align:start position:0%
+have actually been thinking whether I
+should<00:06:47.240><c> do</c><00:06:47.400><c> like</c><00:06:47.600><c> an</c><00:06:47.720><c> entire</c><00:06:48.320><c> Hermes</c><00:06:48.760><c> workshop</c>
+
+00:06:49.230 --> 00:06:49.240 align:start position:0%
+should do like an entire Hermes workshop
+ 
+
+00:06:49.240 --> 00:06:50.990 align:start position:0%
+should do like an entire Hermes workshop
+because<00:06:49.440><c> I</c><00:06:49.520><c> genuinely</c><00:06:49.960><c> think</c><00:06:50.120><c> Hermes</c><00:06:50.520><c> is</c><00:06:50.800><c> is</c>
+
+00:06:50.990 --> 00:06:51.000 align:start position:0%
+because I genuinely think Hermes is is
+ 
+
+00:06:51.000 --> 00:06:52.670 align:start position:0%
+because I genuinely think Hermes is is
+so<00:06:51.440><c> useful.</c><00:06:51.840><c> So,</c><00:06:52.000><c> if</c><00:06:52.120><c> you're</c><00:06:52.240><c> interested</c><00:06:52.600><c> in</c>
+
+00:06:52.670 --> 00:06:52.680 align:start position:0%
+so useful. So, if you're interested in
+ 
+
+00:06:52.680 --> 00:06:54.030 align:start position:0%
+so useful. So, if you're interested in
+something<00:06:52.960><c> like</c><00:06:53.160><c> that,</c><00:06:53.520><c> where</c><00:06:53.680><c> I'll</c><00:06:53.800><c> actually</c>
+
+00:06:54.030 --> 00:06:54.040 align:start position:0%
+something like that, where I'll actually
+ 
+
+00:06:54.040 --> 00:06:55.909 align:start position:0%
+something like that, where I'll actually
+explain<00:06:54.400><c> how</c><00:06:54.560><c> to</c><00:06:54.680><c> actually</c><00:06:54.960><c> build</c><00:06:55.240><c> up</c><00:06:55.640><c> these</c>
+
+00:06:55.909 --> 00:06:55.919 align:start position:0%
+explain how to actually build up these
+ 
+
+00:06:55.919 --> 00:06:57.790 align:start position:0%
+explain how to actually build up these
+functionalities<00:06:56.640><c> and</c><00:06:56.800><c> multi-agent</c><00:06:57.280><c> systems,</c>
+
+00:06:57.790 --> 00:06:57.800 align:start position:0%
+functionalities and multi-agent systems,
+ 
+
+00:06:57.800 --> 00:06:59.750 align:start position:0%
+functionalities and multi-agent systems,
+do<00:06:58.000><c> comment</c><00:06:58.440><c> Hermes</c><00:06:58.800><c> workshop</c><00:06:59.240><c> because</c><00:06:59.680><c> I</c>
+
+00:06:59.750 --> 00:06:59.760 align:start position:0%
+do comment Hermes workshop because I
+ 
+
+00:06:59.760 --> 00:07:01.310 align:start position:0%
+do comment Hermes workshop because I
+actually<00:06:59.960><c> do</c><00:07:00.120><c> monitor</c><00:07:00.480><c> all</c><00:07:00.600><c> the</c><00:07:00.680><c> comments</c><00:07:01.120><c> and</c>
+
+00:07:01.310 --> 00:07:01.320 align:start position:0%
+actually do monitor all the comments and
+ 
+
+00:07:01.320 --> 00:07:03.030 align:start position:0%
+actually do monitor all the comments and
+if<00:07:01.520><c> I</c><00:07:01.640><c> see</c><00:07:01.880><c> a</c><00:07:01.919><c> lot</c><00:07:02.080><c> of</c><00:07:02.160><c> interest,</c><00:07:02.600><c> then</c><00:07:02.840><c> I</c><00:07:02.919><c> will</c>
+
+00:07:03.030 --> 00:07:03.040 align:start position:0%
+if I see a lot of interest, then I will
+ 
+
+00:07:03.040 --> 00:07:04.790 align:start position:0%
+if I see a lot of interest, then I will
+consider<00:07:03.400><c> it.</c><00:07:03.640><c> Anyways,</c><00:07:04.240><c> let's</c><00:07:04.440><c> actually</c><00:07:04.640><c> go</c>
+
+00:07:04.790 --> 00:07:04.800 align:start position:0%
+consider it. Anyways, let's actually go
+ 
+
+00:07:04.800 --> 00:07:07.190 align:start position:0%
+consider it. Anyways, let's actually go
+back<00:07:05.040><c> and</c><00:07:05.200><c> see</c><00:07:05.640><c> if</c><00:07:05.919><c> Coder,</c><00:07:06.480><c> our</c><00:07:06.840><c> software</c>
+
+00:07:07.190 --> 00:07:07.200 align:start position:0%
+back and see if Coder, our software
+ 
+
+00:07:07.200 --> 00:07:08.990 align:start position:0%
+back and see if Coder, our software
+building<00:07:07.640><c> agent,</c><00:07:08.200><c> has</c><00:07:08.400><c> finished</c><00:07:08.680><c> building</c><00:07:08.960><c> a</c>
+
+00:07:08.990 --> 00:07:09.000 align:start position:0%
+building agent, has finished building a
+ 
+
+00:07:09.000 --> 00:07:11.390 align:start position:0%
+building agent, has finished building a
+new<00:07:09.160><c> skins</c><00:07:09.680><c> for</c><00:07:09.840><c> our</c><00:07:09.919><c> Pomodoro</c><00:07:10.440><c> app.</c><00:07:11.080><c> Okay,</c>
+
+00:07:11.390 --> 00:07:11.400 align:start position:0%
+new skins for our Pomodoro app. Okay,
+ 
+
+00:07:11.400 --> 00:07:13.270 align:start position:0%
+new skins for our Pomodoro app. Okay,
+cool.<00:07:11.680><c> So,</c><00:07:11.800><c> it</c><00:07:11.880><c> says</c><00:07:12.080><c> build</c><00:07:12.320><c> successful</c><00:07:13.240><c> and</c>
+
+00:07:13.270 --> 00:07:13.280 align:start position:0%
+cool. So, it says build successful and
+ 
+
+00:07:13.280 --> 00:07:15.070 align:start position:0%
+cool. So, it says build successful and
+it<00:07:13.360><c> gives</c><00:07:13.560><c> me</c><00:07:13.919><c> a</c><00:07:14.000><c> bunch</c><00:07:14.240><c> of</c><00:07:14.280><c> information</c><00:07:14.760><c> about</c>
+
+00:07:15.070 --> 00:07:15.080 align:start position:0%
+it gives me a bunch of information about
+ 
+
+00:07:15.080 --> 00:07:16.790 align:start position:0%
+it gives me a bunch of information about
+it.<00:07:15.320><c> That's</c><00:07:15.600><c> great.</c><00:07:15.919><c> Let's</c><00:07:16.120><c> actually</c><00:07:16.400><c> see</c>
+
+00:07:16.790 --> 00:07:16.800 align:start position:0%
+it. That's great. Let's actually see
+ 
+
+00:07:16.800 --> 00:07:19.750 align:start position:0%
+it. That's great. Let's actually see
+what<00:07:17.000><c> has</c><00:07:17.160><c> built.</c><00:07:17.600><c> Okay.</c><00:07:18.080><c> So,</c><00:07:18.360><c> go</c><00:07:18.520><c> on</c><00:07:18.720><c> terminal</c>
+
+00:07:19.750 --> 00:07:19.760 align:start position:0%
+what has built. Okay. So, go on terminal
+ 
+
+00:07:19.760 --> 00:07:22.870 align:start position:0%
+what has built. Okay. So, go on terminal
+and<00:07:20.040><c> then</c><00:07:20.880><c> let's</c><00:07:21.160><c> see.</c><00:07:21.720><c> Okay,</c><00:07:22.040><c> and</c><00:07:22.240><c> let's</c><00:07:22.480><c> do</c>
+
+00:07:22.870 --> 00:07:22.880 align:start position:0%
+and then let's see. Okay, and let's do
+ 
+
+00:07:22.880 --> 00:07:25.909 align:start position:0%
+and then let's see. Okay, and let's do
+NPM<00:07:23.600><c> start.</c><00:07:24.760><c> And</c><00:07:24.960><c> here</c><00:07:25.120><c> we</c><00:07:25.200><c> go.</c><00:07:25.360><c> We</c><00:07:25.560><c> have</c><00:07:25.840><c> our</c>
+
+00:07:25.909 --> 00:07:25.919 align:start position:0%
+NPM start. And here we go. We have our
+ 
+
+00:07:25.919 --> 00:07:28.670 align:start position:0%
+NPM start. And here we go. We have our
+little<00:07:26.200><c> Pomodoro</c><00:07:26.640><c> here.</c><00:07:27.160><c> Okay,</c><00:07:28.080><c> great.</c>
+
+00:07:28.670 --> 00:07:28.680 align:start position:0%
+little Pomodoro here. Okay, great.
+ 
+
+00:07:28.680 --> 00:07:30.710 align:start position:0%
+little Pomodoro here. Okay, great.
+[music]<00:07:28.960><c> So,</c><00:07:29.360><c> it's</c><00:07:29.440><c> over</c><00:07:29.600><c> here.</c><00:07:30.240><c> It'll</c><00:07:30.400><c> do</c><00:07:30.560><c> 1</c>
+
+00:07:30.710 --> 00:07:30.720 align:start position:0%
+[music] So, it's over here. It'll do 1
+ 
+
+00:07:30.720 --> 00:07:33.150 align:start position:0%
+[music] So, it's over here. It'll do 1
+minute.<00:07:31.440><c> We'll</c><00:07:31.600><c> do</c><00:07:31.800><c> a</c><00:07:31.880><c> test</c><00:07:32.320><c> again.</c><00:07:32.919><c> Test</c>
+
+00:07:33.150 --> 00:07:33.160 align:start position:0%
+minute. We'll do a test again. Test
+ 
+
+00:07:33.160 --> 00:07:36.150 align:start position:0%
+minute. We'll do a test again. Test
+skins.<00:07:34.280><c> Start.</c><00:07:35.160><c> And</c><00:07:35.280><c> there's</c><00:07:35.440><c> a</c><00:07:35.480><c> button</c><00:07:35.760><c> here.</c>
+
+00:07:36.150 --> 00:07:36.160 align:start position:0%
+skins. Start. And there's a button here.
+ 
+
+00:07:36.160 --> 00:07:37.790 align:start position:0%
+skins. Start. And there's a button here.
+So,<00:07:36.280><c> here's</c><00:07:36.440><c> the</c><00:07:36.520><c> avocado.</c><00:07:37.160><c> Drumroll,</c>
+
+00:07:37.790 --> 00:07:37.800 align:start position:0%
+So, here's the avocado. Drumroll,
+ 
+
+00:07:37.800 --> 00:07:39.430 align:start position:0%
+So, here's the avocado. Drumroll,
+please.
+
+00:07:39.430 --> 00:07:39.440 align:start position:0%
+please.
+ 
+
+00:07:39.440 --> 00:07:43.310 align:start position:0%
+please.
+Cat.<00:07:40.240><c> Hey,</c><00:07:41.160><c> it's</c><00:07:41.280><c> a</c><00:07:41.320><c> cat.</c><00:07:41.760><c> And</c><00:07:42.560><c> dog.</c><00:07:42.880><c> Hey,</c><00:07:43.160><c> it's</c>
+
+00:07:43.310 --> 00:07:43.320 align:start position:0%
+Cat. Hey, it's a cat. And dog. Hey, it's
+ 
+
+00:07:43.320 --> 00:07:47.190 align:start position:0%
+Cat. Hey, it's a cat. And dog. Hey, it's
+a<00:07:43.360><c> dog.</c><00:07:44.400><c> And</c><00:07:45.640><c> tomato.</c>
+
+00:07:47.190 --> 00:07:47.200 align:start position:0%
+a dog. And tomato.
+ 
+
+00:07:47.200 --> 00:07:49.350 align:start position:0%
+a dog. And tomato.
+There's<00:07:47.520><c> a</c><00:07:47.560><c> tomato.</c><00:07:48.320><c> That</c><00:07:48.640><c> tomato</c><00:07:49.040><c> looks</c><00:07:49.320><c> a</c>
+
+00:07:49.350 --> 00:07:49.360 align:start position:0%
+There's a tomato. That tomato looks a
+ 
+
+00:07:49.360 --> 00:07:52.030 align:start position:0%
+There's a tomato. That tomato looks a
+little<00:07:49.680><c> bit</c><00:07:50.000><c> creepy,</c><00:07:50.600><c> but</c><00:07:51.160><c> that's</c><00:07:51.520><c> okay.</c>
+
+00:07:52.030 --> 00:07:52.040 align:start position:0%
+little bit creepy, but that's okay.
+ 
+
+00:07:52.040 --> 00:07:54.230 align:start position:0%
+little bit creepy, but that's okay.
+Yeah,<00:07:52.360><c> so</c><00:07:52.680><c> it</c><00:07:52.960><c> did</c><00:07:53.520><c> what</c><00:07:53.720><c> it</c><00:07:53.840><c> says</c><00:07:54.040><c> it's</c><00:07:54.120><c> going</c>
+
+00:07:54.230 --> 00:07:54.240 align:start position:0%
+Yeah, so it did what it says it's going
+ 
+
+00:07:54.240 --> 00:07:56.710 align:start position:0%
+Yeah, so it did what it says it's going
+to<00:07:54.320><c> do,</c><00:07:54.480><c> and</c><00:07:54.680><c> now</c><00:07:54.920><c> it</c><00:07:55.040><c> has</c><00:07:55.480><c> the</c><00:07:55.600><c> ability</c><00:07:56.080><c> to</c>
+
+00:07:56.710 --> 00:07:56.720 align:start position:0%
+to do, and now it has the ability to
+ 
+
+00:07:56.720 --> 00:07:58.030 align:start position:0%
+to do, and now it has the ability to
+have<00:07:56.840><c> different</c><00:07:57.120><c> skins.</c><00:07:57.640><c> So,</c><00:07:57.760><c> I</c><00:07:57.800><c> don't</c><00:07:57.920><c> know</c>
+
+00:07:58.030 --> 00:07:58.040 align:start position:0%
+have different skins. So, I don't know
+ 
+
+00:07:58.040 --> 00:07:59.230 align:start position:0%
+have different skins. So, I don't know
+about<00:07:58.240><c> the</c><00:07:58.320><c> aesthetics,</c><00:07:58.800><c> especially</c><00:07:59.160><c> the</c>
+
+00:07:59.230 --> 00:07:59.240 align:start position:0%
+about the aesthetics, especially the
+ 
+
+00:07:59.240 --> 00:08:00.790 align:start position:0%
+about the aesthetics, especially the
+tomato<00:07:59.640><c> over</c><00:07:59.840><c> here.</c><00:08:00.240><c> It</c><00:08:00.280><c> kind</c><00:08:00.400><c> of</c><00:08:00.440><c> looks</c><00:08:00.600><c> a</c><00:08:00.640><c> bit</c>
+
+00:08:00.790 --> 00:08:00.800 align:start position:0%
+tomato over here. It kind of looks a bit
+ 
+
+00:08:00.800 --> 00:08:02.350 align:start position:0%
+tomato over here. It kind of looks a bit
+creepy,<00:08:01.400><c> so</c><00:08:01.760><c> probably</c><00:08:02.000><c> going</c><00:08:02.120><c> to</c><00:08:02.200><c> need</c><00:08:02.320><c> to</c>
+
+00:08:02.350 --> 00:08:02.360 align:start position:0%
+creepy, so probably going to need to
+ 
+
+00:08:02.360 --> 00:08:05.950 align:start position:0%
+creepy, so probably going to need to
+like<00:08:02.560><c> modify</c><00:08:02.920><c> the</c><00:08:03.040><c> aesthetics</c><00:08:03.400><c> a</c><00:08:03.440><c> little</c><00:08:03.640><c> bit.</c>
+
+00:08:05.950 --> 00:08:05.960 align:start position:0%
+like modify the aesthetics a little bit.
+ 
+
+00:08:05.960 --> 00:08:07.670 align:start position:0%
+like modify the aesthetics a little bit.
+Time<00:08:06.360><c> is</c><00:08:06.480><c> up.</c><00:08:06.640><c> There</c><00:08:06.760><c> you</c><00:08:06.840><c> have</c><00:08:07.000><c> it.</c><00:08:07.400><c> Now,</c><00:08:07.560><c> let</c>
+
+00:08:07.670 --> 00:08:07.680 align:start position:0%
+Time is up. There you have it. Now, let
+ 
+
+00:08:07.680 --> 00:08:09.550 align:start position:0%
+Time is up. There you have it. Now, let
+me<00:08:07.760><c> explain</c><00:08:08.240><c> how</c><00:08:08.560><c> it</c><00:08:08.680><c> actually</c><00:08:09.000><c> works</c><00:08:09.320><c> under</c>
+
+00:08:09.550 --> 00:08:09.560 align:start position:0%
+me explain how it actually works under
+ 
+
+00:08:09.560 --> 00:08:11.590 align:start position:0%
+me explain how it actually works under
+the<00:08:09.680><c> hood.</c><00:08:10.000><c> So,</c><00:08:10.080><c> Coder</c><00:08:10.440><c> is</c><00:08:10.600><c> another</c><00:08:11.040><c> agent</c><00:08:11.440><c> in</c>
+
+00:08:11.590 --> 00:08:11.600 align:start position:0%
+the hood. So, Coder is another agent in
+ 
+
+00:08:11.600 --> 00:08:13.550 align:start position:0%
+the hood. So, Coder is another agent in
+my<00:08:11.760><c> Hermes</c><00:08:12.160><c> multi-agent</c><00:08:12.880><c> setup,</c><00:08:13.280><c> and</c><00:08:13.400><c> it's</c>
+
+00:08:13.550 --> 00:08:13.560 align:start position:0%
+my Hermes multi-agent setup, and it's
+ 
+
+00:08:13.560 --> 00:08:15.310 align:start position:0%
+my Hermes multi-agent setup, and it's
+specifically<00:08:14.040><c> responsible</c><00:08:14.680><c> for</c><00:08:14.919><c> building</c>
+
+00:08:15.310 --> 00:08:15.320 align:start position:0%
+specifically responsible for building
+ 
+
+00:08:15.320 --> 00:08:16.950 align:start position:0%
+specifically responsible for building
+software.<00:08:15.919><c> So,</c><00:08:16.040><c> in</c><00:08:16.120><c> terms</c><00:08:16.320><c> of</c><00:08:16.440><c> how</c><00:08:16.640><c> it</c><00:08:16.760><c> fits</c>
+
+00:08:16.950 --> 00:08:16.960 align:start position:0%
+software. So, in terms of how it fits
+ 
+
+00:08:16.960 --> 00:08:19.030 align:start position:0%
+software. So, in terms of how it fits
+together,<00:08:17.600><c> the</c><00:08:17.720><c> way</c><00:08:17.840><c> I</c><00:08:17.919><c> communicated</c><00:08:18.600><c> with</c><00:08:18.800><c> it</c>
+
+00:08:19.030 --> 00:08:19.040 align:start position:0%
+together, the way I communicated with it
+ 
+
+00:08:19.040 --> 00:08:21.630 align:start position:0%
+together, the way I communicated with it
+is<00:08:19.320><c> through</c><00:08:19.680><c> Discord</c><00:08:20.360><c> as</c><00:08:20.640><c> a</c><00:08:20.760><c> Hermes</c><00:08:21.200><c> bot.</c><00:08:21.520><c> Now,</c>
+
+00:08:21.630 --> 00:08:21.640 align:start position:0%
+is through Discord as a Hermes bot. Now,
+ 
+
+00:08:21.640 --> 00:08:24.350 align:start position:0%
+is through Discord as a Hermes bot. Now,
+this<00:08:21.840><c> Hermes</c><00:08:22.200><c> bot</c><00:08:22.440><c> itself</c><00:08:23.160><c> is</c><00:08:23.400><c> powered</c><00:08:23.919><c> by</c><00:08:24.200><c> a</c>
+
+00:08:24.350 --> 00:08:24.360 align:start position:0%
+this Hermes bot itself is powered by a
+ 
+
+00:08:24.360 --> 00:08:26.870 align:start position:0%
+this Hermes bot itself is powered by a
+local<00:08:24.840><c> model</c><00:08:25.360><c> on</c><00:08:25.640><c> my</c><00:08:25.800><c> Mac</c><00:08:26.120><c> Studio</c><00:08:26.560><c> called</c><00:08:26.800><c> the</c>
+
+00:08:26.870 --> 00:08:26.880 align:start position:0%
+local model on my Mac Studio called the
+ 
+
+00:08:26.880 --> 00:08:29.190 align:start position:0%
+local model on my Mac Studio called the
+Quen<00:08:27.240><c> 3.6</c><00:08:28.120><c> 35B</c><00:08:28.285><c> [music]</c>
+
+00:08:29.190 --> 00:08:29.200 align:start position:0%
+Quen 3.6 35B [music]
+ 
+
+00:08:29.200 --> 00:08:32.670 align:start position:0%
+Quen 3.6 35B [music]
+model.<00:08:29.640><c> Oh,</c><00:08:29.800><c> specifically</c><00:08:30.440><c> the</c><00:08:30.640><c> Quen</c><00:08:31.000><c> 3.6</c><00:08:31.800><c> 35B</c>
+
+00:08:32.670 --> 00:08:32.680 align:start position:0%
+model. Oh, specifically the Quen 3.6 35B
+ 
+
+00:08:32.680 --> 00:08:34.950 align:start position:0%
+model. Oh, specifically the Quen 3.6 35B
+A3B<00:08:33.360><c> model.</c><00:08:34.000><c> I</c><00:08:34.080><c> can</c><00:08:34.200><c> see</c><00:08:34.280><c> it's</c><00:08:34.400><c> a</c><00:08:34.440><c> very</c><00:08:34.599><c> popular</c>
+
+00:08:34.950 --> 00:08:34.960 align:start position:0%
+A3B model. I can see it's a very popular
+ 
+
+00:08:34.960 --> 00:08:37.390 align:start position:0%
+A3B model. I can see it's a very popular
+model<00:08:35.280><c> with</c><00:08:35.599><c> 5.4</c><00:08:36.360><c> million</c><00:08:36.760><c> downloads</c><00:08:37.200><c> just</c>
+
+00:08:37.390 --> 00:08:37.400 align:start position:0%
+model with 5.4 million downloads just
+ 
+
+00:08:37.400 --> 00:08:38.630 align:start position:0%
+model with 5.4 million downloads just
+last<00:08:37.599><c> month.</c><00:08:37.880><c> Anyways,</c><00:08:38.120><c> I</c><00:08:38.159><c> run</c><00:08:38.320><c> this</c><00:08:38.440><c> model</c>
+
+00:08:38.630 --> 00:08:38.640 align:start position:0%
+last month. Anyways, I run this model
+ 
+
+00:08:38.640 --> 00:08:40.149 align:start position:0%
+last month. Anyways, I run this model
+locally,<00:08:39.159><c> and</c><00:08:39.280><c> it's</c><00:08:39.440><c> honestly</c><00:08:39.719><c> a</c><00:08:39.800><c> pretty</c><00:08:40.039><c> good</c>
+
+00:08:40.149 --> 00:08:40.159 align:start position:0%
+locally, and it's honestly a pretty good
+ 
+
+00:08:40.159 --> 00:08:42.149 align:start position:0%
+locally, and it's honestly a pretty good
+model,<00:08:40.400><c> but</c><00:08:40.640><c> because</c><00:08:41.000><c> I</c><00:08:41.080><c> do</c><00:08:41.280><c> pay</c><00:08:41.560><c> for</c><00:08:41.719><c> a</c><00:08:41.800><c> Claude</c>
+
+00:08:42.149 --> 00:08:42.159 align:start position:0%
+model, but because I do pay for a Claude
+ 
+
+00:08:42.159 --> 00:08:43.709 align:start position:0%
+model, but because I do pay for a Claude
+Max<00:08:42.560><c> subscription,</c><00:08:43.120><c> and</c><00:08:43.240><c> I</c><00:08:43.280><c> actually</c><00:08:43.520><c> want</c><00:08:43.640><c> to</c>
+
+00:08:43.709 --> 00:08:43.719 align:start position:0%
+Max subscription, and I actually want to
+ 
+
+00:08:43.719 --> 00:08:45.150 align:start position:0%
+Max subscription, and I actually want to
+like<00:08:43.919><c> use</c><00:08:44.120><c> all</c><00:08:44.280><c> of</c><00:08:44.360><c> those</c><00:08:44.520><c> tokens,</c><00:08:44.960><c> right?</c>
+
+00:08:45.150 --> 00:08:45.160 align:start position:0%
+like use all of those tokens, right?
+ 
+
+00:08:45.160 --> 00:08:47.910 align:start position:0%
+like use all of those tokens, right?
+What<00:08:45.400><c> I</c><00:08:45.480><c> actually</c><00:08:45.800><c> do</c><00:08:46.160><c> is</c><00:08:46.400><c> I</c><00:08:46.520><c> use</c><00:08:47.000><c> this</c><00:08:47.280><c> model</c>
+
+00:08:47.910 --> 00:08:47.920 align:start position:0%
+What I actually do is I use this model
+ 
+
+00:08:47.920 --> 00:08:50.550 align:start position:0%
+What I actually do is I use this model
+to<00:08:48.120><c> go</c><00:08:48.440><c> and</c><00:08:48.720><c> poke</c><00:08:49.120><c> Claude</c><00:08:49.480><c> code,</c><00:08:50.160><c> and</c><00:08:50.360><c> for</c>
+
+00:08:50.550 --> 00:08:50.560 align:start position:0%
+to go and poke Claude code, and for
+ 
+
+00:08:50.560 --> 00:08:52.430 align:start position:0%
+to go and poke Claude code, and for
+Claude<00:08:51.000><c> code</c><00:08:51.480><c> to</c><00:08:51.560><c> actually</c><00:08:51.880><c> write</c><00:08:52.200><c> up</c><00:08:52.320><c> the</c>
+
+00:08:52.430 --> 00:08:52.440 align:start position:0%
+Claude code to actually write up the
+ 
+
+00:08:52.440 --> 00:08:54.510 align:start position:0%
+Claude code to actually write up the
+entire<00:08:52.880><c> spec</c><00:08:53.440><c> of</c><00:08:53.640><c> what</c><00:08:53.760><c> I'm</c><00:08:53.839><c> trying</c><00:08:54.080><c> to</c><00:08:54.160><c> build.</c>
+
+00:08:54.510 --> 00:08:54.520 align:start position:0%
+entire spec of what I'm trying to build.
+ 
+
+00:08:54.520 --> 00:08:55.550 align:start position:0%
+entire spec of what I'm trying to build.
+And<00:08:54.640><c> it's</c><00:08:54.720><c> actually</c><00:08:54.960><c> Claude</c><00:08:55.240><c> code</c><00:08:55.440><c> that</c>
+
+00:08:55.550 --> 00:08:55.560 align:start position:0%
+And it's actually Claude code that
+ 
+
+00:08:55.560 --> 00:08:56.910 align:start position:0%
+And it's actually Claude code that
+actually<00:08:55.800><c> goes</c><00:08:56.080><c> and</c><00:08:56.240><c> builds</c><00:08:56.480><c> everything.</c>
+
+00:08:56.910 --> 00:08:56.920 align:start position:0%
+actually goes and builds everything.
+ 
+
+00:08:56.920 --> 00:08:58.910 align:start position:0%
+actually goes and builds everything.
+Then<00:08:57.080><c> when</c><00:08:57.200><c> it's</c><00:08:57.360><c> done,</c><00:08:57.680><c> it</c><00:08:57.880><c> tells</c><00:08:58.240><c> my</c><00:08:58.440><c> local</c>
+
+00:08:58.910 --> 00:08:58.920 align:start position:0%
+Then when it's done, it tells my local
+ 
+
+00:08:58.920 --> 00:09:00.790 align:start position:0%
+Then when it's done, it tells my local
+Quen<00:08:59.200><c> model,</c><00:08:59.600><c> who</c><00:08:59.760><c> then</c><00:08:59.960><c> goes</c><00:09:00.280><c> and</c><00:09:00.400><c> tells</c><00:09:00.640><c> me</c>
+
+00:09:00.790 --> 00:09:00.800 align:start position:0%
+Quen model, who then goes and tells me
+ 
+
+00:09:00.800 --> 00:09:01.950 align:start position:0%
+Quen model, who then goes and tells me
+that<00:09:00.960><c> the</c><00:09:01.040><c> thing</c><00:09:01.200><c> is</c><00:09:01.320><c> done</c><00:09:01.480><c> building.</c><00:09:01.760><c> It</c><00:09:01.880><c> is</c>
+
+00:09:01.950 --> 00:09:01.960 align:start position:0%
+that the thing is done building. It is
+ 
+
+00:09:01.960 --> 00:09:03.350 align:start position:0%
+that the thing is done building. It is
+kind<00:09:02.160><c> of</c><00:09:02.200><c> complicated,</c><00:09:03.040><c> but</c><00:09:03.160><c> it's</c><00:09:03.280><c> a</c>
+
+00:09:03.350 --> 00:09:03.360 align:start position:0%
+kind of complicated, but it's a
+ 
+
+00:09:03.360 --> 00:09:04.630 align:start position:0%
+kind of complicated, but it's a
+workaround<00:09:03.880><c> because</c><00:09:04.080><c> Anthropic</c><00:09:04.400><c> doesn't</c>
+
+00:09:04.630 --> 00:09:04.640 align:start position:0%
+workaround because Anthropic doesn't
+ 
+
+00:09:04.640 --> 00:09:05.590 align:start position:0%
+workaround because Anthropic doesn't
+allow<00:09:04.880><c> you</c><00:09:05.000><c> to</c><00:09:05.080><c> use</c><00:09:05.240><c> your</c><00:09:05.360><c> Claude</c>
+
+00:09:05.590 --> 00:09:05.600 align:start position:0%
+allow you to use your Claude
+ 
+
+00:09:05.600 --> 00:09:07.150 align:start position:0%
+allow you to use your Claude
+subscription<00:09:06.080><c> directly,</c><00:09:06.760><c> so</c><00:09:06.839><c> that's</c><00:09:07.000><c> why</c><00:09:07.080><c> I</c>
+
+00:09:07.150 --> 00:09:07.160 align:start position:0%
+subscription directly, so that's why I
+ 
+
+00:09:07.160 --> 00:09:09.110 align:start position:0%
+subscription directly, so that's why I
+got<00:09:07.320><c> to</c><00:09:07.400><c> like</c><00:09:07.680><c> do</c><00:09:07.800><c> it</c><00:09:07.920><c> this</c><00:09:08.080><c> way.</c><00:09:08.360><c> But</c><00:09:08.480><c> hey,</c><00:09:09.000><c> it</c>
+
+00:09:09.110 --> 00:09:09.120 align:start position:0%
+got to like do it this way. But hey, it
+ 
+
+00:09:09.120 --> 00:09:10.430 align:start position:0%
+got to like do it this way. But hey, it
+works<00:09:09.320><c> out.</c><00:09:09.560><c> I</c><00:09:09.640><c> do</c><00:09:09.800><c> sometimes</c><00:09:10.040><c> just</c><00:09:10.200><c> power</c>
+
+00:09:10.430 --> 00:09:10.440 align:start position:0%
+works out. I do sometimes just power
+ 
+
+00:09:10.440 --> 00:09:12.030 align:start position:0%
+works out. I do sometimes just power
+Hermes<00:09:10.760><c> with</c><00:09:10.880><c> other</c><00:09:11.080><c> models</c><00:09:11.440><c> as</c><00:09:11.600><c> well,</c><00:09:11.880><c> like</c>
+
+00:09:12.030 --> 00:09:12.040 align:start position:0%
+Hermes with other models as well, like
+ 
+
+00:09:12.040 --> 00:09:14.190 align:start position:0%
+Hermes with other models as well, like
+GPT<00:09:12.400><c> models,</c><00:09:12.800><c> Gemini</c><00:09:13.160><c> models,</c><00:09:13.640><c> and</c><00:09:13.760><c> GLM</c><00:09:14.120><c> and</c>
+
+00:09:14.190 --> 00:09:14.200 align:start position:0%
+GPT models, Gemini models, and GLM and
+ 
+
+00:09:14.200 --> 00:09:15.910 align:start position:0%
+GPT models, Gemini models, and GLM and
+DeepSeek.<00:09:14.720><c> And</c><00:09:15.000><c> that</c><00:09:15.160><c> makes</c><00:09:15.400><c> it</c><00:09:15.600><c> a</c><00:09:15.680><c> lot</c>
+
+00:09:15.910 --> 00:09:15.920 align:start position:0%
+DeepSeek. And that makes it a lot
+ 
+
+00:09:15.920 --> 00:09:17.470 align:start position:0%
+DeepSeek. And that makes it a lot
+easier.<00:09:16.320><c> I'm</c><00:09:16.360><c> going</c><00:09:16.480><c> to</c><00:09:16.560><c> put</c><00:09:16.720><c> all</c><00:09:16.839><c> of</c><00:09:16.920><c> that</c><00:09:17.320><c> on</c>
+
+00:09:17.470 --> 00:09:17.480 align:start position:0%
+easier. I'm going to put all of that on
+ 
+
+00:09:17.480 --> 00:09:19.190 align:start position:0%
+easier. I'm going to put all of that on
+screen<00:09:17.839><c> right</c><00:09:18.000><c> now</c><00:09:18.320><c> along</c><00:09:18.680><c> with</c><00:09:18.920><c> summary</c>
+
+00:09:19.190 --> 00:09:19.200 align:start position:0%
+screen right now along with summary
+ 
+
+00:09:19.200 --> 00:09:21.230 align:start position:0%
+screen right now along with summary
+specs<00:09:19.600><c> of</c><00:09:19.760><c> the</c><00:09:19.920><c> Coder</c><00:09:20.360><c> agent.</c><00:09:20.800><c> Oh</c><00:09:20.839><c> yes,</c><00:09:21.040><c> just</c>
+
+00:09:21.230 --> 00:09:21.240 align:start position:0%
+specs of the Coder agent. Oh yes, just
+ 
+
+00:09:21.240 --> 00:09:22.710 align:start position:0%
+specs of the Coder agent. Oh yes, just
+to<00:09:21.320><c> mention,</c><00:09:21.680><c> the</c><00:09:21.760><c> way</c><00:09:21.880><c> I'm</c><00:09:22.000><c> coordinating</c><00:09:22.520><c> all</c>
+
+00:09:22.710 --> 00:09:22.720 align:start position:0%
+to mention, the way I'm coordinating all
+ 
+
+00:09:22.720 --> 00:09:25.110 align:start position:0%
+to mention, the way I'm coordinating all
+of<00:09:22.760><c> these</c><00:09:23.000><c> multi-agents</c><00:09:23.760><c> is</c><00:09:24.120><c> with</c><00:09:24.400><c> the</c><00:09:24.640><c> Hermes</c>
+
+00:09:25.110 --> 00:09:25.120 align:start position:0%
+of these multi-agents is with the Hermes
+ 
+
+00:09:25.120 --> 00:09:26.630 align:start position:0%
+of these multi-agents is with the Hermes
+combat<00:09:25.480><c> board.</c><00:09:25.839><c> So</c><00:09:25.960><c> yes,</c><00:09:26.240><c> I</c><00:09:26.360><c> saw</c><00:09:26.480><c> in</c><00:09:26.560><c> the</c>
+
+00:09:26.630 --> 00:09:26.640 align:start position:0%
+combat board. So yes, I saw in the
+ 
+
+00:09:26.640 --> 00:09:28.590 align:start position:0%
+combat board. So yes, I saw in the
+comments<00:09:27.080><c> of</c><00:09:27.320><c> my</c><00:09:27.440><c> past</c><00:09:27.680><c> video</c><00:09:28.040><c> about</c><00:09:28.360><c> what</c><00:09:28.480><c> to</c>
+
+00:09:28.590 --> 00:09:28.600 align:start position:0%
+comments of my past video about what to
+ 
+
+00:09:28.600 --> 00:09:31.030 align:start position:0%
+comments of my past video about what to
+do<00:09:28.800><c> if</c><00:09:28.920><c> you</c><00:09:29.040><c> want</c><00:09:29.240><c> to</c><00:09:29.360><c> run</c><00:09:29.560><c> Hermes</c><00:09:29.880><c> 24/7,</c><00:09:30.800><c> but</c>
+
+00:09:31.030 --> 00:09:31.040 align:start position:0%
+do if you want to run Hermes 24/7, but
+ 
+
+00:09:31.040 --> 00:09:32.950 align:start position:0%
+do if you want to run Hermes 24/7, but
+you<00:09:31.160><c> also</c><00:09:31.400><c> don't</c><00:09:31.720><c> have</c><00:09:31.960><c> a</c><00:09:32.040><c> dedicated</c><00:09:32.480><c> machine.</c>
+
+00:09:32.950 --> 00:09:32.960 align:start position:0%
+you also don't have a dedicated machine.
+ 
+
+00:09:32.960 --> 00:09:35.470 align:start position:0%
+you also don't have a dedicated machine.
+Well,<00:09:33.560><c> fret</c><00:09:33.880><c> not</c><00:09:34.440><c> because</c><00:09:34.800><c> you</c><00:09:34.920><c> can</c><00:09:35.040><c> also</c><00:09:35.280><c> run</c>
+
+00:09:35.470 --> 00:09:35.480 align:start position:0%
+Well, fret not because you can also run
+ 
+
+00:09:35.480 --> 00:09:38.030 align:start position:0%
+Well, fret not because you can also run
+it<00:09:35.680><c> on</c><00:09:35.920><c> a</c><00:09:36.000><c> VPS,</c><00:09:36.720><c> a</c><00:09:36.800><c> virtual</c><00:09:37.280><c> private</c><00:09:37.640><c> server,</c>
+
+00:09:38.030 --> 00:09:38.040 align:start position:0%
+it on a VPS, a virtual private server,
+ 
+
+00:09:38.040 --> 00:09:39.910 align:start position:0%
+it on a VPS, a virtual private server,
+which<00:09:38.200><c> is</c><00:09:38.280><c> kind</c><00:09:38.440><c> of</c><00:09:38.520><c> like</c><00:09:38.720><c> renting</c><00:09:39.200><c> a</c><00:09:39.320><c> machine</c>
+
+00:09:39.910 --> 00:09:39.920 align:start position:0%
+which is kind of like renting a machine
+ 
+
+00:09:39.920 --> 00:09:41.590 align:start position:0%
+which is kind of like renting a machine
+on<00:09:40.200><c> the</c><00:09:40.320><c> cloud.</c><00:09:40.840><c> I</c><00:09:40.920><c> actually</c><00:09:41.160><c> also</c><00:09:41.400><c> run</c>
+
+00:09:41.590 --> 00:09:41.600 align:start position:0%
+on the cloud. I actually also run
+ 
+
+00:09:41.600 --> 00:09:43.310 align:start position:0%
+on the cloud. I actually also run
+another<00:09:41.920><c> instance</c><00:09:42.240><c> of</c><00:09:42.320><c> Hermes</c><00:09:42.720><c> on</c><00:09:42.840><c> our</c><00:09:42.960><c> team's</c>
+
+00:09:43.310 --> 00:09:43.320 align:start position:0%
+another instance of Hermes on our team's
+ 
+
+00:09:43.320 --> 00:09:44.790 align:start position:0%
+another instance of Hermes on our team's
+VPS<00:09:43.800><c> so</c><00:09:43.880><c> that</c><00:09:44.000><c> everybody</c><00:09:44.320><c> else</c><00:09:44.440><c> on</c><00:09:44.520><c> our</c><00:09:44.560><c> team</c>
+
+00:09:44.790 --> 00:09:44.800 align:start position:0%
+VPS so that everybody else on our team
+ 
+
+00:09:44.800 --> 00:09:46.390 align:start position:0%
+VPS so that everybody else on our team
+can<00:09:44.960><c> also</c><00:09:45.200><c> play</c><00:09:45.400><c> around</c><00:09:45.720><c> and</c><00:09:45.840><c> build</c><00:09:46.000><c> on</c><00:09:46.080><c> top</c><00:09:46.320><c> of</c>
+
+00:09:46.390 --> 00:09:46.400 align:start position:0%
+can also play around and build on top of
+ 
+
+00:09:46.400 --> 00:09:47.830 align:start position:0%
+can also play around and build on top of
+it,<00:09:46.520><c> too.</c><00:09:46.680><c> And</c><00:09:46.840><c> that</c><00:09:47.000><c> VPS</c><00:09:47.440><c> is</c><00:09:47.640><c> through</c>
+
+00:09:47.830 --> 00:09:47.840 align:start position:0%
+it, too. And that VPS is through
+ 
+
+00:09:47.840 --> 00:09:49.230 align:start position:0%
+it, too. And that VPS is through
+Hostinger,<00:09:48.400><c> who</c><00:09:48.600><c> are</c><00:09:48.680><c> very</c><00:09:48.920><c> kindly</c>
+
+00:09:49.230 --> 00:09:49.240 align:start position:0%
+Hostinger, who are very kindly
+ 
+
+00:09:49.240 --> 00:09:50.590 align:start position:0%
+Hostinger, who are very kindly
+sponsoring<00:09:49.680><c> this</c><00:09:49.800><c> portion</c><00:09:50.160><c> of</c><00:09:50.240><c> the</c><00:09:50.320><c> video.</c>
+
+00:09:50.590 --> 00:09:50.600 align:start position:0%
+sponsoring this portion of the video.
+ 
+
+00:09:50.600 --> 00:09:51.830 align:start position:0%
+sponsoring this portion of the video.
+So,<00:09:50.760><c> just</c><00:09:50.960><c> like</c><00:09:51.080><c> your</c><00:09:51.160><c> local</c><00:09:51.440><c> machine,</c>
+
+00:09:51.830 --> 00:09:51.840 align:start position:0%
+So, just like your local machine,
+ 
+
+00:09:51.840 --> 00:09:53.990 align:start position:0%
+So, just like your local machine,
+Hostinger<00:09:52.280><c> keeps</c><00:09:52.560><c> your</c><00:09:52.720><c> API</c><00:09:53.040><c> keys,</c><00:09:53.440><c> data,</c><00:09:53.840><c> and</c>
+
+00:09:53.990 --> 00:09:54.000 align:start position:0%
+Hostinger keeps your API keys, data, and
+ 
+
+00:09:54.000 --> 00:09:55.510 align:start position:0%
+Hostinger keeps your API keys, data, and
+logs<00:09:54.400><c> all</c><00:09:54.600><c> on</c><00:09:54.720><c> your</c><00:09:54.920><c> own</c><00:09:55.120><c> private</c>
+
+00:09:55.510 --> 00:09:55.520 align:start position:0%
+logs all on your own private
+ 
+
+00:09:55.520 --> 00:09:56.790 align:start position:0%
+logs all on your own private
+infrastructure.<00:09:56.200><c> And</c><00:09:56.320><c> if</c><00:09:56.400><c> you</c><00:09:56.440><c> ever</c><00:09:56.600><c> make</c>
+
+00:09:56.790 --> 00:09:56.800 align:start position:0%
+infrastructure. And if you ever make
+ 
+
+00:09:56.800 --> 00:09:58.510 align:start position:0%
+infrastructure. And if you ever make
+like<00:09:56.920><c> a</c><00:09:56.960><c> config</c><00:09:57.360><c> mistake,</c><00:09:57.920><c> you</c><00:09:58.000><c> can</c><00:09:58.120><c> just</c><00:09:58.360><c> roll</c>
+
+00:09:58.510 --> 00:09:58.520 align:start position:0%
+like a config mistake, you can just roll
+ 
+
+00:09:58.520 --> 00:10:00.310 align:start position:0%
+like a config mistake, you can just roll
+it<00:09:58.600><c> back</c><00:09:58.840><c> because</c><00:09:59.120><c> weekly</c><00:09:59.400><c> backups</c><00:09:59.880><c> are</c><00:10:00.040><c> also</c>
+
+00:10:00.310 --> 00:10:00.320 align:start position:0%
+it back because weekly backups are also
+ 
+
+00:10:00.320 --> 00:10:02.070 align:start position:0%
+it back because weekly backups are also
+included<00:10:00.800><c> by</c><00:10:00.960><c> default.</c><00:10:01.480><c> And</c><00:10:01.600><c> guess</c><00:10:01.800><c> what?</c>
+
+00:10:02.070 --> 00:10:02.080 align:start position:0%
+included by default. And guess what?
+ 
+
+00:10:02.080 --> 00:10:04.110 align:start position:0%
+included by default. And guess what?
+Hostinger<00:10:02.520><c> actually</c><00:10:02.840><c> has</c><00:10:03.160><c> a</c><00:10:03.280><c> pre-made</c><00:10:03.760><c> Hermes</c>
+
+00:10:04.110 --> 00:10:04.120 align:start position:0%
+Hostinger actually has a pre-made Hermes
+ 
+
+00:10:04.120 --> 00:10:05.790 align:start position:0%
+Hostinger actually has a pre-made Hermes
+template<00:10:04.520><c> already.</c><00:10:05.040><c> So,</c><00:10:05.240><c> you</c><00:10:05.320><c> can</c><00:10:05.440><c> go</c><00:10:05.600><c> to</c>
+
+00:10:05.790 --> 00:10:05.800 align:start position:0%
+template already. So, you can go to
+ 
+
+00:10:05.800 --> 00:10:08.190 align:start position:0%
+template already. So, you can go to
+hostinger.com/tinahermes.
+
+00:10:08.190 --> 00:10:08.200 align:start position:0%
+hostinger.com/tinahermes.
+ 
+
+00:10:08.200 --> 00:10:09.990 align:start position:0%
+hostinger.com/tinahermes.
+Under<00:10:08.440><c> the</c><00:10:08.520><c> Docker</c><00:10:08.840><c> catalog,</c><00:10:09.360><c> there</c><00:10:09.560><c> is</c><00:10:09.800><c> the</c>
+
+00:10:09.990 --> 00:10:10.000 align:start position:0%
+Under the Docker catalog, there is the
+ 
+
+00:10:10.000 --> 00:10:11.870 align:start position:0%
+Under the Docker catalog, there is the
+pre-built<00:10:10.520><c> Hermes</c><00:10:10.880><c> template</c><00:10:11.240><c> pre-selected.</c>
+
+00:10:11.870 --> 00:10:11.880 align:start position:0%
+pre-built Hermes template pre-selected.
+ 
+
+00:10:11.880 --> 00:10:13.230 align:start position:0%
+pre-built Hermes template pre-selected.
+So,<00:10:12.000><c> just</c><00:10:12.160><c> click</c><00:10:12.320><c> deploy.</c><00:10:12.760><c> And</c><00:10:12.840><c> that's</c><00:10:13.040><c> it.</c>
+
+00:10:13.230 --> 00:10:13.240 align:start position:0%
+So, just click deploy. And that's it.
+ 
+
+00:10:13.240 --> 00:10:15.390 align:start position:0%
+So, just click deploy. And that's it.
+You<00:10:13.320><c> get</c><00:10:13.520><c> instant</c><00:10:13.960><c> CLI</c><00:10:14.320><c> access</c><00:10:14.760><c> without</c><00:10:15.160><c> any</c>
+
+00:10:15.390 --> 00:10:15.400 align:start position:0%
+You get instant CLI access without any
+ 
+
+00:10:15.400 --> 00:10:17.710 align:start position:0%
+You get instant CLI access without any
+manual<00:10:15.760><c> configs.</c><00:10:16.320><c> And</c><00:10:16.640><c> since</c><00:10:16.840><c> the</c><00:10:16.920><c> entire</c><00:10:17.200><c> VPS</c>
+
+00:10:17.710 --> 00:10:17.720 align:start position:0%
+manual configs. And since the entire VPS
+ 
+
+00:10:17.720 --> 00:10:19.750 align:start position:0%
+manual configs. And since the entire VPS
+is<00:10:17.880><c> yours,</c><00:10:18.320><c> it's</c><00:10:18.440><c> not</c><00:10:18.680><c> per</c><00:10:18.960><c> agent</c><00:10:19.240><c> fees.</c><00:10:19.640><c> You</c>
+
+00:10:19.750 --> 00:10:19.760 align:start position:0%
+is yours, it's not per agent fees. You
+ 
+
+00:10:19.760 --> 00:10:21.750 align:start position:0%
+is yours, it's not per agent fees. You
+can<00:10:19.920><c> run</c><00:10:20.160><c> as</c><00:10:20.280><c> many</c><00:10:20.600><c> agents</c><00:10:21.040><c> as</c><00:10:21.200><c> your</c><00:10:21.320><c> resources</c>
+
+00:10:21.750 --> 00:10:21.760 align:start position:0%
+can run as many agents as your resources
+ 
+
+00:10:21.760 --> 00:10:23.550 align:start position:0%
+can run as many agents as your resources
+allow.<00:10:22.120><c> Our</c><00:10:22.240><c> team</c><00:10:22.480><c> VPS,</c><00:10:22.800><c> for</c><00:10:22.880><c> example,</c><00:10:23.320><c> runs</c>
+
+00:10:23.550 --> 00:10:23.560 align:start position:0%
+allow. Our team VPS, for example, runs
+ 
+
+00:10:23.560 --> 00:10:25.270 align:start position:0%
+allow. Our team VPS, for example, runs
+Hermes<00:10:23.880><c> agents</c><00:10:24.400><c> and</c><00:10:24.560><c> like</c><00:10:24.800><c> six</c><00:10:25.040><c> other</c>
+
+00:10:25.270 --> 00:10:25.280 align:start position:0%
+Hermes agents and like six other
+ 
+
+00:10:25.280 --> 00:10:27.070 align:start position:0%
+Hermes agents and like six other
+internal<00:10:25.680><c> tools,</c><00:10:25.920><c> too.</c><00:10:26.240><c> So,</c><00:10:26.480><c> if</c><00:10:26.640><c> you</c><00:10:26.760><c> want</c><00:10:27.000><c> a</c>
+
+00:10:27.070 --> 00:10:27.080 align:start position:0%
+internal tools, too. So, if you want a
+ 
+
+00:10:27.080 --> 00:10:29.110 align:start position:0%
+internal tools, too. So, if you want a
+24/7<00:10:27.800><c> Hermes</c><00:10:28.080><c> agent,</c><00:10:28.440><c> but</c><00:10:28.720><c> don't</c><00:10:28.920><c> want</c><00:10:29.040><c> to</c>
+
+00:10:29.110 --> 00:10:29.120 align:start position:0%
+24/7 Hermes agent, but don't want to
+ 
+
+00:10:29.120 --> 00:10:30.510 align:start position:0%
+24/7 Hermes agent, but don't want to
+deal<00:10:29.320><c> with</c><00:10:29.440><c> the</c><00:10:29.480><c> hardware,</c><00:10:29.960><c> you</c><00:10:30.040><c> can</c><00:10:30.200><c> use</c><00:10:30.360><c> my</c>
+
+00:10:30.510 --> 00:10:30.520 align:start position:0%
+deal with the hardware, you can use my
+ 
+
+00:10:30.520 --> 00:10:32.590 align:start position:0%
+deal with the hardware, you can use my
+link<00:10:30.760><c> hostinger.com/tinahermes</c>
+
+00:10:32.590 --> 00:10:32.600 align:start position:0%
+link hostinger.com/tinahermes
+ 
+
+00:10:32.600 --> 00:10:33.990 align:start position:0%
+link hostinger.com/tinahermes
+and<00:10:32.720><c> apply</c><00:10:32.920><c> my</c><00:10:33.040><c> code</c><00:10:33.280><c> Tina</c><00:10:33.520><c> Huang</c><00:10:33.800><c> for</c><00:10:33.920><c> an</c>
+
+00:10:33.990 --> 00:10:34.000 align:start position:0%
+and apply my code Tina Huang for an
+ 
+
+00:10:34.000 --> 00:10:35.910 align:start position:0%
+and apply my code Tina Huang for an
+exclusive<00:10:34.400><c> discount</c><00:10:34.840><c> on</c><00:10:35.040><c> the</c><00:10:35.160><c> Hermes</c><00:10:35.600><c> agent</c>
+
+00:10:35.910 --> 00:10:35.920 align:start position:0%
+exclusive discount on the Hermes agent
+ 
+
+00:10:35.920 --> 00:10:37.790 align:start position:0%
+exclusive discount on the Hermes agent
+VPS<00:10:36.280><c> plan.</c><00:10:36.560><c> Link</c><00:10:37.120><c> in</c><00:10:37.200><c> the</c><00:10:37.280><c> description.</c><00:10:37.640><c> Thank</c>
+
+00:10:37.790 --> 00:10:37.800 align:start position:0%
+VPS plan. Link in the description. Thank
+ 
+
+00:10:37.800 --> 00:10:38.950 align:start position:0%
+VPS plan. Link in the description. Thank
+you<00:10:37.880><c> so</c><00:10:37.960><c> much,</c><00:10:38.120><c> Hostinger,</c><00:10:38.480><c> for</c><00:10:38.600><c> sponsoring</c>
+
+00:10:38.950 --> 00:10:38.960 align:start position:0%
+you so much, Hostinger, for sponsoring
+ 
+
+00:10:38.960 --> 00:10:40.350 align:start position:0%
+you so much, Hostinger, for sponsoring
+this<00:10:39.080><c> portion</c><00:10:39.360><c> of</c><00:10:39.440><c> the</c><00:10:39.480><c> video.</c><00:10:39.839><c> Now,</c><00:10:40.080><c> back</c><00:10:40.280><c> to</c>
+
+00:10:40.350 --> 00:10:40.360 align:start position:0%
+this portion of the video. Now, back to
+ 
+
+00:10:40.360 --> 00:10:41.750 align:start position:0%
+this portion of the video. Now, back to
+the<00:10:40.440><c> video.</c><00:10:40.800><c> And</c><00:10:40.880><c> with</c><00:10:41.000><c> that,</c><00:10:41.240><c> I</c><00:10:41.320><c> want</c><00:10:41.440><c> to</c><00:10:41.520><c> move</c>
+
+00:10:41.750 --> 00:10:41.760 align:start position:0%
+the video. And with that, I want to move
+ 
+
+00:10:41.760 --> 00:10:44.630 align:start position:0%
+the video. And with that, I want to move
+on<00:10:41.920><c> to</c><00:10:42.360><c> Taco</c><00:10:42.680><c> Bot,</c><00:10:43.080><c> our</c><00:10:43.200><c> Lonely</c><00:10:43.520><c> Octopus</c><00:10:44.160><c> SEO</c>
+
+00:10:44.630 --> 00:10:44.640 align:start position:0%
+on to Taco Bot, our Lonely Octopus SEO
+ 
+
+00:10:44.640 --> 00:10:46.550 align:start position:0%
+on to Taco Bot, our Lonely Octopus SEO
+agent<00:10:45.160><c> and</c><00:10:45.320><c> assistant.</c><00:10:45.920><c> Lonely</c><00:10:46.120><c> Octopus</c><00:10:46.480><c> is</c>
+
+00:10:46.550 --> 00:10:46.560 align:start position:0%
+agent and assistant. Lonely Octopus is
+ 
+
+00:10:46.560 --> 00:10:48.150 align:start position:0%
+agent and assistant. Lonely Octopus is
+the<00:10:46.880><c> name</c><00:10:47.080><c> of</c><00:10:47.160><c> my</c><00:10:47.280><c> company,</c><00:10:47.560><c> by</c><00:10:47.680><c> the</c><00:10:47.800><c> way,</c><00:10:48.120><c> in</c>
+
+00:10:48.150 --> 00:10:48.160 align:start position:0%
+the name of my company, by the way, in
+ 
+
+00:10:48.160 --> 00:10:49.670 align:start position:0%
+the name of my company, by the way, in
+case<00:10:48.360><c> you</c><00:10:48.440><c> didn't</c><00:10:48.460><c> [laughter]</c><00:10:48.640><c> know.</c>
+
+00:10:49.670 --> 00:10:49.680 align:start position:0%
+case you didn't [laughter] know.
+ 
+
+00:10:49.680 --> 00:10:52.430 align:start position:0%
+case you didn't [laughter] know.
+All<00:10:50.080><c> right.</c><00:10:50.800><c> Let's</c><00:10:51.040><c> go</c><00:10:51.320><c> on</c><00:10:51.480><c> to</c><00:10:51.680><c> Lonely</c><00:10:52.040><c> Octopus</c>
+
+00:10:52.430 --> 00:10:52.440 align:start position:0%
+All right. Let's go on to Lonely Octopus
+ 
+
+00:10:52.440 --> 00:10:54.550 align:start position:0%
+All right. Let's go on to Lonely Octopus
+team.<00:10:53.120><c> So,</c><00:10:53.320><c> here</c><00:10:53.600><c> is</c><00:10:53.720><c> the</c><00:10:53.839><c> Lonely</c><00:10:54.080><c> Octopus</c>
+
+00:10:54.550 --> 00:10:54.560 align:start position:0%
+team. So, here is the Lonely Octopus
+ 
+
+00:10:54.560 --> 00:10:56.829 align:start position:0%
+team. So, here is the Lonely Octopus
+Discord<00:10:55.320><c> server,</c><00:10:55.920><c> where</c><00:10:56.160><c> all</c><00:10:56.360><c> our</c><00:10:56.520><c> Lonely</c>
+
+00:10:56.829 --> 00:10:56.839 align:start position:0%
+Discord server, where all our Lonely
+ 
+
+00:10:56.839 --> 00:10:58.390 align:start position:0%
+Discord server, where all our Lonely
+Octopus<00:10:57.200><c> team</c><00:10:57.520><c> hangs</c><00:10:57.839><c> out.</c><00:10:58.000><c> And</c><00:10:58.080><c> as</c><00:10:58.200><c> you</c><00:10:58.280><c> can</c>
+
+00:10:58.390 --> 00:10:58.400 align:start position:0%
+Octopus team hangs out. And as you can
+ 
+
+00:10:58.400 --> 00:11:00.270 align:start position:0%
+Octopus team hangs out. And as you can
+see,<00:10:58.880><c> there</c><00:10:59.040><c> are</c><00:10:59.120><c> many</c><00:10:59.400><c> different</c><00:10:59.760><c> channels.</c>
+
+00:11:00.270 --> 00:11:00.280 align:start position:0%
+see, there are many different channels.
+ 
+
+00:11:00.280 --> 00:11:01.590 align:start position:0%
+see, there are many different channels.
+So,<00:11:00.360><c> Taco</c><00:11:00.600><c> Bot</c><00:11:00.839><c> can</c><00:11:00.960><c> actually</c><00:11:01.200><c> do</c><00:11:01.320><c> a</c><00:11:01.360><c> lot</c><00:11:01.520><c> of</c>
+
+00:11:01.590 --> 00:11:01.600 align:start position:0%
+So, Taco Bot can actually do a lot of
+ 
+
+00:11:01.600 --> 00:11:02.870 align:start position:0%
+So, Taco Bot can actually do a lot of
+things.<00:11:01.920><c> I</c><00:11:02.000><c> will</c><00:11:02.200><c> show</c><00:11:02.360><c> you</c><00:11:02.440><c> some</c><00:11:02.600><c> of</c><00:11:02.680><c> them.</c>
+
+00:11:02.870 --> 00:11:02.880 align:start position:0%
+things. I will show you some of them.
+ 
+
+00:11:02.880 --> 00:11:03.870 align:start position:0%
+things. I will show you some of them.
+This<00:11:03.080><c> one</c><00:11:03.240><c> is</c><00:11:03.360><c> one</c><00:11:03.480><c> of</c><00:11:03.560><c> my</c><00:11:03.640><c> favorite</c>
+
+00:11:03.870 --> 00:11:03.880 align:start position:0%
+This one is one of my favorite
+ 
+
+00:11:03.880 --> 00:11:05.110 align:start position:0%
+This one is one of my favorite
+functions.<00:11:04.240><c> For</c><00:11:04.360><c> example,</c><00:11:04.680><c> I'm</c><00:11:04.800><c> having</c><00:11:05.000><c> this</c>
+
+00:11:05.110 --> 00:11:05.120 align:start position:0%
+functions. For example, I'm having this
+ 
+
+00:11:05.120 --> 00:11:07.390 align:start position:0%
+functions. For example, I'm having this
+conversation<00:11:05.960><c> with</c><00:11:06.320><c> Ibrahim</c><00:11:06.680><c> from</c><00:11:06.839><c> our</c><00:11:06.960><c> team</c>
+
+00:11:07.390 --> 00:11:07.400 align:start position:0%
+conversation with Ibrahim from our team
+ 
+
+00:11:07.400 --> 00:11:08.630 align:start position:0%
+conversation with Ibrahim from our team
+about<00:11:07.640><c> this</c><00:11:07.760><c> teachable</c><00:11:08.080><c> workshop</c><00:11:08.440><c> that</c><00:11:08.560><c> I'm</c>
+
+00:11:08.630 --> 00:11:08.640 align:start position:0%
+about this teachable workshop that I'm
+ 
+
+00:11:08.640 --> 00:11:09.870 align:start position:0%
+about this teachable workshop that I'm
+doing.<00:11:09.000><c> Hope</c><00:11:09.120><c> you</c><00:11:09.160><c> guys</c><00:11:09.360><c> went</c><00:11:09.480><c> to</c><00:11:09.560><c> that</c><00:11:09.680><c> one,</c>
+
+00:11:09.870 --> 00:11:09.880 align:start position:0%
+doing. Hope you guys went to that one,
+ 
+
+00:11:09.880 --> 00:11:11.470 align:start position:0%
+doing. Hope you guys went to that one,
+cuz<00:11:10.120><c> it</c><00:11:10.200><c> probably</c><00:11:10.720><c> has</c><00:11:10.920><c> already</c><00:11:11.120><c> passed</c><00:11:11.360><c> by</c>
+
+00:11:11.470 --> 00:11:11.480 align:start position:0%
+cuz it probably has already passed by
+ 
+
+00:11:11.480 --> 00:11:13.230 align:start position:0%
+cuz it probably has already passed by
+the<00:11:11.560><c> time</c><00:11:12.040><c> you</c><00:11:12.160><c> see</c><00:11:12.280><c> this</c><00:11:12.440><c> video.</c><00:11:12.760><c> But,</c><00:11:13.040><c> I</c><00:11:13.080><c> can</c>
+
+00:11:13.230 --> 00:11:13.240 align:start position:0%
+the time you see this video. But, I can
+ 
+
+00:11:13.240 --> 00:11:15.910 align:start position:0%
+the time you see this video. But, I can
+say,<00:11:13.440><c> "Hey</c><00:11:13.600><c> Taco</c><00:11:13.920><c> Bot,</c><00:11:14.400><c> remind</c><00:11:15.000><c> me</c><00:11:15.600><c> at</c><00:11:15.720><c> 9:00</c>
+
+00:11:15.910 --> 00:11:15.920 align:start position:0%
+say, "Hey Taco Bot, remind me at 9:00
+ 
+
+00:11:15.920 --> 00:11:19.750 align:start position:0%
+say, "Hey Taco Bot, remind me at 9:00
+p.m.<00:11:16.200><c> today</c><00:11:16.880><c> to</c><00:11:17.040><c> decide</c><00:11:18.000><c> which</c><00:11:18.160><c> demos</c><00:11:19.360><c> I</c><00:11:19.520><c> will</c>
+
+00:11:19.750 --> 00:11:19.760 align:start position:0%
+p.m. today to decide which demos I will
+ 
+
+00:11:19.760 --> 00:11:22.630 align:start position:0%
+p.m. today to decide which demos I will
+do<00:11:20.360><c> for</c><00:11:20.560><c> the</c><00:11:20.680><c> workshop."</c><00:11:21.480><c> And</c><00:11:21.600><c> then</c><00:11:21.720><c> Taco</c><00:11:21.960><c> Bot</c>
+
+00:11:22.630 --> 00:11:22.640 align:start position:0%
+do for the workshop." And then Taco Bot
+ 
+
+00:11:22.640 --> 00:11:24.070 align:start position:0%
+do for the workshop." And then Taco Bot
+does<00:11:22.839><c> its</c><00:11:23.000><c> thing,</c><00:11:23.400><c> and</c><00:11:23.600><c> it</c><00:11:23.640><c> has</c><00:11:23.839><c> set</c><00:11:24.040><c> a</c>
+
+00:11:24.070 --> 00:11:24.080 align:start position:0%
+does its thing, and it has set a
+ 
+
+00:11:24.080 --> 00:11:26.110 align:start position:0%
+does its thing, and it has set a
+reminder<00:11:24.560><c> for</c><00:11:24.760><c> 9:00</c><00:11:25.000><c> p.m.</c><00:11:25.280><c> today.</c><00:11:25.640><c> Amazing.</c>
+
+00:11:26.110 --> 00:11:26.120 align:start position:0%
+reminder for 9:00 p.m. today. Amazing.
+ 
+
+00:11:26.120 --> 00:11:28.950 align:start position:0%
+reminder for 9:00 p.m. today. Amazing.
+Also,<00:11:26.360><c> look,</c><00:11:26.640><c> Taco</c><00:11:26.960><c> Bot</c><00:11:27.400><c> is</c><00:11:27.560><c> a</c><00:11:27.640><c> takoyaki.</c>
+
+00:11:28.950 --> 00:11:28.960 align:start position:0%
+Also, look, Taco Bot is a takoyaki.
+ 
+
+00:11:28.960 --> 00:11:30.670 align:start position:0%
+Also, look, Taco Bot is a takoyaki.
+Anyways,<00:11:29.520><c> I</c><00:11:29.600><c> love</c><00:11:29.800><c> this</c><00:11:29.960><c> function.</c><00:11:30.320><c> I</c><00:11:30.360><c> use</c><00:11:30.560><c> it</c>
+
+00:11:30.670 --> 00:11:30.680 align:start position:0%
+Anyways, I love this function. I use it
+ 
+
+00:11:30.680 --> 00:11:32.470 align:start position:0%
+Anyways, I love this function. I use it
+so<00:11:30.920><c> much.</c><00:11:31.480><c> Like</c><00:11:31.640><c> here,</c><00:11:31.880><c> Taco</c><00:11:32.160><c> Bot</c><00:11:32.360><c> is</c>
+
+00:11:32.470 --> 00:11:32.480 align:start position:0%
+so much. Like here, Taco Bot is
+ 
+
+00:11:32.480 --> 00:11:34.070 align:start position:0%
+so much. Like here, Taco Bot is
+reminding<00:11:32.920><c> me</c><00:11:33.040><c> to</c><00:11:33.160><c> review</c><00:11:33.400><c> the</c><00:11:33.520><c> deck</c><00:11:33.880><c> for</c><00:11:34.040><c> a</c>
+
+00:11:34.070 --> 00:11:34.080 align:start position:0%
+reminding me to review the deck for a
+ 
+
+00:11:34.080 --> 00:11:35.750 align:start position:0%
+reminding me to review the deck for a
+timer<00:11:34.400><c> that</c><00:11:34.520><c> I</c><00:11:34.600><c> set</c><00:11:34.840><c> earlier,</c><00:11:35.280><c> and</c><00:11:35.400><c> then</c><00:11:35.520><c> I</c><00:11:35.600><c> can</c>
+
+00:11:35.750 --> 00:11:35.760 align:start position:0%
+timer that I set earlier, and then I can
+ 
+
+00:11:35.760 --> 00:11:37.470 align:start position:0%
+timer that I set earlier, and then I can
+also<00:11:35.960><c> reschedule</c><00:11:36.520><c> it.</c><00:11:36.920><c> Because</c><00:11:37.160><c> we</c><00:11:37.240><c> have</c><00:11:37.360><c> so</c>
+
+00:11:37.470 --> 00:11:37.480 align:start position:0%
+also reschedule it. Because we have so
+ 
+
+00:11:37.480 --> 00:11:39.110 align:start position:0%
+also reschedule it. Because we have so
+much<00:11:37.640><c> stuff</c><00:11:37.880><c> going</c><00:11:38.120><c> on</c><00:11:38.240><c> this</c><00:11:38.440><c> Discord</c><00:11:38.960><c> as</c>
+
+00:11:39.110 --> 00:11:39.120 align:start position:0%
+much stuff going on this Discord as
+ 
+
+00:11:39.120 --> 00:11:41.590 align:start position:0%
+much stuff going on this Discord as
+well.<00:11:39.680><c> Um</c><00:11:39.800><c> I</c><00:11:39.880><c> can</c><00:11:40.120><c> also</c><00:11:40.440><c> say</c><00:11:40.760><c> go</c><00:11:40.920><c> into</c><00:11:41.160><c> this</c><00:11:41.360><c> dev</c>
+
+00:11:41.590 --> 00:11:41.600 align:start position:0%
+well. Um I can also say go into this dev
+ 
+
+00:11:41.600 --> 00:11:44.710 align:start position:0%
+well. Um I can also say go into this dev
+channel<00:11:42.120><c> and</c><00:11:42.360><c> ask</c><00:11:42.640><c> it,</c><00:11:43.320><c> "Hey</c><00:11:43.400><c> Tacobot,</c><00:11:44.440><c> what</c>
+
+00:11:44.710 --> 00:11:44.720 align:start position:0%
+channel and ask it, "Hey Tacobot, what
+ 
+
+00:11:44.720 --> 00:11:47.670 align:start position:0%
+channel and ask it, "Hey Tacobot, what
+are<00:11:44.880><c> people</c><00:11:45.320><c> working</c><00:11:45.760><c> on</c><00:11:46.280><c> the</c><00:11:46.440><c> past</c><00:11:46.760><c> week?"</c>
+
+00:11:47.670 --> 00:11:47.680 align:start position:0%
+are people working on the past week?"
+ 
+
+00:11:47.680 --> 00:11:49.510 align:start position:0%
+are people working on the past week?"
+And<00:11:47.880><c> Tacobot's</c><00:11:48.280><c> able</c><00:11:48.480><c> to</c><00:11:48.600><c> scan</c><00:11:48.880><c> this</c><00:11:49.040><c> Discord</c>
+
+00:11:49.510 --> 00:11:49.520 align:start position:0%
+And Tacobot's able to scan this Discord
+ 
+
+00:11:49.520 --> 00:11:51.110 align:start position:0%
+And Tacobot's able to scan this Discord
+channel,<00:11:50.200><c> and</c><00:11:50.280><c> it's</c><00:11:50.360><c> also</c><00:11:50.600><c> linked</c><00:11:50.880><c> to</c><00:11:51.000><c> our</c>
+
+00:11:51.110 --> 00:11:51.120 align:start position:0%
+channel, and it's also linked to our
+ 
+
+00:11:51.120 --> 00:11:52.590 align:start position:0%
+channel, and it's also linked to our
+GitHub<00:11:51.480><c> as</c><00:11:51.680><c> well.</c><00:11:51.840><c> It's</c><00:11:52.000><c> able</c><00:11:52.120><c> to</c><00:11:52.240><c> tell</c><00:11:52.400><c> me</c>
+
+00:11:52.590 --> 00:11:52.600 align:start position:0%
+GitHub as well. It's able to tell me
+ 
+
+00:11:52.600 --> 00:11:54.350 align:start position:0%
+GitHub as well. It's able to tell me
+that,<00:11:52.840><c> "Okay,</c><00:11:53.160><c> Rex</c><00:11:53.400><c> is</c><00:11:53.520><c> working</c><00:11:53.840><c> on</c><00:11:54.000><c> these</c>
+
+00:11:54.350 --> 00:11:54.360 align:start position:0%
+that, "Okay, Rex is working on these
+ 
+
+00:11:54.360 --> 00:11:55.990 align:start position:0%
+that, "Okay, Rex is working on these
+different<00:11:54.680><c> things.</c><00:11:55.040><c> Internal</c><00:11:55.440><c> tool</c><00:11:55.680><c> side,</c>
+
+00:11:55.990 --> 00:11:56.000 align:start position:0%
+different things. Internal tool side,
+ 
+
+00:11:56.000 --> 00:11:57.230 align:start position:0%
+different things. Internal tool side,
+Kauthar's<00:11:56.360><c> working</c><00:11:56.600><c> on</c><00:11:56.680><c> this,</c><00:11:56.840><c> Jonathan's</c>
+
+00:11:57.230 --> 00:11:57.240 align:start position:0%
+Kauthar's working on this, Jonathan's
+ 
+
+00:11:57.240 --> 00:11:58.550 align:start position:0%
+Kauthar's working on this, Jonathan's
+working<00:11:57.520><c> on</c><00:11:57.600><c> that,</c><00:11:58.000><c> and</c><00:11:58.120><c> then</c><00:11:58.400><c> what's</c>
+
+00:11:58.550 --> 00:11:58.560 align:start position:0%
+working on that, and then what's
+ 
+
+00:11:58.560 --> 00:12:01.350 align:start position:0%
+working on that, and then what's
+happening<00:11:58.920><c> on</c><00:11:59.040><c> newsletter</c><00:11:59.640><c> as</c><00:11:59.840><c> well.</c><00:12:00.080><c> What's</c>
+
+00:12:01.350 --> 00:12:01.360 align:start position:0%
+happening on newsletter as well. What's
+ 
+
+00:12:01.360 --> 00:12:03.230 align:start position:0%
+happening on newsletter as well. What's
+on?<00:12:01.400><c> Etc.</c><00:12:01.720><c> etc."</c><00:12:02.080><c> Really</c><00:12:02.280><c> handy</c><00:12:02.640><c> for</c><00:12:02.800><c> me</c><00:12:03.000><c> as</c><00:12:03.160><c> a</c>
+
+00:12:03.230 --> 00:12:03.240 align:start position:0%
+on? Etc. etc." Really handy for me as a
+ 
+
+00:12:03.240 --> 00:12:04.630 align:start position:0%
+on? Etc. etc." Really handy for me as a
+manager.<00:12:03.680><c> And</c><00:12:03.960><c> the</c><00:12:04.040><c> final</c><00:12:04.280><c> thing</c><00:12:04.400><c> I</c><00:12:04.440><c> want</c><00:12:04.560><c> to</c>
+
+00:12:04.630 --> 00:12:04.640 align:start position:0%
+manager. And the final thing I want to
+ 
+
+00:12:04.640 --> 00:12:07.470 align:start position:0%
+manager. And the final thing I want to
+show<00:12:04.840><c> you</c><00:12:05.160><c> is</c><00:12:05.480><c> on</c><00:12:05.640><c> the</c><00:12:05.840><c> COO</c><00:12:06.560><c> side.</c><00:12:06.960><c> You</c><00:12:07.040><c> see,</c>
+
+00:12:07.470 --> 00:12:07.480 align:start position:0%
+show you is on the COO side. You see,
+ 
+
+00:12:07.480 --> 00:12:09.990 align:start position:0%
+show you is on the COO side. You see,
+the<00:12:07.640><c> COO</c><00:12:08.200><c> position</c><00:12:08.720><c> for</c><00:12:09.000><c> a</c><00:12:09.080><c> startup,</c><00:12:09.760><c> at</c><00:12:09.840><c> least</c>
+
+00:12:09.990 --> 00:12:10.000 align:start position:0%
+the COO position for a startup, at least
+ 
+
+00:12:10.000 --> 00:12:11.750 align:start position:0%
+the COO position for a startup, at least
+a<00:12:10.040><c> startup</c><00:12:10.320><c> like</c><00:12:10.560><c> us,</c><00:12:10.960><c> has</c><00:12:11.120><c> always</c><00:12:11.400><c> been</c><00:12:11.640><c> the</c>
+
+00:12:11.750 --> 00:12:11.760 align:start position:0%
+a startup like us, has always been the
+ 
+
+00:12:11.760 --> 00:12:13.710 align:start position:0%
+a startup like us, has always been the
+hardest<00:12:12.280><c> thing</c><00:12:12.640><c> to</c><00:12:12.920><c> fill</c><00:12:13.360><c> because</c><00:12:13.640><c> it</c>
+
+00:12:13.710 --> 00:12:13.720 align:start position:0%
+hardest thing to fill because it
+ 
+
+00:12:13.720 --> 00:12:15.750 align:start position:0%
+hardest thing to fill because it
+involves<00:12:14.080><c> having</c><00:12:14.440><c> to</c><00:12:14.600><c> document</c><00:12:15.120><c> things</c><00:12:15.640><c> and</c>
+
+00:12:15.750 --> 00:12:15.760 align:start position:0%
+involves having to document things and
+ 
+
+00:12:15.760 --> 00:12:17.470 align:start position:0%
+involves having to document things and
+make<00:12:15.920><c> things</c><00:12:16.120><c> sustainable</c><00:12:16.880><c> while</c><00:12:17.200><c> also</c>
+
+00:12:17.470 --> 00:12:17.480 align:start position:0%
+make things sustainable while also
+ 
+
+00:12:17.480 --> 00:12:18.870 align:start position:0%
+make things sustainable while also
+operating<00:12:18.080><c> really</c><00:12:18.160><c> quickly</c><00:12:18.480><c> at</c><00:12:18.600><c> the</c><00:12:18.680><c> same</c>
+
+00:12:18.870 --> 00:12:18.880 align:start position:0%
+operating really quickly at the same
+ 
+
+00:12:18.880 --> 00:12:20.550 align:start position:0%
+operating really quickly at the same
+time.<00:12:19.240><c> And</c><00:12:19.640><c> honestly,</c><00:12:19.960><c> I've</c><00:12:20.080><c> been</c><00:12:20.200><c> struggling</c>
+
+00:12:20.550 --> 00:12:20.560 align:start position:0%
+time. And honestly, I've been struggling
+ 
+
+00:12:20.560 --> 00:12:22.790 align:start position:0%
+time. And honestly, I've been struggling
+to<00:12:20.640><c> fill</c><00:12:20.800><c> the</c><00:12:20.880><c> COO</c><00:12:21.320><c> position</c><00:12:21.920><c> of</c><00:12:22.160><c> this</c><00:12:22.320><c> company</c>
+
+00:12:22.790 --> 00:12:22.800 align:start position:0%
+to fill the COO position of this company
+ 
+
+00:12:22.800 --> 00:12:24.790 align:start position:0%
+to fill the COO position of this company
+for<00:12:23.080><c> like</c><00:12:23.400><c> years</c><00:12:23.760><c> now.</c><00:12:24.120><c> Until</c><00:12:24.400><c> I</c><00:12:24.480><c> realized</c>
+
+00:12:24.790 --> 00:12:24.800 align:start position:0%
+for like years now. Until I realized
+ 
+
+00:12:24.800 --> 00:12:26.990 align:start position:0%
+for like years now. Until I realized
+that<00:12:25.080><c> Tacobot</c><00:12:25.600><c> could</c><00:12:25.760><c> do</c><00:12:25.880><c> this.</c><00:12:26.320><c> For</c><00:12:26.440><c> example,</c>
+
+00:12:26.990 --> 00:12:27.000 align:start position:0%
+that Tacobot could do this. For example,
+ 
+
+00:12:27.000 --> 00:12:29.950 align:start position:0%
+that Tacobot could do this. For example,
+I<00:12:27.080><c> can</c><00:12:27.240><c> ask</c><00:12:27.520><c> it</c><00:12:28.040><c> I</c><00:12:28.120><c> can</c><00:12:28.280><c> say,</c><00:12:28.520><c> "Tacobot,</c><00:12:29.560><c> draft</c>
+
+00:12:29.950 --> 00:12:29.960 align:start position:0%
+I can ask it I can say, "Tacobot, draft
+ 
+
+00:12:29.960 --> 00:12:34.270 align:start position:0%
+I can ask it I can say, "Tacobot, draft
+me<00:12:30.520><c> an</c><00:12:31.120><c> ops</c><00:12:31.480><c> guide</c><00:12:32.360><c> for</c><00:12:32.760><c> how</c><00:12:33.480><c> our</c><00:12:33.680><c> team</c>
+
+00:12:34.270 --> 00:12:34.280 align:start position:0%
+me an ops guide for how our team
+ 
+
+00:12:34.280 --> 00:12:37.710 align:start position:0%
+me an ops guide for how our team
+releases<00:12:35.560><c> internal</c><00:12:36.560><c> software.</c><00:12:37.440><c> All</c><00:12:37.600><c> the</c>
+
+00:12:37.710 --> 00:12:37.720 align:start position:0%
+releases internal software. All the
+ 
+
+00:12:37.720 --> 00:12:41.350 align:start position:0%
+releases internal software. All the
+steps<00:12:38.320><c> that</c><00:12:38.640><c> we</c><00:12:38.839><c> follow</c><00:12:39.560><c> and</c><00:12:40.120><c> sanity</c><00:12:40.560><c> checks."</c>
+
+00:12:41.350 --> 00:12:41.360 align:start position:0%
+steps that we follow and sanity checks."
+ 
+
+00:12:41.360 --> 00:12:42.829 align:start position:0%
+steps that we follow and sanity checks."
+And<00:12:41.480><c> Tacobot's</c><00:12:41.920><c> able</c><00:12:42.080><c> to</c><00:12:42.120><c> gather</c><00:12:42.360><c> information</c>
+
+00:12:42.829 --> 00:12:42.839 align:start position:0%
+And Tacobot's able to gather information
+ 
+
+00:12:42.839 --> 00:12:44.430 align:start position:0%
+And Tacobot's able to gather information
+from<00:12:43.000><c> this</c><00:12:43.200><c> Discord,</c><00:12:43.760><c> and</c><00:12:43.920><c> it</c><00:12:44.000><c> also</c><00:12:44.240><c> has</c>
+
+00:12:44.430 --> 00:12:44.440 align:start position:0%
+from this Discord, and it also has
+ 
+
+00:12:44.440 --> 00:12:46.310 align:start position:0%
+from this Discord, and it also has
+access<00:12:44.800><c> to</c><00:12:44.960><c> our</c><00:12:45.040><c> notion</c><00:12:45.480><c> where</c><00:12:45.640><c> we</c><00:12:45.800><c> have</c><00:12:46.160><c> so</c>
+
+00:12:46.310 --> 00:12:46.320 align:start position:0%
+access to our notion where we have so
+ 
+
+00:12:46.320 --> 00:12:47.750 align:start position:0%
+access to our notion where we have so
+much<00:12:46.480><c> data</c><00:12:46.720><c> stored</c><00:12:46.960><c> there,</c><00:12:47.200><c> as</c><00:12:47.400><c> well</c><00:12:47.520><c> as</c><00:12:47.640><c> our</c>
+
+00:12:47.750 --> 00:12:47.760 align:start position:0%
+much data stored there, as well as our
+ 
+
+00:12:47.760 --> 00:12:50.190 align:start position:0%
+much data stored there, as well as our
+Slack,<00:12:48.440><c> which</c><00:12:48.640><c> we</c><00:12:48.800><c> use</c><00:12:49.200><c> for</c><00:12:49.560><c> external</c>
+
+00:12:50.190 --> 00:12:50.200 align:start position:0%
+Slack, which we use for external
+ 
+
+00:12:50.200 --> 00:12:51.829 align:start position:0%
+Slack, which we use for external
+contractors<00:12:50.839><c> and</c><00:12:50.920><c> external</c><00:12:51.280><c> people</c><00:12:51.520><c> we</c><00:12:51.640><c> work</c>
+
+00:12:51.829 --> 00:12:51.839 align:start position:0%
+contractors and external people we work
+ 
+
+00:12:51.839 --> 00:12:54.070 align:start position:0%
+contractors and external people we work
+with.<00:12:52.080><c> So,</c><00:12:52.200><c> it's</c><00:12:52.320><c> able</c><00:12:52.600><c> to</c><00:12:53.240><c> look</c><00:12:53.520><c> through</c><00:12:53.839><c> all</c>
+
+00:12:54.070 --> 00:12:54.080 align:start position:0%
+with. So, it's able to look through all
+ 
+
+00:12:54.080 --> 00:12:55.870 align:start position:0%
+with. So, it's able to look through all
+of<00:12:54.160><c> this</c><00:12:54.720><c> to</c><00:12:54.839><c> be</c><00:12:54.960><c> able</c><00:12:55.080><c> to</c><00:12:55.160><c> drop</c><00:12:55.320><c> up</c><00:12:55.440><c> these</c><00:12:55.640><c> ops</c>
+
+00:12:55.870 --> 00:12:55.880 align:start position:0%
+of this to be able to drop up these ops
+ 
+
+00:12:55.880 --> 00:12:57.270 align:start position:0%
+of this to be able to drop up these ops
+guides.<00:12:56.320><c> So,</c><00:12:56.440><c> you</c><00:12:56.560><c> can</c><00:12:56.680><c> see</c><00:12:56.839><c> here</c><00:12:57.040><c> that</c><00:12:57.200><c> it's</c>
+
+00:12:57.270 --> 00:12:57.280 align:start position:0%
+guides. So, you can see here that it's
+ 
+
+00:12:57.280 --> 00:12:58.790 align:start position:0%
+guides. So, you can see here that it's
+specifically<00:12:57.800><c> searching</c><00:12:58.200><c> through</c><00:12:58.440><c> notion</c>
+
+00:12:58.790 --> 00:12:58.800 align:start position:0%
+specifically searching through notion
+ 
+
+00:12:58.800 --> 00:13:00.230 align:start position:0%
+specifically searching through notion
+right<00:12:58.920><c> now.</c><00:12:59.120><c> And</c><00:12:59.360><c> we're</c><00:12:59.480><c> able</c><00:12:59.680><c> to</c><00:12:59.800><c> know</c><00:12:59.960><c> that</c>
+
+00:13:00.230 --> 00:13:00.240 align:start position:0%
+right now. And we're able to know that
+ 
+
+00:13:00.240 --> 00:13:02.190 align:start position:0%
+right now. And we're able to know that
+say<00:13:00.440><c> for</c><00:13:00.560><c> example,</c><00:13:00.880><c> pre-release</c><00:13:01.800><c> checklist</c>
+
+00:13:02.190 --> 00:13:02.200 align:start position:0%
+say for example, pre-release checklist
+ 
+
+00:13:02.200 --> 00:13:03.829 align:start position:0%
+say for example, pre-release checklist
+and<00:13:02.280><c> sanity</c><00:13:02.640><c> checks.</c><00:13:03.080><c> So,</c><00:13:03.200><c> we</c><00:13:03.320><c> know</c><00:13:03.520><c> that</c><00:13:03.720><c> for</c>
+
+00:13:03.829 --> 00:13:03.839 align:start position:0%
+and sanity checks. So, we know that for
+ 
+
+00:13:03.839 --> 00:13:05.430 align:start position:0%
+and sanity checks. So, we know that for
+coding<00:13:04.160><c> quality</c><00:13:04.560><c> checks,</c><00:13:04.920><c> we</c><00:13:05.000><c> need</c><00:13:05.120><c> to</c><00:13:05.200><c> have</c>
+
+00:13:05.430 --> 00:13:05.440 align:start position:0%
+coding quality checks, we need to have
+ 
+
+00:13:05.440 --> 00:13:07.710 align:start position:0%
+coding quality checks, we need to have
+at<00:13:05.600><c> least</c><00:13:06.160><c> one</c><00:13:06.360><c> PR</c><00:13:06.600><c> review</c><00:13:06.920><c> minimum</c><00:13:07.360><c> one</c><00:13:07.560><c> PR</c>
+
+00:13:07.710 --> 00:13:07.720 align:start position:0%
+at least one PR review minimum one PR
+ 
+
+00:13:07.720 --> 00:13:09.630 align:start position:0%
+at least one PR review minimum one PR
+approval<00:13:08.080><c> to</c><00:13:08.200><c> GitHub</c><00:13:08.640><c> PR</c><00:13:08.880><c> against</c><00:13:09.200><c> main,</c>
+
+00:13:09.630 --> 00:13:09.640 align:start position:0%
+approval to GitHub PR against main,
+ 
+
+00:13:09.640 --> 00:13:11.790 align:start position:0%
+approval to GitHub PR against main,
+automated<00:13:10.120><c> test</c><00:13:10.440><c> all</c><00:13:10.600><c> units</c><00:13:10.839><c> integrations,</c>
+
+00:13:11.790 --> 00:13:11.800 align:start position:0%
+automated test all units integrations,
+ 
+
+00:13:11.800 --> 00:13:13.510 align:start position:0%
+automated test all units integrations,
+blah<00:13:11.920><c> blah</c><00:13:12.040><c> blah,</c><00:13:12.280><c> etc.</c><00:13:12.640><c> etc.,</c><00:13:13.040><c> right?</c><00:13:13.360><c> And</c>
+
+00:13:13.510 --> 00:13:13.520 align:start position:0%
+blah blah blah, etc. etc., right? And
+ 
+
+00:13:13.520 --> 00:13:15.230 align:start position:0%
+blah blah blah, etc. etc., right? And
+release<00:13:13.800><c> execution</c><00:13:14.280><c> protocol.</c><00:13:14.920><c> So,</c><00:13:15.040><c> this</c><00:13:15.200><c> is</c>
+
+00:13:15.230 --> 00:13:15.240 align:start position:0%
+release execution protocol. So, this is
+ 
+
+00:13:15.240 --> 00:13:16.550 align:start position:0%
+release execution protocol. So, this is
+the<00:13:15.320><c> way</c><00:13:15.400><c> that</c><00:13:15.520><c> we</c><00:13:15.560><c> execute</c><00:13:15.920><c> things.</c><00:13:16.240><c> So,</c><00:13:16.400><c> if</c>
+
+00:13:16.550 --> 00:13:16.560 align:start position:0%
+the way that we execute things. So, if
+ 
+
+00:13:16.560 --> 00:13:18.510 align:start position:0%
+the way that we execute things. So, if
+anybody<00:13:16.920><c> wants</c><00:13:17.200><c> to</c><00:13:17.320><c> know,</c><00:13:17.560><c> they</c><00:13:17.720><c> can</c><00:13:17.960><c> just</c><00:13:18.280><c> ask</c>
+
+00:13:18.510 --> 00:13:18.520 align:start position:0%
+anybody wants to know, they can just ask
+ 
+
+00:13:18.520 --> 00:13:20.350 align:start position:0%
+anybody wants to know, they can just ask
+Tacobot.<00:13:19.160><c> And</c><00:13:19.200><c> we</c><00:13:19.320><c> have</c><00:13:19.560><c> new</c><00:13:19.800><c> people</c><00:13:20.120><c> who</c><00:13:20.240><c> are</c>
+
+00:13:20.350 --> 00:13:20.360 align:start position:0%
+Tacobot. And we have new people who are
+ 
+
+00:13:20.360 --> 00:13:21.750 align:start position:0%
+Tacobot. And we have new people who are
+going<00:13:20.480><c> to</c><00:13:20.560><c> be</c><00:13:20.680><c> onboarding</c><00:13:21.120><c> into</c><00:13:21.280><c> our</c><00:13:21.360><c> team.</c><00:13:21.680><c> We</c>
+
+00:13:21.750 --> 00:13:21.760 align:start position:0%
+going to be onboarding into our team. We
+ 
+
+00:13:21.760 --> 00:13:23.110 align:start position:0%
+going to be onboarding into our team. We
+can<00:13:21.880><c> also</c><00:13:22.080><c> give</c><00:13:22.200><c> them</c><00:13:22.320><c> access</c><00:13:22.520><c> to</c><00:13:22.600><c> Tacobot.</c>
+
+00:13:23.110 --> 00:13:23.120 align:start position:0%
+can also give them access to Tacobot.
+ 
+
+00:13:23.120 --> 00:13:24.670 align:start position:0%
+can also give them access to Tacobot.
+So,<00:13:23.320><c> they</c><00:13:23.520><c> can</c><00:13:23.640><c> learn</c><00:13:23.880><c> how</c><00:13:24.040><c> we</c><00:13:24.120><c> do</c><00:13:24.240><c> things.</c><00:13:24.600><c> I</c>
+
+00:13:24.670 --> 00:13:24.680 align:start position:0%
+So, they can learn how we do things. I
+ 
+
+00:13:24.680 --> 00:13:26.470 align:start position:0%
+So, they can learn how we do things. I
+hope<00:13:25.120><c> you</c><00:13:25.200><c> can</c><00:13:25.360><c> see</c><00:13:25.560><c> how</c><00:13:25.760><c> powerful</c><00:13:26.320><c> this</c>
+
+00:13:26.470 --> 00:13:26.480 align:start position:0%
+hope you can see how powerful this
+ 
+
+00:13:26.480 --> 00:13:28.470 align:start position:0%
+hope you can see how powerful this
+system<00:13:26.839><c> is.</c><00:13:27.200><c> Especially</c><00:13:27.720><c> times</c><00:13:28.040><c> 10</c><00:13:28.240><c> because</c>
+
+00:13:28.470 --> 00:13:28.480 align:start position:0%
+system is. Especially times 10 because
+ 
+
+00:13:28.480 --> 00:13:30.270 align:start position:0%
+system is. Especially times 10 because
+that's<00:13:28.640><c> the</c><00:13:28.720><c> size</c><00:13:29.040><c> of</c><00:13:29.200><c> our</c><00:13:29.320><c> core</c><00:13:29.560><c> team.</c><00:13:29.880><c> It</c><00:13:30.040><c> has</c>
+
+00:13:30.270 --> 00:13:30.280 align:start position:0%
+that's the size of our core team. It has
+ 
+
+00:13:30.280 --> 00:13:32.470 align:start position:0%
+that's the size of our core team. It has
+made<00:13:30.600><c> our</c><00:13:30.760><c> operations</c><00:13:31.720><c> so</c><00:13:32.040><c> much</c><00:13:32.280><c> more</c>
+
+00:13:32.470 --> 00:13:32.480 align:start position:0%
+made our operations so much more
+ 
+
+00:13:32.480 --> 00:13:33.910 align:start position:0%
+made our operations so much more
+efficient.<00:13:32.960><c> So,</c><00:13:33.120><c> to</c><00:13:33.200><c> summarize,</c><00:13:33.680><c> the</c><00:13:33.800><c> way</c>
+
+00:13:33.910 --> 00:13:33.920 align:start position:0%
+efficient. So, to summarize, the way
+ 
+
+00:13:33.920 --> 00:13:35.510 align:start position:0%
+efficient. So, to summarize, the way
+that<00:13:34.120><c> Talk</c><00:13:34.320><c> About</c><00:13:34.600><c> works</c><00:13:34.920><c> is</c><00:13:35.040><c> that</c><00:13:35.160><c> it</c><00:13:35.240><c> has</c>
+
+00:13:35.510 --> 00:13:35.520 align:start position:0%
+that Talk About works is that it has
+ 
+
+00:13:35.520 --> 00:13:37.270 align:start position:0%
+that Talk About works is that it has
+access<00:13:36.200><c> to</c><00:13:36.480><c> all</c><00:13:36.640><c> these</c><00:13:36.800><c> different</c><00:13:37.080><c> data</c>
+
+00:13:37.270 --> 00:13:37.280 align:start position:0%
+access to all these different data
+ 
+
+00:13:37.280 --> 00:13:39.070 align:start position:0%
+access to all these different data
+sources,<00:13:37.800><c> like</c><00:13:37.920><c> Discord,</c><00:13:38.360><c> Notion,</c><00:13:38.720><c> Slack,</c>
+
+00:13:39.070 --> 00:13:39.080 align:start position:0%
+sources, like Discord, Notion, Slack,
+ 
+
+00:13:39.080 --> 00:13:40.950 align:start position:0%
+sources, like Discord, Notion, Slack,
+Google<00:13:39.320><c> Drive,</c><00:13:39.600><c> YouTube,</c><00:13:39.880><c> Instagram,</c><00:13:40.680><c> social</c>
+
+00:13:40.950 --> 00:13:40.960 align:start position:0%
+Google Drive, YouTube, Instagram, social
+ 
+
+00:13:40.960 --> 00:13:42.990 align:start position:0%
+Google Drive, YouTube, Instagram, social
+media<00:13:41.160><c> accounts,</c><00:13:41.640><c> data</c><00:13:41.920><c> bases,</c><00:13:42.400><c> and</c><00:13:42.760><c> all</c><00:13:42.920><c> our</c>
+
+00:13:42.990 --> 00:13:43.000 align:start position:0%
+media accounts, data bases, and all our
+ 
+
+00:13:43.000 --> 00:13:44.430 align:start position:0%
+media accounts, data bases, and all our
+internal<00:13:43.360><c> tools</c><00:13:43.600><c> as</c><00:13:43.720><c> well.</c><00:13:43.960><c> It</c><00:13:44.040><c> is</c><00:13:44.160><c> able</c><00:13:44.360><c> to</c>
+
+00:13:44.430 --> 00:13:44.440 align:start position:0%
+internal tools as well. It is able to
+ 
+
+00:13:44.440 --> 00:13:46.630 align:start position:0%
+internal tools as well. It is able to
+use<00:13:44.640><c> this</c><00:13:44.760><c> data</c><00:13:45.160><c> in</c><00:13:45.360><c> order</c><00:13:45.680><c> to</c><00:13:46.040><c> inform</c><00:13:46.520><c> the</c>
+
+00:13:46.630 --> 00:13:46.640 align:start position:0%
+use this data in order to inform the
+ 
+
+00:13:46.640 --> 00:13:48.190 align:start position:0%
+use this data in order to inform the
+team<00:13:47.200><c> of</c><00:13:47.320><c> what's</c><00:13:47.480><c> happening.</c><00:13:47.920><c> And</c><00:13:48.040><c> at</c><00:13:48.120><c> the</c>
+
+00:13:48.190 --> 00:13:48.200 align:start position:0%
+team of what's happening. And at the
+ 
+
+00:13:48.200 --> 00:13:49.990 align:start position:0%
+team of what's happening. And at the
+same<00:13:48.400><c> time,</c><00:13:48.720><c> it</c><00:13:48.840><c> also</c><00:13:49.040><c> performs</c><00:13:49.560><c> assistance</c>
+
+00:13:49.990 --> 00:13:50.000 align:start position:0%
+same time, it also performs assistance
+ 
+
+00:13:50.000 --> 00:13:51.510 align:start position:0%
+same time, it also performs assistance
+functions,<00:13:50.520><c> like</c><00:13:50.680><c> being</c><00:13:50.880><c> able</c><00:13:51.040><c> to</c><00:13:51.120><c> search</c><00:13:51.400><c> for</c>
+
+00:13:51.510 --> 00:13:51.520 align:start position:0%
+functions, like being able to search for
+ 
+
+00:13:51.520 --> 00:13:53.470 align:start position:0%
+functions, like being able to search for
+things,<00:13:52.000><c> remind</c><00:13:52.440><c> you</c><00:13:52.560><c> of</c><00:13:52.680><c> things.</c><00:13:53.160><c> And</c><00:13:53.360><c> it's</c>
+
+00:13:53.470 --> 00:13:53.480 align:start position:0%
+things, remind you of things. And it's
+ 
+
+00:13:53.480 --> 00:13:55.830 align:start position:0%
+things, remind you of things. And it's
+also<00:13:53.760><c> the</c><00:13:53.960><c> CEO</c><00:13:54.440><c> of</c><00:13:54.560><c> this</c><00:13:54.720><c> company</c><00:13:55.320><c> where</c><00:13:55.640><c> it's</c>
+
+00:13:55.830 --> 00:13:55.840 align:start position:0%
+also the CEO of this company where it's
+ 
+
+00:13:55.840 --> 00:13:57.750 align:start position:0%
+also the CEO of this company where it's
+making<00:13:56.200><c> documentations</c><00:13:57.040><c> of</c><00:13:57.240><c> how</c><00:13:57.440><c> we</c><00:13:57.600><c> do</c>
+
+00:13:57.750 --> 00:13:57.760 align:start position:0%
+making documentations of how we do
+ 
+
+00:13:57.760 --> 00:13:59.790 align:start position:0%
+making documentations of how we do
+certain<00:13:58.040><c> things,</c><00:13:58.400><c> onboarding</c><00:13:58.960><c> new</c><00:13:59.160><c> members,</c>
+
+00:13:59.790 --> 00:13:59.800 align:start position:0%
+certain things, onboarding new members,
+ 
+
+00:13:59.800 --> 00:14:01.670 align:start position:0%
+certain things, onboarding new members,
+and<00:13:59.920><c> giving</c><00:14:00.160><c> suggestions</c><00:14:00.800><c> for</c><00:14:01.080><c> how</c><00:14:01.360><c> we</c><00:14:01.480><c> can</c>
+
+00:14:01.670 --> 00:14:01.680 align:start position:0%
+and giving suggestions for how we can
+ 
+
+00:14:01.680 --> 00:14:03.150 align:start position:0%
+and giving suggestions for how we can
+operate<00:14:01.960><c> better</c><00:14:02.200><c> as</c><00:14:02.320><c> a</c><00:14:02.360><c> team.</c><00:14:02.560><c> Model-wise,</c><00:14:03.080><c> I</c>
+
+00:14:03.150 --> 00:14:03.160 align:start position:0%
+operate better as a team. Model-wise, I
+ 
+
+00:14:03.160 --> 00:14:06.510 align:start position:0%
+operate better as a team. Model-wise, I
+started<00:14:03.640><c> off</c><00:14:04.040><c> with</c><00:14:04.400><c> Gemini</c><00:14:04.920><c> 3.6</c><00:14:05.760><c> Flash,</c><00:14:06.280><c> cuz</c>
+
+00:14:06.510 --> 00:14:06.520 align:start position:0%
+started off with Gemini 3.6 Flash, cuz
+ 
+
+00:14:06.520 --> 00:14:08.270 align:start position:0%
+started off with Gemini 3.6 Flash, cuz
+it's<00:14:06.640><c> a</c><00:14:06.680><c> very</c><00:14:06.880><c> fast</c><00:14:07.160><c> model</c><00:14:07.480><c> and</c><00:14:07.640><c> easy</c><00:14:07.840><c> to</c><00:14:07.920><c> test,</c>
+
+00:14:08.270 --> 00:14:08.280 align:start position:0%
+it's a very fast model and easy to test,
+ 
+
+00:14:08.280 --> 00:14:10.710 align:start position:0%
+it's a very fast model and easy to test,
+but<00:14:08.600><c> I'm</c><00:14:08.760><c> slowly</c><00:14:09.120><c> migrating</c><00:14:09.680><c> to</c><00:14:09.960><c> local</c><00:14:10.360><c> models</c>
+
+00:14:10.710 --> 00:14:10.720 align:start position:0%
+but I'm slowly migrating to local models
+ 
+
+00:14:10.720 --> 00:14:12.154 align:start position:0%
+but I'm slowly migrating to local models
+instead<00:14:11.200><c> to</c><00:14:11.480><c> make</c><00:14:11.680><c> sure</c><00:14:11.880><c> that</c><00:14:12.040><c> everything</c>
+
+00:14:12.154 --> 00:14:12.164 align:start position:0%
+instead to make sure that everything
+ 
+
+00:14:12.164 --> 00:14:13.870 align:start position:0%
+instead to make sure that everything
+[music]<00:14:12.400><c> is</c><00:14:12.520><c> kept</c><00:14:12.720><c> private,</c><00:14:13.200><c> hosted</c><00:14:13.600><c> on</c><00:14:13.760><c> our</c>
+
+00:14:13.870 --> 00:14:13.880 align:start position:0%
+[music] is kept private, hosted on our
+ 
+
+00:14:13.880 --> 00:14:15.790 align:start position:0%
+[music] is kept private, hosted on our
+Mac<00:14:14.080><c> Studio.</c><00:14:14.360><c> Put</c><00:14:14.600><c> all</c><00:14:14.760><c> of</c><00:14:14.840><c> this</c><00:14:15.160><c> summary</c><00:14:15.640><c> on</c>
+
+00:14:15.790 --> 00:14:15.800 align:start position:0%
+Mac Studio. Put all of this summary on
+ 
+
+00:14:15.800 --> 00:14:17.910 align:start position:0%
+Mac Studio. Put all of this summary on
+screen<00:14:16.200><c> now.</c><00:14:16.600><c> Please</c><00:14:17.040><c> take</c><00:14:17.280><c> a</c><00:14:17.320><c> screenshot.</c>
+
+00:14:17.910 --> 00:14:17.920 align:start position:0%
+screen now. Please take a screenshot.
+ 
+
+00:14:17.920 --> 00:14:18.910 align:start position:0%
+screen now. Please take a screenshot.
+Also,<00:14:18.120><c> I'll</c><00:14:18.200><c> link</c><00:14:18.360><c> it</c><00:14:18.400><c> in</c><00:14:18.480><c> the</c><00:14:18.560><c> free</c><00:14:18.680><c> guide</c><00:14:18.840><c> in</c>
+
+00:14:18.910 --> 00:14:18.920 align:start position:0%
+Also, I'll link it in the free guide in
+ 
+
+00:14:18.920 --> 00:14:19.990 align:start position:0%
+Also, I'll link it in the free guide in
+the<00:14:18.960><c> description,</c><00:14:19.520><c> and</c><00:14:19.640><c> I'll</c><00:14:19.720><c> provide</c><00:14:19.960><c> a</c>
+
+00:14:19.990 --> 00:14:20.000 align:start position:0%
+the description, and I'll provide a
+ 
+
+00:14:20.000 --> 00:14:21.630 align:start position:0%
+the description, and I'll provide a
+little<00:14:20.200><c> bit</c><00:14:20.320><c> more</c><00:14:20.480><c> detail</c><00:14:20.960><c> about</c><00:14:21.240><c> the</c><00:14:21.320><c> specs</c>
+
+00:14:21.630 --> 00:14:21.640 align:start position:0%
+little bit more detail about the specs
+ 
+
+00:14:21.640 --> 00:14:22.870 align:start position:0%
+little bit more detail about the specs
+that's<00:14:21.840><c> being</c><00:14:22.000><c> built</c><00:14:22.240><c> cuz</c><00:14:22.440><c> can't</c><00:14:22.720><c> fit</c>
+
+00:14:22.870 --> 00:14:22.880 align:start position:0%
+that's being built cuz can't fit
+ 
+
+00:14:22.880 --> 00:14:24.270 align:start position:0%
+that's being built cuz can't fit
+everything<00:14:23.280><c> into</c><00:14:23.480><c> one</c><00:14:23.640><c> screenshot.</c><00:14:24.040><c> Do</c><00:14:24.120><c> check</c>
+
+00:14:24.270 --> 00:14:24.280 align:start position:0%
+everything into one screenshot. Do check
+ 
+
+00:14:24.280 --> 00:14:25.750 align:start position:0%
+everything into one screenshot. Do check
+it<00:14:24.400><c> out.</c><00:14:24.560><c> Okay,</c><00:14:24.760><c> so</c><00:14:25.040><c> covered,</c><00:14:25.400><c> I</c><00:14:25.440><c> would</c><00:14:25.600><c> say,</c>
+
+00:14:25.750 --> 00:14:25.760 align:start position:0%
+it out. Okay, so covered, I would say,
+ 
+
+00:14:25.760 --> 00:14:28.270 align:start position:0%
+it out. Okay, so covered, I would say,
+the<00:14:25.920><c> three</c><00:14:26.720><c> functionalities</c><00:14:27.360><c> of</c><00:14:27.480><c> Hermes</c><00:14:28.000><c> that</c>
+
+00:14:28.270 --> 00:14:28.280 align:start position:0%
+the three functionalities of Hermes that
+ 
+
+00:14:28.280 --> 00:14:30.110 align:start position:0%
+the three functionalities of Hermes that
+I<00:14:28.440><c> use</c><00:14:28.720><c> the</c><00:14:28.840><c> most,</c><00:14:29.280><c> personally.</c><00:14:29.800><c> Of</c><00:14:29.960><c> course,</c>
+
+00:14:30.110 --> 00:14:30.120 align:start position:0%
+I use the most, personally. Of course,
+ 
+
+00:14:30.120 --> 00:14:31.310 align:start position:0%
+I use the most, personally. Of course,
+I'm<00:14:30.240><c> still</c><00:14:30.440><c> learning</c><00:14:30.720><c> and</c><00:14:30.839><c> I'm</c><00:14:30.920><c> building</c><00:14:31.200><c> new</c>
+
+00:14:31.310 --> 00:14:31.320 align:start position:0%
+I'm still learning and I'm building new
+ 
+
+00:14:31.320 --> 00:14:32.990 align:start position:0%
+I'm still learning and I'm building new
+things<00:14:31.600><c> literally</c><00:14:31.960><c> every</c><00:14:32.200><c> day</c><00:14:32.440><c> to</c><00:14:32.600><c> my</c><00:14:32.720><c> Hermes</c>
+
+00:14:32.990 --> 00:14:33.000 align:start position:0%
+things literally every day to my Hermes
+ 
+
+00:14:33.000 --> 00:14:34.030 align:start position:0%
+things literally every day to my Hermes
+as<00:14:33.120><c> well.</c><00:14:33.280><c> So,</c><00:14:33.400><c> if</c><00:14:33.520><c> you're</c><00:14:33.600><c> asking</c><00:14:33.839><c> me</c><00:14:33.880><c> in</c><00:14:34.000><c> a</c>
+
+00:14:34.030 --> 00:14:34.040 align:start position:0%
+as well. So, if you're asking me in a
+ 
+
+00:14:34.040 --> 00:14:35.430 align:start position:0%
+as well. So, if you're asking me in a
+month,<00:14:34.400><c> probably</c><00:14:34.640><c> going</c><00:14:34.760><c> to</c><00:14:34.839><c> be</c><00:14:34.920><c> more</c><00:14:35.120><c> here</c><00:14:35.320><c> as</c>
+
+00:14:35.430 --> 00:14:35.440 align:start position:0%
+month, probably going to be more here as
+ 
+
+00:14:35.440 --> 00:14:36.870 align:start position:0%
+month, probably going to be more here as
+well.<00:14:35.680><c> But</c><00:14:35.839><c> before</c><00:14:36.080><c> I</c><00:14:36.120><c> end</c><00:14:36.240><c> this</c><00:14:36.400><c> video,</c><00:14:36.680><c> I</c><00:14:36.760><c> do</c>
+
+00:14:36.870 --> 00:14:36.880 align:start position:0%
+well. But before I end this video, I do
+ 
+
+00:14:36.880 --> 00:14:38.190 align:start position:0%
+well. But before I end this video, I do
+want<00:14:37.000><c> to</c><00:14:37.080><c> have</c><00:14:37.200><c> a</c><00:14:37.240><c> section</c><00:14:37.680><c> where</c><00:14:37.839><c> I</c><00:14:37.880><c> cover</c>
+
+00:14:38.190 --> 00:14:38.200 align:start position:0%
+want to have a section where I cover
+ 
+
+00:14:38.200 --> 00:14:39.990 align:start position:0%
+want to have a section where I cover
+some<00:14:38.400><c> of</c><00:14:38.520><c> my</c><00:14:38.640><c> regularly</c><00:14:39.120><c> scheduled</c><00:14:39.480><c> cron</c><00:14:39.760><c> jobs</c>
+
+00:14:39.990 --> 00:14:40.000 align:start position:0%
+some of my regularly scheduled cron jobs
+ 
+
+00:14:40.000 --> 00:14:42.070 align:start position:0%
+some of my regularly scheduled cron jobs
+that<00:14:40.120><c> are</c><00:14:40.200><c> maybe</c><00:14:40.400><c> like</c><00:14:40.680><c> less</c><00:14:40.960><c> sexy,</c><00:14:41.480><c> but</c><00:14:41.800><c> they</c>
+
+00:14:42.070 --> 00:14:42.080 align:start position:0%
+that are maybe like less sexy, but they
+ 
+
+00:14:42.080 --> 00:14:44.150 align:start position:0%
+that are maybe like less sexy, but they
+are<00:14:42.320><c> still</c><00:14:42.600><c> very</c><00:14:42.880><c> useful,</c><00:14:43.720><c> and</c><00:14:43.839><c> they</c><00:14:43.920><c> also</c>
+
+00:14:44.150 --> 00:14:44.160 align:start position:0%
+are still very useful, and they also
+ 
+
+00:14:44.160 --> 00:14:46.070 align:start position:0%
+are still very useful, and they also
+help<00:14:44.480><c> keep</c><00:14:44.720><c> the</c><00:14:44.800><c> whole</c><00:14:45.000><c> system</c><00:14:45.320><c> running.</c><00:14:45.720><c> And</c>
+
+00:14:46.070 --> 00:14:46.080 align:start position:0%
+help keep the whole system running. And
+ 
+
+00:14:46.080 --> 00:14:48.910 align:start position:0%
+help keep the whole system running. And
+that<00:14:46.280><c> is</c><00:14:46.440><c> specifically</c><00:14:47.280><c> the</c><00:14:47.520><c> alerts</c><00:14:48.000><c> channel.</c>
+
+00:14:48.910 --> 00:14:48.920 align:start position:0%
+that is specifically the alerts channel.
+ 
+
+00:14:48.920 --> 00:14:51.190 align:start position:0%
+that is specifically the alerts channel.
+See,<00:14:49.120><c> the</c><00:14:49.240><c> alerts</c><00:14:49.520><c> channel</c><00:14:49.880><c> is</c><00:14:50.080><c> not</c><00:14:50.480><c> sexy,</c><00:14:51.040><c> but</c>
+
+00:14:51.190 --> 00:14:51.200 align:start position:0%
+See, the alerts channel is not sexy, but
+ 
+
+00:14:51.200 --> 00:14:52.750 align:start position:0%
+See, the alerts channel is not sexy, but
+it's<00:14:51.360><c> where</c><00:14:51.480><c> I</c><00:14:51.560><c> get</c><00:14:51.760><c> alerts</c><00:14:52.200><c> from</c><00:14:52.520><c> all</c><00:14:52.640><c> the</c>
+
+00:14:52.750 --> 00:14:52.760 align:start position:0%
+it's where I get alerts from all the
+ 
+
+00:14:52.760 --> 00:14:54.150 align:start position:0%
+it's where I get alerts from all the
+different<00:14:53.080><c> agents</c><00:14:53.440><c> that</c><00:14:53.600><c> are</c><00:14:53.720><c> running</c><00:14:53.960><c> in</c><00:14:54.040><c> my</c>
+
+00:14:54.150 --> 00:14:54.160 align:start position:0%
+different agents that are running in my
+ 
+
+00:14:54.160 --> 00:14:55.590 align:start position:0%
+different agents that are running in my
+Hermes.<00:14:54.720><c> And</c><00:14:54.839><c> they</c><00:14:54.920><c> all</c><00:14:55.040><c> check</c><00:14:55.320><c> in</c><00:14:55.440><c> at</c><00:14:55.560><c> a</c>
+
+00:14:55.590 --> 00:14:55.600 align:start position:0%
+Hermes. And they all check in at a
+ 
+
+00:14:55.600 --> 00:14:56.990 align:start position:0%
+Hermes. And they all check in at a
+different<00:14:55.800><c> schedule,</c><00:14:56.120><c> like</c><00:14:56.240><c> once</c><00:14:56.440><c> a</c><00:14:56.480><c> day</c><00:14:56.760><c> or</c>
+
+00:14:56.990 --> 00:14:57.000 align:start position:0%
+different schedule, like once a day or
+ 
+
+00:14:57.000 --> 00:14:58.750 align:start position:0%
+different schedule, like once a day or
+weekly,<00:14:57.560><c> telling</c><00:14:57.839><c> me</c><00:14:58.000><c> that</c><00:14:58.160><c> everything</c><00:14:58.600><c> is</c>
+
+00:14:58.750 --> 00:14:58.760 align:start position:0%
+weekly, telling me that everything is
+ 
+
+00:14:58.760 --> 00:15:00.270 align:start position:0%
+weekly, telling me that everything is
+operating<00:14:59.240><c> as</c><00:14:59.400><c> intended,</c><00:14:59.960><c> there's</c><00:15:00.160><c> no</c>
+
+00:15:00.270 --> 00:15:00.280 align:start position:0%
+operating as intended, there's no
+ 
+
+00:15:00.280 --> 00:15:02.510 align:start position:0%
+operating as intended, there's no
+security<00:15:00.760><c> breaches,</c><00:15:01.560><c> and</c><00:15:01.680><c> any</c><00:15:01.800><c> suggestions</c>
+
+00:15:02.510 --> 00:15:02.520 align:start position:0%
+security breaches, and any suggestions
+ 
+
+00:15:02.520 --> 00:15:04.190 align:start position:0%
+security breaches, and any suggestions
+and<00:15:02.720><c> things</c><00:15:03.000><c> they</c><00:15:03.160><c> may</c><00:15:03.360><c> come</c><00:15:03.560><c> across</c><00:15:03.920><c> that</c><00:15:04.120><c> I</c>
+
+00:15:04.190 --> 00:15:04.200 align:start position:0%
+and things they may come across that I
+ 
+
+00:15:04.200 --> 00:15:05.829 align:start position:0%
+and things they may come across that I
+could<00:15:04.480><c> potentially</c><00:15:05.040><c> be</c><00:15:05.200><c> working</c><00:15:05.520><c> on.</c><00:15:05.640><c> Like</c><00:15:05.800><c> I</c>
+
+00:15:05.829 --> 00:15:05.839 align:start position:0%
+could potentially be working on. Like I
+ 
+
+00:15:05.839 --> 00:15:08.270 align:start position:0%
+could potentially be working on. Like I
+said,<00:15:06.040><c> not</c><00:15:06.240><c> sexy,</c><00:15:06.560><c> right?</c><00:15:06.839><c> But</c><00:15:07.360><c> this</c><00:15:07.720><c> part</c><00:15:08.160><c> of</c>
+
+00:15:08.270 --> 00:15:08.280 align:start position:0%
+said, not sexy, right? But this part of
+ 
+
+00:15:08.280 --> 00:15:10.430 align:start position:0%
+said, not sexy, right? But this part of
+the<00:15:08.400><c> entire</c><00:15:08.960><c> Hermes</c><00:15:09.280><c> system</c><00:15:09.920><c> is</c><00:15:10.200><c> really</c>
+
+00:15:10.430 --> 00:15:10.440 align:start position:0%
+the entire Hermes system is really
+ 
+
+00:15:10.440 --> 00:15:12.190 align:start position:0%
+the entire Hermes system is really
+important,<00:15:11.160><c> cuz</c><00:15:11.280><c> it's</c><00:15:11.400><c> how</c><00:15:11.520><c> I</c><00:15:11.600><c> make</c><00:15:11.800><c> sure</c><00:15:12.000><c> that</c>
+
+00:15:12.190 --> 00:15:12.200 align:start position:0%
+important, cuz it's how I make sure that
+ 
+
+00:15:12.200 --> 00:15:13.510 align:start position:0%
+important, cuz it's how I make sure that
+everything<00:15:12.480><c> is</c><00:15:12.600><c> operating</c><00:15:12.960><c> smoothly</c><00:15:13.360><c> and</c><00:15:13.480><c> I'm</c>
+
+00:15:13.510 --> 00:15:13.520 align:start position:0%
+everything is operating smoothly and I'm
+ 
+
+00:15:13.520 --> 00:15:14.910 align:start position:0%
+everything is operating smoothly and I'm
+building<00:15:13.839><c> things</c><00:15:14.040><c> in</c><00:15:14.120><c> a</c><00:15:14.160><c> sustainable</c><00:15:14.720><c> way.</c>
+
+00:15:14.910 --> 00:15:14.920 align:start position:0%
+building things in a sustainable way.
+ 
+
+00:15:14.920 --> 00:15:16.190 align:start position:0%
+building things in a sustainable way.
+Not<00:15:15.040><c> going</c><00:15:15.160><c> to</c><00:15:15.240><c> go</c><00:15:15.400><c> into</c><00:15:15.760><c> way</c><00:15:15.920><c> too</c><00:15:16.040><c> much</c>
+
+00:15:16.190 --> 00:15:16.200 align:start position:0%
+Not going to go into way too much
+ 
+
+00:15:16.200 --> 00:15:17.630 align:start position:0%
+Not going to go into way too much
+details<00:15:16.680><c> about</c><00:15:16.920><c> this,</c><00:15:17.160><c> but</c><00:15:17.360><c> you</c><00:15:17.440><c> know</c><00:15:17.520><c> the</c>
+
+00:15:17.630 --> 00:15:17.640 align:start position:0%
+details about this, but you know the
+ 
+
+00:15:17.640 --> 00:15:19.230 align:start position:0%
+details about this, but you know the
+drill,<00:15:17.920><c> I</c><00:15:18.000><c> will</c><00:15:18.160><c> put</c><00:15:18.400><c> on</c><00:15:18.520><c> screen</c><00:15:18.839><c> now</c><00:15:19.120><c> a</c>
+
+00:15:19.230 --> 00:15:19.240 align:start position:0%
+drill, I will put on screen now a
+ 
+
+00:15:19.240 --> 00:15:21.030 align:start position:0%
+drill, I will put on screen now a
+summary<00:15:19.880><c> of</c><00:15:20.120><c> all</c><00:15:20.240><c> the</c><00:15:20.360><c> different</c><00:15:20.640><c> check-ins</c>
+
+00:15:21.030 --> 00:15:21.040 align:start position:0%
+summary of all the different check-ins
+ 
+
+00:15:21.040 --> 00:15:22.990 align:start position:0%
+summary of all the different check-ins
+and<00:15:21.120><c> alerts</c><00:15:21.440><c> and</c><00:15:21.560><c> security</c><00:15:21.920><c> systems</c><00:15:22.680><c> that</c><00:15:22.960><c> I</c>
+
+00:15:22.990 --> 00:15:23.000 align:start position:0%
+and alerts and security systems that I
+ 
+
+00:15:23.000 --> 00:15:24.470 align:start position:0%
+and alerts and security systems that I
+have<00:15:23.200><c> implemented.</c><00:15:23.760><c> And</c><00:15:23.920><c> finally,</c><00:15:24.200><c> before</c><00:15:24.440><c> I</c>
+
+00:15:24.470 --> 00:15:24.480 align:start position:0%
+have implemented. And finally, before I
+ 
+
+00:15:24.480 --> 00:15:26.390 align:start position:0%
+have implemented. And finally, before I
+end<00:15:24.560><c> this</c><00:15:24.680><c> video,</c><00:15:25.000><c> I</c><00:15:25.120><c> do</c><00:15:25.440><c> want</c><00:15:25.680><c> to</c><00:15:25.800><c> mention</c>
+
+00:15:26.390 --> 00:15:26.400 align:start position:0%
+end this video, I do want to mention
+ 
+
+00:15:26.400 --> 00:15:29.110 align:start position:0%
+end this video, I do want to mention
+that<00:15:26.520><c> I</c><00:15:26.560><c> am</c><00:15:26.800><c> working</c><00:15:27.280><c> on</c><00:15:27.600><c> a</c><00:15:27.800><c> more</c><00:15:28.080><c> complicated</c>
+
+00:15:29.110 --> 00:15:29.120 align:start position:0%
+that I am working on a more complicated
+ 
+
+00:15:29.120 --> 00:15:31.030 align:start position:0%
+that I am working on a more complicated
+agentic<00:15:29.560><c> system</c><00:15:29.960><c> as</c><00:15:30.160><c> well</c><00:15:30.360><c> within</c><00:15:30.640><c> Hermes.</c>
+
+00:15:31.030 --> 00:15:31.040 align:start position:0%
+agentic system as well within Hermes.
+ 
+
+00:15:31.040 --> 00:15:32.710 align:start position:0%
+agentic system as well within Hermes.
+The<00:15:31.160><c> concept</c><00:15:31.640><c> is</c><00:15:31.760><c> to</c><00:15:31.880><c> be</c><00:15:32.040><c> constantly</c>
+
+00:15:32.710 --> 00:15:32.720 align:start position:0%
+The concept is to be constantly
+ 
+
+00:15:32.720 --> 00:15:34.990 align:start position:0%
+The concept is to be constantly
+researching<00:15:33.440><c> different</c><00:15:33.800><c> topics</c><00:15:34.480><c> related</c><00:15:34.920><c> to</c>
+
+00:15:34.990 --> 00:15:35.000 align:start position:0%
+researching different topics related to
+ 
+
+00:15:35.000 --> 00:15:36.750 align:start position:0%
+researching different topics related to
+like<00:15:35.240><c> AI</c><00:15:35.520><c> and</c><00:15:35.680><c> tech</c><00:15:35.880><c> and</c><00:15:36.000><c> education</c><00:15:36.480><c> because,</c>
+
+00:15:36.750 --> 00:15:36.760 align:start position:0%
+like AI and tech and education because,
+ 
+
+00:15:36.760 --> 00:15:37.990 align:start position:0%
+like AI and tech and education because,
+you<00:15:36.840><c> know,</c><00:15:36.960><c> that's</c><00:15:37.160><c> the</c><00:15:37.240><c> niche</c><00:15:37.480><c> that</c><00:15:37.600><c> I'm</c><00:15:37.760><c> in,</c>
+
+00:15:37.990 --> 00:15:38.000 align:start position:0%
+you know, that's the niche that I'm in,
+ 
+
+00:15:38.000 --> 00:15:39.950 align:start position:0%
+you know, that's the niche that I'm in,
+evaluating<00:15:38.680><c> it</c><00:15:38.880><c> and</c><00:15:39.000><c> giving</c><00:15:39.160><c> me</c><00:15:39.280><c> suggestions</c>
+
+00:15:39.950 --> 00:15:39.960 align:start position:0%
+evaluating it and giving me suggestions
+ 
+
+00:15:39.960 --> 00:15:42.150 align:start position:0%
+evaluating it and giving me suggestions
+on<00:15:40.080><c> different</c><00:15:40.400><c> content</c><00:15:40.840><c> ideas</c><00:15:41.400><c> and</c><00:15:41.680><c> software</c>
+
+00:15:42.150 --> 00:15:42.160 align:start position:0%
+on different content ideas and software
+ 
+
+00:15:42.160 --> 00:15:43.390 align:start position:0%
+on different content ideas and software
+that<00:15:42.280><c> I</c><00:15:42.320><c> could</c><00:15:42.480><c> be</c><00:15:42.600><c> building,</c><00:15:43.000><c> either</c><00:15:43.200><c> like</c>
+
+00:15:43.390 --> 00:15:43.400 align:start position:0%
+that I could be building, either like
+ 
+
+00:15:43.400 --> 00:15:45.350 align:start position:0%
+that I could be building, either like
+internal<00:15:43.800><c> software</c><00:15:44.360><c> or</c><00:15:44.600><c> external</c><00:15:45.040><c> software.</c>
+
+00:15:45.350 --> 00:15:45.360 align:start position:0%
+internal software or external software.
+ 
+
+00:15:45.360 --> 00:15:46.270 align:start position:0%
+internal software or external software.
+So,<00:15:45.440><c> I'm</c><00:15:45.560><c> still</c><00:15:45.680><c> in</c><00:15:45.760><c> the</c><00:15:45.800><c> very</c><00:15:45.960><c> beginning</c>
+
+00:15:46.270 --> 00:15:46.280 align:start position:0%
+So, I'm still in the very beginning
+ 
+
+00:15:46.280 --> 00:15:47.550 align:start position:0%
+So, I'm still in the very beginning
+stages<00:15:46.640><c> of</c><00:15:46.720><c> this.</c><00:15:46.920><c> I'm</c><00:15:47.000><c> not</c><00:15:47.120><c> ready</c><00:15:47.320><c> to</c><00:15:47.400><c> show</c>
+
+00:15:47.550 --> 00:15:47.560 align:start position:0%
+stages of this. I'm not ready to show
+ 
+
+00:15:47.560 --> 00:15:48.990 align:start position:0%
+stages of this. I'm not ready to show
+you<00:15:47.640><c> guys</c><00:15:47.880><c> yet,</c><00:15:48.160><c> but</c><00:15:48.440><c> wanted</c><00:15:48.600><c> to</c><00:15:48.680><c> get</c><00:15:48.800><c> let</c><00:15:48.960><c> you</c>
+
+00:15:48.990 --> 00:15:49.000 align:start position:0%
+you guys yet, but wanted to get let you
+ 
+
+00:15:49.000 --> 00:15:50.110 align:start position:0%
+you guys yet, but wanted to get let you
+guys<00:15:49.200><c> know</c><00:15:49.320><c> what</c><00:15:49.440><c> I'm</c><00:15:49.520><c> working</c><00:15:49.760><c> on</c><00:15:49.880><c> right</c><00:15:50.000><c> now</c>
+
+00:15:50.110 --> 00:15:50.120 align:start position:0%
+guys know what I'm working on right now
+ 
+
+00:15:50.120 --> 00:15:51.430 align:start position:0%
+guys know what I'm working on right now
+because<00:15:50.520><c> this</c><00:15:50.640><c> kind</c><00:15:50.760><c> of</c><00:15:50.840><c> thing</c><00:15:50.960><c> is</c><00:15:51.080><c> totally</c>
+
+00:15:51.430 --> 00:15:51.440 align:start position:0%
+because this kind of thing is totally
+ 
+
+00:15:51.440 --> 00:15:53.070 align:start position:0%
+because this kind of thing is totally
+possible.<00:15:51.920><c> I'm</c><00:15:52.040><c> just</c><00:15:52.240><c> still</c><00:15:52.400><c> like</c><00:15:52.560><c> tuning</c><00:15:52.880><c> it.</c>
+
+00:15:53.070 --> 00:15:53.080 align:start position:0%
+possible. I'm just still like tuning it.
+ 
+
+00:15:53.080 --> 00:15:54.790 align:start position:0%
+possible. I'm just still like tuning it.
+I<00:15:53.160><c> think</c><00:15:53.320><c> once</c><00:15:53.520><c> I</c><00:15:53.560><c> manage</c><00:15:53.840><c> to</c><00:15:53.920><c> get</c><00:15:54.040><c> it</c><00:15:54.160><c> set</c><00:15:54.400><c> up</c>
+
+00:15:54.790 --> 00:15:54.800 align:start position:0%
+I think once I manage to get it set up
+ 
+
+00:15:54.800 --> 00:15:56.430 align:start position:0%
+I think once I manage to get it set up
+that<00:15:54.960><c> it</c><00:15:55.000><c> can</c><00:15:55.160><c> autonomously</c><00:15:55.880><c> be</c><00:15:56.080><c> like</c>
+
+00:15:56.430 --> 00:15:56.440 align:start position:0%
+that it can autonomously be like
+ 
+
+00:15:56.440 --> 00:15:58.910 align:start position:0%
+that it can autonomously be like
+scraping<00:15:57.000><c> the</c><00:15:57.120><c> internet,</c><00:15:57.680><c> that</c><00:15:57.880><c> will</c><00:15:58.040><c> be</c><00:15:58.440><c> a</c>
+
+00:15:58.910 --> 00:15:58.920 align:start position:0%
+scraping the internet, that will be a
+ 
+
+00:15:58.920 --> 00:16:00.830 align:start position:0%
+scraping the internet, that will be a
+very,<00:15:59.320><c> very</c><00:15:59.560><c> cool</c><00:15:59.960><c> and</c><00:16:00.120><c> very</c><00:16:00.400><c> powerful</c>
+
+00:16:00.830 --> 00:16:00.840 align:start position:0%
+very, very cool and very powerful
+ 
+
+00:16:00.840 --> 00:16:03.270 align:start position:0%
+very, very cool and very powerful
+system.<00:16:01.240><c> So,</c><00:16:01.360><c> yes,</c><00:16:01.560><c> for</c><00:16:01.680><c> now,</c><00:16:02.160><c> this</c><00:16:02.520><c> is</c><00:16:02.960><c> my</c>
+
+00:16:03.270 --> 00:16:03.280 align:start position:0%
+system. So, yes, for now, this is my
+ 
+
+00:16:03.280 --> 00:16:04.910 align:start position:0%
+system. So, yes, for now, this is my
+Hermes<00:16:04.040><c> setup.</c><00:16:04.440><c> I</c><00:16:04.520><c> hope</c><00:16:04.640><c> this</c><00:16:04.760><c> was</c>
+
+00:16:04.910 --> 00:16:04.920 align:start position:0%
+Hermes setup. I hope this was
+ 
+
+00:16:04.920 --> 00:16:06.310 align:start position:0%
+Hermes setup. I hope this was
+interesting<00:16:05.400><c> for</c><00:16:05.520><c> you</c><00:16:05.600><c> guys</c><00:16:05.760><c> to</c><00:16:05.880><c> see</c><00:16:06.160><c> what</c>
+
+00:16:06.310 --> 00:16:06.320 align:start position:0%
+interesting for you guys to see what
+ 
+
+00:16:06.320 --> 00:16:07.750 align:start position:0%
+interesting for you guys to see what
+I've<00:16:06.480><c> built,</c><00:16:06.960><c> and</c><00:16:07.120><c> I'm</c><00:16:07.240><c> curious,</c><00:16:07.560><c> what</c><00:16:07.640><c> have</c>
+
+00:16:07.750 --> 00:16:07.760 align:start position:0%
+I've built, and I'm curious, what have
+ 
+
+00:16:07.760 --> 00:16:08.950 align:start position:0%
+I've built, and I'm curious, what have
+you<00:16:07.840><c> built</c><00:16:08.000><c> in</c><00:16:08.080><c> your</c><00:16:08.240><c> Hermes?</c><00:16:08.640><c> What</c><00:16:08.800><c> do</c><00:16:08.880><c> you</c>
+
+00:16:08.950 --> 00:16:08.960 align:start position:0%
+you built in your Hermes? What do you
+ 
+
+00:16:08.960 --> 00:16:10.150 align:start position:0%
+you built in your Hermes? What do you
+want<00:16:09.160><c> to</c><00:16:09.200><c> be</c><00:16:09.320><c> building</c><00:16:09.600><c> in</c><00:16:09.640><c> your</c><00:16:09.760><c> Hermes</c><00:16:10.080><c> now</c>
+
+00:16:10.150 --> 00:16:10.160 align:start position:0%
+want to be building in your Hermes now
+ 
+
+00:16:10.160 --> 00:16:11.110 align:start position:0%
+want to be building in your Hermes now
+that<00:16:10.280><c> you've</c><00:16:10.400><c> watched</c><00:16:10.560><c> this</c><00:16:10.680><c> video?</c><00:16:11.040><c> And</c>
+
+00:16:11.110 --> 00:16:11.120 align:start position:0%
+that you've watched this video? And
+ 
+
+00:16:11.120 --> 00:16:12.350 align:start position:0%
+that you've watched this video? And
+again,<00:16:11.720><c> please</c><00:16:11.960><c> let</c><00:16:12.080><c> me</c><00:16:12.160><c> know</c><00:16:12.240><c> in</c><00:16:12.280><c> the</c>
+
+00:16:12.350 --> 00:16:12.360 align:start position:0%
+again, please let me know in the
+ 
+
+00:16:12.360 --> 00:16:13.630 align:start position:0%
+again, please let me know in the
+comments,<00:16:12.760><c> just</c><00:16:12.920><c> write</c><00:16:13.080><c> like</c><00:16:13.280><c> Hermes</c>
+
+00:16:13.630 --> 00:16:13.640 align:start position:0%
+comments, just write like Hermes
+ 
+
+00:16:13.640 --> 00:16:14.950 align:start position:0%
+comments, just write like Hermes
+workshop<00:16:14.040><c> or</c><00:16:14.120><c> something</c><00:16:14.360><c> like</c><00:16:14.520><c> that,</c><00:16:14.840><c> and</c>
+
+00:16:14.950 --> 00:16:14.960 align:start position:0%
+workshop or something like that, and
+ 
+
+00:16:14.960 --> 00:16:16.150 align:start position:0%
+workshop or something like that, and
+that<00:16:15.080><c> will</c><00:16:15.200><c> let</c><00:16:15.320><c> me</c><00:16:15.400><c> know</c><00:16:15.560><c> how</c><00:16:15.680><c> much</c><00:16:15.840><c> interest</c>
+
+00:16:16.150 --> 00:16:16.160 align:start position:0%
+that will let me know how much interest
+ 
+
+00:16:16.160 --> 00:16:17.710 align:start position:0%
+that will let me know how much interest
+there<00:16:16.280><c> is</c><00:16:16.480><c> in</c><00:16:16.600><c> doing</c><00:16:16.840><c> a</c><00:16:16.920><c> Hermes</c><00:16:17.240><c> workshop,</c><00:16:17.560><c> and</c>
+
+00:16:17.710 --> 00:16:17.720 align:start position:0%
+there is in doing a Hermes workshop, and
+ 
+
+00:16:17.720 --> 00:16:19.870 align:start position:0%
+there is in doing a Hermes workshop, and
+maybe<00:16:18.000><c> we'll</c><00:16:18.160><c> do</c><00:16:18.280><c> one.</c><00:16:18.640><c> But</c><00:16:18.760><c> for</c><00:16:18.880><c> now,</c><00:16:19.280><c> have</c><00:16:19.640><c> a</c>
+
+00:16:19.870 --> 00:16:19.880 align:start position:0%
+maybe we'll do one. But for now, have a
+ 
+
+00:16:19.880 --> 00:16:21.550 align:start position:0%
+maybe we'll do one. But for now, have a
+wonderful<00:16:20.280><c> rest</c><00:16:20.440><c> of</c><00:16:20.520><c> your</c><00:16:20.640><c> day,</c><00:16:21.080><c> and</c><00:16:21.360><c> I</c><00:16:21.440><c> will</c>
+
+00:16:21.550 --> 00:16:21.560 align:start position:0%
+wonderful rest of your day, and I will
+ 
+
+00:16:21.560 --> 00:16:23.190 align:start position:0%
+wonderful rest of your day, and I will
+see<00:16:21.720><c> you</c><00:16:21.800><c> guys</c><00:16:22.080><c> in</c><00:16:22.160><c> the</c><00:16:22.240><c> next</c><00:16:22.520><c> video</c><00:16:22.920><c> or</c><00:16:23.040><c> live</c>
+
+00:16:23.190 --> 00:16:23.200 align:start position:0%
+see you guys in the next video or live
+ 
+
+00:16:23.200 --> 00:16:25.600 align:start position:0%
+see you guys in the next video or live
+stream.
+
