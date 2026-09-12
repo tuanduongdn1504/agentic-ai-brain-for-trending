@@ -1,0 +1,186 @@
+<title>OpenMAIC</title>
+<style>
+  :root{
+    --bg:#faf9f7; --panel:#fff; --ink:#1a1a1a; --muted:#5c5a56; --rule:#e3e0da;
+    --accent:#8a2f2f; --good:#1f6b3d; --goodbg:#eef6f0; --bad:#a3282b; --badbg:#fbeeee;
+    --warn:#8a6510; --warnbg:#fdf5e6; --code:#f3f1ec; --shadow:0 1px 2px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --muted:#a4a09a; --rule:#33333b;
+      --accent:#e08b8b; --good:#7bd4a0; --goodbg:#16281e; --bad:#f09a9a; --badbg:#2a1819;
+      --warn:#e6c069; --warnbg:#2a2417; --code:#26262d; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --muted:#a4a09a; --rule:#33333b;
+    --accent:#e08b8b; --good:#7bd4a0; --goodbg:#16281e; --bad:#f09a9a; --badbg:#2a1819;
+    --warn:#e6c069; --warnbg:#2a2417; --code:#26262d; --shadow:none;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.65 ui-serif,Georgia,"Iowan Old Style",Palatino,serif;
+    margin:0;padding:0}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 96px}
+  h1{font-size:2.55rem;line-height:1.1;margin:0 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:1.06rem;margin:0 0 22px;font-style:italic}
+  .meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 40px}
+  .chip{background:var(--panel);border:1px solid var(--rule);border-radius:999px;
+    padding:4px 12px;font:500 12.5px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);
+    box-shadow:var(--shadow)}
+  .chip b{color:var(--ink);font-weight:600}
+  h2{font-size:1.36rem;margin:46px 0 14px;padding-bottom:7px;border-bottom:2px solid var(--rule);
+    letter-spacing:-.01em}
+  h3{font-size:1.06rem;margin:28px 0 9px;color:var(--accent);
+    font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em}
+  p{margin:0 0 15px}
+  code{background:var(--code);padding:1.5px 5px;border-radius:4px;
+    font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+  .rule{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--accent);
+    border-radius:8px;padding:20px 22px;margin:26px 0;box-shadow:var(--shadow)}
+  .rule .lab{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
+  .rule p{font-size:1.12rem;margin:0}
+  blockquote{margin:18px 0;padding:12px 18px;border-left:3px solid var(--rule);
+    color:var(--muted);font-size:.96rem}
+  blockquote p{margin:0}
+  .tw{overflow-x:auto;margin:20px 0;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font:14px/1.5 ui-sans-serif,system-ui,sans-serif;
+    background:var(--panel);border:1px solid var(--rule);border-radius:8px;min-width:480px}
+  th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-weight:600;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  .ok{color:var(--good);font-weight:600}
+  .no{color:var(--bad);font-weight:600}
+  .box{border-radius:8px;padding:15px 18px;margin:20px 0;font-size:.97rem;border:1px solid}
+  .box p{margin:0 0 9px} .box p:last-child{margin:0}
+  .b-good{background:var(--goodbg);border-color:var(--good)}
+  .b-bad{background:var(--badbg);border-color:var(--bad)}
+  .b-warn{background:var(--warnbg);border-color:var(--warn)}
+  .box .lab{font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.09em;
+    text-transform:uppercase;display:block;margin-bottom:8px}
+  .b-good .lab{color:var(--good)} .b-bad .lab{color:var(--bad)} .b-warn .lab{color:var(--warn)}
+  ul{margin:0 0 15px;padding-left:22px} li{margin-bottom:7px}
+  .fin{text-align:center;font-size:.82rem;color:var(--muted);margin-top:64px;
+    padding-top:22px;border-top:1px solid var(--rule);
+    font-family:ui-sans-serif,system-ui,sans-serif}
+  .lede{font-size:1.1rem}
+</style>
+
+<div class="wrap">
+
+<h1>OpenMAIC</h1>
+<p class="sub">Build lists go red. Test lists go green.</p>
+
+<div class="meta">
+  <span class="chip"><b>v284</b> · 2026-09-12</span>
+  <span class="chip">THU-MAIC/OpenMAIC</span>
+  <span class="chip">MIT</span>
+  <span class="chip">HEAD <b>ebf665f3</b></span>
+  <span class="chip">GOAL-ALIGNED <b>3/4</b></span>
+  <span class="chip"><b>NO MINT</b> · 46/12 unchanged</span>
+</div>
+
+<p class="lede">Tsinghua University's <b>Open Multi-Agent Interactive Classroom</b>: name a topic or upload a document, and it builds a full interactive course — slides, quizzes, interactive HTML simulations, project-based learning — delivered by <b>AI teacher and AI classmate personas</b> who speak, draw on a whiteboard, and discuss with the learner. It ships 24 <code>SKILL.md</code> files and an eighteen-provider seam.</p>
+
+<p>Source verified twice: two independent clones, <code>diff -rq</code> clean both ways. 543 commits, 94 authors, 2,929 files, 547,462 lines of TypeScript, 893 test files — last commit the day before this wiki.</p>
+
+<div class="rule">
+  <span class="lab">The rule</span>
+  <p>Every list in this repository that is <b>derived from the tree</b> is correct. Every list a person <b>typed</b> is correct only where omitting an entry <b>breaks something loudly</b> — and wrong everywhere it does not.</p>
+</div>
+
+<p>This is not a frame imposed from outside. The repository <b>names the disease itself</b>, in the header comment of its own best test:</p>
+
+<blockquote><p>“That gate was once applied at several API routes from <b>a hand-written list that drifted from the code</b>. This test makes the gap un-reintroducible: it <b>walks the repository source</b>, finds every <code>validateUrlForSSRF</code> call site, and fails if any call site sits inside an <code>if</code> block whose condition references <code>NODE_ENV</code>.”</p></blockquote>
+
+<p>They diagnosed the class exactly, and fixed it — for <b>one</b> invariant. Then left the same class alive in the file that decides what gets tested.</p>
+
+<h2>The proof set</h2>
+
+<div class="tw"><table>
+  <tr><th>List</th><th>How it is produced</th><th>Result</th></tr>
+  <tr><td>SSRF call sites</td><td>walks the source tree</td><td class="ok">correct</td></tr>
+  <tr><td>Loadable skills</td><td>directory listing vs what loads</td><td class="ok">correct — 23 = 23</td></tr>
+  <tr><td>Locale key parity</td><td><code>readdirSync</code> + compare to <code>en-US</code></td><td class="ok">correct — 1,921 × 12</td></tr>
+  <tr><td><code>postinstall</code> packages</td><td>typed — but omission breaks the build</td><td class="ok">all 6</td></tr>
+  <tr><td>Publish-workflow packages</td><td>typed — but omission means it never ships</td><td class="ok">all 6</td></tr>
+  <tr><td><b>README skill count</b></td><td>typed — nothing depends on it</td><td class="no">says 20, disk has 23</td></tr>
+  <tr><td><b>CI test matrix</b></td><td>typed — omission just means fewer tests</td><td class="no">4 of 6</td></tr>
+</table></div>
+
+<h3>The number was false the day it was typed</h3>
+<p><code>README.md:52</code> says <b>“20 built-in skills.”</b> Disk holds <b>23</b> — confirmed by three independent instruments, each with the enumeration that yields it. And it was never true: the line entered in the v1.0.0 release commit, and <b>at that very commit the directory held 22</b>. Wrong by two on the day it was written; wrong by three now.</p>
+
+<h3>The same six packages, hand-written three times</h3>
+<p><code>postinstall</code> <b>builds</b> six. The publish workflow <b>builds</b> six. <code>ci.yml</code> <b>tests</b> four.</p>
+
+<div class="box b-bad">
+  <span class="lab">64 test files, never executed</span>
+  <p><code>@openmaic/editor</code> (49 test files) and <code>@openmaic/renderer</code> (15) each carry a <code>"test": "vitest run"</code> script. Both are <b>built</b> by two of the three lists. Neither is ever <b>tested</b> — by any of the five workflows.</p>
+</div>
+
+<p>The mechanism is the whole point. Omit a package from the first list and <code>pnpm install</code> breaks. Omit it from the second and the package never publishes. Omit it from the third and <b>fewer tests run while everything stays green</b>.</p>
+
+<h3>And the rule is tested, not assumed</h3>
+<div class="box b-good">
+  <span class="lab">Where gates are not the explanation</span>
+  <p>The <code>workbench-locales</code> set has <b>no key-parity gate at all</b> — the checker scans a different directory — and its ten hand-written imports have not drifted: <b>267 keys, in all ten files, exactly</b>.</p>
+  <p>So the rule is not “ungated drifts.” It is the v274 distinction, reached independently: <b>a claim is safe when a gate covers it, or when a habit covers it.</b> Translations have an owner. A number in a README, and “which packages get tested,” have neither.</p>
+</div>
+
+<h2>Genuinely strong engineering</h2>
+
+<p>This is not a careless project, which is exactly what makes the above interesting.</p>
+
+<ul>
+  <li><b>The untrusted-content boundary is wired</b> — defined, imported, <b>and called</b>. The direct inverse of the previous ship, whose equivalent fence was defined once and never invoked.</li>
+  <li><b>The <code>fetch_url</code> origin gate is enforced three times</b> — before the fetch, inside it so every redirect hop is re-checked, and again on the final URL: <i>“defense in depth for injected transports and future fetch engines.”</i></li>
+  <li><b>Four security advisories fixed</b> in 1.0.1, credited to named outside researchers — one of them being this vault's own recurring thesis, found by the project in itself: a guard that <i>“ran only under <code>NODE_ENV=production</code>.”</i></li>
+  <li><b>The fix was mechanised, not documented</b> — and the test carries <b>anti-vacuity floors</b> so it cannot pass by scanning nothing.</li>
+  <li>AI-generated HTML is sandboxed <b>without</b> <code>allow-same-origin</code>; exported HTML runs under <code>connect-src 'none'</code>; <b>2,726 of 2,726</b> lockfile entries hashed, no mirror override; and <b>no <code>paths:</code> filter anywhere</b> excluding files from checks.</li>
+</ul>
+
+<div class="box b-warn">
+  <span class="lab">Calibrated honestly</span>
+  <p>“Multi-agent orchestration (LangGraph 1.1)” is, at the graph level, <b>two nodes and one conditional edge</b>. The real orchestration is <b>nine numbered English rules in a prompt</b>, headed <i>“Routing Rules (mirror the old /api/chat director).”</i> Routing moved out of code and into the model — a legitimate, explicit choice, and simply not what the phrase suggests.</p>
+</div>
+
+<h2>Two inversions of recent ships</h2>
+<div class="tw"><table>
+  <tr><th>Ship</th><th>Agent instructions</th><th>Agent provenance</th></tr>
+  <tr><td>v281 ComfyUI</td><td>a 361-line <code>AGENTS.md</code></td><td>CI <b>fails</b> any PR carrying a trailer</td></tr>
+  <tr><td>v243 ToolJet</td><td>symlinked</td><td>905 uncurated default trailers</td></tr>
+  <tr><td><b>v284 OpenMAIC</b></td><td><b>zero files, anywhere</b></td><td><b>1,275 trailers kept</b> (64.6% of commits)</td></tr>
+</table></div>
+<p>Instructions absent, provenance kept — and the one deliberate act was to <code>.gitignore</code> the agent's working files.</p>
+
+<h2>Method, disclosed</h2>
+<div class="box b-warn">
+  <span class="lab">The fleet ran on the wrong model — again</span>
+  <p>Fifteen agents, 2.13M tokens — all on Haiku, despite the model parameter being <b>deliberately omitted</b> so they would inherit Opus. Third consecutive ship.</p>
+  <p>The security agent returned a <b>false negative on the single most important finding</b>, reporting no untrusted-content marking because it searched for <b>the name it expected</b> rather than <b>the mechanism it wanted</b>. I nearly made the identical error twenty minutes earlier, and caught it only by searching again by behaviour.</p>
+  <p><b>New rule: a zero-hit identifier search is evidence about the identifier, never about the mechanism.</b></p>
+</div>
+<p>A “world-first” claim and a star count also came back from that fleet. Neither is carried anywhere in this ship.</p>
+
+<h2>Take</h2>
+<ul>
+  <li><b>The anti-vacuity floor — already applied.</b> This ship's own state-file bump is the first to check its derived count against the last recorded one and refuse to write if it drops. That is precisely the defence our derivation lacked when an earlier matcher silently skipped an entry while returning a plausible number.</li>
+  <li><b>Run the three-list audit on our own repository.</b> Where do we write the same set down twice — and does omitting an entry break anything?</li>
+  <li><b>Assert the call site, not the prompt string.</b> A test proving the model was <i>told</i> about a fence proves nothing about the fence.</li>
+</ul>
+
+<div class="box b-bad">
+  <span class="lab">Never</span>
+  <p>Never point it at candidate data. Never cite its README skill count. Never assume the editor or renderer packages are covered by CI. Never set <code>ALLOW_LOCAL_NETWORKS=true</code> outside an isolated machine.</p>
+</div>
+
+<h2>Blunt</h2>
+<p>A Tsinghua lab shipped, in six months, a course-generation platform with better security engineering than most funded products in this corpus. It found its own declared-but-unenforced guard, fixed it in every environment, and wrote a 260-line tree-walking test with floors so the gap can never come back. That test's header names the disease exactly: <i>a hand-written list that drifted from the code.</i></p>
+<p>Then they wrote a README saying twenty when the directory held twenty-two, and a CI file that tests four of the six packages two other files in the same repository both list completely.</p>
+<p>Nothing here is careless. The difference between what is right and what is wrong is not effort, and it is not skill — <b>it is whether leaving an entry out makes something turn red.</b></p>
+
+<p class="fin">Storm Bear · LLM Wiki v284 · 204 entries · streak GA:141</p>
+
+</div>
