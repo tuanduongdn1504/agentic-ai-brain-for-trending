@@ -106,6 +106,11 @@ def parse_queue() -> tuple[list[dict], str]:
         status_match = re.search(r"\*\*Status:\*\*\s*(\w+)", block)
         status = status_match.group(1).lower() if status_match else "unknown"
         if status != "pending":
+            # Log it. A topic dropped here has a valid **Query:** and may have anchors,
+            # so "Pending topics: 0" alone is indistinguishable from an empty queue —
+            # which is exactly how a correctly-written topic went missing without a word.
+            # status == "unknown" means no **Status:** line was found at all.
+            log(f"  skip (Status is {status!r}, not 'pending'): {heading}")
             continue
         # extract anchor URLs (force-include in NotebookLM bundle, bypass yt-search ranking).
         # Format in queue:
