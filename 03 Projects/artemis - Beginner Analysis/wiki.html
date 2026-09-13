@@ -1,0 +1,478 @@
+<title>Computed or Asserted</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F6F7F6; --panel:#FFFFFF; --sunk:#EDEFEE;
+  --ink:#16201F; --ink-2:#495755; --ink-3:#788785;
+  --rule:#D8DEDC; --rule-2:#C3CCC9;
+  --computed:#127A6B;      /* holds  */
+  --asserted:#B0651A;      /* fails  */
+  --critical:#A8321F;
+  --computed-wash:#E4F1EE; --asserted-wash:#F8EEE1; --critical-wash:#F8E7E3;
+  --shadow:0 1px 2px rgba(22,32,31,.06),0 8px 24px -16px rgba(22,32,31,.28);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0E1413; --panel:#161D1C; --sunk:#111817;
+  --ink:#E6EDEB; --ink-2:#A5B3B0; --ink-3:#76837F;
+  --rule:#26302E; --rule-2:#35403D;
+  --computed:#4FC9B4; --asserted:#E2984A; --critical:#E8705A;
+  --computed-wash:#10312C; --asserted-wash:#31230F; --critical-wash:#341713;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -18px rgba(0,0,0,.8);
+}}
+:root[data-theme="dark"]{
+  --ground:#0E1413; --panel:#161D1C; --sunk:#111817;
+  --ink:#E6EDEB; --ink-2:#A5B3B0; --ink-3:#76837F;
+  --rule:#26302E; --rule-2:#35403D;
+  --computed:#4FC9B4; --asserted:#E2984A; --critical:#E8705A;
+  --computed-wash:#10312C; --asserted-wash:#31230F; --critical-wash:#341713;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:16.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:68ch}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;text-wrap:balance;margin:0}
+code,.mono,time,.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+code{font-size:.87em;background:var(--sunk);padding:.1em .35em;border-radius:3px;color:var(--ink)}
+a{color:var(--computed)}
+
+/* ---- masthead ---- */
+header{padding:56px 0 34px;border-bottom:2px solid var(--ink);margin-bottom:40px}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:14px;margin-bottom:22px}
+h1{font-size:clamp(2.6rem,6.4vw,4.3rem);font-weight:700;line-height:.97;letter-spacing:-.022em}
+.sub{margin-top:18px;font-size:1.17rem;color:var(--ink-2);max-width:60ch;line-height:1.5}
+.sub em{color:var(--ink);font-style:italic}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--panel)}
+.fact{flex:1 1 130px;padding:13px 16px;border-right:1px solid var(--rule)}
+.fact:last-child{border-right:0}
+.fact .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.fact .v{font-family:"IBM Plex Mono",monospace;font-size:1.12rem;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+
+/* ---- sections ---- */
+section{margin-top:54px}
+h2{font-size:1.62rem;font-weight:600;letter-spacing:-.012em;margin-bottom:6px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
+p{margin:0 0 15px}
+.lede{font-size:1.08rem;color:var(--ink-2)}
+
+/* ---- the thesis ---- */
+.thesis{border-left:4px solid var(--ink);padding:6px 0 6px 24px;margin:30px 0 34px}
+.thesis p{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:clamp(1.3rem,2.9vw,1.75rem);line-height:1.32;font-weight:500;margin:0;text-wrap:balance}
+.thesis .c{color:var(--computed);font-weight:700}
+.thesis .a{color:var(--asserted);font-weight:700}
+
+/* ---- ledger ---- */
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+@media(max-width:720px){.ledger{grid-template-columns:1fr}}
+.side{background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.side>h3{font-size:.95rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:12px 18px;color:var(--panel)}
+.side.ok>h3{background:var(--computed)}
+.side.no>h3{background:var(--asserted)}
+.side ul{list-style:none;margin:0;padding:6px 0}
+.side li{padding:10px 18px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.45}
+.side li:last-child{border-bottom:0}
+.side li b{font-weight:600;display:block;font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.01em}
+.side.ok li b{color:var(--computed)}
+.side.no li b{color:var(--asserted)}
+.side li span{color:var(--ink-2)}
+
+/* ---- timeline: real sequence, order carries meaning ---- */
+.tl{margin-top:26px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);overflow:hidden}
+.tl-row{display:grid;grid-template-columns:104px 96px 1fr;gap:0;border-bottom:1px solid var(--rule)}
+.tl-row:last-child{border-bottom:0}
+@media(max-width:640px){.tl-row{grid-template-columns:92px 1fr}.tl-row .sha{display:none}}
+.tl-row>div{padding:12px 14px}
+.tl-row .t{font-family:"IBM Plex Mono",monospace;font-size:.84rem;color:var(--ink-2);background:var(--sunk);border-right:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.tl-row .sha{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--ink-3);border-right:1px solid var(--rule)}
+.tl-row .what{font-size:.93rem;line-height:1.45}
+.tl-row .what em{font-style:italic;color:var(--ink-2)}
+.tl-row.mark{background:var(--asserted-wash)}
+.tl-row.mark .t{background:var(--asserted-wash)}
+.gap{display:flex;align-items:center;gap:12px;padding:9px 14px;background:var(--ink);color:var(--ground);font-family:"IBM Plex Mono",monospace;font-size:.85rem;letter-spacing:.05em;font-weight:600}
+
+/* ---- callouts ---- */
+.note{border:1px solid var(--rule);border-left:3px solid var(--computed);background:var(--panel);border-radius:6px;padding:16px 20px;margin:22px 0;font-size:.95rem}
+.note.warn{border-left-color:var(--asserted)}
+.note.crit{border-left-color:var(--critical)}
+.note .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--computed);font-weight:600;display:block;margin-bottom:6px}
+.note.warn .lbl{color:var(--asserted)}
+.note.crit .lbl{color:var(--critical)}
+.note p:last-child{margin-bottom:0}
+
+/* ---- chain ---- */
+.chain{margin-top:22px;display:flex;flex-direction:column;gap:0;border:1px solid var(--critical);border-radius:8px;overflow:hidden;background:var(--panel)}
+.chain-step{display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--rule);align-items:baseline}
+.chain-step:last-child{border-bottom:0;background:var(--critical-wash)}
+.chain-step .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;font-weight:600;color:var(--critical);flex:0 0 auto;width:1.4em}
+.chain-step .d{font-size:.93rem;line-height:1.45}
+.chain-step .d code{font-size:.84em}
+
+/* ---- table ---- */
+.tblwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--rule)}
+th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;padding:2px 7px;border-radius:3px;font-weight:600;white-space:nowrap}
+.tag.no{background:var(--asserted-wash);color:var(--asserted)}
+.tag.ok{background:var(--computed-wash);color:var(--computed)}
+
+/* ---- never list ---- */
+.nevers{margin-top:22px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.nev{background:var(--panel);padding:14px 18px;display:flex;gap:14px;align-items:baseline;font-size:.93rem;line-height:1.45}
+.nev .x{color:var(--critical);font-weight:700;font-family:"IBM Plex Mono",monospace;flex:0 0 auto}
+
+.verdict{margin-top:54px;border-top:2px solid var(--ink);padding-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-bottom:1px solid var(--rule)}
+.vcell{padding:14px 18px 20px;border-right:1px solid var(--rule)}
+.vcell:last-child{border-right:0}
+.vcell .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.vcell .v{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.32rem;font-weight:600;margin-top:4px;line-height:1.2}
+
+footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--rule);font-size:.87rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 22px;font-family:"IBM Plex Mono",monospace}
+.blunt{margin-top:46px;background:var(--panel);border:1px solid var(--rule-2);border-radius:8px;padding:28px 30px;box-shadow:var(--shadow)}
+.blunt h2{margin-bottom:12px}
+.blunt p:last-child{margin-bottom:0;font-weight:500;color:var(--ink)}
+:focus-visible{outline:2px solid var(--computed);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){section{animation:r .5s ease both}@keyframes r{from{opacity:.55}to{opacity:1}}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="kicker">
+    <span>LLM Wiki v285</span><span>2026-09-13</span><span>google/artemis</span><span>Apache-2.0</span><span>HEAD 371aa6df</span>
+  </div>
+  <h1>Computed<br>or Asserted</h1>
+  <p class="sub"><strong>ARTEMIS</strong> — <em>“Let AI assistants and test suites use real phones like a human.”</em> An Android device-control agent with a native MCP server, written almost entirely by one person in twenty-nine days, inside Google’s own GitHub organisation.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">Commits</div><div class="v">119</div></div>
+    <div class="fact"><div class="k">One author</div><div class="v">89.9%</div></div>
+    <div class="fact"><div class="k">Python lines</div><div class="v">159,769</div></div>
+    <div class="fact"><div class="k">Test fns</div><div class="v">2,063</div></div>
+    <div class="fact"><div class="k">Run on PR</div><div class="v">0</div></div>
+    <div class="fact"><div class="k">Tags</div><div class="v">0</div></div>
+  </div>
+</header>
+
+<section class="col">
+  <div class="eyebrow">The rule</div>
+  <h2>Nothing here is careless</h2>
+  <div class="thesis">
+    <p>This repository is rigorous about everything it can <span class="c">compute</span> and silent or wrong about everything it can only <span class="a">assert</span> — and because the assertions are unusually well written, they read as guarantees.</p>
+  </div>
+  <p>The computed parts are genuinely excellent; several are the best in twenty ships. The asserted parts are false in the specific way that good prose is false: nobody re-reads a sentence that already sounds right.</p>
+  <p>Which is which is predictable. Statements <strong>co-located with the thing they describe</strong> are correct — all twenty <code>mobile-use</code> attribution headers, living inside the files they describe. Statements living <strong>in a different file from their subject</strong> are wrong: the CI claim in <code>CONTRIBUTING.md</code>, <code>change-in-prod</code> in a config, a 99% figure in a README describing a harness that had already been deleted.</p>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Evidence</div>
+    <h2>The ledger</h2>
+    <p class="lede">Every mechanism that walks the tree holds. Every sentence that describes the tree does not.</p>
+  </div>
+  <div class="ledger">
+    <div class="side ok">
+      <h3>Computed — holds</h3>
+      <ul>
+        <li><b>check_dependency_sources.py</b><span>Walks every locked artifact, asserts registry <em>and</em> scheme, runs before install.</span></li>
+        <li><b>quality_ratchet.py</b><span>AST walk. Baseline 754 / 0 / 18 — exact at HEAD, zero headroom.</span></li>
+        <li><b>2,788 sha256 hashes</b><span>1:1 with artifacts, throughout every leak.</span></li>
+        <li><b>Pre-execution safety net</b><span>UI-hierarchy check plus a VLM comparison of the target crop before the tap lands.</span></li>
+        <li><b>secrets.compare_digest</b><span>Constant-time OTP comparison, textbook correct.</span></li>
+        <li><b>Zero telemetry</b><span>No analytics, no phone-home. Only the model endpoints you configure.</span></li>
+        <li><b>8 nodes / 6 edges / 3 conditional</b><span>“Graph orchestration” is a real state machine, not a prompt.</span></li>
+      </ul>
+    </div>
+    <div class="side no">
+      <h3>Asserted — false</h3>
+      <ul>
+        <li><b>“same suite used by pull-request CI”</b><span>Python tests never run on a pull request.</span></li>
+        <li><b>JWT_SECRET_KEY = “…change-in-prod”</b><span>Still the default. Published in git.</span></li>
+        <li><b># Bypass code for dev/test</b><span>Gated on truthiness, never on environment.</span></li>
+        <li><b>APP_ENV</b><span>Set to <code>production</code> in both deploy files. Never once used in a conditional.</span></li>
+        <li><b>“secure tenant separation”</b><span>Asserted in the README of the component whose signing key is public.</span></li>
+        <li><b>locked_app_package</b><span>Its accessor has zero call sites, tests included.</span></li>
+        <li><b>“99%+ SOTA on AndroidWorld”</b><span>One PNG. No harness, no dependency, no methodology.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Finding 01 · the benchmark</div>
+    <h2>The claim and its evidence were never in the repository at the same time</h2>
+    <p>The initial release shipped a real AndroidWorld harness — 157 lines calling the benchmark’s own ground-truth <code>task_instance.is_successful(env)</code> — and made no claim at all. Five days later, one commit deleted the harness and added the claim.</p>
+  </div>
+  <div class="tl">
+    <div class="tl-row"><div class="t">08-13</div><div class="sha">206a9ce9</div><div class="what"><em>“initial release of ARTEMIS”</em> — ships <code>bench.py</code>, 157 lines. README claims: <strong>zero</strong>.</div></div>
+    <div class="tl-row mark"><div class="t">08-18</div><div class="sha">9a5aaf9</div><div class="what"><em>“introduce MCP server, cross-platform runtime…”</em> — <strong>D</strong> <code>bench.py</code> · <strong>M</strong> README · <strong>A</strong> leaderboard PNG. The message mentions neither.</div></div>
+    <div class="tl-row"><div class="t">08-25</div><div class="sha">4bf1160</div><div class="what"><em>“refresh AndroidWorld benchmark visual”</em> — strips the image of its date, its source line, and all twelve model labels. Keeps ranks, names, percentages.</div></div>
+  </div>
+  <div class="col">
+    <div class="note warn"><span class="lbl">Three facts, each verified</span>
+      <p><code>android_world</code> appears in <strong>none of the 196</strong> locked packages. The deleted harness <strong>never computed a percentage</strong> — it logged per-task booleans with no accumulator, so no code that has ever been in this repository could produce “99.1%”. And <code>docs/</code> contains <strong>zero prose</strong>: 21 files, all assets.</p>
+    </div>
+    <div class="note"><span class="lbl">Stated fairly</span>
+      <p>The redesigned image is lighter and matches an architecture diagram added in the same commit; decluttering is a plausible motive and intent is not established. The <em>effect</em> is certain and does not depend on intent. Sharper still: in the original, fully-sourced chart every competitor’s model stack is named — <code>Gemini 3 Pro + Claude Sonnet 4.5</code>, <code>GPT-5 + Gemini 2.5 Pro</code> — while ARTEMIS’s own row says only “Closed-Loop Multi-Agent · Self-Healing”. The one row needing disclosure never had it.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Finding 02 · the eighty minutes</div>
+    <h2>One commit created the CI and the sentence describing it</h2>
+    <p>At <code>67248c8</code> the claim was not loosely true — it was <em>exactly</em> true. <code>make test</code> is bare <code>uv run pytest</code>, whose <code>testpaths</code> are precisely the three paths CI passed explicitly, under the same hermetic filter. Same collected set.</p>
+  </div>
+  <div class="tl">
+    <div class="tl-row"><div class="t">21:43:57</div><div class="sha">67248c8</div><div class="what">Creates <code>.github/workflows/ci.yml</code> — <code>.github</code> did not exist before — <strong>and</strong> adds to <code>CONTRIBUTING.md</code>: <em>“This is the same suite used by pull-request CI.”</em> Test step: <strong>no gate</strong>.</div></div>
+    <div class="gap"><span>+1 h 20 m 22 s</span></div>
+    <div class="tl-row mark"><div class="t">23:04:19</div><div class="sha">5821010</div><div class="what"><em>“ci: run Python tests only on manual dispatch”</em> — adds <code>if: github.event_name == 'workflow_dispatch'</code>. Diff: <strong>1 file, 1 insertion.</strong></div></div>
+  </div>
+  <div class="col">
+    <p style="margin-top:20px">That <code>if:</code> is the <strong>only one in the entire file</strong>. The sentence never described a CI that existed for longer than eighty minutes, and it has stood wrong for the eleven days since.</p>
+    <div class="note warn"><span class="lbl">Two qualifiers I got wrong first time</span>
+      <p><strong>More executes than “counters” implies.</strong> <code>frontend</code> runs <code>npm test</code> unconditionally (12 specs, 128 <code>it(</code>); <code>package</code> builds wheels and smoke-tests the CLI; CI runs two of the repo’s own Python scripts. Python executes — just never a test.</p>
+      <p>And a further <strong>24 integration + 7 e2e</strong> functions run under no CI event at all — though that is the <em>documented</em> design, since they need devices and credentials. It is the <em>deterministic</em> suite, the one the docs call required, that was switched off. The Angular frontend stayed test-gated; the Python core did not.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Finding 03 · the supply chain</div>
+    <h2>Leaked three times, always inside a commit about something else</h2>
+    <p>The published lockfiles pointed at <code>http://airlock-proxy.uplink.goog:999/…</code> — a Google-internal host over plaintext HTTP.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Commit</th><th>Leak</th><th>Title</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">9a5aaf9</td><td class="n">2,955 lines</td><td><em>“feat: introduce MCP server, cross-platform runtime…”</em></td></tr>
+        <tr><td class="mono">7b00560</td><td class="n">→ 0</td><td><strong>“delet uv.lock”</strong> — deletes the file</td></tr>
+        <tr><td class="mono">d23a4f6</td><td class="n">1 of 625</td><td><em>“feat: handle mid-stream LLM resets…”</em> (npm)</td></tr>
+        <tr><td class="mono">3047c9c</td><td class="n">2,982 lines</td><td><em>“Fix Python code format check issues”</em> → merged via PR #24</td></tr>
+        <tr><td class="mono">0860788</td><td class="n">→ 0</td><td>“use public dependency sources” <strong>+ the gate</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="note warn" style="margin-top:22px"><span class="lbl">Not one title contains “dependency” or “lockfile”</span>
+      <p>The first fix removed the <em>instance</em> — by deleting the file. The class returned twice, the second time through a reviewed pull request. The npm leak is the instructive one: <strong>a single poisoned entry among 625</strong>. Nobody spots one line in a lockfile, and nobody reads a 6,000-line diff.</p>
+    </div>
+    <div class="note"><span class="lbl">Severity, fairly</span>
+      <p>All artifacts were <code>sha256</code>-pinned throughout and <code>uv</code> verifies hashes. This was availability and internal-infrastructure disclosure, <strong>not</strong> an integrity compromise.</p>
+    </div>
+    <div class="note warn"><span class="lbl">And the gate they finally wrote</span>
+      <p>It is very good — 68 stdlib-only lines so it can run before installation, checking the scheme as well as the host. But it is invoked at <strong>exactly one place tree-wide</strong>: inside <code>python-quality</code>, <strong>the only job that never installs npm</strong>. The two jobs that do run <code>npm ci</code> never call it, and there is no <code>needs:</code> to sequence them.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Finding 04 · the trust boundary</div>
+    <h2>Described in detail, computed nowhere — and the description is the exploit</h2>
+    <p>The operator prompt is 25,027 bytes of genuinely superior thinking about the agent not deceiving itself: <em>“never write an action’s expected outcome as if it had already been observed”</em>, <em>“never construct state to satisfy”</em> an assertion. Word counts in those bytes: <code>password</code> 0 · <code>payment</code> 0 · <code>privacy</code> 0 · <code>personal</code> 0 · <code>refuse</code> 0.</p>
+    <p>It is a magnificent document about truthfulness that contains nothing at all about harm — on an agent that taps a phone logged into mail, messages, photos and banking.</p>
+  </div>
+  <div class="chain">
+    <div class="chain-step"><div class="n">1</div><div class="d">The prompt declares the screenshot <strong>“the primary source of truth”</strong>, and tells the model a <code>--- User Guidance ---</code> block in its observation <strong>“outranks the task plan”</strong>.</div></div>
+    <div class="chain-step"><div class="n">2</div><div class="d">OCR and accessibility text enter that same observation <strong>with no escaping of the <code>---</code> delimiters</strong>. Any app rendering that literal string issues a privileged instruction.</div></div>
+    <div class="chain-step"><div class="n">3</div><div class="d"><code>open_link</code> — one of the twelve actions the model may emit — reaches <code>execute_shell(f"… -d '{url}'")</code> unescaped at <code>unified_controller.py:224</code>, while <code>shlex.quote</code> is used twice elsewhere in the codebase.</div></div>
+    <div class="chain-step"><div class="n">→</div><div class="d"><strong>Text on the screen of an arbitrary app becomes arbitrary <code>adb shell</code> execution on the device.</strong></div></div>
+  </div>
+  <div class="col">
+    <div class="note crit" style="margin-top:22px"><span class="lbl">And the absence is test-enforced</span>
+      <p>The only occurrence of the phrase <em>“Untrusted Screen Content &amp; Instruction Priority”</em> anywhere in the tree is a unit test <strong>asserting it is not in the prompt</strong> — and the word <em>trust</em> is in the test’s own name. The fair reading is that the block existed in an internal build and this is a do-not-reintroduce guard. Either way a regression test now actively prevents the boundary from coming back.</p>
+      <p style="margin-top:10px"><strong>And that test does not run on push or pull request.</strong> A test that forbids adding a safety boundary, which never executes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Finding 05 · the fence</div>
+    <h2>locked_app_package locks nothing, and the proof is one line</h2>
+    <p><code>git grep "get_locked_app_package"</code> over the entire repository, tests included, returns <strong>exactly one line: the <code>def</code> itself</strong>. Zero call sites. The lock is applied at launch and never again.</p>
+    <div class="note crit"><span class="lbl">The sharpest detail</span>
+      <p><code>data_engine/engine.py:901-909</code> <strong>stamps the foreground package onto every recorded step</strong>, for the search surface. The value is measured every step, written to the database, and never once compared against the fence that exists to constrain it.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Corrections</div>
+    <h2>What adversarial checking changed</h2>
+    <p class="lede">Claims I held by hand were sent to refuters, and I re-checked my own greps afterwards. Most came back partly refuted, and the corrected versions are sharper than what they replaced. <strong>The last two I found by auditing myself.</strong></p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>I had</th><th>Actually</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>One author at 84.9%</td><td>Two identities, same person — <strong>89.9%</strong></td><td><span class="tag no">fixed</span></td></tr>
+        <tr><td>“Only 3 Google commits”</td><td>8 by identity, <strong>16.6% of insertions</strong>, two whole subsystems</td><td><span class="tag no">fixed</span></td></tr>
+        <tr><td>“Best attribution discipline”</td><td>Added <strong>in HEAD itself</strong>; zero credit at <code>HEAD~1</code></td><td><span class="tag no">inverted</span></td></tr>
+        <tr><td><code>uv.lock</code> 3,097 / 3,026</td><td><strong>3,025 / 3,025</strong> — I quoted a 3-file diffstat</td><td><span class="tag no">fixed</span></td></tr>
+        <tr><td>2,063 behind the gate</td><td><strong>2,032</strong>; 31 more run under no event at all</td><td><span class="tag no">fixed</span></td></tr>
+        <tr><td>Two dependency leaks</td><td><strong>Three</strong> — an npm entry was missed</td><td><span class="tag no">added</span></td></tr>
+        <tr><td>Fleet: “7 silent handlers”</td><td><strong>1</strong>, and benign — did not replicate</td><td><span class="tag ok">rejected</span></td></tr>
+        <tr><td>“Zero hits for the removed upstream authors”</td><td>A grep of <strong>HEAD only</strong>. All 119 commits finds a deleted <code>NOTICE</code> naming <strong>eight</strong> people and a <strong>second</strong> upstream</td><td><span class="tag no">overturned</span></td></tr>
+        <tr><td>Viral: “228 of 229 files identical”</td><td><strong>74</strong> shared paths, <strong>2</strong> byte-identical — not supported</td><td><span class="tag ok">rejected</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="note"><span class="lbl">Method rule earned here</span>
+      <p>A refinement of v284’s: <em>a zero-hit identifier search is evidence about the identifier, never about the mechanism</em> — <strong>and a high-hit search is exactly as uninformative</strong>. Twenty hits on “injection” in this codebase, every one of them dependency injection. One hit on “Untrusted Screen Content”, and it was the negation.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Attribution — the dispute</div>
+    <h2>Two upstreams, one NOTICE, one revert — and only one survives</h2>
+    <p class="lede">Minitap, Inc. <strong>alleges</strong> ARTEMIS derives from their Apache-2.0 <code>mobile-use</code> with authorship removed. That is a claim by a party to a dispute. Everything below marked <span class="c">verified</span> I measured myself from two clones; the one web-sourced item is labelled as such. I checked the exculpatory half as carefully as the incriminating half.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Verified from the tree</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td>Root commit declares <code>version = "3.6.3"</code> — mobile-use’s own release tag — in a commit titled <em>“initial release”</em></td><td><code>git show 206a9ce9:pyproject.toml</code></td></tr>
+        <tr><td><code>hopper.md</code> at the root commit is <strong>byte-identical</strong> to mobile-use v3.6.3</td><td><code>cmp</code> / sha256 <code>7335d897…</code></td></tr>
+        <tr><td>The root tree holds <strong>0</strong> references to Minitap or mobile-use, anywhere</td><td><code>git grep</code> at <code>206a9ce9</code></td></tr>
+        <tr><td>Artemis’s <code>LICENSE</code> replaced mobile-use’s <code>Copyright 2025 Minitap, Inc</code> appendix with <code>Copyright 2026 Google LLC.</code></td><td><code>diff</code> of both LICENSE files</td></tr>
+        <tr><td>mobile-use ships a <code>NOTICE</code> with an explicit <strong>ATTRIBUTION REQUEST</strong></td><td>read from the clone</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="note"><span class="lbl">No legal conclusion</span>
+      <p>Whether Apache-2.0 §4(c)/§4(d) is satisfied is a question for lawyers. The facts above are mechanical; the verdict is not mine to render.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">The controlled experiment</div>
+    <h2>A NOTICE that lived 3 hours 12 minutes, in 1 of 119 commits</h2>
+    <p>Enumerated commit by commit — never <code>grep -c</code>. All times 2026-09-11, the repository’s final day.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Time</th><th>Commit</th><th>Who</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>16:19:42</td><td><code>54fcef9</code></td><td>somew1nd</td><td>“…<strong>rename hopper to entity_extractor</strong>, and <strong>add third-party notices</strong>” — <code>NOTICE</code> created</td></tr>
+        <tr><td>19:32:22</td><td><code>1d82d59</code></td><td><strong>yaoyao-open-source</strong> <em>(different person)</em></td><td><code>Revert "…"</code> → <span class="tag no">D NOTICE</span></td></tr>
+        <tr><td>19:37:23</td><td><code>1d9eb44</code></td><td>somew1nd</td><td>Merge PR #60</td></tr>
+        <tr><td><em>19:39:39</em></td><td>—</td><td><em>web-sourced</em></td><td><em>Hacker News story created — 7 minutes after the revert</em></td></tr>
+        <tr><td>19:59:21</td><td><code>371aa6d</code> <strong>= HEAD</strong></td><td>somew1nd</td><td>“per Apache 2.0 requirements” — <strong>21 per-file headers</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p>That deleted <code>NOTICE</code> credited <strong>two</strong> upstream projects and <strong>eight</strong> named individuals: mobile-use (Minitap, Inc. + Favreau, Jean-Pierre Lo, Dehandschoewercker, Guiguet, Karun Agarwal) <em>and</em> <code>finalrun-agent</code> (FinalRun Inc. + Ashish Yadav, Arnold Laishram, Srinidhi G S). Per-file headers were then added for <strong>one</strong> of them.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>At HEAD</th><th>Hits</th><th>Files</th></tr></thead>
+      <tbody>
+        <tr><td>Credited <strong>inside the files</strong> — Minitap / mobile-use</td><td><strong>44</strong></td><td><span class="tag ok">23</span></td></tr>
+        <tr><td>Credited <strong>only in the central file</strong> — finalrun-agent</td><td><strong>0</strong></td><td><span class="tag no">0</span></td></tr>
+        <tr><td>The <strong>eight named individuals</strong></td><td><strong>0</strong></td><td><span class="tag no">0</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="thesis" style="margin:26px 0 0">
+      <p>Attribution written <span class="c">inside the files it describes</span> survived a revert aimed at something else. Attribution written <span class="a">in a file of its own</span> died with that file — and took a second company and eight people with it.</p>
+    </div>
+    <p style="margin-top:22px">Nobody decided to erase finalrun-agent. The notices were bundled into a commit that also performed a breaking rename; a colleague reverted the whole commit, almost certainly for the rename; the compliance fix was collateral. <strong>The commit boundary decided what attribution survived.</strong></p>
+    <div class="note"><span class="lbl">Effect certain, intent not</span>
+      <p>The revert <strong>precedes</strong> the Hacker News story by seven minutes, so <em>“HN forced the fix”</em> is not supported. The final commit lands twenty minutes after it. I state the ordering and decline to assert motive — the same discipline applied to the stripped leaderboard image.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">For fairness</div>
+    <h2>The viral “228 of 229 files” figure does not survive the trees</h2>
+    <p class="lede">229 is simply the artemis root tree’s own file count. I measured the rest myself rather than repeat either side.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>artemis root tree vs mobile-use v3.6.3</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Files in the artemis root tree</td><td><strong>229</strong></td></tr>
+        <tr><td>Files in mobile-use v3.6.3</td><td><strong>169</strong></td></tr>
+        <tr><td>Shared paths after normalising the <code>minitap/mobile_use/</code> → <code>artemis/</code> rename</td><td><strong>74</strong></td></tr>
+        <tr><td><strong>Byte-identical</strong></td><td><span class="tag ok">2</span></td></tr>
+        <tr><td>Identical after stripping rename + comment headers (≤20% line delta)</td><td>13</td></tr>
+        <tr><td>Substantially different</td><td><strong>59</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p>At most <strong>74 of 229</strong> files could even be compared, and <strong>2</strong> are byte-identical. The figure is not supported.</p>
+    <div class="note"><span class="lbl">Recorded because it indicts our method</span>
+      <p>Not to exonerate anyone. It is exactly the kind of vivid number that travels — and exactly the kind this wiki would be embarrassed to repeat unchecked.</p>
+    </div>
+    <div class="thesis" style="margin:26px 0 0">
+      <p>The copyright that could be <span class="c">stamped</span> was right on day one. The credit that required <span class="a">knowing something</span> took twenty-nine days — and reached one of the two upstreams it owed.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <div class="eyebrow">Pilot</div>
+    <h2>Read and borrow. Install nothing.</h2>
+  </div>
+  <div class="nevers">
+    <div class="nev"><span class="x">✕</span><span><strong>Never cite the 99%+ AndroidWorld figure</strong> in any form. No harness, no dependency, no methodology, no model named.</span></div>
+    <div class="nev"><span class="x">✕</span><span><strong>Never point it at a phone holding real accounts.</strong> No untrusted-content boundary, no approval gate, and a documented escalation token.</span></div>
+    <div class="nev"><span class="x">✕</span><span><strong>Never rely on <code>locked_app_package</code></strong> as a fence. Its accessor has zero call sites.</span></div>
+    <div class="nev"><span class="x">✕</span><span><strong>Never deploy <code>playground/backend_manager/</code> as shipped</strong> — published JWT key, <code>123456</code> OTP bypass, Docker socket mounted into a root container.</span></div>
+    <div class="nev"><span class="x">✕</span><span><strong>Never assume its tests ran.</strong> They do not run on push or pull request.</span></div>
+    <div class="nev"><span class="x">✕</span><span><strong>Never wire it to candidate data.</strong> A screenshot pipeline over a phone is the worst possible surface for PII.</span></div>
+  </div>
+  <div class="col">
+    <div class="note" style="margin-top:22px"><span class="lbl">Worth taking</span>
+      <p><strong>The shape of <code>check_dependency_sources.py</code>:</strong> walk the lockfile, assert the scheme as well as the host, and run before the install — a supply-chain check that runs after you have installed is theatre.</p>
+      <p style="margin-top:10px"><strong>The anti-self-deception clauses</strong> into <code>hireui/evals/METHOD.md</code> — especially <em>“take no extra actions for <code>assert:</code> lines and never construct state to satisfy one”</em>, the best anti-gaming clause in the corpus. Take the negative lesson with it: a prompt can be rigorous about epistemics and completely silent about harm.</p>
+    </div>
+  </div>
+</section>
+
+<div class="verdict">
+  <div class="vcell"><div class="k">Rating</div><div class="v">Goal-aligned 3/4</div></div>
+  <div class="vcell"><div class="k">Mint</div><div class="v">No mint</div></div>
+  <div class="vcell"><div class="k">Counts</div><div class="v">46 / 12</div></div>
+  <div class="vcell"><div class="k">Streak</div><div class="v">GA:142 · OG:13</div></div>
+  <div class="vcell"><div class="k">Consecutive GA</div><div class="v">65</div></div>
+</div>
+
+<div class="blunt col">
+  <h2>Blunt</h2>
+  <p>A Google-owned repository, written almost entirely by one person in a month, built a device-control agent with a VLM that double-checks the target crop before a tap lands, a supply-chain gate better than anything in the last twenty ships, and an operator prompt so disciplined about self-deception it forbids the agent from claiming an outcome it has not observed.</p>
+  <p>Then it deleted its benchmark harness and added a 99% claim in the same commit; told contributors that pull-request CI runs a test suite it had switched off eighty minutes earlier; shipped a JWT signing key whose own value says <em>change-in-prod</em>; and wrote a unit test to keep the prompt-injection boundary out of the prompt — a test that never runs.</p>
+  <p>Every one of those failures is a sentence. Every one of the successes is a computation. The engineering is not the problem and the care is not in doubt — the problem is that this team, like most teams, proofreads its code and merely re-reads its prose.</p>
+</div>
+
+<footer>
+  <span>Source verified · twin clones · diff -rq clean both ways</span>
+  <span>git 2.50.1</span>
+  <span>Nothing installed, built or executed</span>
+  <span>“2,063 tests pass” — UNVERIFIED</span>
+</footer>
+</div>
