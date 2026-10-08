@@ -36,6 +36,30 @@ If either dep is missing, the failure surfaces from the called skill — yt-pipe
 
 ---
 
+## Caption-track discipline (added 2026-09-14, v82 CMA ship)
+
+**Always prefer the human-authored caption track. Fall back to ASR only when none exists.**
+
+```bash
+./bin/fetch-captions.sh <video-url-or-id> <out-basename> [lang]   # prints track=human|asr
+./.venv/bin/python bin/vtt-to-md.py <in.vtt> <out.md>             # labels the track, warns on ASR
+```
+
+YouTube exposes two kinds of track, and yt-dlp's flag picks which you get:
+
+| yt-dlp flag | `--list-subs` heading | Quality |
+|---|---|---|
+| `--write-subs` | **Available subtitles** | human-authored — safe to quote verbatim |
+| `--write-auto-subs` | Available automatic captions | ASR — names and terms garbled |
+
+**Both tracks emit `Kind: captions` in the VTT header, so the file does not announce which you got.** The discriminator is structural: ASR tracks carry inline `<c>` word-timing tags and `align:start position:` cue settings; human tracks carry neither. `vtt-to-md.py` detects this and stamps it in the output header.
+
+**Why this is enforced:** on the v82 anchor (`hm8NzEd5io0`, official Claude channel) the ASR track garbled the subject product's own name in **6 of 20** mentions ("Managed Agents" → "manage agents") and renamed a speaker (**Mihir** → "Mahir"), while the human track was 23/23 clean. Grading quotes against an ASR track manufactures FABRICATED-quote verdicts that are really transcription defects — the failure mode measured in the 2026-09-13 hermes rubric-reject audit, where a third to a half of graded "creator error" was speech recognition.
+
+**Never report a quote as fabricated, misattributed, or misspelled from an ASR track** without first checking whether a human track exists. A zero-hit search for a term in an ASR transcript is evidence about the transcript, not about the video.
+
+---
+
 ## Pipeline (5 steps, fully autonomous)
 
 ```

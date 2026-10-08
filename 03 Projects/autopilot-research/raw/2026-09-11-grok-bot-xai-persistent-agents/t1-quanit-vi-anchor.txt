@@ -1,0 +1,701 @@
+ 
+Hello hello. Hôm nay thì mình tìm được
+một cái sản phẩm blockchain mà nghe là
+có vẻ là hợp lý, có vẻ là xứng đáng để
+mình trải nghiệm thử. Đó làbot từ cái
+team XAI. Thì thật ra khi mà mình đọc về
+cái document của Crockbot á thì đây
+chính là cái ý tưởng. Đây chính là cái ý
+tưởng mà mình bị build từ xưa đó anh em.
+Mình đã mình đã bình buill cái thằng này
+từ [âm nhạc] từ lúc mà mới về chóm cái
+thời AI á lúc mà nó chuyển chuyển giao
+giữa AI với blockchain á thì mình định
+làm một cái là mình distributed system
+để cho những cái con AI nó có thể access
+được vô những cái VM á mà mình bỏ trống
+hoặc là nó nó có thể là nó có những cái
+resource mà nó bỏ trống á thì AI nó sẽ
+access vô để nó xử lý cái công việc như
+thế này. Thì thì cái ý tưởng mình tất
+nhiên là mình đánh vào một cái mảng khác
+là là cái nguồn lực resource cho ai nó
+sử dụng. Còn crossbot này á thì nó nó
+cũng nó đánh theo một cái mảng khác đó
+là các cái con boss để hoàn thành đó
+hoàn thành các cái nhiệm vụ nhỏ nhỏ. Và
+tất nhiên là từ cái team XAI từ một cái
+từ Elon M thì mình phải review thôi. Gần
+đây thì Elon Mới gì ra
+Cyberc ở Austin Texas và đang rất là
+trendy đó. Và bây giờ thì tới Rock AI
+thì mình nghĩ là cái cái thằng này nó
+giải quyết được khá là nhiều thứ mà thực
+tế. Đó cái thứ nhất đó là nó có một cái
+phần mềm riêng đó. Một cái phần mềm
+riêng chat riêng chat riêng để mình sử
+dụng. Thì phần lớn thì lúc trước thì anh
+em sử dụng Telegram nhưng mà Telegram
+thì nhiều khi anh em lại bảo là cái phần
+mềm chat thì nó chỉ sử dụng chat thôi
+chứ mình không muốn là để quản lý AI hay
+là quản lý nhân viên đồ ở trên đó. Hoặc
+là mình sử dụng slash thì slash nó lại
+là một cái một cái một cái phần mềm chat
+riêng để quản lý cho công việc. nó không
+phải là build cho boss. Thì đây là mềm
+chách riêng để mình quản lý cái con boss
+thôi. Và một cái nữa thì ờ
+mặc dù là mình
+có một số thứ rất là nhiều thứ mình
+không đồng ý với lại SpaceX [âm nhạc]
+hay là Elon Mus hay là hay là Tesla hay
+là một cái gì đó nhưng mà mình nghĩ đây
+là một cái phần mềm hay thì mình sẽ
+review cho anh em.
+Trên kênh mình á cũng có một số anh em
+nói là
+sau video mà không có đầu tư gì hết làm
+video quá hời hợt làm mà không không
+trong quá trình làm thì download rồi lỗi
+rồi tùm lum tà la tà lưa các thứ thì
+thật ra mình nghĩ là những cái video như
+này á thì nó sẽ có giá trị hơn cho anh
+em tại vì ngày xưa mình cũng làm cái
+kiểu kia rồi ngày xưa mà mình hướng dẫn
+coding á thì mình code trước rồi đó mình
+code trước là lỗi đồ này kia mình fích
+hết à xong rồi code chạy Rồi xong rồi
+mình mới xài hai màn hình. Màn hình bên
+này là có đã chạy, màn hình bên này là
+mình hướng dẫn thì mình nhìn qua nhìn
+lại gõ cho nó không có lỗi.
+Thì thực ra cái đó cũng là một cái một
+cái kiểu làm nhưng mà có một số thứ đó
+là ờ khi mà anh em làm á có khi là anh
+em sẽ mắc một số cái lỗi cũng như là
+mình mắc nè. Đó do đó là mình muốn làm
+và mình muốn tiếp cận với một sản phẩm y
+chang như là một cái user bình thường.
+Đó chưa biết gì hết. Để mình mình thử
+với anh em. Ok rồi đầu tiên thì à chắc
+là bắt đầu video thì mình đọc đc thôi đc
+thôi. Rồi mình muốn mình muốn làm một
+cái a lần trước thì đưa mấy cái ba cái
+mà dự án thiệt của mình lên á thì mình
+cũng không có cũng không có thích lắm.
+Nhiều khi anh em mà cứ địa địa thấy của
+mình rồi anh em phá anh em vô làm tùm
+lum hết.
+Thì chắc là hôm nay mình làm một cái gì
+đó cho cá nhân đi. Thì mình nghĩ cái
+những cái con boss nó dạng này á nó là
+sẽ phù hợp với lại những cái tab nhỏ
+nhỏ. Những cái t nhỏ nhỏ mà nó nó giúp
+đỡ để nó giảm mất thời gian cho mình
+hoặc là nó tạo ra một cái giá trị gì đó
+cho mình. Thì hôm nay mình sẽ thử mình
+xài cái con bot này để mình build sản
+phẩm thực tế mà mình đang cần luôn. Đó
+là mình đang làm video YouTube nè nhưng
+mà mình chưa có xuất hiện ở trên những
+cái mạng xã hội khác. Ví dụ như là
+Facebook hay là như trên hoặc hay là
+trên TikTok hay là gì đó. Thì những anh
+em nào mà theo dõi video mình xưa giờ
+thì có một sản phẩm mình rất là muốn
+build đó là đó là đó là hãy hãy tải
+những cái video YouTube của mình nè.
+Xong rồi video ở nội dung dài á xong cắt
+các cái đoạn mà viral xong mà upload lên
+trên những cái mạng xã hội khác để đ để
+đỡ một công thì cái đó là thực tế mình
+cũng phải mướn một người để mình làm cái
+chuyện đó. Nhưng mà bây giờ thì cóbot
+rồi thì mình sẽ thử mình thử build như
+vậy để xem nó như thế nào xem có nó có
+build được không.
+Ok rồi để mình lướt qua cái document của
+nó trước ha. Thì bây giờ cái document
+của nó sẽ là
+ok midbot AI teammate that can give rew
+to bot. Bot can sign your tool bla bla
+bla. Là này là các cái con bot ha có
+access tool rồi message [âm nhạc] like
+team rồi mình sẽ nhắn tin nhắn tin với
+nó work with many bot at once. Ok create
+bot đúng không? Rockbot work
+one login à có nghĩa là nó mỗi con
+computer có nghĩa là mỗi con rock này nó
+có một cái máy tính riêng nha anh em khi
+mà mình login bất kỳ chỗ nào thì mình
+cũng sẽ cũng sẽ sử dụng được show a bot
+how is done. Follow create workflow
+save routine có thể là sẽ connect bot
+put a few bot là same thread có nghĩa là
+mình connect cái con bot này dới cái con
+boss nó trao đổi với nhau để nó có thể
+đưa ra một quyết định gì đó và mình là
+cái người approve bot gets smart over
+time đó keep contact and learn from each
+other đó show one work flow today hand
+up project by friday ok
+nghe có vẻ hay đó anh em
+a job đây ví dụ cho nó cho ví dụ nè hai
+open usually
+work to s 15 minutes next [âm nhạc] week
+send the top 10 email good top 10
+sending state
+thì một cái điều mà mình không thích ở
+những cái những cái ông mà [âm nhạc]
+kol promote ai á là mấy ông nó toàn giao
+những cái t không cái những cái tas này
+á những cái tab như thế này á thì thật
+ra nó đã được giải quyết từ 10 năm trước
+ai vô check mail rồi check mail là mail
+nào mà phân loại mail rồi hay là làm
+[âm nhạc] một cái game đơn giản hay bu a
+snack game hay là làm một cái tod list
+hay là cái gì đó thì thì tất cả những
+cái tab này nó đã được giải quyết rồi do
+đó vừa video mình thì mình muốn phải đưa
+cho nó cái gì thực tế đi space team run
+on clock Bot
+download
+is better how is rock bot have their own
+computer à đây là cái faq nèo
+bot nó khác những cái con AI khác chỗ
+nào thì bot là nó có có một cái máy tính
+riêng là việc 247 clockbot available
+today đó is clockbot available for
+enterprise
+where do I talk to crossbot crossbot
+maos à maos có nè
+all your phone in Thì iOS app. Ồ có iOS
+luôn rồi nè anh em. Có nghĩa là mình
+setup nóở trên này xong rồi mình có thể
+mình c ở trên iOS. Cái này là đúng nè
+anh em. Đúng như những cái mà bây giờ AI
+nó phải hướng về giải quyết cái vấn đề
+gì đó. Đó nó nó thực tế nó đem lại giá
+trị cho con người. Ví dụ như là nó giúp
+mình tiết kiệm được bớt thời gian hay là
+nó phải giúp mình giải quyết được một
+cái vấn đề gì đó hay là giúp mình cắt
+bớt được vài nhân sự để mình đỡ tốn chi
+phí. Đó cái này mới đúng. Mà cái đi theo
+cái hướng của công nghệ đây.
+Rồi how much clockbard subscription
+with weekly use it with additional view.
+Ok ch
+do bot share one computer. Yes. Every
+box share one persistant cloud computer
+con là có một cái máy tính riêng file
+browser plugin hay là data and privacy
+usage same cser sso privacy bl. Ok, get
+started. Ok, mình get started for free
+coi.
+Ôi sao nó chậm thế?
+À nó static là nó sẽ tải cái file DNG về
+cài nè.
+Rockbot nè. Vô application nè.
+Rồi xong nè. Đó. Bây giờ mình sẽ vào
+rock rock rock block
+open nè.
+Rồi siz in nè.
+Ủa cái này size in bằng cơ hả ta?
+Sign in with crock.
+Sign in with cursor. Sign in with croc.
+Thì nếu mà xây in with là hình như mình
+có thể
+rồi mình có thể xây in bằng cái cái tài
+khoản này cái tài khoản của mình nè.
+Rồi data storage crossbot data is not
+for training update cho data sharing
+setting data storage.
+Vậy thì nó cho mình á nó cho mình cái
+nút chọn này chi trời khi mà nó không
+cho turn on improve
+for everyone optional
+store and you for training to improve.
+Ok sẽ luôn confirm không có vấn đề gì
+access to on feature
+limited usage do not try your c unless
+you còn này là access to on feature
+generous usage mình sẽ free trước ha
+mình sẽ mình sẽ free trước để xem cái
+bảng free này xài được bao nhiêu. Còn
+nếu mà trong quá trình xài free mà hết
+thì mình sẽ
+mình sẽ trả tiền
+open rockbot. Ok. X in trước cái đã.
+Trong đó, trong lúc đó thì mình sẽ đọc
+cái documentation của nó coi nó nói cái
+gì đây.
+Ồ, cái này là documentation này là
+document của thằng à
+là document của thằng Xai mà chứ đâu
+phải document của thằng Rockbot đâu. Có
+nghĩa là bot này documentation nó sẽ rất
+là đơn giản thôi. Nghĩa là những anh em
+nào mà không cần phải có nhiều kiến thức
+về lập trình hay là gì đâu vẫn [âm nhạc]
+có thể sử dụng được.
+Ok. Mid rockbot. Hand up any task.
+Hand off any task by your tebot. Cái này
+mình sao? Mình có thể xử được cái này
+không? Không.
+Rockbot has its own computer and work
+just like you. Ok. Nó có onbard nè. Give
+it b a job. Ok. Next. Rồi. Ồ hay nè.
+Nó có cho mình chọn sẵn các cái template
+nè. Engineering, design, marketing,
+customer, support, product, bla bla bla
+bla bla bla bla. Ok, mình sẽ tạo hai con
+nè. Đầu tiên là mình tạo một cái con
+marketing trước đâ để cho nó đ thử coi
+nó có đọc
+nó nó có đọc cái a
+nó có đọc được cái
+không có YouTube anh em. Ờ where
+everyday mình xài cái gì?
+Xài Linkin Workspace Google Workspace
+mình không xài Monday mình cũng xài box
+xài Calendy không xài
+sale for không xài rồi sale mình cũng
+xài databak không sao mình cứ để trống
+đi next đi
+ok new bot create your first bot ồ new b
+nam ok mình sẽ thử là YouTube
+an
+mình sẽ để nó là một cái con là video
+and
+ok rồi
+mình sẽ mình sẽ quăng cái kênh public
+của mình vô
+mình sẽ quăng cái kênh public vô
+especially anything that ti to your
+Marketing work campaign product.
+Ok. Để mình để mình lấy cái link cái đã.
+Để mình lấy cái link của mình.
+Ấy cái link của mình ở đâu?
+Ủa chỗ do do channel ở đâu ta? Đây
+cái link của mình.
+Ok
+mình sẽ viết một cái description chi
+tiết cho nó.
+Ồ nó có nói chuyện nữa nè anh em. Bấm vô
+cái loa này nói chuyện được nè. Hay hay
+hợp lý.
+This is my YouTube YouTube channel.
+Rồi.
+I want you
+to look
+to all the videos
+B
+so that I can use that back on order
+platform
+Đâ
+Rồi trong lúc đó thì mình nghĩ mình có
+thể a
+ờ cái này là plugin mình có thể đi vòng
+vòng để mình xem plugin. À ở trên ở trên
+cái bot này nó có cái cái marketplay nữa
+nè anh em. Đấy là mình khi mà mình tạo
+được con boss thì mình có thể đẩy nó lên
+cái marketplace
+Dr. nè. Đây người ta tạo rất là nhiều b
+nè. Follow up nè. P
+engineering nè project manager và
+engineering thì đặc biệt nó rất là bot
+ai research
+link
+sale marketing design personal
+có cái có cái con boss nào mà chuyên về
+video editor không nếu mà có thì mình
+mua luôn khỏi mất công mình tạo nha
+không có không có có cách nào để mình
+tạo một cái con fulling the video này nó
+đang suy nghĩ nè Open you with run
+suggestion once is ready. Ok, nó đang
+suy nghĩ cái này mình tạo một new bot
+hết à không cái này là create a new bot.
+Ok.
+New bot.
+You are a video
+editor
+on
+special video editor
+in creating
+and [âm nhạc] short and short
+L to
+you
+Ờ
+good
+format N
+Ồ cái này nó si in rất là dễ anh em. Đối
+với những cái platform khác thì thường á
+là nó hay là hoặc là những con boss khác
+á thì nó sẽ yêu cầu mình đưa cái API để
+nó access. Còn cái này là cái này là
+mình chỉ cần size in thôi.
+Đó. Bây giờ mình si on X
+hay nè anh em. Action needed nè. Đó mình
+sẽ take over nè. Đây. Ồ
+hay anh em hay hay. Có nghĩa là khi mà
+khi mà mình à mình mở đỏ take over nè,
+Sign in nè, Sign in with Google nè. Đó
+là khi mà mình tạo ra là mỗi mỗi con
+boss nó có một cái máy riêng nha anh em.
+Quá đã.
+Đúng là những cái UI này nó rất là thân
+thiện với lại những cái người mà
+không có nhiều kiến thức về lập trình á.
+Tại vì ví dụ như bây giờ mà kêu anh em
+mà generate API key rồi anh em phải vô
+rồi set privilege cho các cái access
+toen rồi này kia thì
+thì khó lắm. Ok nè. Bây giờ login nè.
+Đó là nó vô được nó vô được của mình rồi
+nè.
+Amen. continue
+Ừ. Rồi
+cho nó vô cái những cái video gần nhất
+thôi.
+Ready for video post from here. Want to
+sign to Facebook. Ok.
+Rồi take over rất là dễ à. Ui rất là
+thân thiện với người dùng luôn. Mình
+thích
+mình thích Đ
+Ồ cái login này là ở sang China còn cái
+login X thì lại là một cái server ở trên
+X.
+Ồ, hai đứa này nó xem cho nhau hả? Hay
+là mình tạo một cái group nha.
+Creator group nè. Thay thằng này vô.
+Thay thằng này vô.
+Rồi làm sao để tạo? À đây
+mình có thể tát nó được. Mình có thể tát
+nó nè. Video analysis. Ok. [âm nhạc]
+Video analysis nè.
+Móc t mình mình thử mình tán nó trong
+một cái group thi coi. After you get the
+video and time
+send link
+and cut time here
+tag.
+Sau đó tát thằng video editor.
+Ồ nó có AWS agent nữa nè anh em.
+extraation Gmail as a
+bu and operate AI agent on AWS customer
+support intercom
+amplify nhiều cũng nhiều phết á
+infra Ba
+mình có thể invite một cái con người vô
+đây được không ta? Ví dụ mình invite một
+cái ông engineer vô được không nhỉ?
+Ồ, hai đứa nó chat với nhau nè. Got it.
+One I got solid clip from the recent
+video out drop YouTube link plus exact
+cut time here and video editor. Ồ á mình
+tát lộn nè anh em.
+Đó, đó là cái một cái điều mình rất là
+thích về agent AI, nó gọi là semantic
+semantic search. Mặc dù mình thác lộn
+nhưng mà trong cái ngữ cảnh này, trong
+cái ngữ cảnh này thì nó vẫn hiểu là nếu
+mà thằng analysis này á nó gửi thì cái
+thằng video editor này nó phải là cái
+thằng lấy. Ok rồi nó xong rồi nè. Nó
+video ready for cut nè. An ask me to
+drop link and time here. Start with
+number one unless [âm nhạc] he say
+otherwise.
+YouTube nè nó cách nè từ 01 đớ 31 nè. Ai
+đang làm anh em ngu dần. Ai watch là gì?
+Ờ bà AI cũng được n. Ok
+hay anh em.
+Công nhận là hay. Công nhận là hay. Ờ
+à
+rồi you need to
+come up with a
+with a upload
+schedule
+can
+interact. Can
+that can draw the most
+interaction
+mình gắn Thằng này you also
+need to follow the upload
+from
+video analysis
+Today, tomorrow, Wednesday, Thursday,
+Friday.
+Đây để mình xem thử setting đây.
+Ở trong setting này nó có một cái gì
+đây? À nó có cái phần computer nè.
+Current current computer this computer
+you are using right now
+execution on this computer là ask every
+time này mình chưa cần nè using nó trial
+nãy 35% rồi nhưng mà 7 đây nhưng mà mình
+có nghĩa là get access with crock super
+crock super crock plus upgrade to pro
+get more crock b us ok mình chơi lên pro
+đi mình thấy là có vẻ là ok rồi đó thì
+mình cứ dứt lên đi
+20
+Đấy anh em thấy không? Những cái đối với
+những cái sản phẩm mà đối với những cái
+sản phẩm mà nó thực sự thực sự nó mang
+lại hiệu quả
+cho mọi người thì cái chuyện mà người ta
+người ta trả tiền nó rất là dễ à.
+Ủ
+gì đây? Sao nó là chuyện đó? Sao nó lại
+trỏ qua bên này? À lên pro rồi nè.
+Đấy mình là pro rồi đó mà trên này chắc
+là là nó chưa update. Để mình lật ra
+mình vô lại xem.
+Đấy lên pro rồi nè.
+on demand usage 50 đô
+fix 50 đô đi. Ok reset in day open
+dashboard
+Pro Plus.
+Ok thôi mình cứ để Pro đi.
+Rồi bây giờ you guys continue.
+Không nhưng mà b để mình cho nó để cho
+nó upload một cái video trước cái đã.
+P me when you
+think me
+when
+when you
+finish the
+À để mình xem còn cái gì hay không.
+Update
+computer reset robot computer
+cũng có lý hết đó anh em. Bây giờ mình
+sẽ mình sẽ xem thử ha vài cái video đầu
+tiên và mình sẽ góp ý cho nó xem cái
+video đó có nó nó có đúng ý mình chưa.
+Đó nếu mà nó chưa đúng ý thì mình sẽ góp
+ý để cho nó ra các cái video
+nó nó edit nó đúng ý mình. Đó. Và sau đó
+thì à thì mình sẽ a
+mình sẽ cho nó chạy cho nó chạy hết tất
+cả cái video của mình luôn để xem kết
+quả xem hai cái page này nó sẽ lên được
+mình sẽ mình sẽ kiếm được bao nhiêu bao
+nhiêu sub mới bao nhiêu người mới ở trên
+Facebook và ít thì đó sẽ là cái cái
+matric để mình đánh giá cái sự hiệu quả
+của cái thằng này.
+Ô hay là mình có thể là
+I want you to
+from my
+marketing
+perspective
+on how the video
+editor guide
+so that we
+So that we keep improve
+quality
+Đ má tụi nó nói chuyện được với nhau n
+anh em thử go talk to him tụi nó có DM
+mình có quản lý được cái DM của tụi nó
+không ta?
+À đây là mình quản lý được mình quản lý
+được tụi nó chat với nhau cái gì luôn.
+Hay hay hay. Đây tụi nó chat với nhau
+thì tất cả đều là mình hết. Là là là tụi
+nó chat với nhau thì mình vẫn xem được
+là tụi nó chat cái gì.
+Ồ hay hay.
+Tuyệt vời anh em. Có nghĩa là đây nè.
+Cái này nè anh em thấy anh em thấy cái
+short mà ở trên ở trên YouTube ế ở trên
+Facebook hay là hay là trên TikTok á nó
+có một cái dòng caption bằng tiếng Việt
+nó chạy ở dưới đó để người ta có khi là
+để người ta nghe người ta biết là cái
+video đó là nó về cái gì. Đó thì cái
+thằng video mà analysis nó kêu cái thằng
+editor là mày phải thêm cái đó vô. Hợp
+lý hợp lý hợp lý.
+Ừ.
+P
+always allow luôn. Bot thì mày cứ boss
+đi.
+He.
+R mình hỏi coi đ thiên
+link to the full video
+on YouTube.
+Ừm.
+Ok. Make sense. Go talk to him.
+H
+Hay anh em off lý. Đó. Bây giờ mình sẽ
+tải cái app này ở trên
+iOS.
+Mình sẽ tải cái app này ở trên iOS.
+Đù nó xong rồi nè anh em. Đó nó xong rồi
+Nó xong rồi nè.
+Wa
+tuyệt vời anh em ơi. Mình thật sự là
+mình thật sự là rất là ấn tượng luôn.
+Anh em biết mình ấn tượng cái gì không?
+Cái thứ nhất á là cái video của mình
+quay cái góc nó rất là rộng và nó biết
+là nó cắt nó biết là nó cắt ngay cái mặt
+của mình và nó biết là đ anh em anh em
+thì mình mới vừa trải qua một cái cuộc
+nói chuyện rất là căng thẳng. Thì ok
+những cái những cái này thì mình sẽ góp
+ý với nó nè. Mình sẽ gói ý với nó là cái
+này ngắn gọn xúc tích thôi. Một dòng ở
+trên video là đẹp rồi. Với lại có thể là
+mình sẽ góp với nó là add cái f in với
+lại face out
+face in f out video nữa là nó sẽ ok hơn.
+Đó nhưng mà mình thực sự ấn tượng tại vì
+anh em nhớ anh nếu mà anh em xem những
+cái video trước của mình á đây là cái
+sản phẩm mình đã muốn build cho mình xài
+rất là lâu rồi.
+Mình rất mà anh anh em thấy mình ngồi
+mình code rồi mình làm mình phải mình
+phải code ra một cái app rồi mình làm ra
+mình phải đưa video vào sau đó mình phải
+mình phải add các cái API key rồi access
+key rồi mình confit quyền tùm lum t la
+thứ để mà có được một cái app mà cũng
+chạy nó không có không có vừa ý mình tí
+nào vẫn chưa vừa ý nhưng mà đối với cái
+con bot này á thì thực sự là ấn tượng
+nha anh em. Ok mình sẽ làm tiếp. Nếu mà
+nó cắt được kiểu này á thì tại sao mình
+không đưa lên TikTok luôn.
+Đúng không? Nếu mà cắt được kiểu này thì
+mình đưa tới tóc luôn chứ.
+ok ok.
+Ok. Ok. Hay anh em. Hay hay. Đó cái này
+đúng nè. Mình đã nice live early signal
+to watch comment.
+Ok. Video editor nè. Móc video
+editor.
+Móc on đi.
+Two things.
+Để mình mình thử mình mình mình t hết
+thử xem có thằng nào hiểu nó là cái gì
+không.
+One
+keep the caption in the video.
+In the video
+short
+like two three line. Next
+two, we should
+add fade in
+f
+out
+effect at the beginning and the end of
+the video.
+Đây anh em mình thật sự ấn tượng.
+để xem để xem để xem coi cái kết quả nó
+như thế nào. Thôi mình cứ để cho nó chạy
+hết video của mình để xem những cái
+and YouTube real. Đó, mình sẽ add thêm
+hai cái nữa là TikTok với lại YouTube
+real là mình sẽ cố gắng mình mình
+làm trên cả bốn platform.
+Ok, mình sẽ đăng nhập vô YouTube.
+Nó đang kêu mình xây in YouTube đúng
+không?
+Rồi mình phải vô
+nếu mà upload thì mình sẽ là YouTube
+Studio nè.
+Khoan.
+Wait. Thằng này ha. You
+need to give different
+instructions on
+different platform
+because
+the max time
+audience
+We
+will expand to
+TikTok nè.
+YouTube
+đó.
+YouTube short TikTok X
+ờ
+I think we can post longer
+videos on X and Facebook
+on X Đ
+Mình
+thử mình dùng go tell the guy coi nó có
+hiểu là guy là cái thằng kia không là
+cái thằng edit không.
+Tuyệt vời anh em. Đúng là một cái sản
+phẩm của X. Mình nghĩ cái sản phẩm này
+nó sẽ viral, nó sẽ rất là viral trong
+thời gian sắp tới
+tại vì nó đã nó đã tìm ra được một cái
+bài toán đó là giải quyết những cái gì
+đó nó thiết thực đó nó mang lại giá trị
+thực tế cho người dùng và người ta rất
+là sẵn sàng để trả tiền cho những cái
+sản phẩm như thế này. Đó như mình là
+mình nói nếu mà được biế được buill một
+sản phẩm cho thầy mình sẵn sàng mình trả
+tiền. Tất nhiên là mình sẽ sử dụng trong
+cái những cái nhỏ nhỏ thôi. Còn code hay
+là cái gì đó thì mình chưa có test. Để
+mình sẽ có thể là mình sẽ test thử mình
+sẽ update cho anh em. Chứ còn trong cái
+nội dung của cái video thì mình
+[âm nhạc] có thể làm những cái dự án mà
+nó nhỏ nhỏ thôi.
+Ok. Thôi để mình chốt hạ đi. À
+we have
+form chấm. Bây giờ mình đang có này
+YouTube nè,
+Facebook nè.
+X
+YouTube Facebook
+let's do
+10
+video each on 10 videos on each platform
+then we
+after 10
+after 10 to make it
+better.
+Mình muốn mình muốn làm từ cái cũ nhất
+ha. Mến bộ video analysis
+please
+process.
+the
+oldest
+to the
+latest video
+đó 10 for
+rồi đó. Nếu mà mình để cái này thì mình
+hy vọng là mình có thể là mình sẽ mình
+cứ 10 cái 10 cái 10 cái interess trong
+lúc mình tắt thì tụi nó làm đó. Quá đã
+quá đã anh em.
+Để xem để xem để mình chốt hạ xong thì
+nó sẽ như thế nào coi coi.
+Rồi. Ok. Mình nghĩ là bây giờ nó đang
+tụi nó đang làm việc này nè. Mình có thể
+thấy được cái computer nó đang upload
+Ok rồi.
+Mình rất là ấn tượng với lại cái sản
+phẩm này ha. Mình sẽ cập nhật tiếp với
+anh em là sau khi mình sử dụng cái này
+vào một số cái cái production nữa và để
+xem xem cái dự án video này để xem xem
+mấy cái con boss này nó có làm mình lên
+viral được hay không.
+Ok, bye bye và hẹn gặp lại anh em trong
+các cái video sau.
+&gt;&gt; [âm nhạc]

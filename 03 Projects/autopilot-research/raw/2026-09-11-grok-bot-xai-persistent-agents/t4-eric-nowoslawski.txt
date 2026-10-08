@@ -1,0 +1,578 @@
+ 
+Grockbot came out about a week ago,
+released by Cursor and XAI, and in one
+hour I immediately decided that we're
+not going to use Hermes and OpenClaw
+anymore, and I became a Grockbot fanboy.
+I've already set it up to help me
+operationally run my business
+GrowthEngineX, where we generate
+anywhere from 300 to 400 positive
+responses per day on behalf of the 50
+customers that we serve with our cold
+email services. In this video, we're
+going to go over how easy it is to set
+up, and then we're going to go over some
+of the capabilities that I've already
+set my up so that it can help us run our
+business, and then we'll go over at my
+in-depth comparison of why there's
+shortcomings on OpenClaw and Hermes, and
+why I'm going all in on Grockbot. First,
+let's just prove a little bit about how
+many positive responses we're getting,
+and then we'll go over how easy it is to
+set up Grockbot. So, let's take a
+real-life example for a customer you
+might have heard about before, Pathos.
+We've done a whole video on our channel
+about how we get over 80 leads a day for
+this customer. And so, if we look at our
+daily reports, you might remember that
+Grockbot came out on Tuesday, August
+11th, so we weren't using it at this
+point. And notice how we had a little
+bit of a reply rate issue here, where
+our overall reply rate was 0.6%, and
+then by the end of the day it was 0.7%.
+Still, with that low reply rate, we
+pulled in 64 positive responses, but you
+can see our customer here, every time
+they drop below 80, they always and they
+always message me. And so, Grockbot, and
+this is the real-life situation of how
+it how it's impacting our business, we
+use Grockbot to do an analysis of all of
+the inboxes that are in the campaign,
+which ones had the lowest reply rates,
+which ones had the highest reply rates,
+and then we removed those from the
+campaign, and it was super easy because
+we have the skills for it already, and
+because I transferred it to our account,
+I just literally had to send off a
+message from my mobile phone and say,
+"Hey, can you fix this? The reply rate
+is a little low. It's just the inboxes
+that need to get swapped out. Let's fix
+it." And so, if we want to hop over, and
+we can even see Grockbot over here. Hey
+Grockbot, can you look through our files
+and show us what we did to Pathos on
+Tuesday to swap out the inboxes, and can
+you give me a little summary of what
+happened there so you could show them
+how impactful it was? And then we'll
+just run that and wait for the summary
+to come back. And so, you'll see it just
+gave me a report, and I was actually
+wrong. I forgot what we had to to fix
+about it. And so, it found all the
+files, and it was actually that we were
+using too many domains over our limit.
+And so, it said we started this and we
+had 500,000 leads, etc., etc. And then
+there was these canceled inboxes, and we
+needed to swap them out. And so, it
+swapped out these domains, etc., etc.
+So, they had this many domains sending,
+and we needed to swap them out. And then
+that got us this result here. We almost
+doubled the reply rate and got at the
+end of the day 63 positive responses.
+And then the next day, we again more
+than doubled the reply rate and got
+actually 112 positive responses. And
+then we finished Friday up with 76
+positive responses. So, Grockbot for
+sure has a real impact in our business
+with the level of control that we can
+have and just the expense of the model
+being so cheap that we could just
+constantly just give it things to do,
+and then it just outputs those things in
+the business with real-world examples.
+Let's first talk about how easy it is to
+set up Grockbot. I tell everyone, when
+you're implementing a new agent, there
+are three things that you need to do.
+One, you needed to give it access to
+your tools, including the API keys, the
+direct plugins, your connections, etc.
+Two, you need to give it access to your
+company context. What do you do? What's
+your standard operating procedure? What
+skill files do you already have saved in
+GitHub? All those things. And then
+three, you need to actually give it the
+ability to do work on your behalf and
+then set up a loop so that every day it
+can keep learning and keep taking more
+and more work off of your plate. In
+Hermes and OpenClaw, I was actually
+really scared to give it any API keys,
+because if you gave it the API key
+directly, would it accidentally docs
+your API key publicly if there was a
+prompt injection? I set up OpenClaw and
+Hermes on this random old MacBook that I
+had that I cleared, and it was so
+annoying to try to transfer any of the
+connectors or the plugins. I was signed
+in on this computer, and then I had to
+go to that computer. It was just crazy.
+If we just take a look into our GrokBot
+right here, this is the first bot that I
+ever set up and you can see literally
+how easy it is. I literally just asked
+what tools you have access to and then
+it already said I have access to all of
+these different tools, Gmail, calendar,
+drive, etc. It just needs be
+authenticated and that was because I
+already had a Cursor account. Some of
+the plugins that I already had in my
+Cursor account went over to my GrokBot
+account and I thought that was a great
+addition that I didn't expect was going
+to be in there. And so the first thing I
+asked was connecting to GitHub which
+then it did that very quickly and then
+there was this back and forth with this
+API thing. I just want to jump down to
+here. I said, "After you look at my
+GitHub, make a list of all of the tools
+that I'm going to have to give you API
+keys for so that I can onboard you." And
+so it said, "SmartLead, OpenAI, Prospio,
+Blitz, Million Verifier, Fathom." We had
+all these different tools that we needed
+to onboard. And I said, "Okay, great.
+Let's do the connections first." And
+then it just brings up these things. I
+think there's a bug with Vercel right
+now. We'll try that tomorrow. Then it
+said, "Okay, we're going to connect to
+GitHub, we're going to connect to
+Stripe, we're going to do everything."
+And then it says, "Okay, now we're going
+to connect these APIs." And they have
+this awesome feature where literally it
+just went one by one. "What's your
+SmartLead API key?" You can see what it
+looks like. You would be able to paste
+your TypeSense API key in and then it
+hit saved and then it's done. You don't
+have to fear about the security of did
+you give it to this chatbot and then
+it's going to know? It says, "Nope, it
+don't paste it in the chat. You're going
+to put it straight in here." I thought
+that was awesome. As far as step one in
+our framework of giving it access to our
+tools, not only did it come with all
+these custom plugins and everything in
+this marketplace, it also was super easy
+to give API keys and I felt really
+secure being able to give the API keys
+to the the tool. And then to finish my
+own onboarding, all I literally said was
+look at my GitHub repo and everything
+that we've done before which in order to
+get that GitHub repo, I literally just
+said to Claude Code and CodeX update a
+GitHub repo of who I am and what we do
+so we can onboard GrokBot super super
+easy. And then I said, "Now start
+creating bots for me so that we can use
+the Grok Bot feature that everyone is
+talking about where the bots will pass
+work to each other. What bots would you
+suggest and all those things? And it
+just started creating all of these bots
+for me that I had nothing to do with
+creating. It did all of that completely
+automatically. So, now let me just show
+you what it has access to and what
+capabilities it has access to as well.
+So, we're going to go to the Taskmaster
+one. I found it a little overwhelming to
+have to keep picking which one, so I
+just wanted one place to go where I just
+told it, you are the Taskmaster you know
+what all the rest of the bots do. I want
+to just talk to you directly. Hey
+Taskmaster, can you help me show off to
+my friends on YouTube all of the cool
+things that we can do? They know that in
+order to run a cold email process, we
+need to be able to buy domains, we need
+to be able to set up those domains in
+Zap Mail, we need to bring them to our
+Smart Lead account, we need to pull
+lists from different sources, we need to
+be able to set up campaigns, and then we
+need to be able to check on the
+analytics of all of these things. Can
+you show my friends the skills that you
+have access to that give you the
+capabilities to do all of these things
+so they can get an idea of what we're
+already doing? And then we just send
+that off. While that's thinking, one of
+the coolest part about Grok Bot is the
+fact that they gave you access to a
+virtual computer inside of Grok Bot. If
+you ask it, it has access to all of my
+local files. So, if I do something on
+Codex or Cloud Code in this computer,
+everything has access right there. It
+also perfectly syncs with your phone,
+which is of course our dream as an
+entrepreneur that we have everything in
+there. And then it set up its own cloud
+environment. My friends have been
+telling me that we need to set up cloud
+agents and we need to put more in the
+cloud and all these other things. And I
+just never wanted to set it up cuz it
+just seemed so annoying to have to go
+through that. And so this computer that
+they give you access to, this computer
+is always on and is set up just for your
+Grok Bot. So, there were even things
+that I said, "Hey, can you sign into
+this? There's no API key, just username
+and password." And then it said, "Okay,
+I'll make a .env file and then we can
+sign in on this computer." And this
+computer is always on. So, we can teach
+it tasks, we can say, uh, you know, can
+you get access to our super base from
+here and make a file and share it with
+me, etc., etc. You no longer like this
+laptop, this laptop is plugged in at all
+times. And if I lose power where I live,
+I live on top of a mountain, if I lose
+power at my house, sometimes the Wi-Fi
+goes out and then if the Wi-Fi goes out
+for this computer, everything is done.
+Or if for some reason this computer
+turns off or just tons of tons of
+problems. All these cron jobs that I
+have on my Hermes agent on this computer
+just go away. Now because they put
+everything into a sandbox computer in
+the cloud, I don't have to worry about
+any of that anymore. So, let's do a
+little bit of showing off back into its
+capabilities. So, remember, I've been
+building skills for my business probably
+for a year. So, a lot of this stuff is
+very mature and we've gotten and we
+figured out a lot of things, but look
+what it has access to. GEX onboarding
+domain purchase, buys on DynaDot through
+the API, it names them, checks live
+prices, waits for the exact list then
+purchases. Zap mail domain setup, it
+knows exactly how to generate the inbox
+names. We're going to buy the Zap mail
+slots, we flip the name servers in
+DynaDot, we set it up in Zap mail, we
+export to SmartLead, etc., etc. We know
+how to use the HyperTied API, we know
+how to use the SmartLead API. For list
+pulling, it knows our internal company
+database, it knows how to use the
+Prospector API, it knows how to go use
+Google Maps, even knows where our email
+waterfall is, that's the source of
+truth. It has my campaign strategy
+skill, it's got my campaign performance
+predictor, it's got our spin tax skill,
+it's got all these skills baked in
+already and you can even see on the side
+I've already made an X poster, an Ops
+inbox, a deliverability bot, a video
+content bot, a a list building bot. Oh,
+this is great. So, Design Guru, they
+onboarded with us recently and their old
+inbox provider, the inboxes were burned
+and then we got that back on track and
+then we had a couple good days of
+sending and then there was a couple of
+problems with about half the inboxes
+that we set up. And since we always set
+up twice as many inboxes, it was totally
+fine. I even said, "Hey, I want you to
+manage this customer completely." I gave
+a plan to them of everything I'm going
+to do on a daily basis next week because
+we want to get their campaigns back on
+track. Understand the document and
+schedule a cron job for everything that
+we need to do next week. And so, next
+week we have to do like a reply rate
+analysis midday on Monday. End of day,
+if the reply rate analysis doesn't go
+well, we're going to launch a different
+campaign. On Tuesday, if we're the reply
+rate still doesn't come back good, we're
+going to switch to sending Google to
+Google. Like I had all these plans
+orchestrated. And look, it even has like
+gone in and it did all of those things.
+And the most important thing, I think,
+is see how it even has set up the clay
+table for me. And it sent me screenshots
+of it setting up the clay table to
+confirm to me that for the next campaign
+that we're going to run for them,
+everything is completely done and it's
+orchestrated, it's ready to go. So, not
+only can I make bots for things that we
+do all the time generally like list
+building, but we could even say, "Hey,
+we made a mistake with this customer.
+Here's how we need to fix it." Or this
+customer is going really well, here's
+what you can do on a daily basis to
+check and make sure that it always stays
+going really well. Now, I prepared a
+little bit of a presentation for you to
+just go into why I'm so obsessed with
+Grok Bot. And so, basically, I think
+that it comes down to speed of
+implementation of why Grok Bot has been
+such an amazing experience for me over
+Open Claw and Hermes. The first thing is
+the setup speed, which I've talked about
+a little bit. How fast the model is when
+it talks back to you is amazing and how
+quickly it's improving itself has been
+amazing as well, too. And so, I already
+told you that I cleared my old MacBook
+just to be a dedicated agent for this.
+And literally, in order to set up Open
+Claw and Hermes at the same time, after
+I cleared my MacBook, I literally was
+trying to set up Open Claw and Hermes
+and it took so long for me to set it up.
+I got so annoyed with it that I
+re-downloaded Code X onto that computer
+and I just used the computer use
+function in Code X to set them up
+because I just found it to be so
+annoying to just get started. Grok Bot,
+it was literally download the app on my
+computer, download the app on my phone,
+what do you have access to, what can I
+help you do, API keys, blah blah blah,
+boom, done, completely all set up. We've
+already talked about this, I don't have
+to have a laptop always on, freaking
+amazing. If you ever were communicating
+with Hermes or Open Claw on Slack or
+WhatsApp and you didn't have access to
+the computer, let's say I was I was
+somewhere else and I couldn't put the
+API key directly into this computer,
+like I was in the Clay office or I was
+offsite or something and I had my main
+computer, I would then have to give the
+API key directly in the Slack
+conversation, which I never really feel
+great about giving the API key directly
+to the agent. Over here, I could give
+the API key on my phone in that secure
+gateway that I showed you. It's on my
+computer, so I don't have to worry about
+it having access to my computer and then
+doxing something if I don't want it to
+because it has that sandbox computer.
+So, handing over API keys was great.
+When I set up Open Claw and Hermes, I
+think Hermes now has direct OAuth
+plugins, which are so easy to use and so
+much more secure. Maybe they have it
+now, but when I set up Open Claw and
+Hermes, those didn't exist. The fact
+that Gmail is an OAuth plugin, Google
+Drive, ClickUp, Superbase, Vercel,
+Stripe, all of those are OAuth plugins
+that I didn't have to mess with API keys
+for, super great. Now, let's talk about
+how important the speed of the model is
+because obviously they're using Composer
+or Grok 4.6 under the hood, whatever's
+happening. On one side, you can't pick
+your favorite model, but on the other
+side, they don't even give you the
+choice. It's just whatever model under
+the hood. I don't even know what model
+we're technically using. Because it
+would take so long for Hermes to get
+back to me or Open Claw to get back to
+me cuz it was using 5.6 under the hood,
+that I would open up multiple threads to
+then just have, you know, multiple
+things going on. So, as I was waiting, I
+could just switch and move on to
+something else. That's awesome that we
+can do that, but it's kind of a first
+world problem because then you're you're
+constantly context switching between
+everything that you want to work on.
+With Grokbot, its reply is so fast or it
+passes it off to another agent and it
+just does everything and then it'll
+message you back if it is going to take
+a while that the reply speed was just
+freaking amazing to to get everything
+done. And so the fact that the model
+talks you faster and like loops through
+making sure its job is correct until you
+could send off and and perfectly do the
+job. The the conversation speed has just
+been amazing. Oh, another thing is
+setting up the cron jobs. So in my
+Hermes agent, I moved all of the
+positive response tagging of all the
+replies we get in SmartLead. We generate
+like on any given day 2,000 to 3,000
+overall replies depending on the day
+across all of our sending. Maybe even
+more than that because that's just our
+master account. The amount of replies I
+have to get sifted through is just
+crazy. And so I set up a Hermes agent to
+look at all of the replies and then tag
+them for which one's positive, which
+one's out of office, which one's an
+automated response and all these things.
+I wanted it to run on a cron job every 5
+minutes from an 8:00 a.m. to 7:00 p.m.
+window. It took me literally like 10
+tries over the course of 2 days to
+actually get it to run on that cron. I
+don't really know why. I would literally
+ask it, "Take a step back. Why are you
+not running this every 5 minutes? I
+asked you to do it." And it just it just
+didn't do it. And I never understood.
+And with Grok Bot, and I'll show you
+some of them if I can. As far as setting
+up the cron job, see this is a X post
+generator where every day it looks at my
+LinkedIn posts and then it comes up with
+X posts that I can create. I'm going to
+get a software to just automatically do
+it for me. I just want it to do it for
+free right now. With these routines, I
+set it up. It worked perfectly. I've
+been getting the the runs every day, the
+notification straight to my phone. With
+Hermes, setting up the cron jobs, for
+some reason there were so many problems
+all the time. I don't even want to get
+into Open Claw. We had to cancel Open
+Claw because it kept messaging me in
+Slack even though nobody was talking to
+it. That was so annoying. But getting
+these routines, knowing that they're set
+up, seeing that the schedule is running,
+being able to schedule and add more
+times to it immediately from this user
+interface, awesome experience. Just the
+fact that it's in the cloud, we've
+already talked about how much I like
+that. If you wanted it to, it can still
+read your local files. So, it's not like
+it's in the sandbox and that it's never
+going to be able to go again, which I
+think is great because then if I figure
+out something on my local computer,
+instead of haggling with it and trying
+to figure out, okay, what GitHub repo do
+I have to put in this? What cloud
+environment do I have to put this in?
+It's just going to do it automatically.
+And then one fear that I had was that
+when I first saw all the bots saying,
+okay, is this one only going to have
+specialized knowledge and then this
+one's only going to have specialized
+knowledge and what if it talks to the
+wrong one about the wrong thing? After
+doing more research, all of the bots
+share the same exact skills. And because
+they're sharing all of the skills, they
+just have this quick little instruction
+that like you are the deliverability
+expert or you are the list building
+expert. But under the hood, they still
+have access to all the same skills. So,
+the orchestration and worrying, oh, is
+it going to go to the right ones? That
+was all fine and nothing to worry about
+there as well, too. I will say some
+things that I'm hoping that they'll add
+in is in Hermes, Codex, Claude, if you
+interrupt a session, it'll say, oh, I'm
+moving this to the background so we can
+have a conversation about this. Grok
+bot, I would interrupt it and then it
+would say, oh, okay, I'm aborting this
+run and we can get back to it after. And
+I was like, oh, no, I'd rather you, you
+know, put it to the back instead. But
+that was a great. The fact that they
+don't have a goal mode is another thing
+that I think I don't know why Cursor and
+Grok bot doesn't have a goal mode. I
+think goal modes are so great for
+getting work done that you just want to
+walk away and you know exactly what the
+finish line is going to look like.
+That's another thing that I wish was in
+there. And then I was shocked at how the
+X integration, you can't make posts from
+it. All you can do is read things. I
+guess they don't want people to spam
+with it. But I mean, you're an $8
+product away from being able to
+schedule, so I don't know why that's not
+in there. And then I also listed here,
+sub agents are all visible. It is kind
+of nice sometimes that Codex will just
+say, okay, these sub agents are just
+going to take care of this and then
+they're just working and you don't have
+any knowledge into all of that. I'm sure
+there's probably some element of that,
+but them like pinging you all the time
+and the Grock bots going crazy can
+sometimes feel a little overwhelming if
+you have too many things going on.
+That's why I created that taskmaster at
+the front. But anyway, I just wanted to
+get this video out as soon as possible
+because I hope you can tell I was pretty
+excited about it and I think it's highly
+useful. It's been a great experience. I
+literally said to my friends Harris and
+Brandon Charleston, I don't understand
+the difference. Why would somebody
+switch? Blah blah blah. And they said it
+was great, you should really try it. And
+then within an hour of using it I said,
+"Oh, I don't need my Hermes bot anymore.
+This is great. We're going to switch
+over to Grock bot." So a little bit
+different of a video today, but I just
+wanted to make sure that if anybody's on
+the fence about trying Grock bot, I
+definitely would give it a shot. It's
+been great so far and I'll see you on
+the next video. Thanks everybody.

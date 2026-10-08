@@ -25,6 +25,20 @@
 ---
 
 
+## Claude Managed Agents in production — the founders' roundtable (outcomes / memory / sandboxing)
+
+- **Query:** `Claude Managed Agents`
+- **Anchors:**
+  - https://www.youtube.com/watch?v=hm8NzEd5io0
+- **Notes:** Operator-submitted anchor, 7th instance of the opening question. Official **Claude** channel (574K subs), 2026-09-08, 34:42, ~89K views — Anthropic host + **three founders**: **Sahaj** (meetings product; *outcomes* = rubric + independent-context-window verifier, briefs run 24h ahead), **Mihir** (sales agents; *Watchtower* cross-account, managed *memory* + programmatic tool calling + fan-out, built in 2 weeks), **Todd** (product analytics; *sandboxing* over customer source code, PR-triggered sessions + overnight cron).
+  **Source class:** vendor-hosted, but NOT a launch announcement — founders state specific product deficits on the vendor's own channel (no easy batch mode ≈ "50%-75%" cost left on the table; "all or nothing" cost control; no sandbox pre-warming; Claude 5-series "more em dashes"). Grading spine is therefore the **shipped API** (`managed-agents-2026-04-01`; agents→sessions, outcomes, vaults, deployments, multiagent, memory stores) + **what the three founders actually shipped** — NOT other YouTube videos reciting the vendor (grok-bot v284 correlated-recitation trap). Full 6-source YT bundle still pulled, treated as the **reception layer** (report the error *signature*, not the rate).
+  **Corpus baseline exists:** `agent-memory-architecture` (CMA docs read in full 2026-07-04; Memory Stores + Dreams gated research preview; ZDR orgs ineligible) and `claude-tag-multiplayer-agent` (2026-07-06 — already caught an Anthropic video wrong about *this exact product*: Boris Cherny's "same Agent SDK" → corrected to Managed Agents). So this is a **re-drain with a prior pin**, not a cold vendor ingest.
+  **Pre-registered claim to grade:** at [19:34] the interviewer clarifies and Mihir confirms that the per-account agents are **NOT** on Claude Managed Agents — only Watchtower is. Any source that says otherwise is wrong.
+- **Queued:** 2026-09-14
+- **Status:** pending
+
+---
+
 ## Completed
 
 ### Agent containment & the monitoring-vs-execution compute budget (RE-ANCHORED from a Sam Altman interview) ✅
