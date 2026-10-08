@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    color: #1c1c1c; font-size: 9.7pt; line-height: 1.34;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .name { font-size: 20pt; font-weight: 700; color: #14263f; letter-spacing: .3px; }
+  .role { font-size: 10.5pt; font-weight: 600; color: #2c5a8c; margin-top: 1px; }
+  .contact { font-size: 8.9pt; color: #444; margin-top: 3px; }
+  .contact a { color: #2c5a8c; text-decoration: none; }
+  .rule { height: 2px; background: #14263f; margin: 7px 0 9px; border: 0; }
+
+  .cover {
+    background: #f2f5f9; border-left: 3px solid #2c5a8c;
+    padding: 8px 11px; margin-bottom: 11px; font-size: 9.5pt; line-height: 1.4;
+  }
+  .cover .greet { font-weight: 700; color: #14263f; }
+  .cover .avail { font-weight: 700; color: #14263f; }
+
+  h2 {
+    font-size: 9.6pt; font-weight: 700; text-transform: uppercase;
+    color: #14263f; letter-spacing: .6px;
+    border-bottom: 1.2px solid #c3cede; padding-bottom: 2px; margin: 11px 0 5px;
+  }
+  p { margin: 0 0 4px; }
+  .summary { margin-bottom: 2px; }
+
+  .skills { display: grid; grid-template-columns: 108px 1fr; gap: 1px 8px; font-size: 9.3pt; }
+  .skills .k { font-weight: 700; color: #33445c; }
+  .skills .v { color: #1c1c1c; }
+
+  .job { margin-bottom: 6px; }
+  .job .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job .title { font-weight: 700; color: #14263f; font-size: 9.9pt; }
+  .job .date { font-size: 8.7pt; color: #555; white-space: nowrap; }
+  ul { margin: 2px 0 0; padding-left: 15px; }
+  li { margin-bottom: 1.5px; }
+  .link { color: #2c5a8c; }
+  .certs { font-size: 9.4pt; }
+  b { color: #14263f; }
+</style>
+</head>
+<body>
+
+  <div class="name">DƯƠNG VĂN TUẤN</div>
+  <div class="role">Mobile React Native Developer</div>
+  <div class="contact">
+    Đà Nẵng · 0934907704 · tuanduongdn1504@gmail.com ·
+    <a href="https://github.com/tuanduongdn1504">github.com/tuanduongdn1504</a> ·
+    <a href="https://credly.com/users/tuan-duong-van">credly.com/users/tuan-duong-van</a>
+  </div>
+  <hr class="rule">
+
+  <div class="cover">
+    <span class="greet">Kính gửi anh/chị Khải Hà và đội ngũ VTVcab,</span><br>
+    Tôi ứng tuyển vị trí <b>Mobile React Native Developer</b>. Tôi có 5 năm kinh nghiệm React Native + JavaScript/React, Redux, REST, Git; đã phát hành ứng dụng lên <b>App Store &amp; Google Play</b> (TalentAxis, Space360) và từng <b>tích hợp live streaming (NodeMedia)</b> — khá gần với mảng OTT. Là <b>Scrum Master PSM II</b> tại Đà Nẵng, tôi làm việc nhóm tốt, có tư duy sản phẩm và là lập trình viên AI-first (Claude Code hằng ngày, luôn tự kiểm soát review/test/bảo mật). <span class="avail">Có thể nhận việc ngay.</span>
+  </div>
+
+  <h2>Tóm tắt</h2>
+  <p class="summary">Kỹ sư mobile 5 năm, chuyên <b>React Native (Expo)</b>, làm chủ sản phẩm từ client di động đến tích hợp API với backend microservices thực tế. Nền tảng vững <b>React · Redux · REST · Git</b>, kèm kinh nghiệm web (React/Vite), <b>live streaming (NodeMedia)</b> và cập nhật OTA. Scrum Master PSM II — giao tiếp tốt, tư duy sản phẩm, làm việc nhóm.</p>
+
+  <h2>Kỹ năng</h2>
+  <div class="skills">
+    <div class="k">Ngôn ngữ</div><div class="v">JavaScript · TypeScript (ECMAScript hiện đại) · Dart · Swift</div>
+    <div class="k">Framework</div><div class="v">React Native (Expo, prebuild) · React · Flutter</div>
+    <div class="k">State &amp; dữ liệu</div><div class="v">Redux · Zustand · React Query · REST API · GraphQL · Firebase · Supabase · JWT · PostgreSQL</div>
+    <div class="k">Streaming / phát hành</div><div class="v">Live streaming (NodeMedia) · OTA (Stallion) · App Store &amp; Google Play</div>
+    <div class="k">Công cụ / DevOps</div><div class="v">Git · Jenkins · SonarQube · Docker · Jira · RN Testing Library · Jest</div>
+    <div class="k">Phát triển AI</div><div class="v">Claude Code + Claude Skills (build / review / refactor) hằng ngày — có kiểm soát</div>
+    <div class="k">Cách làm việc</div><div class="v">Agile / Scrum (PSM II) · code review · mentoring · cải tiến liên tục</div>
+  </div>
+
+  <h2>Kinh nghiệm</h2>
+
+  <div class="job">
+    <div class="head"><span class="title">CVTOT JSC — Kỹ sư Mobile</span><span class="date">03/2025 – nay</span></div>
+    <ul>
+      <li><b>TalentAxis</b> (tuyển dụng): làm chủ client di động (Expo / React Native) + tích hợp API với backend microservices (Django / FastAPI); <b>đã phát hành App Store</b>.</li>
+      <li><b>Space360</b> (quản lý BĐS): client di động (Expo / React Native) trong monorepo Turbo (Vite / React / Supabase) + tích hợp API; <b>đã phát hành App Store &amp; Google Play</b>.</li>
+      <li>Tích hợp <b>live streaming (NodeMedia)</b>; phát hành cập nhật OTA (Stallion); dẫn dắt bàn giao theo Scrum, tài liệu hoá quy trình cho nhóm.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="head"><span class="title">Enouvo IT Solutions — Scrum Master / L&amp;D Executive</span><span class="date">10/2022 – 12/2024</span></div>
+    <ul>
+      <li>Scrum Master nhóm Innovation: gỡ vướng mắc, điều phối bàn giao đa chức năng, huấn luyện nhóm về Agile cùng Product Owner; vận hành chương trình thực tập &amp; mentorship.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="head"><span class="title">Enouvo IT Solutions — Kỹ sư Mobile</span><span class="date">2018 – 2020, 2022 – 2023</span></div>
+    <ul>
+      <li>Xây dựng ứng dụng <b>React Native</b> &amp; <b>Flutter</b> (JavaScript / Dart, REST / GraphQL, JWT, PostgreSQL); CI với Jenkins + SonarQube; giảm crash bằng truy vết nguyên nhân gốc; mentoring junior; bàn giao theo Scrum.</li>
+    </ul>
+  </div>
+
+  <h2>Học vấn &amp; Chứng chỉ</h2>
+  <p class="certs">
+    <b>Kỹ sư Công nghệ Phần mềm (PFIEV)</b>, Đại học Bách khoa – ĐH Đà Nẵng (2014–2019) &nbsp;·&nbsp;
+    <b>PSM II</b> — Professional Scrum Master II, Scrum.org (2023) &nbsp;·&nbsp;
+    <b>SFPC</b>, Certiprof (2022) &nbsp;·&nbsp;
+    <b>ISO/IEC 27001:2022 ISMS</b> (Requirements / Implementation / Internal Auditor), BSI Vietnam (2023–2024)
+  </p>
+
+</body>
+</html>

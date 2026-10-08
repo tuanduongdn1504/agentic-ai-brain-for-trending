@@ -1,0 +1,30 @@
+# Career Path & CV project — keep all personal data (PII) OUT of git.
+# Mirrors career-ops's own data contract: your data stays local, never committed.
+
+# Master CV + variants
+cv.md
+cv-*.md
+CV*.md
+*.pdf
+*.docx
+
+# Profile / targets / proof points / voice
+profile.yml
+config/
+article-digest.md
+(C) Product Facts — proof points.md
+voice-dna.md
+portals.yml
+writing-samples/
+
+# career-ops working data (if installed inside this folder — not recommended, but safe if so)
+career-ops/
+data/
+reports/
+output/
+jds/
+interview-prep/
+
+# scratch
+*.tmp
+.DS_Store
